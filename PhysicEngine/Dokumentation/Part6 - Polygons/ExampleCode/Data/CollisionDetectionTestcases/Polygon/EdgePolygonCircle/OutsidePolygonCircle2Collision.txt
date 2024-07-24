@@ -1,0 +1,99 @@
+{
+  "$type": "PhysicEngine.ExportData.PhysicSceneExportData, PhysicEngine",
+  "Bodies": {
+    "$type": "PhysicEngine.ExportData.RigidBody.IExportRigidBody[], PhysicEngine",
+    "$values": [
+      {
+        "$type": "PhysicEngine.ExportData.RigidBody.PolygonExportData, PhysicEngine",
+        "PolygonType": 2,
+        "Points": {
+          "$type": "PhysicEngine.MathHelper.Vec2D[], PhysicEngine",
+          "$values": [
+            [-178.91522, 151.6195],
+            [91.08478, -3.3804932],
+            [600.0848, -57.380493],
+            [-235.91522, -61.380493]
+          ]
+        },
+        "Center": [534.9152, 341.3805],
+        "AngleInDegree": 0.0,
+        "Velocity": [0.0, 0.0],
+        "AngularVelocity": 0.0,
+        "MassData": {
+          "$type": "PhysicEngine.ExportData.RigidBody.MassData, PhysicEngine",
+          "Type": 2,
+          "Mass": 1.0,
+          "Density": 0.0001
+        },
+        "Friction": 0.2,
+        "Restituion": 0.5,
+        "CollisionCategory": 0
+      },
+      {
+        "$type": "PhysicEngine.ExportData.RigidBody.CircleExportData, PhysicEngine",
+        "Radius": 68.0,
+        "Center": [1040.0, 246.0],
+        "AngleInDegree": 0.0,
+        "Velocity": [0.0, 0.0],
+        "AngularVelocity": 0.0,
+        "MassData": {
+          "$type": "PhysicEngine.ExportData.RigidBody.MassData, PhysicEngine",
+          "Type": 1,
+          "Mass": 1.0,
+          "Density": 0.0001
+        },
+        "Friction": 0.2,
+        "Restituion": 0.5,
+        "CollisionCategory": 0
+      }
+    ]
+  },
+  "Joints": {
+    "$type": "PhysicEngine.ExportData.Joints.IExportJoint[], PhysicEngine",
+    "$values": []
+  },
+  "Thrusters": {
+    "$type": "PhysicEngine.ExportData.Thruster.IExportThruster[], PhysicEngine",
+    "$values": []
+  },
+  "CollisionMatrix": {
+    "$type": "System.Boolean[,], System.Private.CoreLib",
+    "$values": [
+      [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    ]
+  }
+}

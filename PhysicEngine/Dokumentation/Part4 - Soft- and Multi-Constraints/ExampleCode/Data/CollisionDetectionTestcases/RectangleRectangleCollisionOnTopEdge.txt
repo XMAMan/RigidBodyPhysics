@@ -1,0 +1,41 @@
+{
+  "$type": "PhysicEngine.ExportData.PhysicSceneExportData, PhysicEngine",
+  "Bodies": {
+  "$type": "PhysicEngine.ExportData.RigidBody.IExportRigidBody[], PhysicEngine",
+  "$values": [
+    {
+      "$type": "PhysicEngine.ExportData.RigidBody.RectangleExportData, PhysicEngine",
+      "Center": [337.0, 341.0],
+      "Size": [207.0, 185.0],
+      "AngleInDegree": 0.0,
+      "Velocity": [0.0, 0.0],
+      "AngularVelocity": 0.0,
+      "MassData": {
+        "$type": "PhysicEngine.ExportData.RigidBody.MassData, PhysicEngine",
+        "Type": 0,
+        "Mass": 1.0,
+        "Density": 1.0
+      },
+      "Friction": 1.0,
+      "Restituion": 1.0
+    },
+    {
+      "$type": "PhysicEngine.ExportData.RigidBody.RectangleExportData, PhysicEngine",
+      "Center": [326.0, 157.0],
+      "Size": [195.0, 177.0],
+      "AngleInDegree": 72.0,
+      "Velocity": [0.0, 0.0],
+      "AngularVelocity": 0.0,
+      "MassData": {
+        "$type": "PhysicEngine.ExportData.RigidBody.MassData, PhysicEngine",
+        "Type": 0,
+        "Mass": 1.0,
+        "Density": 1.0
+      },
+      "Friction": 1.0,
+      "Restituion": 1.0
+    }
+  ]
+},
+  "Joints": null
+}

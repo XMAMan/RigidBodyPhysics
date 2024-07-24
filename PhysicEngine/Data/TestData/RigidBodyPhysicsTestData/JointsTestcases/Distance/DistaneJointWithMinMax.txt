@@ -1,0 +1,154 @@
+{
+  "$type": "RigidBodyPhysics.ExportData.PhysicSceneExportData, RigidBodyPhysics",
+  "Bodies": {
+    "$type": "RigidBodyPhysics.ExportData.RigidBody.IExportRigidBody[], RigidBodyPhysics",
+    "$values": [
+      {
+        "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
+        "Radius": 44.0,
+        "Center": [567.0, 428.0],
+        "AngleInDegree": 0.0,
+        "Velocity": [0.0, 0.0],
+        "AngularVelocity": 0.0,
+        "MassData": {
+          "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+          "Type": 2,
+          "Mass": 1.0,
+          "Density": 1.0
+        },
+        "Friction": 0.2,
+        "Restituion": 0.5,
+        "CollisionCategory": 0
+      },
+      {
+        "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
+        "Radius": 44.0,
+        "Center": [567.0, 60.0],
+        "AngleInDegree": 0.0,
+        "Velocity": [0.0, 0.0],
+        "AngularVelocity": 0.0,
+        "MassData": {
+          "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+          "Type": 0,
+          "Mass": 1.0,
+          "Density": 1.0
+        },
+        "Friction": 0.2,
+        "Restituion": 0.5,
+        "CollisionCategory": 0
+      },
+      {
+        "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
+        "Radius": 44.0,
+        "Center": [567.0, 591.0],
+        "AngleInDegree": 0.0,
+        "Velocity": [0.0, 0.0],
+        "AngularVelocity": 0.0,
+        "MassData": {
+          "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+          "Type": 0,
+          "Mass": 1.0,
+          "Density": 1.0
+        },
+        "Friction": 0.2,
+        "Restituion": 0.5,
+        "CollisionCategory": 0
+      }
+    ]
+  },
+  "Joints": {
+    "$type": "RigidBodyPhysics.ExportData.Joints.IExportJoint[], RigidBodyPhysics",
+    "$values": [
+      {
+        "$type": "RigidBodyPhysics.ExportData.Joints.DistanceJointExportData, RigidBodyPhysics",
+        "BodyIndex1": 0,
+        "BodyIndex2": 1,
+        "R1": [0.0, 0.0],
+        "R2": [0.0, 0.0],
+        "CollideConnected": false,
+        "LimitIsEnabled": true,
+        "MinLength": 144.0,
+        "MaxLength": 302.0,
+        "SoftData": {
+          "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
+          "ParameterType": 1,
+          "FrequencyHertz": 0.0,
+          "DampingRatio": 0.0,
+          "Stiffness": 1E-06,
+          "Damping": 0.0
+        },
+        "BreakWhenMaxForceIsReached": false,
+        "MaxForceToBreak": 0.0
+      },
+      {
+        "$type": "RigidBodyPhysics.ExportData.Joints.DistanceJointExportData, RigidBodyPhysics",
+        "BodyIndex1": 0,
+        "BodyIndex2": 2,
+        "R1": [0.0, 0.0],
+        "R2": [0.0, 0.0],
+        "CollideConnected": false,
+        "LimitIsEnabled": true,
+        "MinLength": 25.0,
+        "MaxLength": 344.0,
+        "SoftData": {
+          "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
+          "ParameterType": 1,
+          "FrequencyHertz": 0.0,
+          "DampingRatio": 0.0,
+          "Stiffness": 1E-06,
+          "Damping": 0.0
+        },
+        "BreakWhenMaxForceIsReached": false,
+        "MaxForceToBreak": 0.0
+      }
+    ]
+  },
+  "Thrusters": {
+    "$type": "RigidBodyPhysics.ExportData.Thruster.IExportThruster[], RigidBodyPhysics",
+    "$values": []
+  },
+  "Motors": {
+    "$type": "RigidBodyPhysics.ExportData.RotaryMotor.IExportRotaryMotor[], RigidBodyPhysics",
+    "$values": []
+  },
+  "CollisionMatrix": {
+    "$type": "System.Boolean[,], System.Private.CoreLib",
+    "$values": [
+      [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    ]
+  }
+}

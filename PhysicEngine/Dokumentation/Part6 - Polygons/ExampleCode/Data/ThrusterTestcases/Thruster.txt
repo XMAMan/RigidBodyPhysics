@@ -1,0 +1,57 @@
+{
+  "$type": "PhysicEngine.ExportData.PhysicSceneExportData, PhysicEngine",
+  "Bodies": {
+    "$type": "PhysicEngine.ExportData.RigidBody.IExportRigidBody[], PhysicEngine",
+    "$values": [
+      {
+        "$type": "PhysicEngine.ExportData.RigidBody.RectangleExportData, PhysicEngine",
+        "Size": [804.0, 68.0],
+        "Center": [571.0, 590.0],
+        "AngleInDegree": 0.0,
+        "Velocity": [0.0, 0.0],
+        "AngularVelocity": 0.0,
+        "MassData": {
+          "$type": "PhysicEngine.ExportData.RigidBody.MassData, PhysicEngine",
+          "Type": 2,
+          "Mass": 1.0,
+          "Density": 0.0001
+        },
+        "Friction": 0.2,
+        "Restituion": 0.5
+      },
+      {
+        "$type": "PhysicEngine.ExportData.RigidBody.RectangleExportData, PhysicEngine",
+        "Size": [146.0, 93.0],
+        "Center": [578.2974, 483.64697],
+        "AngleInDegree": -89.77895,
+        "Velocity": [1.8389729E-09, 0.0],
+        "AngularVelocity": 2.5147157E-11,
+        "MassData": {
+          "$type": "PhysicEngine.ExportData.RigidBody.MassData, PhysicEngine",
+          "Type": 1,
+          "Mass": 1.0,
+          "Density": 0.0001
+        },
+        "Friction": 0.2,
+        "Restituion": 0.5
+      }
+    ]
+  },
+  "Joints": {
+    "$type": "PhysicEngine.ExportData.Joints.IExportJoint[], PhysicEngine",
+    "$values": []
+  },
+  "Thrusters": {
+    "$type": "PhysicEngine.ExportData.Thruster.IExportThruster[], PhysicEngine",
+    "$values": [
+      {
+        "$type": "PhysicEngine.ExportData.Thruster.ThrusterExportData, PhysicEngine",
+        "BodyIndex": 1,
+        "R1": [-73.0, 0.0],
+        "ForceDirection": [1.0, 0.0],
+        "ForceLength": 0.0016741573,
+        "IsEnabled": false
+      }
+    ]
+  }
+}

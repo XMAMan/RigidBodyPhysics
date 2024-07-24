@@ -1,0 +1,92 @@
+{
+  "$type": "PhysicEngine.ExportData.IExportShape[], PhysicEngine",
+  "$values": [
+    {
+      "$type": "PhysicEngine.ExportData.RectangleExportData, PhysicEngine",
+      "Center": {
+        "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+        "X": 490.0,
+        "Y": 403.0,
+        "Xi": 490,
+        "Yi": 403
+      },
+      "Size": {
+        "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+        "X": 610.0,
+        "Y": 98.0,
+        "Xi": 610,
+        "Yi": 98
+      },
+      "AngleInDegree": 0.0,
+      "Velocity": {
+        "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+        "X": 0.0,
+        "Y": 0.0,
+        "Xi": 0,
+        "Yi": 0
+      },
+      "AngularVelocity": 0.0,
+      "Mass": 1.0,
+      "Friction": 1.0,
+      "Restituion": 1.0
+    },
+    {
+      "$type": "PhysicEngine.ExportData.RectangleExportData, PhysicEngine",
+      "Center": {
+        "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+        "X": 462.0,
+        "Y": 315.0,
+        "Xi": 462,
+        "Yi": 315
+      },
+      "Size": {
+        "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+        "X": 106.0,
+        "Y": 96.0,
+        "Xi": 106,
+        "Yi": 96
+      },
+      "AngleInDegree": 0.0,
+      "Velocity": {
+        "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+        "X": 0.0,
+        "Y": 0.0,
+        "Xi": 0,
+        "Yi": 0
+      },
+      "AngularVelocity": 0.0,
+      "Mass": 1.0,
+      "Friction": 1.0,
+      "Restituion": 1.0
+    },
+    {
+      "$type": "PhysicEngine.ExportData.RectangleExportData, PhysicEngine",
+      "Center": {
+        "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+        "X": 462.0,
+        "Y": 230.0,
+        "Xi": 462,
+        "Yi": 230
+      },
+      "Size": {
+        "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+        "X": 106.0,
+        "Y": 96.0,
+        "Xi": 106,
+        "Yi": 96
+      },
+      "AngleInDegree": 0.0,
+      "Velocity": {
+        "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+        "X": 0.0,
+        "Y": 0.0,
+        "Xi": 0,
+        "Yi": 0
+      },
+      "AngularVelocity": 0.0,
+      "Mass": 1.0,
+      "Friction": 1.0,
+      "Restituion": 1.0
+    }
+  ]
+}

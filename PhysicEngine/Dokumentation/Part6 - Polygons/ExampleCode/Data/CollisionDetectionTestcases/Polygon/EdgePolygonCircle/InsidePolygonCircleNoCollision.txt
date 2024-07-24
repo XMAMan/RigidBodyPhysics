@@ -1,0 +1,103 @@
+{
+  "$type": "PhysicEngine.ExportData.PhysicSceneExportData, PhysicEngine",
+  "Bodies": {
+    "$type": "PhysicEngine.ExportData.RigidBody.IExportRigidBody[], PhysicEngine",
+    "$values": [
+      {
+        "$type": "PhysicEngine.ExportData.RigidBody.PolygonExportData, PhysicEngine",
+        "PolygonType": 1,
+        "Points": {
+          "$type": "PhysicEngine.MathHelper.Vec2D[], PhysicEngine",
+          "$values": [
+            [-542.8112, -20.606262],
+            [-397.81122, 166.39374],
+            [20.188782, 266.39374],
+            [50.18878, 90.39374],
+            [116.18878, 269.39374],
+            [451.18878, 285.39374],
+            [418.18878, -193.60626],
+            [-259.81122, -293.60626]
+          ]
+        },
+        "Center": [737.8112, 417.60626],
+        "AngleInDegree": 0.0,
+        "Velocity": [0.0, 0.0],
+        "AngularVelocity": 0.0,
+        "MassData": {
+          "$type": "PhysicEngine.ExportData.RigidBody.MassData, PhysicEngine",
+          "Type": 2,
+          "Mass": 1.0,
+          "Density": 0.0001
+        },
+        "Friction": 0.2,
+        "Restituion": 0.5,
+        "CollisionCategory": 0
+      },
+      {
+        "$type": "PhysicEngine.ExportData.RigidBody.CircleExportData, PhysicEngine",
+        "Radius": 56.0,
+        "Center": [530.0, 358.0],
+        "AngleInDegree": 0.0,
+        "Velocity": [0.0, 0.0],
+        "AngularVelocity": 0.0,
+        "MassData": {
+          "$type": "PhysicEngine.ExportData.RigidBody.MassData, PhysicEngine",
+          "Type": 1,
+          "Mass": 1.0,
+          "Density": 0.0001
+        },
+        "Friction": 0.2,
+        "Restituion": 0.5,
+        "CollisionCategory": 0
+      }
+    ]
+  },
+  "Joints": {
+    "$type": "PhysicEngine.ExportData.Joints.IExportJoint[], PhysicEngine",
+    "$values": []
+  },
+  "Thrusters": {
+    "$type": "PhysicEngine.ExportData.Thruster.IExportThruster[], PhysicEngine",
+    "$values": []
+  },
+  "CollisionMatrix": {
+    "$type": "System.Boolean[,], System.Private.CoreLib",
+    "$values": [
+      [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    ]
+  }
+}

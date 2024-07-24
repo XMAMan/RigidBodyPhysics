@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LevelEditorGlobal\LevelEditorGlobal.csproj" />
+    <ProjectReference Include="..\LevelToSimulatorConverter\LevelToSimulatorConverter.csproj" />
+    <ProjectReference Include="..\PhysicSceneDrawing\PhysicSceneDrawing.csproj" />
+    <ProjectReference Include="..\RigidBodyPhysics\RigidBodyPhysics.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="GraphicMinimal">
+      <HintPath>..\..\..\Graphic8Dlls\GraphicMinimal.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphicPanels">
+      <HintPath>..\..\..\Graphic8Dlls\GraphicPanels.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

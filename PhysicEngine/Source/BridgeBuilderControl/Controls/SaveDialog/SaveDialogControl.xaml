@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="BridgeBuilderControl.Controls.SaveDialog.SaveDialogControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BridgeBuilderControl.Controls.SaveDialog"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="Black">
+        <Grid.Resources>
+            <!-- Mit diesen Style kann ich ein Button ohne Mouse-Hover-Effekt erzeugen -->
+            <Style TargetType="Button"  x:Key="NoMouseOverButtonStyle"  >
+                <Setter Property="Foreground" Value="Gray"/>
+                <Setter Property="Background" Value="#01000000"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid Background="{TemplateBinding Background}">
+                                <ContentPresenter />
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Foreground" Value="White"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="textBoxInError" TargetType="{x:Type TextBox}">
+                <Style.Triggers>
+                    <Trigger Property="Validation.HasError" Value="true">
+                        <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                        Path=(Validation.Errors)/ErrorContent}"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <ControlTemplate x:Key="validationTemplate">
+                <DockPanel>
+                    <TextBlock Foreground="Red" FontSize="20">!</TextBlock>
+                    <AdornedElementPlaceholder/>
+                </DockPanel>
+            </ControlTemplate>
+        </Grid.Resources>
+
+        <Button Content="Cancel" Command="{Binding CancelClick}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150 5 0 0" FontSize="30"  FontFamily="Adobe Caslon Pro" Style="{StaticResource  NoMouseOverButtonStyle}"/>
+        <Button Content="Save" Command="{Binding SaveClick}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 5 150 0" FontSize="30"  FontFamily="Adobe Caslon Pro" Style="{StaticResource  NoMouseOverButtonStyle}"/>
+        <Label Content="Filename" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150 50 0 0" FontSize="30"  FontFamily="Adobe Caslon Pro" Foreground="White"/>
+
+        <TextBox Background="#222222" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150 100 0 0" Width="200" FontSize="30"  FontFamily="Adobe Caslon Pro" 
+         Validation.ErrorTemplate="{StaticResource validationTemplate}"
+         Style="{StaticResource textBoxInError}"
+         >
+            <TextBox.Text>
+                <Binding Path="FileName" UpdateSourceTrigger="PropertyChanged" >
+                    <Binding.ValidationRules>
+                        <local:ValidFileNameValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        
+    </Grid>
+</UserControl>

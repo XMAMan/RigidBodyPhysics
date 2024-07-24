@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="LevelEditorControl.Controls.PolygonControl.PolygonControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LevelEditorControl.Controls.PolygonControl"
+             xmlns:converter="clr-namespace:WpfControls.Converter;assembly=WpfControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel >
+        <StackPanel.Resources>
+            <converter:EnumBooleanConverter x:Key="enumBooleanConverter" />
+        </StackPanel.Resources>
+        <Button Content="Add Polygon" Margin="2" Command="{Binding AddPolygonClick}" Background="{Binding AddPolygonButtonColor}"/>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Background" Margin="2" Command="{Binding BackgroundImageClick}">
+                <Button.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem IsCheckable="true" IsChecked="{Binding Path=BackgroundImageMode, Converter={StaticResource enumBooleanConverter}, ConverterParameter=StretchWithoutAspectRatio}" Header="Stretch the background without maintaining the aspect ratio" Command="{Binding StretchWithoutAspectRatio}"/>
+                        <MenuItem IsCheckable="true" IsChecked="{Binding Path=BackgroundImageMode, Converter={StaticResource enumBooleanConverter}, ConverterParameter=StretchWithAspectRatio}" Header="Stretch the background while maintaining the aspect ratio" Command="{Binding StretchWithAspectRatio}"/>
+                        <MenuItem IsCheckable="true" IsChecked="{Binding Path=BackgroundImageMode, Converter={StaticResource enumBooleanConverter}, ConverterParameter=NoStretch}" Header="Show Background without Stretch" Command="{Binding ShowBackgroundNoStretch}"/>
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
+            <Button Content="Foreground" Margin="2" Command="{Binding ForegroundImageClick}"/>
+        </StackPanel>
+        <Button Content="Add Lawnedge" Margin="2" Command="{Binding AddLawnEdgeClick}" Background="{Binding AddLawnEdgeButtonColor}"/>
+    </StackPanel>
+</UserControl>

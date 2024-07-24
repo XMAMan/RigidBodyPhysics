@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
+    <PackageReference Include="xunit" Version="2.8.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.1">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector" Version="6.0.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Xunit.StaFact" Version="1.1.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AstroidsControl\AstroidsControl.csproj" />
+    <ProjectReference Include="..\BridgeBuilderControl\BridgeBuilderControl.csproj" />
+    <ProjectReference Include="..\CarDrifterControl\CarDrifterControl.csproj" />
+    <ProjectReference Include="..\ElmaControl\ElmaControl.csproj" />
+    <ProjectReference Include="..\LevelEditorControl\LevelEditorControl.csproj" />
+    <ProjectReference Include="..\MoonlanderControl\MoonlanderControl.csproj" />
+    <ProjectReference Include="..\SkiJumperControl\SkiJumperControl.csproj" />
+    <ProjectReference Include="..\WpfControls\WpfControls.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="BitmapHelper">
+      <HintPath>..\..\..\Graphic8Dlls\BitmapHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphicPanels">
+      <HintPath>..\..\..\Graphic8Dlls\GraphicPanels.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphicPanelWpf">
+      <HintPath>..\..\..\Graphic8Dlls\GraphicPanelWpf.dll</HintPath>
+    </Reference>
+    <Reference Include="SoundEngine">
+      <HintPath>..\..\..\SoundDlls\SoundEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="WaveMaker">
+      <HintPath>..\..\..\SoundDlls\WaveMaker.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

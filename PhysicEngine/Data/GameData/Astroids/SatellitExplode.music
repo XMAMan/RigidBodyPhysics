@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-16"?>
+<MultiSequenzerData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <MidiFileFileName>SatellitExplode.mid</MidiFileFileName>
+  <LengthInMillisecondsForNewCreatedNotes>250</LengthInMillisecondsForNewCreatedNotes>
+  <SnapToGrid>true</SnapToGrid>
+  <SampleCount>16538</SampleCount>
+  <MinToneIndex>33</MinToneIndex>
+  <MaxToneIndex>35</MaxToneIndex>
+  <SynthesizerData>
+    <SequenzerData>
+      <InstrumentName>ElectricGrand</InstrumentName>
+      <Volume>0.5</Volume>
+      <IsEnabled>true</IsEnabled>
+      <TestToneFrequence>125.707878</TestToneFrequence>
+      <SynthesizerData>
+        <UseFrequencyLfo>false</UseFrequencyLfo>
+        <FrequencyLfoFrequenc>5</FrequencyLfoFrequenc>
+        <FrequencyLfoAmplitude>0.8</FrequencyLfoAmplitude>
+        <UseFrequenceRamp>true</UseFrequenceRamp>
+        <FrequencyRampFactor>5.95287371</FrequencyRampFactor>
+        <RampStepFactor>9</RampStepFactor>
+        <UsePulsewidthLfo>true</UsePulsewidthLfo>
+        <PulsewidthLfoFrequence>14.1954021</PulsewidthLfoFrequence>
+        <PulsewidthLfoAmplitude>1</PulsewidthLfoAmplitude>
+        <OsziType>Triangle</OsziType>
+        <UseAccordEffekt>false</UseAccordEffekt>
+        <PusleWidth>0.620689631</PusleWidth>
+        <OsziCount>1</OsziCount>
+        <Pitch>3.45967817</Pitch>
+        <SubOszVolume>0</SubOszVolume>
+        <UseAmplitudeLfo>false</UseAmplitudeLfo>
+        <AmplitudeLfoFrequenc>5</AmplitudeLfoFrequenc>
+        <AmplitudeLfoAmplitude>1</AmplitudeLfoAmplitude>
+        <AmplitudeLfoPulseWidth>1</AmplitudeLfoPulseWidth>
+        <AudioFileName>Load Audio-File</AudioFileName>
+        <LeftAudioFilePosition>0</LeftAudioFilePosition>
+        <RightAudioFilePosition>0</RightAudioFilePosition>
+        <UseDataFromAudioFileInsteadFromOszi>false</UseDataFromAudioFileInsteadFromOszi>
+        <AudioFileGain>7</AudioFileGain>
+        <AudioFilePitch>1</AudioFilePitch>
+        <IsLowPassEnabled>false</IsLowPassEnabled>
+        <CutOffFrequence>1</CutOffFrequence>
+        <Resonance>0.200000048</Resonance>
+        <AttackTimeInMs>50</AttackTimeInMs>
+        <DecayTimeInMs>70</DecayTimeInMs>
+        <SustainVolume>0.9</SustainVolume>
+        <ReleaseTimeInMs>250</ReleaseTimeInMs>
+        <UseDelayEffekt>false</UseDelayEffekt>
+        <UseHallEffekt>false</UseHallEffekt>
+      </SynthesizerData>
+    </SequenzerData>
+  </SynthesizerData>
+</MultiSequenzerData>

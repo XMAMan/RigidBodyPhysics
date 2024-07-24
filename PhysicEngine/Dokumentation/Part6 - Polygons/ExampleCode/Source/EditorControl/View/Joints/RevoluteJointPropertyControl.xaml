@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="EditorControl.View.Joints.RevoluteJointPropertyControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EditorControl.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel>
+        <StackPanel.Resources>
+            <local:EnumVisibiltyConverter x:Key="enumVisibiltyConverter" />
+        </StackPanel.Resources>
+
+        <CheckBox IsChecked="{Binding CollideConnected}" Content="CollideConnected"/>
+
+        <CheckBox IsChecked="{Binding BreakWhenMaxForceIsReached}" Content="Is Breakable" ToolTip="Break when max Point2Point-Force is reached" />
+        <StackPanel Orientation="Horizontal">
+            <Label Content="MaxForceToBreak"/>
+            <TextBox Text="{Binding Path=MaxForceToBreak, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,StringFormat=N6}"/>
+        </StackPanel>
+        
+        <CheckBox IsChecked="{Binding LimitIsEnabled}" Content="LimitIsEnabled"/>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="LowerAngle"/>
+            <TextBox Text="{Binding Path=LowerAngle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,StringFormat=N2}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="UpperAngle"/>
+            <TextBox Text="{Binding Path=UpperAngle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,StringFormat=N2}"/>
+        </StackPanel>
+
+        <GroupBox Header="Motor">
+            <Grid>
+                <Grid.Resources>
+                    <local:EnumBooleanConverter x:Key="enumBooleanConverter" />
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <!--https://stackoverflow.com/questions/397556/how-to-bind-radiobuttons-to-an-enum-->
+                <RadioButton Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" IsChecked="{Binding Path=Motor, Converter={StaticResource enumBooleanConverter}, ConverterParameter=Disabled}"/>
+                <Label Grid.Column="1" Grid.Row="0" Content="Disabled"/>
+
+                <RadioButton Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" IsChecked="{Binding Path=Motor, Converter={StaticResource enumBooleanConverter}, ConverterParameter=SpinAround}"/>
+                <Label Grid.Column="1" Grid.Row="1" Content="SpinAround"/>
+
+                <RadioButton Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" IsChecked="{Binding Path=Motor, Converter={StaticResource enumBooleanConverter}, ConverterParameter=GoToReferenceAngle}"/>
+                <Label Grid.Column="1" Grid.Row="2" Content="GoToReferenceAngle"/>
+
+
+            </Grid>
+        </GroupBox>
+
+        <StackPanel Orientation="Horizontal">
+            <Label Content="MotorSpeed"/>
+            <TextBox Text="{Binding Path=MotorSpeed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,StringFormat=N2}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="ReferenceAngle"/>
+            <TextBox Text="{Binding Path=MotorPosition, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,StringFormat=N2}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="MaxMotorTorque"/>
+            <TextBox Text="{Binding Path=MaxMotorTorque, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,StringFormat=N2}"/>
+        </StackPanel>
+
+        <local:SoftPropertyControl DataContext="{Binding Path=Soft, Mode=OneWay}"/>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PhysicEngine": {
+      "commandName": "Project",
+      "commandLineArgs": "-mode LevelEditor -dataFolder ..\\..\\..\\..\\..\\Data\\GameData\\"
+    }
+  }
+}

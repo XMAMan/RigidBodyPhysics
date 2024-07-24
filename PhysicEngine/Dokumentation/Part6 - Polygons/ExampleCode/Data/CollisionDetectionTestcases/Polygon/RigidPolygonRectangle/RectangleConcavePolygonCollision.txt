@@ -1,0 +1,109 @@
+{
+  "$type": "PhysicEngine.ExportData.PhysicSceneExportData, PhysicEngine",
+  "Bodies": {
+    "$type": "PhysicEngine.ExportData.RigidBody.IExportRigidBody[], PhysicEngine",
+    "$values": [
+      {
+        "$type": "PhysicEngine.ExportData.RigidBody.RectangleExportData, PhysicEngine",
+        "Size": [1179.0, 87.0],
+        "Center": [762.0, 716.0],
+        "AngleInDegree": 0.0,
+        "Velocity": [0.0, 0.0],
+        "AngularVelocity": 0.0,
+        "MassData": {
+          "$type": "PhysicEngine.ExportData.RigidBody.MassData, PhysicEngine",
+          "Type": 2,
+          "Mass": 1.0,
+          "Density": 0.0001
+        },
+        "Friction": 0.2,
+        "Restituion": 0.5,
+        "CollisionCategory": 0
+      },
+      {
+        "$type": "PhysicEngine.ExportData.RigidBody.PolygonExportData, PhysicEngine",
+        "PolygonType": 0,
+        "Points": {
+          "$type": "PhysicEngine.MathHelper.Vec2D[], PhysicEngine",
+          "$values": [
+            [-24.818542, 63.700134],
+            [107.18146, 147.70013],
+            [209.18146, 81.700134],
+            [169.18146, -113.299866],
+            [-8.8185425, -28.299866],
+            [-85.81854, -139.29987],
+            [-186.81854, -161.29987],
+            [-223.81854, -50.299866],
+            [-98.81854, -21.299866],
+            [-146.81854, 49.700134],
+            [-212.81854, 92.700134],
+            [-151.81854, 137.70013],
+            [-92.81854, 67.700134],
+            [-61.818542, 67.700134]
+          ]
+        },
+        "Center": [700.66534, 453.70544],
+        "AngleInDegree": -445.22644,
+        "Velocity": [-7.4651604E-07, -2.346933E-07],
+        "AngularVelocity": -3.39637E-09,
+        "MassData": {
+          "$type": "PhysicEngine.ExportData.RigidBody.MassData, PhysicEngine",
+          "Type": 1,
+          "Mass": 1.0,
+          "Density": 0.0001
+        },
+        "Friction": 0.2,
+        "Restituion": 0.5,
+        "CollisionCategory": 0
+      }
+    ]
+  },
+  "Joints": {
+    "$type": "PhysicEngine.ExportData.Joints.IExportJoint[], PhysicEngine",
+    "$values": []
+  },
+  "Thrusters": {
+    "$type": "PhysicEngine.ExportData.Thruster.IExportThruster[], PhysicEngine",
+    "$values": []
+  },
+  "CollisionMatrix": {
+    "$type": "System.Boolean[,], System.Private.CoreLib",
+    "$values": [
+      [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    ]
+  }
+}

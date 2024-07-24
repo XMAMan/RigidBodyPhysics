@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JsonHelper\JsonHelper.csproj" />
+    <ProjectReference Include="..\RigidBodyPhysics\RigidBodyPhysics.csproj" />
+    <ProjectReference Include="..\TextureEditorGlobal\TextureEditorGlobal.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="GraphicMinimal">
+      <HintPath>..\..\..\Graphic8Dlls\GraphicMinimal.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,57 @@
+{
+  "$type": "PhysicEngine.ExportData.IExportShape[], PhysicEngine",
+  "$values": [
+    {
+      "$type": "PhysicEngine.ExportData.RectangleExportData, PhysicEngine",
+      "Center": {
+        "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+        "X": 356.0,
+        "Y": 290.0,
+        "Xi": 356,
+        "Yi": 290
+      },
+      "Size": {
+        "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+        "X": 173.0,
+        "Y": 169.0,
+        "Xi": 173,
+        "Yi": 169
+      },
+      "AngleInDegree": 0.0,
+      "Velocity": {
+        "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+        "X": 0.0,
+        "Y": 0.0,
+        "Xi": 0,
+        "Yi": 0
+      },
+      "AngularVelocity": 0.0,
+      "Mass": 1.0,
+      "Friction": 1.0,
+      "Restituion": 1.0
+    },
+    {
+      "$type": "PhysicEngine.ExportData.CircleExportData, PhysicEngine",
+      "Center": {
+        "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+        "X": 239.0,
+        "Y": 192.0,
+        "Xi": 239,
+        "Yi": 192
+      },
+      "Radius": 27.976847,
+      "AngleInDegree": 0.0,
+      "Velocity": {
+        "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+        "X": 0.0,
+        "Y": 0.0,
+        "Xi": 0,
+        "Yi": 0
+      },
+      "AngularVelocity": 0.0,
+      "Mass": 1.0,
+      "Friction": 1.0,
+      "Restituion": 1.0
+    }
+  ]
+}

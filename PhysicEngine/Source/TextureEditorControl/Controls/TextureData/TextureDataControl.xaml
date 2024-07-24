@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="TextureEditorControl.Controls.TextureData.TextureDataControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TextureEditorControl.Controls.TextureData"
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="400">
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="0" Grid.Row="0" Content="Texture"/>
+        <DockPanel Grid.Column="1" Grid.Row="0">
+            <Button Content="..." DockPanel.Dock="Right" Command="{Binding ChangeTextureFileClick}"/>
+            <TextBox Text="{Binding Path=TextureFile, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </DockPanel>
+
+
+        <Label Grid.Column="0" Grid.Row="1" Content="MakeFirstPixelTransparent"/>
+        <CheckBox Grid.Column="1" Grid.Row="1"  IsChecked="{Binding MakeFirstPixelTransparent}" VerticalAlignment="Center"/>
+
+        <Label Grid.Column="0" Grid.Row="2" Content="ColorFactor"/>
+        <Slider Grid.Column="1" Grid.Row="2" Minimum="0" Maximum="1" Value="{Binding ColorFactor}" VerticalAlignment="Center"/>
+
+        <Label Grid.Column="0" Grid.Row="3" Content="DeltaX"/>
+        <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding DeltaX}"/>
+
+        <Label Grid.Column="0" Grid.Row="4" Content="DeltaY"/>
+        <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding DeltaY}"/>
+
+        <Label Grid.Column="0" Grid.Row="5" Content="Width"/>
+        <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding Width}"/>
+
+        <Label Grid.Column="0" Grid.Row="6" Content="Height"/>
+        <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding Height}"/>
+
+        <Label Grid.Column="0" Grid.Row="7" Content="DeltaAngle"/>
+        <Slider Grid.Column="1" Grid.Row="7" Minimum="-180" Maximum="180" Value="{Binding DeltaAngle}" VerticalAlignment="Center" x:Name="slider"/>
+
+        <Label Grid.Column="0" Grid.Row="8" Content="ZValue"/>
+        <TextBox Grid.Column="1" Grid.Row="8" Text="{Binding ZValue}"/>
+
+        <Label Grid.Column="0" Grid.Row="9" Content="IsInvisible"/>
+        <CheckBox Grid.Column="1" Grid.Row="9"  IsChecked="{Binding IsInvisible}" VerticalAlignment="Center"/>
+
+
+        <Button Grid.Column="1" Grid.Row="10" Content="Flip90" Command="{Binding Flip90Click}"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="SimulatorControl.View.SimulatorControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SimulatorControl.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="900">
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top">
+            <StackPanel DockPanel.Dock="Left"  Orientation="Horizontal">
+                <Button Margin="2" Command="{Binding RestartClick}" >
+                    <Image Source="/SimulatorControl;component/View/Restart.png" Width="30" Height="30"></Image>
+                </Button>
+                <Button Margin="2" Command="{Binding PlayPauseClick}">
+                    <Image Source="{Binding PlayPauseImage}" Width="30" Height="30" Name="image"></Image>
+                </Button>
+                <Button Margin="2" Command="{Binding SingleStepClick}">
+                    <Image Source="/SimulatorControl;component/View/SingleStep.png" Width="30" Height="30"></Image>
+                </Button>
+
+                <Button Margin="2" Command="{Binding SaveClick}" ToolTip="Save">
+                    <Image Source="/SimulatorControl;component/View/Save.PNG" Width="30" Height="30"></Image>
+                </Button>
+                <Button Margin="2" Command="{Binding LoadClick}" ToolTip="Load">
+                    <Image Source="/SimulatorControl;component/View/Load.PNG" Width="30" Height="30"></Image>
+                </Button>
+
+                <StackPanel>
+                    <CheckBox IsChecked="{Binding ShowCollisionPoints}" Content="Show CollisionPoints"/>
+                    <ComboBox SelectedItem="{Binding SolverType}" ItemsSource="{Binding SolverTypeValues}"/>
+                </StackPanel>
+
+
+
+                <StackPanel>
+                    <CheckBox IsChecked="{Binding DoPositionalCorrection}" Content="Positional correction"/>
+                    <CheckBox IsChecked="{Binding HasGravity}" Content="Has Gravity"/>
+                </StackPanel>
+
+                <StackPanel>
+                    <CheckBox IsChecked="{Binding DoWarmStart}" Content="Do WarmStart"/>
+                    <TextBox VerticalAlignment="Center" Text="{Binding Path=TimeStep, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="False"/>
+                </StackPanel>
+
+                <Button Margin="2" Command="{Binding PushBodysApartClick}" ToolTip="Push Bodys Apart">
+                    <Image Source="/SimulatorControl;component/View/PushApart.png" Width="30" Height="30"></Image>
+                </Button>
+
+                <StackPanel>
+                    <CheckBox x:Name="UseMaxTimeStepCheckBox" IsChecked="{Binding UseMaxTimeStep}" Content="Max Time Steps"/>
+                    <TextBox IsEnabled="{Binding ElementName=UseMaxTimeStepCheckBox, Path=IsChecked, TargetNullValue=true}" VerticalAlignment="Center" Text="{Binding Path=MaxTimeStep, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+
+                <Button Margin="2" Command="{Binding CopyLogToClipboard}" ToolTip="Copy Log to Clipboard">
+                    <Image Source="/SimulatorControl;component/View/Clipboard.PNG" Width="30" Height="30"></Image>
+                </Button>
+                <Button Margin="2" Command="{Binding ChangeBackgroundClick}" ToolTip="ChangeBackground">
+                    <Image Source="/SimulatorControl;component/View/ChangeBackground.PNG" Width="30" Height="30"></Image>
+                </Button>
+                <Button Margin="2" Command="{Binding SaveImageClick}" ToolTip="Screenshoot">
+                    <Image Source="/SimulatorControl;component/View/SaveImage.PNG" Width="30" Height="30"></Image>
+                </Button>
+            </StackPanel>
+
+            <StackPanel>
+                <Label Content="Iterations" Margin="0 -7 0 0"/>
+                <TextBox VerticalAlignment="Center" Text="{Binding Path=IterationCount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+            
+
+            <Button Content="Switch" Command="{Binding SwitchClick}" HorizontalAlignment="Right" DockPanel.Dock="Right" />
+        </DockPanel>
+
+        <ContentControl Content="{Binding ManipulateJointControl}" DockPanel.Dock="Bottom"/>
+
+        <Border BorderThickness="5" BorderBrush="DarkBlue" x:Name="graphicControlBorder">
+        </Border>
+    </DockPanel>
+</UserControl>

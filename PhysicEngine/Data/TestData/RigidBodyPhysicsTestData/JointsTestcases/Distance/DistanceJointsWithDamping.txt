@@ -1,0 +1,164 @@
+{
+  "$type": "RigidBodyPhysics.ExportData.PhysicSceneExportData, RigidBodyPhysics",
+  "Bodies": {
+    "$type": "RigidBodyPhysics.ExportData.RigidBody.IExportRigidBody[], RigidBodyPhysics",
+    "$values": [
+      {
+        "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
+        "Center": [269.0, 202.0],
+        "Size": [79.0, 79.0],
+        "AngleInDegree": 0.0,
+        "Velocity": [0.0, 0.0],
+        "AngularVelocity": 0.0,
+        "MassData": {
+          "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+          "Type": 2,
+          "Mass": 1.0,
+          "Density": 1.0
+        },
+        "Friction": 0.2,
+        "Restituion": 0.5
+      },
+      {
+        "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
+        "Center": [568.0, 202.0],
+        "Radius": 32.0,
+        "AngleInDegree": 0.0,
+        "Velocity": [0.0, 0.0],
+        "AngularVelocity": 0.0,
+        "MassData": {
+          "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+          "Type": 0,
+          "Mass": 1.0,
+          "Density": 1.0
+        },
+        "Friction": 0.2,
+        "Restituion": 0.5
+      },
+      {
+        "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
+        "Center": [269.0, 308.0],
+        "Size": [79.0, 79.0],
+        "AngleInDegree": 0.0,
+        "Velocity": [0.0, 0.0],
+        "AngularVelocity": 0.0,
+        "MassData": {
+          "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+          "Type": 2,
+          "Mass": 1.0,
+          "Density": 1.0
+        },
+        "Friction": 0.2,
+        "Restituion": 0.5
+      },
+      {
+        "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
+        "Center": [568.0, 308.0],
+        "Radius": 32.0,
+        "AngleInDegree": 0.0,
+        "Velocity": [0.0, 0.0],
+        "AngularVelocity": 0.0,
+        "MassData": {
+          "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+          "Type": 0,
+          "Mass": 1.0,
+          "Density": 1.0
+        },
+        "Friction": 0.2,
+        "Restituion": 0.5
+      },
+      {
+        "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
+        "Center": [269.0, 408.0],
+        "Size": [79.0, 79.0],
+        "AngleInDegree": 0.0,
+        "Velocity": [0.0, 0.0],
+        "AngularVelocity": 0.0,
+        "MassData": {
+          "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+          "Type": 2,
+          "Mass": 1.0,
+          "Density": 1.0
+        },
+        "Friction": 0.2,
+        "Restituion": 0.5
+      },
+      {
+        "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
+        "Center": [568.0, 408.0],
+        "Radius": 32.0,
+        "AngleInDegree": 0.0,
+        "Velocity": [0.0, 0.0],
+        "AngularVelocity": 0.0,
+        "MassData": {
+          "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+          "Type": 0,
+          "Mass": 1.0,
+          "Density": 1.0
+        },
+        "Friction": 0.2,
+        "Restituion": 0.5
+      }
+    ]
+  },
+  "Joints": {
+    "$type": "RigidBodyPhysics.ExportData.Joints.IExportJoint[], RigidBodyPhysics",
+    "$values": [
+      {
+        "$type": "RigidBodyPhysics.ExportData.Joints.DistanceJointExportData, RigidBodyPhysics",
+        "BodyIndex1": 0,
+        "BodyIndex2": 1,
+        "R1": [0.0, 0.0],
+        "R2": [0.0, 0.0],
+        "LengthPosition": 0.8,
+        "MinLength": 0.0,
+        "MaxLength": 3.4028235E+38,      
+	"SoftData": {
+          "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
+          "ParameterType": 0,
+          "FrequencyHertz": 1.0,
+          "DampingRatio": 0.0,
+          "Stiffness": 0,
+          "Damping": 0
+        }	
+      },
+      {
+        "$type": "RigidBodyPhysics.ExportData.Joints.DistanceJointExportData, RigidBodyPhysics",
+        "BodyIndex1": 2,
+        "BodyIndex2": 3,
+        "R1": [0.0, 0.0],
+        "R2": [0.0, 0.0],
+        "LengthPosition": 0.8,
+        "MinLength": 0.0,
+        "MaxLength": 3.4028235E+38,
+	"SoftData": {
+          "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
+          "ParameterType": 0,
+          "FrequencyHertz": 1.0,
+          "DampingRatio": 0.1,
+          "Stiffness": 0,
+          "Damping": 0
+        }
+      },
+      {
+        "$type": "RigidBodyPhysics.ExportData.Joints.DistanceJointExportData, RigidBodyPhysics",
+        "BodyIndex1": 4,
+        "BodyIndex2": 5,
+        "R1": [0.0, 0.0],
+        "R2": [0.0, 0.0],
+        "LengthPosition": 0.8,
+        "MinLength": 0.0,
+        "MaxLength": 3.4028235E+38,
+	"SoftData": {
+          "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
+          "ParameterType": 0,
+          "FrequencyHertz": 1.0,
+          "DampingRatio": 0.5,
+          "Stiffness": 0,
+          "Damping": 0
+        }
+		
+      }
+    ]
+  }
+}

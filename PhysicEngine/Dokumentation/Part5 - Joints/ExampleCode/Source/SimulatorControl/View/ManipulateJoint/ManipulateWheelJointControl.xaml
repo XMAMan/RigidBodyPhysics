@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="SimulatorControl.View.ManipulateJoint.ManipulateWheelJointControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SimulatorControl.View.ManipulateJoint"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel Orientation="Horizontal">
+        <Label Content="Motor"/>
+        <ComboBox SelectedItem="{Binding SelectedMotorType}" ItemsSource="{Binding MotorTypeValues}"/>
+
+        <Label Content="MotorSpeed"/>
+        <Slider Minimum="-1" Maximum="1" Value="{Binding MotorSpeed}" Width="100" Margin="0 3"/>
+
+        <Label Content="MotorPosition"/>
+        <Slider Minimum="{Binding MinMotorPosition}" Maximum="{Binding MaxMotorPosition}" Value="{Binding MotorPosition}" Width="100" Margin="0 3"/>
+
+        <Label Content="MaxMotorForce"/>
+        <Slider Minimum="0.0001" Maximum="100" Value="{Binding MaxMotorForce}" Width="100" Margin="0 3"/>
+    </StackPanel>
+</UserControl>

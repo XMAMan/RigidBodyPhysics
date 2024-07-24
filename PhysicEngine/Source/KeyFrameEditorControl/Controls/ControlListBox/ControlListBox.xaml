@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="KeyFrameEditorControl.Controls.ControlListBox.ControlListBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KeyFrameEditorControl.Controls.ControlListBox"
+             xmlns:slider="clr-namespace:KeyFrameEditorControl.Controls.Slider"
+             xmlns:check="clr-namespace:KeyFrameEditorControl.Controls.CheckBox"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <!-- Quelle für ListView mit DataTemplate: https://stackoverflow.com/questions/11896782/different-views-for-each-item-in-listview-->
+    <ListView  ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" Visibility="{Binding Visibility}">
+        <ListView.Resources>
+            <DataTemplate DataType="{x:Type slider:SliderControlViewModel}">
+                <slider:SliderControl />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type check:CheckBoxControlViewModel}">
+                <check:CheckBoxControl />
+            </DataTemplate>
+        </ListView.Resources>
+    </ListView>
+</UserControl>

@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="Part4.View.Editor.DistanceJointPropertyControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Part4.View.Editor"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel>
+        <StackPanel.Resources>
+            <local:EnumVisibiltyConverter x:Key="enumVisibiltyConverter" />
+        </StackPanel.Resources>
+        
+        <StackPanel Orientation="Horizontal">
+            <Label Content="LengthFactor"/>
+            <TextBox Text="{Binding Path=LengthFactor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,StringFormat=N2}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <Label Content="MinLength"/>
+            <TextBox Text="{Binding Path=MinLength, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,StringFormat=N2}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <Label Content="MaxLength"/>
+            <TextBox Text="{Binding Path=MaxLength, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,StringFormat=N2}"/>
+        </StackPanel>
+
+        <GroupBox Header="SpringType">
+            <Grid>
+                <Grid.Resources>
+                    <local:EnumBooleanConverter x:Key="enumBooleanConverter" />
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <!--https://stackoverflow.com/questions/397556/how-to-bind-radiobuttons-to-an-enum-->
+                <RadioButton Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" IsChecked="{Binding Path=SpringParameter, Converter={StaticResource enumBooleanConverter}, ConverterParameter=NoSoftness}"/>
+                <Label Grid.Column="1" Grid.Row="0" Content="NoSoftness"/>
+                
+                <RadioButton Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" IsChecked="{Binding Path=SpringParameter, Converter={StaticResource enumBooleanConverter}, ConverterParameter=FrequenceyAndDampingRatio}"/>
+                <Label Grid.Column="1" Grid.Row="1" Content="FrequenceyAndDampingRatio"/>
+                
+                <RadioButton Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" IsChecked="{Binding Path=SpringParameter, Converter={StaticResource enumBooleanConverter}, ConverterParameter=StiffnessAndDamping}"/>
+                <Label Grid.Column="1" Grid.Row="2" Content="StiffnessAndDamping"/>
+
+                
+            </Grid>
+        </GroupBox>
+
+        <StackPanel Visibility="{Binding Path=SpringParameter, Converter={StaticResource enumVisibiltyConverter}, ConverterParameter=FrequenceyAndDampingRatio}">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="FrequencyHertz"/>
+                <TextBox Text="{Binding Path=FrequencyHertz, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,StringFormat=N6}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="DampingRatio"/>
+                <TextBox Text="{Binding Path=DampingRatio, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,StringFormat=N6}"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Visibility="{Binding Path=SpringParameter, Converter={StaticResource enumVisibiltyConverter}, ConverterParameter=StiffnessAndDamping}">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Stiffness"/>
+                <TextBox Text="{Binding Path=Stiffness, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,StringFormat=N6}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Damping"/>
+                <TextBox Text="{Binding Path=Damping, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,StringFormat=N6}"/>
+            </StackPanel>
+        </StackPanel>
+
+    </StackPanel>
+</UserControl>

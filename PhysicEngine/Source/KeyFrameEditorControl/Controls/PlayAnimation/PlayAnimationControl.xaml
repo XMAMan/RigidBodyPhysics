@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="KeyFrameEditorControl.Controls.PlayAnimation.PlayAnimationControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KeyFrameEditorControl.Controls.PlayAnimation"
+             xmlns:converter="clr-namespace:WpfControls.Converter;assembly=WpfControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <DockPanel>
+        <DockPanel.Resources>
+            <converter:EnumBooleanConverter x:Key="enumBooleanConverter" />
+            <converter:EnumVisibiltyConverter x:Key="enumVisibiltyConverter" />
+            <BooleanToVisibilityConverter x:Key="BoolToVis" />
+        </DockPanel.Resources>
+        <StackPanel Orientation="Horizontal">
+            <Button Margin="2" Command="{Binding RestartClick}" Width="35" Height="35" Visibility="{Binding VisibilityFromTimerDependentButtons}">
+                <Image Source="/KeyFrameEditorControl;component/Controls/PlayAnimation/Restart.png" Width="30" Height="30"></Image>
+            </Button>
+            <Button Margin="2" Command="{Binding PlayPauseClick}" Width="35" Height="35" Visibility="{Binding VisibilityFromTimerDependentButtons}">
+                <Image Source="{Binding PlayPauseImage}" Width="30" Height="30" Name="image"></Image>
+            </Button>
+
+            <Image Margin="2" Source="/KeyFrameEditorControl;component/Controls/PlayAnimation/Left.png" Width="30" Height="30" Visibility="{Binding VisibilityFromKeyDependentButtons}" x:Name="decreateAnimationImage"></Image>
+            <Image Margin="2"  Source="/KeyFrameEditorControl;component/Controls/PlayAnimation/Right.png" Width="30" Height="30" Visibility="{Binding VisibilityFromKeyDependentButtons}" x:Name="increaseAnimationImage"></Image>
+
+            <ComboBox SelectedItem="{Binding AnimationType}" ItemsSource="{Binding AnimationTypeValues}" Height="20"/>
+
+            <GroupBox Header="Animation-Length">
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton VerticalAlignment="Center" IsChecked="{Binding Path=LengthType, Converter={StaticResource enumBooleanConverter}, ConverterParameter=TimerTicks}" Content="TimerTicks"/>
+                    <RadioButton VerticalAlignment="Center" IsChecked="{Binding Path=LengthType, Converter={StaticResource enumBooleanConverter}, ConverterParameter=Seconds}" Content="Seconds"/>
+                </StackPanel>
+            </GroupBox>
+            <StackPanel Orientation="Horizontal" Visibility="{Binding Path=LengthType, Converter={StaticResource enumVisibiltyConverter}, ConverterParameter=TimerTicks}">
+                <TextBox Text="{Binding Path=Frames, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="40" Height="20"/>
+                <Label Content="Frames" VerticalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Visibility="{Binding Path=LengthType, Converter={StaticResource enumVisibiltyConverter}, ConverterParameter=Seconds}">
+                <TextBox Text="{Binding Path=Seconds, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat=N1}" Width="40" Height="20"/>
+                <Label Content="Seconds" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <Label Content="Starttime:" Margin="7 7 0 0" Visibility="{Binding ShowStartTimeTextbox, Converter={StaticResource BoolToVis}}"/>
+            <TextBox Text="{Binding Path=StartTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat=N1}" Width="40" Height="20" Visibility="{Binding ShowStartTimeTextbox, Converter={StaticResource BoolToVis}}"/>
+        </StackPanel>
+    </DockPanel>
+</UserControl>

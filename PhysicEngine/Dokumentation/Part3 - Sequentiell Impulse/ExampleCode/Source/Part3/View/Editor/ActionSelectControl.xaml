@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="Part3.View.Editor.ActionSelectControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Part3.View.Editor"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="200">
+    <StackPanel Orientation="Vertical" Background="Black">
+
+        <Button Content="Add Rectangle" Name="Button1" Command="{Binding AddRectangleClick}" Margin="{Binding AddRectangleMargin}" Background="Black" Foreground="Yellow" BorderBrush="Yellow" BorderThickness="{Binding AddRectangleBorderThickness}"/>
+        <Button Content="Add Circle" Command="{Binding AddCircleClick}" Margin="{Binding AddCircleMargin}" Background="Black" Foreground="Yellow" BorderBrush="Yellow" BorderThickness="{Binding AddCircleBorderThickness}"/>
+        <Button Content="Move / Rotate" Command="{Binding MoveRotateClick}" Margin="{Binding MoveRotateMargin}" Background="Black" Foreground="Yellow" BorderBrush="Yellow" BorderThickness="{Binding MoveRotateBorderThickness}"/>
+        <Button Content="Move / Resize" Command="{Binding MoveResizeClick}" Margin="{Binding MoveResizeMargin}" Background="Black" Foreground="Yellow" BorderBrush="Yellow" BorderThickness="{Binding MoveResizeBorderThickness}"/>
+        <Button Content="Clone Shape" Command="{Binding CloneShapeClick}" Margin="{Binding CloneShapeMargin}" Background="Black" Foreground="Yellow" BorderBrush="Yellow" BorderThickness="{Binding CloneShapeBorderThickness}"/>
+        <Button Content="Edit Properties" Command="{Binding EditPropertiesClick}" Margin="{Binding EditPropertiesMargin}" Background="Black" Foreground="Yellow" BorderBrush="Yellow" BorderThickness="{Binding EditPropertiesBorderThickness}"/>
+        <Button Content="Delete" Command="{Binding DeleteClick}" Margin="{Binding DeleteMargin}" Background="Black" Foreground="Yellow" BorderBrush="Yellow" BorderThickness="{Binding DeleteBorderThickness}"/>
+    </StackPanel>
+</UserControl>

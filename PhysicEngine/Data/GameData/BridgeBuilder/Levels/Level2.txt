@@ -1,0 +1,35 @@
+{
+  "$type": "BridgeBuilderControl.Controls.LevelEditor.LevelExport, BridgeBuilderControl",
+  "GroundPolygon": {
+    "$type": "System.Drawing.Point[], System.Drawing.Primitives",
+    "$values": [
+      "32, 0",
+      "34, 5",
+      "36, 7",
+      "38, 8",
+      "42, 8",
+      "44, 7",
+      "52, 7",
+      "54, 8",
+      "58, 8",
+      "62, 6",
+      "64, 0"
+    ]
+  },
+  "AnchorPoints": {
+    "$type": "System.Drawing.Point[], System.Drawing.Primitives",
+    "$values": [
+      "32, 16",
+      "38, 24",
+      "42, 24",
+      "54, 24",
+      "58, 24",
+      "64, 16"
+    ]
+  },
+  "XCount": 96,
+  "YCount": 32,
+  "GroundHeight": 16,
+  "WaterHeight": 3,
+  "Budget": 3000
+}

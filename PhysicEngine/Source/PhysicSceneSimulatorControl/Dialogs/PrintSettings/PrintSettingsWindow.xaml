@@ -1,0 +1,42 @@
+﻿<Window x:Class="PhysicSceneSimulatorControl.Dialogs.PrintSettings.PrintSettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PhysicSceneSimulatorControl.Dialogs.PrintSettings"
+        mc:Ignorable="d"
+        Title="Print Settings" Height="360" Width="170">
+    <StackPanel>
+        <CheckBox IsChecked="{Binding ShowCollisionPoints}" Content="Show CollisionPoints"/>
+        <CheckBox IsChecked="{Binding ShowJoints}" Content="Show Joints"/>
+        <CheckBox IsChecked="{Binding ShowThrusters}" Content="Show Thrusters"/>
+        <CheckBox IsChecked="{Binding ShowRotaryMotors}" Content="Show Rotary Motors"/>
+        <CheckBox IsChecked="{Binding ShowAxialFrictions}" Content="Show Axial Frictions"/>
+        <CheckBox IsChecked="{Binding ShowSubPolys}" Content="ShowSubPolys"/>
+        <GroupBox Header="Body-Text">
+            <StackPanel>
+                <RadioButton GroupName="BodyText" IsChecked="{Binding ShowNoBodyText}">Nothing</RadioButton>
+                <RadioButton GroupName="BodyText" IsChecked="{Binding ShowPushPullForce}" >Push-Pull-Force</RadioButton>
+                <RadioButton GroupName="BodyText" IsChecked="{Binding ShowBodyIndex}">BodyIndex</RadioButton>
+                <RadioButton GroupName="BodyText" IsChecked="{Binding ShowOrientation}">Orientation</RadioButton>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Header="Joint-Text">
+            <StackPanel>
+                <RadioButton GroupName="JointText" IsChecked="{Binding ShowNoJointText}">Nothing</RadioButton>
+                <RadioButton GroupName="JointText" IsChecked="{Binding ShowJointPosition}">Joint-Position</RadioButton>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Header="Push-Pull-Visualization">
+            <StackPanel>
+                <CheckBox IsChecked="{Binding VisualizePushPullForce}" Content="Show Force"/>
+                <StackPanel Orientation="Vertical">
+                    <Label Content="MaxPushPullForce"/>
+                    <TextBox Text="{Binding Path=MaxPushPullForce, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,StringFormat=N6}"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+    </StackPanel>
+</Window>

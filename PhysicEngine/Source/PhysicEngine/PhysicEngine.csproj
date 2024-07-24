@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PowerArgs" Version="4.0.3" />
+    <PackageReference Include="ReactiveUI" Version="20.1.1" />
+    <PackageReference Include="ReactiveUI.Fody" Version="19.5.41" />
+    <PackageReference Include="ReactiveUI.WPF" Version="20.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AstroidsControl\AstroidsControl.csproj" />
+    <ProjectReference Include="..\BridgeBuilderControl\BridgeBuilderControl.csproj" />
+    <ProjectReference Include="..\CarDrifterControl\CarDrifterControl.csproj" />
+    <ProjectReference Include="..\ElmaControl\ElmaControl.csproj" />
+    <ProjectReference Include="..\KeyFrameEditorControl\KeyFrameEditorControl.csproj" />
+    <ProjectReference Include="..\LevelEditorControl\LevelEditorControl.csproj" />
+    <ProjectReference Include="..\MoonlanderControl\MoonlanderControl.csproj" />
+    <ProjectReference Include="..\SpiderBoxControl\SpiderBoxControl.csproj" />
+    <ProjectReference Include="..\SpriteEditorControl\SpriteEditorControl.csproj" />
+    <ProjectReference Include="..\PhysicSceneSimulatorControl\PhysicSceneSimulatorControl.csproj" />
+    <ProjectReference Include="..\PhysicSceneTestbedControl\PhysicSceneTestbedControl.csproj" />
+    <ProjectReference Include="..\SkiJumperControl\SkiJumperControl.csproj" />
+    <ProjectReference Include="..\TextureEditorControl\TextureEditorControl.csproj" />
+    <ProjectReference Include="..\WpfControls\WpfControls.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="GraphicPanels">
+      <HintPath>..\..\..\Graphic8Dlls\GraphicPanels.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphicPanelWpf">
+      <HintPath>..\..\..\Graphic8Dlls\GraphicPanelWpf.dll</HintPath>
+    </Reference>
+    <Reference Include="SoundEngine">
+      <HintPath>..\..\..\SoundDlls\SoundEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

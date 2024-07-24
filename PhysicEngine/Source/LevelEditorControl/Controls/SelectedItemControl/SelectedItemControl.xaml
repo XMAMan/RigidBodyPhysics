@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="LevelEditorControl.Controls.SelectedItemControl.SelectedItemControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LevelEditorControl.Controls.SelectedItemControl"
+             xmlns:converter="clr-namespace:WpfControls.Converter;assembly=WpfControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Border Width="110">
+        <Border.Resources>
+            <converter:BoolToVisibilityConverter x:Key="BoolToVis" TrueValue="Visible" FalseValue="Collapsed"/>
+        </Border.Resources>
+        <Border BorderThickness="1" BorderBrush="Black">
+            <StackPanel>
+                <StackPanel Visibility="{Binding OneItemIsSelected, Converter={StaticResource BoolToVis}}">
+                    <Button Content="Rotate/Resize" Height="25" Command="{Binding RotateResizeButtonClick}" Background="{Binding RotateResizeButtonColor}" />
+                    <Button Content="Keyboardmapping" Command="{Binding KeyboardmappingClick}" Background="{Binding KeyboardmappingButtonColor}"/>
+                    <Button Content="Is Cameratracked" Command="{Binding IsCameraTrackedClick}" Background="{Binding IsCameraTrackedButtonColor}"/>
+                </StackPanel>
+                <StackPanel Visibility="{Binding MultipleItemsAreSelected, Converter={StaticResource BoolToVis}}">
+                    <Button Content="Group Items" Height="25" Command="{Binding GroupItemsClick}" />
+                </StackPanel>
+            </StackPanel>
+
+        </Border>
+
+
+    </Border>
+</UserControl>

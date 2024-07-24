@@ -1,0 +1,57 @@
+{
+  "$type": "RigidBodyPhysics.ExportData.PhysicSceneExportData, RigidBodyPhysics",
+  "Bodies": {
+  "$type": "RigidBodyPhysics.ExportData.RigidBody.IExportRigidBody[], RigidBodyPhysics",
+  "$values": [
+    {
+      "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
+      "Center": [229.0, 321.0],
+      "Radius": 68.0,
+      "AngleInDegree": 0.0,
+      "Velocity": [0.1, 0.0],
+      "AngularVelocity": 0.0,
+      "MassData": {
+        "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+        "Type": 0,
+        "Mass": 1.0,
+        "Density": 1.0
+      },
+      "Friction": 1.0,
+      "Restituion": 1.0
+    },
+    {
+      "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
+      "Center": [525.0, 321.0],
+      "Radius": 68.0,
+      "AngleInDegree": 0.0,
+      "Velocity": [0.0, 0.0],
+      "AngularVelocity": 0.0,
+      "MassData": {
+        "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+        "Type": 0,
+        "Mass": 1.0,
+        "Density": 1.0
+      },
+      "Friction": 1.0,
+      "Restituion": 1.0
+    },
+    {
+      "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
+      "Center": [655.0, 321.0],
+      "Radius": 68.0,
+      "AngleInDegree": 0.0,
+      "Velocity": [0.0, 0.0],
+      "AngularVelocity": 0.0,
+      "MassData": {
+        "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+        "Type": 0,
+        "Mass": 1.0,
+        "Density": 1.0
+      },
+      "Friction": 1.0,
+      "Restituion": 1.0
+    }
+  ]
+},
+  "Joints": null
+}

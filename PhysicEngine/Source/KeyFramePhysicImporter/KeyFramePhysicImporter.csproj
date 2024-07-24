@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ReactiveUI" Version="20.1.1" />
+    <PackageReference Include="ReactiveUI.Fody" Version="19.5.41" />
+    <PackageReference Include="ReactiveUI.WPF" Version="20.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JsonHelper\JsonHelper.csproj" />
+    <ProjectReference Include="..\KeyFrameGlobal\KeyFrameGlobal.csproj" />
+    <ProjectReference Include="..\RigidBodyPhysics\RigidBodyPhysics.csproj" />
+    <ProjectReference Include="..\WpfControls\WpfControls.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="GraphicMinimal">
+      <HintPath>..\..\..\Graphic8Dlls\GraphicMinimal.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphicPanels">
+      <HintPath>..\..\..\Graphic8Dlls\GraphicPanels.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphicPanelWpf">
+      <HintPath>..\..\..\Graphic8Dlls\GraphicPanelWpf.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

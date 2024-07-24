@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="EditorControl.View.DistanceJointPropertyControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EditorControl.View" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel>
+        <StackPanel.Resources>
+            <local:EnumVisibiltyConverter x:Key="enumVisibiltyConverter" />
+        </StackPanel.Resources>
+
+        <CheckBox IsChecked="{Binding CollideConnected}" Content="CollideConnected"/>
+
+        <CheckBox IsChecked="{Binding BreakWhenMaxForceIsReached}" Content="Is Breakable" ToolTip="Break when max Distance-Force is reached" />
+        <StackPanel Orientation="Horizontal">
+            <Label Content="MaxForceToBreak"/>
+            <TextBox Text="{Binding Path=MaxForceToBreak, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,StringFormat=N6}"/>
+        </StackPanel>
+
+        <CheckBox IsChecked="{Binding LimitIsEnabled}" Content="LimitIsEnabled"/>
+        <CheckBox IsChecked="{Binding JointIsRope}" Content="Joint is Rope"/>
+        
+        <StackPanel Orientation="Horizontal">
+            <Label Content="MinLength"/>
+            <TextBox Text="{Binding Path=MinLength, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,StringFormat=N2}"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <Label Content="MaxLength"/>
+            <TextBox  Text="{Binding Path=MaxLength, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,StringFormat=N2}"/>
+        </StackPanel>
+
+        <local:SoftPropertyControl DataContext="{Binding Path=Soft, Mode=OneWay}"/>
+
+
+    </StackPanel>
+</UserControl>

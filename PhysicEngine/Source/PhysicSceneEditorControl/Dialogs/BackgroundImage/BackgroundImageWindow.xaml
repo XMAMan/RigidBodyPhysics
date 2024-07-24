@@ -1,0 +1,27 @@
+﻿<Window x:Class="PhysicSceneEditorControl.Dialogs.BackgroundImage.BackgroundImageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PhysicSceneEditorControl.Dialogs.BackgroundImage"
+        mc:Ignorable="d"
+        Title="BackgroundImageWindow" Height="150" Width="200">
+    <StackPanel>
+        <Button Content="Load Image from File" Command="{Binding LoadImageFromFileClick}"/>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Zoom: "/>
+            <Slider Minimum="0" Maximum="10" Value="{Binding Zoom}" Width="100"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <Label Content="XPosition: "/>
+            <Slider Minimum="0" Maximum="1" Value="{Binding XPosition}" Width="100"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <Label Content="YPosition: "/>
+            <Slider Minimum="0" Maximum="1" Value="{Binding YPosition}" Width="100"/>
+        </StackPanel>
+
+    </StackPanel>
+</Window>

@@ -1,0 +1,253 @@
+{
+  "$type": "RigidBodyPhysics.ExportData.PhysicSceneExportData, RigidBodyPhysics",
+  "Bodies": {
+    "$type": "RigidBodyPhysics.ExportData.RigidBody.IExportRigidBody[], RigidBodyPhysics",
+    "$values": [
+      {
+        "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
+        "Radius": 20.0,
+        "Center": {
+          "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+          "X": 350.0,
+          "Y": 118.0
+        },
+        "AngleInDegree": 0.0,
+        "Velocity": {
+          "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "AngularVelocity": 0.0,
+        "MassData": {
+          "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+          "Type": 2,
+          "Mass": 1.0,
+          "Density": 0.0001
+        },
+        "Friction": 0.03,
+        "Restituion": 0.5,
+        "CollisionCategory": 0
+      },
+      {
+        "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
+        "Size": {
+          "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+          "X": 119.0,
+          "Y": 42.0
+        },
+        "BreakWhenMaxPushPullForceIsReached": false,
+        "MaxPushPullForce": 1.0,
+        "Center": {
+          "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+          "X": 597.0,
+          "Y": 118.0
+        },
+        "AngleInDegree": 0.0,
+        "Velocity": {
+          "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "AngularVelocity": 0.0,
+        "MassData": {
+          "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+          "Type": 1,
+          "Mass": 1.0,
+          "Density": 0.0001
+        },
+        "Friction": 0.03,
+        "Restituion": 0.5,
+        "CollisionCategory": 0
+      },
+      {
+        "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
+        "Radius": 20.0,
+        "Center": {
+          "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+          "X": 950.0,
+          "Y": 118.0
+        },
+        "AngleInDegree": 0.0,
+        "Velocity": {
+          "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "AngularVelocity": 0.0,
+        "MassData": {
+          "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+          "Type": 2,
+          "Mass": 1.0,
+          "Density": 0.0001
+        },
+        "Friction": 0.03,
+        "Restituion": 0.5,
+        "CollisionCategory": 0
+      },
+      {
+        "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
+        "Size": {
+          "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+          "X": 119.0,
+          "Y": 42.0
+        },
+        "BreakWhenMaxPushPullForceIsReached": false,
+        "MaxPushPullForce": 1.0,
+        "Center": {
+          "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+          "X": 1197.0,
+          "Y": 118.0
+        },
+        "AngleInDegree": 0.0,
+        "Velocity": {
+          "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "AngularVelocity": 0.0,
+        "MassData": {
+          "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+          "Type": 1,
+          "Mass": 1.0,
+          "Density": 0.0001
+        },
+        "Friction": 0.03,
+        "Restituion": 0.5,
+        "CollisionCategory": 0
+      }
+    ]
+  },
+  "Joints": {
+    "$type": "RigidBodyPhysics.ExportData.Joints.IExportJoint[], RigidBodyPhysics",
+    "$values": [
+      {
+        "$type": "RigidBodyPhysics.ExportData.Joints.DistanceJointExportData, RigidBodyPhysics",
+        "BodyIndex1": 0,
+        "BodyIndex2": 1,
+        "R1": {
+          "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "R2": {
+          "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+          "X": -59.5,
+          "Y": 0.0
+        },
+        "CollideConnected": true,
+        "LimitIsEnabled": true,
+        "JointIsRope": false,
+        "MinLength": 0.0,
+        "MaxLength": 189.0,
+        "SoftData": {
+          "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
+          "ParameterType": 2,
+          "FrequencyHertz": 100.0,
+          "DampingRatio": 0.5,
+          "Stiffness": 200.0,
+          "Damping": 0.1
+        },
+        "BreakWhenMaxForceIsReached": false,
+        "MaxForceToBreak": 1.0
+      },
+      {
+        "$type": "RigidBodyPhysics.ExportData.Joints.DistanceJointExportData, RigidBodyPhysics",
+        "BodyIndex1": 2,
+        "BodyIndex2": 3,
+        "R1": {
+          "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "R2": {
+          "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+          "X": -59.5,
+          "Y": 0.0
+        },
+        "CollideConnected": true,
+        "LimitIsEnabled": true,
+        "JointIsRope": false,
+        "MinLength": 0.0,
+        "MaxLength": 189.0,
+        "SoftData": {
+          "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
+          "ParameterType": 1,
+          "FrequencyHertz": 100.0,
+          "DampingRatio": 0.5,
+          "Stiffness": 200.0,
+          "Damping": 0.1
+        },
+        "BreakWhenMaxForceIsReached": false,
+        "MaxForceToBreak": 1.0
+      }
+    ]
+  },
+  "Thrusters": {
+    "$type": "RigidBodyPhysics.ExportData.Thruster.IExportThruster[], RigidBodyPhysics",
+    "$values": []
+  },
+  "Motors": {
+    "$type": "RigidBodyPhysics.ExportData.RotaryMotor.IExportRotaryMotor[], RigidBodyPhysics",
+    "$values": []
+  },
+  "AxialFrictions": {
+    "$type": "RigidBodyPhysics.ExportData.AxialFriction.IExportAxialFriction[], RigidBodyPhysics",
+    "$values": [
+      {
+        "$type": "RigidBodyPhysics.ExportData.AxialFriction.AxialFrictionExportData, RigidBodyPhysics",
+        "BodyIndex": 3,
+        "R1": {
+          "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "ForceDirection": {
+          "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+          "X": 0.0,
+          "Y": -1.0
+        },
+        "Friction": 5E-05
+      }
+    ]
+  },
+  "CollisionMatrix": {
+    "$type": "System.Boolean[,], System.Private.CoreLib",
+    "$values": [
+      [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    ]
+  }
+}

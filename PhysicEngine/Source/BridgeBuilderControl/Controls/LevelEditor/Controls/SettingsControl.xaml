@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="BridgeBuilderControl.Controls.LevelEditor.Controls.SettingsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BridgeBuilderControl.Controls.LevelEditor.Controls"
+             xmlns:xctk="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit.NET5"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Width="200">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <!-- https://github.com/xceedsoftware/wpftoolkit/wiki/IntegerUpDown#usage -->
+        
+        <Label Grid.Column="0" Grid.Row="0" Content="XCount" Margin="-3"/>
+        <xctk:IntegerUpDown Grid.Column="1" Grid.Row="0" Value="{Binding XCount}" FormatString="N0"  Increment="1" Minimum="1" Maximum="300"/>
+        
+        <Label Grid.Column="0" Grid.Row="1" Content="YCount" Margin="-3"/>
+        <xctk:IntegerUpDown Grid.Column="1" Grid.Row="1" Value="{Binding YCount}" FormatString="N0"  Increment="1" Minimum="1" Maximum="300"/>
+
+        <Label Grid.Column="0" Grid.Row="2" Content="GroundHeight" Margin="-3"/>
+        <xctk:IntegerUpDown Grid.Column="1" Grid.Row="2" Value="{Binding GroundHeight}" FormatString="N0"  Increment="1" Minimum="0" Maximum="300"/>
+
+        <Label Grid.Column="0" Grid.Row="3" Content="WaterHeight" Margin="-3"/>
+        <xctk:IntegerUpDown Grid.Column="1" Grid.Row="3" Value="{Binding WaterHeight}" FormatString="N0"  Increment="1" Minimum="0" Maximum="50"/>
+
+        <Label Grid.Column="0" Grid.Row="4" Content="Budget" Margin="-3"/>
+        <xctk:IntegerUpDown Grid.Column="1" Grid.Row="4" Value="{Binding Budget}" FormatString="N0"  Increment="1" Minimum="0" Maximum="100000"/>
+
+        <Label Grid.Column="0" Grid.Row="5" Content="TrainExtraSpeed" Margin="-3"/>
+        <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding Path=TrainExtraSpeed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,StringFormat=N6}"/>
+    </Grid>
+</UserControl>

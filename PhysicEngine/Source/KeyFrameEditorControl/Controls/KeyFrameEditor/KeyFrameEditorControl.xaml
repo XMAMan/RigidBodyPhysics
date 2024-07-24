@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="KeyFrameEditorControl.Controls.KeyFrameEditor.KeyFrameEditorControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KeyFrameEditorControl.Controls.KeyFrameEditor"
+             xmlns:myWpf="clr-namespace:WpfControls.Controls;assembly=WpfControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <DockPanel>
+        <DockPanel.Resources>
+            <BooleanToVisibilityConverter x:Key="BoolToVis" />
+        </DockPanel.Resources>
+        <DockPanel DockPanel.Dock="Top">
+            <StackPanel DockPanel.Dock="Left"  Orientation="Horizontal" x:Name="stack">
+                <Button Content="Import PhysicScene" Command="{Binding ImportPhysicSceneClick}" Visibility="{Binding ShowSaveLoadButtons, Converter={StaticResource BoolToVis}}"/>
+                <Button Margin="2" Command="{Binding SaveClick}" ToolTip="Save" Visibility="{Binding ShowSaveLoadButtons, Converter={StaticResource BoolToVis}}">
+                    <myWpf:AutoDisableImage Source="/KeyFrameEditorControl;component/Controls/KeyFrameEditor/Save.PNG" Width="30" Height="30"></myWpf:AutoDisableImage>
+                </Button>
+                <Button Margin="2" Command="{Binding LoadClick}" ToolTip="Load" Visibility="{Binding ShowSaveLoadButtons, Converter={StaticResource BoolToVis}}">
+                    <myWpf:AutoDisableImage Source="/KeyFrameEditorControl;component/Controls/KeyFrameEditor/Load.PNG" Width="30" Height="30"></myWpf:AutoDisableImage>
+                </Button>
+            </StackPanel>
+        </DockPanel>
+
+        <ContentControl Content="{Binding ContentUserControl}"/>
+    </DockPanel>
+</UserControl>

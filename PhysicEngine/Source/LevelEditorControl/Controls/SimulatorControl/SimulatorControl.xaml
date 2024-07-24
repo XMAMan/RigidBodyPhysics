@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="LevelEditorControl.Controls.SimulatorControl.SimulatorControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LevelEditorControl.Controls.SimulatorControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="170" d:DesignWidth="400" Name="UserControl">
+    <Border BorderBrush="Orange" BorderThickness="2" Height="75">
+        <Border.Resources>
+            <BooleanToVisibilityConverter x:Key="BoolToVis" />
+        </Border.Resources>
+
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" >
+                    <Button Margin="2" Command="{Binding RestartClick}" ToolTip="Restart">
+                        <Image Source="/LevelEditorControl;component/Controls/SimulatorControl/Restart.png" Width="30" Height="30"></Image>
+                    </Button>
+                    <Button Margin="2" Command="{Binding PlayPauseClick}">
+                        <Image Source="{Binding PlayPauseImage}" Width="30" Height="30" Name="image"></Image>
+                    </Button>
+                    <Button Margin="2" Command="{Binding SingleStepClick}" ToolTip="Single Step" >
+                        <Image Source="/LevelEditorControl;component/Controls/SimulatorControl/SingleStep.png" Width="30" Height="30"></Image>
+                    </Button>
+
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox Content="Gravity" IsChecked="{Binding HasGravity}" Margin="5 0"/>
+                    <TextBox Width="44" Text="{Binding Gravity, UpdateSourceTrigger=PropertyChanged,StringFormat=N6}" Height="16" Margin="0 0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Iterations" Margin="0 -8"/>
+                    <TextBox Width="44" Text="{Binding IterationCount, UpdateSourceTrigger=PropertyChanged}" Height="16" Margin="7.5 0"/>
+                </StackPanel>
+
+            </StackPanel>
+
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Margin="2" Command="{Binding ReplayClick}" ToolTip="Replay"  Visibility="{Binding ShowReplayButton, Converter={StaticResource BoolToVis}}">
+                        <Image Source="/LevelEditorControl;component/Controls/SimulatorControl/Replay.PNG" Width="30" Height="30"></Image>
+                    </Button>
+
+                    <Button Margin="2" Command="{Binding SaveReplayClick}" ToolTip="Save Replay" Visibility="{Binding ShowReplayButton, Converter={StaticResource BoolToVis}}">
+                        <Image Source="/LevelEditorControl;component/Controls/SimulatorControl/Save.PNG" Width="30" Height="30"></Image>
+                    </Button>
+
+                    <Button Margin="2" Command="{Binding LoadReplayClick}" ToolTip="Load Replay" Visibility="{Binding SimulatorIsActive, Converter={StaticResource BoolToVis}}">
+                        <Image Source="/LevelEditorControl;component/Controls/SimulatorControl/Load.PNG" Width="30" Height="30"></Image>
+                    </Button>
+
+                    <Button Margin="2" Command="{Binding CopyPhysicSceneToClipboard}" ToolTip="Copy PhysicScene to Clipboard" Visibility="{Binding SimulatorIsActive, Converter={StaticResource BoolToVis}}">
+                        <Image Source="/LevelEditorControl;component/Controls/SimulatorControl/Clipboard.PNG" Width="30" Height="30"></Image>
+                    </Button>
+
+                    <Button Margin="2" Command="{Binding ShowForceDataClick}" ToolTip="Show Force Data" Visibility="{Binding ShowForceDataButton, Converter={StaticResource BoolToVis}}">
+                        <Image Source="/LevelEditorControl;component/Controls/SimulatorControl/PushApart.png" Width="30" Height="30"></Image>
+                        <Button.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem IsCheckable="true" IsChecked="{Binding ForceTrackerShowBodies}" Header="Show Body-Indices" Command="{Binding ShowBodiesClick}"/>
+                                <MenuItem IsCheckable="true" IsChecked="{Binding ForceTrackerShowJoints}" Header="Show Joint-Indices" Command="{Binding ShowJointsClick}"/>
+                                <MenuItem IsCheckable="true" IsChecked="{Binding ForceTrackerShowAxialFrictions}" Header="Show AxialFriction-Indices" Command="{Binding ShowAxialFrictionsClick}"/>
+                            </ContextMenu>
+                        </Button.ContextMenu>
+                    </Button>
+
+                    <CheckBox Content="Use Cameratracking" IsChecked="{Binding UseCameraTracking}" Visibility="{Binding UseCameraTrackingCheckboxIsVisible, Converter={StaticResource BoolToVis}}"/>
+                </StackPanel>
+                <Label Content="{Binding LoadedReplayFile}" Margin="-5"/>
+                <StackPanel Orientation="Horizontal"  Margin="-5">
+                    <Label Content="{Binding TimerTickCounter}" Visibility="{Binding SimulatorIsActive, Converter={StaticResource BoolToVis}}"/>
+                    <Label Content="{Binding State}" Visibility="{Binding SimulatorIsActive, Converter={StaticResource BoolToVis}}"/>
+                </StackPanel>
+
+            </StackPanel>
+
+        </StackPanel>
+
+
+    </Border>
+</UserControl>

@@ -1,0 +1,7 @@
+..\Source\PhysicEngine\bin\Debug\net7.0-windows\PhysicEngine.exe -dataFolder ..\Source\ -outputFolder .\ -mode CreateCleanBat
+..\Source\PhysicEngine\bin\Debug\net7.0-windows\PhysicEngine.exe -dataFolder "..\Dokumentation\Part1 - Iterative Impulse\ExampleCode\Source" -outputFolder "..\Dokumentation\Part1 - Iterative Impulse\ExampleCode" -mode CreateCleanBat
+..\Source\PhysicEngine\bin\Debug\net7.0-windows\PhysicEngine.exe -dataFolder "..\Dokumentation\Part2 - Enter the Matrix\ExampleCode\Source" -outputFolder "..\Dokumentation\Part2 - Enter the Matrix\ExampleCode" -mode CreateCleanBat
+..\Source\PhysicEngine\bin\Debug\net7.0-windows\PhysicEngine.exe -dataFolder "..\Dokumentation\Part3 - Sequentiell Impulse\ExampleCode\Source" -outputFolder "..\Dokumentation\Part3 - Sequentiell Impulse\ExampleCode" -mode CreateCleanBat
+..\Source\PhysicEngine\bin\Debug\net7.0-windows\PhysicEngine.exe -dataFolder "..\Dokumentation\Part4 - Soft- and Multi-Constraints\ExampleCode\Source" -outputFolder "..\Dokumentation\Part4 - Soft- and Multi-Constraints\ExampleCode" -mode CreateCleanBat
+..\Source\PhysicEngine\bin\Debug\net7.0-windows\PhysicEngine.exe -dataFolder "..\Dokumentation\Part5 - Joints\ExampleCode\Source" -outputFolder "..\Dokumentation\Part5 - Joints\ExampleCode" -mode CreateCleanBat
+..\Source\PhysicEngine\bin\Debug\net7.0-windows\PhysicEngine.exe -dataFolder "..\Dokumentation\Part6 - Polygons\ExampleCode\Source" -outputFolder "..\Dokumentation\Part6 - Polygons\ExampleCode" -mode CreateCleanBat

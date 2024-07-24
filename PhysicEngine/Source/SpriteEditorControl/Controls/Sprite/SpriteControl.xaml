@@ -1,0 +1,100 @@
+﻿<UserControl x:Class="SpriteEditorControl.Controls.Sprite.SpriteControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SpriteEditorControl.Controls.Sprite"
+             xmlns:converter="clr-namespace:WpfControls.Converter;assembly=WpfControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Right" VerticalAlignment="Top">
+            <GroupBox Header="Image-Settings">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Column="0" Grid.Row="0" Content="Selected Animation"/>
+                    <ComboBox Grid.Column="1" Grid.Row="0" SelectedIndex="{Binding SelectedAnimationIndex}" ItemsSource="{Binding Animations}"/>
+
+                    <Label Grid.Column="0" Grid.Row="1" Content="SpriteCount"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding SpriteCount}"/>
+
+                    <Label Grid.Column="0" Grid.Row="2" Content="Oriantation"/>
+                    <ComboBox Grid.Column="1" Grid.Row="2" SelectedItem="{Binding Oriantation}" ItemsSource="{Binding OriantationValues}"/>
+
+                    <Label Grid.Column="0" Grid.Row="3" Content="TimeStepsPerFrame"/>
+                    <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding TimeStepsPerFrame}"/>
+
+                    <Label Grid.Column="0" Grid.Row="4" Content="IterationCount"/>
+                    <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding IterationCount}"/>
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Header="Visualisation" Margin="0 10 0 0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Column="0" Grid.Row="0" Content="Show BoundingBox"/>
+                    <CheckBox Grid.Column="1" Grid.Row="0"  IsChecked="{Binding ShowBoundingBox}" VerticalAlignment="Center"/>
+
+                    <Label Grid.Column="0" Grid.Row="1" Content="PivotX"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding PivotX}"/>
+
+                    <Label Grid.Column="0" Grid.Row="2" Content="PivotY"/>
+                    <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding PivotY}"/>
+
+                    <Label Grid.Column="0" Grid.Row="3" Content="Zoom"/>
+                    <Slider Grid.Column="1" Grid.Row="3" Minimum="0" Maximum="10" Value="{Binding Zoom}">
+                        <Slider.InputBindings>
+                            <MouseBinding Gesture="RightClick" Command="{Binding ZoomRightClick}" CommandParameter="Das ist ein Test"/>
+                        </Slider.InputBindings>
+                    </Slider>
+
+
+                    <Label Grid.Column="0" Grid.Row="4" Content="RotateZ"/>
+                    <Slider Grid.Column="1" Grid.Row="4" Minimum="-180" Maximum="180" Value="{Binding RotateZ}">
+                        <Slider.InputBindings>
+                            <MouseBinding Gesture="RightClick" Command="{Binding RotateZRightClick}"/>
+                        </Slider.InputBindings>
+                    </Slider>
+
+                    <Label Grid.Column="0" Grid.Row="5" Content="RotateY"/>
+                    <Slider Grid.Column="1" Grid.Row="5" Minimum="-180" Maximum="180" Value="{Binding RotateY}">
+                        <Slider.InputBindings>
+                            <MouseBinding Gesture="RightClick" Command="{Binding RotateYRightClick}"/>
+                        </Slider.InputBindings>
+                    </Slider>
+
+                    
+
+                </Grid>
+            </GroupBox>
+
+            <Button Content="Save Sprite" Command="{Binding SaveClick}"/>
+        </StackPanel>
+        
+        <Border BorderThickness="5" BorderBrush="DarkBlue" x:Name="graphicControlBorder"/>
+    </DockPanel>
+</UserControl>
