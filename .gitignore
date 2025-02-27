@@ -4,18 +4,23 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # UnitTestResults Ignore all Files from UnitTestResults, ImageCreatorSaveFolder and SceneBatfiles
+
 PhysicEngine/Dokumentation/Part4\ -\ Soft-\ and\ Multi-Constraints/ExampleCode/Data/TestResults/*
 !PhysicEngine/Dokumentation/Part4\ -\ Soft-\ and\ Multi-Constraints/ExampleCode/Data/TestResults/.gitkeep
 PhysicEngine/Dokumentation/Part5\ -\ Joints/ExampleCode/Data/TestResults/*
 !PhysicEngine/Dokumentation/Part5\ -\ Joints/ExampleCode/Data/TestResults/.gitkeep
-PhysicEngine/Dokumentation/Part6\ -\ Polygons/ExampleCode/Data/TestResults*
+PhysicEngine/Dokumentation/Part6\ -\ Polygons/ExampleCode/Data/TestResults/*
 !PhysicEngine/Dokumentation/Part6\ -\ Polygons/ExampleCode/Data/TestResults/.gitkeep
+
 PhysicEngine/Data/TestData/DemoGameTestResults/*
 !PhysicEngine/Data/TestData/DemoGameTestResults/Expected/
 !PhysicEngine/Data/TestData/DemoGameTestResults/BridgeBuilder/
 PhysicEngine/Data/TestData/DynamicObjCreationTestData/*
 !PhysicEngine/Data/TestData/DynamicObjCreationTestData/ExpectedImages/
 !PhysicEngine/Data/TestData/DynamicObjCreationTestData/InputData/
+PhysicEngine/Data/TestData/RigidBodyPhysicsTestData/TestResults/*
+!PhysicEngine/Data/TestData/RigidBodyPhysicsTestData/TestResults/.gitkeep
+
 PhysicEngine/Data/TestData/RigidBodyPhysicsTestData/TestResults/*
 !PhysicEngine/Data/TestData/RigidBodyPhysicsTestData/TestResults/.gitkeep
 
@@ -58,7 +63,7 @@ bld/
 Generated\ Files/
 
 # MSTest test Results
-[Tt]est[Rr]esult*/
+#[Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
 # NUnit
