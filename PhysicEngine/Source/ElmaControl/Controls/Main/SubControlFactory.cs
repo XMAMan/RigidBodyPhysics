@@ -1,4 +1,5 @@
-﻿using ElmaControl.Controls.Game;
+﻿using DemoApplicationHelper;
+using ElmaControl.Controls.Game;
 using ElmaControl.Controls.LevelSelect;
 using ElmaControl.Controls.MainSelect;
 using ElmaControl.Controls.SingleLevel;
@@ -50,7 +51,7 @@ namespace ElmaControl.Controls.Main
 
                 case ControlType.Game:
                     {
-                        var vm = new GameViewModel(data.Panel, data.SoundGenerator, data.TimerTickRateInMs, data.DataFolder);
+                        var vm = new GameViewModel(data.Panel, (data as EditorInputDataWithSound).SoundGenerator, data.TimerTickRateInMs, data.DataFolder);
                         var control = new Controls.Game.GameControl(vm, data.Panel);
                         return control;
                     }

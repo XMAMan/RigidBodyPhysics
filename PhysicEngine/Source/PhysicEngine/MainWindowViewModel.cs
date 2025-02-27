@@ -1,4 +1,5 @@
-﻿using GraphicPanels;
+﻿using DemoApplicationHelper;
+using GraphicPanels;
 using GraphicPanelWpf;
 using PhysicEngine.Tools;
 using PowerArgs;
@@ -127,7 +128,7 @@ namespace PhysicEngine
         {
             this.Title = editorType.ToString();
             this.ContentUserControl = EditorFactory.CreateEditorControl(editorType,
-                new EditorInputData()
+                new EditorInputDataWithSound()
                 {
                     ShowSaveLoadButtons = true,
                     ShowGoBackButton = false,

@@ -20,6 +20,7 @@
     <ProjectReference Include="..\AstroidsControl\AstroidsControl.csproj" />
     <ProjectReference Include="..\BridgeBuilderControl\BridgeBuilderControl.csproj" />
     <ProjectReference Include="..\CarDrifterControl\CarDrifterControl.csproj" />
+    <ProjectReference Include="..\DemoApplicationHelper\DemoApplicationHelper.csproj" />
     <ProjectReference Include="..\ElmaControl\ElmaControl.csproj" />
     <ProjectReference Include="..\KeyFrameEditorControl\KeyFrameEditorControl.csproj" />
     <ProjectReference Include="..\LevelEditorControl\LevelEditorControl.csproj" />

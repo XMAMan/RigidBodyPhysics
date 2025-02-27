@@ -1,4 +1,5 @@
-﻿using SkiJumperControl.Controls;
+﻿using DemoApplicationHelper;
+using SkiJumperControl.Controls;
 using WpfControls.Model;
 
 namespace SkiJumperControl
@@ -15,7 +16,7 @@ namespace SkiJumperControl
 
         public object CreateEditorViewModel(EditorInputData data)
         {
-            return new MainViewModel(data.Panel, data.SoundGenerator, data.TimerTickRateInMs, data.DataFolder);
+            return new MainViewModel(data.Panel, (data as EditorInputDataWithSound).SoundGenerator, data.TimerTickRateInMs, data.DataFolder);
         }
     }
 }

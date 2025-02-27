@@ -1,4 +1,5 @@
-﻿using SpiderBoxControl.Controls;
+﻿using DemoApplicationHelper;
+using SpiderBoxControl.Controls;
 using WpfControls.Model;
 
 namespace SpiderBoxControl
@@ -15,7 +16,7 @@ namespace SpiderBoxControl
 
         public object CreateEditorViewModel(EditorInputData data)
         {
-            return new MainViewModel(data.Panel, data.SoundGenerator, data.TimerTickRateInMs, data.DataFolder);
+            return new MainViewModel(data.Panel, (data as EditorInputDataWithSound).SoundGenerator, data.TimerTickRateInMs, data.DataFolder);
         }
     }
 }

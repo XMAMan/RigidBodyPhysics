@@ -1,4 +1,5 @@
 ﻿using CarDrifterControl.Controls;
+using DemoApplicationHelper;
 using LevelEditorControl;
 using Simulator;
 using WpfControls.Model;
@@ -17,7 +18,7 @@ namespace CarDrifterControl
 
         public object CreateEditorViewModel(EditorInputData data)
         {
-            return new MainViewModel(data.Panel, data.SoundGenerator, data.TimerTickRateInMs, data.DataFolder); ;
+            return new MainViewModel(data.Panel, (data as EditorInputDataWithSound).SoundGenerator, data.TimerTickRateInMs, data.DataFolder); ;
         }
     }
 
@@ -38,7 +39,7 @@ namespace CarDrifterControl
 
         public object CreateEditorViewModel(EditorInputData data)
         {
-            return new MainViewModel(data.Panel, data.SoundGenerator, data.TimerTickRateInMs, data.DataFolder); //Game-ViewModel
+            return new MainViewModel(data.Panel, (data as EditorInputDataWithSound).SoundGenerator, data.TimerTickRateInMs, data.DataFolder); //Game-ViewModel
         }
     }
 }

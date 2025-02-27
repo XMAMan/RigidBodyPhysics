@@ -1,4 +1,5 @@
-﻿using DemoApplications.UnitTests.SoundMocking;
+﻿using DemoApplicationHelper;
+using DemoApplications.UnitTests.SoundMocking;
 using GameHelper;
 using GraphicPanels;
 using System.Drawing;
@@ -13,7 +14,7 @@ namespace DemoApplications.UnitTests
             var sound = new SoundGeneratorMock();
             var panel = new GraphicPanel2D() { Width = singleImageWidth, Height = singleImageHeight, Mode = Mode2D.OpenGL_Version_3_0 };
 
-            var sut = (IPhysicSimulated)editorFactory.CreateEditorViewModel(new EditorInputData()
+            var sut = (IPhysicSimulated)editorFactory.CreateEditorViewModel(new EditorInputDataWithSound()
             {
                 Panel = panel,
                 DataFolder = DemoGameTests.GameFolder + gameFolder + "\\",
