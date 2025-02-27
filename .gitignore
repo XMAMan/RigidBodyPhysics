@@ -14,7 +14,8 @@ PhysicEngine/Dokumentation/Part6\ -\ Polygons/ExampleCode/Data/TestResults/*
 
 PhysicEngine/Data/TestData/DemoGameTestResults/*
 !PhysicEngine/Data/TestData/DemoGameTestResults/Expected/
-!PhysicEngine/Data/TestData/DemoGameTestResults/BridgeBuilder/
+!PhysicEngine/Data/TestData/DemoGameTestResults/BridgeBuilder/*
+PhysicEngine/Data/TestData/DemoGameTestResults/BridgeBuilder/TestRun.txt
 PhysicEngine/Data/TestData/DynamicObjCreationTestData/*
 !PhysicEngine/Data/TestData/DynamicObjCreationTestData/ExpectedImages/
 !PhysicEngine/Data/TestData/DynamicObjCreationTestData/InputData/
