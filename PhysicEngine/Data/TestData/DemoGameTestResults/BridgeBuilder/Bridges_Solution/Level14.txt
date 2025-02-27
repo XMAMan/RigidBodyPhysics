@@ -1,0 +1,609 @@
+{
+  "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.BridgeExport, BridgeBuilderControl",
+  "AssociatedLevel": "Level14.txt",
+  "Bars": {
+    "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar[], BridgeBuilderControl",
+    "$values": [
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "56, 32",
+        "P2": "64, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "64, 32",
+        "P2": "72, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "72, 32",
+        "P2": "80, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "80, 32",
+        "P2": "88, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "88, 32",
+        "P2": "96, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "96, 32",
+        "P2": "104, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "104, 32",
+        "P2": "112, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "112, 32",
+        "P2": "120, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "120, 32",
+        "P2": "128, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "128, 32",
+        "P2": "136, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "64, 32",
+        "P2": "64, 40"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "64, 40",
+        "P2": "60, 48"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "64, 40",
+        "P2": "64, 48"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "64, 48",
+        "P2": "72, 44"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "72, 44",
+        "P2": "80, 40"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "80, 40",
+        "P2": "88, 36"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "88, 36",
+        "P2": "96, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "128, 48",
+        "P2": "120, 44"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "120, 44",
+        "P2": "112, 40"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "112, 40",
+        "P2": "104, 36"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "104, 36",
+        "P2": "96, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "128, 48",
+        "P2": "128, 40"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "128, 40",
+        "P2": "132, 40"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "132, 40",
+        "P2": "132, 48"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "132, 40",
+        "P2": "136, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "132, 40",
+        "P2": "128, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "128, 40",
+        "P2": "132, 48"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "132, 40",
+        "P2": "128, 48"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "120, 36",
+        "P2": "112, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "112, 32",
+        "P2": "104, 36"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "104, 32",
+        "P2": "104, 36"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "104, 36",
+        "P2": "112, 36"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "112, 36",
+        "P2": "112, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "104, 32",
+        "P2": "112, 36"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "112, 36",
+        "P2": "120, 36"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "120, 36",
+        "P2": "120, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "120, 32",
+        "P2": "112, 36"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "112, 36",
+        "P2": "120, 40"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "120, 40",
+        "P2": "112, 40"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "112, 40",
+        "P2": "112, 36"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "120, 36",
+        "P2": "112, 40"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "120, 40",
+        "P2": "120, 36"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "120, 40",
+        "P2": "120, 44"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "88, 36",
+        "P2": "80, 36"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "80, 36",
+        "P2": "72, 36"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "72, 36",
+        "P2": "72, 40"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "72, 40",
+        "P2": "80, 40"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "80, 40",
+        "P2": "80, 36"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "80, 36",
+        "P2": "72, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "72, 32",
+        "P2": "72, 36"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "72, 36",
+        "P2": "80, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "80, 32",
+        "P2": "88, 36"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "88, 36",
+        "P2": "88, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "88, 32",
+        "P2": "80, 36"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "80, 36",
+        "P2": "80, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "80, 36",
+        "P2": "72, 40"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "72, 36",
+        "P2": "80, 40"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "72, 36",
+        "P2": "64, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "72, 36",
+        "P2": "64, 40"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "64, 40",
+        "P2": "72, 40"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "72, 40",
+        "P2": "72, 44"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "72, 44",
+        "P2": "64, 40"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "56, 32",
+        "P2": "60, 40"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "60, 40",
+        "P2": "64, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "60, 40",
+        "P2": "60, 48"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "60, 40",
+        "P2": "64, 40"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "88, 32",
+        "P2": "96, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "96, 28",
+        "P2": "104, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "80, 32",
+        "P2": "88, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "88, 28",
+        "P2": "96, 24"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "96, 24",
+        "P2": "104, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "104, 28",
+        "P2": "112, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "72, 32",
+        "P2": "80, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "80, 28",
+        "P2": "88, 24"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "88, 24",
+        "P2": "96, 20"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "96, 20",
+        "P2": "104, 24"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "104, 24",
+        "P2": "112, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "112, 28",
+        "P2": "104, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "104, 32",
+        "P2": "104, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "104, 28",
+        "P2": "112, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "112, 28",
+        "P2": "112, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "104, 28",
+        "P2": "104, 24"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "104, 24",
+        "P2": "96, 24"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "96, 24",
+        "P2": "96, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "96, 28",
+        "P2": "104, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "104, 24",
+        "P2": "96, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "96, 28",
+        "P2": "96, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "96, 32",
+        "P2": "104, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "96, 24",
+        "P2": "88, 24"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "88, 24",
+        "P2": "96, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "96, 28",
+        "P2": "88, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "88, 28",
+        "P2": "88, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "96, 32",
+        "P2": "88, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "88, 28",
+        "P2": "88, 24"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "96, 24",
+        "P2": "96, 20"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "88, 28",
+        "P2": "80, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "80, 28",
+        "P2": "80, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "80, 28",
+        "P2": "88, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "80, 28",
+        "P2": "72, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "72, 28",
+        "P2": "64, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "64, 28",
+        "P2": "56, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "64, 32",
+        "P2": "64, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "64, 28",
+        "P2": "72, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "72, 32",
+        "P2": "72, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "72, 28",
+        "P2": "64, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "80, 32",
+        "P2": "72, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "120, 40",
+        "P2": "128, 40"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "128, 40",
+        "P2": "120, 44"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "136, 32",
+        "P2": "128, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "128, 28",
+        "P2": "120, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "120, 28",
+        "P2": "112, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "112, 32",
+        "P2": "120, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "120, 28",
+        "P2": "128, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "128, 28",
+        "P2": "120, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "112, 28",
+        "P2": "120, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "120, 32",
+        "P2": "120, 28"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "128, 28",
+        "P2": "128, 32"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "128, 32",
+        "P2": "120, 36"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "120, 36",
+        "P2": "128, 40"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "128, 40",
+        "P2": "128, 32"
+      }
+    ]
+  }
+}

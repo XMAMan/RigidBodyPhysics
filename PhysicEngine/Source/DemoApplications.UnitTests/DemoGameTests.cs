@@ -77,7 +77,7 @@ namespace DemoApplications.UnitTests
             Assert.True(TestHelper.CompareTwoBitmaps(expectedImage, result.Image));
 
             string expectedSoundLog = File.ReadAllText(ExpectedFolder + "Moonlander1_SoundLog.txt");
-            Assert.Equal(expectedSoundLog, result.SoundLog);
+            Assert.Equal(expectedSoundLog.Replace("\r", ""), result.SoundLog.Replace("\r", ""));
         }
 
         [Fact]
@@ -92,7 +92,7 @@ namespace DemoApplications.UnitTests
             Assert.True(TestHelper.CompareTwoBitmaps(expectedImage, result.Image));
 
             string expectedSoundLog = File.ReadAllText(ExpectedFolder + "Moonlander2_SoundLog.txt");
-            Assert.Equal(expectedSoundLog, result.SoundLog);
+            Assert.Equal(expectedSoundLog.Replace("\r", ""), result.SoundLog.Replace("\r", ""));
         }
 
         [Fact]
@@ -107,7 +107,7 @@ namespace DemoApplications.UnitTests
             Assert.True(TestHelper.CompareTwoBitmaps(expectedImage, result.Image));
 
             string expectedSoundLog = File.ReadAllText(ExpectedFolder + "SkiJumper_SoundLog.txt");
-            Assert.Equal(expectedSoundLog, result.SoundLog);
+            Assert.Equal(expectedSoundLog.Replace("\r",""), result.SoundLog.Replace("\r", ""));
         }
 
         [StaFact] //Für dieses Attribut benötigt man das NuGet-Packet: Xunit.StaFact. Wird benötigt, da das MainViewModel UserControls anlegt welche eine Exception im UnitTest werfen.
@@ -122,7 +122,7 @@ namespace DemoApplications.UnitTests
             Assert.True(TestHelper.CompareTwoBitmaps(expectedImage, result.Image));
 
             string expectedSoundLog = File.ReadAllText(ExpectedFolder + "Elma_SoundLog.txt");
-            Assert.Equal(expectedSoundLog, result.SoundLog);
+            Assert.Equal(expectedSoundLog.Replace("\r", ""), result.SoundLog.Replace("\r", ""));
         }
 
         [Fact]
@@ -137,7 +137,7 @@ namespace DemoApplications.UnitTests
             Assert.True(TestHelper.CompareTwoBitmaps(expectedImage, result.Image));
 
             string expectedSoundLog = File.ReadAllText(ExpectedFolder + "Astroids_SoundLog.txt");
-            Assert.Equal(expectedSoundLog, result.SoundLog);
+            Assert.Equal(expectedSoundLog.Replace("\r", ""), result.SoundLog.Replace("\r", ""));
         }
 
         [Fact]
@@ -152,7 +152,7 @@ namespace DemoApplications.UnitTests
             Assert.True(TestHelper.CompareTwoBitmaps(expectedImage, result.Image));
 
             string expectedSoundLog = File.ReadAllText(ExpectedFolder + "CarDrifter_SoundLog.txt");
-            Assert.Equal(expectedSoundLog, result.SoundLog);
+            Assert.Equal(expectedSoundLog.Replace("\r", ""), result.SoundLog.Replace("\r", ""));
         }
     }
 }

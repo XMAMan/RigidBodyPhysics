@@ -1,0 +1,49 @@
+{
+  "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.BridgeExport, BridgeBuilderControl",
+  "AssociatedLevel": "Level1.txt",
+  "Bars": {
+    "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar[], BridgeBuilderControl",
+    "$values": [
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "32, 18",
+        "P2": "39, 13"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "39, 13",
+        "P2": "38, 11"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "38, 11",
+        "P2": "32, 16"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "32, 16",
+        "P2": "39, 13"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "39, 13",
+        "P2": "46, 11"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "46, 11",
+        "P2": "38, 11"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "38, 11",
+        "P2": "42, 10"
+      },
+      {
+        "$type": "BridgeBuilderControl.Controls.BridgeEditor.Model.Bar, BridgeBuilderControl",
+        "P1": "42, 10",
+        "P2": "46, 11"
+      }
+    ]
+  }
+}

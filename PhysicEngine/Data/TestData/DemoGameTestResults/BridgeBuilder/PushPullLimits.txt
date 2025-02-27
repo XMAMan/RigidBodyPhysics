@@ -1,0 +1,1055 @@
+{
+  "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit[], BridgeBuilderControl",
+  "$values": [
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level1.txt",
+      "BreakAfterNSteps": 0,
+      "MaxPullForce": -0.016783204,
+      "MaxPushForce": 0.050658144
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level1.txt",
+      "BreakAfterNSteps": 1,
+      "MaxPullForce": -0.016961189,
+      "MaxPushForce": 0.051139608
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level1.txt",
+      "BreakAfterNSteps": 2,
+      "MaxPullForce": -0.015726052,
+      "MaxPushForce": 0.050176367
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level1.txt",
+      "BreakAfterNSteps": 3,
+      "MaxPullForce": -0.014659999,
+      "MaxPushForce": 0.046112277
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level1.txt",
+      "BreakAfterNSteps": 4,
+      "MaxPullForce": -0.013371453,
+      "MaxPushForce": 0.041285634
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level1.txt",
+      "BreakAfterNSteps": 5,
+      "MaxPullForce": -0.010693474,
+      "MaxPushForce": 0.03908758
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level1.txt",
+      "BreakAfterNSteps": 6,
+      "MaxPullForce": -0.010693474,
+      "MaxPushForce": 0.03908758
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level1.txt",
+      "BreakAfterNSteps": 7,
+      "MaxPullForce": -0.010201033,
+      "MaxPushForce": 0.038366485
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level1.txt",
+      "BreakAfterNSteps": 8,
+      "MaxPullForce": -0.008971366,
+      "MaxPushForce": 0.037863605
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level1.txt",
+      "BreakAfterNSteps": 9,
+      "MaxPullForce": -0.008452959,
+      "MaxPushForce": 0.03577088
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level2.txt",
+      "BreakAfterNSteps": 0,
+      "MaxPullForce": -0.008071393,
+      "MaxPushForce": 0.04325785
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level2.txt",
+      "BreakAfterNSteps": 1,
+      "MaxPullForce": -0.008152212,
+      "MaxPushForce": 0.043653924
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level2.txt",
+      "BreakAfterNSteps": 2,
+      "MaxPullForce": -0.006289918,
+      "MaxPushForce": 0.03836713
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level2.txt",
+      "BreakAfterNSteps": 3,
+      "MaxPullForce": -0.006102211,
+      "MaxPushForce": 0.034295216
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level2.txt",
+      "BreakAfterNSteps": 4,
+      "MaxPullForce": -0.0057501663,
+      "MaxPushForce": 0.03286036
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level2.txt",
+      "BreakAfterNSteps": 5,
+      "MaxPullForce": -0.0036245957,
+      "MaxPushForce": 0.03168284
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level2.txt",
+      "BreakAfterNSteps": 6,
+      "MaxPullForce": -0.0035488931,
+      "MaxPushForce": 0.030308481
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level2.txt",
+      "BreakAfterNSteps": 7,
+      "MaxPullForce": -0.0031676944,
+      "MaxPushForce": 0.0299396
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level2.txt",
+      "BreakAfterNSteps": 8,
+      "MaxPullForce": -0.0028741802,
+      "MaxPushForce": 0.0299396
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level2.txt",
+      "BreakAfterNSteps": 9,
+      "MaxPullForce": -0.0019937288,
+      "MaxPushForce": 0.0299396
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level3.txt",
+      "BreakAfterNSteps": 0,
+      "MaxPullForce": -0.012368366,
+      "MaxPushForce": 0.06755073
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level3.txt",
+      "BreakAfterNSteps": 1,
+      "MaxPullForce": -0.01248783,
+      "MaxPushForce": 0.06818571
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level3.txt",
+      "BreakAfterNSteps": 2,
+      "MaxPullForce": -0.012242833,
+      "MaxPushForce": 0.06259665
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level3.txt",
+      "BreakAfterNSteps": 3,
+      "MaxPullForce": -0.011397554,
+      "MaxPushForce": 0.056228496
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level3.txt",
+      "BreakAfterNSteps": 4,
+      "MaxPullForce": -0.010893253,
+      "MaxPushForce": 0.05588744
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level3.txt",
+      "BreakAfterNSteps": 5,
+      "MaxPullForce": -0.010893253,
+      "MaxPushForce": 0.0540606
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level3.txt",
+      "BreakAfterNSteps": 6,
+      "MaxPullForce": -0.010893253,
+      "MaxPushForce": 0.05348581
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level3.txt",
+      "BreakAfterNSteps": 7,
+      "MaxPullForce": -0.010893253,
+      "MaxPushForce": 0.0531419
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level3.txt",
+      "BreakAfterNSteps": 8,
+      "MaxPullForce": -0.010522267,
+      "MaxPushForce": 0.0531419
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level3.txt",
+      "BreakAfterNSteps": 9,
+      "MaxPullForce": -0.009852959,
+      "MaxPushForce": 0.0531419
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level4.txt",
+      "BreakAfterNSteps": 0,
+      "MaxPullForce": -0.009333552,
+      "MaxPushForce": 0.078143574
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level4.txt",
+      "BreakAfterNSteps": 1,
+      "MaxPullForce": -0.009425235,
+      "MaxPushForce": 0.078867294
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level4.txt",
+      "BreakAfterNSteps": 2,
+      "MaxPullForce": -0.005945937,
+      "MaxPushForce": 0.07802226
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level4.txt",
+      "BreakAfterNSteps": 3,
+      "MaxPullForce": -0.0045428043,
+      "MaxPushForce": 0.07497473
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level4.txt",
+      "BreakAfterNSteps": 4,
+      "MaxPullForce": -0.0033788513,
+      "MaxPushForce": 0.074642
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level4.txt",
+      "BreakAfterNSteps": 5,
+      "MaxPullForce": -0.0026516682,
+      "MaxPushForce": 0.07304335
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level4.txt",
+      "BreakAfterNSteps": 6,
+      "MaxPullForce": -0.0026516682,
+      "MaxPushForce": 0.07304335
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level4.txt",
+      "BreakAfterNSteps": 7,
+      "MaxPullForce": -0.0021268679,
+      "MaxPushForce": 0.07304335
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level4.txt",
+      "BreakAfterNSteps": 8,
+      "MaxPullForce": -0.0020973966,
+      "MaxPushForce": 0.07246555
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level4.txt",
+      "BreakAfterNSteps": 9,
+      "MaxPullForce": -0.0020146358,
+      "MaxPushForce": 0.07225236
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level5.txt",
+      "BreakAfterNSteps": 0,
+      "MaxPullForce": -0.009950749,
+      "MaxPushForce": 0.07877358
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level5.txt",
+      "BreakAfterNSteps": 1,
+      "MaxPullForce": -0.010048007,
+      "MaxPushForce": 0.07952793
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level5.txt",
+      "BreakAfterNSteps": 2,
+      "MaxPullForce": -0.009815093,
+      "MaxPushForce": 0.07814805
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level5.txt",
+      "BreakAfterNSteps": 3,
+      "MaxPullForce": -0.009422313,
+      "MaxPushForce": 0.077553965
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level5.txt",
+      "BreakAfterNSteps": 4,
+      "MaxPullForce": -0.008824524,
+      "MaxPushForce": 0.077172644
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level5.txt",
+      "BreakAfterNSteps": 5,
+      "MaxPullForce": -0.008787651,
+      "MaxPushForce": 0.076811075
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level5.txt",
+      "BreakAfterNSteps": 6,
+      "MaxPullForce": -0.008787651,
+      "MaxPushForce": 0.07644531
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level5.txt",
+      "BreakAfterNSteps": 7,
+      "MaxPullForce": -0.008743144,
+      "MaxPushForce": 0.07612747
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level5.txt",
+      "BreakAfterNSteps": 8,
+      "MaxPullForce": -0.008743144,
+      "MaxPushForce": 0.075628415
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level5.txt",
+      "BreakAfterNSteps": 9,
+      "MaxPullForce": -0.008743144,
+      "MaxPushForce": 0.075628415
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level6.txt",
+      "BreakAfterNSteps": 0,
+      "MaxPullForce": -0.012342843,
+      "MaxPushForce": 0.13970295
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level6.txt",
+      "BreakAfterNSteps": 1,
+      "MaxPullForce": -0.012458405,
+      "MaxPushForce": 0.14105837
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level6.txt",
+      "BreakAfterNSteps": 2,
+      "MaxPullForce": -0.006904829,
+      "MaxPushForce": 0.13542786
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level6.txt",
+      "BreakAfterNSteps": 3,
+      "MaxPullForce": -0.0062880106,
+      "MaxPushForce": 0.13326387
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level6.txt",
+      "BreakAfterNSteps": 4,
+      "MaxPullForce": -0.005979118,
+      "MaxPushForce": 0.13158852
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level6.txt",
+      "BreakAfterNSteps": 5,
+      "MaxPullForce": -0.0058954726,
+      "MaxPushForce": 0.12626213
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level6.txt",
+      "BreakAfterNSteps": 6,
+      "MaxPullForce": -0.0050440636,
+      "MaxPushForce": 0.124980435
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level6.txt",
+      "BreakAfterNSteps": 7,
+      "MaxPullForce": -0.0046452763,
+      "MaxPushForce": 0.12400473
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level6.txt",
+      "BreakAfterNSteps": 8,
+      "MaxPullForce": -0.0046452763,
+      "MaxPushForce": 0.12400473
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level6.txt",
+      "BreakAfterNSteps": 9,
+      "MaxPullForce": -0.0046452763,
+      "MaxPushForce": 0.12400473
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level7.txt",
+      "BreakAfterNSteps": 0,
+      "MaxPullForce": -0.01022347,
+      "MaxPushForce": 0.07810176
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level7.txt",
+      "BreakAfterNSteps": 1,
+      "MaxPullForce": -0.010317316,
+      "MaxPushForce": 0.07882911
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level7.txt",
+      "BreakAfterNSteps": 2,
+      "MaxPullForce": -0.008443244,
+      "MaxPushForce": 0.07806644
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level7.txt",
+      "BreakAfterNSteps": 3,
+      "MaxPullForce": -0.006822366,
+      "MaxPushForce": 0.07795645
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level7.txt",
+      "BreakAfterNSteps": 4,
+      "MaxPullForce": -0.0067067323,
+      "MaxPushForce": 0.07769975
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level7.txt",
+      "BreakAfterNSteps": 5,
+      "MaxPullForce": -0.006701276,
+      "MaxPushForce": 0.07765636
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level7.txt",
+      "BreakAfterNSteps": 6,
+      "MaxPullForce": -0.006622523,
+      "MaxPushForce": 0.077531725
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level7.txt",
+      "BreakAfterNSteps": 7,
+      "MaxPullForce": -0.006446069,
+      "MaxPushForce": 0.077414125
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level7.txt",
+      "BreakAfterNSteps": 8,
+      "MaxPullForce": -0.006432289,
+      "MaxPushForce": 0.077414125
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level7.txt",
+      "BreakAfterNSteps": 9,
+      "MaxPullForce": -0.0062310803,
+      "MaxPushForce": 0.077414125
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level8.txt",
+      "BreakAfterNSteps": 0,
+      "MaxPullForce": -0.016770968,
+      "MaxPushForce": 0.10650207
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level8.txt",
+      "BreakAfterNSteps": 1,
+      "MaxPullForce": -0.016928695,
+      "MaxPushForce": 0.107511
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level8.txt",
+      "BreakAfterNSteps": 2,
+      "MaxPullForce": -0.006535532,
+      "MaxPushForce": 0.10234822
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level8.txt",
+      "BreakAfterNSteps": 3,
+      "MaxPullForce": -0.005237378,
+      "MaxPushForce": 0.09780291
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level8.txt",
+      "BreakAfterNSteps": 4,
+      "MaxPullForce": -0.005168038,
+      "MaxPushForce": 0.09733103
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level8.txt",
+      "BreakAfterNSteps": 5,
+      "MaxPullForce": -0.005168038,
+      "MaxPushForce": 0.09583128
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level8.txt",
+      "BreakAfterNSteps": 6,
+      "MaxPullForce": -0.0050645517,
+      "MaxPushForce": 0.09552745
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level8.txt",
+      "BreakAfterNSteps": 7,
+      "MaxPullForce": -0.004941116,
+      "MaxPushForce": 0.095474795
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level8.txt",
+      "BreakAfterNSteps": 8,
+      "MaxPullForce": -0.0049280617,
+      "MaxPushForce": 0.09478837
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level8.txt",
+      "BreakAfterNSteps": 9,
+      "MaxPullForce": -0.004799539,
+      "MaxPushForce": 0.09465652
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level9.txt",
+      "BreakAfterNSteps": 0,
+      "MaxPullForce": -0.006765323,
+      "MaxPushForce": 0.13624273
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level9.txt",
+      "BreakAfterNSteps": 1,
+      "MaxPullForce": -0.0068277656,
+      "MaxPushForce": 0.13755026
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level9.txt",
+      "BreakAfterNSteps": 2,
+      "MaxPullForce": -0.0061831838,
+      "MaxPushForce": 0.13597453
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level9.txt",
+      "BreakAfterNSteps": 3,
+      "MaxPullForce": -0.005942015,
+      "MaxPushForce": 0.13545895
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level9.txt",
+      "BreakAfterNSteps": 4,
+      "MaxPullForce": -0.005362251,
+      "MaxPushForce": 0.13314542
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level9.txt",
+      "BreakAfterNSteps": 5,
+      "MaxPullForce": -0.00523669,
+      "MaxPushForce": 0.13088349
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level9.txt",
+      "BreakAfterNSteps": 6,
+      "MaxPullForce": -0.005195577,
+      "MaxPushForce": 0.13088349
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level9.txt",
+      "BreakAfterNSteps": 7,
+      "MaxPullForce": -0.005054714,
+      "MaxPushForce": 0.13088349
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level9.txt",
+      "BreakAfterNSteps": 8,
+      "MaxPullForce": -0.0049150856,
+      "MaxPushForce": 0.13038646
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level9.txt",
+      "BreakAfterNSteps": 9,
+      "MaxPullForce": -0.0049150856,
+      "MaxPushForce": 0.12743285
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level10.txt",
+      "BreakAfterNSteps": 0,
+      "MaxPullForce": -0.02130179,
+      "MaxPushForce": 0.07547185
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level10.txt",
+      "BreakAfterNSteps": 1,
+      "MaxPullForce": -0.02151155,
+      "MaxPushForce": 0.0762152
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level10.txt",
+      "BreakAfterNSteps": 2,
+      "MaxPullForce": -0.012757192,
+      "MaxPushForce": 0.075301036
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level10.txt",
+      "BreakAfterNSteps": 3,
+      "MaxPullForce": -0.009640129,
+      "MaxPushForce": 0.07485858
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level10.txt",
+      "BreakAfterNSteps": 4,
+      "MaxPullForce": -0.008958418,
+      "MaxPushForce": 0.07455303
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level10.txt",
+      "BreakAfterNSteps": 5,
+      "MaxPullForce": -0.00703372,
+      "MaxPushForce": 0.07372731
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level10.txt",
+      "BreakAfterNSteps": 6,
+      "MaxPullForce": -0.0057700993,
+      "MaxPushForce": 0.072441295
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level10.txt",
+      "BreakAfterNSteps": 7,
+      "MaxPullForce": -0.0057380274,
+      "MaxPushForce": 0.071850695
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level10.txt",
+      "BreakAfterNSteps": 8,
+      "MaxPullForce": -0.0057380274,
+      "MaxPushForce": 0.07173304
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level10.txt",
+      "BreakAfterNSteps": 9,
+      "MaxPullForce": -0.0057380274,
+      "MaxPushForce": 0.07154374
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level11.txt",
+      "BreakAfterNSteps": 0,
+      "MaxPullForce": -0.008491415,
+      "MaxPushForce": 0.14522664
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level11.txt",
+      "BreakAfterNSteps": 1,
+      "MaxPullForce": -0.008567117,
+      "MaxPushForce": 0.14662962
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level11.txt",
+      "BreakAfterNSteps": 2,
+      "MaxPullForce": -0.007532688,
+      "MaxPushForce": 0.14426214
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level11.txt",
+      "BreakAfterNSteps": 3,
+      "MaxPullForce": -0.00749413,
+      "MaxPushForce": 0.1400362
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level11.txt",
+      "BreakAfterNSteps": 4,
+      "MaxPullForce": -0.0074528856,
+      "MaxPushForce": 0.13904315
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level11.txt",
+      "BreakAfterNSteps": 5,
+      "MaxPullForce": -0.00739419,
+      "MaxPushForce": 0.13873701
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level11.txt",
+      "BreakAfterNSteps": 6,
+      "MaxPullForce": -0.007336885,
+      "MaxPushForce": 0.13873701
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level11.txt",
+      "BreakAfterNSteps": 7,
+      "MaxPullForce": -0.007271313,
+      "MaxPushForce": 0.13853121
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level11.txt",
+      "BreakAfterNSteps": 8,
+      "MaxPullForce": -0.007191072,
+      "MaxPushForce": 0.13829748
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level11.txt",
+      "BreakAfterNSteps": 9,
+      "MaxPullForce": -0.0070590805,
+      "MaxPushForce": 0.13786513
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level12.txt",
+      "BreakAfterNSteps": 0,
+      "MaxPullForce": -0.010319315,
+      "MaxPushForce": 0.10567789
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level12.txt",
+      "BreakAfterNSteps": 1,
+      "MaxPullForce": -0.010417634,
+      "MaxPushForce": 0.10666723
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level12.txt",
+      "BreakAfterNSteps": 2,
+      "MaxPullForce": -0.004240347,
+      "MaxPushForce": 0.10239558
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level12.txt",
+      "BreakAfterNSteps": 3,
+      "MaxPullForce": -0.0041035553,
+      "MaxPushForce": 0.10163801
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level12.txt",
+      "BreakAfterNSteps": 4,
+      "MaxPullForce": -0.0040040826,
+      "MaxPushForce": 0.10097906
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level12.txt",
+      "BreakAfterNSteps": 5,
+      "MaxPullForce": -0.0037633306,
+      "MaxPushForce": 0.10097906
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level12.txt",
+      "BreakAfterNSteps": 6,
+      "MaxPullForce": -0.0035847372,
+      "MaxPushForce": 0.10097906
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level12.txt",
+      "BreakAfterNSteps": 7,
+      "MaxPullForce": -0.003502132,
+      "MaxPushForce": 0.10097906
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level12.txt",
+      "BreakAfterNSteps": 8,
+      "MaxPullForce": -0.0032778224,
+      "MaxPushForce": 0.10087017
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level12.txt",
+      "BreakAfterNSteps": 9,
+      "MaxPullForce": -0.0030204353,
+      "MaxPushForce": 0.10035482
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level13.txt",
+      "BreakAfterNSteps": 0,
+      "MaxPullForce": -0.032668278,
+      "MaxPushForce": 0.11886412
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level13.txt",
+      "BreakAfterNSteps": 1,
+      "MaxPullForce": -0.032987565,
+      "MaxPushForce": 0.11999045
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level13.txt",
+      "BreakAfterNSteps": 2,
+      "MaxPullForce": -0.025996514,
+      "MaxPushForce": 0.11817859
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level13.txt",
+      "BreakAfterNSteps": 3,
+      "MaxPullForce": -0.014384385,
+      "MaxPushForce": 0.117267065
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level13.txt",
+      "BreakAfterNSteps": 4,
+      "MaxPullForce": -0.010535261,
+      "MaxPushForce": 0.11437358
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level13.txt",
+      "BreakAfterNSteps": 5,
+      "MaxPullForce": -0.010298906,
+      "MaxPushForce": 0.111621514
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level13.txt",
+      "BreakAfterNSteps": 6,
+      "MaxPullForce": -0.010298906,
+      "MaxPushForce": 0.109915674
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level13.txt",
+      "BreakAfterNSteps": 7,
+      "MaxPullForce": -0.009903235,
+      "MaxPushForce": 0.10724274
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level13.txt",
+      "BreakAfterNSteps": 8,
+      "MaxPullForce": -0.009903235,
+      "MaxPushForce": 0.10724274
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level13.txt",
+      "BreakAfterNSteps": 9,
+      "MaxPullForce": -0.009903235,
+      "MaxPushForce": 0.10724274
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level14.txt",
+      "BreakAfterNSteps": 0,
+      "MaxPullForce": -0.027546264,
+      "MaxPushForce": 0.12956947
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level14.txt",
+      "BreakAfterNSteps": 1,
+      "MaxPullForce": -0.027817713,
+      "MaxPushForce": 0.13082464
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level14.txt",
+      "BreakAfterNSteps": 2,
+      "MaxPullForce": -0.012663718,
+      "MaxPushForce": 0.1275194
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level14.txt",
+      "BreakAfterNSteps": 3,
+      "MaxPullForce": -0.008565396,
+      "MaxPushForce": 0.12503071
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level14.txt",
+      "BreakAfterNSteps": 4,
+      "MaxPullForce": -0.007901099,
+      "MaxPushForce": 0.12388162
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level14.txt",
+      "BreakAfterNSteps": 5,
+      "MaxPullForce": -0.007901099,
+      "MaxPushForce": 0.12176902
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level14.txt",
+      "BreakAfterNSteps": 6,
+      "MaxPullForce": -0.0065808073,
+      "MaxPushForce": 0.1192895
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level14.txt",
+      "BreakAfterNSteps": 7,
+      "MaxPullForce": -0.0065808073,
+      "MaxPushForce": 0.117653206
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level14.txt",
+      "BreakAfterNSteps": 8,
+      "MaxPullForce": -0.0061164573,
+      "MaxPushForce": 0.11673618
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level14.txt",
+      "BreakAfterNSteps": 9,
+      "MaxPullForce": -0.0061164573,
+      "MaxPushForce": 0.11617522
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level15.txt",
+      "BreakAfterNSteps": 0,
+      "MaxPullForce": -0.043843646,
+      "MaxPushForce": 0.17444284
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level15.txt",
+      "BreakAfterNSteps": 1,
+      "MaxPullForce": -0.044275448,
+      "MaxPushForce": 0.17612377
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level15.txt",
+      "BreakAfterNSteps": 2,
+      "MaxPullForce": -0.036030464,
+      "MaxPushForce": 0.17432913
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level15.txt",
+      "BreakAfterNSteps": 3,
+      "MaxPullForce": -0.026896734,
+      "MaxPushForce": 0.17408209
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level15.txt",
+      "BreakAfterNSteps": 4,
+      "MaxPullForce": -0.01865914,
+      "MaxPushForce": 0.17365742
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level15.txt",
+      "BreakAfterNSteps": 5,
+      "MaxPullForce": -0.01554376,
+      "MaxPushForce": 0.17297815
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level15.txt",
+      "BreakAfterNSteps": 6,
+      "MaxPullForce": -0.01554376,
+      "MaxPushForce": 0.17213005
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level15.txt",
+      "BreakAfterNSteps": 7,
+      "MaxPullForce": -0.011764273,
+      "MaxPushForce": 0.17100093
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level15.txt",
+      "BreakAfterNSteps": 8,
+      "MaxPullForce": -0.0075867428,
+      "MaxPushForce": 0.16973327
+    },
+    {
+      "$type": "BridgeBuilderControl.Controls.Simulator.Model.Converter.PushPullLimit, BridgeBuilderControl",
+      "LevelFile": "Level15.txt",
+      "BreakAfterNSteps": 9,
+      "MaxPullForce": -0.0075867428,
+      "MaxPushForce": 0.16815966
+    }
+  ]
+}

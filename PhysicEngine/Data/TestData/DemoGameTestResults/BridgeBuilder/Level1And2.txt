@@ -1,0 +1,7 @@
+File	Actual	Expected	Result
+Level1_Fail1.txt	LevelPassed	LevelFailed	FAIL
+Level1_OK.txt	LevelPassed	LevelPassed	OK
+Level2_Fail1.txt	LevelPassed	LevelFailed	FAIL
+Level2_Fail2.txt	LevelPassed	LevelFailed	FAIL
+Level2_OK1.txt	LevelPassed	LevelPassed	OK
+Level2_OK2.txt	LevelPassed	LevelPassed	OK

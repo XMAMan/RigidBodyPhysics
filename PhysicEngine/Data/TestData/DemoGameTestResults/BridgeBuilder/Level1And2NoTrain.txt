@@ -1,0 +1,7 @@
+File                          	MaxPull        	MaxPush        	Result
+Level1_NoTrain_Pull_Fail.txt  	-0,013850105   	0,007305055    	FAIL
+Level1_NoTrain_Pull_Ok.txt    	-0,012907179   	0,006212932    	OK
+Level1_NoTrain_Push_Fail.txt  	-0,009156856   	0,18117605     	OK
+Level1_NoTrain_Push_OK.txt    	-0,026916083   	0,15454325     	FAIL
+Level2_NoTrain_Pull_Fail.txt  	-0,012282234   	0,034546185    	OK
+Level2_NoTrain_Pull_OK.txt    	-0,012422181   	0,036368143    	FAIL
