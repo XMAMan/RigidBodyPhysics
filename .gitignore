@@ -21,6 +21,9 @@ PhysicEngine/Data/TestData/DynamicObjCreationTestData/*
 PhysicEngine/Data/TestData/RigidBodyPhysicsTestData/TestResults/*
 !PhysicEngine/Data/TestData/RigidBodyPhysicsTestData/TestResults/.gitkeep
 
+#Damit das hier funktioniert musste ich zuerst mit diesen Befehl prüfen, warum der Ordner TestResults nicht mit eingecheckt wurde:
+#git check-ignore -v PhysicEngine/Data/TestData/RigidBodyPhysicsTestData/TestResults/
+#Es kam herraus, dass in dieser Datei bei Zeile 69 das hier stand was verhinder hat, dass TestResults eingecheckt werden konnte: [Tt]est[Rr]esult*/
 PhysicEngine/Data/TestData/RigidBodyPhysicsTestData/TestResults/*
 !PhysicEngine/Data/TestData/RigidBodyPhysicsTestData/TestResults/.gitkeep
 

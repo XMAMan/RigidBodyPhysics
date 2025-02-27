@@ -11,7 +11,7 @@ namespace RigidBodyPhysics.UnitTests
     {
         public const string SmallSIFolder = @"..\..\..\..\..\..\..\SmallSI\";
 
-        [Fact]
+        [Fact(Skip = "Do this only if the SmallSIScene.txt should be updated")]
         public void Convert()
         {
             var bodys = ExportHelper.ReadFromFile(SmallSIFolder + "SmallSIScene.txt").Bodies.Where(x => x is RigidRectangle).Cast<RigidRectangle>().ToList();
