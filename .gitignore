@@ -15,6 +15,8 @@ PhysicEngine/Dokumentation/Part6\ -\ Polygons/ExampleCode/Data/TestResults/*
 PhysicEngine/Data/TestData/DemoGameTestResults/*
 !PhysicEngine/Data/TestData/DemoGameTestResults/Expected/
 !PhysicEngine/Data/TestData/DemoGameTestResults/BridgeBuilder/*
+
+#Damit die nachfolgende Zeile ging musste ich das noch ausführen: git rm --cached PhysicEngine/Data/TestData/DemoGameTestResults/BridgeBuilder/TestRun.txt
 PhysicEngine/Data/TestData/DemoGameTestResults/BridgeBuilder/TestRun.txt
 PhysicEngine/Data/TestData/DynamicObjCreationTestData/*
 !PhysicEngine/Data/TestData/DynamicObjCreationTestData/ExpectedImages/
