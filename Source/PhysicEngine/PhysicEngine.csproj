@@ -36,19 +36,4 @@
     <ProjectReference Include="..\WpfControls\WpfControls.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="NAudio.Core">
-      <HintPath>..\..\..\SoundDlls\NAudio.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="NAudio.Wasapi">
-      <HintPath>..\..\..\SoundDlls\NAudio.Wasapi.dll</HintPath>
-    </Reference>
-    <Reference Include="NAudio.WinForms">
-      <HintPath>..\..\..\SoundDlls\NAudio.WinForms.dll</HintPath>
-    </Reference>
-    <Reference Include="NAudio.WinMM">
-      <HintPath>..\..\..\SoundDlls\NAudio.WinMM.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

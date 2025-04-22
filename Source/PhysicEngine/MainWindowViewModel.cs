@@ -91,7 +91,7 @@ namespace PhysicEngine
             
             string[] args = Environment.GetCommandLineArgs();
             //args = new string[] { "-mode", "Moonlander", "-dataFolder", "..\\..\\..\\..\\..\\..\\Data\\GameData\\Moonlander\\" };
-            if (args != null)
+            if (args != null && args.Length > 1)
             {
                 if (args.Length > 1)
                 {
