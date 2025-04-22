@@ -1,0 +1,1 @@
+..\Source\PhysicEngine\bin\Debug\net8.0-windows7.0\PhysicEngine.exe -dataFolder ..\Source\ -mode CountLineOfCodes

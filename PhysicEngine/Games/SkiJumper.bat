@@ -1,1 +1,0 @@
-..\Source\PhysicEngine\bin\Debug\net7.0-windows\PhysicEngine.exe -dataFolder ..\Data\GameData\SkiJumper\ -mode SkiJumper

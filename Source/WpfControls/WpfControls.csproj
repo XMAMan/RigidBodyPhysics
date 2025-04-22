@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Controls\CameraSetting\Bottom.png" />
+    <None Remove="Controls\CameraSetting\Left.png" />
+    <None Remove="Controls\CameraSetting\Right.png" />
+    <None Remove="Controls\CameraSetting\Top.png" />
+    <None Remove="Controls\CameraSetting\ZoomIn.png" />
+    <None Remove="Controls\CameraSetting\ZoomOut.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ReactiveUI" Version="20.2.45" />
+    <PackageReference Include="ReactiveUI.Fody" Version="19.5.41" />
+    <PackageReference Include="ReactiveUI.WPF" Version="20.2.45" />
+    <PackageReference Include="XMAMan.GraphicEngine" Version="0.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Controls\CameraSetting\Bottom.png" />
+    <Resource Include="Controls\CameraSetting\Left.png" />
+    <Resource Include="Controls\CameraSetting\Right.png" />
+    <Resource Include="Controls\CameraSetting\Top.png" />
+    <Resource Include="Controls\CameraSetting\ZoomIn.png" />
+    <Resource Include="Controls\CameraSetting\ZoomOut.png" />
+  </ItemGroup>
+
+</Project>

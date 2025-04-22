@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PowerArgs" Version="4.0.3" />
+    <PackageReference Include="ReactiveUI" Version="20.2.45" />
+    <PackageReference Include="ReactiveUI.Fody" Version="19.5.41" />
+    <PackageReference Include="ReactiveUI.WPF" Version="20.2.45" />
+    <PackageReference Include="XMAMan.GraphicEngine" Version="0.0.2" />
+    <PackageReference Include="XMAMan.SoundEngine" Version="0.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AstroidsControl\AstroidsControl.csproj" />
+    <ProjectReference Include="..\BridgeBuilderControl\BridgeBuilderControl.csproj" />
+    <ProjectReference Include="..\CarDrifterControl\CarDrifterControl.csproj" />
+    <ProjectReference Include="..\DemoApplicationHelper\DemoApplicationHelper.csproj" />
+    <ProjectReference Include="..\ElmaControl\ElmaControl.csproj" />
+    <ProjectReference Include="..\KeyFrameEditorControl\KeyFrameEditorControl.csproj" />
+    <ProjectReference Include="..\LevelEditorControl\LevelEditorControl.csproj" />
+    <ProjectReference Include="..\MoonlanderControl\MoonlanderControl.csproj" />
+    <ProjectReference Include="..\SpiderBoxControl\SpiderBoxControl.csproj" />
+    <ProjectReference Include="..\SpriteEditorControl\SpriteEditorControl.csproj" />
+    <ProjectReference Include="..\PhysicSceneSimulatorControl\PhysicSceneSimulatorControl.csproj" />
+    <ProjectReference Include="..\PhysicSceneTestbedControl\PhysicSceneTestbedControl.csproj" />
+    <ProjectReference Include="..\SkiJumperControl\SkiJumperControl.csproj" />
+    <ProjectReference Include="..\TextureEditorControl\TextureEditorControl.csproj" />
+    <ProjectReference Include="..\WpfControls\WpfControls.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="NAudio.Core">
+      <HintPath>..\..\..\SoundDlls\NAudio.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Wasapi">
+      <HintPath>..\..\..\SoundDlls\NAudio.Wasapi.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.WinForms">
+      <HintPath>..\..\..\SoundDlls\NAudio.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.WinMM">
+      <HintPath>..\..\..\SoundDlls\NAudio.WinMM.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ReactiveUI" Version="20.2.45" />
+    <PackageReference Include="ReactiveUI.Fody" Version="19.5.41" />
+    <PackageReference Include="ReactiveUI.WPF" Version="20.2.45" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KeyFrameEditorControl\KeyFrameEditorControl.csproj" />
+    <ProjectReference Include="..\LevelEditorGlobal\LevelEditorGlobal.csproj" />
+    <ProjectReference Include="..\PhysicSceneEditorControl\PhysicSceneEditorControl.csproj" />
+    <ProjectReference Include="..\PhysicSceneKeyboardControl\PhysicSceneKeyboardControl.csproj" />
+    <ProjectReference Include="..\RigidBodyPhysics\RigidBodyPhysics.csproj" />
+    <ProjectReference Include="..\TextureEditorControl\TextureEditorControl.csproj" />
+    <ProjectReference Include="..\WpfControls\WpfControls.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="XMAMan.GraphicEngine" Version="0.0.2" />
+  </ItemGroup>
+
+</Project>

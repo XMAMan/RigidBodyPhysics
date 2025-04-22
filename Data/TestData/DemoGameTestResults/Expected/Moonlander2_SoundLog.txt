@@ -1,0 +1,7 @@
+Moonlander\Moonlander_Intro.music	Play
+Moonlander\Moonlander_Intro.music	Stop
+Moonlander\Moonlander_MainThruster.music	Play
+Moonlander\Moonlander_MainThruster.music	Stop
+Moonlander\Moonlander_Explosion.music	Play
+Moonlander\Moonlander_MainThruster.music	Play
+Moonlander\Moonlander_MainThruster.music	Stop

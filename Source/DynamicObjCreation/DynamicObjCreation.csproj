@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LevelEditorGlobal\LevelEditorGlobal.csproj" />
+    <ProjectReference Include="..\LevelToSimulatorConverter\LevelToSimulatorConverter.csproj" />
+    <ProjectReference Include="..\PhysicSceneDrawing\PhysicSceneDrawing.csproj" />
+    <ProjectReference Include="..\RigidBodyPhysics\RigidBodyPhysics.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="XMAMan.GraphicEngine" Version="0.0.2" />
+  </ItemGroup>
+
+</Project>
