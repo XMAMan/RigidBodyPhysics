@@ -3,17 +3,17 @@ RigidBodyPhysics
 This is a 2D physics engine which simulates the movement from rigid bodys. It is using sequentill impules like Box2D from Erin Catto.
 I created this engine to get a better understanding how Box2D works and to use it for my games.
 
-There is a long documentation in [german](./PhysicEngine/Dokumentation/Dokumentation.pdf) and a shorter one in [english](https://github.com/XMAMan/SmallSI).
+There is a long documentation in [german](./Dokumentation/Dokumentation.pdf) and a shorter one in [english](https://github.com/XMAMan/SmallSI).
 
 Images
 ------
 Example-Games using this Engine:
-![Games](./PhysicEngine/Data/ResultImages/PhysicGames.gif)
+![Games](./Data/ResultImages/PhysicGames.gif)
 
 There is also a editor for creating the Physicdata which will be animated:
-![Leveleditor1](./PhysicEngine/Data/ResultImages/Leveleditor1.jpg)
-![Leveleditor2](./PhysicEngine/Data/ResultImages/Leveleditor2.jpg)
-![Leveleditor3](./PhysicEngine/Data/ResultImages/Leveleditor3.jpg)
+![Leveleditor1](./Data/ResultImages/Leveleditor1.jpg)
+![Leveleditor2](./Data/ResultImages/Leveleditor2.jpg)
+![Leveleditor3](./Data/ResultImages/Leveleditor3.jpg)
 
 Features
 --------
@@ -43,8 +43,8 @@ Dependencies
 * ReactiveUI
 * FluentAssertions
 * xunit
-* https://github.com/XMAMan/GraphicEngine8
-* https://github.com/XMAMan/SoundEngine
+* XMAMan.GraphicEngine
+* XMAMan.SoundEngine
 
 Todo
 ----
