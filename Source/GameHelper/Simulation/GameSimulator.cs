@@ -40,6 +40,11 @@ namespace GameHelper.Simulation
             :base(EditorFileConverter.Convert(levelFile), panelSize, new Camera2D(panelSize.Width, panelSize.Height), timerIntervalInMilliseconds)
         {
             Init();
+
+            if (this.CameraModus == CameraMode.None)
+            {
+                this.CameraModus = CameraMode.SceneBoundingBox; //Defaultwert, wenn nichts angegeben wurde
+            }
         }
 
         private void Init()
