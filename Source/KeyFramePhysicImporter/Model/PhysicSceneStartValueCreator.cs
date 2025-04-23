@@ -15,7 +15,7 @@ namespace KeyFramePhysicImporter.Model
         //isFix = Diese Information kommt vom Importer aus ImporterControlExportData.IsFix
         //scene = So wurde die Scene dem KeyFramePhysicImporter als Input gegeben
         //initialTimeForManually = 0..1 Von dieser Play-Position soll eine PhysicScene erstellt werden
-        public static PhysicSceneExportData CreateSceneAfterPlayingNTimeSteps(bool[] isFix, PhysicSceneExportData scene, AnimationOutputData[] animations, float timerIntercallInMilliseconds, int timeStepCount, int iterationCount)
+        public static PhysicSceneExportData CreateSceneAfterPlayingNTimeSteps(bool[] isFix, PhysicSceneExportData scene, AnimationOutputData[] animations, float timerIntervalInMilliseconds, int timeStepCount, int iterationCount)
         {
             if (isFix.Length != scene.Bodies.Length)
                 throw new ArgumentException("Body.Count must be isFix.Length");
@@ -34,11 +34,11 @@ namespace KeyFramePhysicImporter.Model
             //Schritt 3: Erzeuge ein neues PhysicScene-Objekt und springe an die initialTimeForManually damit
             var fixPhysicScene = new PhysicScene(exportInput);
             fixPhysicScene.IterationCount = iterationCount;
-            var animatedScene = new AnimatedPhysicObjects(fixPhysicScene.GetAllPublicData(), animations, timerIntercallInMilliseconds);
+            var animatedScene = new AnimatedPhysicObjects(fixPhysicScene.GetAllPublicData(), animations, timerIntervalInMilliseconds);
             for (int i = 0; i < timeStepCount; i++)
             {
-                animatedScene.HandleTimerTick(timerIntercallInMilliseconds);
-                fixPhysicScene.TimeStep(timerIntercallInMilliseconds);
+                animatedScene.HandleTimerTick(timerIntervalInMilliseconds);
+                fixPhysicScene.TimeStep(timerIntervalInMilliseconds);
             }
             var fixSceneExport = fixPhysicScene.GetExportData();
 

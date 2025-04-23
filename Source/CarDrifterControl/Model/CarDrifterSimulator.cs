@@ -17,14 +17,14 @@ namespace CarDrifterControl.Model
         private bool showHelpText = true;
 
         //Wird vom Leveleditor genutzt
-        public CarDrifterSimulator(SimulatorInputData data, Size panelSize, Camera2D camera, float timerIntercallInMilliseconds)
-            : base(data, panelSize, camera, timerIntercallInMilliseconds)
+        public CarDrifterSimulator(SimulatorInputData data, Size panelSize, Camera2D camera, float timerIntervalInMilliseconds)
+            : base(data, panelSize, camera, timerIntervalInMilliseconds)
         {
         }
 
         //Wird vom GameViewModel genutzt
-        public CarDrifterSimulator(string levelFile, float timerIntercallInMilliseconds, Sounds sounds, string dataFolder, GraphicPanel2D panel)
-            : base(levelFile, panel.Size, timerIntercallInMilliseconds)
+        public CarDrifterSimulator(string levelFile, float timerIntervalInMilliseconds, Sounds sounds, string dataFolder, GraphicPanel2D panel)
+            : base(levelFile, panel.Size, timerIntervalInMilliseconds)
         {
             Init(sounds, dataFolder);
         }

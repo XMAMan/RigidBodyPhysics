@@ -40,14 +40,14 @@ namespace ElmaControl.Controls.Game.Model
         }
 
         //Wird vom Leveleditor genutzt
-        public ElmaSimulator(SimulatorInputData data, Size panelSize, Camera2D camera, float timerIntercallInMilliseconds)
-            :base(data, panelSize, camera, timerIntercallInMilliseconds)
+        public ElmaSimulator(SimulatorInputData data, Size panelSize, Camera2D camera, float timerIntervalInMilliseconds)
+            :base(data, panelSize, camera, timerIntervalInMilliseconds)
         {
         }
 
         //Wird vom GameViewModel genutzt
-        public ElmaSimulator(string levelFile, float timerIntercallInMilliseconds, Sounds sounds, string dataFolder, GraphicPanel2D panel)
-            :base(levelFile, panel.Size, timerIntercallInMilliseconds)
+        public ElmaSimulator(string levelFile, float timerIntervalInMilliseconds, Sounds sounds, string dataFolder, GraphicPanel2D panel)
+            :base(levelFile, panel.Size, timerIntervalInMilliseconds)
         {
             Init(sounds, dataFolder, panel);
         }

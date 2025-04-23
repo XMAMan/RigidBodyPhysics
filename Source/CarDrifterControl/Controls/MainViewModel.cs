@@ -37,9 +37,9 @@ namespace CarDrifterControl.Controls
             Load("CarDrifter.txt");
         }
 
-        public ILeveleditorUsedSimulator CreateSimulator(SimulatorInputData data, Size panelSize, Camera2D camera, float timerIntercallInMilliseconds)
+        public ILeveleditorUsedSimulator CreateSimulator(SimulatorInputData data, Size panelSize, Camera2D camera, float timerIntervalInMilliseconds)
         {
-            var sim = new CarDrifterSimulator(data, panelSize, camera, timerIntercallInMilliseconds);
+            var sim = new CarDrifterSimulator(data, panelSize, camera, timerIntervalInMilliseconds);
             sim.Init(this.sounds, this.DataFolder);
             return sim;
         }

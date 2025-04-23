@@ -39,7 +39,7 @@ namespace Simulator
         
 
         //Wird vom Leveleditor verwendet (Kamera wird von außen über das CameraViewModel gesteuert)
-        public Simulator(SimulatorInputData data, Size panelSize, Camera2D camera, float timerIntercallInMilliseconds)
+        public Simulator(SimulatorInputData data, Size panelSize, Camera2D camera, float timerIntervalInMilliseconds)
         {
             this.inputData = data;
 
@@ -56,7 +56,7 @@ namespace Simulator
 
             this.camera = camera;
 
-            this.animator = new LevelItemAnimator(timerIntercallInMilliseconds);
+            this.animator = new LevelItemAnimator(timerIntervalInMilliseconds);
             this.keyHandler = new KeyboardControl.LevelItemKeyboardHandler();
             for (int i=0;i<startLevelItems.Length;i++)
             {

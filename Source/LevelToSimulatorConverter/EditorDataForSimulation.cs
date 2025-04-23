@@ -10,7 +10,7 @@ namespace LevelToSimulatorConverter
         public List<IPhysicMergerItem> Items;
         public KeyboardMappingTable[] KeyboardMappings;
         public bool[,] CollisionMatrix;
-        public float TimerIntercallInMilliseconds;
+        public float timerIntervalInMilliseconds;
         public ImageData BackgroundImage;
         public string ForegroundImage;
         public bool HasGravity;

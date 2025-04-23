@@ -39,7 +39,7 @@ namespace BridgeBuilderControl.Controls.Simulator.Model.Converter
         private static LevelExport LevelExport;
 
 
-        public static GameSimulator Convert(SimulatorInput input, BridgeConverterSettings settings, string dataFolder, Size panelSize, float timerIntercallInMilliseconds, out PhysikLevelItemExportData trainExportData)
+        public static GameSimulator Convert(SimulatorInput input, BridgeConverterSettings settings, string dataFolder, Size panelSize, float timerIntervalInMilliseconds, out PhysikLevelItemExportData trainExportData)
         {
             Settings = settings;
             LevelExport = input.LevelExport;
@@ -47,7 +47,7 @@ namespace BridgeBuilderControl.Controls.Simulator.Model.Converter
             dataFolder = new DirectoryInfo(dataFolder).FullName;
 
             string levelFile = dataFolder + "\\Train.txt";
-            var simulator = new GameSimulator(EditorFileConverter.Convert(levelFile), panelSize, input.Camera, timerIntercallInMilliseconds);
+            var simulator = new GameSimulator(EditorFileConverter.Convert(levelFile), panelSize, input.Camera, timerIntervalInMilliseconds);
 
             string pushPullLimitFile = dataFolder + "\\PushPullLimits.txt";
             var limits = JsonHelper.Helper.CreateFromJson<PushPullLimit[]>(File.ReadAllText(pushPullLimitFile));

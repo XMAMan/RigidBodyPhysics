@@ -49,6 +49,6 @@ namespace LevelEditorControl.EditorFunctions
 
         //Build-Funktion zur Erzeugung von ein ILevelediturUsedSimulator-Objekt. Hiermit kann von außen dem LevelEditor vorgegeben werden,
         //welchen Simulator er nutzen soll.
-        public CreateSimulatorFunction CreateSimulator = (data, panelSize, camera, timerIntercallInMilliseconds) => new Simulator.Simulator(data, panelSize, camera, timerIntercallInMilliseconds);
+        public CreateSimulatorFunction CreateSimulator = (data, panelSize, camera, timerIntervalInMilliseconds) => new Simulator.Simulator(data, panelSize, camera, timerIntervalInMilliseconds);
     }
 }

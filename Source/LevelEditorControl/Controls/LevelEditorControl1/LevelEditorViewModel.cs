@@ -16,7 +16,7 @@ namespace LevelEditorControl.Controls.LevelEditorControl1
     internal class LevelEditorViewModel : ReactiveObject, IGraphicPanelHandler, ITimerHandler, IToTextWriteable, IObjectSerializable, ISimlatorUser
     {
         private GraphicPanel2D panel;
-        private float timerIntercallInMilliseconds;
+        private float timerIntervalInMilliseconds;
 
         public enum SubControl { MainControl, AddNewPhysicItem }
         [Reactive] public System.Windows.Controls.UserControl ContentUserControl { get; set; }
@@ -26,7 +26,7 @@ namespace LevelEditorControl.Controls.LevelEditorControl1
         public LevelEditorViewModel(EditorInputData data)
         {
             this.panel = data.Panel;
-            this.timerIntercallInMilliseconds = data.TimerTickRateInMs;
+            this.timerIntervalInMilliseconds = data.TimerTickRateInMs;
 
             this.MainViewModel = new EditorViewModel(data, new EditorViewModelActions()
             {
@@ -41,7 +41,7 @@ namespace LevelEditorControl.Controls.LevelEditorControl1
         public void HandleTimerTick(float dt)
         {
             if (this.ContentUserControl?.DataContext is ITimerHandler)
-                (this.ContentUserControl.DataContext as ITimerHandler).HandleTimerTick(this.timerIntercallInMilliseconds);
+                (this.ContentUserControl.DataContext as ITimerHandler).HandleTimerTick(this.timerIntervalInMilliseconds);
         }
         #endregion
 
@@ -143,7 +143,7 @@ namespace LevelEditorControl.Controls.LevelEditorControl1
             return new PhysicEditorFactory(() => this.MainViewModel.PrototypViewModel.CreateNewId(), true, true).CreateEditorControl(new EditorInputData()
             {
                 Panel = this.panel,
-                TimerTickRateInMs = this.timerIntercallInMilliseconds,
+                TimerTickRateInMs = this.timerIntervalInMilliseconds,
                 ShowSaveLoadButtons = false,
                 InputData = item?.EditorExportData,
                 IsFinished = (sender) =>

@@ -50,9 +50,9 @@ namespace ElmaControl.Controls.Game
             this.sounds = new Sounds(soundGenerator, this.DataFolder);         
         }
 
-        public ILeveleditorUsedSimulator CreateSimulator(SimulatorInputData data, Size panelSize, Camera2D camera, float timerIntercallInMilliseconds)
+        public ILeveleditorUsedSimulator CreateSimulator(SimulatorInputData data, Size panelSize, Camera2D camera, float timerIntervalInMilliseconds)
         {
-            var sim = new ElmaSimulator(data, panelSize, camera, timerIntercallInMilliseconds);
+            var sim = new ElmaSimulator(data, panelSize, camera, timerIntervalInMilliseconds);
             sim.Init(this.sounds, this.DataFolder, this.panel);
             return sim;
         }

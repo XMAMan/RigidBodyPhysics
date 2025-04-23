@@ -31,7 +31,7 @@ namespace CarDrifterControl
             var levelEditorControl = new LevelEditorFactory().CreateEditorControl(data);
             (levelEditorControl.DataContext as IToTextWriteable).LoadFromTextFile(data.DataFolder + "CarDrifter.txt"); //Level einnladen
             (levelEditorControl.DataContext as ISimlatorUser).SetSimulatorBuildMethod(
-                        (data, panelSize, camera, timerIntercallInMilliseconds) => (vm).CreateSimulator(data, panelSize, camera, timerIntercallInMilliseconds)
+                        (data, panelSize, camera, timerIntervalInMilliseconds) => (vm).CreateSimulator(data, panelSize, camera, timerIntervalInMilliseconds)
                         );
 
             return levelEditorControl;

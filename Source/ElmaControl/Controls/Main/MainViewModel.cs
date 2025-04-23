@@ -68,7 +68,7 @@ namespace ElmaControl.Controls.Main
 
             //Übergebe Builder-Methode für ein ILeveleditorUsedSimulator-Objekt
             (this.levelEditor.DataContext as ISimlatorUser).SetSimulatorBuildMethod(
-                (data, panelSize, camera, timerIntercallInMilliseconds) => (this.gameControl.DataContext as GameViewModel).CreateSimulator(data, panelSize, camera, timerIntercallInMilliseconds)
+                (data, panelSize, camera, timerIntervalInMilliseconds) => (this.gameControl.DataContext as GameViewModel).CreateSimulator(data, panelSize, camera, timerIntervalInMilliseconds)
                 );
 
             this.SelectedControl = ControlType.MainSelect;

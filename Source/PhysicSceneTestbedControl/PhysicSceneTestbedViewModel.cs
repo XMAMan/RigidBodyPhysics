@@ -13,7 +13,7 @@ namespace PhysicSceneTestbedControl
     class PhysicSceneTestbedViewModel : ReactiveObject, IGraphicPanelHandler, ITimerHandler, IStringSerializable, IObjectSerializable
     {
         private GraphicPanel2D panel;
-        private float timerIntercallInMilliseconds;
+        private float timerIntervalInMilliseconds;
         private UserControl simulatorControl;
         private UserControl editorControl;
   
@@ -21,10 +21,10 @@ namespace PhysicSceneTestbedControl
 
         [Reactive] public UserControl ContentUserControl { get; set; }
 
-        public PhysicSceneTestbedViewModel(GraphicPanel2D panel, float timerIntercallInMilliseconds)
+        public PhysicSceneTestbedViewModel(GraphicPanel2D panel, float timerIntervalInMilliseconds)
         {
             this.panel = panel;
-            this.timerIntercallInMilliseconds = timerIntercallInMilliseconds;
+            this.timerIntervalInMilliseconds = timerIntervalInMilliseconds;
             this.SelectedControl = SubControl.Editor;
         }
 
@@ -32,7 +32,7 @@ namespace PhysicSceneTestbedControl
         public void HandleTimerTick(float dt)
         {
             if (this.ContentUserControl?.DataContext is ITimerHandler)
-                (this.ContentUserControl.DataContext as ITimerHandler).HandleTimerTick(this.timerIntercallInMilliseconds);
+                (this.ContentUserControl.DataContext as ITimerHandler).HandleTimerTick(this.timerIntervalInMilliseconds);
         }
         #endregion
 
@@ -123,7 +123,7 @@ namespace PhysicSceneTestbedControl
                             this.simulatorControl = new PhysicSceneSimulatorEditorFactory().CreateEditorControl(new WpfControls.Model.EditorInputData()
                             {
                                 Panel = this.panel,
-                                TimerTickRateInMs = this.timerIntercallInMilliseconds,
+                                TimerTickRateInMs = this.timerIntervalInMilliseconds,
                                 IsFinished = (sender) => this.SelectedControl = SubControl.Editor,
                             });
                         }

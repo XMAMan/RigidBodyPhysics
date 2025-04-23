@@ -248,7 +248,7 @@ namespace LevelEditorControl.Controls.SimulatorControl
             {
                 this.model.TimerTickHandler += (s, d) =>
                 {
-                    //this.TimerTickCounter = ((this.model.GetTimerTickCounter() * this.timerIntercallInMilliseconds) / 1000).ToString("F1") + "s";
+                    //this.TimerTickCounter = ((this.model.GetTimerTickCounter() * this.timerIntervalInMilliseconds) / 1000).ToString("F1") + "s";
                     this.TimerTickCounter = this.model.GetTimerTickCounter().ToString();
                 };
             }

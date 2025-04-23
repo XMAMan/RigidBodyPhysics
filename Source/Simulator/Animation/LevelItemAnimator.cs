@@ -9,16 +9,16 @@ namespace Simulator.Animation
     public class LevelItemAnimator : ITimerHandler
     {
         private List<AnimatedPhysicObjects> levelItems = new List<AnimatedPhysicObjects>();
-        private float timerIntercallInMilliseconds;
+        private float timerIntervalInMilliseconds;
 
-        public LevelItemAnimator(float timerIntercallInMilliseconds)
+        public LevelItemAnimator(float timerIntervalInMilliseconds)
         {
-            this.timerIntercallInMilliseconds = timerIntercallInMilliseconds;
+            this.timerIntervalInMilliseconds = timerIntervalInMilliseconds;
         }
 
         public void AddLevelItem(PhysicScenePublicData physicObjects, AnimationOutputData[] animations)
         {
-            levelItems.Add(new AnimatedPhysicObjects(physicObjects, animations, this.timerIntercallInMilliseconds));
+            levelItems.Add(new AnimatedPhysicObjects(physicObjects, animations, this.timerIntervalInMilliseconds));
         }
 
         public Animator[] GetAnimationRuntimDataFromLevelItem(PhysicScenePublicData physicObjects)

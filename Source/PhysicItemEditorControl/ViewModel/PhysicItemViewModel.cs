@@ -361,12 +361,12 @@ namespace PhysicItemEditorControl.ViewModel
             if (data.AnimationData != null && data.AnimationData.Length > 0 && this.showStartTimeTextbox)
             {
                 var isFix = data.AnimationData[0].ImporterData.IsFix;
-                float timerIntercallInMilliseconds = 50; //Erstelle mit 50ms die korrigierten Daten
+                float timerIntervalInMilliseconds = 50; //Erstelle mit 50ms die korrigierten Daten
                 var animations = data.AnimationData.Select(x => x.AnimationData).ToArray();
                 int timeStepCount = 500;
                 int iterationCount = 100;
 
-                data.PhysicSceneForAnimationNull = PhysicSceneStartValueCreator.CreateSceneAfterPlayingNTimeSteps(isFix, data.PhysicSceneData, animations, timerIntercallInMilliseconds, timeStepCount, iterationCount);
+                data.PhysicSceneForAnimationNull = PhysicSceneStartValueCreator.CreateSceneAfterPlayingNTimeSteps(isFix, data.PhysicSceneData, animations, timerIntervalInMilliseconds, timeStepCount, iterationCount);
             }
 
             return data;

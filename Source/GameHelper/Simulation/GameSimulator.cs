@@ -29,15 +29,15 @@ namespace GameHelper.Simulation
         private SimulatorTagStorrage tagStorrage;
 
         //Wird vom Leveleditor verwendet
-        public GameSimulator(SimulatorInputData data, Size panelSize, Camera2D camera, float timerIntercallInMilliseconds)
-            :base(data, panelSize, camera, timerIntercallInMilliseconds)
+        public GameSimulator(SimulatorInputData data, Size panelSize, Camera2D camera, float timerIntervalInMilliseconds)
+            :base(data, panelSize, camera, timerIntervalInMilliseconds)
         {
             Init();
         }
 
         //Wird von der Demo-Game-Anwendung genutzt
-        public GameSimulator(string levelFile, Size panelSize, float timerIntercallInMilliseconds)
-            :base(EditorFileConverter.Convert(levelFile), panelSize, new Camera2D(panelSize.Width, panelSize.Height), timerIntercallInMilliseconds)
+        public GameSimulator(string levelFile, Size panelSize, float timerIntervalInMilliseconds)
+            :base(EditorFileConverter.Convert(levelFile), panelSize, new Camera2D(panelSize.Width, panelSize.Height), timerIntervalInMilliseconds)
         {
             Init();
         }

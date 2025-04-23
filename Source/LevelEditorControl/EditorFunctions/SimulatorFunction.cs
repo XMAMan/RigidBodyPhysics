@@ -106,7 +106,7 @@ namespace LevelEditorControl.EditorFunctions
                 Items = items,
                 KeyboardMappings = state.KeyboradMappings.ToArray(),
                 CollisionMatrix = state.CollisionMatrixViewModel.CollideMatrix,
-                TimerIntercallInMilliseconds = state.TimerIntervallInMilliseconds,
+                timerIntervalInMilliseconds = state.TimerIntervallInMilliseconds,
                 BackgroundImage = state.PolygonImages.Background,
                 ForegroundImage = state.PolygonImages.ForegroundImage,
                 HasGravity = state.HasGravity,

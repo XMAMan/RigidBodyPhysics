@@ -63,10 +63,10 @@ namespace SpriteEditorControl.Controls.Sprite.Model
             var frame = frameInterpolator.GetFrame(time);
             propertys.WriteFrameToAnimatedObject(frame, animationData.PropertyIsAnimated); //Schreibe den interpolierten Frame auf das Animation-Anzeigeobjekt
 
-            float timerIntercallInMilliseconds = 50;
+            float timerIntervalInMilliseconds = 50;
             for (int i = 0; i < timeStepsPerFrame; i++)
             {
-                physicScene.TimeStep(timerIntercallInMilliseconds);
+                physicScene.TimeStep(timerIntervalInMilliseconds);
             }
         }
 
