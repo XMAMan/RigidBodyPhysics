@@ -22,10 +22,4 @@
     <ProjectReference Include="..\PhysicEngine\PhysicEngine.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="GraphicMinimal">
-      <HintPath>..\..\..\..\..\..\Graphic8Dlls\GraphicMinimal.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

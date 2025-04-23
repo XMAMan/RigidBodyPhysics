@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Properties\**" />
+    <Page Remove="Properties\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="View\Pause.png" />
     <None Remove="View\Play.PNG" />
     <None Remove="View\Restart.png" />
@@ -31,27 +38,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="ReactiveUI" Version="18.4.44" />
     <PackageReference Include="ReactiveUI.Fody" Version="18.4.44" />
     <PackageReference Include="ReactiveUI.WPF" Version="18.4.44" />
+    <PackageReference Include="XMAMan.GraphicEngine" Version="0.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\JsonHelper\JsonHelper.csproj" />
     <ProjectReference Include="..\PhysicEngine\PhysicEngine.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="GraphicMinimal">
-      <HintPath>..\..\..\..\..\..\Graphic8Dlls\GraphicMinimal.dll</HintPath>
-    </Reference>
-    <Reference Include="GraphicPanels">
-      <HintPath>..\..\..\..\..\..\Graphic8Dlls\GraphicPanels.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>

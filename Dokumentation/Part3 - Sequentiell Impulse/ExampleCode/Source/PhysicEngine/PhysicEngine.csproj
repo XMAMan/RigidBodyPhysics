@@ -7,9 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="GraphicMinimal">
-      <HintPath>..\..\..\..\..\..\Graphic8Dlls\GraphicMinimal.dll</HintPath>
-    </Reference>
+    <PackageReference Include="XMAMan.GraphicEngine" Version="0.0.2" />
   </ItemGroup>
 
 </Project>
