@@ -38,6 +38,12 @@ namespace WpfControls.Controls.CameraSetting
             set { min.Y = value; }
         }
 
+        //Aktueller Skalierungsfaktor abhängig von der Größe des Bildschirms und der BoundingBox
+        public float ScaleFactor
+        {
+            get { return factor; }
+        }
+
         //Sichtfenster im Camera-Space
         public RectangleF GetScreenBox()
         {

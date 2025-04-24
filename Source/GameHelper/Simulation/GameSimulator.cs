@@ -98,14 +98,14 @@ namespace GameHelper.Simulation
             return exportItem.PhysicSceneData.Bodies.SelectMany(GetCollisionPointsFromExternBodyWithScene).ToArray();
         }
 
-        public IEnumerable<IPublicRigidBody> GetAllBodiesOfType<T>() where T : IPublicRigidBody
+        public IEnumerable<T> GetAllBodiesOfType<T>() where T : IPublicRigidBody
         {
-            return this.physicScene.GetAllBodys().Where(x => x is T);
+            return this.physicScene.GetAllBodys().Where(x => x is T).Cast<T>();
         }
 
-        public IEnumerable<IPublicJoint> GetAllJointsOfType<T>() where T : IPublicJoint
+        public IEnumerable<T> GetAllJointsOfType<T>() where T : IPublicJoint
         {
-            return this.physicScene.GetAllJoints().Where(x => x is T);
+            return this.physicScene.GetAllJoints().Where(x => x is T).Cast<T>();
         }
 
  
@@ -521,5 +521,19 @@ namespace GameHelper.Simulation
 
         #endregion
 
+        #region CameraHandling
+
+        //Position der Kamera in Weltkoordinaten
+        public Vec2D GetCameraPosition()
+        {
+            return new Vec2D(this.camera.X, this.camera.Y);
+        }
+
+        //Aktueller Skalierungsfaktor abhängig von der Größe des Bildschirms und der BoundingBox
+        public float GetCameraScaleFactor()
+        {
+            return this.camera.ScaleFactor;
+        }
+        #endregion
     }
 }
