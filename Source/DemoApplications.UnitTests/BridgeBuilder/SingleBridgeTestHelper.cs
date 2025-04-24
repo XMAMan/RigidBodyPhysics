@@ -48,7 +48,7 @@ namespace DemoApplications.UnitTests.BridgeBuilder
 
             public string ToCsvLine()
             {
-                string line = new FileInfo(BridgeFile).Name + "\t" + BridgeResult + "\t" + Frames + "\t" + DurrationInSeconds.ToString("F2") + "\t" + MaxPullForce.ToString().PadRight(15) + "\t" + MaxPushForce.ToString().PadRight(15) + "\t" + (FailReason == null ? "" : FailReason) + "\t";
+                string line = new FileInfo(BridgeFile).Name + "\t" + BridgeResult + "\t" + Frames + "\t" + (int)DurrationInSeconds + "\t" + MaxPullForce.ToString().PadRight(15) + "\t" + MaxPushForce.ToString().PadRight(15) + "\t" + (FailReason == null ? "" : FailReason) + "\t";
                 for (int i = 1; i < PossibleLimits.Length; i++)
                 {
                     line += PossibleLimits[i].MaxPullForce.ToString().PadRight(15) + "\t" + PossibleLimits[i].MaxPushForce.ToString().PadRight(15) + "\t";
@@ -113,7 +113,8 @@ namespace DemoApplications.UnitTests.BridgeBuilder
                 BridgeFile = input.BridgeFile,
                 BridgeResult = bridgeResult,
                 Frames = frames,
-                DurrationInSeconds = (DateTime.Now - start).TotalSeconds,
+                //DurrationInSeconds = (DateTime.Now - start).TotalSeconds,
+                DurrationInSeconds = frames * (1000 / TimerTickRateInMs),
                 MaxPullForce = simulator.GetMaxPullForce(),
                 MaxPushForce = simulator.GetMaxPushForce(),
                 PullForcesForEachTimeStep = pullForces,
