@@ -33,7 +33,6 @@
     <ProjectReference Include="..\PhysicSceneTestbedControl\PhysicSceneTestbedControl.csproj" />
     <ProjectReference Include="..\SkiJumperControl\SkiJumperControl.csproj" />
     <ProjectReference Include="..\TextureEditorControl\TextureEditorControl.csproj" />
-    <ProjectReference Include="..\WpfControls\WpfControls.csproj" />
   </ItemGroup>
 
 </Project>
