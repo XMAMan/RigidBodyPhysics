@@ -165,7 +165,10 @@ namespace LevelEditorControl.Controls.EditorControl
             {
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-                saveFileDialog.InitialDirectory = new DirectoryInfo(this.dataFolder).FullName;
+                if (string.IsNullOrEmpty(this.dataFolder) == false)
+                {
+                    saveFileDialog.InitialDirectory = new DirectoryInfo(this.dataFolder).FullName;
+                }                
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     WriteToTextFile(saveFileDialog.FileName);
@@ -176,7 +179,10 @@ namespace LevelEditorControl.Controls.EditorControl
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-                openFileDialog.InitialDirectory = new DirectoryInfo(this.dataFolder).FullName;
+                if (string.IsNullOrEmpty(this.dataFolder) == false)
+                {
+                    openFileDialog.InitialDirectory = new DirectoryInfo(this.dataFolder).FullName;
+                }                    
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     LoadFromTextFile(openFileDialog.FileName);
