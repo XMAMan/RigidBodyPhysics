@@ -79,8 +79,9 @@ namespace Simulator
             {
                 var levelItem = this.levelItems.First(x => x.LevelItemId == data.CameraTrackedLevelItemId);
                 var cameraTrackedBodys = new CameraTrackedRigidBodys(levelItem.Bodies);
-                camera.UpdateSceneBoundingBox(this.sceneDrawer.GetPhysicBoundingBoxFromScene());
-                this.cameraTracker = new CameraTracker(camera, cameraTrackedBodys, data.CameraTrackerData, this.sceneDrawer.GetPhysicBoundingBoxFromScene());
+                var physicBoundingBox = this.sceneDrawer.GetPhysicBoundingBoxFromScene();
+                camera.UpdateSceneBoundingBox(physicBoundingBox);
+                this.cameraTracker = new CameraTracker(camera, cameraTrackedBodys, data.CameraTrackerData, physicBoundingBox);
                 this.cameraTracker.IsActive = true;
                 this.CameraModus = CameraMode.CameraTracker;
             }

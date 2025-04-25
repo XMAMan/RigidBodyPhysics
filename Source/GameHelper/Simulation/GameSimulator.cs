@@ -41,10 +41,20 @@ namespace GameHelper.Simulation
         {
             Init();
 
+            if (panelSize.Width == 0 || panelSize.Height == 0)
+                throw new ArgumentException("Width and Height from panelSize must be greater than 0", nameof(panelSize));
+
             if (this.CameraModus == CameraMode.None)
             {
                 this.CameraModus = CameraMode.SceneBoundingBox; //Defaultwert, wenn nichts angegeben wurde
             }
+        }
+
+        //Wird von der Demo-Game-Anwendung genutzt, wenn sie beim Erzeugen des GameSimulator-Objektes noch nicht weiß wie groß
+        //die Zeichenfläche ist oder man möchte überhaupt nicht zeichnen
+        public GameSimulator(string levelFile, float timerIntervalInMilliseconds)
+            :this(levelFile, new Size(1, 1), timerIntervalInMilliseconds)
+        {
         }
 
         private void Init()
