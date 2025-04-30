@@ -1,6 +1,4 @@
-﻿using GraphicPanelWpf;
-
-namespace KeyFrameGlobal
+﻿namespace KeyFrameGlobal
 {
     public class AnimatorInputData
     {
@@ -28,8 +26,9 @@ namespace KeyFrameGlobal
         bool Value { get; set; }
     }
 
-    public interface IAnimationObject : ITimerHandler
+    public interface IAnimationObject
     {
         void ResetToInitialState();
+        void HandleTimerTick(float dt);
     }
 }

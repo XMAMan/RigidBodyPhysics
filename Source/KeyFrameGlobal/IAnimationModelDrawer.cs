@@ -1,5 +1,5 @@
-﻿using System.Drawing;
-using WpfControls.Controls.CameraSetting;
+﻿using PhysicGlobal;
+using System.Drawing;
 
 namespace KeyFrameGlobal
 {

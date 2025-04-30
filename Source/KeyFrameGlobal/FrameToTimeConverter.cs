@@ -1,10 +1,9 @@
-﻿using GraphicPanelWpf;
-using static KeyFrameGlobal.AnimationOutputData;
+﻿using static KeyFrameGlobal.AnimationOutputData;
 
 namespace KeyFrameGlobal
 {
     //Hat eine TimeStep-Methode. Merkt sich den IsRunning-Zustand und wie viele Frames die Animation lang ist. Gibt die TimePostion (0..1) aus.
-    public class FrameToTimeConverter : ITimerHandler
+    public class FrameToTimeConverter
     {
         public long FrameAnimationCount { get; set; } // So viele Frames ist die Animation lang (Vorgabewert von außen)
         public AnimationType AnimationType { get; set; } //Vorgabewert von außen
