@@ -4,12 +4,12 @@ using GraphicPanels;
 using GraphicPanelWpf;
 using KeyboardRecordAndPlay;
 using LevelEditorGlobal;
+using PhysicGlobal;
 using Simulator;
 using SoundEngine;
 using System;
 using System.Drawing;
 using System.IO;
-using WpfControls.Controls.CameraSetting;
 
 namespace ElmaControl.Controls.Game
 {

@@ -4,6 +4,7 @@ using LevelEditorControl.Controls.PolygonControl;
 using LevelEditorControl.LevelItems.BackgroundItem;
 using LevelEditorControl.LevelItems.GroupedItems;
 using LevelEditorGlobal;
+using PhysicGlobal;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

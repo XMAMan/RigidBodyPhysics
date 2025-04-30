@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Simulator.ForceTracking;
 using Simulator;
 using RigidBodyPhysics.ExportData;
+using WpfControls.Controls.CameraSetting;
 
 namespace LevelEditorControl.EditorFunctions
 {

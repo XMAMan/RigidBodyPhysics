@@ -3,10 +3,10 @@ using GameHelper.Simulation;
 using GraphicPanels;
 using KeyboardRecordAndPlay;
 using LevelEditorGlobal;
+using PhysicGlobal;
 using System;
 using System.Drawing;
 using System.Windows.Input;
-using WpfControls.Controls.CameraSetting;
 
 namespace ElmaControl.Controls.Game.Model
 {

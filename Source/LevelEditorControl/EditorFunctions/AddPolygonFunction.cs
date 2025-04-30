@@ -2,12 +2,12 @@
 using GraphicMinimal;
 using GraphicPanels;
 using LevelEditorControl.LevelItems.Polygon;
+using PhysicGlobal;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using WpfControls.Controls.CameraSetting;
 
 namespace LevelEditorControl.EditorFunctions
 {

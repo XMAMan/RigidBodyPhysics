@@ -1,7 +1,7 @@
 ﻿using LevelEditorControl.Controls.PrototypControl;
 using LevelEditorControl.Controls.TagItemControl;
 using LevelEditorGlobal;
-using WpfControls.Controls.CameraSetting;
+using PhysicGlobal;
 
 namespace LevelEditorControl.Controls.EditorControl
 {

@@ -15,6 +15,7 @@ using GraphicMinimal;
 using PhysicSceneKeyboardControl;
 using PhysicItemEditorControl.Model.MouseClickable;
 using static LevelEditorGlobal.ITagable;
+using PhysicGlobal;
 
 namespace PhysicItemEditorControl.Model
 {

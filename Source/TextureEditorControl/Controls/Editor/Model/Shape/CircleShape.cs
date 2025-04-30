@@ -1,8 +1,8 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
+using PhysicGlobal;
 using System.Drawing;
 using TextureEditorGlobal;
-using WpfControls.Controls.CameraSetting;
 
 namespace TextureEditorControl.Controls.Editor.Model.Shape
 {

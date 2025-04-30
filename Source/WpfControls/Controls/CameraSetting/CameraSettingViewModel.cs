@@ -4,6 +4,7 @@ using System;
 using System.Drawing;
 using System.Reactive;
 using GraphicPanelWpf;
+using PhysicGlobal;
 
 namespace WpfControls.Controls.CameraSetting
 {

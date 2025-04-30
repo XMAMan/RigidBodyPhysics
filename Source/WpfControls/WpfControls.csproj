@@ -24,6 +24,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PhysicGlobal\PhysicGlobal.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Controls\CameraSetting\Bottom.png" />
     <Resource Include="Controls\CameraSetting\Left.png" />
     <Resource Include="Controls\CameraSetting\Right.png" />

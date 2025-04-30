@@ -9,9 +9,9 @@ using ReactiveUI;
 using RigidBodyPhysics.ExportData;
 using RigidBodyPhysics;
 using System.Reactive;
-using WpfControls.Controls.CameraSetting;
 using DynamicData;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
+using PhysicGlobal;
 
 namespace KeyFramePhysicImporter.ViewModel
 {

@@ -4,11 +4,11 @@ using GraphicPanels;
 using GraphicPanelWpf;
 using KeyboardRecordAndPlay;
 using LevelEditorGlobal;
+using PhysicGlobal;
 using Simulator;
 using SoundEngine;
 using System.Drawing;
 using System.IO;
-using WpfControls.Controls.CameraSetting;
 
 namespace CarDrifterControl.Controls
 {

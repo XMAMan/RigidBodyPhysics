@@ -1,7 +1,7 @@
 ﻿using GraphicPanels;
+using PhysicGlobal;
 using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
-using WpfControls.Controls.CameraSetting;
 
 namespace KeyFramePhysicImporter.Model.PhysicSceneDrawing
 {

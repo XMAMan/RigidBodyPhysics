@@ -1,6 +1,6 @@
 ﻿using GraphicPanels;
 using LevelEditorGlobal;
-using WpfControls.Controls.CameraSetting;
+using PhysicGlobal;
 
 namespace LevelToSimulatorConverter
 {

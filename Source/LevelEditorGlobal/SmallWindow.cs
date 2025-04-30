@@ -1,7 +1,7 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
 using GraphicPanelWpf;
-using WpfControls.Controls.CameraSetting;
+using PhysicGlobal;
 
 namespace LevelEditorGlobal
 {

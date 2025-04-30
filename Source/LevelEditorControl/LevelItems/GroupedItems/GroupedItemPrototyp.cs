@@ -3,6 +3,7 @@ using GraphicMinimal;
 using GraphicPanels;
 using LevelEditorGlobal;
 using LevelToSimulatorConverter;
+using PhysicGlobal;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;

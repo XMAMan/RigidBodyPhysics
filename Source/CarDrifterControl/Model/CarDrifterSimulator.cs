@@ -1,10 +1,10 @@
 ﻿using GameHelper.Simulation;
 using GraphicPanels;
 using LevelEditorGlobal;
+using PhysicGlobal;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Input;
-using WpfControls.Controls.CameraSetting;
 
 namespace CarDrifterControl.Model
 {

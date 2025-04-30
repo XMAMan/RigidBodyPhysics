@@ -1,8 +1,8 @@
 ﻿using GraphicMinimal;
 using GraphicPanelWpf;
 using LevelEditorGlobal;
+using PhysicGlobal;
 using Splat;
-using WpfControls.Controls.CameraSetting;
 
 namespace Simulator.CameraTracking
 {

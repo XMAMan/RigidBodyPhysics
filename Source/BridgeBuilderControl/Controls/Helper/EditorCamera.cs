@@ -1,7 +1,7 @@
 ﻿using GraphicMinimal;
+using PhysicGlobal;
 using System;
 using System.Drawing;
-using WpfControls.Controls.CameraSetting;
 
 namespace BridgeBuilderControl.Controls.Helper
 {

@@ -4,12 +4,12 @@ using LevelEditorControl.Controls.PolygonControl;
 using LevelEditorControl.Controls.TagItemControl;
 using LevelEditorControl.LevelItems;
 using LevelEditorGlobal;
+using PhysicGlobal;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Simulator;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using WpfControls.Controls.CameraSetting;
 using WpfControls.Controls.CollisionMatrix;
 using WpfControls.Model;
 

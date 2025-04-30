@@ -1,5 +1,6 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
+using PhysicGlobal;
 using Splat;
 using System;
 using System.Drawing;
@@ -7,7 +8,6 @@ using System.Linq;
 using TextureEditorControl.Controls.DrawingSettings;
 using TextureEditorControl.Controls.TextureData;
 using TextureEditorGlobal;
-using WpfControls.Controls.CameraSetting;
 
 namespace TextureEditorControl.Controls.Editor.Model.Shape
 {

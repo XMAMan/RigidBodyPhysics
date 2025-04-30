@@ -1,7 +1,7 @@
 ﻿using GraphicPanels;
 using LevelEditorGlobal;
+using PhysicGlobal;
 using System.Drawing;
-using WpfControls.Controls.CameraSetting;
 
 namespace LevelEditorControl.LevelItems.BackgroundItem
 {

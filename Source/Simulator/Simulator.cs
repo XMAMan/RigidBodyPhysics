@@ -10,6 +10,7 @@ using TextureEditorGlobal;
 using Simulator.ForceTracking;
 using GraphicMinimal;
 using RigidBodyPhysics.ExportData;
+using PhysicGlobal;
 
 namespace Simulator
 {

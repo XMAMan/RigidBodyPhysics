@@ -1,10 +1,5 @@
 ﻿using DemoApplications.UnitTests.Logging;
 using SoundEngine.SoundSnippeds;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WaveMaker.KeyboardComponents;
 
 namespace DemoApplications.UnitTests.SoundMocking

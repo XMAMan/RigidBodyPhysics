@@ -10,7 +10,7 @@ using System;
 using System.Windows.Forms;
 using System.Linq;
 using LevelEditorGlobal;
-using WpfControls.Controls.CameraSetting;
+using PhysicGlobal;
 
 namespace LevelEditorControl.Controls.PolygonControl
 {

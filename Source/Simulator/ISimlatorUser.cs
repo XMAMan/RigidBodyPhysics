@@ -1,5 +1,5 @@
 ﻿using LevelEditorGlobal;
-using WpfControls.Controls.CameraSetting;
+using PhysicGlobal;
 
 namespace Simulator
 {

@@ -5,6 +5,7 @@ using GraphicMinimal;
 using KeyFrameGlobal;
 using LevelEditorControl;
 using LevelEditorGlobal;
+using PhysicGlobal;
 using PhysicSceneDrawing;
 using RigidBodyPhysics;
 using RigidBodyPhysics.CollisionDetection;
@@ -18,7 +19,6 @@ using RigidBodyPhysics.RuntimeObjects.RotaryMotor;
 using RigidBodyPhysics.RuntimeObjects.Thruster;
 using Simulator;
 using TextureEditorGlobal;
-using WpfControls.Controls.CameraSetting;
 using static RigidBodyPhysics.PhysicScene;
 
 namespace GameHelper.Simulation

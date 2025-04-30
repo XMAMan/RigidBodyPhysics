@@ -3,6 +3,7 @@ using BridgeBuilderControl.Controls.LevelEditor;
 using BridgeBuilderControl.Controls.Simulator.Model;
 using GraphicMinimal;
 using GraphicPanels;
+using PhysicGlobal;
 using RigidBodyPhysics.MathHelper;
 using System;
 using System.Collections.Generic;

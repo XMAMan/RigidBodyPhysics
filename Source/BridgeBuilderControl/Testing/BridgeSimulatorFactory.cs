@@ -4,8 +4,8 @@ using BridgeBuilderControl.Controls.LevelEditor;
 using BridgeBuilderControl.Controls.Simulator.Model;
 using BridgeBuilderControl.Controls.Simulator.Model.Converter;
 using GraphicPanels;
+using PhysicGlobal;
 using System.IO;
-using WpfControls.Controls.CameraSetting;
 
 namespace BridgeBuilderControl.Testing
 {

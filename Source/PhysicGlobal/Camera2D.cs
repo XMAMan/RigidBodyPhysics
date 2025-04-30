@@ -1,7 +1,6 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
-namespace WpfControls.Controls.CameraSetting
+namespace PhysicGlobal
 {
     //Stellt ein axial ausgerichtetes Rechteck im 4. Quadrant dar. Das ist das Sichtfenster für Objetke im 4. Quadrant
     //Die Zeichenfläche liegt im Bereich von X=0..ScreenWdith und Y=0..ScreenHeight -> Das ist der ScreenSpace
@@ -14,7 +13,7 @@ namespace WpfControls.Controls.CameraSetting
         private float factor = 1;   //Um diesen Faktor muss die Scene skaliert werden, damit sie genau ins Fenster passt (Sie stößt dann oben/unten oder links/rechts an)
         private RectangleF? box = null; //Das ist die BoundingBox von den Objekt, was die Kamera anzeigen soll
         private float zoom = 1;
-        private Size backgroundImage = new Size(100,100); //Größe vom Hintergrundbild
+        private Size backgroundImage = new Size(100, 100); //Größe vom Hintergrundbild
 
         //An diese Position wird die linke obere Ecke von der Kamera (min-Variable) platziert, wenn der AutoZoom aktiviert wird
         public enum InitialPositionIfAutoZoomIsActivated
@@ -158,7 +157,7 @@ namespace WpfControls.Controls.CameraSetting
                 case InitialPositionIfAutoZoomIsActivated.ToBackgroundImage:
                     UpdateSceneBoundingBox(new RectangleF(0, 0, this.backgroundImage.Width, this.backgroundImage.Height));
                     UpdateScaleFactor();
-                    this.min = new PointF(0, 0);                    
+                    this.min = new PointF(0, 0);
                     break;
             }
         }
@@ -191,24 +190,6 @@ namespace WpfControls.Controls.CameraSetting
             if (this.ShowOriginalPosition) return length;
 
             return length * this.factor;
-        }
-
-        //Diese Funktion macht das gleiche wie PointToScreen nur dass ich eine Matrix dafür nutzen kann:
-        //Vector2D point = Matrix4x4.MultPosition(camera.GetPointToSceenMatrix(), new Vector3D(point.X, point.Y, 0)).XY
-        public GraphicMinimal.Matrix4x4 GetPointToSceenMatrix()
-        {
-            if (this.ShowOriginalPosition)
-                return GraphicMinimal.Matrix4x4.Ident();
-
-            return GraphicMinimal.Matrix4x4.Translate(-this.X, -this.Y, 0) * GraphicMinimal.Matrix4x4.Scale(this.factor, this.factor, 1);
-        }
-
-        public GraphicMinimal.Matrix4x4 GetPointToCameraMatrix()
-        {
-            if (this.ShowOriginalPosition)
-                return GraphicMinimal.Matrix4x4.Ident();
-
-            return GraphicMinimal.Matrix4x4.Scale(1.0f / this.factor, 1.0f / this.factor, 1) * GraphicMinimal.Matrix4x4.Translate(this.X, this.Y, 0);
-        }
+        }        
     }
 }

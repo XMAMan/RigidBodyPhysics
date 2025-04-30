@@ -1,11 +1,11 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
+using PhysicGlobal;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using TextureEditorGlobal;
-using WpfControls.Controls.CameraSetting;
 
 namespace TextureEditorControl.Controls.Editor.Model.Shape
 {
