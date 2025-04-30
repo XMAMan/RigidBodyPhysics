@@ -1,5 +1,5 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
+using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using TextureEditorGlobal;
 
@@ -20,7 +20,7 @@ namespace PhysicSceneDrawing
         public bool IsInvisible { get => this.decoree.IsInvisible; }
         public RigidBodyPhysics.MathHelper.BoundingBox PhysicBoundingBox { get => this.decoree.PhysicBoundingBox; }      //Weg 1: BoundingBox vom PhysicModel
         public RigidBodyPhysics.MathHelper.BoundingBox TextureBoundingBox { get => this.decoree.TextureBoundingBox; }     //Weg 2: BoundingBox von den Texturdaten
-        public Vector2D[] GetTextureCornerPoints() => this.decoree.GetTextureCornerPoints();
+        public Vec2D[] GetTextureCornerPoints() => this.decoree.GetTextureCornerPoints();
         public IPublicRigidBody AssociatedBody { get => this.decoree.AssociatedBody; }
         public TextureExportData TextureExportData { get => this.decoree.TextureExportData; }
         public void Draw(GraphicPanel2D panel)

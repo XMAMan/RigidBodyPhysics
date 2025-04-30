@@ -1,4 +1,4 @@
-﻿using GraphicMinimal;
+﻿using RigidBodyPhysics.MathHelper;
 using TextureEditorGlobal;
 
 namespace TextureEditorControl.Controls.Editor.Model.Shape
@@ -11,20 +11,20 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
             this.BoundingBox = GetBoundingBox();
         }
 
-        protected override Vector2D[] GetPhysicCornerPoints()
+        protected override Vec2D[] GetPhysicCornerPoints()
         {
             var r = (IRectangle)this.shape;
             float angleInDegree = r.AngleInDegree;
-            return new Vector2D[]
+            return new Vec2D[]
                         {
-                            Vector2D.RotatePointAroundPivotPoint(r.Center, new Vector2D(r.Center.X + r.Width / 2, r.Center.Y + r.Height / 2), angleInDegree),
-                            Vector2D.RotatePointAroundPivotPoint(r.Center, new Vector2D(r.Center.X - r.Width / 2, r.Center.Y + r.Height / 2), angleInDegree),
-                            Vector2D.RotatePointAroundPivotPoint(r.Center, new Vector2D(r.Center.X - r.Width / 2, r.Center.Y - r.Height / 2), angleInDegree),
-                            Vector2D.RotatePointAroundPivotPoint(r.Center, new Vector2D(r.Center.X + r.Width / 2, r.Center.Y - r.Height / 2), angleInDegree),
+                            Vec2D.RotatePointAroundPivotPoint(r.Center, new Vec2D(r.Center.X + r.Width / 2, r.Center.Y + r.Height / 2), angleInDegree),
+                            Vec2D.RotatePointAroundPivotPoint(r.Center, new Vec2D(r.Center.X - r.Width / 2, r.Center.Y + r.Height / 2), angleInDegree),
+                            Vec2D.RotatePointAroundPivotPoint(r.Center, new Vec2D(r.Center.X - r.Width / 2, r.Center.Y - r.Height / 2), angleInDegree),
+                            Vec2D.RotatePointAroundPivotPoint(r.Center, new Vec2D(r.Center.X + r.Width / 2, r.Center.Y - r.Height / 2), angleInDegree),
                         };
         }
 
-        public override bool IsPointInPhysicModel(Vector2D point)
+        public override bool IsPointInPhysicModel(Vec2D point)
         {
             return MathHelper.IsPointInRectangle(GetPhysicCornerPoints(), point);
         }

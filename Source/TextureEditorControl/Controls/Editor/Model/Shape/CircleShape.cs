@@ -1,6 +1,6 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
 using PhysicGlobal;
+using RigidBodyPhysics.MathHelper;
 using System.Drawing;
 using TextureEditorGlobal;
 
@@ -14,16 +14,16 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
             this.BoundingBox = GetBoundingBox();
         }
 
-        protected override Vector2D[] GetPhysicCornerPoints()
+        protected override Vec2D[] GetPhysicCornerPoints()
         {
             var c = (ICircle)this.shape;
 
-            return new Vector2D[]
+            return new Vec2D[]
             {
-                c.Center + new Vector2D(-c.Radius, -c.Radius),
-                c.Center + new Vector2D(+c.Radius, -c.Radius),
-                c.Center + new Vector2D(+c.Radius, +c.Radius),
-                c.Center + new Vector2D(-c.Radius, +c.Radius),
+                c.Center + new Vec2D(-c.Radius, -c.Radius),
+                c.Center + new Vec2D(+c.Radius, -c.Radius),
+                c.Center + new Vec2D(+c.Radius, +c.Radius),
+                c.Center + new Vec2D(-c.Radius, +c.Radius),
             };
         }
 
@@ -37,7 +37,7 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
             panel.DrawCircle(this.IsSelected ? new Pen(Color.Red, 4) : Pens.Black, center, radius);
         }
 
-        public override bool IsPointInPhysicModel(Vector2D point)
+        public override bool IsPointInPhysicModel(Vec2D point)
         {
             var c = (ICircle)this.shape;
 

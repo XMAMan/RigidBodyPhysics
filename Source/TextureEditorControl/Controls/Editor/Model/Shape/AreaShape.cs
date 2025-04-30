@@ -1,6 +1,6 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
 using PhysicGlobal;
+using RigidBodyPhysics.MathHelper;
 using Splat;
 using System;
 using System.Drawing;
@@ -34,22 +34,22 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
 
         protected RectangleF GetBoundingBox()
         {
-            Vector2D[] points = GetPhysicCornerPoints();
-            var min = new Vector2D(points.Min(x => x.X), points.Min(x => x.Y));
-            var max = new Vector2D(points.Max(x => x.X), points.Max(x => x.Y));
+            Vec2D[] points = GetPhysicCornerPoints();
+            var min = new Vec2D(points.Min(x => x.X), points.Min(x => x.Y));
+            var max = new Vec2D(points.Max(x => x.X), points.Max(x => x.Y));
 
             return new RectangleF(min.X, min.Y, max.X - min.X, max.Y - min.Y);
         }
 
-        protected abstract Vector2D[] GetPhysicCornerPoints();
+        protected abstract Vec2D[] GetPhysicCornerPoints();
 
         //Die ersten 4 Punkte sind die Eckpuntke vom Textur-Rechteck. Punkt 5 ist dessen Zentrum.
-        protected Vector2D[] GetTextureBorderPoints()
+        protected Vec2D[] GetTextureBorderPoints()
         {
             var r = this.shape;
             var p = this.Propertys;
 
-            return TextureRectangleHelper.GetTextureBorderPoints(r.Center, r.LocalBoundingBox.Center().ToGrx(), p.Width, p.Height, r.AngleInDegree, p.DeltaX, p.DeltaY, p.DeltaAngle);
+            return TextureRectangleHelper.GetTextureBorderPoints(r.Center, r.LocalBoundingBox.Center().ToPhx(), p.Width, p.Height, r.AngleInDegree, p.DeltaX, p.DeltaY, p.DeltaAngle);
         }
 
         public void Draw(GraphicPanel2D panel, Camera2D camera, DrawingSettingsViewModel settings)
@@ -117,14 +117,14 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
             }
         }
 
-        public abstract bool IsPointInPhysicModel(Vector2D point);
+        public abstract bool IsPointInPhysicModel(Vec2D point);
 
-        public bool IsPointInTextureBorder(Vector2D point)
+        public bool IsPointInTextureBorder(Vec2D point)
         {
             return MathHelper.IsPointInRectangle(GetTextureBorderPoints().Take(4).ToArray(), point);
         }
 
-        public RectanglePart GetSelectedPartFromTextureBorder(Vector2D point)
+        public RectanglePart GetSelectedPartFromTextureBorder(Vec2D point)
         {
             var texPoints = GetTextureBorderPoints();
 
@@ -144,85 +144,85 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
             return RectanglePart.None;
         }
 
-        public Vector2D[] GetNormalsFromTextureBorderPoint(RectanglePart part, Vector2D point)
+        public Vec2D[] GetNormalsFromTextureBorderPoint(RectanglePart part, Vec2D point)
         {
             var texPoints = GetTextureBorderPoints();
 
-            Vector2D n1 = (texPoints[1] - texPoints[0]).Normalize().Spin90(); //TopEdge
-            Vector2D n2 = (texPoints[2] - texPoints[1]).Normalize().Spin90(); //RightEdge
-            Vector2D n3 = (texPoints[3] - texPoints[2]).Normalize().Spin90(); //BottomEdge
-            Vector2D n4 = (texPoints[0] - texPoints[3]).Normalize().Spin90(); //LeftEdge
+            Vec2D n1 = (texPoints[1] - texPoints[0]).Normalize().Spin90(); //TopEdge
+            Vec2D n2 = (texPoints[2] - texPoints[1]).Normalize().Spin90(); //RightEdge
+            Vec2D n3 = (texPoints[3] - texPoints[2]).Normalize().Spin90(); //BottomEdge
+            Vec2D n4 = (texPoints[0] - texPoints[3]).Normalize().Spin90(); //LeftEdge
 
             switch (part)
             {
                 case RectanglePart.LeftTopCorner:
-                    return new Vector2D[] { n4, n1 };
+                    return new Vec2D[] { n4, n1 };
 
                 case RectanglePart.RightTopCorner:
-                    return new Vector2D[] { n2, n1 };
+                    return new Vec2D[] { n2, n1 };
 
                 case RectanglePart.RightBottomCorner:
-                    return new Vector2D[] { n2, n3 };
+                    return new Vec2D[] { n2, n3 };
 
                 case RectanglePart.LeftBottomCorner:
-                    return new Vector2D[] { n4, n3 };
+                    return new Vec2D[] { n4, n3 };
 
                 case RectanglePart.TopEdge:
-                    return new Vector2D[] { n1, -n1 };
+                    return new Vec2D[] { n1, -n1 };
 
                 case RectanglePart.RightEdge:
-                    return new Vector2D[] { n2, -n2 };
+                    return new Vec2D[] { n2, -n2 };
 
                 case RectanglePart.BottomEdge:
-                    return new Vector2D[] { n3, -n3 };
+                    return new Vec2D[] { n3, -n3 };
 
                 case RectanglePart.LeftEdge:
-                    return new Vector2D[] { n4, -n4 };
+                    return new Vec2D[] { n4, -n4 };
 
                 case RectanglePart.Center:
-                    return new Vector2D[] { n1, n2, -n1, -n2 };
+                    return new Vec2D[] { n1, n2, -n1, -n2 };
             }
 
             throw new ArgumentException(part.ToString());
         }
 
-        public Vector2D GetDistanceToTextureBorderPart(RectanglePart part, Vector2D point)
+        public Vec2D GetDistanceToTextureBorderPart(RectanglePart part, Vec2D point)
         {
             var texPoints = GetTextureBorderPoints();
 
             switch (part)
             {
                 case RectanglePart.LeftTopCorner:
-                    return new Vector2D(
+                    return new Vec2D(
                         MathHelper.GetNormalDistanceToLine(texPoints[3], texPoints[0], point), //X-Abstand zu LeftEdge
                         MathHelper.GetNormalDistanceToLine(texPoints[0], texPoints[1], point));//Y-Abstand zu TopEdge
 
                 case RectanglePart.RightTopCorner:
-                    return new Vector2D(
+                    return new Vec2D(
                         MathHelper.GetNormalDistanceToLine(texPoints[1], texPoints[2], point), //X-Abstand zu RightEdge
                         MathHelper.GetNormalDistanceToLine(texPoints[0], texPoints[1], point));//Y-Abstand zu TopEdge
 
                 case RectanglePart.RightBottomCorner:
-                    return new Vector2D(
+                    return new Vec2D(
                         MathHelper.GetNormalDistanceToLine(texPoints[1], texPoints[2], point), //X-Abstand zu RightEdge
                         MathHelper.GetNormalDistanceToLine(texPoints[2], texPoints[3], point));//Y-Abstand zu BottomEdge
 
                 case RectanglePart.LeftBottomCorner:
-                    return new Vector2D(
+                    return new Vec2D(
                         MathHelper.GetNormalDistanceToLine(texPoints[3], texPoints[0], point), //X-Abstand zu LeftEdge
                         MathHelper.GetNormalDistanceToLine(texPoints[2], texPoints[3], point));//Y-Abstand zu BottomEdge
 
                 case RectanglePart.TopEdge:
-                    return new Vector2D(0, MathHelper.GetNormalDistanceToLine(texPoints[0], texPoints[1], point)); //Y-Abstand zu TopEdge
+                    return new Vec2D(0, MathHelper.GetNormalDistanceToLine(texPoints[0], texPoints[1], point)); //Y-Abstand zu TopEdge
 
                 case RectanglePart.RightEdge:
-                    return new Vector2D(MathHelper.GetNormalDistanceToLine(texPoints[1], texPoints[2], point), 0); //X-Abstand zu RightEdge
+                    return new Vec2D(MathHelper.GetNormalDistanceToLine(texPoints[1], texPoints[2], point), 0); //X-Abstand zu RightEdge
 
                 case RectanglePart.BottomEdge:
-                    return new Vector2D(0, MathHelper.GetNormalDistanceToLine(texPoints[2], texPoints[3], point)); //Y-Abstand zu BottomEdge
+                    return new Vec2D(0, MathHelper.GetNormalDistanceToLine(texPoints[2], texPoints[3], point)); //Y-Abstand zu BottomEdge
 
                 case RectanglePart.LeftEdge:
-                    return new Vector2D(MathHelper.GetNormalDistanceToLine(texPoints[3], texPoints[0], point), 0); //X-Abstand zu LeftEdge
+                    return new Vec2D(MathHelper.GetNormalDistanceToLine(texPoints[3], texPoints[0], point), 0); //X-Abstand zu LeftEdge
 
                 case RectanglePart.Center:
                     return point - texPoints[4];
@@ -231,23 +231,23 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
             throw new ArgumentException("Distance can not be calculated for part " + part);
         }
 
-        public float GetAngleDistanceToTextureCorner(RectanglePart part, Vector2D point)
+        public float GetAngleDistanceToTextureCorner(RectanglePart part, Vec2D point)
         {
             var texPoints = GetTextureBorderPoints();
 
             switch (part)
             {
                 case RectanglePart.LeftTopCorner:
-                    return Vector2D.Angle360(texPoints[0] - texPoints[4], point - texPoints[4]);
+                    return Vec2D.Angle360(texPoints[0] - texPoints[4], point - texPoints[4]);
 
                 case RectanglePart.RightTopCorner:
-                    return Vector2D.Angle360(texPoints[1] - texPoints[4], point - texPoints[4]);
+                    return Vec2D.Angle360(texPoints[1] - texPoints[4], point - texPoints[4]);
 
                 case RectanglePart.RightBottomCorner:
-                    return Vector2D.Angle360(texPoints[2] - texPoints[4], point - texPoints[4]);
+                    return Vec2D.Angle360(texPoints[2] - texPoints[4], point - texPoints[4]);
 
                 case RectanglePart.LeftBottomCorner:
-                    return Vector2D.Angle360(texPoints[3] - texPoints[4], point - texPoints[4]);
+                    return Vec2D.Angle360(texPoints[3] - texPoints[4], point - texPoints[4]);
             }
 
             throw new ArgumentException("Distance can not be calculated for part " + part);

@@ -1,6 +1,6 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
 using PhysicGlobal;
+using RigidBodyPhysics.MathHelper;
 using System.Drawing;
 using TextureEditorControl.Controls.DrawingSettings;
 using TextureEditorControl.Controls.TextureData;
@@ -13,12 +13,12 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
         TextureDataViewModel Propertys { get; }
         bool IsSelected { get; set; }
         void Draw(GraphicPanel2D panel, Camera2D camera, DrawingSettingsViewModel settings);
-        bool IsPointInPhysicModel(Vector2D point);
-        bool IsPointInTextureBorder(Vector2D point);
-        RectanglePart GetSelectedPartFromTextureBorder(Vector2D point);
-        Vector2D[] GetNormalsFromTextureBorderPoint(RectanglePart part, Vector2D point);
-        Vector2D GetDistanceToTextureBorderPart(RectanglePart part, Vector2D point);
-        float GetAngleDistanceToTextureCorner(RectanglePart part, Vector2D point);
+        bool IsPointInPhysicModel(Vec2D point);
+        bool IsPointInTextureBorder(Vec2D point);
+        RectanglePart GetSelectedPartFromTextureBorder(Vec2D point);
+        Vec2D[] GetNormalsFromTextureBorderPoint(RectanglePart part, Vec2D point);
+        Vec2D GetDistanceToTextureBorderPart(RectanglePart part, Vec2D point);
+        float GetAngleDistanceToTextureCorner(RectanglePart part, Vec2D point);
     }
     enum RectanglePart { None, LeftTopCorner, RightTopCorner, RightBottomCorner, LeftBottomCorner, TopEdge, RightEdge, BottomEdge, LeftEdge, Center }
 }

@@ -81,8 +81,8 @@ namespace DynamicObjCreation.RigidBodyDestroying
         private static Vec2D GetTextureCenterFromPolygon(IPublicRigidPolygon body, TextureExportData p)
         {
             float angleInDegree = body.Angle / (float)Math.PI * 180;
-            var localCenter = RigidBodyPhysics.MathHelper.BoundingBox.GetBoxFromPoints(((PolygonExportData)body.GetExportData()).Points).Center.ToGrx();
-            return TextureRectangleHelper.GetTextureBorderPoints(body.Center.ToGrx(), localCenter, p.Width, p.Height, angleInDegree, p.DeltaX, p.DeltaY, p.DeltaAngle).Last().ToPhx();
+            var localCenter = RigidBodyPhysics.MathHelper.BoundingBox.GetBoxFromPoints(((PolygonExportData)body.GetExportData()).Points).Center;
+            return TextureRectangleHelper.GetTextureBorderPoints(body.Center, localCenter, p.Width, p.Height, angleInDegree, p.DeltaX, p.DeltaY, p.DeltaAngle).Last();
         }
 
         private static BodyWithTexture CreateTexturedPolygon(Vec2D[] poly, Vec2D texCenter, IPublicRigidBody body, HelperParameter p)

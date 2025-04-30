@@ -1,4 +1,4 @@
-﻿using GraphicMinimal;
+﻿using RigidBodyPhysics.MathHelper;
 using System;
 
 namespace TextureEditorControl.Controls.Editor.Model
@@ -6,13 +6,13 @@ namespace TextureEditorControl.Controls.Editor.Model
     static class MathHelper
     {
         //Die Linie geht von p1 nach p2
-        public static bool IsPointAboveLine(Vector2D p1, Vector2D p2, Vector2D point, float lineWidth)
+        public static bool IsPointAboveLine(Vec2D p1, Vec2D p2, Vec2D point, float lineWidth)
         {
-            Vector2D dir = (p2 - p1);
+            Vec2D dir = (p2 - p1);
             float dirLength = dir.Length();
             if (dirLength < 0.0001f) return false;
             dir /= dirLength;
-            Vector2D d = point - p1;
+            Vec2D d = point - p1;
 
             float projection1 = dir * d;
             if (projection1 < 0) return false;
@@ -24,18 +24,18 @@ namespace TextureEditorControl.Controls.Editor.Model
             return true;
         }
 
-        public static float GetNormalDistanceToLine(Vector2D p1, Vector2D p2, Vector2D point)
+        public static float GetNormalDistanceToLine(Vec2D p1, Vec2D p2, Vec2D point)
         {
-            Vector2D dir = (p2 - p1).Normalize();
-            Vector2D normal = dir.Spin90();
+            Vec2D dir = (p2 - p1).Normalize();
+            Vec2D normal = dir.Spin90();
             return normal * (point - p1);
         }
 
-        public static bool IsPointInRectangle(Vector2D[] points, Vector2D point)
+        public static bool IsPointInRectangle(Vec2D[] points, Vec2D point)
         {
             for (int i = 0; i < points.Length; i++)
             {
-                Vector2D edge = (points[(i + 1) % points.Length] - points[i]).Normalize();
+                Vec2D edge = (points[(i + 1) % points.Length] - points[i]).Normalize();
                 bool isInside = edge * (point - points[i]) > 0;
                 if (isInside == false) return false;
             }
@@ -43,7 +43,7 @@ namespace TextureEditorControl.Controls.Editor.Model
             return true;
         }
 
-        public static bool PointIsInsidePolygon(Vector2D[] polygon, Vector2D p)
+        public static bool PointIsInsidePolygon(Vec2D[] polygon, Vec2D p)
         {
             int i, j;
             bool c = false;

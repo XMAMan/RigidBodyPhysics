@@ -1,6 +1,7 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
 using PhysicGlobal;
+using RigidBodyPhysics.MathHelper;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -17,7 +18,7 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
             this.BoundingBox = GetBoundingBox();
         }
 
-        protected override Vector2D[] GetPhysicCornerPoints()
+        protected override Vec2D[] GetPhysicCornerPoints()
         {
             return (this.shape as IPolygon).Points;
         }
@@ -52,7 +53,7 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
             }
         }
 
-        public override bool IsPointInPhysicModel(Vector2D point)
+        public override bool IsPointInPhysicModel(Vec2D point)
         {
             var p = (IPolygon)this.shape;
             return MathHelper.PointIsInsidePolygon(p.Points, point);

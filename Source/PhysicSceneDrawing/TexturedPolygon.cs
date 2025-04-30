@@ -30,7 +30,7 @@ namespace PhysicSceneDrawing
                 return PhysicBoundingBox;
             }
         }
-        public Vector2D[] GetTextureCornerPoints()
+        public Vec2D[] GetTextureCornerPoints()
         {
             return GetTextureBorderPoints();
             //return r.Vertex.Select(x => x.ToGrx()).ToArray();
@@ -60,7 +60,7 @@ namespace PhysicSceneDrawing
             var globalPoints = exportData.Points
                 .Select(x => exportData.Center + x)
                 .Select(x => Vec2D.RotatePointAroundPivotPoint(exportData.Center, x, angleInDegree))
-                .ToGrx().ToList();
+                .ToList();
 
             List<Vector2D> coords = new List<Vector2D>();
             foreach (var local in globalPoints)
@@ -72,11 +72,11 @@ namespace PhysicSceneDrawing
             return coords.ToArray();
         }
 
-        protected Vector2D[] GetTextureBorderPoints()
+        protected Vec2D[] GetTextureBorderPoints()
         {
             float angleInDegree = r.Angle / (float)Math.PI * 180;
-            var localCenter = RigidBodyPhysics.MathHelper.BoundingBox.GetBoxFromPoints(((PolygonExportData)r.GetExportData()).Points).Center.ToGrx();
-            return TextureRectangleHelper.GetTextureBorderPoints(r.Center.ToGrx(), localCenter, p.Width, p.Height, angleInDegree, p.DeltaX, p.DeltaY, p.DeltaAngle);
+            var localCenter = RigidBodyPhysics.MathHelper.BoundingBox.GetBoxFromPoints(((PolygonExportData)r.GetExportData()).Points).Center;
+            return TextureRectangleHelper.GetTextureBorderPoints(r.Center, localCenter, p.Width, p.Height, angleInDegree, p.DeltaX, p.DeltaY, p.DeltaAngle);
         }
 
         public void Draw(GraphicPanel2D panel)
@@ -102,7 +102,7 @@ namespace PhysicSceneDrawing
         }
         public void DrawTextureBorder(GraphicPanel2D panel, Pen borderPen)
         {
-            panel.DrawPolygon(borderPen, GetTextureCornerPoints().Take(4).ToList()); //Texture-Border
+            panel.DrawPolygon(borderPen, GetTextureCornerPoints().Take(4).ToGrx().ToList()); //Texture-Border
         }
 
         public void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor)

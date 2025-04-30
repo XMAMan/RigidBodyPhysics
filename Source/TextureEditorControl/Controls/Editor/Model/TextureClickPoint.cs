@@ -1,5 +1,6 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
+using RigidBodyPhysics.MathHelper;
 using System.Drawing;
 using TextureEditorControl.Controls.Editor.Model.Shape;
 
@@ -12,10 +13,10 @@ namespace TextureEditorControl.Controls.Editor.Model
         public IShape Shape { get; private set; }
         public RectanglePart Part { get; private set; }
 
-        public Vector2D ClickPosition { get; private set; } //Hier erfolgte das MouseDown-Event
-        public Vector2D[] Normals { get => Shape.GetNormalsFromTextureBorderPoint(Part, ClickPosition); }
+        public Vec2D ClickPosition { get; private set; } //Hier erfolgte das MouseDown-Event
+        public Vec2D[] Normals { get => Shape.GetNormalsFromTextureBorderPoint(Part, ClickPosition); }
 
-        public TextureClickPoint(IShape shape, RectanglePart part, Vector2D clickPosition)
+        public TextureClickPoint(IShape shape, RectanglePart part, Vec2D clickPosition)
         {
             this.Shape = shape;
             this.Part = part;
@@ -23,9 +24,9 @@ namespace TextureEditorControl.Controls.Editor.Model
         }
 
         //Beim verschieben des Textur-Clickpoints wird das Textur-Rechteck verändert
-        public void MoveClickPointToPosition(Vector2D position, bool rotateCornerPoint)
+        public void MoveClickPointToPosition(Vec2D position, bool rotateCornerPoint)
         {
-            Vector2D xyDistance = this.Shape.GetDistanceToTextureBorderPart(this.Part, position);
+            Vec2D xyDistance = this.Shape.GetDistanceToTextureBorderPart(this.Part, position);
 
             if (this.Part == RectanglePart.Center)
             {
@@ -69,7 +70,7 @@ namespace TextureEditorControl.Controls.Editor.Model
             foreach (var normal in this.Normals)
             {
                 //panel.DrawLine(new Pen(Color.Red, 5), point, point + normal * 20);
-                DrawArrow(panel, point, point + normal * 20);
+                DrawArrow(panel, point, point + normal.ToGrx() * 20);
             }
 
             if (IsCorner(this.Part) && rotateCornerPoint == false)
@@ -77,7 +78,7 @@ namespace TextureEditorControl.Controls.Editor.Model
                 foreach (var normal in this.Normals)
                 {
                     //panel.DrawLine(new Pen(Color.Red, 5), point, point - normal * 20);
-                    DrawArrow(panel, point, point - normal * 20);
+                    DrawArrow(panel, point, point - normal.ToGrx() * 20);
                 }
 
             }

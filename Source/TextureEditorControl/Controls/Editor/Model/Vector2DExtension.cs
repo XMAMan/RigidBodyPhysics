@@ -1,4 +1,5 @@
 ﻿using GraphicMinimal;
+using RigidBodyPhysics.MathHelper;
 using System.Drawing;
 
 namespace TextureEditorControl.Controls.Editor.Model
@@ -10,9 +11,24 @@ namespace TextureEditorControl.Controls.Editor.Model
             return new PointF(v.X, v.Y);
         }
 
+        internal static PointF ToPointF(this Vec2D v)
+        {
+            return new PointF(v.X, v.Y);
+        }
+
         internal static Vector2D ToGrx(this PointF p)
         {
             return new Vector2D(p.X, p.Y);
+        }
+
+        internal static Vector2D ToGrx(this Vec2D p)
+        {
+            return new Vector2D(p.X, p.Y);
+        }
+
+        internal static Vec2D ToPhx(this PointF p)
+        {
+            return new Vec2D(p.X, p.Y);
         }
 
         internal static Vector2D Spin90(this Vector2D dir)

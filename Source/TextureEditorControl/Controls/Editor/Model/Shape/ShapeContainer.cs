@@ -1,5 +1,5 @@
 ﻿using DynamicData;
-using GraphicMinimal;
+using RigidBodyPhysics.MathHelper;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -44,7 +44,7 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
             throw new ArgumentException("Unknown Type: " + shape.GetType().Name);
         }
 
-        public IShape GetShapeFromClickPosition(Vector2D position, DrawingSettingsViewModel settings)
+        public IShape GetShapeFromClickPosition(Vec2D position, DrawingSettingsViewModel settings)
         {
             List<KeyValuePair<float, IShape>> clicks = new List<KeyValuePair<float, IShape>>();
             foreach (var shape in this.Shapes)
@@ -75,7 +75,7 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
             this.selectedShape = shape;
         }
 
-        public TextureClickPoint GetClickPointFromSelectedShape(Vector2D position)
+        public TextureClickPoint GetClickPointFromSelectedShape(Vec2D position)
         {
             if (this.selectedShape != null)
             {

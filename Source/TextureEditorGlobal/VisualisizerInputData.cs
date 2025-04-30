@@ -1,4 +1,4 @@
-﻿using GraphicMinimal;
+﻿using RigidBodyPhysics.MathHelper;
 using System.Drawing;
 
 namespace TextureEditorGlobal
@@ -12,7 +12,7 @@ namespace TextureEditorGlobal
     //Diese Figur wurde im Lokalspace definiert und dann zum Punkt "Center" hin verschoben und dort dann noch um "Angle" gedreht
     public interface I2DAreaShape
     {
-        Vector2D Center { get; } //Um diesen Punkt wird das Objekt was texturiert werden soll gedreht (Entspricht dem Massezentrum)
+        Vec2D Center { get; } //Um diesen Punkt wird das Objekt was texturiert werden soll gedreht (Entspricht dem Massezentrum)
         float AngleInDegree { get; }
 
         //AABB-BoundingBox von der Shape im LokalSpace (Wenn Objekt nicht gedreht wurde und dessen Zentrum bei 0 liegt)
@@ -27,7 +27,7 @@ namespace TextureEditorGlobal
 
     public interface IPolygon : I2DAreaShape
     {
-        Vector2D[] Points { get; }
+        Vec2D[] Points { get; }
     }
 
     public interface ICircle : I2DAreaShape

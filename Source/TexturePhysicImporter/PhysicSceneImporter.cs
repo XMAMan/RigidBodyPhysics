@@ -1,5 +1,4 @@
-﻿using GraphicMinimal;
-using JsonHelper;
+﻿using JsonHelper;
 using RigidBodyPhysics.ExportData;
 using RigidBodyPhysics.ExportData.RigidBody;
 using RigidBodyPhysics.MathHelper;
@@ -52,7 +51,7 @@ namespace TexturePhysicImporter
     internal class RigidRectangle : IRectangle
     {
         private RectangleExportData r;
-        public Vector2D Center { get => r.Center.ToGrx(); }
+        public Vec2D Center { get => r.Center; }
         public float AngleInDegree { get => r.AngleInDegree; }
         public RectangleF LocalBoundingBox { get => new RectangleF(- r.Size.X / 2, - r.Size.Y / 2, r.Size.X, r.Size.Y); }
         public float Width { get => r.Size.X; }
@@ -67,10 +66,10 @@ namespace TexturePhysicImporter
     internal class RigidPolygon : IPolygon
     {
         private PolygonExportData r;
-        public Vector2D Center { get => r.Center.ToGrx(); }
+        public Vec2D Center { get => r.Center; }
         public float AngleInDegree { get => r.AngleInDegree; }
         public RectangleF LocalBoundingBox { get => RigidBodyPhysics.MathHelper.BoundingBox.GetBoxFromPoints(r.Points).ToRectangleF(); }
-        public Vector2D[] Points { get => r.Points.Select(x => Vec2D.RotatePointAroundPivotPoint(r.Center, r.Center + x, r.AngleInDegree)).ToGrx().ToArray(); }
+        public Vec2D[] Points { get => r.Points.Select(x => Vec2D.RotatePointAroundPivotPoint(r.Center, r.Center + x, r.AngleInDegree)).ToArray(); }
 
         public RigidPolygon(PolygonExportData rec)
         {
@@ -81,7 +80,7 @@ namespace TexturePhysicImporter
     internal class RigidCircle : ICircle
     {
         private CircleExportData r;
-        public Vector2D Center { get => r.Center.ToGrx(); }
+        public Vec2D Center { get => r.Center; }
         public float AngleInDegree { get => r.AngleInDegree; }
         public RectangleF LocalBoundingBox { get => new RectangleF(-r.Radius, -r.Radius, r.Radius * 2, r.Radius * 2); }
         public float Radius { get => r.Radius; }

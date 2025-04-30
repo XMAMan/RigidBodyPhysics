@@ -26,23 +26,23 @@ namespace PhysicSceneDrawing
             {
                 var points = GetTextureCornerPoints();
 
-                return RigidBodyPhysics.MathHelper.BoundingBox.GetBoxFromPoints(points.Select(x => x.ToPhx()));
+                return RigidBodyPhysics.MathHelper.BoundingBox.GetBoxFromPoints(points);
             }
         }
-        public Vector2D[] GetTextureCornerPoints()
+        public Vec2D[] GetTextureCornerPoints()
         {
             float angleInDegree = r.Angle * 180 / (float)Math.PI;
-            var texCenter = Vector2D.RotatePointAroundPivotPoint(r.Center.ToGrx(), r.Center.ToGrx() + new Vector2D(p.DeltaX, p.DeltaY), angleInDegree);
+            var texCenter = Vec2D.RotatePointAroundPivotPoint(r.Center, r.Center + new Vec2D(p.DeltaX, p.DeltaY), angleInDegree);
 
-            Vector2D[] local = new Vector2D[]
+            Vec2D[] local = new Vec2D[]
             {
-                     new Vector2D(- p.Width / 2, - p.Height / 2),
-                     new Vector2D(+ p.Width / 2, - p.Height / 2),
-                     new Vector2D(+ p.Width / 2, + p.Height / 2),
-                     new Vector2D(- p.Width / 2, + p.Height / 2)
+                     new Vec2D(- p.Width / 2, - p.Height / 2),
+                     new Vec2D(+ p.Width / 2, - p.Height / 2),
+                     new Vec2D(+ p.Width / 2, + p.Height / 2),
+                     new Vec2D(- p.Width / 2, + p.Height / 2)
             };
 
-            var points = local.Select(x => texCenter + Vector2D.RotatePointAroundPivotPoint(new Vector2D(0, 0), x, angleInDegree + p.DeltaAngle)).ToList(); //Drehe um Angle und DeltaAngle
+            var points = local.Select(x => texCenter + Vec2D.RotatePointAroundPivotPoint(new Vec2D(0, 0), x, angleInDegree + p.DeltaAngle)).ToList(); //Drehe um Angle und DeltaAngle
             return points.ToArray();
         }
         public IPublicRigidBody AssociatedBody { get => r; }
@@ -85,7 +85,7 @@ namespace PhysicSceneDrawing
         }
         public void DrawTextureBorder(GraphicPanel2D panel, Pen borderPen)
         {
-            panel.DrawPolygon(borderPen, GetTextureCornerPoints().ToList()); //Texture-Border
+            panel.DrawPolygon(borderPen, GetTextureCornerPoints().ToGrx().ToList()); //Texture-Border
         }
 
         public void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor)
