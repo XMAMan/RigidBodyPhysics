@@ -3,7 +3,9 @@ RigidBodyPhysics
 This is a 2D physics engine which simulates the movement from rigid bodys. It is using sequentill impules like Box2D from Erin Catto.
 I created this engine to get a better understanding how Box2D works and to use it for my games.
 
-There is a long documentation in [german](./Dokumentation/Dokumentation.pdf) and a shorter one in [english](https://github.com/XMAMan/SmallSI).
+There is a long documentation in [german](./Dokumentation/Dokumentation.pdf) and  shorter ones in english:
+ * [SmallSI](https://github.com/XMAMan/SmallSI)
+ * [RigidBodyPhysicsExamples](https://github.com/XMAMan/RigidBodyPhysicsExamples)
 
 Images
 ------
