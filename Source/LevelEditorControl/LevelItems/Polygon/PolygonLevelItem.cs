@@ -56,6 +56,10 @@ namespace LevelEditorControl.LevelItems.Polygon
 
             if (texture == null)
             {
+                //Damit das Polygon zu sehen ist, wenn das Grid aktiv (liegt bei Z-Value=-1).
+                //Es soll aber hinter LevelItems (liegen bei Z-Value=0) liegen, weswegen hier -0.1 verwendet wird.
+                panel.ZValue2D = -0.1f; 
+
                 panel.DrawPolygon(Pens.Black, GlobalPoints.ToList());
                 return;
             }
