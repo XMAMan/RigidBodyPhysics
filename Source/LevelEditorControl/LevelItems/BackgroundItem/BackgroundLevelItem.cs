@@ -1,5 +1,6 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
+using LevelEditorControl.EditorFunctions;
 using LevelEditorGlobal;
 using System.Collections.Generic;
 using System.Drawing;
@@ -122,7 +123,7 @@ namespace LevelEditorControl.LevelItems.BackgroundItem
                 Width = r.OriginalSize.Width * r.SizeFactor,
                 Height = r.OriginalSize.Height * r.SizeFactor,
                 AngleInDegree = r.AngleInDegree,
-                Center = (cornerPoints[0] + cornerPoints[2]) / 2,
+                Center = ((cornerPoints[0] + cornerPoints[2]) / 2).ToPhx(),
                 TextureFile = protoExport.TextureFile,
                 ZValue = protoExport.ZValue,
             };

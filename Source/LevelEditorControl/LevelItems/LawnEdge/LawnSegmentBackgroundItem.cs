@@ -1,5 +1,6 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
+using LevelEditorControl.EditorFunctions;
 using LevelEditorGlobal;
 using System.Drawing;
 
@@ -38,7 +39,7 @@ namespace LevelEditorControl.LevelItems.LawnEdge
         {
             return new BackgroundItemSimulatorExportData()
             {
-                Center = center,
+                Center = center.ToPhx(),
                 AngleInDegree = angle,
                 Width = width,
                 Height = height,

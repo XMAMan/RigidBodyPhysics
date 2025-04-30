@@ -1,5 +1,6 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
+using LevelEditorControl.EditorFunctions;
 using LevelEditorGlobal;
 
 namespace LevelEditorControl.LevelItems.GroupedItems
@@ -30,7 +31,7 @@ namespace LevelEditorControl.LevelItems.GroupedItems
             float angleInDegreeMatrix = Matrix4x4.GetAngleInDegreeFromMatrix(matrix);
             float sizeFactorMatrix = Matrix4x4.GetSizeFactorFromMatrix(matrix);
 
-            data.Center = Matrix4x4.MultPosition(matrix, new Vector3D(data.Center.X, data.Center.Y, 0)).XY;
+            data.Center = Matrix4x4.MultPosition(matrix, new Vector3D(data.Center.X, data.Center.Y, 0)).XY.ToPhx();
             data.AngleInDegree += angleInDegreeMatrix;
             data.Width *= sizeFactorMatrix;
             data.Height *= sizeFactorMatrix;

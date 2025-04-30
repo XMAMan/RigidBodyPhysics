@@ -346,9 +346,9 @@ namespace Simulator
             foreach (var item in this.backgroundItems)
             {
                 if (string.IsNullOrEmpty(item.TextureFile) == false)
-                    panel.DrawFillRectangle(item.TextureFile, item.Center.Xi, item.Center.Yi, (int)item.Width, (int)item.Height, true, Color.White, item.AngleInDegree);
+                    panel.DrawFillRectangle(item.TextureFile, (int)item.Center.X, (int)item.Center.Y, (int)item.Width, (int)item.Height, true, Color.White, item.AngleInDegree);
                 else
-                    panel.DrawFillRectangle(Color.Green, item.Center.Xi, item.Center.Yi, (int)item.Width, (int)item.Height, item.AngleInDegree);
+                    panel.DrawFillRectangle(Color.Green, (int)item.Center.X, (int)item.Center.Y, (int)item.Width, (int)item.Height, item.AngleInDegree);
             }
         }
 

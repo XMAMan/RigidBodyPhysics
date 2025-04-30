@@ -1,10 +1,10 @@
-﻿using GraphicMinimal;
+﻿using RigidBodyPhysics.MathHelper;
 
 namespace LevelEditorGlobal
 {
     public class BackgroundItemSimulatorExportData
     {
-        public Vector2D Center { get; set; }
+        public Vec2D Center { get; set; }
         public float AngleInDegree { get; set; }
         public float Width { get; set; }
         public float Height { get; set; }
@@ -15,7 +15,7 @@ namespace LevelEditorGlobal
 
         public BackgroundItemSimulatorExportData(BackgroundItemSimulatorExportData copy)
         {
-            this.Center = new Vector2D(copy.Center);
+            this.Center = new Vec2D(copy.Center);
             this.AngleInDegree = copy.AngleInDegree;
             this.Width = copy.Width;
             this.Height = copy.Height;

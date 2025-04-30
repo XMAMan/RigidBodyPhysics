@@ -1,4 +1,5 @@
 ﻿using GraphicMinimal;
+using RigidBodyPhysics.MathHelper;
 using System.Drawing;
 
 namespace LevelEditorControl.EditorFunctions
@@ -8,6 +9,11 @@ namespace LevelEditorControl.EditorFunctions
         internal static Vector2D ToGrx(this PointF p)
         {
             return new Vector2D(p.X, p.Y);
+        }
+
+        internal static Vec2D ToPhx(this Vector2D v)
+        {
+            return new Vec2D(v.X, v.Y);
         }
 
         internal static PointF ToPointF(this GraphicMinimal.Vector2D v)
