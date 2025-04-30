@@ -1,9 +1,7 @@
-﻿using GraphicPanelWpf;
-
-namespace KeyboardRecordAndPlay
+﻿namespace KeyboardRecordAndPlay
 {
     //Spielt die aufgezeichneten Tastendrücke ab
-    public class KeyBoardPlayer : ITimerHandler
+    public class KeyBoardPlayer
     {
         private KeyBoardPlayerConstructorData data;
         private KeyEvents nextEvent = null;

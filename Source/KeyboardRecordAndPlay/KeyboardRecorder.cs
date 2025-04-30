@@ -1,9 +1,7 @@
-﻿using GraphicPanelWpf;
-
-namespace KeyboardRecordAndPlay
+﻿namespace KeyboardRecordAndPlay
 {
     //Zeichnet all die Keydown- und Keyupevents auf, die zwischen zwei Timer-Tick-Signalen passiert sind
-    public class KeyboardRecorder : ITimerHandler
+    public class KeyboardRecorder
     {
         private List<KeyEvent> keyEvents = new List<KeyEvent>();
         private List<KeyEvents> timerEvents = new List<KeyEvents>();
