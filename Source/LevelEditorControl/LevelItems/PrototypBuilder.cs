@@ -15,13 +15,13 @@ namespace LevelEditorControl.LevelItems
         {
             switch (protoExport.ProtoType)
             {
-                case IPrototypItem.Type.PhysicItem:
+                case PrototypItemType.PhysicItem:
                     return PhysicPrototypItemBuilder.CreateFromObject(protoExport);
 
-                case IPrototypItem.Type.BackgroundItem:
+                case PrototypItemType.BackgroundItem:
                     return BackgroundPrototypItem.CreateFromExportData(protoExport as BackgroundPrototypExportData);
 
-                case IPrototypItem.Type.GroupedItem:
+                case PrototypItemType.GroupedItem:
                     return GroupedItemPrototyp.CreateFromExportData(protoExport as GroupedItemProtoExportData, prototyps);
             }
 

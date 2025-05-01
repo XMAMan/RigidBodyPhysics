@@ -100,7 +100,7 @@ namespace PhysicItemEditorControl.Model
             this.Tagables = mouseClickable.ToArray();
         }
 
-        public IPrototypItem.Type ProtoType { get => IPrototypItem.Type.PhysicItem; }
+        public PrototypItemType ProtoType { get => PrototypItemType.PhysicItem; }
         public int Id { get; }
         public TagType TypeName { get => TagType.Proto; } //ITagable
         public RectangleF BoundingBox { get; }

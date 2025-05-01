@@ -30,7 +30,7 @@ namespace LevelEditorControl.LevelItems.GroupedItems
             return new GroupedItemPrototyp(levelItems, data.InitialRecValues, data.Id);
         }
 
-        public IPrototypItem.Type ProtoType { get => IPrototypItem.Type.GroupedItem; }
+        public PrototypItemType ProtoType { get => PrototypItemType.GroupedItem; }
         public int Id { get; }
         public RectangleF BoundingBox { get; }
         public InitialRotatedRectangleValues InitialRecValues { get; }

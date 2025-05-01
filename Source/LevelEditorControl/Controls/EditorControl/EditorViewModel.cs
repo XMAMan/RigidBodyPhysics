@@ -95,18 +95,18 @@ namespace LevelEditorControl.Controls.EditorControl
                     {
                         switch (item.ProtoType)
                         {
-                            case IPrototypItem.Type.PhysicItem:
+                            case PrototypItemType.PhysicItem:
                                 UseFunction(FunctionType.MoveSelect); //Diese Funktion wird angezeigt, wenn das Editionsfenster fertig ist
                                 actions.EditPhysicItem(item);
                                 break;
 
-                            case IPrototypItem.Type.BackgroundItem:
+                            case PrototypItemType.BackgroundItem:
                                 UseFunction(FunctionType.Nothing);
                                 var vm = new BackgroundItemViewModel(item as BackgroundPrototypItem);
                                 this.PropertyControl = new BackgroundItemControl.BackgroundItemControl() { DataContext = vm };
                                 break;
 
-                            case IPrototypItem.Type.GroupedItem:
+                            case PrototypItemType.GroupedItem:
                                 UseFunction(FunctionType.MoveSelect); //Das GroupedItem kann man nicht editieren. Also gehe in die Default-Funktion
                                 break;
                         }

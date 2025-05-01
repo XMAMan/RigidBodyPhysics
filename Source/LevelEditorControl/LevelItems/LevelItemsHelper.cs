@@ -139,13 +139,13 @@ namespace LevelEditorControl.LevelItems
         {
             switch (item.ProtoType)
             {
-                case IPrototypItem.Type.PhysicItem:
+                case PrototypItemType.PhysicItem:
                     return new LevelItems.PhysicItem.PhysicLevelItem(item, position, item.InitialRecValues, id);
 
-                case IPrototypItem.Type.BackgroundItem:
+                case PrototypItemType.BackgroundItem:
                     return new BackgroundLevelItem(item as BackgroundPrototypItem, position, item.InitialRecValues, id);
 
-                case IPrototypItem.Type.GroupedItem:
+                case PrototypItemType.GroupedItem:
                     return new GroupedItemsLevelItem(item as GroupedItemPrototyp, position, item.InitialRecValues, id);
             }
 

@@ -3,12 +3,12 @@ using GraphicPanels;
 
 namespace LevelEditorGlobal
 {
+    public enum PrototypItemType { PhysicItem, BackgroundItem, GroupedItem }
+
     //Element vom PrototypControl
     public interface IPrototypItem
     {
-        public enum Type { PhysicItem, BackgroundItem, GroupedItem }
-
-        public Type ProtoType { get; }
+        public PrototypItemType ProtoType { get; }
         int Id { get; }
         RectangleF BoundingBox { get; }
         InitialRotatedRectangleValues InitialRecValues { get; } //Mit dem SizeFactor/Angle/Pivot werden LevelItems von diesen Prototyp angelegt
@@ -28,7 +28,7 @@ namespace LevelEditorGlobal
 
     public interface IPrototypExportData
     {
-        public IPrototypItem.Type ProtoType { get; }
+        public PrototypItemType ProtoType { get; }
         public int Id { get; set; }
     }
 

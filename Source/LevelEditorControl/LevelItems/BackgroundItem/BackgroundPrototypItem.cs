@@ -19,7 +19,7 @@ namespace LevelEditorControl.LevelItems.BackgroundItem
             this.InitialRecValues = initialRecValues;
         }
 
-        public IPrototypItem.Type ProtoType { get => IPrototypItem.Type.BackgroundItem; }
+        public PrototypItemType ProtoType { get => PrototypItemType.BackgroundItem; }
         public int Id { get; }
         public RectangleF BoundingBox { get; }
         public InitialRotatedRectangleValues InitialRecValues { get; }

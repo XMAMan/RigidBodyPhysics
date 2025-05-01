@@ -7,7 +7,7 @@ namespace PhysicItemEditorControl.Model
 {
     public class PhysicItemExportData : IPrototypExportData
     {
-        public IPrototypItem.Type ProtoType => IPrototypItem.Type.PhysicItem;
+        public PrototypItemType ProtoType => PrototypItemType.PhysicItem;
         public int Id { get; set; }
         public PhysicSceneExportData PhysicSceneData { get; set; } //So hat es der PhysicEditor erzeugt
         public PhysicSceneExportData PhysicSceneForAnimationNull { get; set; } //So sieht die Scene bei PlayPosition=0 aus
