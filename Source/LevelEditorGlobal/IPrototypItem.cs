@@ -1,10 +1,9 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
+using LevelEditorExports;
 
 namespace LevelEditorGlobal
 {
-    public enum PrototypItemType { PhysicItem, BackgroundItem, GroupedItem }
-
     //Element vom PrototypControl
     public interface IPrototypItem
     {
@@ -24,12 +23,6 @@ namespace LevelEditorGlobal
         public float SizeFactor { get; set; } = 1;//Mit dem SizeFactor werden LevelItems von diesen Prototyp angelegt
         public float AngleInDegree { get; set; } = 0;
         public Vector2D LocalPivot { get; set; } = new Vector2D(0, 0);
-    }
-
-    public interface IPrototypExportData
-    {
-        public PrototypItemType ProtoType { get; }
-        public int Id { get; set; }
     }
 
     public interface IPrototypItemFactory

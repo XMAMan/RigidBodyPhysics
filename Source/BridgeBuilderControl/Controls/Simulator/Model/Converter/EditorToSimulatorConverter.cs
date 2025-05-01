@@ -2,7 +2,6 @@
 using BridgeBuilderControl.Controls.Helper;
 using BridgeBuilderControl.Controls.LevelEditor;
 using DynamicData;
-using DynamicObjCreation;
 using GameHelper.Simulation;
 using GraphicMinimal;
 using LevelEditorControl;

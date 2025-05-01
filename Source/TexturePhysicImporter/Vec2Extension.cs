@@ -1,5 +1,4 @@
-﻿using PhysicGlobal;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace TexturePhysicImporter
 {

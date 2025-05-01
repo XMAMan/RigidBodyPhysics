@@ -125,7 +125,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoApplicationHelper", "De
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leveleditor", "Leveleditor\Leveleditor.csproj", "{5A21DDA4-6C46-4E9B-B687-060B69AFE870}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhysicGlobal", "PhysicGlobal\PhysicGlobal.csproj", "{7E06F1F4-6F0E-4602-9777-89DC645044D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhysicGlobal", "PhysicGlobal\PhysicGlobal.csproj", "{7E06F1F4-6F0E-4602-9777-89DC645044D7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Simulator", "Simulator", "{DC92DF33-9412-4CE1-9DA8-4E6EE802DF4B}"
 EndProject
@@ -146,6 +146,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Texture", "Texture", "{ED088109-946C-4916-B1DD-BBD8D899BDC6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Texture", "Texture", "{992EE9E6-C3BC-4D69-9015-3BE4B66B38C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LevelEditorExports", "LevelEditorExports\LevelEditorExports.csproj", "{9F074752-DE5F-4AE4-9DAD-0AA62599CFE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -301,6 +303,10 @@ Global
 		{7E06F1F4-6F0E-4602-9777-89DC645044D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E06F1F4-6F0E-4602-9777-89DC645044D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E06F1F4-6F0E-4602-9777-89DC645044D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F074752-DE5F-4AE4-9DAD-0AA62599CFE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F074752-DE5F-4AE4-9DAD-0AA62599CFE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F074752-DE5F-4AE4-9DAD-0AA62599CFE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F074752-DE5F-4AE4-9DAD-0AA62599CFE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -375,6 +381,7 @@ Global
 		{A16643C3-3DC4-420F-A181-97588A11B93F} = {49693908-F096-4367-B36A-60EB057DE8AB}
 		{ED088109-946C-4916-B1DD-BBD8D899BDC6} = {5F02139D-3CC9-402E-B13D-18D700FA3219}
 		{992EE9E6-C3BC-4D69-9015-3BE4B66B38C7} = {49693908-F096-4367-B36A-60EB057DE8AB}
+		{9F074752-DE5F-4AE4-9DAD-0AA62599CFE6} = {94FAD22C-74D0-4561-9866-C9AF49AA07F3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {303CA1F7-831C-49AB-9EE1-BEBA7D82E68E}

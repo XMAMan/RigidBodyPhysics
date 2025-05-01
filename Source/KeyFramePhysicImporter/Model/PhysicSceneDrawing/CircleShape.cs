@@ -1,6 +1,5 @@
 ﻿using GraphicPanels;
 using PhysicGlobal;
-using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using WpfControls.Extensions;
 

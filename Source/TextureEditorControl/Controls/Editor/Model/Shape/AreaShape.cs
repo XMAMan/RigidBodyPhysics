@@ -1,6 +1,5 @@
 ﻿using GraphicPanels;
 using PhysicGlobal;
-using RigidBodyPhysics.MathHelper;
 using Splat;
 using System;
 using System.Drawing;

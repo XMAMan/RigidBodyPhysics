@@ -1,6 +1,5 @@
 ﻿using GraphicPanels;
 using KeyFrameGlobal;
-using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using PhysicGlobal;

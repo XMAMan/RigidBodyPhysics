@@ -1,4 +1,4 @@
-﻿using LevelEditorGlobal;
+﻿using LevelEditorExports;
 
 namespace LevelEditorControl.Controls.PrototypControl
 {

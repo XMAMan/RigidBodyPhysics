@@ -31,6 +31,7 @@ using LevelEditorControl.Controls.TreeControl;
 using LevelEditorControl.Controls.TagItemControl;
 using System.IO;
 using Simulator;
+using LevelEditorExports;
 
 namespace LevelEditorControl.Controls.EditorControl
 {

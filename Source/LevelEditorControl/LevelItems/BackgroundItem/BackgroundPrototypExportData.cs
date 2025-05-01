@@ -1,4 +1,5 @@
-﻿using LevelEditorGlobal;
+﻿using LevelEditorExports;
+using LevelEditorGlobal;
 
 namespace LevelEditorControl.LevelItems.BackgroundItem
 {

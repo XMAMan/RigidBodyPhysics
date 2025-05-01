@@ -3,6 +3,7 @@ using GraphicPanels;
 using LevelEditorControl.Controls.PolygonControl;
 using LevelEditorControl.LevelItems.BackgroundItem;
 using LevelEditorControl.LevelItems.GroupedItems;
+using LevelEditorExports;
 using LevelEditorGlobal;
 using PhysicGlobal;
 using System;

@@ -3,7 +3,7 @@
   "Prototyps": {
     "$type": "LevelEditorControl.Controls.PrototypControl.PrototypControlExportData, LevelEditorControl",
     "PrototypItems": {
-      "$type": "LevelEditorGlobal.IPrototypExportData[], LevelEditorGlobal",
+      "$type": "LevelEditorExports.IPrototypExportData[], LevelEditorExports",
       "$values": [
         {
           "$type": "PhysicItemEditorControl.Model.PhysicItemExportData, PhysicItemEditorControl",

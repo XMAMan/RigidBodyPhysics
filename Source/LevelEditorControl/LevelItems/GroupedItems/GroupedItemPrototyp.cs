@@ -1,6 +1,7 @@
 ﻿using DynamicData;
 using GraphicMinimal;
 using GraphicPanels;
+using LevelEditorExports;
 using LevelEditorGlobal;
 using LevelToSimulatorConverter;
 using PhysicGlobal;

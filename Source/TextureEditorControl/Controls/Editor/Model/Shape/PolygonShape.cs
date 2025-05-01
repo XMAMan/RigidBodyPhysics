@@ -1,7 +1,6 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
 using PhysicGlobal;
-using RigidBodyPhysics.MathHelper;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

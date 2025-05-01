@@ -11,7 +11,6 @@ using RigidBodyPhysics;
 using RigidBodyPhysics.CollisionDetection;
 using RigidBodyPhysics.ExportData.Joints;
 using RigidBodyPhysics.ExportData.RigidBody;
-using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.RuntimeObjects.AxialFriction;
 using RigidBodyPhysics.RuntimeObjects.Joints;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
