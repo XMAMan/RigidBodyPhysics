@@ -18,8 +18,8 @@ namespace PhysicSceneDrawing
 
         public float ZValue { get => this.decoree.ZValue; }
         public bool IsInvisible { get => this.decoree.IsInvisible; }
-        public RigidBodyPhysics.MathHelper.BoundingBox PhysicBoundingBox { get => this.decoree.PhysicBoundingBox; }      //Weg 1: BoundingBox vom PhysicModel
-        public RigidBodyPhysics.MathHelper.BoundingBox TextureBoundingBox { get => this.decoree.TextureBoundingBox; }     //Weg 2: BoundingBox von den Texturdaten
+        public PhysicGlobal.BoundingBox PhysicBoundingBox { get => this.decoree.PhysicBoundingBox; }      //Weg 1: BoundingBox vom PhysicModel
+        public PhysicGlobal.BoundingBox TextureBoundingBox { get => this.decoree.TextureBoundingBox; }     //Weg 2: BoundingBox von den Texturdaten
         public Vec2D[] GetTextureCornerPoints() => this.decoree.GetTextureCornerPoints();
         public IPublicRigidBody AssociatedBody { get => this.decoree.AssociatedBody; }
         public TextureExportData TextureExportData { get => this.decoree.TextureExportData; }

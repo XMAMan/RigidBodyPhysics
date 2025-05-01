@@ -15,16 +15,16 @@ namespace PhysicSceneDrawing
         private Vector2D[] uvCoords;
         public float ZValue { get => p.ZValue; }
         public bool IsInvisible { get => p.IsInvisible; }
-        public RigidBodyPhysics.MathHelper.BoundingBox PhysicBoundingBox
+        public PhysicGlobal.BoundingBox PhysicBoundingBox
         {
             get
             {
                 Vec2D[] points = r.Vertex;
-                return new RigidBodyPhysics.MathHelper.BoundingBox(new Vec2D(points.Min(x => x.X), points.Min(x => x.Y)),
+                return new PhysicGlobal.BoundingBox(new Vec2D(points.Min(x => x.X), points.Min(x => x.Y)),
                     new Vec2D(points.Max(x => x.X), points.Max(x => x.Y)));
             }
         }
-        public RigidBodyPhysics.MathHelper.BoundingBox TextureBoundingBox
+        public PhysicGlobal.BoundingBox TextureBoundingBox
         {
             get
             {
@@ -76,7 +76,7 @@ namespace PhysicSceneDrawing
         protected Vec2D[] GetTextureBorderPoints()
         {
             float angleInDegree = r.Angle / (float)Math.PI * 180;
-            var localCenter = RigidBodyPhysics.MathHelper.BoundingBox.GetBoxFromPoints(((PolygonExportData)r.GetExportData()).Points).Center;
+            var localCenter = PhysicGlobal.BoundingBox.GetBoxFromPoints(((PolygonExportData)r.GetExportData()).Points).Center;
             return TextureRectangleHelper.GetTextureBorderPoints(r.Center, localCenter, p.Width, p.Height, angleInDegree, p.DeltaX, p.DeltaY, p.DeltaAngle);
         }
 

@@ -5,7 +5,7 @@ namespace TexturePhysicImporter
 {
     internal static class Vec2Extension
     {
-        internal static RectangleF ToRectangleF(this RigidBodyPhysics.MathHelper.BoundingBox box)
+        internal static RectangleF ToRectangleF(this PhysicGlobal.BoundingBox box)
         {
             return new RectangleF(box.Min.X, box.Min.Y, box.Width, box.Height);
         }

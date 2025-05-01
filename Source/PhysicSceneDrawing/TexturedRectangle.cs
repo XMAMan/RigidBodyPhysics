@@ -16,24 +16,24 @@ namespace PhysicSceneDrawing
         public bool IsInvisible { get => p.IsInvisible; }
         
         //Weg 1: BoundingBox vom PhysicModel
-        public RigidBodyPhysics.MathHelper.BoundingBox PhysicBoundingBox
+        public PhysicGlobal.BoundingBox PhysicBoundingBox
         {
             get
             {
                 Vec2D[] points = r.Vertex;
-                return new RigidBodyPhysics.MathHelper.BoundingBox(new Vec2D(points.Min(x => x.X), points.Min(x => x.Y)),
+                return new PhysicGlobal.BoundingBox(new Vec2D(points.Min(x => x.X), points.Min(x => x.Y)),
                     new Vec2D(points.Max(x => x.X), points.Max(x => x.Y)));
             }
         }
 
         //Weg 2: BoundingBox von den Texturdaten
-        public RigidBodyPhysics.MathHelper.BoundingBox TextureBoundingBox
+        public PhysicGlobal.BoundingBox TextureBoundingBox
         {
             get
             {
                 var points = GetTextureCornerPoints();
 
-                return RigidBodyPhysics.MathHelper.BoundingBox.GetBoxFromPoints(points);
+                return PhysicGlobal.BoundingBox.GetBoxFromPoints(points);
             }
         }
         public Vec2D[] GetTextureCornerPoints()

@@ -73,12 +73,12 @@ namespace LevelToSimulatorConverter
             }
         }
 
-        public static RigidBodyPhysics.MathHelper.BoundingBox GetBoundingBoxFromScene(PhysicSceneExportData data)
+        public static PhysicGlobal.BoundingBox GetBoundingBoxFromScene(PhysicSceneExportData data)
         {
-            return RigidBodyPhysics.MathHelper.BoundingBox.GetBoxFromBoxes(data.Bodies.Select(GetBoundingBox));
+            return PhysicGlobal.BoundingBox.GetBoxFromBoxes(data.Bodies.Select(GetBoundingBox));
         }
 
-        private static RigidBodyPhysics.MathHelper.BoundingBox GetBoundingBox(IExportRigidBody body)
+        private static PhysicGlobal.BoundingBox GetBoundingBox(IExportRigidBody body)
         {
             if (body is RectangleExportData)
                 return GetBoundingBox((RectangleExportData)body);
@@ -92,7 +92,7 @@ namespace LevelToSimulatorConverter
             throw new NotImplementedException();
         }
 
-        private static RigidBodyPhysics.MathHelper.BoundingBox GetBoundingBox(RectangleExportData r)
+        private static PhysicGlobal.BoundingBox GetBoundingBox(RectangleExportData r)
         {
             var size = r.Size;
             var vertexLocal = new Vec2D[]
@@ -105,20 +105,20 @@ namespace LevelToSimulatorConverter
 
             var cornerPoints = vertexLocal.Select(x => r.Center + Vec2D.RotatePointAroundPivotPoint(new Vec2D(0, 0), x, r.AngleInDegree)).ToArray();
 
-            return RigidBodyPhysics.MathHelper.BoundingBox.GetBoxFromPoints(cornerPoints);
+            return PhysicGlobal.BoundingBox.GetBoxFromPoints(cornerPoints);
         }
 
-        private static RigidBodyPhysics.MathHelper.BoundingBox GetBoundingBox(CircleExportData r)
+        private static PhysicGlobal.BoundingBox GetBoundingBox(CircleExportData r)
         {
-            return new RigidBodyPhysics.MathHelper.BoundingBox(new Vec2D(r.Center.X - r.Radius, r.Center.Y - r.Radius),
+            return new PhysicGlobal.BoundingBox(new Vec2D(r.Center.X - r.Radius, r.Center.Y - r.Radius),
                     new Vec2D(r.Center.X + r.Radius, r.Center.Y + r.Radius));
         }
 
-        private static RigidBodyPhysics.MathHelper.BoundingBox GetBoundingBox(PolygonExportData r)
+        private static PhysicGlobal.BoundingBox GetBoundingBox(PolygonExportData r)
         {
             var points = r.Points.Select(x => r.Center + x).ToArray();
 
-            return new RigidBodyPhysics.MathHelper.BoundingBox(new Vec2D(points.Min(x => x.X), points.Min(x => x.Y)),
+            return new PhysicGlobal.BoundingBox(new Vec2D(points.Min(x => x.X), points.Min(x => x.Y)),
                     new Vec2D(points.Max(x => x.X), points.Max(x => x.Y)));
         }
     }

@@ -13,21 +13,21 @@ namespace PhysicSceneDrawing
         private TextureExportData p;
         public float ZValue { get => p.ZValue; }
         public bool IsInvisible { get => p.IsInvisible; }
-        public RigidBodyPhysics.MathHelper.BoundingBox PhysicBoundingBox
+        public PhysicGlobal.BoundingBox PhysicBoundingBox
         {
             get
             {
-                return new RigidBodyPhysics.MathHelper.BoundingBox(new Vec2D(r.Center.X - r.Radius, r.Center.Y - r.Radius),
+                return new PhysicGlobal.BoundingBox(new Vec2D(r.Center.X - r.Radius, r.Center.Y - r.Radius),
                     new Vec2D(r.Center.X + r.Radius, r.Center.Y + r.Radius));
             }
         }
-        public RigidBodyPhysics.MathHelper.BoundingBox TextureBoundingBox
+        public PhysicGlobal.BoundingBox TextureBoundingBox
         {
             get
             {
                 var points = GetTextureCornerPoints();
 
-                return RigidBodyPhysics.MathHelper.BoundingBox.GetBoxFromPoints(points);
+                return PhysicGlobal.BoundingBox.GetBoxFromPoints(points);
             }
         }
         public Vec2D[] GetTextureCornerPoints()

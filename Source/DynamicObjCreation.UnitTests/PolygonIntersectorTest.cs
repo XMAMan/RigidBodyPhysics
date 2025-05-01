@@ -264,9 +264,9 @@ namespace DynamicObjCreation.UnitTests
         {
             int border = 10;
             var b = new Vec2D(border, border);
-            var box1 = RigidBodyPhysics.MathHelper.BoundingBox.GetBoxFromPoints(poly1);
-            var box2 = RigidBodyPhysics.MathHelper.BoundingBox.GetBoxFromPoints(poly2);
-            var box = RigidBodyPhysics.MathHelper.BoundingBox.GetBoxFromBoxes(new RigidBodyPhysics.MathHelper.BoundingBox[] { box1, box2 });
+            var box1 = PhysicGlobal.BoundingBox.GetBoxFromPoints(poly1);
+            var box2 = PhysicGlobal.BoundingBox.GetBoxFromPoints(poly2);
+            var box = PhysicGlobal.BoundingBox.GetBoxFromBoxes(new PhysicGlobal.BoundingBox[] { box1, box2 });
 
             GraphicPanel2D panel = new GraphicPanel2D() { Width = (int)box.Width + border * 2, Height = (int)box.Height + border * 2, Mode = Mode2D.CPU };
 

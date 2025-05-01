@@ -8,7 +8,7 @@ namespace KeyFramePhysicImporter.Model.PhysicSceneDrawing
     {
         IPublicRigidBody PhysicModel { get; }
         Color FillColor { get; set; }
-        RigidBodyPhysics.MathHelper.BoundingBox BoundingBox { get; }
+        PhysicGlobal.BoundingBox BoundingBox { get; }
         void Draw(GraphicPanel2D panel, Pen borderPen, Color fillColor, Camera2D camera);
     }
 }

@@ -67,5 +67,10 @@ namespace WpfControls.Extensions
         {
             return new Point(v.Xi, v.Yi);
         }
+
+        public static RectangleF ToRectangleF(this PhysicGlobal.BoundingBox box)
+        {
+            return new RectangleF(box.Min.X, box.Min.Y, box.Width, box.Height);
+        }
     }
 }

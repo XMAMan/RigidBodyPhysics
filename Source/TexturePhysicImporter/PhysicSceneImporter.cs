@@ -68,7 +68,7 @@ namespace TexturePhysicImporter
         private PolygonExportData r;
         public Vec2D Center { get => r.Center; }
         public float AngleInDegree { get => r.AngleInDegree; }
-        public RectangleF LocalBoundingBox { get => RigidBodyPhysics.MathHelper.BoundingBox.GetBoxFromPoints(r.Points).ToRectangleF(); }
+        public RectangleF LocalBoundingBox { get => PhysicGlobal.BoundingBox.GetBoxFromPoints(r.Points).ToRectangleF(); }
         public Vec2D[] Points { get => r.Points.Select(x => Vec2D.RotatePointAroundPivotPoint(r.Center, r.Center + x, r.AngleInDegree)).ToArray(); }
 
         public RigidPolygon(PolygonExportData rec)

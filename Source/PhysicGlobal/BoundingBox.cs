@@ -1,6 +1,4 @@
-﻿using PhysicGlobal;
-
-namespace RigidBodyPhysics.MathHelper
+﻿namespace PhysicGlobal
 {
     public class BoundingBox
     {

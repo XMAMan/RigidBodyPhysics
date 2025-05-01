@@ -128,7 +128,7 @@ namespace LevelToSimulatorConverter
         }
 
         //Konvertiet die Texturdaten von ein PolygonLevelItem
-        private static TextureExportData GetTextureDataFromPolygon(IMergeablePhysicPolygon physicPolygon, RigidBodyPhysics.MathHelper.BoundingBox polyBox, string backgroundImage, string foregroundImage)
+        private static TextureExportData GetTextureDataFromPolygon(IMergeablePhysicPolygon physicPolygon, PhysicGlobal.BoundingBox polyBox, string backgroundImage, string foregroundImage)
         {
             //Alle Textur-Rechtecke von allen Polygonen sind genau gleich groß und liegen an der gleiche Stelle
             //Damit sie an der gleichen Stelle liegen müssen sie per Delta zum globalen Zentrum verschoben werden
@@ -193,7 +193,7 @@ namespace LevelToSimulatorConverter
         {
             List<VisualisizerOutputData> returnList = new List<VisualisizerOutputData>();
 
-            var polyBox = RigidBodyPhysics.MathHelper.BoundingBox.GetBoxFromBoxes(items
+            var polyBox = PhysicGlobal.BoundingBox.GetBoxFromBoxes(items
                 .Where(x => x is IMergeablePhysicPolygon)
                 .Cast<IMergeablePhysicPolygon>()
                 .Select(x => PolygonHelper.GetBoundingBoxFromPolygon(x.Points.Select(y => y.ToPhx()).ToArray()))

@@ -38,12 +38,12 @@ namespace PhysicSceneDrawing
 
         public RectangleF GetPhysicBoundingBoxFromScene()
         {
-            return RigidBodyPhysics.MathHelper.BoundingBox.GetBoxFromBoxes(textures.Select(x => x.PhysicBoundingBox)).ToRectangleF();
+            return PhysicGlobal.BoundingBox.GetBoxFromBoxes(textures.Select(x => x.PhysicBoundingBox)).ToRectangleF();
         }
 
         public RectangleF GetTextureBoundingBoxFromScene()
         {
-            return RigidBodyPhysics.MathHelper.BoundingBox.GetBoxFromBoxes(textures.Select(x => x.TextureBoundingBox)).ToRectangleF();
+            return PhysicGlobal.BoundingBox.GetBoxFromBoxes(textures.Select(x => x.TextureBoundingBox)).ToRectangleF();
         }
 
         private static ITexturedRigidBody[] ConvertPhysicScene(PhysicScene physicScene, VisualisizerOutputData textureData)

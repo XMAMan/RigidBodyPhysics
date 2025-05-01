@@ -9,8 +9,8 @@ namespace PhysicSceneDrawing
     {
         float ZValue { get; }
         bool IsInvisible { get; }
-        RigidBodyPhysics.MathHelper.BoundingBox PhysicBoundingBox { get; }      //Weg 1: BoundingBox vom PhysicModel
-        RigidBodyPhysics.MathHelper.BoundingBox TextureBoundingBox { get; }     //Weg 2: BoundingBox von den Texturdaten
+        PhysicGlobal.BoundingBox PhysicBoundingBox { get; }      //Weg 1: BoundingBox vom PhysicModel
+        PhysicGlobal.BoundingBox TextureBoundingBox { get; }     //Weg 2: BoundingBox von den Texturdaten
         Vec2D[] GetTextureCornerPoints();        //Eckpunkte des Textur-Objektes (Rechteck oder Polygon)
         IPublicRigidBody AssociatedBody { get; }
         TextureExportData TextureExportData { get; }
