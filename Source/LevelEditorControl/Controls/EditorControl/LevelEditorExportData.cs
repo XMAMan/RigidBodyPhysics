@@ -1,5 +1,5 @@
-﻿using LevelEditorControl.Controls.PrototypControl;
-using LevelEditorControl.Controls.TagItemControl;
+﻿using LevelEditorControl.Controls.TagItemControl;
+using LevelEditorExports;
 using LevelEditorGlobal;
 using PhysicGlobal;
 

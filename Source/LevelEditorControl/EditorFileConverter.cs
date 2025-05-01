@@ -1,6 +1,6 @@
 ﻿using GraphicPanels;
 using LevelEditorControl.Controls.EditorControl;
-using LevelEditorControl.Controls.PrototypControl;
+using LevelEditorExports;
 using LevelEditorGlobal;
 using PhysicItemEditorControl.Model;
 using System.Linq;
