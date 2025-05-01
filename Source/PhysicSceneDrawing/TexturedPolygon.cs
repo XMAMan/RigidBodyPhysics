@@ -4,6 +4,7 @@ using RigidBodyPhysics.ExportData.RigidBody;
 using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using TextureEditorGlobal;
+using WpfControls.Extensions;
 
 namespace PhysicSceneDrawing
 {

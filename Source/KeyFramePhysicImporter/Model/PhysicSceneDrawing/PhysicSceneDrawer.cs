@@ -4,6 +4,7 @@ using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using PhysicGlobal;
+using WpfControls.Extensions;
 
 namespace KeyFramePhysicImporter.Model.PhysicSceneDrawing
 {

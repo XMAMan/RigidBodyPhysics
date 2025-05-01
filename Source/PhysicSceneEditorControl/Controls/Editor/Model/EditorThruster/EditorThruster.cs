@@ -3,6 +3,7 @@ using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using PhysicSceneEditorControl.Controls.ThrusterProperty;
 using RigidBodyPhysics.ExportData.Thruster;
 using PhysicGlobal;
+using WpfControls.Extensions;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorThruster
 {

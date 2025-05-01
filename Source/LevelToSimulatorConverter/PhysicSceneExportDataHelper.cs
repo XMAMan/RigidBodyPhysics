@@ -3,6 +3,7 @@ using RigidBodyPhysics.ExportData;
 using RigidBodyPhysics.ExportData.Joints;
 using GraphicMinimal;
 using PhysicGlobal;
+using WpfControls.Extensions;
 
 namespace LevelToSimulatorConverter
 {

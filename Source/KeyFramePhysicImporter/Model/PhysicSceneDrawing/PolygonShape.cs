@@ -2,6 +2,7 @@
 using PhysicGlobal;
 using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
+using WpfControls.Extensions;
 
 namespace KeyFramePhysicImporter.Model.PhysicSceneDrawing
 {

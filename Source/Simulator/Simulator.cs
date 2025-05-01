@@ -11,6 +11,7 @@ using Simulator.ForceTracking;
 using GraphicMinimal;
 using RigidBodyPhysics.ExportData;
 using PhysicGlobal;
+using WpfControls.Extensions;
 
 namespace Simulator
 {

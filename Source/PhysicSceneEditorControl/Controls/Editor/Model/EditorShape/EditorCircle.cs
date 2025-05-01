@@ -3,6 +3,7 @@ using PhysicGlobal;
 using PhysicSceneEditorControl.Controls.ShapeProperty;
 using RigidBodyPhysics.ExportData.RigidBody;
 using RigidBodyPhysics.MathHelper;
+using WpfControls.Extensions;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorShape
 {

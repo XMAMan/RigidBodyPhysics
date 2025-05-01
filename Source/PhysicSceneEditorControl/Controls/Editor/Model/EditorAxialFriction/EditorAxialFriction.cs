@@ -3,6 +3,7 @@ using PhysicSceneEditorControl.Controls.AxialFriction;
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using RigidBodyPhysics.ExportData.AxialFriction;
 using PhysicGlobal;
+using WpfControls.Extensions;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorAxialFriction
 {

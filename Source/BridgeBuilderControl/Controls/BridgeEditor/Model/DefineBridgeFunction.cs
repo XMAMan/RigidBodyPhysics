@@ -11,6 +11,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using WpfControls.Controls.CameraSetting;
+using WpfControls.Extensions;
 
 namespace BridgeBuilderControl.Controls.BridgeEditor.Model
 {

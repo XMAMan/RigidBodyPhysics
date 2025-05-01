@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using WpfControls.Extensions;
 
 namespace CarDrifterControl.Model
 {

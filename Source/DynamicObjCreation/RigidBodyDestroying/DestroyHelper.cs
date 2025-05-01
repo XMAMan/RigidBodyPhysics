@@ -5,6 +5,7 @@ using RigidBodyPhysics.ExportData.RigidBody;
 using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using TextureEditorGlobal;
+using WpfControls.Extensions;
 
 namespace DynamicObjCreation.RigidBodyDestroying
 {

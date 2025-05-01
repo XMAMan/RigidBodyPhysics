@@ -4,6 +4,7 @@ using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorThruster;
 using PhysicGlobal;
 using WpfControls.Model;
+using WpfControls.Extensions;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Shapes
 {

@@ -3,6 +3,7 @@ using GraphicMinimal;
 using RigidBodyPhysics.MathHelper;
 using System;
 using System.Drawing;
+using WpfControls.Extensions;
 
 namespace BridgeBuilderControl.Controls.Helper
 {

@@ -9,6 +9,7 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using WpfControls.Extensions;
 
 namespace SpiderBoxControl.Model
 {

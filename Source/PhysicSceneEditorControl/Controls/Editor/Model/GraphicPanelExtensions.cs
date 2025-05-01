@@ -1,5 +1,6 @@
 ﻿using GraphicPanels;
 using PhysicGlobal;
+using WpfControls.Extensions;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model
 {

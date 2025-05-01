@@ -8,6 +8,7 @@ using System;
 using System.Drawing;
 using System.Linq;
 using static LevelEditorGlobal.ITagable;
+using WpfControls.Extensions;
 
 namespace PhysicItemEditorControl.Model.MouseClickable
 {

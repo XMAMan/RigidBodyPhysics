@@ -6,6 +6,7 @@ using GraphicPanels;
 using GraphicPanelWpf;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using RigidBodyPhysics.RuntimeObjects.Thruster;
+using WpfControls.Extensions;
 
 namespace AstroidsControl.Model
 {

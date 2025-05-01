@@ -6,6 +6,7 @@ using LevelToSimulatorConverter;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Navigation;
+using WpfControls.Extensions;
 
 namespace DynamicObjCreation.UnitTests
 {

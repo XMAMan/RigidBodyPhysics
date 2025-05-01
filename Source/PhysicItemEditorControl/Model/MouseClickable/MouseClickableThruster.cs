@@ -4,6 +4,7 @@ using LevelEditorGlobal;
 using RigidBodyPhysics.RuntimeObjects.Thruster;
 using System.Drawing;
 using static LevelEditorGlobal.ITagable;
+using WpfControls.Extensions;
 
 namespace PhysicItemEditorControl.Model.MouseClickable
 {

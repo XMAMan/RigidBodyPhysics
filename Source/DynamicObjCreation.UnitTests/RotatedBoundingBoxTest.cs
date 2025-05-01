@@ -2,6 +2,7 @@
 using GraphicPanels;
 using PhysicGlobal;
 using System.Drawing;
+using WpfControls.Extensions;
 
 namespace DynamicObjCreation.UnitTests
 {

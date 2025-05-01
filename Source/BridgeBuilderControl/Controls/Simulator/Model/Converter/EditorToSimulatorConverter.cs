@@ -20,6 +20,7 @@ using System.IO;
 using System.Linq;
 using TextureEditorGlobal;
 using static RigidBodyPhysics.RuntimeObjects.Joints.IPublicJoint;
+using WpfControls.Extensions;
 
 namespace BridgeBuilderControl.Controls.Simulator.Model.Converter
 {

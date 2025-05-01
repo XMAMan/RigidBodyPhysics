@@ -12,6 +12,7 @@ using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using WpfControls.Extensions;
 
 namespace BridgeBuilderControl.Controls.Simulator.Model
 {

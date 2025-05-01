@@ -5,6 +5,7 @@ using PhysicSceneEditorControl.Controls.JointPropertys.PrismaticJoint;
 using PhysicSceneEditorControl.Controls.SoftProperty;
 using RigidBodyPhysics.ExportData.Joints;
 using PhysicGlobal;
+using WpfControls.Extensions;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorJoint
 {

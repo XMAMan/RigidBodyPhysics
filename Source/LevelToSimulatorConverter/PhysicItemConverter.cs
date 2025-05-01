@@ -11,6 +11,7 @@ using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using System.Drawing;
 using TextureEditorControl;
 using TextureEditorGlobal;
+using WpfControls.Extensions;
 
 namespace LevelToSimulatorConverter
 {

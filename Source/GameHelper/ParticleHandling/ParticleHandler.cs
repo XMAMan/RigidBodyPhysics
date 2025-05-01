@@ -2,6 +2,7 @@
 using GraphicPanels;
 using GraphicPanelWpf;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
+using WpfControls.Extensions;
 
 namespace GameHelper.ParticleHandling
 {

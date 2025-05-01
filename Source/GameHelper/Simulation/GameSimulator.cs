@@ -20,6 +20,7 @@ using RigidBodyPhysics.RuntimeObjects.Thruster;
 using Simulator;
 using TextureEditorGlobal;
 using static RigidBodyPhysics.PhysicScene;
+using WpfControls.Extensions;
 
 namespace GameHelper.Simulation
 {

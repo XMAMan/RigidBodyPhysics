@@ -5,6 +5,7 @@ using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.AxialFriction;
 using System.Drawing;
 using static LevelEditorGlobal.ITagable;
+using WpfControls.Extensions;
 
 namespace PhysicItemEditorControl.Model.MouseClickable
 {

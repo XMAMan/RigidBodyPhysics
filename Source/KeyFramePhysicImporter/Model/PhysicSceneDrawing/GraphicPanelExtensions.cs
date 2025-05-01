@@ -1,5 +1,6 @@
 ﻿using GraphicPanels;
 using PhysicGlobal;
+using WpfControls.Extensions;
 
 namespace KeyFramePhysicImporter.Model.PhysicSceneDrawing
 {

@@ -7,6 +7,7 @@ using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using System;
 using System.Drawing;
 using System.Linq;
+using WpfControls.Extensions;
 
 namespace AstroidsControl.Model
 {

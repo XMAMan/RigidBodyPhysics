@@ -12,6 +12,7 @@ using System.Reactive;
 using DynamicData;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using PhysicGlobal;
+using WpfControls.Extensions;
 
 namespace KeyFramePhysicImporter.ViewModel
 {

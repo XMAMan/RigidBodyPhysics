@@ -3,6 +3,7 @@ using RigidBodyPhysics;
 using TextureEditorGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using RigidBodyPhysics.RuntimeObjects.Joints;
+using WpfControls.Extensions;
 
 namespace PhysicSceneDrawing
 {

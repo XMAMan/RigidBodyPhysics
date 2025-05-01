@@ -1,6 +1,7 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
 using RigidBodyPhysics;
+using WpfControls.Extensions;
 
 namespace Simulator.ForceTracking
 {

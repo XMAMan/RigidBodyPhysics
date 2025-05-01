@@ -2,6 +2,7 @@
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorJoint;
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using PhysicGlobal;
+using WpfControls.Extensions;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Joints
 {

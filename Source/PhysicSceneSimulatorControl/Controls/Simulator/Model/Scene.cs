@@ -16,6 +16,7 @@ using RigidBodyPhysics.RuntimeObjects.Thruster;
 using RigidBodyPhysics.RuntimeObjects.RotaryMotor;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using RigidBodyPhysics.RuntimeObjects.Joints;
+using WpfControls.Extensions;
 
 namespace PhysicSceneSimulatorControl.Controls.Simulator.Model
 {

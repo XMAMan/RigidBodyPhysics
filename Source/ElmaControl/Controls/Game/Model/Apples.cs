@@ -8,6 +8,7 @@ using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using WpfControls.Extensions;
 
 namespace ElmaControl.Controls.Game.Model
 {

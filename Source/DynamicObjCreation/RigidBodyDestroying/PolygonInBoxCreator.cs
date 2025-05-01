@@ -2,6 +2,7 @@
 using PhysicGlobal;
 using System.Drawing;
 using PolyHelp = RigidBodyPhysics.MathHelper.PolygonHelper;
+using WpfControls.Extensions;
 
 namespace DynamicObjCreation.RigidBodyDestroying
 {
