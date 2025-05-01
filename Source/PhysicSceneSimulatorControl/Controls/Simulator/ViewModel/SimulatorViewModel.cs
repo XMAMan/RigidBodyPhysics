@@ -5,7 +5,7 @@ using PhysicSceneSimulatorControl.Dialogs.PrintSettings;
 using ReactiveUI.Fody.Helpers;
 using ReactiveUI;
 using RigidBodyPhysics.ExportData;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 using RigidBodyPhysics;
 using System.Reactive;
 using System.Text;

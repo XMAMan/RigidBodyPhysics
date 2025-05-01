@@ -1,4 +1,4 @@
-﻿using RigidBodyPhysics.MathHelper;
+﻿using PhysicGlobal;
 
 namespace RigidBodyPhysics.ExportData.AxialFriction
 {

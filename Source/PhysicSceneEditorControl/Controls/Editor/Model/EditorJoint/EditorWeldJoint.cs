@@ -3,7 +3,7 @@ using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using PhysicSceneEditorControl.Controls.JointPropertys.WeldJoint;
 using PhysicSceneEditorControl.Controls.SoftProperty;
 using RigidBodyPhysics.ExportData.Joints;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorJoint
 {

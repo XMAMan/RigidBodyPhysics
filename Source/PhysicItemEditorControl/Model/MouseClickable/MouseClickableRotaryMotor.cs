@@ -1,7 +1,7 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
 using LevelEditorGlobal;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RotaryMotor;
 using System.Drawing;
 using static LevelEditorGlobal.ITagable;

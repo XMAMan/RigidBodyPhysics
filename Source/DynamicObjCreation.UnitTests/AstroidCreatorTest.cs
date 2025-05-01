@@ -1,7 +1,7 @@
 ﻿using GameHelper.Simulation;
 using GraphicPanels;
 using LevelEditorControl;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Navigation;

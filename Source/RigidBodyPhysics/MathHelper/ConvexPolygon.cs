@@ -1,4 +1,6 @@
-﻿namespace RigidBodyPhysics.MathHelper
+﻿using PhysicGlobal;
+
+namespace RigidBodyPhysics.MathHelper
 {
     public class ConvexPolygon
     {

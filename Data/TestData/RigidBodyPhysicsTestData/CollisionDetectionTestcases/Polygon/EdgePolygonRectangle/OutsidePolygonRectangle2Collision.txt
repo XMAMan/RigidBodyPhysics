@@ -7,7 +7,7 @@
         "$type": "RigidBodyPhysics.ExportData.RigidBody.PolygonExportData, RigidBodyPhysics",
         "PolygonType": 2,
         "Points": {
-          "$type": "RigidBodyPhysics.MathHelper.Vec2D[], RigidBodyPhysics",
+          "$type": "PhysicGlobal.Vec2D[], PhysicGlobal",
           "$values": [
             [-252.0, -44.333313],
             [277.0, -42.333313],

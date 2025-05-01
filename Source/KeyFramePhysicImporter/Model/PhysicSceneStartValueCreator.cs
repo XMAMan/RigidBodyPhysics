@@ -1,6 +1,7 @@
 ﻿using KeyFrameGlobal;
 using RigidBodyPhysics.ExportData;
 using RigidBodyPhysics;
+using PhysicGlobal;
 
 namespace KeyFramePhysicImporter.Model
 {
@@ -52,7 +53,7 @@ namespace KeyFramePhysicImporter.Model
                 b1.MassData.Type = massDataInput[i];
                 b1.Center = b2.Center;
                 b1.AngleInDegree = b2.AngleInDegree;
-                b1.Velocity = new RigidBodyPhysics.MathHelper.Vec2D(0, 0);
+                b1.Velocity = new Vec2D(0, 0);
                 b1.AngularVelocity = 0;
             }
 

@@ -1,6 +1,6 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 using System.Drawing;
 using TextureEditorControl.Controls.Editor.Model.Shape;
 

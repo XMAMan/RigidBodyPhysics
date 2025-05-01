@@ -3,7 +3,7 @@ using PhysicSceneEditorControl.Controls.Editor.Model.EditorJoint;
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorRotaryMotor;
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorThruster;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.Function
 {

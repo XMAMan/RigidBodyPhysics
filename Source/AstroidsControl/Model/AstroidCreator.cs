@@ -2,7 +2,7 @@
 using GameHelper.Simulation;
 using GraphicPanelWpf;
 using LevelEditorGlobal;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using System;
 using System.Drawing;

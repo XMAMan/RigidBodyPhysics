@@ -18,48 +18,48 @@
                   "$type": "RigidBodyPhysics.ExportData.RigidBody.PolygonExportData, RigidBodyPhysics",
                   "PolygonType": 0,
                   "Points": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D[], RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D[], PhysicGlobal",
                     "$values": [
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": 49.75441,
                         "Y": -1.059021
                       },
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": 77.75441,
                         "Y": 50.94098
                       },
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": -41.24559,
                         "Y": 56.94098
                       },
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": -95.24559,
                         "Y": -9.059021
                       },
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": -7.24559,
                         "Y": -12.059021
                       },
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": -0.24559021,
                         "Y": -137.05902
                       }
                     ]
                   },
                   "Center": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 213.24559,
                     "Y": 276.05902
                   },
                   "AngleInDegree": 0.0,
                   "Velocity": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },

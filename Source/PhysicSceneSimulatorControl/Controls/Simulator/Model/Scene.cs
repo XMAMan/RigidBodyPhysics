@@ -6,7 +6,7 @@ using PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorRotaryMotor;
 using PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorShape;
 using PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorThruster;
 using RigidBodyPhysics.ExportData;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 using RigidBodyPhysics.MouseBodyClick;
 using RigidBodyPhysics;
 using WpfControls.Model;

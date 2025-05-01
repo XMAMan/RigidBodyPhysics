@@ -2,7 +2,7 @@
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using PhysicSceneEditorControl.Controls.ThrusterProperty;
 using RigidBodyPhysics.ExportData.Thruster;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorThruster
 {

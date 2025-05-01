@@ -1,4 +1,6 @@
-﻿namespace RigidBodyPhysics.MathHelper
+﻿using PhysicGlobal;
+
+namespace RigidBodyPhysics.MathHelper
 {
     //Quelle: https://github.com/erincatto/box2d-lite/blob/master/include/box2d-lite/MathUtils.h
     public class Matrix2x2

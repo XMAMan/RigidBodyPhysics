@@ -1,5 +1,5 @@
 ﻿using GraphicPanels;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model
 {

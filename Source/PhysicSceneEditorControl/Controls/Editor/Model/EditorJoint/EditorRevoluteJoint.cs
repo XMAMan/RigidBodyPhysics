@@ -1,9 +1,9 @@
 ﻿using GraphicPanels;
+using PhysicGlobal;
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using PhysicSceneEditorControl.Controls.JointPropertys.RevoluteJoint;
 using PhysicSceneEditorControl.Controls.SoftProperty;
 using RigidBodyPhysics.ExportData.Joints;
-using RigidBodyPhysics.MathHelper;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorJoint
 {

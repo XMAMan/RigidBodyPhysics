@@ -1,4 +1,5 @@
 ﻿using GraphicMinimal;
+using PhysicGlobal;
 using System.Drawing;
 using System.Linq;
 
@@ -11,19 +12,19 @@ namespace BridgeBuilderControl.Controls.Helper
             return new Vector2D(p.X, p.Y);
         }
 
-        internal static GraphicMinimal.Vector2D ToGrx(this RigidBodyPhysics.MathHelper.Vec2D v)
+        internal static GraphicMinimal.Vector2D ToGrx(this Vec2D v)
         {
             return new GraphicMinimal.Vector2D(v.X, v.Y);
         }
 
-        internal static RigidBodyPhysics.MathHelper.Vec2D ToPhx(this GraphicMinimal.Vector2D v)
+        internal static Vec2D ToPhx(this GraphicMinimal.Vector2D v)
         {
-            return new RigidBodyPhysics.MathHelper.Vec2D(v.X, v.Y);
+            return new Vec2D(v.X, v.Y);
         }
 
-        internal static RigidBodyPhysics.MathHelper.Vec2D[] ToPhx(this GraphicMinimal.Vector2D[] vArray)
+        internal static Vec2D[] ToPhx(this GraphicMinimal.Vector2D[] vArray)
         {
-            return vArray.Select(v => new RigidBodyPhysics.MathHelper.Vec2D(v.X, v.Y)).ToArray();
+            return vArray.Select(v => new Vec2D(v.X, v.Y)).ToArray();
         }
 
         internal static Color ToColor(this Vector3D color)

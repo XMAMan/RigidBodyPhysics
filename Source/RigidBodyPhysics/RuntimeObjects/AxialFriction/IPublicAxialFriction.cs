@@ -1,4 +1,4 @@
-﻿using RigidBodyPhysics.MathHelper;
+﻿using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 
 namespace RigidBodyPhysics.RuntimeObjects.AxialFriction

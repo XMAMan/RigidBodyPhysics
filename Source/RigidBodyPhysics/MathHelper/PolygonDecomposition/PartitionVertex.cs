@@ -1,4 +1,6 @@
-﻿namespace RigidBodyPhysics.MathHelper.PolygonDecomposition
+﻿using PhysicGlobal;
+
+namespace RigidBodyPhysics.MathHelper.PolygonDecomposition
 {
     internal class PartitionVertex
     {

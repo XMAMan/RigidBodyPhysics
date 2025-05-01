@@ -1,4 +1,4 @@
-﻿using RigidBodyPhysics.MathHelper;
+﻿using PhysicGlobal;
 using TextureEditorGlobal;
 
 namespace TextureEditorControl.Controls.Editor.Model.Shape

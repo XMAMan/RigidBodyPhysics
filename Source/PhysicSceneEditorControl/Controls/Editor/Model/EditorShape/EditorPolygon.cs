@@ -1,4 +1,5 @@
 ﻿using GraphicPanels;
+using PhysicGlobal;
 using PhysicSceneEditorControl.Controls.PolygonProperty;
 using PhysicSceneEditorControl.Controls.ShapeProperty;
 using RigidBodyPhysics.ExportData.RigidBody;

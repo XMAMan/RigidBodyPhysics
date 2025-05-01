@@ -18,13 +18,13 @@
                   "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
                   "Radius": 32.0,
                   "Center": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 400.0,
                     "Y": 150.0
                   },
                   "AngleInDegree": 0.0,
                   "Velocity": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -43,13 +43,13 @@
                   "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
                   "Radius": 80.0,
                   "Center": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 650.0,
                     "Y": 500.0
                   },
                   "AngleInDegree": 0.0,
                   "Velocity": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -68,13 +68,13 @@
                   "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
                   "Radius": 80.0,
                   "Center": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 152.0,
                     "Y": 500.0
                   },
                   "AngleInDegree": 0.0,
                   "Velocity": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -99,12 +99,12 @@
                   "BodyIndex1": 2,
                   "BodyIndex2": 0,
                   "R1": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
                   "R2": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -130,12 +130,12 @@
                   "BodyIndex1": 1,
                   "BodyIndex2": 0,
                   "R1": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
                   "R2": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -161,12 +161,12 @@
                   "BodyIndex1": 2,
                   "BodyIndex2": 1,
                   "R1": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
                   "R2": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -335,13 +335,13 @@
                   "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
                   "Radius": 60.926823,
                   "Center": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 89.0,
                     "Y": 76.0
                   },
                   "AngleInDegree": 0.0,
                   "Velocity": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -465,13 +465,13 @@
                   "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
                   "Radius": 67.0,
                   "Center": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 71.0,
                     "Y": 69.0
                   },
                   "AngleInDegree": 0.0,
                   "Velocity": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -595,98 +595,98 @@
                   "$type": "RigidBodyPhysics.ExportData.RigidBody.PolygonExportData, RigidBodyPhysics",
                   "PolygonType": 0,
                   "Points": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D[], RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D[], PhysicGlobal",
                     "$values": [
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": -448.95325,
                         "Y": -294.89304
                       },
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": -29.953247,
                         "Y": -260.89304
                       },
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": 108.04675,
                         "Y": -57.893036
                       },
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": 271.04675,
                         "Y": -104.893036
                       },
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": 336.04675,
                         "Y": -195.89304
                       },
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": 577.04675,
                         "Y": -58.893036
                       },
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": 561.04675,
                         "Y": 235.10696
                       },
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": 174.04675,
                         "Y": 320.10696
                       },
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": 131.04675,
                         "Y": 218.10696
                       },
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": -311.95325,
                         "Y": 107.106964
                       },
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": -531.95325,
                         "Y": 169.10696
                       },
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": -643.95325,
                         "Y": 40.106964
                       },
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": -414.95325,
                         "Y": -70.893036
                       },
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": -449.95325,
                         "Y": -171.89304
                       },
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": -594.95325,
                         "Y": -246.89304
                       },
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": -555.95325,
                         "Y": -349.89304
                       }
                     ]
                   },
                   "Center": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 704.95325,
                     "Y": 415.89304
                   },
                   "AngleInDegree": 0.0,
                   "Velocity": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -828,20 +828,20 @@
                 {
                   "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
                   "Size": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 101.0,
                     "Y": 101.0
                   },
                   "BreakWhenMaxPushPullForceIsReached": false,
                   "MaxPushPullForce": 1.0,
                   "Center": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 100.0,
                     "Y": 100.0
                   },
                   "AngleInDegree": 0.0,
                   "Velocity": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -983,20 +983,20 @@
                 {
                   "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
                   "Size": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 135.0,
                     "Y": 186.0
                   },
                   "BreakWhenMaxPushPullForceIsReached": false,
                   "MaxPushPullForce": 1.0,
                   "Center": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 137.0,
                     "Y": 163.0
                   },
                   "AngleInDegree": 0.0,
                   "Velocity": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -1014,20 +1014,20 @@
                 {
                   "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
                   "Size": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 184.0978,
                     "Y": 41.0
                   },
                   "BreakWhenMaxPushPullForceIsReached": false,
                   "MaxPushPullForce": 1.0,
                   "Center": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 321.0,
                     "Y": 123.0
                   },
                   "AngleInDegree": 17.056961,
                   "Velocity": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -1045,20 +1045,20 @@
                 {
                   "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
                   "Size": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 184.0978,
                     "Y": 41.0
                   },
                   "BreakWhenMaxPushPullForceIsReached": false,
                   "MaxPushPullForce": 1.0,
                   "Center": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 537.0,
                     "Y": 153.0
                   },
                   "AngleInDegree": -0.54303896,
                   "Velocity": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -1076,20 +1076,20 @@
                 {
                   "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
                   "Size": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 184.0978,
                     "Y": 41.0
                   },
                   "BreakWhenMaxPushPullForceIsReached": false,
                   "MaxPushPullForce": 1.0,
                   "Center": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 746.0,
                     "Y": 119.0
                   },
                   "AngleInDegree": -18.943039,
                   "Velocity": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -1107,20 +1107,20 @@
                 {
                   "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
                   "Size": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 135.0,
                     "Y": 186.0
                   },
                   "BreakWhenMaxPushPullForceIsReached": false,
                   "MaxPushPullForce": 1.0,
                   "Center": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 942.0,
                     "Y": 163.0
                   },
                   "AngleInDegree": 0.0,
                   "Velocity": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -1145,12 +1145,12 @@
                   "BodyIndex1": 1,
                   "BodyIndex2": 2,
                   "R1": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 92.0489,
                     "Y": -9.536743E-06
                   },
                   "R2": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": -92.048874,
                     "Y": -3.3974648E-06
                   },
@@ -1176,12 +1176,12 @@
                   "BodyIndex1": 2,
                   "BodyIndex2": 3,
                   "R1": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 92.048874,
                     "Y": 3.3974648E-06
                   },
                   "R2": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": -92.048874,
                     "Y": 1.335144E-05
                   },
@@ -1207,12 +1207,12 @@
                   "BodyIndex1": 3,
                   "BodyIndex2": 4,
                   "R1": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 92.04887,
                     "Y": -7.6293945E-06
                   },
                   "R2": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": -67.5,
                     "Y": -93.0
                   },
@@ -1238,12 +1238,12 @@
                   "BodyIndex1": 1,
                   "BodyIndex2": 0,
                   "R1": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": -92.0489,
                     "Y": 1.9073486E-06
                   },
                   "R2": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 67.5,
                     "Y": -93.0
                   },
@@ -1420,20 +1420,20 @@
                 {
                   "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
                   "Size": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 553.0,
                     "Y": 41.0
                   },
                   "BreakWhenMaxPushPullForceIsReached": false,
                   "MaxPushPullForce": 1.0,
                   "Center": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 475.0,
                     "Y": 569.0
                   },
                   "AngleInDegree": 0.0,
                   "Velocity": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.2
                   },
@@ -1451,20 +1451,20 @@
                 {
                   "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
                   "Size": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 36.0,
                     "Y": 556.0
                   },
                   "BreakWhenMaxPushPullForceIsReached": false,
                   "MaxPushPullForce": 1.0,
                   "Center": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 477.0,
                     "Y": 311.0
                   },
                   "AngleInDegree": 0.0,
                   "Velocity": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -1489,12 +1489,12 @@
                   "BodyIndex1": 1,
                   "BodyIndex2": 0,
                   "R1": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 278.0
                   },
                   "R2": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -1579,20 +1579,20 @@
                 {
                   "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
                   "Size": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 553.0,
                     "Y": 41.0
                   },
                   "BreakWhenMaxPushPullForceIsReached": false,
                   "MaxPushPullForce": 1.0,
                   "Center": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 476.99994,
                     "Y": 566.0
                   },
                   "AngleInDegree": 0.0,
                   "Velocity": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -1610,20 +1610,20 @@
                 {
                   "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
                   "Size": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 36.0,
                     "Y": 556.0
                   },
                   "BreakWhenMaxPushPullForceIsReached": false,
                   "MaxPushPullForce": 1.0,
                   "Center": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 477.0,
                     "Y": 311.0
                   },
                   "AngleInDegree": 0.0,
                   "Velocity": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -1648,12 +1648,12 @@
                   "BodyIndex1": 1,
                   "BodyIndex2": 0,
                   "R1": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 278.0
                   },
                   "R2": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -1894,33 +1894,33 @@
                   "$type": "RigidBodyPhysics.ExportData.RigidBody.PolygonExportData, RigidBodyPhysics",
                   "PolygonType": 0,
                   "Points": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D[], RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D[], PhysicGlobal",
                     "$values": [
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": 613.66675,
                         "Y": -51.00003
                       },
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": -26.333252,
                         "Y": 90.99997
                       },
                       {
-                        "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                         "X": -587.33325,
                         "Y": -40.00003
                       }
                     ]
                   },
                   "Center": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 767.33325,
                     "Y": 421.00003
                   },
                   "AngleInDegree": 0.0,
                   "Velocity": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -2062,20 +2062,20 @@
                 {
                   "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
                   "Size": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 2152.0964,
                     "Y": 40.8689
                   },
                   "BreakWhenMaxPushPullForceIsReached": false,
                   "MaxPushPullForce": 1.0,
                   "Center": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 1209.0,
                     "Y": 305.0
                   },
                   "AngleInDegree": 0.0,
                   "Velocity": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -2093,20 +2093,20 @@
                 {
                   "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
                   "Size": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 817.18506,
                     "Y": 41.828453
                   },
                   "BreakWhenMaxPushPullForceIsReached": false,
                   "MaxPushPullForce": 1.0,
                   "Center": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 602.0,
                     "Y": 305.0
                   },
                   "AngleInDegree": 0.0,
                   "Velocity": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.3
                   },
@@ -2131,12 +2131,12 @@
                   "BodyIndex1": 0,
                   "BodyIndex2": 1,
                   "R1": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": -1079.5,
                     "Y": 0.0
                   },
                   "R2": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -2221,20 +2221,20 @@
                 {
                   "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
                   "Size": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 2152.0964,
                     "Y": 40.8689
                   },
                   "BreakWhenMaxPushPullForceIsReached": false,
                   "MaxPushPullForce": 1.0,
                   "Center": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 1209.0,
                     "Y": 305.0
                   },
                   "AngleInDegree": 0.0,
                   "Velocity": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -2252,20 +2252,20 @@
                 {
                   "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
                   "Size": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 817.18506,
                     "Y": 41.828453
                   },
                   "BreakWhenMaxPushPullForceIsReached": false,
                   "MaxPushPullForce": 1.0,
                   "Center": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 1894.2135,
                     "Y": 305.0
                   },
                   "AngleInDegree": 0.0,
                   "Velocity": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },
@@ -2290,12 +2290,12 @@
                   "BodyIndex1": 0,
                   "BodyIndex2": 1,
                   "R1": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": -1079.5,
                     "Y": 0.0
                   },
                   "R2": {
-                    "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
                     "Y": 0.0
                   },

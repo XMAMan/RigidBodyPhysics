@@ -1,4 +1,5 @@
-﻿using RigidBodyPhysics.ExportData.RigidBody;
+﻿using PhysicGlobal;
+using RigidBodyPhysics.ExportData.RigidBody;
 using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using System.Drawing;

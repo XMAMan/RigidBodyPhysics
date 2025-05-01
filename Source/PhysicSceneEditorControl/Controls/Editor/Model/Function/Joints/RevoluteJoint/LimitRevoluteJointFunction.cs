@@ -1,5 +1,5 @@
 ﻿using PhysicSceneEditorControl.Controls.Editor.Model.EditorJoint;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Joints.RevoluteJoint
 {

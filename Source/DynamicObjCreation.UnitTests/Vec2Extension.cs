@@ -1,8 +1,10 @@
-﻿namespace DynamicObjCreation.UnitTests
+﻿using PhysicGlobal;
+
+namespace DynamicObjCreation.UnitTests
 {
     internal static class Vec2Extension
     {
-        internal static GraphicMinimal.Vector2D ToGrx(this RigidBodyPhysics.MathHelper.Vec2D v)
+        internal static GraphicMinimal.Vector2D ToGrx(this Vec2D v)
         {
             return new GraphicMinimal.Vector2D(v.X, v.Y);
         }

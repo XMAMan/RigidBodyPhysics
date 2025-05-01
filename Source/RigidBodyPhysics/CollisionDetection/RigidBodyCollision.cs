@@ -1,5 +1,5 @@
 ﻿using RigidBodyPhysics.CollisionDetection.NearPhase;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 
 namespace RigidBodyPhysics.CollisionDetection

@@ -1,5 +1,5 @@
-﻿using RigidBodyPhysics.CollisionDetection;
-using RigidBodyPhysics.MathHelper;
+﻿using PhysicGlobal;
+using RigidBodyPhysics.CollisionDetection;
 
 namespace RigidBodyPhysics.CollisionResolution
 {

@@ -1,5 +1,5 @@
 ﻿using RigidBodyPhysics.CollisionDetection.NearPhase.Polygon;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 
 namespace RigidBodyPhysics.CollisionDetection.NearPhase
 {

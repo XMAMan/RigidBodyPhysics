@@ -4,6 +4,7 @@ using RigidBodyPhysics.ExportData.Joints;
 using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.MaxForceTracking;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
+using PhysicGlobal;
 
 namespace RigidBodyPhysics.RuntimeObjects.Joints
 {

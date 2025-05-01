@@ -1,4 +1,5 @@
-﻿using RigidBodyPhysics.ExportData.Thruster;
+﻿using PhysicGlobal;
+using RigidBodyPhysics.ExportData.Thruster;
 using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 

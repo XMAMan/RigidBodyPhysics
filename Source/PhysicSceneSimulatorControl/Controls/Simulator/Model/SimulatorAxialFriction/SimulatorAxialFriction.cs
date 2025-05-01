@@ -1,6 +1,6 @@
 ﻿using GraphicPanels;
 using PhysicSceneSimulatorControl.Dialogs.PrintSettings;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.AxialFriction;
 
 namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorAxialFriction

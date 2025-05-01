@@ -1,4 +1,5 @@
-﻿using RigidBodyPhysics.CollisionDetection;
+﻿using PhysicGlobal;
+using RigidBodyPhysics.CollisionDetection;
 using RigidBodyPhysics.CollisionResolution.SequentiellImpulse.Constraints;
 using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.MouseBodyClick;

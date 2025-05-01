@@ -4,7 +4,7 @@ using PhysicSceneEditorControl.Controls.Editor.Model.Function.Joints;
 using PhysicSceneEditorControl.Controls.JointPropertys.DistanceJoint;
 using PhysicSceneEditorControl.Controls.SoftProperty;
 using RigidBodyPhysics.ExportData.Joints;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorJoint
 {

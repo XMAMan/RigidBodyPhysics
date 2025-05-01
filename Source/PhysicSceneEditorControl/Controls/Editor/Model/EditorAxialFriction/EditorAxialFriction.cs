@@ -2,7 +2,7 @@
 using PhysicSceneEditorControl.Controls.AxialFriction;
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using RigidBodyPhysics.ExportData.AxialFriction;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorAxialFriction
 {

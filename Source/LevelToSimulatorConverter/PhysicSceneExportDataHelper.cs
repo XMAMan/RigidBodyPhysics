@@ -1,8 +1,8 @@
 ﻿using RigidBodyPhysics.ExportData.RigidBody;
 using RigidBodyPhysics.ExportData;
-using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.ExportData.Joints;
 using GraphicMinimal;
+using PhysicGlobal;
 
 namespace LevelToSimulatorConverter
 {

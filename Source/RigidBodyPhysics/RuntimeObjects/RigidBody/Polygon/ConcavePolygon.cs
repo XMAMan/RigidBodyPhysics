@@ -1,4 +1,5 @@
-﻿using RigidBodyPhysics.CollisionDetection.BroadPhase;
+﻿using PhysicGlobal;
+using RigidBodyPhysics.CollisionDetection.BroadPhase;
 using RigidBodyPhysics.ExportData.RigidBody;
 using RigidBodyPhysics.MathHelper;
 

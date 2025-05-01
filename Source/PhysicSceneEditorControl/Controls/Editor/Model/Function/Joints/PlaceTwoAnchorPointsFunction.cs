@@ -1,7 +1,7 @@
 ﻿using GraphicPanels;
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorJoint;
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Joints
 {

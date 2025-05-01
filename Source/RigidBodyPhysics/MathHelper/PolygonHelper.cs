@@ -1,4 +1,5 @@
-﻿using RigidBodyPhysics.MathHelper.PolygonDecomposition;
+﻿using PhysicGlobal;
+using RigidBodyPhysics.MathHelper.PolygonDecomposition;
 
 namespace RigidBodyPhysics.MathHelper
 {

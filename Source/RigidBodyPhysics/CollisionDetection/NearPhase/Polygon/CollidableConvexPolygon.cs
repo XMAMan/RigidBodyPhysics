@@ -1,4 +1,5 @@
-﻿using RigidBodyPhysics.MathHelper;
+﻿using PhysicGlobal;
+using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon;
 
 namespace RigidBodyPhysics.CollisionDetection.NearPhase.Polygon

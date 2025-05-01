@@ -1,5 +1,6 @@
 ﻿using DynamicObjCreation.PolygonIntersection;
 using GraphicMinimal;
+using PhysicGlobal;
 using RigidBodyPhysics.ExportData.RigidBody;
 using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;

@@ -1,4 +1,6 @@
-﻿namespace PhysicSceneEditorControl.Controls.Editor.Model
+﻿using PhysicGlobal;
+
+namespace PhysicSceneEditorControl.Controls.Editor.Model
 {
     internal static class Vec2Extension
     {
@@ -12,24 +14,24 @@
             return new Point(v.Xi, v.Yi);
         }
 
-        internal static GraphicMinimal.Vector2D ToGrx(this RigidBodyPhysics.MathHelper.Vec2D v)
+        internal static GraphicMinimal.Vector2D ToGrx(this Vec2D v)
         {
             return new GraphicMinimal.Vector2D(v.X, v.Y);
         }
 
-        internal static RigidBodyPhysics.MathHelper.Vec2D ToPhx(this GraphicMinimal.Vector2D v)
+        internal static Vec2D ToPhx(this GraphicMinimal.Vector2D v)
         {
-            return new RigidBodyPhysics.MathHelper.Vec2D(v.X, v.Y);
+            return new Vec2D(v.X, v.Y);
         }
 
-        internal static IEnumerable<GraphicMinimal.Vector2D> ToGrx(this IEnumerable<RigidBodyPhysics.MathHelper.Vec2D> v)
+        internal static IEnumerable<GraphicMinimal.Vector2D> ToGrx(this IEnumerable<Vec2D> v)
         {
             return v.Select(x => new GraphicMinimal.Vector2D(x.X, x.Y)).ToList();
         }
 
-        internal static IEnumerable<RigidBodyPhysics.MathHelper.Vec2D> ToPhx(this IEnumerable<GraphicMinimal.Vector2D> v)
+        internal static IEnumerable<Vec2D> ToPhx(this IEnumerable<GraphicMinimal.Vector2D> v)
         {
-            return v.Select(x => new RigidBodyPhysics.MathHelper.Vec2D(x.X, x.Y));
+            return v.Select(x => new Vec2D(x.X, x.Y));
         }
     }
 }

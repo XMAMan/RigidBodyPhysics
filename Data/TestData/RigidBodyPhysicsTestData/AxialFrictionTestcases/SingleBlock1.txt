@@ -6,20 +6,20 @@
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
         "Size": {
-          "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 167.0,
           "Y": 140.0
         },
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 1.0,
         "Center": {
-          "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 679.0,
           "Y": 260.0
         },
         "AngleInDegree": 0.0,
         "Velocity": {
-          "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 0.0,
           "Y": 0.0
         },
@@ -38,13 +38,13 @@
         "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
         "Radius": 20.0,
         "Center": {
-          "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 340.0,
           "Y": 260.0
         },
         "AngleInDegree": 0.0,
         "Velocity": {
-          "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 1.0,
           "Y": 0.0
         },
@@ -80,12 +80,12 @@
         "$type": "RigidBodyPhysics.ExportData.AxialFriction.AxialFrictionExportData, RigidBodyPhysics",
         "BodyIndex": 0,
         "R1": {
-          "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 0.0,
           "Y": 0.0
         },
         "ForceDirection": {
-          "$type": "RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics",
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": -1.0,
           "Y": 0.0
         },

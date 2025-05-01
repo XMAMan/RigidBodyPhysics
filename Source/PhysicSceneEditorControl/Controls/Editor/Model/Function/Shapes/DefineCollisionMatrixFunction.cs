@@ -1,5 +1,5 @@
 ﻿using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 using WpfControls.Controls.CollisionMatrix;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Shapes

@@ -1,7 +1,7 @@
 ﻿using GraphicPanels;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.AxialFriction;
 using System;
 using System.Collections.Generic;

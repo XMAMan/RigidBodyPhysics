@@ -2,7 +2,7 @@
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using PhysicSceneEditorControl.Controls.RotaryMotorProperty;
 using RigidBodyPhysics.ExportData.RotaryMotor;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorRotaryMotor
 {

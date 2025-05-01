@@ -1,7 +1,7 @@
 ﻿using GraphicMinimal;
 using LevelEditorGlobal;
 using LevelToSimulatorConverter;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 using System.Drawing;
 
 namespace DynamicObjCreation

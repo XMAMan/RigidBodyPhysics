@@ -1,4 +1,4 @@
-﻿using RigidBodyPhysics.MathHelper;
+﻿using PhysicGlobal;
 using static RigidBodyPhysics.RuntimeObjects.Joints.IPublicJoint;
 
 namespace RigidBodyPhysics.ExportData.Joints

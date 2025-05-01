@@ -1,6 +1,6 @@
 ﻿using DynamicObjCreation.PolygonIntersection;
 using GraphicPanels;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 using System.Drawing;
 
 namespace DynamicObjCreation.UnitTests

@@ -2,6 +2,7 @@
 using RigidBodyPhysics.CollisionDetection.NearPhase;
 using RigidBodyPhysics.ExportData.RigidBody;
 using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 
 namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
 {

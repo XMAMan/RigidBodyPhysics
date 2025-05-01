@@ -1,6 +1,6 @@
 ﻿using GraphicPanels;
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 using WpfControls.Model;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Shapes

@@ -1,4 +1,5 @@
-﻿using RigidBodyPhysics.MathHelper;
+﻿using PhysicGlobal;
+using RigidBodyPhysics.MathHelper;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorShape
 {

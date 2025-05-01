@@ -1,4 +1,5 @@
-﻿using RigidBodyPhysics.CollisionDetection;
+﻿using PhysicGlobal;
+using RigidBodyPhysics.CollisionDetection;
 using RigidBodyPhysics.CollisionResolution;
 using RigidBodyPhysics.ExportData;
 using RigidBodyPhysics.ExportData.Joints;

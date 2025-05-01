@@ -48,7 +48,7 @@ namespace JsonHelper
 
             string small = json;
 
-            small = Regex.Replace(small, @"{\s+""\$type"": ""RigidBodyPhysics.MathHelper.Vec2D,[^X]+X.: (?<X>[-+]?([0-9]*[.])?[0-9]+([eE][-+]?\d+)?)[^Y]+Y.: (?<Y>[-+]?([0-9]*[.])?[0-9]+([eE][-+]?\d+)?)[^}]+}", "[${X}, ${Y}]");
+            small = Regex.Replace(small, @"{\s+""\$type"": ""PhysicGlobal.Vec2D,[^X]+X.: (?<X>[-+]?([0-9]*[.])?[0-9]+([eE][-+]?\d+)?)[^Y]+Y.: (?<Y>[-+]?([0-9]*[.])?[0-9]+([eE][-+]?\d+)?)[^}]+}", "[${X}, ${Y}]");
 
             return small;
         }
@@ -59,7 +59,7 @@ namespace JsonHelper
 
             string big = json;
 
-            big = Regex.Replace(big, @"\[(?<X>[-+]?([0-9]*[.])?[0-9]+([eE][-+]?\d+)?), (?<Y>[-+]?([0-9]*[.])?[0-9]+([eE][-+]?\d+)?)\]", "{          \"$type\": \"RigidBodyPhysics.MathHelper.Vec2D, RigidBodyPhysics\",          \"X\": ${X},          \"Y\": ${Y}        }");
+            big = Regex.Replace(big, @"\[(?<X>[-+]?([0-9]*[.])?[0-9]+([eE][-+]?\d+)?), (?<Y>[-+]?([0-9]*[.])?[0-9]+([eE][-+]?\d+)?)\]", "{          \"$type\": \"PhysicGlobal.Vec2D, PhysicGlobal\",          \"X\": ${X},          \"Y\": ${Y}        }");
 
             return big;
         }

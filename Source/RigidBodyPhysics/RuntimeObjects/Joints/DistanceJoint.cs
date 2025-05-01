@@ -1,4 +1,5 @@
-﻿using RigidBodyPhysics.CollisionResolution.SequentiellImpulse.Constraints;
+﻿using PhysicGlobal;
+using RigidBodyPhysics.CollisionResolution.SequentiellImpulse.Constraints;
 using RigidBodyPhysics.CollisionResolution.SequentiellImpulse.Constraints.Distance;
 using RigidBodyPhysics.ExportData.Joints;
 using RigidBodyPhysics.MathHelper;

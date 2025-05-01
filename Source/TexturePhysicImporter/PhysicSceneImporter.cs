@@ -1,7 +1,7 @@
 ﻿using JsonHelper;
 using RigidBodyPhysics.ExportData;
 using RigidBodyPhysics.ExportData.RigidBody;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 using System.Drawing;
 using TextureEditorGlobal;
 

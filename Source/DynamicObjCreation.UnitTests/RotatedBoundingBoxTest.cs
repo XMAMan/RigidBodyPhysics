@@ -1,6 +1,6 @@
 ﻿using DynamicObjCreation.RigidBodyDestroying;
 using GraphicPanels;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 using System.Drawing;
 
 namespace DynamicObjCreation.UnitTests

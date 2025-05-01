@@ -4,7 +4,7 @@ using System;
 using System.Drawing;
 using GameHelper.Simulation;
 using DynamicObjCreation.RigidBodyDestroying;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 using GameHelper.ParticleHandling;
 using RigidBodyPhysics.RuntimeObjects.Thruster;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;

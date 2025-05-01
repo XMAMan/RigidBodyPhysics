@@ -1,4 +1,4 @@
-﻿namespace RigidBodyPhysics.MathHelper
+﻿namespace PhysicGlobal
 {
     public class Vec2D
     {

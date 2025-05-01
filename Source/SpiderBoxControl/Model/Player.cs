@@ -2,8 +2,8 @@
 using GameHelper.Simulation;
 using GameHelper.Simulation.RigidBodyTagging;
 using GraphicPanels;
+using PhysicGlobal;
 using PhysicSceneDrawing;
-using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.RuntimeObjects.Joints;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using SpriteEditorControl.Controls.Main.Model;

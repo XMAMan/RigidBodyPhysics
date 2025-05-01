@@ -1,5 +1,5 @@
 ﻿using GraphicMinimal;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 using System.Drawing;
 
 namespace LevelEditorControl.EditorFunctions

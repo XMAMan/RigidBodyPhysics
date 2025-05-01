@@ -1,7 +1,7 @@
 ﻿using DynamicObjCreation;
 using GameHelper.Simulation;
 using RigidBodyPhysics.ExportData.RigidBody;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using System.Drawing;
 using TextureEditorGlobal;

@@ -8,6 +8,7 @@ using GraphicMinimal;
 using LevelEditorControl;
 using LevelEditorGlobal;
 using LevelToSimulatorConverter;
+using PhysicGlobal;
 using RigidBodyPhysics.ExportData;
 using RigidBodyPhysics.ExportData.Joints;
 using RigidBodyPhysics.ExportData.RigidBody;

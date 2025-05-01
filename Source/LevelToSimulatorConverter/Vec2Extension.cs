@@ -1,13 +1,14 @@
 ﻿using GraphicMinimal;
+using PhysicGlobal;
 using System.Drawing;
 
 namespace LevelToSimulatorConverter
 {
     internal static class Vec2Extension
     {
-        internal static RigidBodyPhysics.MathHelper.Vec2D ToPhx(this GraphicMinimal.Vector2D v)
+        internal static Vec2D ToPhx(this GraphicMinimal.Vector2D v)
         {
-            return new RigidBodyPhysics.MathHelper.Vec2D(v.X, v.Y);
+            return new Vec2D(v.X, v.Y);
         }
 
         internal static PointF ToPointF(this Vector2D v)

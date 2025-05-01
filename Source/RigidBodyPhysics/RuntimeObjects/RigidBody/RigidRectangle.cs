@@ -1,4 +1,5 @@
-﻿using RigidBodyPhysics.CollisionDetection.NearPhase;
+﻿using PhysicGlobal;
+using RigidBodyPhysics.CollisionDetection.NearPhase;
 using RigidBodyPhysics.ExportData.RigidBody;
 using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.MaxForceTracking;

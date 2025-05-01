@@ -3,6 +3,7 @@ using RigidBodyPhysics.ExportData.AxialFriction;
 using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using RigidBodyPhysics.CollisionResolution.SequentiellImpulse.Constraints.AxialFriction;
+using PhysicGlobal;
 
 namespace RigidBodyPhysics.RuntimeObjects.AxialFriction
 {

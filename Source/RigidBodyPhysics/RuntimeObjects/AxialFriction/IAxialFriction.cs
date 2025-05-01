@@ -1,5 +1,5 @@
 ﻿using RigidBodyPhysics.CollisionResolution.SequentiellImpulse.Constraints;
-using RigidBodyPhysics.MathHelper;
+using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 
 namespace RigidBodyPhysics.RuntimeObjects.AxialFriction

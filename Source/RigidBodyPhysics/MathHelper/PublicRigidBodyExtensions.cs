@@ -1,4 +1,5 @@
-﻿using RigidBodyPhysics.RuntimeObjects.RigidBody;
+﻿using PhysicGlobal;
+using RigidBodyPhysics.RuntimeObjects.RigidBody;
 
 namespace RigidBodyPhysics.MathHelper
 {
