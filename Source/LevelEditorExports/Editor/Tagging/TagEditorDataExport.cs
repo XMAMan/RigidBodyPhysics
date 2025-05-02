@@ -1,7 +1,7 @@
-﻿namespace LevelEditorControl.Controls.TagItemControl
+﻿namespace LevelEditorExports.Editor.Tagging
 {
     //TagDaten vom Leveleditor
-    internal class TagEditorDataExport
+    public class TagEditorDataExport
     {
         public TagEditorData[] Tags { get; set; }
     }

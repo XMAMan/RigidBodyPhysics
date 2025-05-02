@@ -3,6 +3,7 @@ using GraphicPanels;
 using LevelEditorControl.Controls.PolygonControl;
 using LevelEditorControl.Controls.TagItemControl;
 using LevelEditorControl.LevelItems;
+using LevelEditorExports.Editor.CameraTracking;
 using LevelEditorGlobal;
 using PhysicGlobal;
 using ReactiveUI;

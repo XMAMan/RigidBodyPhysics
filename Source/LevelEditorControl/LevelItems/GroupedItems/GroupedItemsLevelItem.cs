@@ -1,5 +1,6 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
+using LevelEditorExports.Editor.LevelItems;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorGlobal;
 using LevelToSimulatorConverter;
@@ -84,7 +85,7 @@ namespace LevelEditorControl.LevelItems.GroupedItems
         }
 
         #region IObjectSerializable
-        public object GetExportData()
+        public ILevelItemExportData GetExportData()
         {
             return new GroupedItemLevelExportData()
             {

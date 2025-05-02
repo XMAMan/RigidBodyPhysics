@@ -1,9 +1,6 @@
-﻿using LevelEditorExports.Editor.Prototyps;
-using LevelEditorGlobal;
-
-namespace LevelEditorControl.LevelItems.BackgroundItem
+﻿namespace LevelEditorExports.Editor.Prototyps
 {
-    internal class BackgroundPrototypExportData : IPrototypExportData
+    public class BackgroundPrototypExportData : IPrototypExportData
     {
         public PrototypItemType ProtoType => PrototypItemType.BackgroundItem;
         public int Id { get; set; }

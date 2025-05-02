@@ -1,5 +1,6 @@
 ﻿using LevelEditorControl.Controls.TreeControl;
 using LevelEditorControl.EditorFunctions;
+using LevelEditorExports.Editor.Tagging;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using System;

@@ -1,4 +1,5 @@
 ﻿using LevelEditorControl.Controls.CameraTrackerControl;
+using LevelEditorExports.Editor.CameraTracking;
 using System;
 using System.Drawing;
 
@@ -33,7 +34,7 @@ namespace LevelEditorControl.EditorFunctions
             state.DrawItems();
             panel.DisableDepthTesting();
 
-            if (vm.TrackingMode == LevelEditorGlobal.CameraTrackerData.TrackingMode.KeepAwayFromBorder)
+            if (vm.TrackingMode == CameraTrackerData.TrackingMode.KeepAwayFromBorder)
             {
                 var box1 = state.Camera.GetScreenBox();
                 panel.DrawRectangle(new System.Drawing.Pen(Color.Orange, 5),
@@ -44,7 +45,7 @@ namespace LevelEditorControl.EditorFunctions
                     );
             }
 
-            if (vm.TrackingMode == LevelEditorGlobal.CameraTrackerData.TrackingMode.KeepInCenter)
+            if (vm.TrackingMode == CameraTrackerData.TrackingMode.KeepInCenter)
             {
                 var box1 = state.Camera.GetScreenBox().Center();
                 panel.DrawRectangle(new System.Drawing.Pen(Color.Orange, 5),

@@ -7,10 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Editor\LevelItems\" />
     <Folder Include="Editor\KeyboardMappings\" />
-    <Folder Include="Editor\CameraTracking\" />
-    <Folder Include="Editor\Tagging\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="9.0.4" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,5 +1,6 @@
 ﻿using DynamicData;
 using LevelEditorControl.Controls.TagItemControl;
+using LevelEditorExports.Editor.Tagging;
 using LevelEditorGlobal;
 using PhysicGlobal;
 using System;

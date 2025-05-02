@@ -1,5 +1,4 @@
 ﻿using LevelEditorControl.EditorFunctions;
-using LevelEditorGlobal;
 using ReactiveUI.Fody.Helpers;
 using ReactiveUI;
 using System.Reactive;
@@ -7,6 +6,7 @@ using System.Drawing;
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using LevelEditorExports.Editor.CameraTracking;
 
 namespace LevelEditorControl.Controls.CameraTrackerControl
 {

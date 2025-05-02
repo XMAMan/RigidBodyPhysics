@@ -1,4 +1,4 @@
-﻿using LevelEditorGlobal;
+﻿using LevelEditorExports.Editor.BackgroundImage;
 
 namespace LevelEditorControl.Controls.PolygonControl
 {

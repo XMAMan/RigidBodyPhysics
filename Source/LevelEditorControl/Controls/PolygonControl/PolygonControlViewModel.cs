@@ -9,8 +9,8 @@ using System.Reactive.Linq;
 using System;
 using System.Windows.Forms;
 using System.Linq;
-using LevelEditorGlobal;
 using PhysicGlobal;
+using LevelEditorExports.Editor.BackgroundImage;
 
 namespace LevelEditorControl.Controls.PolygonControl
 {
@@ -71,17 +71,17 @@ namespace LevelEditorControl.Controls.PolygonControl
 
             this.StretchWithoutAspectRatio = ReactiveCommand.Create(() =>
             {
-                this.BackgroundImageMode = images.BackgroundImageMode = LevelEditorGlobal.ImageMode.StretchWithoutAspectRatio;
+                this.BackgroundImageMode = images.BackgroundImageMode = ImageMode.StretchWithoutAspectRatio;
             });
 
             this.StretchWithAspectRatio = ReactiveCommand.Create(() =>
             {
-                this.BackgroundImageMode = images.BackgroundImageMode = LevelEditorGlobal.ImageMode.StretchWithAspectRatio;
+                this.BackgroundImageMode = images.BackgroundImageMode = ImageMode.StretchWithAspectRatio;
             });
 
             this.ShowBackgroundNoStretch = ReactiveCommand.Create(() =>
             {
-                this.BackgroundImageMode = images.BackgroundImageMode = LevelEditorGlobal.ImageMode.NoStretch;
+                this.BackgroundImageMode = images.BackgroundImageMode = ImageMode.NoStretch;
             });
 
             

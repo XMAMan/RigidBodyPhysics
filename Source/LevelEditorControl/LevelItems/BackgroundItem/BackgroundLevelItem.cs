@@ -1,5 +1,6 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
+using LevelEditorExports.Editor.LevelItems;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorGlobal;
 using PhysicGlobal;
@@ -85,7 +86,7 @@ namespace LevelEditorControl.LevelItems.BackgroundItem
         }
 
         #region IObjectSerializable
-        public object GetExportData()
+        public ILevelItemExportData GetExportData()
         {
             return new BackgroundLevelItemExportData()
             {

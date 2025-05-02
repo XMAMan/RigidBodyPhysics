@@ -11,6 +11,7 @@ using System;
 using LevelEditorControl.EditorFunctions;
 using GraphicMinimal;
 using WpfControls.Extensions;
+using LevelEditorExports.Editor.LevelItems;
 
 namespace LevelEditorControl.LevelItems.Polygon
 {
@@ -89,7 +90,7 @@ namespace LevelEditorControl.LevelItems.Polygon
             return MathHelper.PointIsInsidePolygon(localPoints, point - PivotPoint);
         }
 
-        public object GetExportData()
+        public ILevelItemExportData GetExportData()
         {
             return new PolygonLevelItemExportData()
             {
@@ -239,14 +240,5 @@ namespace LevelEditorControl.LevelItems.Polygon
 
             return ret;
         }
-    }
-
-    internal class PolygonLevelItemExportData
-    {
-        public int LevelItemId { get; set; }
-        public Vec2D[] Points { get; set; }
-        public float Friction { get; set; }
-        public float Restiution { get; set; }
-        public int CollisionCategory { get; set; }
     }
 }

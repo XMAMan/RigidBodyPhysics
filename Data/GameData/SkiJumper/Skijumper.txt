@@ -2038,10 +2038,10 @@
     }
   },
   "LevelItems": {
-    "$type": "System.Object[], System.Private.CoreLib",
+    "$type": "LevelEditorExports.Editor.LevelItems.ILevelItemExportData[], LevelEditorExports",
     "$values": [
       {
-        "$type": "LevelEditorControl.LevelItems.PhysicItem.PhysicLevelItemExportData, LevelEditorControl",
+        "$type": "LevelEditorExports.Editor.LevelItems.PhysicLevelItemExportData, LevelEditorExports",
         "LevelItemId": 5,
         "PrototypId": 2,
         "Position": {
@@ -2058,7 +2058,7 @@
 			}
       },
       {
-        "$type": "LevelEditorControl.LevelItems.Polygon.PolygonLevelItemExportData, LevelEditorControl",
+        "$type": "LevelEditorExports.Editor.LevelItems.PolygonLevelItemExportData, LevelEditorExports",
         "LevelItemId": 6,
         "Points": {
           "$type": "PhysicGlobal.Vec2D[], PhysicGlobal",
@@ -2168,7 +2168,7 @@
         "CollisionCategory": 0
       },
       {
-        "$type": "LevelEditorControl.LevelItems.Polygon.PolygonLevelItemExportData, LevelEditorControl",
+        "$type": "LevelEditorExports.Editor.LevelItems.PolygonLevelItemExportData, LevelEditorExports",
         "LevelItemId": 7,
         "Points": {
           "$type": "PhysicGlobal.Vec2D[], PhysicGlobal",
@@ -2236,7 +2236,7 @@
         "CollisionCategory": 0
       },
       {
-        "$type": "LevelEditorControl.LevelItems.PhysicItem.PhysicLevelItemExportData, LevelEditorControl",
+        "$type": "LevelEditorExports.Editor.LevelItems.PhysicLevelItemExportData, LevelEditorExports",
         "LevelItemId": 8,
         "PrototypId": 3,
         "Position": {
@@ -2340,7 +2340,7 @@
   },
   "CameraTrackedLevelItemId": 5,
   "CameraTrackerData": {
-    "$type": "LevelEditorGlobal.CameraTrackerData, LevelEditorGlobal",
+    "$type": "LevelEditorExports.Editor.CameraTracking.CameraTrackerData, LevelEditorExports",
     "IsActive": true,
     "Mode": 0,
     "DistanceToScreenBorder": 800.0,
@@ -2369,12 +2369,12 @@
     "AirFriction": 0.001
   },
   "TagData": {
-    "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorDataExport, LevelEditorControl",
+    "$type": "LevelEditorExports.Editor.Tagging.TagEditorDataExport, LevelEditorExports",
     "Tags": {
-      "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData[], LevelEditorControl",
+      "$type": "LevelEditorExports.Editor.Tagging.TagEditorData[], LevelEditorExports",
       "$values": [
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Body_8_0",
           "Name": "flag",
           "Color": 3,
@@ -2384,7 +2384,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Proto_2",
           "Name": "skiman",
           "Color": 1,
@@ -2394,7 +2394,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Level_6",
           "Name": "",
           "Color": 0,
@@ -2412,7 +2412,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Body_5_8",
           "Name": "plank1",
           "Color": 2,
@@ -2430,7 +2430,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Joint_5_6",
           "Name": "weldPlankBack",
           "Color": 2,
@@ -2440,7 +2440,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Joint_5_7",
           "Name": "weldPlankFront",
           "Color": 2,
@@ -2450,7 +2450,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Joint_5_10",
           "Name": "weldSkiTip",
           "Color": 2,
@@ -2460,7 +2460,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Joint_5_2",
           "Name": "weldHead",
           "Color": 1,
@@ -2470,7 +2470,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Body_5_0",
           "Name": "leg",
           "Color": 1,
@@ -2480,7 +2480,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Body_5_1",
           "Name": "",
           "Color": 1,
@@ -2490,7 +2490,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Body_5_2",
           "Name": "",
           "Color": 1,
@@ -2500,7 +2500,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Body_5_3",
           "Name": "",
           "Color": 1,
@@ -2510,7 +2510,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Body_5_4",
           "Name": "",
           "Color": 1,
@@ -2520,7 +2520,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Body_5_5",
           "Name": "",
           "Color": 1,
@@ -2530,7 +2530,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Body_5_6",
           "Name": "",
           "Color": 2,
@@ -2540,7 +2540,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Body_5_7",
           "Name": "",
           "Color": 2,
@@ -2550,7 +2550,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Body_5_9",
           "Name": "",
           "Color": 2,
@@ -2560,7 +2560,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Body_5_10",
           "Name": "",
           "Color": 2,
@@ -2570,7 +2570,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Body_5_11",
           "Name": "",
           "Color": 2,
@@ -2580,7 +2580,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Joint_5_0",
           "Name": "",
           "Color": 1,
@@ -2590,7 +2590,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Joint_5_1",
           "Name": "",
           "Color": 1,
@@ -2600,7 +2600,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Joint_5_3",
           "Name": "",
           "Color": 1,
@@ -2610,7 +2610,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Joint_5_4",
           "Name": "",
           "Color": 1,
@@ -2620,7 +2620,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Joint_5_5",
           "Name": "",
           "Color": 2,
@@ -2630,7 +2630,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Joint_5_8",
           "Name": "",
           "Color": 2,
@@ -2640,7 +2640,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Joint_5_9",
           "Name": "",
           "Color": 1,

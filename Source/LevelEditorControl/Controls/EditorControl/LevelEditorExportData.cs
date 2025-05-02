@@ -1,5 +1,8 @@
-﻿using LevelEditorControl.Controls.TagItemControl;
+﻿using LevelEditorExports.Editor.BackgroundImage;
+using LevelEditorExports.Editor.CameraTracking;
+using LevelEditorExports.Editor.LevelItems;
 using LevelEditorExports.Editor.Prototyps;
+using LevelEditorExports.Editor.Tagging;
 using LevelEditorGlobal;
 using PhysicGlobal;
 
@@ -8,7 +11,7 @@ namespace LevelEditorControl.Controls.EditorControl
     internal class LevelEditorExportData
     {
         public PrototypControlExportData Prototyps { get; set; }
-        public object[] LevelItems { get; set; }
+        public ILevelItemExportData[] LevelItems { get; set; }
         public string BackgroundImage { get; set; }
         public string ForegroundImage { get; set; }
         public ImageMode BackgroundImageMode { get; set; }

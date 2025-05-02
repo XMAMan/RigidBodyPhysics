@@ -1,8 +1,8 @@
 ﻿using PhysicGlobal;
 
-namespace LevelEditorControl.LevelItems.BackgroundItem
+namespace LevelEditorExports.Editor.LevelItems
 {
-    internal class BackgroundLevelItemExportData
+    public class BackgroundLevelItemExportData : ILevelItemExportData
     {
         public int LevelItemId { get; set; }
         public int PrototypId { get; set; }

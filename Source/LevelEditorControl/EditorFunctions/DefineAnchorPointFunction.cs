@@ -1,5 +1,5 @@
 ﻿using GraphicMinimal;
-using LevelEditorControl.Controls.TagItemControl;
+using LevelEditorExports.Editor.Tagging;
 using LevelEditorGlobal;
 using PhysicGlobal;
 using System.Collections.Generic;

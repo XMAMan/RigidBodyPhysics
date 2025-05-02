@@ -1,4 +1,5 @@
 ﻿using GraphicPanels;
+using LevelEditorExports.Editor.LevelItems;
 using LevelEditorGlobal;
 using PhysicGlobal;
 using System.Drawing;
@@ -15,7 +16,7 @@ namespace LevelEditorControl.LevelItems
         void DrawBorder(GraphicPanel2D panel, Pen borderPen);
         void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor);
         bool IsPointInside(Vec2D point);
-        object GetExportData();
+        ILevelItemExportData GetExportData();
         Vec2D PivotPoint { get; set; } //Hiermit kann das Objekt verschoben werden
         RectangleF GetBoundingBox();
         Vec2D[] GetCornerPoints(); //4 Eckpunkte vom Physik/Backgrounditem/Lawn oder die Polygonpunkte -> Zum Selektieren per Rechteck

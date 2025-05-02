@@ -790,7 +790,7 @@
           "CameraTrackedRigidBodyIds": null
         },
         {
-          "$type": "LevelEditorControl.LevelItems.BackgroundItem.BackgroundPrototypExportData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Prototyps.BackgroundPrototypExportData, LevelEditorExports",
           "ProtoType": 1,
           "Id": 5,
           "TextureFile": "..\\ast.png",
@@ -941,7 +941,7 @@
           "CameraTrackedRigidBodyIds": null
         },
         {
-          "$type": "LevelEditorControl.LevelItems.BackgroundItem.BackgroundPrototypExportData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Prototyps.BackgroundPrototypExportData, LevelEditorExports",
           "ProtoType": 1,
           "Id": 7,
           "TextureFile": "..\\fass.png",
@@ -1864,7 +1864,7 @@
           "CameraTrackedRigidBodyIds": null
         },
         {
-          "$type": "LevelEditorControl.LevelItems.BackgroundItem.BackgroundPrototypExportData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Prototyps.BackgroundPrototypExportData, LevelEditorExports",
           "ProtoType": 1,
           "Id": 10,
           "TextureFile": "..\\Pflanze.png",
@@ -1884,10 +1884,10 @@
     }
   },
   "LevelItems": {
-    "$type": "System.Object[], System.Private.CoreLib",
+    "$type": "LevelEditorExports.Editor.LevelItems.ILevelItemExportData[], LevelEditorExports",
     "$values": [
       {
-        "$type": "LevelEditorControl.LevelItems.PhysicItem.PhysicLevelItemExportData, LevelEditorControl",
+        "$type": "LevelEditorExports.Editor.LevelItems.PhysicLevelItemExportData, LevelEditorExports",
         "LevelItemId": 2,
         "PrototypId": 1,
         "Position": {
@@ -1904,7 +1904,7 @@
 			}
       },
       {
-        "$type": "LevelEditorControl.LevelItems.Polygon.PolygonLevelItemExportData, LevelEditorControl",
+        "$type": "LevelEditorExports.Editor.LevelItems.PolygonLevelItemExportData, LevelEditorExports",
         "LevelItemId": 3,
         "Points": {
           "$type": "PhysicGlobal.Vec2D[], PhysicGlobal",
@@ -2119,7 +2119,7 @@
         "CollisionCategory": 0
       },
       {
-        "$type": "LevelEditorControl.LevelItems.Polygon.PolygonLevelItemExportData, LevelEditorControl",
+        "$type": "LevelEditorExports.Editor.LevelItems.PolygonLevelItemExportData, LevelEditorExports",
         "LevelItemId": 4,
         "Points": {
           "$type": "PhysicGlobal.Vec2D[], PhysicGlobal",
@@ -2257,7 +2257,7 @@
         "CollisionCategory": 0
       },
       {
-        "$type": "LevelEditorControl.LevelItems.BackgroundItem.BackgroundLevelItemExportData, LevelEditorControl",
+        "$type": "LevelEditorExports.Editor.LevelItems.BackgroundLevelItemExportData, LevelEditorExports",
         "LevelItemId": 5,
         "PrototypId": 10,
         "Position": {
@@ -2274,7 +2274,7 @@
 			}
       },
       {
-        "$type": "LevelEditorControl.LevelItems.PhysicItem.PhysicLevelItemExportData, LevelEditorControl",
+        "$type": "LevelEditorExports.Editor.LevelItems.PhysicLevelItemExportData, LevelEditorExports",
         "LevelItemId": 6,
         "PrototypId": 3,
         "Position": {
@@ -2291,7 +2291,7 @@
 			}
       },
       {
-        "$type": "LevelEditorControl.LevelItems.LawnEdge.LawnEdgeExportData, LevelEditorControl",
+        "$type": "LevelEditorExports.Editor.LevelItems.LawnEdgeExportData, LevelEditorExports",
         "LevelItemId": 7,
         "PolygonLevelItemId": 4,
         "TextureFile": "..\\Lawn.png",
@@ -2303,7 +2303,7 @@
         "FPos2": 0.94245654
       },
       {
-        "$type": "LevelEditorControl.LevelItems.LawnEdge.LawnEdgeExportData, LevelEditorControl",
+        "$type": "LevelEditorExports.Editor.LevelItems.LawnEdgeExportData, LevelEditorExports",
         "LevelItemId": 8,
         "PolygonLevelItemId": 4,
         "TextureFile": "..\\Lawn.png",
@@ -2392,7 +2392,7 @@
   },
   "CameraTrackedLevelItemId": 2,
   "CameraTrackerData": {
-    "$type": "LevelEditorGlobal.CameraTrackerData, LevelEditorGlobal",
+    "$type": "LevelEditorExports.Editor.CameraTracking.CameraTrackerData, LevelEditorExports",
     "IsActive": true,
     "Mode": 1,
     "DistanceToScreenBorder": 50.0,
@@ -2421,12 +2421,12 @@
     "AirFriction": 0.005
   },
   "TagData": {
-    "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorDataExport, LevelEditorControl",
+    "$type": "LevelEditorExports.Editor.Tagging.TagEditorDataExport, LevelEditorExports",
     "Tags": {
-      "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData[], LevelEditorControl",
+      "$type": "LevelEditorExports.Editor.Tagging.TagEditorData[], LevelEditorExports",
       "$values": [
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Body_2_0",
           "Name": "head",
           "Color": 2,
@@ -2436,7 +2436,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Body_2_1",
           "Name": "wheel2",
           "Color": 1,
@@ -2446,7 +2446,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Body_2_2",
           "Name": "wheel1",
           "Color": 1,
@@ -2456,7 +2456,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Motor_2_0",
           "Name": "motor1",
           "Color": 0,
@@ -2466,7 +2466,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Motor_2_1",
           "Name": "motor2",
           "Color": 0,
@@ -2476,7 +2476,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Proto_2",
           "Name": "apple",
           "Color": 3,
@@ -2486,7 +2486,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Proto_3",
           "Name": "flower",
           "Color": 4,

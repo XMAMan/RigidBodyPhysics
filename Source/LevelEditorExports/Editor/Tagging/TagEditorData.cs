@@ -1,11 +1,9 @@
 ﻿using PhysicGlobal;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace LevelEditorControl.Controls.TagItemControl
+namespace LevelEditorExports.Editor.Tagging
 {
     //Wird vom Editor zum speichern der Tagdaten benutzt. 
-    internal class TagEditorData
+    public class TagEditorData
     {
         public string Id { get; set; } //TreeItem.Title
         public string Name { get; set; } = string.Empty;

@@ -1,5 +1,4 @@
-﻿using LevelEditorGlobal;
-using ReactiveUI.Fody.Helpers;
+﻿using ReactiveUI.Fody.Helpers;
 using ReactiveUI;
 using System.Reactive;
 using System.Windows.Media.Imaging;
@@ -10,6 +9,7 @@ using LevelEditorControl.EditorFunctions;
 using System;
 using System.Windows.Forms;
 using Simulator.ForceTracking;
+using LevelEditorExports.Editor.CameraTracking;
 
 namespace LevelEditorControl.Controls.SimulatorControl
 {

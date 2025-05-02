@@ -333,10 +333,10 @@
     }
   },
   "LevelItems": {
-    "$type": "System.Object[], System.Private.CoreLib",
+    "$type": "LevelEditorExports.Editor.LevelItems.ILevelItemExportData[], LevelEditorExports",
     "$values": [
       {
-        "$type": "LevelEditorControl.LevelItems.Polygon.PolygonLevelItemExportData, LevelEditorControl",
+        "$type": "LevelEditorExports.Editor.LevelItems.PolygonLevelItemExportData, LevelEditorExports",
         "LevelItemId": 1,
         "Points": {
           "$type": "PhysicGlobal.Vec2D[], PhysicGlobal",
@@ -537,7 +537,7 @@
         "CollisionCategory": 0
       },
       {
-        "$type": "LevelEditorControl.LevelItems.PhysicItem.PhysicLevelItemExportData, LevelEditorControl",
+        "$type": "LevelEditorExports.Editor.LevelItems.PhysicLevelItemExportData, LevelEditorExports",
         "LevelItemId": 2,
         "PrototypId": 1,
         "Position": {
@@ -636,7 +636,7 @@
   },
   "CameraTrackedLevelItemId": 2,
   "CameraTrackerData": {
-    "$type": "LevelEditorGlobal.CameraTrackerData, LevelEditorGlobal",
+    "$type": "LevelEditorExports.Editor.CameraTracking.CameraTrackerData, LevelEditorExports",
     "IsActive": true,
     "Mode": 0,
     "DistanceToScreenBorder": 200.0,
@@ -647,12 +647,12 @@
     "AirFriction": 0.005
   },
   "TagData": {
-    "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorDataExport, LevelEditorControl",
+    "$type": "LevelEditorExports.Editor.Tagging.TagEditorDataExport, LevelEditorExports",
     "Tags": {
-      "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData[], LevelEditorControl",
+      "$type": "LevelEditorExports.Editor.Tagging.TagEditorData[], LevelEditorExports",
       "$values": [
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Level_1",
           "Name": "ground",
           "Color": 1,
@@ -662,7 +662,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Body_2_0",
           "Name": "ship",
           "Color": 2,
@@ -687,7 +687,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Body_2_1",
           "Name": "leg1",
           "Color": 0,
@@ -705,7 +705,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Body_2_2",
           "Name": "leg2",
           "Color": 0,
@@ -723,7 +723,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Thruster_2_0",
           "Name": "mainThruster",
           "Color": 0,
@@ -733,7 +733,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Joint_2_0",
           "Name": "weld1",
           "Color": 0,
@@ -743,7 +743,7 @@
           }
         },
         {
-          "$type": "LevelEditorControl.Controls.TagItemControl.TagEditorData, LevelEditorControl",
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Joint_2_1",
           "Name": "weld2",
           "Color": 0,

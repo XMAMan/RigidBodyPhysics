@@ -1,8 +1,10 @@
-﻿namespace LevelEditorGlobal
+﻿using System.Drawing;
+
+namespace LevelEditorExports.Editor.CameraTracking
 {
     public class CameraTrackerData
     {
-        public enum TrackingMode { KeepAwayFromBorder, KeepInCenter}
+        public enum TrackingMode { KeepAwayFromBorder, KeepInCenter }
 
         public bool IsActive = true;                // Soll der CameraTracker die Kameraposition verändern?
         public TrackingMode Mode = TrackingMode.KeepAwayFromBorder;

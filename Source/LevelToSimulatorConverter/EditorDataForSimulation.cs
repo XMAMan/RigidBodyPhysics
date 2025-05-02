@@ -1,4 +1,6 @@
 ﻿using GraphicPanels;
+using LevelEditorExports.Editor.BackgroundImage;
+using LevelEditorExports.Editor.CameraTracking;
 using LevelEditorGlobal;
 using PhysicGlobal;
 

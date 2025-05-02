@@ -1,4 +1,7 @@
-﻿namespace LevelEditorGlobal
+﻿using LevelEditorExports.Editor.BackgroundImage;
+using LevelEditorExports.Editor.CameraTracking;
+
+namespace LevelEditorGlobal
 {
     public class SimulatorInputData
     {

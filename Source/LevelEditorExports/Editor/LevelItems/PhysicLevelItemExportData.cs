@@ -1,8 +1,8 @@
 ﻿using PhysicGlobal;
 
-namespace LevelEditorControl.LevelItems.PhysicItem
+namespace LevelEditorExports.Editor.LevelItems
 {
-    internal class PhysicLevelItemExportData
+    public class PhysicLevelItemExportData : ILevelItemExportData
     {
         public int LevelItemId { get; set; }
         public int PrototypId { get; set; }

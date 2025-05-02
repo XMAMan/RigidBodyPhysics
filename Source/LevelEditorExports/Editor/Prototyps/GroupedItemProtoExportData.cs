@@ -1,9 +1,6 @@
-﻿using LevelEditorExports.Editor.Prototyps;
-using LevelEditorGlobal;
-
-namespace LevelEditorControl.LevelItems.GroupedItems
+﻿namespace LevelEditorExports.Editor.Prototyps
 {
-    internal class GroupedItemProtoExportData : IPrototypExportData
+    public class GroupedItemProtoExportData : IPrototypExportData
     {
         public PrototypItemType ProtoType => PrototypItemType.GroupedItem;
 

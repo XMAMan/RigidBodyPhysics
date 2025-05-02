@@ -32,6 +32,8 @@ using LevelEditorControl.Controls.TagItemControl;
 using System.IO;
 using Simulator;
 using LevelEditorExports.Editor.Prototyps;
+using LevelEditorExports.Editor.LevelItems;
+using LevelEditorExports.Editor.CameraTracking;
 
 namespace LevelEditorControl.Controls.EditorControl
 {

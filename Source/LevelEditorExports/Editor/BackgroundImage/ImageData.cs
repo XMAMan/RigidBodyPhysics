@@ -1,4 +1,6 @@
-﻿namespace LevelEditorGlobal
+﻿using System.Drawing;
+
+namespace LevelEditorExports.Editor.BackgroundImage
 {
     public enum ImageMode
     {

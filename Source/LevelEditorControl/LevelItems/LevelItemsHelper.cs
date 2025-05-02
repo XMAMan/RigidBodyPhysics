@@ -2,6 +2,7 @@
 using LevelEditorControl.Controls.PolygonControl;
 using LevelEditorControl.LevelItems.BackgroundItem;
 using LevelEditorControl.LevelItems.GroupedItems;
+using LevelEditorExports.Editor.BackgroundImage;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorGlobal;
 using PhysicGlobal;

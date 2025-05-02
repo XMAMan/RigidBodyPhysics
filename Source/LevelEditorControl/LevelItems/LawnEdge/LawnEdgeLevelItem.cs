@@ -2,6 +2,7 @@
 using GraphicPanels;
 using LevelEditorControl.EditorFunctions;
 using LevelEditorControl.LevelItems.Polygon;
+using LevelEditorExports.Editor.LevelItems;
 using PhysicGlobal;
 using System.Collections.Generic;
 using System.Drawing;
@@ -82,7 +83,7 @@ namespace LevelEditorControl.LevelItems.LawnEdge
             return Matrix4x4.Ident();
         }
 
-        public object GetExportData()
+        public ILevelItemExportData GetExportData()
         {
             return new LawnEdgeExportData()
             {
@@ -129,18 +130,5 @@ namespace LevelEditorControl.LevelItems.LawnEdge
 
             return new LawnSegmentBackgroundItem(center, angle, width, Drawer.LawnHeight, Drawer.TextureFile, Drawer.ZValue);
         }
-    }
-
-    internal class LawnEdgeExportData
-    {
-        public int LevelItemId; //eigene Id
-        public int PolygonLevelItemId; //Id von den Polygon wo dieses Objekt dranhängt
-        public string TextureFile;
-        public float ZValue;
-        public float LawnHeight;
-        public int Index1;
-        public float FPos1;
-        public int Index2;
-        public float FPos2;
     }
 }
