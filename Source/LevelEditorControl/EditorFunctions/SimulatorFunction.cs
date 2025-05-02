@@ -114,7 +114,6 @@ namespace LevelEditorControl.EditorFunctions
                 Gravity = state.Gravity,
                 IterationCount = state.SimulatorIterationCount,
                 CameraTrackedLevelItemId = state.CameraTrackedItem != null ? state.CameraTrackedItem.Id : -1,
-                Panel = state.Panel,
                 Camera = state.Camera,
                 CameraTrackerData = state.CameraTrackerData,
                 BackgroundItems = backgroundItems.Select(x => x.GetSimulatorExportData()).ToArray(),

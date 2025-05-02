@@ -21,7 +21,6 @@ namespace LevelToSimulatorConverter
         public int IterationCount;
 
         public int CameraTrackedLevelItemId;
-        public GraphicPanel2D Panel;
         public Camera2D Camera; //Diese Kamera wird vom CameraTracker dann in der Simulation gesteuert
         public CameraTrackerData CameraTrackerData;
         public BackgroundItemSimulatorExportData[] BackgroundItems;
