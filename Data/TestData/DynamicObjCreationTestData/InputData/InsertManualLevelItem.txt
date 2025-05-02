@@ -692,12 +692,12 @@
             }
           },
           "AnimationData": {
-            "$type": "KeyFrameEditorControl.Controls.KeyFrameEditor.KeyFrameEditorExportData[], KeyFrameEditorControl",
+            "$type": "KeyFrameGlobal.KeyFrameEditorExportData[], KeyFrameGlobal",
             "$values": [
               {
-                "$type": "KeyFrameEditorControl.Controls.KeyFrameEditor.KeyFrameEditorExportData, KeyFrameEditorControl",
+                "$type": "KeyFrameGlobal.KeyFrameEditorExportData, KeyFrameGlobal",
                 "ImporterData": {
-                  "$type": "KeyFramePhysicImporter.Model.ImporterControlExportData, KeyFramePhysicImporter",
+                  "$type": "KeyFrameGlobal.ImporterControlExportData, KeyFrameGlobal",
                   "HasGravity": false,
                   "IsFix": {
                     "$type": "System.Boolean[], System.Private.CoreLib",
@@ -779,9 +779,9 @@
                 }
               },
               {
-                "$type": "KeyFrameEditorControl.Controls.KeyFrameEditor.KeyFrameEditorExportData, KeyFrameEditorControl",
+                "$type": "KeyFrameGlobal.KeyFrameEditorExportData, KeyFrameGlobal",
                 "ImporterData": {
-                  "$type": "KeyFramePhysicImporter.Model.ImporterControlExportData, KeyFramePhysicImporter",
+                  "$type": "KeyFrameGlobal.ImporterControlExportData, KeyFrameGlobal",
                   "HasGravity": false,
                   "IsFix": {
                     "$type": "System.Boolean[], System.Private.CoreLib",

@@ -1,7 +1,4 @@
-﻿using KeyFrameGlobal;
-using KeyFramePhysicImporter.Model;
-
-namespace KeyFrameEditorControl.Controls.KeyFrameEditor
+﻿namespace KeyFrameGlobal
 {
     public class KeyFrameEditorExportData
     {

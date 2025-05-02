@@ -50,7 +50,7 @@ namespace LevelEditorControl
             {
                 Id = -1,
                 PhysicSceneData = exportData.PhysicSceneData,
-                AnimationData = exportData.AnimationData.Select(x => new KeyFrameEditorControl.Controls.KeyFrameEditor.KeyFrameEditorExportData()
+                AnimationData = exportData.AnimationData.Select(x => new KeyFrameGlobal.KeyFrameEditorExportData()
                 {
                     AnimationData = x
                 }).ToArray(),

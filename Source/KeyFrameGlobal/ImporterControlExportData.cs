@@ -1,4 +1,6 @@
-﻿namespace KeyFramePhysicImporter.Model
+﻿using System.Drawing;
+
+namespace KeyFrameGlobal
 {
     public class ImporterControlExportData
     {

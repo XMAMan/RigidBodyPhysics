@@ -13,4 +13,10 @@
     <Folder Include="Editor\Tagging\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\KeyFrameGlobal\KeyFrameGlobal.csproj" />
+    <ProjectReference Include="..\RigidBodyPhysics\RigidBodyPhysics.csproj" />
+    <ProjectReference Include="..\TextureEditorGlobal\TextureEditorGlobal.csproj" />
+  </ItemGroup>
+
 </Project>
