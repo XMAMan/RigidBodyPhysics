@@ -1,6 +1,5 @@
 ﻿using GraphicPanels;
 using LevelEditorExports.Editor.Prototyps;
-using PhysicGlobal;
 
 namespace LevelEditorGlobal
 {
@@ -16,13 +15,6 @@ namespace LevelEditorGlobal
         void Draw(GraphicPanel2D panel); //Zeichnet das Objekt im Bereich von X=0..BoundingBox.Width und Y=0..BoundingBox.Height
         void DrawBorder(GraphicPanel2D panel, Pen borderPen);
         void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor);
-    }
-
-    public class InitialRotatedRectangleValues
-    {
-        public float SizeFactor { get; set; } = 1;//Mit dem SizeFactor werden LevelItems von diesen Prototyp angelegt
-        public float AngleInDegree { get; set; } = 0;
-        public Vec2D LocalPivot { get; set; } = new Vec2D(0, 0);
     }
 
     public interface IPrototypItemFactory

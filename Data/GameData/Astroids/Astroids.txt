@@ -6,7 +6,7 @@
       "$type": "LevelEditorExports.Editor.Prototyps.IPrototypExportData[], LevelEditorExports",
       "$values": [
         {
-          "$type": "PhysicItemEditorControl.Model.PhysicItemExportData, PhysicItemEditorControl",
+          "$type": "LevelEditorExports.Editor.Prototyps.PhysicItemExportData, LevelEditorExports",
           "ProtoType": 0,
           "Id": 1,
           "PhysicSceneData": {
@@ -575,7 +575,7 @@
           },
           "AnimationData": null,
           "InitialRecValues": {
-            "$type": "LevelEditorGlobal.InitialRotatedRectangleValues, LevelEditorGlobal",
+            "$type": "LevelEditorExports.Editor.Prototyps.InitialRotatedRectangleValues, LevelEditorExports",
             "SizeFactor": 1.0,
             "AngleInDegree": 0.0,
             "LocalPivot": {
@@ -587,7 +587,7 @@
           "CameraTrackedRigidBodyIds": null
         },
         {
-          "$type": "PhysicItemEditorControl.Model.PhysicItemExportData, PhysicItemEditorControl",
+          "$type": "LevelEditorExports.Editor.Prototyps.PhysicItemExportData, LevelEditorExports",
           "ProtoType": 0,
           "Id": 2,
           "PhysicSceneData": {
@@ -995,7 +995,7 @@
           },
           "AnimationData": null,
           "InitialRecValues": {
-            "$type": "LevelEditorGlobal.InitialRotatedRectangleValues, LevelEditorGlobal",
+            "$type": "LevelEditorExports.Editor.Prototyps.InitialRotatedRectangleValues, LevelEditorExports",
             "SizeFactor": 1.0,
             "AngleInDegree": 0.0,
             "LocalPivot": {

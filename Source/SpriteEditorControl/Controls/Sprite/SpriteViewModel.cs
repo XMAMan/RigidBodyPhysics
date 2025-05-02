@@ -3,7 +3,6 @@ using GraphicPanels;
 using GraphicPanelWpf;
 using SpriteEditorControl.Controls.Main.Model;
 using SpriteEditorControl.Controls.Sprite.Model;
-using PhysicItemEditorControl.Model;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using System;
@@ -14,6 +13,7 @@ using System.Linq;
 using System.Reactive;
 using System.Windows.Forms;
 using WpfControls.Model;
+using LevelEditorExports.Editor.Prototyps;
 
 namespace SpriteEditorControl.Controls.Sprite
 {

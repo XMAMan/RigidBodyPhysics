@@ -1,9 +1,9 @@
 ﻿using DynamicData;
 using GraphicMinimal;
 using KeyFrameGlobal;
+using LevelEditorExports.Editor.Prototyps;
 using LevelEditorGlobal;
 using PhysicGlobal;
-using PhysicItemEditorControl.Model;
 using RigidBodyPhysics.ExportData;
 using RigidBodyPhysics.ExportData.RigidBody;
 using RigidBodyPhysics.MathHelper;

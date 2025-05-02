@@ -1,5 +1,5 @@
 ﻿using LevelEditorControl.EditorFunctions;
-using LevelEditorGlobal;
+using LevelEditorExports.Editor.Prototyps;
 using System;
 using System.Linq;
 

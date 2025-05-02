@@ -1,6 +1,6 @@
 ﻿using GraphicMinimal;
 using LevelEditorControl.EditorFunctions;
-using LevelEditorGlobal;
+using LevelEditorExports.Editor.Prototyps;
 using PhysicGlobal;
 using System.Drawing;
 using System.Linq;

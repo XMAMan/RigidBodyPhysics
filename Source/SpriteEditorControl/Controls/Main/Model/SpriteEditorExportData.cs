@@ -1,5 +1,5 @@
 ﻿using SpriteEditorControl.Controls.Sprite;
-using PhysicItemEditorControl.Model;
+using LevelEditorExports.Editor.Prototyps;
 
 namespace SpriteEditorControl.Controls.Main.Model
 {

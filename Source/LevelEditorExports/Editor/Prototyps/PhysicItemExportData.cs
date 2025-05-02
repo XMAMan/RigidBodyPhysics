@@ -1,6 +1,10 @@
-﻿namespace LevelEditorExports.Editor.Prototyps
+﻿using KeyFrameGlobal;
+using RigidBodyPhysics.ExportData;
+using TextureEditorGlobal;
+
+namespace LevelEditorExports.Editor.Prototyps
 {
-    /*public class PhysicItemExportData : IPrototypExportData
+    public class PhysicItemExportData : IPrototypExportData
     {
         public PrototypItemType ProtoType => PrototypItemType.PhysicItem;
         public int Id { get; set; }
@@ -10,5 +14,5 @@
         public KeyFrameEditorExportData[] AnimationData { get; set; }
         public InitialRotatedRectangleValues InitialRecValues { get; set; }
         public int[] CameraTrackedRigidBodyIds { get; set; } //Wird vom PhysicSceneMerger erzeugt. Das PhysicItemViewModel läßt diesen Wert leer
-    }*/
+    }
 }

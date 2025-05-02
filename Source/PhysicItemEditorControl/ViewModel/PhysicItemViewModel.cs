@@ -24,6 +24,7 @@ using LevelEditorGlobal;
 using System.Windows.Forms;
 using System.IO;
 using DynamicData.Binding;
+using LevelEditorExports.Editor.Prototyps;
 
 namespace PhysicItemEditorControl.ViewModel
 {
