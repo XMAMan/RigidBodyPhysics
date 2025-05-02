@@ -23,7 +23,7 @@ namespace LevelToSimulatorConverter
     public interface IMergeablePhysicScene : IPhysicMergerItem
     {
         Matrix4x4 GetTranslationMatrix(); //Enthält die Positon/Ausrichtung/Skalierung vom LevelItem
-        object PhysicData { get; }
+        PhysicItemExportData PhysicData { get; }
     }
 
     public interface IMergeablePhysicPolygon : IPhysicMergerItem
@@ -42,7 +42,7 @@ namespace LevelToSimulatorConverter
         //Konvertiert ein PhysicLevelItem in ein PhysicSceneExportData
         private static PhysicSceneExportData GetPhysicDataFromPhysicItem(IMergeablePhysicScene physicItem)
         {
-            var protoData = (PhysicItemExportData)physicItem.PhysicData;
+            var protoData = physicItem.PhysicData;
 
             //Schritt 1: Merge das PhysicScene-Objekt
             var subScene = protoData.PhysicSceneData;
@@ -103,7 +103,7 @@ namespace LevelToSimulatorConverter
         //Konvertiert die Texturdaten von ein PhysicLevelItem
         private static VisualisizerOutputData GetTextureDataFromPhysicItem(IMergeablePhysicScene physicItem, PhysicSceneExportData subScene)
         {
-            var protoData = (PhysicItemExportData)physicItem.PhysicData;
+            var protoData = physicItem.PhysicData;
 
             VisualisizerOutputData textureData = null;
             if (protoData.TextureData != null)
@@ -227,7 +227,7 @@ namespace LevelToSimulatorConverter
                 if (item is IMergeablePhysicScene)
                 {
                     var physicItem = (IMergeablePhysicScene)item;
-                    var protoData = (PhysicItemExportData)physicItem.PhysicData;
+                    var protoData = physicItem.PhysicData;
                     if (protoData.AnimationData != null)
                     {
                         var animations = protoData.AnimationData.Select(x => x.AnimationData).ToArray();

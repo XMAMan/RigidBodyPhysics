@@ -28,6 +28,9 @@ namespace LevelEditorControl.LevelItems.PhysicItem
             if (item is ITagableContainer == false) throw
                     new ArgumentException("item must implement ITagableContainer");
 
+            if (item.EditorExportData is PhysicItemExportData == false) throw
+                    new ArgumentException("item.EditorExportData  must implement PhysicItemExportData");
+
             Id = id;
             prototyp = item;
 
@@ -42,7 +45,7 @@ namespace LevelEditorControl.LevelItems.PhysicItem
         public Vec2D PivotPoint { get => this.RotatedRectangle.PivotPoint; set => this.RotatedRectangle.PivotPoint = value; }
         public RotatedRectangle RotatedRectangle { get; }
 
-        public object PhysicData { get => prototyp.EditorExportData; }
+        public PhysicItemExportData PhysicData { get => (PhysicItemExportData)prototyp.EditorExportData; }
 
         public ICollidable[] Collidables { get; } //ICollidableContainer
         public IMouseclickableWithTagData[] Tagables { get; } //ITagableContainer

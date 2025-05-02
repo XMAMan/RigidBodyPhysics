@@ -1,4 +1,5 @@
 ﻿using GraphicMinimal;
+using LevelEditorExports.Editor.Prototyps;
 using LevelToSimulatorConverter;
 
 namespace LevelEditorControl.LevelItems.GroupedItems
@@ -15,7 +16,7 @@ namespace LevelEditorControl.LevelItems.GroupedItems
 
         public int LevelItemId => this.decoree.LevelItemId;
 
-        public object PhysicData => this.decoree.PhysicData;
+        public PhysicItemExportData PhysicData => this.decoree.PhysicData;
         public Matrix4x4 GetTranslationMatrix()
         {
             return this.decoree.GetTranslationMatrix() * this.matrix;
