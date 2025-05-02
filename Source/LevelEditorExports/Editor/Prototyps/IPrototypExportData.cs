@@ -1,4 +1,4 @@
-﻿namespace LevelEditorExports
+﻿namespace LevelEditorExports.Editor.Prototyps
 {
     public enum PrototypItemType { PhysicItem, BackgroundItem, GroupedItem }
 

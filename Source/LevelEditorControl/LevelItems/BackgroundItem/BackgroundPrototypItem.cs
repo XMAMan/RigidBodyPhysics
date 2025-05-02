@@ -1,5 +1,5 @@
 ﻿using GraphicPanels;
-using LevelEditorExports;
+using LevelEditorExports.Editor.Prototyps;
 using LevelEditorGlobal;
 using PhysicGlobal;
 using System.Drawing;

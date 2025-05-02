@@ -1,6 +1,6 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
-using LevelEditorExports;
+using LevelEditorExports.Editor.Prototyps;
 
 namespace LevelEditorGlobal
 {

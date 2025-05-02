@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using System.Linq;
 using System.Collections.Generic;
 using LevelEditorControl.EditorFunctions;
-using LevelEditorExports;
+using LevelEditorExports.Editor.Prototyps;
 
 namespace LevelEditorControl.Controls.PrototypControl
 {

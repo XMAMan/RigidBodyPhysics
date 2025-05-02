@@ -1,4 +1,4 @@
-﻿using LevelEditorExports;
+﻿using LevelEditorExports.Editor.Prototyps;
 using LevelEditorGlobal;
 
 namespace LevelEditorControl.LevelItems.BackgroundItem

@@ -1,4 +1,4 @@
-﻿namespace LevelEditorExports
+﻿namespace LevelEditorExports.Editor.Prototyps
 {
     public class PrototypControlExportData
     {

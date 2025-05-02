@@ -6,4 +6,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Editor\LevelItems\" />
+    <Folder Include="Editor\KeyboardMappings\" />
+    <Folder Include="Editor\CameraTracking\" />
+    <Folder Include="Editor\Tagging\" />
+  </ItemGroup>
+
 </Project>

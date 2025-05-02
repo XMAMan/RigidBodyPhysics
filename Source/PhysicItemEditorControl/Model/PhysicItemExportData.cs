@@ -1,5 +1,5 @@
 ﻿using KeyFrameEditorControl.Controls.KeyFrameEditor;
-using LevelEditorExports;
+using LevelEditorExports.Editor.Prototyps;
 using LevelEditorGlobal;
 using RigidBodyPhysics.ExportData;
 using TextureEditorGlobal;

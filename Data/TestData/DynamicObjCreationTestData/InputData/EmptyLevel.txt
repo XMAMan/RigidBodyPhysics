@@ -1,9 +1,9 @@
 {
   "$type": "LevelEditorControl.Controls.EditorControl.LevelEditorExportData, LevelEditorControl",
   "Prototyps": {
-    "$type": "LevelEditorExports.PrototypControlExportData, LevelEditorExports",
+    "$type": "LevelEditorExports.Editor.Prototyps.PrototypControlExportData, LevelEditorExports",
     "PrototypItems": {
-      "$type": "LevelEditorExports.IPrototypExportData[], LevelEditorExports",
+      "$type": "LevelEditorExports.Editor.Prototyps.IPrototypExportData[], LevelEditorExports",
       "$values": []
     }
   },
