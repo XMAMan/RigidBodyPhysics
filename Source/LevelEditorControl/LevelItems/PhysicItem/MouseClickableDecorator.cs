@@ -1,9 +1,9 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
+using LevelEditorExports.Simulator;
 using LevelEditorGlobal;
 using PhysicGlobal;
 using System.Drawing;
-using static LevelEditorGlobal.ITagable;
 
 namespace LevelEditorControl.LevelItems.PhysicItem
 {

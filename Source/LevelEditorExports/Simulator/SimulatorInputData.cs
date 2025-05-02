@@ -1,12 +1,12 @@
 ﻿using LevelEditorExports.Editor.BackgroundImage;
 using LevelEditorExports.Editor.CameraTracking;
 
-namespace LevelEditorGlobal
+namespace LevelEditorExports.Simulator
 {
     public class SimulatorInputData
     {
         public PhysikLevelItemExportData[] PhysicLevelItems { get; set; }
-        public bool[,] CollisionMatrix { get; set; }        
+        public bool[,] CollisionMatrix { get; set; }
         public bool HasGravity { get; set; }
         public float Gravity { get; set; }
         public int IterationCount { get; set; }
@@ -20,7 +20,7 @@ namespace LevelEditorGlobal
         public SimulatorInputData(SimulatorInputData copy)
         {
             this.PhysicLevelItems = new PhysikLevelItemExportData[copy.PhysicLevelItems.Length];
-            for (int i=0;i<this.PhysicLevelItems.Length;i++)
+            for (int i = 0; i < this.PhysicLevelItems.Length; i++)
             {
                 this.PhysicLevelItems[i] = new PhysikLevelItemExportData(copy.PhysicLevelItems[i]);
             }
@@ -32,7 +32,7 @@ namespace LevelEditorGlobal
             this.CameraTrackerData = new CameraTrackerData(copy.CameraTrackerData);
             this.BackgroundImage = new ImageData(copy.BackgroundImage);
             this.BackgroundItems = new BackgroundItemSimulatorExportData[copy.BackgroundItems.Length];
-            for (int i=0;i<copy.BackgroundItems.Length;i++)
+            for (int i = 0; i < copy.BackgroundItems.Length; i++)
             {
                 this.BackgroundItems[i] = new BackgroundItemSimulatorExportData(copy.BackgroundItems[i]);
             }

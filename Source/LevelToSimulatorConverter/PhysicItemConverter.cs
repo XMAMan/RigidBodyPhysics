@@ -1,17 +1,16 @@
-﻿using DynamicData;
-using GraphicMinimal;
+﻿using GraphicMinimal;
 using KeyFrameGlobal;
 using LevelEditorExports.Editor.KeyboardMappings;
 using LevelEditorExports.Editor.Prototyps;
-using LevelEditorGlobal;
+using LevelEditorExports.Simulator;
 using PhysicGlobal;
 using RigidBodyPhysics.ExportData;
 using RigidBodyPhysics.ExportData.RigidBody;
 using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using System.Drawing;
-using TextureEditorControl;
 using TextureEditorGlobal;
+using TexturePhysicImporter;
 
 namespace LevelToSimulatorConverter
 {
@@ -112,7 +111,7 @@ namespace LevelToSimulatorConverter
             }
             else
             {
-                textureData = TextureEditorFactory.CreateDefaultTextureData(subScene);
+                textureData = DefaultTextureCreator.CreateDefaultTextureData(subScene);
             }
 
             float sizeFactor = Matrix4x4.GetSizeFactorFromMatrix(physicItem.GetTranslationMatrix());

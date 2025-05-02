@@ -1,4 +1,4 @@
-﻿using LevelEditorGlobal;
+﻿using LevelEditorExports.Simulator;
 using PhysicGlobal;
 
 namespace Simulator

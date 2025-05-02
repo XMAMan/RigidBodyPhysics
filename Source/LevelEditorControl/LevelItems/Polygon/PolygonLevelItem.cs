@@ -3,7 +3,6 @@ using LevelEditorControl.Controls.PolygonControl;
 using LevelEditorGlobal;
 using LevelToSimulatorConverter;
 using PhysicGlobal;
-using static LevelEditorGlobal.ITagable;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -12,6 +11,7 @@ using LevelEditorControl.EditorFunctions;
 using GraphicMinimal;
 using WpfControls.Extensions;
 using LevelEditorExports.Editor.LevelItems;
+using LevelEditorExports.Simulator;
 
 namespace LevelEditorControl.LevelItems.Polygon
 {

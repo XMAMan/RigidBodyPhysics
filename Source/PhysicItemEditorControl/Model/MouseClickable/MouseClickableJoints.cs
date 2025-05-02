@@ -6,9 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using static LevelEditorGlobal.ITagable;
 using WpfControls.Extensions;
 using PhysicGlobal;
+using LevelEditorExports.Simulator;
 
 namespace PhysicItemEditorControl.Model.MouseClickable
 {

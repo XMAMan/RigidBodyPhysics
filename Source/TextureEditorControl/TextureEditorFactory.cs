@@ -6,6 +6,8 @@ using TexturePhysicImporter;
 using WpfControls.Model;
 using System.Windows.Controls;
 using RigidBodyPhysics.ExportData;
+using System.Linq;
+using RigidBodyPhysics.ExportData.RigidBody;
 
 namespace TextureEditorControl
 {
@@ -40,12 +42,6 @@ namespace TextureEditorControl
         public object CreateEditorViewModel(EditorInputData data)
         {
             return new TextureEditorViewModel(data.Panel, data.ShowSaveLoadButtons, this.physicSceneJson);
-        }
-
-        public static VisualisizerOutputData CreateDefaultTextureData(PhysicSceneExportData physicSceneData)
-        {
-            var animationInputData = new PhysicSceneImporter(physicSceneData).Import();
-            return new ShapeContainer(animationInputData).GetExportData();
         }
     }
 }

@@ -2,6 +2,7 @@
 using GraphicPanels;
 using LevelEditorExports.Editor.LevelItems;
 using LevelEditorExports.Editor.Prototyps;
+using LevelEditorExports.Simulator;
 using LevelEditorGlobal;
 using PhysicGlobal;
 using System.Collections.Generic;

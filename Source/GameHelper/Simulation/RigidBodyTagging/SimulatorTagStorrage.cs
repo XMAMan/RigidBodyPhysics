@@ -1,4 +1,4 @@
-﻿using LevelEditorGlobal;
+﻿using LevelEditorExports.Simulator;
 using RigidBodyPhysics.ExportData;
 using RigidBodyPhysics.RuntimeObjects.AxialFriction;
 using RigidBodyPhysics.RuntimeObjects.Joints;
@@ -20,24 +20,24 @@ namespace GameHelper.Simulation.RigidBodyTagging
                 object runtimeObject = null;
                 switch (tag.TagType)
                 {
-                    case ITagable.TagType.Body:
-                    case ITagable.TagType.Polygon:
+                    case TagType.Body:
+                    case TagType.Polygon:
                         runtimeObject = levelItem.Bodies[tag.TagId];
                         break;
 
-                    case ITagable.TagType.Joint:
+                    case TagType.Joint:
                         runtimeObject = levelItem.Joints[tag.TagId];
                         break;
 
-                    case ITagable.TagType.Thruster:
+                    case TagType.Thruster:
                         runtimeObject = levelItem.Thrusters[tag.TagId];
                         break;
 
-                    case ITagable.TagType.Motor:
+                    case TagType.Motor:
                         runtimeObject = levelItem.Motors[tag.TagId];
                         break;
 
-                    case ITagable.TagType.AxialFriction:
+                    case TagType.AxialFriction:
                         runtimeObject = levelItem.AxialFrictions[tag.TagId];
                         break;
                 }
@@ -69,7 +69,7 @@ namespace GameHelper.Simulation.RigidBodyTagging
         public IEnumerable<IPublicRigidBody> GetBodiesByTagName(string tagName)
         {
             return this.entries
-                .Where(x => (x.TagType == ITagable.TagType.Body || x.TagType == ITagable.TagType.Polygon) && x.Names.Contains(tagName))
+                .Where(x => (x.TagType == TagType.Body || x.TagType == TagType.Polygon) && x.Names.Contains(tagName))
                 .Select(x => (IPublicRigidBody)x.RuntimeObject);
         }
 
@@ -77,7 +77,7 @@ namespace GameHelper.Simulation.RigidBodyTagging
         {
             return this.entries
                 .Where(x => x.LevelItemId == levelItemId)
-                .Where(x => (x.TagType == ITagable.TagType.Body || x.TagType == ITagable.TagType.Polygon) && x.Names.Contains(tagName))
+                .Where(x => (x.TagType == TagType.Body || x.TagType == TagType.Polygon) && x.Names.Contains(tagName))
                 .Select(x => (IPublicRigidBody)x.RuntimeObject);
         }
 
@@ -102,7 +102,7 @@ namespace GameHelper.Simulation.RigidBodyTagging
         {
             var list = this.entries
                 .Where(x => x.LevelItemId == levelItemId)
-                .Where(x => (x.TagType == ITagable.TagType.Body || x.TagType == ITagable.TagType.Polygon) && x.Names.Contains(tagName))
+                .Where(x => (x.TagType == TagType.Body || x.TagType == TagType.Polygon) && x.Names.Contains(tagName))
                 .Select(x => (IPublicRigidBody)x.RuntimeObject)
                 .ToList();
 
@@ -120,7 +120,7 @@ namespace GameHelper.Simulation.RigidBodyTagging
         public IEnumerable<IPublicJoint> GetJointsByTagName(string tagName)
         {
             return this.entries
-                .Where(x => x.TagType == ITagable.TagType.Joint && x.Names.Contains(tagName))
+                .Where(x => x.TagType == TagType.Joint && x.Names.Contains(tagName))
                 .Select(x => (IPublicJoint)x.RuntimeObject);
         }
 
@@ -128,7 +128,7 @@ namespace GameHelper.Simulation.RigidBodyTagging
         {
             return this.entries
                 .Where(x => x.LevelItemId == levelItemId)
-                .Where(x => x.TagType == ITagable.TagType.Joint && x.Names.Contains(tagName))
+                .Where(x => x.TagType == TagType.Joint && x.Names.Contains(tagName))
                 .Select(x => (IPublicJoint)x.RuntimeObject);
         }
 
@@ -143,7 +143,7 @@ namespace GameHelper.Simulation.RigidBodyTagging
         {
             var list = this.entries
                 .Where(x => x.LevelItemId == levelItemId)
-                .Where(x => x.TagType == ITagable.TagType.Joint && x.Names.Contains(tagName))
+                .Where(x => x.TagType == TagType.Joint && x.Names.Contains(tagName))
                 .Select(x => (IPublicJoint)x.RuntimeObject)
                 .ToList();
 
@@ -161,7 +161,7 @@ namespace GameHelper.Simulation.RigidBodyTagging
         public IEnumerable<IPublicThruster> GetThrustersByTagName(string tagName)
         {
             return this.entries
-                .Where(x => x.TagType == ITagable.TagType.Thruster && x.Names.Contains(tagName))
+                .Where(x => x.TagType == TagType.Thruster && x.Names.Contains(tagName))
                 .Select(x => (IPublicThruster)x.RuntimeObject);
         }
 
@@ -176,7 +176,7 @@ namespace GameHelper.Simulation.RigidBodyTagging
         {
             var list = this.entries
                 .Where(x => x.LevelItemId == levelItemId)
-                .Where(x => x.TagType == ITagable.TagType.Thruster && x.Names.Contains(tagName))
+                .Where(x => x.TagType == TagType.Thruster && x.Names.Contains(tagName))
                 .Select(x => (IPublicThruster)x.RuntimeObject)
                 .ToList();
 
@@ -193,7 +193,7 @@ namespace GameHelper.Simulation.RigidBodyTagging
         public IEnumerable<IPublicRotaryMotor> GetMotorsByTagName(string tagName)
         {
             return this.entries
-                .Where(x => x.TagType == ITagable.TagType.Motor && x.Names.Contains(tagName))
+                .Where(x => x.TagType == TagType.Motor && x.Names.Contains(tagName))
                 .Select(x => (IPublicRotaryMotor)x.RuntimeObject);
         }
 
@@ -208,7 +208,7 @@ namespace GameHelper.Simulation.RigidBodyTagging
         {
             var list = this.entries
                 .Where(x => x.LevelItemId == levelItemId)
-                .Where(x => x.TagType == ITagable.TagType.Motor && x.Names.Contains(tagName))
+                .Where(x => x.TagType == TagType.Motor && x.Names.Contains(tagName))
                 .Select(x => (IPublicRotaryMotor)x.RuntimeObject)
                 .ToList();
 
@@ -224,7 +224,7 @@ namespace GameHelper.Simulation.RigidBodyTagging
         public IEnumerable<IPublicAxialFriction> GetAxialFrictionsByTagName(string tagName)
         {
             return this.entries
-                .Where(x => x.TagType == ITagable.TagType.AxialFriction && x.Names.Contains(tagName))
+                .Where(x => x.TagType == TagType.AxialFriction && x.Names.Contains(tagName))
                 .Select(x => (IPublicAxialFriction)x.RuntimeObject);
         }
         public IPublicAxialFriction GetAxialFrictionByTagName(string tagName)
@@ -238,7 +238,7 @@ namespace GameHelper.Simulation.RigidBodyTagging
         {
             var list = this.entries
                 .Where(x => x.LevelItemId == levelItemId)
-                .Where(x => x.TagType == ITagable.TagType.AxialFriction && x.Names.Contains(tagName))
+                .Where(x => x.TagType == TagType.AxialFriction && x.Names.Contains(tagName))
                 .Select(x => (IPublicAxialFriction)x.RuntimeObject)
                 .ToList();
 

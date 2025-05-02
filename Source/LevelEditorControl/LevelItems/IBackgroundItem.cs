@@ -1,5 +1,5 @@
 ﻿using GraphicPanels;
-using LevelEditorGlobal;
+using LevelEditorExports.Simulator;
 
 namespace LevelEditorControl.LevelItems
 {

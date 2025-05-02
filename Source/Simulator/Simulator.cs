@@ -13,6 +13,7 @@ using RigidBodyPhysics.ExportData;
 using PhysicGlobal;
 using WpfControls.Extensions;
 using LevelEditorExports.Editor.BackgroundImage;
+using LevelEditorExports.Simulator;
 
 namespace Simulator
 {

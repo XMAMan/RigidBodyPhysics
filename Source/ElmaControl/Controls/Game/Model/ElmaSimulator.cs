@@ -2,7 +2,7 @@
 using GameHelper.Simulation;
 using GraphicPanels;
 using KeyboardRecordAndPlay;
-using LevelEditorGlobal;
+using LevelEditorExports.Simulator;
 using PhysicGlobal;
 using System;
 using System.Drawing;

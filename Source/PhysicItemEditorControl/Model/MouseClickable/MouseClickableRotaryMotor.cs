@@ -1,10 +1,10 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
+using LevelEditorExports.Simulator;
 using LevelEditorGlobal;
 using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RotaryMotor;
 using System.Drawing;
-using static LevelEditorGlobal.ITagable;
 using WpfControls.Extensions;
 
 namespace PhysicItemEditorControl.Model.MouseClickable

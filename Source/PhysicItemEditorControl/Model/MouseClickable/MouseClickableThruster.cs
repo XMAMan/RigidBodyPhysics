@@ -3,9 +3,9 @@ using GraphicPanels;
 using LevelEditorGlobal;
 using RigidBodyPhysics.RuntimeObjects.Thruster;
 using System.Drawing;
-using static LevelEditorGlobal.ITagable;
 using WpfControls.Extensions;
 using PhysicGlobal;
+using LevelEditorExports.Simulator;
 
 namespace PhysicItemEditorControl.Model.MouseClickable
 {

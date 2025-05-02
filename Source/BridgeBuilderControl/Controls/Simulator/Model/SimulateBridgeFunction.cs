@@ -5,7 +5,7 @@ using BridgeBuilderControl.Testing;
 using GameHelper;
 using GameHelper.Simulation;
 using GraphicPanels;
-using LevelEditorGlobal;
+using LevelEditorExports.Simulator;
 using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.Joints;
 using System;

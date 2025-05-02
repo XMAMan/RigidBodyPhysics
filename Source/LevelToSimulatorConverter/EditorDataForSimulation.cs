@@ -1,8 +1,7 @@
-﻿using GraphicPanels;
-using LevelEditorExports.Editor.BackgroundImage;
+﻿using LevelEditorExports.Editor.BackgroundImage;
 using LevelEditorExports.Editor.CameraTracking;
 using LevelEditorExports.Editor.KeyboardMappings;
-using LevelEditorGlobal;
+using LevelEditorExports.Simulator;
 using PhysicGlobal;
 
 namespace LevelToSimulatorConverter

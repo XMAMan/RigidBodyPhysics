@@ -5,7 +5,6 @@ using DynamicData;
 using GameHelper.Simulation;
 using GraphicMinimal;
 using LevelEditorControl;
-using LevelEditorGlobal;
 using LevelToSimulatorConverter;
 using PhysicGlobal;
 using RigidBodyPhysics.ExportData;
@@ -19,7 +18,7 @@ using System.IO;
 using System.Linq;
 using TextureEditorGlobal;
 using static RigidBodyPhysics.RuntimeObjects.Joints.IPublicJoint;
-using WpfControls.Extensions;
+using LevelEditorExports.Simulator;
 
 namespace BridgeBuilderControl.Controls.Simulator.Model.Converter
 {
@@ -424,7 +423,7 @@ namespace BridgeBuilderControl.Controls.Simulator.Model.Converter
             {
                 var bar = bars[distanceJoints.IndexOf(joint)];
                 var tagData = new PhysicSceneTagdataEntry(
-                    ITagable.TagType.Joint,
+                    TagType.Joint,
                     levelItemId,
                     joints.IndexOf(joint),
                     new string[] { BridgeDistanceTagName, BarToString(bar), IsGroundHeightBar(bar, groundHeight) ? BridgeDistanceStreetTagName : BridgeDistanceNoStreetTagName },
@@ -444,7 +443,7 @@ namespace BridgeBuilderControl.Controls.Simulator.Model.Converter
             foreach (var rec in rectangles)
             {
                 var tagData = new PhysicSceneTagdataEntry(
-                    ITagable.TagType.Body,
+                    TagType.Body,
                     levelItemId,
                     bodies.IndexOf(rec.ExportRigidBody),
                     new string[] { BarToString(rec.Bar) },

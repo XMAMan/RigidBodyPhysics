@@ -1,4 +1,4 @@
-﻿using PhysicGlobal;
+﻿using LevelEditorExports.Simulator;
 
 namespace LevelEditorGlobal
 {
@@ -6,8 +6,7 @@ namespace LevelEditorGlobal
     //Dieses Interface wird vom PhysicPrototypItem und MouseclickableExportBody implementiert. D.h. nur Dinge, die sich auch bewegen können haben ein Tag
     public interface ITagable
     {
-        int Id { get; }        
-        enum TagType { Proto, Polygon, Body, Joint, Thruster, Motor, AxialFriction}
+        int Id { get; }       
         TagType TypeName { get; } //Wird zur Anzeige der Child-Items vom PhysicLevelItem im TreeControl genutzt
     }
 
@@ -20,18 +19,5 @@ namespace LevelEditorGlobal
     public interface ITagableContainer
     {
         IMouseclickableWithTagData[] Tagables { get; }
-    }
-    
-    //Bekommt der SimulatorExporter als Input
-    public class EditorTagdata
-    {
-        public int LevelItemId { get; set; }    //ILevelItem.Id
-        public int TagId { get; set; }          //ITagable.Id
-        public ITagable.TagType TagType { get; set; } //ITagable.TypeName
-        public string PrototypTagName { get; set; } = string.Empty;
-        public byte PrototypColor { get; set; } = 0;
-        public string Name { get; set; } = string.Empty;
-        public byte Color { get; set; } = 0;
-        public Vec2D[] AnchorPoints { get; set; }
     }
 }

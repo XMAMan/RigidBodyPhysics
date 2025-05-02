@@ -1,19 +1,21 @@
 ﻿using PhysicGlobal;
 
-namespace LevelEditorGlobal
+namespace LevelEditorExports.Simulator
 {
+    public enum TagType { Proto, Polygon, Body, Joint, Thruster, Motor, AxialFriction }
+
     public class PhysicSceneTagdataEntry
     {
         //TagID aus Sicht des Editors: LevelItemID+TagType+ITagable.Id
         //TagID aus Sicht des Simulators: TagType+ITagable.Id
-        public ITagable.TagType TagType { get; }
+        public TagType TagType { get; }
         public int LevelItemId { get; } //ILevelItem.Id
         public int TagId { get; } //ITagable.Id = Index aus RuntimeLevelItem.Bodies/Joints/Thrusters/Motors
         public string[] Names { get; }
         public byte Color { get; }
         public Vec2D[] AnchorPoints { get; }
 
-        public PhysicSceneTagdataEntry(ITagable.TagType tagType, int levelItemId, int tagId, string[] names, byte color, Vec2D[] anchorPoints)
+        public PhysicSceneTagdataEntry(TagType tagType, int levelItemId, int tagId, string[] names, byte color, Vec2D[] anchorPoints)
         {
             this.TagType = tagType;
             this.LevelItemId = levelItemId;
@@ -34,7 +36,7 @@ namespace LevelEditorGlobal
         }
 
         public PhysicSceneTagdataEntry(PhysicSceneTagdataEntry copy, int levelItemId)
-            :this(copy)
+            : this(copy)
         {
             this.LevelItemId = levelItemId;
         }

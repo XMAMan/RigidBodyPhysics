@@ -1,6 +1,6 @@
 ﻿using PhysicGlobal;
 
-namespace LevelEditorGlobal
+namespace LevelEditorExports.Simulator
 {
     public class BackgroundItemSimulatorExportData
     {

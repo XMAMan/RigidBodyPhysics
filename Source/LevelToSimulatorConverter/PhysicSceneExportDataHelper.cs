@@ -3,7 +3,6 @@ using RigidBodyPhysics.ExportData;
 using RigidBodyPhysics.ExportData.Joints;
 using GraphicMinimal;
 using PhysicGlobal;
-using WpfControls.Extensions;
 
 namespace LevelToSimulatorConverter
 {
@@ -20,7 +19,8 @@ namespace LevelToSimulatorConverter
 
             foreach (var body in scene.Bodies)
             {
-                body.Center = Matrix4x4.MultPosition(matrix, new Vector3D(body.Center.X, body.Center.Y, 0)).XY.ToPhx();
+                var centerGrx = Matrix4x4.MultPosition(matrix, new Vector3D(body.Center.X, body.Center.Y, 0)).XY;
+                body.Center = new Vec2D(centerGrx.X, centerGrx.Y);
 
                 body.AngleInDegree += angleInDegreeMatrix;
 

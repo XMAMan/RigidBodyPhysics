@@ -1,7 +1,6 @@
 ﻿using KeyboardRecordAndPlay;
 using LevelEditorControl.LevelItems.GroupedItems;
 using LevelEditorControl.LevelItems;
-using LevelEditorGlobal;
 using LevelToSimulatorConverter;
 using System.IO;
 using System;
@@ -12,6 +11,7 @@ using Simulator.ForceTracking;
 using Simulator;
 using RigidBodyPhysics.ExportData;
 using WpfControls.Controls.CameraSetting;
+using LevelEditorExports.Simulator;
 
 namespace LevelEditorControl.EditorFunctions
 {

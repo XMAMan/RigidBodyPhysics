@@ -35,6 +35,7 @@ using LevelEditorExports.Editor.LevelItems;
 using LevelEditorExports.Editor.CameraTracking;
 using LevelEditorExports.Editor.KeyboardMappings;
 using LevelEditorExports.Editor;
+using LevelEditorExports.Simulator;
 
 namespace LevelEditorControl.Controls.EditorControl
 {

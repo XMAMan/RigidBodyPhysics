@@ -1,6 +1,7 @@
 ﻿using GameHelper.Simulation;
 using GraphicPanels;
 using LevelEditorControl;
+using LevelEditorExports.Simulator;
 using LevelToSimulatorConverter;
 using PhysicGlobal;
 using System.Drawing;
@@ -72,7 +73,7 @@ namespace DynamicObjCreation.UnitTests
 
             for (int i=0;i<allOriantations.Length;i++)
             {
-                var copyData = new LevelEditorGlobal.PhysikLevelItemExportData(exportData); //Kopie vom Original-Export erstellen
+                var copyData = new PhysikLevelItemExportData(exportData); //Kopie vom Original-Export erstellen
                 var pivotPoint = new Vec2D(box.Width + i * box.Width * 2, box.Height);
                 LevelItemExportHelper.MoveToPivotPoint(copyData, pivotPoint, allOriantations[i], 1, 0); //Kopie bearbeiten
                 int newId = simulator.AddLevelItem(copyData);
@@ -88,7 +89,7 @@ namespace DynamicObjCreation.UnitTests
             var allSizes = new float[] { 0.2f, 1, 2 };
             for (int i=0;i<allSizes.Length;i++)
             {
-                var copyData = new LevelEditorGlobal.PhysikLevelItemExportData(exportData); //Kopie vom Original-Export erstellen
+                var copyData = new PhysikLevelItemExportData(exportData); //Kopie vom Original-Export erstellen
                 var pivotPoint = new Vec2D(box.Width + i * box.Width * 2, box.Height + 1 * box.Height * 2);
                 LevelItemExportHelper.MoveToPivotPoint(copyData, pivotPoint,  LevelItemExportHelper.PivotOriantation.Center, allSizes[i], 0); //Kopie bearbeiten
                 simulator.AddLevelItem(copyData);
@@ -98,7 +99,7 @@ namespace DynamicObjCreation.UnitTests
             var allAngles = new float[] { -45, 0, 45 };
             for (int i = 0; i < allSizes.Length; i++)
             {
-                var copyData = new LevelEditorGlobal.PhysikLevelItemExportData(exportData); //Kopie vom Original-Export erstellen
+                var copyData = new PhysikLevelItemExportData(exportData); //Kopie vom Original-Export erstellen
                 var pivotPoint = new Vec2D(box.Width + i * box.Width * 2, box.Height + 2 * box.Height * 2);
                 LevelItemExportHelper.MoveToPivotPoint(copyData, pivotPoint, LevelItemExportHelper.PivotOriantation.Center, 1, allAngles[i]); //Kopie bearbeiten
                 simulator.AddLevelItem(copyData);

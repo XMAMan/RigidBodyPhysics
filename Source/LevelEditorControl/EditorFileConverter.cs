@@ -2,6 +2,7 @@
 using LevelEditorControl.Controls.EditorControl;
 using LevelEditorExports.Editor;
 using LevelEditorExports.Editor.Prototyps;
+using LevelEditorExports.Simulator;
 using LevelEditorGlobal;
 using System.Linq;
 using WpfControls.Model;

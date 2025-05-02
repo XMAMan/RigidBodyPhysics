@@ -3,7 +3,6 @@ using GameHelper.Simulation.RigidBodyTagging;
 using GraphicPanels;
 using GraphicPanelWpf;
 using PhysicGlobal;
-using WpfControls.Extensions;
 
 namespace AstroidsControl.Model
 {

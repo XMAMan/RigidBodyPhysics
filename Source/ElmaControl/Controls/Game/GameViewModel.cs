@@ -3,7 +3,7 @@ using GameHelper;
 using GraphicPanels;
 using GraphicPanelWpf;
 using KeyboardRecordAndPlay;
-using LevelEditorGlobal;
+using LevelEditorExports.Simulator;
 using PhysicGlobal;
 using Simulator;
 using SoundEngine;

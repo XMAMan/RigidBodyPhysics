@@ -1,4 +1,4 @@
-﻿using LevelEditorGlobal;
+﻿using LevelEditorExports.Simulator;
 using RigidBodyPhysics.RuntimeObjects.AxialFriction;
 using RigidBodyPhysics.RuntimeObjects.Joints;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;

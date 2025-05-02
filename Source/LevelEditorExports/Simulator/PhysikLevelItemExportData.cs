@@ -3,7 +3,7 @@ using LevelEditorExports.Editor.KeyboardMappings;
 using RigidBodyPhysics.ExportData;
 using TextureEditorGlobal;
 
-namespace LevelEditorGlobal
+namespace LevelEditorExports.Simulator
 {
     //Speichert alle ExportDaten von LevelItems, welche Bestandteil der PhysicScene sind
     public class PhysikLevelItemExportData
@@ -15,14 +15,14 @@ namespace LevelEditorGlobal
         public KeyboardMappingEntry[] KeyboardMappings;
         public PhysicSceneTagdataEntry[] TagdataEntries;
 
-        public PhysikLevelItemExportData() { }  
+        public PhysikLevelItemExportData() { }
 
         public PhysikLevelItemExportData(PhysikLevelItemExportData copy)
         {
             this.LevelItemId = copy.LevelItemId;
             this.PhysicSceneData = new PhysicSceneExportData(copy.PhysicSceneData);
             this.TextureData = new VisualisizerOutputData(copy.TextureData);
-            this.AnimationData = copy.AnimationData.Select(x => new  AnimationOutputData(x)).ToArray();
+            this.AnimationData = copy.AnimationData.Select(x => new AnimationOutputData(x)).ToArray();
             this.KeyboardMappings = copy.KeyboardMappings.Select(x => new KeyboardMappingEntry(x)).ToArray();
             this.TagdataEntries = copy.TagdataEntries.Select(x => new PhysicSceneTagdataEntry(x)).ToArray();
         }

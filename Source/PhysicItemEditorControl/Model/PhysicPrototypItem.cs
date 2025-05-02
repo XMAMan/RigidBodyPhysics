@@ -14,9 +14,10 @@ using LevelEditorGlobal;
 using GraphicMinimal;
 using PhysicSceneKeyboardControl;
 using PhysicItemEditorControl.Model.MouseClickable;
-using static LevelEditorGlobal.ITagable;
 using PhysicGlobal;
 using LevelEditorExports.Editor.Prototyps;
+using LevelEditorExports.Simulator;
+using TexturePhysicImporter;
 
 namespace PhysicItemEditorControl.Model
 {
@@ -47,7 +48,7 @@ namespace PhysicItemEditorControl.Model
             else if (physicScene.GetAllBodys().Any())
             {
                 //Nutze leere Texturen, wenn nichts bis jetzt angelegt wurde
-                var textureData = TextureEditorFactory.CreateDefaultTextureData(data.PhysicSceneData);
+                var textureData = DefaultTextureCreator.CreateDefaultTextureData(data.PhysicSceneData);
                 this.sceneDrawer = new PhysicSceneDrawer(physicScene, textureData);
             }
 

@@ -3,6 +3,7 @@ using LevelEditorControl.Controls.TagItemControl;
 using LevelEditorControl.LevelItems;
 using LevelEditorControl.LevelItems.LawnEdge;
 using LevelEditorControl.LevelItems.Polygon;
+using LevelEditorExports.Simulator;
 using LevelEditorGlobal;
 using System.Collections.Generic;
 using System.Linq;
