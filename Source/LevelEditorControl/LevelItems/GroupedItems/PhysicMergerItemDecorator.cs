@@ -1,14 +1,15 @@
 ﻿using GraphicMinimal;
 using LevelEditorExports.Editor.Prototyps;
 using LevelToSimulatorConverter;
+using PhysicGlobal;
 
 namespace LevelEditorControl.LevelItems.GroupedItems
 {
     internal class PhysicMergerItemDecorator : IMergeablePhysicScene
     {
         private IMergeablePhysicScene decoree;
-        private Matrix4x4 matrix;
-        public PhysicMergerItemDecorator(IMergeablePhysicScene decoree, Matrix4x4 matrix)
+        private PhxMatrix matrix;
+        public PhysicMergerItemDecorator(IMergeablePhysicScene decoree, PhxMatrix matrix)
         {
             this.decoree = decoree;
             this.matrix = matrix;
@@ -17,7 +18,7 @@ namespace LevelEditorControl.LevelItems.GroupedItems
         public int LevelItemId => this.decoree.LevelItemId;
 
         public PhysicItemExportData PhysicData => this.decoree.PhysicData;
-        public Matrix4x4 GetTranslationMatrix()
+        public PhxMatrix GetTranslationMatrix()
         {
             return this.decoree.GetTranslationMatrix() * this.matrix;
         }

@@ -128,9 +128,9 @@ namespace LevelEditorControl.LevelItems.PhysicItem
 
         #region IPhysicMergerItem
         public int LevelItemId { get => this.Id; }
-        public Matrix4x4 GetTranslationMatrix()
+        public PhxMatrix GetTranslationMatrix()
         {
-            return Matrix4x4.Translate(-this.prototyp.BoundingBox.X, -this.prototyp.BoundingBox.Y, 0) * this.RotatedRectangle.GetLocalToScreenMatrix();
+            return PhxMatrix.Translate(-this.prototyp.BoundingBox.X, -this.prototyp.BoundingBox.Y, 0) * new PhxMatrix(this.RotatedRectangle.GetLocalToScreenMatrix().Values);
         }
         public Vec2D LocalPivotPoint { get => this.RotatedRectangle.LocalPivot; }
         public float SizeFactor { get => this.RotatedRectangle.SizeFactor; }

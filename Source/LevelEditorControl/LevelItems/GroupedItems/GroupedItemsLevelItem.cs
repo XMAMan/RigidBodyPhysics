@@ -134,7 +134,7 @@ namespace LevelEditorControl.LevelItems.GroupedItems
 
             return (this.AssociatedPrototyp as IPhysicSceneContainer)
                 .GetPhysicMergerItems()
-                .Select(x => new PhysicMergerItemDecorator(x, matrix))
+                .Select(x => new PhysicMergerItemDecorator(x, new PhxMatrix(matrix.Values)))
                 .ToArray();
         }
         #endregion

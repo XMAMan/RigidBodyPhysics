@@ -1,5 +1,4 @@
-﻿using GraphicMinimal;
-using KeyFrameGlobal;
+﻿using KeyFrameGlobal;
 using LevelEditorExports.Editor.KeyboardMappings;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorExports.Simulator;
@@ -21,7 +20,7 @@ namespace LevelToSimulatorConverter
 
     public interface IMergeablePhysicScene : IPhysicMergerItem
     {
-        Matrix4x4 GetTranslationMatrix(); //Enthält die Positon/Ausrichtung/Skalierung vom LevelItem
+        PhxMatrix GetTranslationMatrix(); //Enthält die Positon/Ausrichtung/Skalierung vom LevelItem
         PhysicItemExportData PhysicData { get; }
     }
 
@@ -114,7 +113,7 @@ namespace LevelToSimulatorConverter
                 textureData = DefaultTextureCreator.CreateDefaultTextureData(subScene);
             }
 
-            float sizeFactor = Matrix4x4.GetSizeFactorFromMatrix(physicItem.GetTranslationMatrix());
+            float sizeFactor = PhxMatrix.GetSizeFactorFromMatrix(physicItem.GetTranslationMatrix());
             foreach (var tex in textureData.Textures)
             {
                 tex.Width = tex.Width * sizeFactor;
@@ -297,7 +296,7 @@ namespace LevelToSimulatorConverter
             if (levelItem is IMergeablePhysicScene)
             {
                 var physicItem = (IMergeablePhysicScene)levelItem;
-                levelItemSizeFactor = Matrix4x4.GetSizeFactorFromMatrix(physicItem.GetTranslationMatrix());
+                levelItemSizeFactor = PhxMatrix.GetSizeFactorFromMatrix(physicItem.GetTranslationMatrix());
             }
             return new PhysicSceneTagdataEntry(tag.TagType, tag.LevelItemId, tag.TagId, names.ToArray(), color, tag.AnchorPoints.Select(x => x * levelItemSizeFactor).ToArray());
         }

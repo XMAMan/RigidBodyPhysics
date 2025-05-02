@@ -7,16 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\JsonHelper\JsonHelper.csproj" />
     <ProjectReference Include="..\KeyFrameGlobal\KeyFrameGlobal.csproj" />
     <ProjectReference Include="..\LevelEditorExports\LevelEditorExports.csproj" />
     <ProjectReference Include="..\RigidBodyPhysics\RigidBodyPhysics.csproj" />
     <ProjectReference Include="..\TextureEditorGlobal\TextureEditorGlobal.csproj" />
     <ProjectReference Include="..\TexturePhysicImporter\TexturePhysicImporter.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="XMAMan.GraphicEngine" Version="0.0.2" />
   </ItemGroup>
 
 </Project>

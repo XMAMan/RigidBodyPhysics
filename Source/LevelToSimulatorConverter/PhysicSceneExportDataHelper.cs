@@ -1,7 +1,6 @@
 ﻿using RigidBodyPhysics.ExportData.RigidBody;
 using RigidBodyPhysics.ExportData;
 using RigidBodyPhysics.ExportData.Joints;
-using GraphicMinimal;
 using PhysicGlobal;
 
 namespace LevelToSimulatorConverter
@@ -12,15 +11,14 @@ namespace LevelToSimulatorConverter
         //Hier wird eine Matrix4x4 und keine Matrix3x3 verwendet, weil an anderer Stelle mit der Matrix panel.MultTransformationMatrix aufgerufen wird
         //Man kann auch nicht so einfach eine Matrix3x3 in eine Matrix4x4 (oder umgekehrt) umwandeln, da die Translate-Matrix
         //einmal das XY in Zeile 3 und einmal in Zeile 4 stehen hat.
-        public static void TranslateScene(PhysicSceneExportData scene, Matrix4x4 matrix)
+        public static void TranslateScene(PhysicSceneExportData scene, PhxMatrix matrix)
         {
-            float angleInDegreeMatrix = Matrix4x4.GetAngleInDegreeFromMatrix(matrix);
-            float sizeFactorMatrix = Matrix4x4.GetSizeFactorFromMatrix(matrix);
+            float angleInDegreeMatrix = PhxMatrix.GetAngleInDegreeFromMatrix(matrix);
+            float sizeFactorMatrix = PhxMatrix.GetSizeFactorFromMatrix(matrix);
 
             foreach (var body in scene.Bodies)
             {
-                var centerGrx = Matrix4x4.MultPosition(matrix, new Vector3D(body.Center.X, body.Center.Y, 0)).XY;
-                body.Center = new Vec2D(centerGrx.X, centerGrx.Y);
+                body.Center = PhxMatrix.MultPosition(matrix, new Vec2D(body.Center.X, body.Center.Y));
 
                 body.AngleInDegree += angleInDegreeMatrix;
 
