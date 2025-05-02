@@ -1,7 +1,7 @@
 ﻿using DynamicData;
-using GraphicMinimal;
 using LevelEditorControl.Controls.TagItemControl;
 using LevelEditorGlobal;
+using PhysicGlobal;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -48,7 +48,7 @@ namespace LevelEditorControl.EditorFunctions
             return this;
         }
 
-        private IMouseclickableWithTagData GetSelectedItem(Vector2D point)
+        private IMouseclickableWithTagData GetSelectedItem(Vec2D point)
         {
             var screenToCamera = this.state.Camera.GetPointToCameraMatrix();
 
@@ -69,14 +69,14 @@ namespace LevelEditorControl.EditorFunctions
 
         public override void HandleMouseMove(MouseEventArgs e)
         {
-            this.selectedItem = GetSelectedItem(new Vector2D(e.X, e.Y));
+            this.selectedItem = GetSelectedItem(new Vec2D(e.X, e.Y));
 
             Refresh();
         }
 
         public override void HandleMouseClick(MouseEventArgs e)
         {
-            this.selectedItem = GetSelectedItem(new Vector2D(e.X, e.Y));
+            this.selectedItem = GetSelectedItem(new Vec2D(e.X, e.Y));
 
             if (this.selectedItem != null)
             {

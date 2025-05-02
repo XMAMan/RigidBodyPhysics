@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using static LevelEditorGlobal.ITagable;
 using WpfControls.Extensions;
+using PhysicGlobal;
 
 namespace PhysicItemEditorControl.Model.MouseClickable
 {
@@ -145,10 +146,10 @@ namespace PhysicItemEditorControl.Model.MouseClickable
             panel.DrawCircle(borderPen, p2, radius);
         }
 
-        public bool IsPointInside(Vector2D point, Matrix4x4 screenToLocal)
+        public bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal)
         {
             screenToLocal *= Matrix4x4.Translate(sceneBoundingBox.X, sceneBoundingBox.Y, 0);
-            point = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY;
+            point = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY.ToPhx();
 
             if (runtimJoint is IPublicDistanceJoint)
                 return IsPointAboveDistanceJoint((IPublicDistanceJoint)runtimJoint, point);
@@ -168,29 +169,29 @@ namespace PhysicItemEditorControl.Model.MouseClickable
             throw new Exception("Unknown type " + runtimJoint.GetType());
         }
 
-        private bool IsPointAboveDistanceJoint(IPublicDistanceJoint j, Vector2D point)
+        private bool IsPointAboveDistanceJoint(IPublicDistanceJoint j, Vec2D point)
         {
-            return MathHelper.IsPointAboveLine(j.Anchor1.ToGrx(), j.Anchor2.ToGrx(), point);
+            return MathHelper.IsPointAboveLine(j.Anchor1, j.Anchor2, point);
         }
 
-        private bool IsPointAbovePrismaticJoint(IPublicPrismaticJoint j, Vector2D point)
+        private bool IsPointAbovePrismaticJoint(IPublicPrismaticJoint j, Vec2D point)
         {
-            return MathHelper.IsPointAboveLine(j.Anchor1.ToGrx(), j.Anchor2.ToGrx(), point);
+            return MathHelper.IsPointAboveLine(j.Anchor1, j.Anchor2, point);
         }
 
-        private bool IsPointAboveRevoluteJoint(IPublicRevoluteJoint j, Vector2D point)
+        private bool IsPointAboveRevoluteJoint(IPublicRevoluteJoint j, Vec2D point)
         {
-            return (j.Anchor1.ToGrx() - point).Length() < 10;
+            return (j.Anchor1 - point).Length() < 10;
         }
 
-        private bool IsPointAboveWeldJoint(IPublicWeldJoint j, Vector2D point)
+        private bool IsPointAboveWeldJoint(IPublicWeldJoint j, Vec2D point)
         {
-            return (j.Anchor1.ToGrx() - point).Length() < 20;
+            return (j.Anchor1 - point).Length() < 20;
         }
 
-        private bool IsPointAboveWheelJoint(IPublicWheelJoint j, Vector2D point)
+        private bool IsPointAboveWheelJoint(IPublicWheelJoint j, Vec2D point)
         {
-            return MathHelper.IsPointAboveLine(j.Anchor1.ToGrx(), j.Anchor2.ToGrx(), point);
+            return MathHelper.IsPointAboveLine(j.Anchor1, j.Anchor2, point);
         }
 
         

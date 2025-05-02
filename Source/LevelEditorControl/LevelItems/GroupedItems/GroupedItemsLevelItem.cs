@@ -2,15 +2,17 @@
 using GraphicPanels;
 using LevelEditorGlobal;
 using LevelToSimulatorConverter;
+using PhysicGlobal;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using WpfControls.Extensions;
 
 namespace LevelEditorControl.LevelItems.GroupedItems
 {
     internal class GroupedItemsLevelItem : IPrototypLevelItem, IRotateableLevelItem, IBackgroundItemProvider, IPhysicSceneContainer
     {
-        public GroupedItemsLevelItem(GroupedItemPrototyp prototyp, Vector2D position, InitialRotatedRectangleValues initialRecValues, int id)
+        public GroupedItemsLevelItem(GroupedItemPrototyp prototyp, Vec2D position, InitialRotatedRectangleValues initialRecValues, int id)
         {
             this.AssociatedPrototyp = prototyp;
             this.Id = id;
@@ -25,13 +27,13 @@ namespace LevelEditorControl.LevelItems.GroupedItems
 
         public int Id { get; }
         public bool IsSelected { get; set; }
-        public Vector2D PivotPoint { get => this.RotatedRectangle.PivotPoint; set => this.RotatedRectangle.PivotPoint = value; }
+        public Vec2D PivotPoint { get => this.RotatedRectangle.PivotPoint; set => this.RotatedRectangle.PivotPoint = value; }
         public RotatedRectangle RotatedRectangle { get; }
         public RectangleF GetBoundingBox()
         {
             return this.RotatedRectangle.GetBoundingBox();
         }
-        public Vector2D[] GetCornerPoints()
+        public Vec2D[] GetCornerPoints()
         {
             return this.RotatedRectangle.GetCornerPoints();
         }
@@ -63,13 +65,13 @@ namespace LevelEditorControl.LevelItems.GroupedItems
             this.AssociatedPrototyp.DrawWithTwoColors(panel, frontColor, backColor);
             panel.PopMatrix();
         }
-        public bool IsPointInside(Vector2D point)
+        public bool IsPointInside(Vec2D point)
         {
             return this.RotatedRectangle.IsPointInside(point);
         }
-        public bool IsPointInside(Vector2D point, Matrix4x4 screenToLocal) //point = ScreenSpace-Mousepoint
+        public bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal) //point = ScreenSpace-Mousepoint
         {
-            point = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY; //CameraSpace-Mousepoint
+            point = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY.ToPhx(); //CameraSpace-Mousepoint
             return IsPointInside(point);
         }
 
@@ -98,7 +100,7 @@ namespace LevelEditorControl.LevelItems.GroupedItems
         {
             var proto = prototyps.First(x => x.Id == data.PrototypId);
             if (data.SizeFactor == 0) data.SizeFactor = 1;
-            if (data.LocalPivot == null) data.LocalPivot = new Vector2D(0, 0);
+            if (data.LocalPivot == null) data.LocalPivot = new Vec2D(0, 0);
             var initialRecData = new InitialRotatedRectangleValues()
             {
                 SizeFactor = data.SizeFactor,

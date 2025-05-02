@@ -1,4 +1,4 @@
-﻿using GraphicMinimal;
+﻿using PhysicGlobal;
 
 namespace LevelEditorGlobal
 {
@@ -11,9 +11,9 @@ namespace LevelEditorGlobal
         public int TagId { get; } //ITagable.Id = Index aus RuntimeLevelItem.Bodies/Joints/Thrusters/Motors
         public string[] Names { get; }
         public byte Color { get; }
-        public Vector2D[] AnchorPoints { get; }
+        public Vec2D[] AnchorPoints { get; }
 
-        public PhysicSceneTagdataEntry(ITagable.TagType tagType, int levelItemId, int tagId, string[] names, byte color, Vector2D[] anchorPoints)
+        public PhysicSceneTagdataEntry(ITagable.TagType tagType, int levelItemId, int tagId, string[] names, byte color, Vec2D[] anchorPoints)
         {
             this.TagType = tagType;
             this.LevelItemId = levelItemId;
@@ -30,7 +30,7 @@ namespace LevelEditorGlobal
             this.TagId = copy.TagId;
             this.Names = copy.Names.ToArray();
             this.Color = copy.Color;
-            this.AnchorPoints = copy.AnchorPoints.Select(x => new Vector2D(x)).ToArray();
+            this.AnchorPoints = copy.AnchorPoints.ToArray();
         }
 
         public PhysicSceneTagdataEntry(PhysicSceneTagdataEntry copy, int levelItemId)

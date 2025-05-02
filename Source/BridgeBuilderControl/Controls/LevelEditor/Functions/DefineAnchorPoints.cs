@@ -1,5 +1,5 @@
 ﻿using BridgeBuilderControl.Controls.Helper;
-using GraphicMinimal;
+using PhysicGlobal;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -13,7 +13,7 @@ namespace BridgeBuilderControl.Controls.LevelEditor.Functions
         private List<Point> points = new List<Point>();
 
         private EditorState state;
-        private Vector2D mousePosition = new Vector2D(0, 0);
+        private Vec2D mousePosition = new Vec2D(0, 0);
         public FunctionType Type { get => FunctionType.DefineAnchorPoints; }
         public IEditorFunction Init(EditorState state)
         {
@@ -44,7 +44,7 @@ namespace BridgeBuilderControl.Controls.LevelEditor.Functions
             //Punkt erzeugen
             if (e.Button == MouseButtons.Left)
             {
-                var mouse = new Vector2D(e.X, e.Y);
+                var mouse = new Vec2D(e.X, e.Y);
                 if (GetPointIndex(mouse) == -1) // An der Klickstelle exisitert noch kein Ankerpunkt
                 {
                     this.points.Add(state.MouseGrid.SnapToInt(mouse)); //Erzeuge ein neuen Ankerpunkt
@@ -55,7 +55,7 @@ namespace BridgeBuilderControl.Controls.LevelEditor.Functions
             //Punkt löschen
             if (e.Button == MouseButtons.Right)
             {
-                var mouse = new Vector2D(e.X, e.Y);
+                var mouse = new Vec2D(e.X, e.Y);
                 int index = GetPointIndex(mouse);
                 if (index != -1) // An der Klickstelle exisitert ein Ankerpunkt
                 {
@@ -69,11 +69,11 @@ namespace BridgeBuilderControl.Controls.LevelEditor.Functions
 
         public void HandleMouseMove(System.Windows.Forms.MouseEventArgs e) 
         {
-            this.mousePosition = new Vector2D(e.X, e.Y);
+            this.mousePosition = new Vec2D(e.X, e.Y);
         }
 
         //Gibt den Index des Punktes von this.points zurück, wo die Maus gerade ist
-        private int GetPointIndex(Vector2D pixelPosition)
+        private int GetPointIndex(Vec2D pixelPosition)
         {
             var point = state.MouseGrid.SnapToInt(pixelPosition);
             for (int i = 0; i < this.points.Count; i++)

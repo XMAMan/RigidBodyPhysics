@@ -1,8 +1,8 @@
 ﻿using GameHelper.Simulation;
-using GraphicMinimal;
 using GraphicPanels;
 using LevelEditorControl;
 using LevelToSimulatorConverter;
+using PhysicGlobal;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Navigation;
@@ -59,9 +59,9 @@ namespace DynamicObjCreation.UnitTests
 
             simulator.RemoveLevelItem(levelItemId); //Original löschen
 
-            List<Vector2D> pivotPoints = new List<Vector2D>();
+            List<Vec2D> pivotPoints = new List<Vec2D>();
 
-            List<Vector2D> tagPoints = new List<Vector2D>();
+            List<Vec2D> tagPoints = new List<Vec2D>();
 
             var allOriantations = new LevelItemExportHelper.PivotOriantation[]
             {
@@ -73,23 +73,23 @@ namespace DynamicObjCreation.UnitTests
             for (int i=0;i<allOriantations.Length;i++)
             {
                 var copyData = new LevelEditorGlobal.PhysikLevelItemExportData(exportData); //Kopie vom Original-Export erstellen
-                var pivotPoint = new Vector2D(box.Width + i * box.Width * 2, box.Height);
+                var pivotPoint = new Vec2D(box.Width + i * box.Width * 2, box.Height);
                 LevelItemExportHelper.MoveToPivotPoint(copyData, pivotPoint, allOriantations[i], 1, 0); //Kopie bearbeiten
                 int newId = simulator.AddLevelItem(copyData);
                 pivotPoints.Add(pivotPoint);
 
                 //Hiermit teste ich, dass ich bei eingefügten Objekten auf die Tagdaten zugreifen kann
-                tagPoints.Add(simulator.GetBodyByTagName(newId, "body1").Center.ToGrx());
-                tagPoints.Add(simulator.GetJointByTagName(newId, "joint1").Anchor1.ToGrx());
-                tagPoints.Add(simulator.GetThrusterByTagName(newId, "thruster1").Anchor.ToGrx());
-                tagPoints.Add(simulator.GetMotorByTagName(newId, "motor1").Body.Center.ToGrx());
+                tagPoints.Add(simulator.GetBodyByTagName(newId, "body1").Center);
+                tagPoints.Add(simulator.GetJointByTagName(newId, "joint1").Anchor1);
+                tagPoints.Add(simulator.GetThrusterByTagName(newId, "thruster1").Anchor);
+                tagPoints.Add(simulator.GetMotorByTagName(newId, "motor1").Body.Center);
             }
 
             var allSizes = new float[] { 0.2f, 1, 2 };
             for (int i=0;i<allSizes.Length;i++)
             {
                 var copyData = new LevelEditorGlobal.PhysikLevelItemExportData(exportData); //Kopie vom Original-Export erstellen
-                var pivotPoint = new Vector2D(box.Width + i * box.Width * 2, box.Height + 1 * box.Height * 2);
+                var pivotPoint = new Vec2D(box.Width + i * box.Width * 2, box.Height + 1 * box.Height * 2);
                 LevelItemExportHelper.MoveToPivotPoint(copyData, pivotPoint,  LevelItemExportHelper.PivotOriantation.Center, allSizes[i], 0); //Kopie bearbeiten
                 simulator.AddLevelItem(copyData);
                 pivotPoints.Add(pivotPoint);
@@ -99,7 +99,7 @@ namespace DynamicObjCreation.UnitTests
             for (int i = 0; i < allSizes.Length; i++)
             {
                 var copyData = new LevelEditorGlobal.PhysikLevelItemExportData(exportData); //Kopie vom Original-Export erstellen
-                var pivotPoint = new Vector2D(box.Width + i * box.Width * 2, box.Height + 2 * box.Height * 2);
+                var pivotPoint = new Vec2D(box.Width + i * box.Width * 2, box.Height + 2 * box.Height * 2);
                 LevelItemExportHelper.MoveToPivotPoint(copyData, pivotPoint, LevelItemExportHelper.PivotOriantation.Center, 1, allAngles[i]); //Kopie bearbeiten
                 simulator.AddLevelItem(copyData);
                 pivotPoints.Add(pivotPoint);
@@ -117,11 +117,11 @@ namespace DynamicObjCreation.UnitTests
             for (int i=0;i<pivotPoints.Count;i++)
             {
                 panel.DrawRectangle(Pens.Green, pivotPoints[i].X - box.Width, pivotPoints[i].Y - box.Height, box.Width * 2, box.Height * 2);
-                panel.DrawFillCircle(Color.Red, pivotPoints[i], 2);
+                panel.DrawFillCircle(Color.Red, pivotPoints[i].ToGrx(), 2);
             }
             foreach (var tagPoint in tagPoints)
             {
-                panel.DrawFillCircle(Color.Blue, tagPoint, 2);
+                panel.DrawFillCircle(Color.Blue, tagPoint.ToGrx(), 2);
             }
             
             var image = panel.GetScreenShoot();

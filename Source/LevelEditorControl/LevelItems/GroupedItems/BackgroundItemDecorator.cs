@@ -1,7 +1,7 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
-using LevelEditorControl.EditorFunctions;
 using LevelEditorGlobal;
+using WpfControls.Extensions;
 
 namespace LevelEditorControl.LevelItems.GroupedItems
 {

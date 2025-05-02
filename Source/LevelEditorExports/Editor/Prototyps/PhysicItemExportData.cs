@@ -1,8 +1,4 @@
-﻿using KeyFrameGlobal;
-using RigidBodyPhysics.ExportData;
-using TextureEditorGlobal;
-
-namespace LevelEditorExports.Editor.Prototyps
+﻿namespace LevelEditorExports.Editor.Prototyps
 {
     /*public class PhysicItemExportData : IPrototypExportData
     {

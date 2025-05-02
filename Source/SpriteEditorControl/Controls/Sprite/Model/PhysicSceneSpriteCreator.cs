@@ -1,7 +1,6 @@
 ﻿using DynamicData.Aggregation;
 using GraphicMinimal;
 using GraphicPanels;
-using KeyFrameEditorControl.Controls.KeyFrameEditor;
 using KeyFrameGlobal;
 using KeyFramePhysicImporter.Model;
 using PhysicSceneDrawing;

@@ -1,5 +1,6 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
+using PhysicGlobal;
 using System.Drawing;
 
 namespace WpfControls.Model
@@ -13,7 +14,7 @@ namespace WpfControls.Model
         public uint Size = 50; //So viele Pixel ist ein Grid-Kästchen breit und hoch
 
         //cameraLeftTop = Linke obere Ecke der Kamera im Cameraspace
-        public void Draw(GraphicPanel2D panel, float cameraFactor, Vector2D cameraLeftTop)
+        public void Draw(GraphicPanel2D panel, float cameraFactor, Vec2D cameraLeftTop)
         {
             float screenWidth = (panel.Width * cameraFactor);
             float screenHeight = (panel.Height * cameraFactor);
@@ -35,7 +36,7 @@ namespace WpfControls.Model
             }
         }
 
-        public Vector2D SnapMouse(Vector2D position)
+        public Vec2D SnapMouse(Vec2D position)
         {
             if (this.ShowGrid == false) return position;
 
@@ -55,7 +56,7 @@ namespace WpfControls.Model
             if (yf < Bias) y = yi * Size;
             if (yf > 1 - Bias) y = (yi + 1) * Size;
 
-            return new Vector2D(x, y);
+            return new Vec2D(x, y);
         }
     }
 }

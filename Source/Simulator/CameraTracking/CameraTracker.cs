@@ -1,5 +1,4 @@
-﻿using GraphicMinimal;
-using GraphicPanelWpf;
+﻿using GraphicPanelWpf;
 using LevelEditorGlobal;
 using PhysicGlobal;
 using Splat;
@@ -16,7 +15,7 @@ namespace Simulator.CameraTracking
         private Camera2D camera;                        // Die Position/Zoom soll von dieser Kamera verändert werden
         private ICameraTrackedItem item;                // Dieser bewegbare Punkt soll immer im Sichtbereich bleiben
         private CameraTrackerData data;
-        private Vector2D velocity = new Vector2D(0, 0); // Aktuelle Geschwindigkeit der Kamera
+        private Vec2D velocity = new Vec2D(0, 0);       // Aktuelle Geschwindigkeit der Kamera
         private float mass = 1; //Masse der Kamera
         private RectangleF boundingBoxFromScene;
 
@@ -175,10 +174,10 @@ namespace Simulator.CameraTracking
         private void SetTrackingPointToScreenCenter()
         {
             var screenBox = this.camera.GetScreenBox();
-            var screenCenter = new Vector2D(screenBox.X + screenBox.Width / 2, screenBox.Y + screenBox.Height / 2);
+            var screenCenter = new Vec2D(screenBox.X + screenBox.Width / 2, screenBox.Y + screenBox.Height / 2);
 
             var itemBox = this.item.BoundingBox;
-            var itemCenter = new Vector2D(itemBox.X + itemBox.Width / 2, itemBox.Y + itemBox.Height / 2);
+            var itemCenter = new Vec2D(itemBox.X + itemBox.Width / 2, itemBox.Y + itemBox.Height / 2);
             var delta = screenCenter - itemCenter;
             camera.X -= delta.X;
             camera.Y -= delta.Y;

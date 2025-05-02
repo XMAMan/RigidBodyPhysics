@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using static LevelEditorGlobal.ITagable;
 using WpfControls.Extensions;
+using PhysicGlobal;
 
 namespace PhysicItemEditorControl.Model.MouseClickable
 {
@@ -73,16 +74,16 @@ namespace PhysicItemEditorControl.Model.MouseClickable
             panel.DrawCircle(borderPen, circle.Center.ToGrx(), circle.Radius);
         }
 
-        public bool IsPointInside(Vector2D point, Matrix4x4 screenToLocal)
+        public bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal)
         {
             screenToLocal *= Matrix4x4.Translate(sceneBoundingBox.X, sceneBoundingBox.Y, 0);
-            point = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY;
+            point = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY.ToPhx();
 
             if (runtimBody is IPublicRigidRectangle)
-                return PolygonHelper.PointIsInsidePolygon((runtimBody as IPublicRigidRectangle).Vertex, point.ToPhx());
+                return PolygonHelper.PointIsInsidePolygon((runtimBody as IPublicRigidRectangle).Vertex, point);
 
             if (runtimBody is IPublicRigidPolygon)
-                return PolygonHelper.PointIsInsidePolygon((runtimBody as IPublicRigidPolygon).Vertex, point.ToPhx());
+                return PolygonHelper.PointIsInsidePolygon((runtimBody as IPublicRigidPolygon).Vertex, point);
 
             if (runtimBody is IPublicRigidCircle)
                 return IsPointInsideCircle((IPublicRigidCircle)runtimBody, point);
@@ -96,9 +97,9 @@ namespace PhysicItemEditorControl.Model.MouseClickable
             return Matrix4x4.Translate(sceneBoundingBox.X - runtimBody.Center.X, sceneBoundingBox.Y - runtimBody.Center.Y, 0) * Matrix4x4.Rotate(-angleInDegree, 0, 0, 1);
         }
 
-        private static bool IsPointInsideCircle(IPublicRigidCircle circle, Vector2D p)
+        private static bool IsPointInsideCircle(IPublicRigidCircle circle, Vec2D p)
         {
-            return (p - circle.Center.ToGrx()).Length() < circle.Radius;
+            return (p - circle.Center).Length() < circle.Radius;
         }
 
         public float GetArea()

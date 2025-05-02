@@ -1,6 +1,6 @@
-﻿using GraphicMinimal;
-using LevelEditorControl.LevelItems;
+﻿using LevelEditorControl.LevelItems;
 using LevelEditorGlobal;
+using PhysicGlobal;
 using ReactiveUI;
 using System.Reactive;
 
@@ -42,7 +42,7 @@ namespace LevelEditorControl.Controls.RotateResizeControl
                 {
                     associatedPrototyp.InitialRecValues.SizeFactor = rec.SizeFactor;
                     associatedPrototyp.InitialRecValues.AngleInDegree = rec.AngleInDegree;
-                    associatedPrototyp.InitialRecValues.LocalPivot = new Vector2D(rec.LocalPivot);
+                    associatedPrototyp.InitialRecValues.LocalPivot = new Vec2D(rec.LocalPivot);
                 }
             });
         }

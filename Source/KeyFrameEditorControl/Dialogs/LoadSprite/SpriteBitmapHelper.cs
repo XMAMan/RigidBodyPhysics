@@ -1,4 +1,5 @@
 ﻿using GraphicMinimal;
+using PhysicGlobal;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -157,15 +158,15 @@ namespace KeyFrameEditorControl.Dialogs.LoadSprite
 
             float maxDiff = 0.1f;
 
-            Vector2D min = new Vector2D(regions.Select(x => x.BoundingBox.Left).Min(), regions.Select(x => x.BoundingBox.Top).Min());
-            Vector2D max = new Vector2D(regions.Select(x => x.BoundingBox.Right).Max(), regions.Select(x => x.BoundingBox.Bottom).Max());
-            Vector2D range = max - min;
+            Vec2D min = new Vec2D(regions.Select(x => x.BoundingBox.Left).Min(), regions.Select(x => x.BoundingBox.Top).Min());
+            Vec2D max = new Vec2D(regions.Select(x => x.BoundingBox.Right).Max(), regions.Select(x => x.BoundingBox.Bottom).Max());
+            Vec2D range = max - min;
 
             List<Cluster<BitmapRegion>> clustersX = new List<Cluster<BitmapRegion>>();
             List<Cluster<BitmapRegion>> clustersY = new List<Cluster<BitmapRegion>>();
             foreach (var region in regions)
             {
-                Vector2D pos = new Vector2D((region.Center.X - min.X) / range.X, (region.Center.Y - min.Y) / range.Y);
+                Vec2D pos = new Vec2D((region.Center.X - min.X) / range.X, (region.Center.Y - min.Y) / range.Y);
 
                 bool foundX = false;
                 foreach (var clusterX in clustersX)

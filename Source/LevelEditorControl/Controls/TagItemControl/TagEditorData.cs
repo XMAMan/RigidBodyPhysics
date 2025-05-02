@@ -1,4 +1,4 @@
-﻿using GraphicMinimal;
+﻿using PhysicGlobal;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,7 +10,7 @@ namespace LevelEditorControl.Controls.TagItemControl
         public string Id { get; set; } //TreeItem.Title
         public string Name { get; set; } = string.Empty;
         public byte Color { get; set; } = 0;
-        public List<Vector2D> AnchorPoints { get; set; } = new List<Vector2D>();
+        public List<Vec2D> AnchorPoints { get; set; } = new List<Vec2D>();
 
         public bool HasData()
         {

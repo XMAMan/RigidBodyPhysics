@@ -1,12 +1,11 @@
 ﻿using DynamicObjCreation;
 using GameHelper.Simulation;
 using GameHelper.Simulation.RigidBodyTagging;
-using GraphicMinimal;
 using GraphicPanels;
 using GraphicPanelWpf;
+using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using RigidBodyPhysics.RuntimeObjects.Thruster;
-using WpfControls.Extensions;
 
 namespace AstroidsControl.Model
 {
@@ -76,26 +75,26 @@ namespace AstroidsControl.Model
 
             if (this.rocketPolygon.Center.X > box.Right && this.rocketPolygon.Velocity.X > 0)
             {
-                MoveRocket(new Vector2D(box.Left, this.rocketPolygon.Center.Y));
+                MoveRocket(new Vec2D(box.Left, this.rocketPolygon.Center.Y));
             }
 
             if (this.rocketPolygon.Center.X < box.Left && this.rocketPolygon.Velocity.X < 0)
             {
-                MoveRocket(new Vector2D(box.Right, this.rocketPolygon.Center.Y));
+                MoveRocket(new Vec2D(box.Right, this.rocketPolygon.Center.Y));
             }
 
             if (this.rocketPolygon.Center.Y > box.Bottom && this.rocketPolygon.Velocity.Y > 0)
             {
-                MoveRocket(new Vector2D(this.rocketPolygon.Center.X, box.Top));
+                MoveRocket(new Vec2D(this.rocketPolygon.Center.X, box.Top));
             }
 
             if (this.rocketPolygon.Center.Y < box.Top && this.rocketPolygon.Velocity.Y < 0)
             {
-                MoveRocket(new Vector2D(this.rocketPolygon.Center.X, box.Bottom));
+                MoveRocket(new Vec2D(this.rocketPolygon.Center.X, box.Bottom));
             }
         }
 
-        private void MoveRocket(Vector2D destination)
+        private void MoveRocket(Vec2D destination)
         {
             int levelItemId = this.simulator.GetTagDataFromBody(this.rocketPolygon).LevelItemId;
             var exportData = this.simulator.GetExportDataFromLevelItem(levelItemId); //Kopie nach außen geben
@@ -111,7 +110,7 @@ namespace AstroidsControl.Model
             if (key == System.Windows.Input.Key.Space)
             {
                 var p1 = this.rocketPolygon.Center;
-                var p2 = this.rocketTip.GetPosition().ToPhx();
+                var p2 = this.rocketTip.GetPosition();
 
                 var shipDirection = p2 - p1;
                 float dirLength = shipDirection.Length();

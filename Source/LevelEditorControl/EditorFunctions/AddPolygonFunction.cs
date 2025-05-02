@@ -1,5 +1,4 @@
 ﻿using DynamicData;
-using GraphicMinimal;
 using GraphicPanels;
 using LevelEditorControl.LevelItems.Polygon;
 using PhysicGlobal;
@@ -8,6 +7,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using WpfControls.Extensions;
 
 namespace LevelEditorControl.EditorFunctions
 {
@@ -16,8 +16,8 @@ namespace LevelEditorControl.EditorFunctions
         private static readonly float MinPointDistance = 5;
 
         private EditorState state;
-        private List<Vector2D> points = new List<Vector2D>();
-        private Vector2D currentMousePosition = new Vector2D(0, 0);
+        private List<Vec2D> points = new List<Vec2D>();
+        private Vec2D currentMousePosition = new Vec2D(0, 0);
         private bool currentLineIntersects = false; //Gibt es ein Schnittpunkt zwischen der Linie: points.Last-currentMousePosition und den Linine points[0..Lenght-2]
         private Action isFinish;
 
@@ -43,7 +43,7 @@ namespace LevelEditorControl.EditorFunctions
 
         public override void HandleMouseMove(MouseEventArgs e)
         {
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToGrx();
+            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
             point = state.Grid.SnapMouse(point);
 
             currentMousePosition = point;
@@ -76,7 +76,7 @@ namespace LevelEditorControl.EditorFunctions
         {
             if (e.Button == MouseButtons.Left && this.currentLineIntersects == false)
             {
-                var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToGrx();
+                var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
                 point = state.Grid.SnapMouse(point);
                 points.Add(point);
             }
@@ -107,10 +107,10 @@ namespace LevelEditorControl.EditorFunctions
             {
                 for (int i = 0; i < this.points.Count - 1; i++)
                 {
-                    panel.DrawLine(new Pen(Color.Black, 2), this.points[i], this.points[i + 1]);
+                    panel.DrawLine(new Pen(Color.Black, 2), this.points[i].ToGrx(), this.points[i + 1].ToGrx());
                 }
 
-                panel.DrawLine(new Pen(this.currentLineIntersects ? Color.Red : Color.Black, 2), this.points.Last(), this.currentMousePosition);
+                panel.DrawLine(new Pen(this.currentLineIntersects ? Color.Red : Color.Black, 2), this.points.Last().ToGrx(), this.currentMousePosition.ToGrx());
             }
             panel.FlipBuffer();
         }

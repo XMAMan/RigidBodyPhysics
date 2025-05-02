@@ -5,6 +5,7 @@ using RigidBodyPhysics.RuntimeObjects.Thruster;
 using System.Drawing;
 using static LevelEditorGlobal.ITagable;
 using WpfControls.Extensions;
+using PhysicGlobal;
 
 namespace PhysicItemEditorControl.Model.MouseClickable
 {
@@ -49,16 +50,16 @@ namespace PhysicItemEditorControl.Model.MouseClickable
             panel.DrawLine(pen, pos, pos + v2 * (r / 3));
         }
 
-        public bool IsPointInside(Vector2D point, Matrix4x4 screenToLocal)
+        public bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal)
         {
             screenToLocal *= Matrix4x4.Translate(sceneBoundingBox.X, sceneBoundingBox.Y, 0);
-            point = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY;
+            point = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY.ToPhx();
 
-            var dir = runtimThruster.ForceDirection.ToGrx();
-            var pos = runtimThruster.Anchor.ToGrx();
+            var dir = runtimThruster.ForceDirection;
+            var pos = runtimThruster.Anchor;
             float r = 50;
-            var v1 = Vector2D.GetV2FromAngle360(dir, 45 + 90);
-            var v2 = Vector2D.GetV2FromAngle360(dir, -45 - 90);
+            var v1 = Vec2D.GetV2FromAngle360(dir, 45 + 90);
+            var v2 = Vec2D.GetV2FromAngle360(dir, -45 - 90);
 
             if (MathHelper.IsPointAboveLine(pos - dir * r, pos, point)) return true;
             if (MathHelper.IsPointAboveLine(pos, pos + v1 * (r / 3), point)) return true;

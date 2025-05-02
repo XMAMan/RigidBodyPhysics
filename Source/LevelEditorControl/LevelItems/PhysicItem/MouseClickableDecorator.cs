@@ -1,6 +1,7 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
 using LevelEditorGlobal;
+using PhysicGlobal;
 using System.Drawing;
 using static LevelEditorGlobal.ITagable;
 
@@ -41,7 +42,7 @@ namespace LevelEditorControl.LevelItems.PhysicItem
         }
 
         //screenToLocal = ScreenToCamera-Space-Matrix
-        public bool IsPointInside(Vector2D point, Matrix4x4 screenToLocal)
+        public bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal)
         {
             screenToLocal *= Matrix4x4.Invert(this.rotatedRectangle.GetLocalToScreenMatrix());  //Camera to LevelItem
             return this.decoree.IsPointInside(point, screenToLocal);

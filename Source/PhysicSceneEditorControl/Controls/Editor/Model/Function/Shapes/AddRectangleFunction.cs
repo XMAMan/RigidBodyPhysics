@@ -45,11 +45,11 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Shapes
         {
             //Beginne ein neues Rechteck aufzuziehen
             if (firstMouseClick == null)
-                firstMouseClick = this.mouseGrid.SnapMouse(new GraphicMinimal.Vector2D(e.X, e.Y)).ToPoint();
+                firstMouseClick = this.mouseGrid.SnapMouse(new Vec2D(e.X, e.Y)).ToPoint();
             else
             {
-                var p1 = this.mouseGrid.SnapMouse(firstMouseClick.Value.ToGrx()).ToPoint();
-                var p2 = this.mouseGrid.SnapMouse(currentMousePosition.ToGrx()).ToPoint();
+                var p1 = this.mouseGrid.SnapMouse(firstMouseClick.Value.ToPhx()).ToPoint();
+                var p2 = this.mouseGrid.SnapMouse(currentMousePosition.ToPhx()).ToPoint();
 
                 //Erzeuge ein neues Rechteck
                 if (mode == Mode.CornerMode)

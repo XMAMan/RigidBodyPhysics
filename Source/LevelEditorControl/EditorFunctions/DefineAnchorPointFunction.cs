@@ -1,11 +1,13 @@
 ﻿using GraphicMinimal;
 using LevelEditorControl.Controls.TagItemControl;
 using LevelEditorGlobal;
+using PhysicGlobal;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using WpfControls.Controls.CameraSetting;
+using WpfControls.Extensions;
 
 namespace LevelEditorControl.EditorFunctions
 {
@@ -16,7 +18,7 @@ namespace LevelEditorControl.EditorFunctions
         private IMouseclickableWithTagData mouseOverItem = null; //Über diesen Item befindet sich die Maus gerade
         private AnchorPoint mouseOverPoint = null; //Über diesen Ankerpunkt befindet sich die Maus gerade
         private IMouseclickableWithTagData selectedItem = null;
-        private Vector2D localAnchorPosition = null; //Testausgabe der lokalen Ankerpunktposition
+        private Vec2D localAnchorPosition = null; //Testausgabe der lokalen Ankerpunktposition
         public override FunctionType Type => FunctionType.DefineAnchorPoint;
 
         public override IEditorFunction Init(EditorState state)
@@ -42,7 +44,7 @@ namespace LevelEditorControl.EditorFunctions
             return this;
         }
 
-        private IMouseclickableWithTagData GetSelectedItem(Vector2D point)
+        private IMouseclickableWithTagData GetSelectedItem(Vec2D point)
         {
             var screenToCamera = this.state.Camera.GetPointToCameraMatrix();
 
@@ -63,13 +65,13 @@ namespace LevelEditorControl.EditorFunctions
 
         public override void HandleMouseMove(MouseEventArgs e)
         {
-            var point = new Vector2D(e.X, e.Y);
+            var point = new Vec2D(e.X, e.Y);
             this.mouseOverItem = GetSelectedItem(point);
 
             if (this.selectedItem != null)
             {
                 var screenToLocal = this.state.Camera.GetPointToCameraMatrix() * this.selectedItem.GetScreenToLocalMatrix();
-                this.localAnchorPosition = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY;
+                this.localAnchorPosition = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY.ToPhx();
             }else
             {
                 this.localAnchorPosition = null;
@@ -82,7 +84,7 @@ namespace LevelEditorControl.EditorFunctions
 
         public override void HandleMouseClick(MouseEventArgs e)
         {
-            var point = new Vector2D(e.X, e.Y);
+            var point = new Vec2D(e.X, e.Y);
             if (e.Button == MouseButtons.Left)
             {
                 var clickItem = GetSelectedItem(point);
@@ -94,7 +96,7 @@ namespace LevelEditorControl.EditorFunctions
                 if (this.selectedItem != null)
                 {
                     var screenToLocal = this.state.Camera.GetPointToCameraMatrix() * this.selectedItem.GetScreenToLocalMatrix();
-                    var anchorPoint = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY;
+                    var anchorPoint = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY.ToPhx();
                     var tagData = GetTagData(this.selectedItem);
                     tagData.AnchorPoints.Add(anchorPoint);
                 }
@@ -123,9 +125,9 @@ namespace LevelEditorControl.EditorFunctions
             public int PointIndex;
         }
 
-        private AnchorPoint GetAnchorPoint(Vector2D mousePoint, float anchorPointRadius)
+        private AnchorPoint GetAnchorPoint(Vec2D mousePoint, float anchorPointRadius)
         {
-            mousePoint = this.state.Camera.PointToCamera(mousePoint.ToPointF()).ToGrx();
+            mousePoint = this.state.Camera.PointToCamera(mousePoint.ToPointF()).ToPhx();
             foreach (var item in this.tagables)
             {
                 var tagData = GetTagData(item);
@@ -135,7 +137,7 @@ namespace LevelEditorControl.EditorFunctions
                     for (int i=0;i<tagData.AnchorPoints.Count;i++)
                     {
                         var localPoint = tagData.AnchorPoints[i];
-                        var screenPoint = Matrix4x4.MultPosition(localToScreen, new Vector3D(localPoint.X, localPoint.Y, 0)).XY;
+                        var screenPoint = Matrix4x4.MultPosition(localToScreen, new Vector3D(localPoint.X, localPoint.Y, 0)).XY.ToPhx();
                         if ((screenPoint - mousePoint).Length() < anchorPointRadius)
                         {
                             return new AnchorPoint() {Item = item, PointIndex = i };

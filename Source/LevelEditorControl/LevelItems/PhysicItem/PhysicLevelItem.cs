@@ -2,10 +2,12 @@
 using GraphicPanels;
 using LevelEditorGlobal;
 using LevelToSimulatorConverter;
+using PhysicGlobal;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using WpfControls.Extensions;
 
 namespace LevelEditorControl.LevelItems.PhysicItem
 {
@@ -13,7 +15,7 @@ namespace LevelEditorControl.LevelItems.PhysicItem
     {
         private IPrototypItem prototyp;
 
-        public PhysicLevelItem(IPrototypItem item, Vector2D position, InitialRotatedRectangleValues initialRecValues, int id)
+        public PhysicLevelItem(IPrototypItem item, Vec2D position, InitialRotatedRectangleValues initialRecValues, int id)
         {
             if (item is IKeyboardControlledLevelItem == false) throw
                     new ArgumentException("item must implement IKeyboardControlledLevelItem");
@@ -35,7 +37,7 @@ namespace LevelEditorControl.LevelItems.PhysicItem
 
         public int Id { get; }
         public bool IsSelected { get; set; } = false;
-        public Vector2D PivotPoint { get => this.RotatedRectangle.PivotPoint; set => this.RotatedRectangle.PivotPoint = value; }
+        public Vec2D PivotPoint { get => this.RotatedRectangle.PivotPoint; set => this.RotatedRectangle.PivotPoint = value; }
         public RotatedRectangle RotatedRectangle { get; }
 
         public object PhysicData { get => prototyp.EditorExportData; }
@@ -47,7 +49,7 @@ namespace LevelEditorControl.LevelItems.PhysicItem
         {
             return this.RotatedRectangle.GetBoundingBox();
         }
-        public Vector2D[] GetCornerPoints()
+        public Vec2D[] GetCornerPoints()
         {
             return this.RotatedRectangle.GetCornerPoints();
         }
@@ -76,13 +78,13 @@ namespace LevelEditorControl.LevelItems.PhysicItem
             this.prototyp.DrawWithTwoColors(panel, frontColor, backColor);
             panel.PopMatrix();
         }
-        public bool IsPointInside(Vector2D point)
+        public bool IsPointInside(Vec2D point)
         {
             return this.RotatedRectangle.IsPointInside(point);
         }
-        public bool IsPointInside(Vector2D point, Matrix4x4 screenToLocal) //point = ScreenSpace-Mousepoint
+        public bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal) //point = ScreenSpace-Mousepoint
         {
-            point = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY; //CameraSpace-Mousepoint
+            point = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY.ToPhx(); //CameraSpace-Mousepoint
             return IsPointInside(point);
         }
         public Matrix4x4 GetScreenToLocalMatrix()
@@ -108,7 +110,7 @@ namespace LevelEditorControl.LevelItems.PhysicItem
         {
             var proto = prototyps.First(x => x.Id == data.PrototypId);
             if (data.SizeFactor == 0) data.SizeFactor = 1;
-            if (data.LocalPivot == null) data.LocalPivot = new Vector2D(0, 0);
+            if (data.LocalPivot == null) data.LocalPivot = new Vec2D(0, 0);
             var initialRecValues = new InitialRotatedRectangleValues()
             {
                 SizeFactor = data.SizeFactor,
@@ -125,7 +127,7 @@ namespace LevelEditorControl.LevelItems.PhysicItem
         {
             return Matrix4x4.Translate(-this.prototyp.BoundingBox.X, -this.prototyp.BoundingBox.Y, 0) * this.RotatedRectangle.GetLocalToScreenMatrix();
         }
-        public Vector2D LocalPivotPoint { get => this.RotatedRectangle.LocalPivot; }
+        public Vec2D LocalPivotPoint { get => this.RotatedRectangle.LocalPivot; }
         public float SizeFactor { get => this.RotatedRectangle.SizeFactor; }
         public float AngleInDegree { get => this.RotatedRectangle.AngleInDegree; }
         #endregion

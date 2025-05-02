@@ -14,7 +14,7 @@ namespace LevelEditorGlobal
         private readonly Color frontColor = Color.FromArgb(63, 72, 204);
 
         private bool mouseIsDown;
-        private Vector2D delta; //Vektor von MouseDownPosition zur linken oberen Ecke von der CameraBox
+        private Vec2D delta; //Vektor von MouseDownPosition zur linken oberen Ecke von der CameraBox
 
         private int panelWidth, panelHeight;
         private Camera2D camera;
@@ -82,7 +82,7 @@ namespace LevelEditorGlobal
         }
 
         //Umrechung der Mausposition in den CameraSpace/GlobalSpace
-        private Vector2D MouseToCam(Vector2D mousePosition)
+        private Vec2D MouseToCam(Vec2D mousePosition)
         {
             RectangleF smallWindow = new RectangleF(this.panelWidth * (1 - size), this.panelHeight * (1 - size), this.panelWidth * size, this.panelHeight * size);
 
@@ -90,7 +90,7 @@ namespace LevelEditorGlobal
             var screenToCamera = Matrix4x4.Invert(cameraToScreen);
             var mouseCam = Matrix4x4.MultPosition(screenToCamera, new Vector3D(mousePosition.X, mousePosition.Y, 0)).XY;
 
-            return mouseCam;
+            return new Vec2D(mouseCam.X, mouseCam.Y);
         }
 
         public bool HandleMouseClick(MouseEventArgs e)
@@ -103,8 +103,8 @@ namespace LevelEditorGlobal
         {
             if (IsMouseInZoomRec(e) == false) return false;
 
-            var mouseCam = MouseToCam(new Vector2D(e.X, e.Y));
-            this.delta = new Vector2D(mouseCam.X - this.camera.X, mouseCam.Y - this.camera.Y);
+            var mouseCam = MouseToCam(new Vec2D(e.X, e.Y));
+            this.delta = new Vec2D(mouseCam.X - this.camera.X, mouseCam.Y - this.camera.Y);
             this.mouseIsDown = true;
 
             return true;
@@ -114,7 +114,7 @@ namespace LevelEditorGlobal
         {
             if (this.mouseIsDown)
             {
-                var mouseCam = MouseToCam(new Vector2D(e.X, e.Y));
+                var mouseCam = MouseToCam(new Vec2D(e.X, e.Y));
                 this.camera.X = mouseCam.X - this.delta.X;
                 this.camera.Y = mouseCam.Y - this.delta.Y;
 
@@ -144,14 +144,14 @@ namespace LevelEditorGlobal
             this.camera.Y -= delta.Y;
         }
 
-        private static Vector2D Center(RectangleF rec)
+        private static Vec2D Center(RectangleF rec)
         {
-            return new Vector2D(rec.X + rec.Width / 2, rec.Y + rec.Height / 2);
+            return new Vec2D(rec.X + rec.Width / 2, rec.Y + rec.Height / 2);
         }
 
         private bool IsMouseInZoomRec(MouseEventArgs e)
         {
-            var mouseCam = MouseToCam(new Vector2D(e.X, e.Y));
+            var mouseCam = MouseToCam(new Vec2D(e.X, e.Y));
             var camBox = this.camera.GetScreenBox();
 
             return mouseCam.X > camBox.X && mouseCam.X < camBox.Right && mouseCam.Y > camBox.Y && mouseCam.Y < camBox.Bottom;

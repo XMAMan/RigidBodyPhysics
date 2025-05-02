@@ -60,12 +60,12 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorThruster
         public static void DrawArrow(GraphicPanel2D panel, Vec2D position, Vec2D direction, Pen pen)
         {
             float r = 50;
-            var v1 = GraphicMinimal.Vector2D.GetV2FromAngle360(direction.ToGrx(), 45 + 90);
-            var v2 = GraphicMinimal.Vector2D.GetV2FromAngle360(direction.ToGrx(), -45 - 90);
+            var v1 = Vec2D.GetV2FromAngle360(direction, 45 + 90);
+            var v2 = Vec2D.GetV2FromAngle360(direction, -45 - 90);
 
             panel.DrawLine(pen, (position - direction * r).ToGrx(), position.ToGrx());
-            panel.DrawLine(pen, position.ToGrx(), position.ToGrx() + v1 * (r / 3));
-            panel.DrawLine(pen, position.ToGrx(), position.ToGrx() + v2 * (r / 3));
+            panel.DrawLine(pen, position.ToGrx(), (position + v1 * (r / 3)).ToGrx());
+            panel.DrawLine(pen, position.ToGrx(), (position + v2 * (r / 3)).ToGrx());
         }
 
         public IExportThruster GetExportData(List<IEditorShape> bodies)

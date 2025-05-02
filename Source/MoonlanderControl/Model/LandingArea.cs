@@ -1,8 +1,10 @@
 ﻿using GameHelper;
 using GraphicMinimal;
 using GraphicPanels;
+using PhysicGlobal;
 using System;
 using System.Drawing;
+using WpfControls.Extensions;
 
 namespace MoonlanderControl.Model
 {
@@ -13,7 +15,7 @@ namespace MoonlanderControl.Model
         private static ColorInterpolator colorInterpolator = new ColorInterpolator(new Color[] { Color.DarkBlue, Color.Yellow });
 
 
-        private Vector2D p1, p2;
+        private Vec2D p1, p2;
 
         private float radiusVelocity = 0.005f; //So schnell ändert sich der Radius von en Punkten
         private float colorVelocity = 10; //Mit der Geschwindigkeit ändert sich die Farbe
@@ -25,9 +27,9 @@ namespace MoonlanderControl.Model
         public float MinX { get => this.p1.X; }
         public float MaxX { get => this.p2.X; }
 
-        public Vector2D Center { get; }
+        public Vec2D Center { get; }
 
-        public LandingArea(Vector2D p1, Vector2D p2)
+        public LandingArea(Vec2D p1, Vec2D p2)
         {
             if (p1.Y != p2.Y) throw new ArgumentException("Linie must be horizontal");
             if (p2.X < p1.X) throw new ArgumentException("p2.X must be greater then p1.X");
@@ -67,8 +69,8 @@ namespace MoonlanderControl.Model
             }
 
 
-            panel.DrawLine(new Pen(Color.Red, 4), p1, p1 - new Vector2D(0, 15));
-            panel.DrawLine(new Pen(Color.Red, 4), p2, p2 - new Vector2D(0, 15));
+            panel.DrawLine(new Pen(Color.Red, 4), p1.ToGrx(), (p1 - new Vec2D(0, 15)).ToGrx());
+            panel.DrawLine(new Pen(Color.Red, 4), p2.ToGrx(), (p2 - new Vec2D(0, 15)).ToGrx());
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using GraphicMinimal;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using System;
 using System.Drawing;
 
@@ -59,7 +58,7 @@ namespace BridgeBuilderControl.Controls.Helper
             SetCameraZoom();
         }
 
-        public void MoveCameraWithMouse(Vector2D screenMousePosition)
+        public void MoveCameraWithMouse(Vec2D screenMousePosition)
         {
             float border = 50;
 
@@ -70,7 +69,7 @@ namespace BridgeBuilderControl.Controls.Helper
             if (screenMousePosition.Y < border) y = -1;
             if (screenMousePosition.Y > this.screenHeight - border) y = +1;
 
-            MoveCamera(new Vector2D(x, y));
+            MoveCamera(new Vec2D(x, y));
         }
 
         public void SetZoom(bool zoomInIsPressed, bool zoomOutIsPressed)
@@ -103,7 +102,7 @@ namespace BridgeBuilderControl.Controls.Helper
         }
 
         //Bewegt die Kamera in XY-Richtung aber nur so weit, dass sie im Sichtbereich des Levels bleibt
-        private void MoveCamera(Vector2D translate)
+        private void MoveCamera(Vec2D translate)
         {
             float step = 0.01f;
             this.X += this.GetScreenBox().Width * translate.X * step;
@@ -111,7 +110,7 @@ namespace BridgeBuilderControl.Controls.Helper
 
             //Sorge dafür, dass man die Kamera nicht außerhalb des Levelrands verschiebt
             //Der DrawingHelper zeichnet das Level im Bereich von (0..xCount; 0..yCount)
-            var max = new Vector2D(xCount - xCount / this.userZoom, yCount - yCount / this.Zoom);
+            var max = new Vec2D(xCount - xCount / this.userZoom, yCount - yCount / this.Zoom);
 
             if (this.X > max.X)
                 this.X = max.X;

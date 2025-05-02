@@ -1,6 +1,6 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
 using LevelEditorGlobal;
+using PhysicGlobal;
 using System.Drawing;
 
 namespace LevelEditorControl.LevelItems
@@ -14,11 +14,11 @@ namespace LevelEditorControl.LevelItems
         void Draw(GraphicPanel2D panel);
         void DrawBorder(GraphicPanel2D panel, Pen borderPen);
         void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor);
-        bool IsPointInside(Vector2D point);
+        bool IsPointInside(Vec2D point);
         object GetExportData();
-        Vector2D PivotPoint { get; set; } //Hiermit kann das Objekt verschoben werden
+        Vec2D PivotPoint { get; set; } //Hiermit kann das Objekt verschoben werden
         RectangleF GetBoundingBox();
-        Vector2D[] GetCornerPoints(); //4 Eckpunkte vom Physik/Backgrounditem/Lawn oder die Polygonpunkte -> Zum Selektieren per Rechteck
+        Vec2D[] GetCornerPoints(); //4 Eckpunkte vom Physik/Backgrounditem/Lawn oder die Polygonpunkte -> Zum Selektieren per Rechteck
     }
 
     internal interface IRotateableLevelItem : ILevelItem

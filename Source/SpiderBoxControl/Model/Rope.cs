@@ -1,6 +1,5 @@
 ﻿using DynamicData;
 using GameHelper.Simulation;
-using GraphicMinimal;
 using GraphicPanels;
 using LevelEditorGlobal;
 using PhysicGlobal;
@@ -194,11 +193,11 @@ namespace SpiderBoxControl.Model
                 };
                 distanceJoints.Add(distanceJoint);
 
-                tags.Add(new PhysicSceneTagdataEntry(ITagable.TagType.Joint, -1, i, new string[] { "DistanceRope" }, 0, new Vector2D[0]));
+                tags.Add(new PhysicSceneTagdataEntry(ITagable.TagType.Joint, -1, i, new string[] { "DistanceRope" }, 0, new Vec2D[0]));
             }
 
-            tags.Add(new PhysicSceneTagdataEntry(ITagable.TagType.Body, -1, 0, new string[] { "FirstCircleRope" }, 0, new Vector2D[0]));
-            tags.Add(new PhysicSceneTagdataEntry(ITagable.TagType.Body, -1, circles.Count - 1, new string[] { "LastCircleRope" }, 0, new Vector2D[0]));
+            tags.Add(new PhysicSceneTagdataEntry(ITagable.TagType.Body, -1, 0, new string[] { "FirstCircleRope" }, 0, new Vec2D[0]));
+            tags.Add(new PhysicSceneTagdataEntry(ITagable.TagType.Body, -1, circles.Count - 1, new string[] { "LastCircleRope" }, 0, new Vec2D[0]));
 
             var levelItemData = new PhysikLevelItemExportData()
             {

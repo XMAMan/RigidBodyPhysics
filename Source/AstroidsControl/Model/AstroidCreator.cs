@@ -114,7 +114,7 @@ namespace AstroidsControl.Model
             var velocity = (boxPoint - borderPosition).Normalize() * 0.1f;
             var copyData = new PhysikLevelItemExportData(this.satellitExport); //Kopie vom Original-Export erstellen
             float angleInDegree = Vec2D.Angle360(new Vec2D(-1, 0), velocity);
-            LevelItemExportHelper.MoveToPivotPoint(copyData, (borderPosition + velocity).ToGrx(), LevelItemExportHelper.PivotOriantation.Center, 1, angleInDegree); //Kopie bearbeiten
+            LevelItemExportHelper.MoveToPivotPoint(copyData, borderPosition + velocity, LevelItemExportHelper.PivotOriantation.Center, 1, angleInDegree); //Kopie bearbeiten
             LevelItemExportHelper.SetVelocityFromAllBodies(copyData, velocity);
             if (this.simulator.GetCollisionPointsFromExternLevelItemWithScene(copyData).Length > 0) return null;
             return copyData;

@@ -1,4 +1,4 @@
-﻿using GraphicMinimal;
+﻿using PhysicGlobal;
 
 namespace LevelEditorGlobal
 {
@@ -32,6 +32,6 @@ namespace LevelEditorGlobal
         public byte PrototypColor { get; set; } = 0;
         public string Name { get; set; } = string.Empty;
         public byte Color { get; set; } = 0;
-        public Vector2D[] AnchorPoints { get; set; }
+        public Vec2D[] AnchorPoints { get; set; }
     }
 }

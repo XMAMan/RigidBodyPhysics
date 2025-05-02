@@ -55,14 +55,14 @@ namespace PhysicItemEditorControl.Model.MouseClickable
             }
         }
 
-        public bool IsPointInside(Vector2D point, Matrix4x4 screenToLocal)
+        public bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal)
         {
             screenToLocal *= Matrix4x4.Translate(sceneBoundingBox.X, sceneBoundingBox.Y, 0);
-            point = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY;
+            point = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY.ToPhx();
 
             float r = 25;
-            var dir = runtimAxialFriction.ForceDirection.ToGrx();
-            var pos = runtimAxialFriction.Anchor.ToGrx();
+            var dir = runtimAxialFriction.ForceDirection;
+            var pos = runtimAxialFriction.Anchor;
             var p1 = pos - dir * r;
             var p2 = pos + dir * r;
             return MathHelper.IsPointAboveLine(p1, p2, point);

@@ -12,7 +12,7 @@ namespace PhysicSceneDrawing
     {
         private IPublicRigidPolygon r;
         private TextureExportData p;
-        private Vector2D[] uvCoords;
+        private Vec2D[] uvCoords;
         public float ZValue { get => p.ZValue; }
         public bool IsInvisible { get => p.IsInvisible; }
         public PhysicGlobal.BoundingBox PhysicBoundingBox
@@ -46,7 +46,7 @@ namespace PhysicSceneDrawing
             uvCoords = GetUVCoords();
         }
 
-        private Vector2D[] GetUVCoords()
+        private Vec2D[] GetUVCoords()
         {
             //Texturrechteck, was um Delta verschoben wurde und dann noch Polygon.AngleInDegree gedreht wurde
             var texPoints = GetTextureBorderPoints();
@@ -63,10 +63,10 @@ namespace PhysicSceneDrawing
                 .Select(x => Vec2D.RotatePointAroundPivotPoint(exportData.Center, x, angleInDegree))
                 .ToList();
 
-            List<Vector2D> coords = new List<Vector2D>();
+            List<Vec2D> coords = new List<Vec2D>();
             foreach (var local in globalPoints)
             {
-                var tex = new Vector2D((local - texPoints[0]) * xDir / xLength, (local - texPoints[0]) * yDir / yLength);
+                var tex = new Vec2D((local - texPoints[0]) * xDir / xLength, (local - texPoints[0]) * yDir / yLength);
                 coords.Add(tex);
             }
 
@@ -91,7 +91,7 @@ namespace PhysicSceneDrawing
             List<Vertex2D> points = new List<Vertex2D>();
             for (int i = 0; i < uvCoords.Length; i++)
             {
-                points.Add(new Vertex2D(r.Vertex[i].ToGrx(), uvCoords[i]));
+                points.Add(new Vertex2D(r.Vertex[i].ToGrx(), uvCoords[i].ToGrx()));
             }
 
             panel.DrawFillPolygon(p.TextureFile, p.MakeFirstPixelTransparent, p.ColorFactor, points.ToList());

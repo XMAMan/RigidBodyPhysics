@@ -1,5 +1,4 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
 using LevelEditorControl.Controls.PolygonControl;
 using LevelEditorControl.LevelItems.BackgroundItem;
 using LevelEditorControl.LevelItems.GroupedItems;
@@ -26,8 +25,8 @@ namespace LevelEditorControl.LevelItems
         {
             if (boxes.Any() == false) return new RectangleF(0, 0, 0, 0);
 
-            Vector2D min = new Vector2D(float.MaxValue, float.MaxValue);
-            Vector2D max = new Vector2D(float.MinValue, float.MinValue);
+            Vec2D min = new Vec2D(float.MaxValue, float.MaxValue);
+            Vec2D max = new Vec2D(float.MinValue, float.MinValue);
             foreach (var box in boxes)
             {
                 min.X = Math.Min(min.X, box.X);
@@ -39,15 +38,15 @@ namespace LevelEditorControl.LevelItems
             return new RectangleF(min.X, min.Y, max.X - min.X, max.Y - min.Y);
         }
 
-        public static RectangleF CreateRectangle(Vector2D mouseDownPoint, Vector2D mousePosition)
+        public static RectangleF CreateRectangle(Vec2D mouseDownPoint, Vec2D mousePosition)
         {
-            Vector2D min = new Vector2D(Math.Min(mouseDownPoint.X, mousePosition.X), Math.Min(mouseDownPoint.Y, mousePosition.Y));
-            Vector2D max = new Vector2D(Math.Max(mouseDownPoint.X, mousePosition.X), Math.Max(mouseDownPoint.Y, mousePosition.Y));
+            Vec2D min = new Vec2D(Math.Min(mouseDownPoint.X, mousePosition.X), Math.Min(mouseDownPoint.Y, mousePosition.Y));
+            Vec2D max = new Vec2D(Math.Max(mouseDownPoint.X, mousePosition.X), Math.Max(mouseDownPoint.Y, mousePosition.Y));
 
             var range = max - min;
             return new RectangleF(min.X, min.Y, range.X, range.Y);
         }
-        public static bool IsPointInRectangle(RectangleF rec, Vector2D point)
+        public static bool IsPointInRectangle(RectangleF rec, Vec2D point)
         {
             return point.X >= rec.Left && point.X <= rec.Right && point.Y >= rec.Top && point.Y <= rec.Bottom;
         }
@@ -84,7 +83,7 @@ namespace LevelEditorControl.LevelItems
             if (grid.ShowGrid)
             {
                 panel.ZValue2D = -1; //Grid soll vor dem BackgroundPolygonen liegen aber hinter den Physic/Backgrounditems
-                grid.Draw(panel, camera.LengthToCamera(1), new Vector2D(camera.X, camera.Y));
+                grid.Draw(panel, camera.LengthToCamera(1), new Vec2D(camera.X, camera.Y));
             }
 
 
@@ -136,7 +135,7 @@ namespace LevelEditorControl.LevelItems
             panel.DrawRectangle(new Pen(Color.Red, 3), (int)min.X, (int)min.Y, (int)size.Width, (int)size.Height);
         }
 
-        public static ILevelItem BuildFromPrototyp(IPrototypItem item, Vector2D position, int id)
+        public static ILevelItem BuildFromPrototyp(IPrototypItem item, Vec2D position, int id)
         {
             switch (item.ProtoType)
             {

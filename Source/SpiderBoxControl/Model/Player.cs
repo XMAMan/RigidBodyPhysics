@@ -77,7 +77,7 @@ namespace SpiderBoxControl.Model
             if (button == MouseButtons.Left && this.rope == null)
             {
                 var p1 = this.arm.Center;
-                var p2 = this.armTip.GetPosition().ToPhx();
+                var p2 = this.armTip.GetPosition();
                 float f = 0.9f;
                 var p = p1 * (1 - f) + p2 * f;
                 var initialVelocity = (p2 - p1).Normalize() * this.Power * 2;
@@ -143,8 +143,8 @@ namespace SpiderBoxControl.Model
         //0 = Arm zeigt nach links; 1 = Arm zeigt nach rechts
         private float GetArmAngleFromMouse(Vec2D mousePosition)
         {
-            var p1 = this.tonMiddleUp.GetPosition().ToPhx();
-            var p2 = this.tonRightUp.GetPosition().ToPhx();
+            var p1 = this.tonMiddleUp.GetPosition();
+            var p2 = this.tonRightUp.GetPosition();
 
             var v1 = p2 - p1;
             var v2 = mousePosition - p1;
@@ -168,7 +168,7 @@ namespace SpiderBoxControl.Model
             {
                 //Zielpunkt
                 var tip = this.armTip.GetPosition();
-                var dir = (tip.ToPhx() - this.arm.Center).Normalize();
+                var dir = (tip - this.arm.Center).Normalize();
                 var targetPoint = this.arm.Center + dir * (80 + 20 * this.Power);
                 //panel.DrawLine(new Pen(Color.Red, 2), targetPoint.ToGrx(), tip);
                 //panel.DrawFillCircle(Color.Red, targetPoint.ToGrx(), 5);

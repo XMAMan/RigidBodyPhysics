@@ -1,18 +1,18 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
+using PhysicGlobal;
 
 namespace GameHelper.ParticleHandling
 {
     public class Particle
     {
         private ColorInterpolator colorInterpolator;
-        private Vector2D position;
-        private Vector2D velocity;
+        private Vec2D position;
+        private Vec2D velocity;
         private float lifeTime; //Geht von 0 bis 1
         private float agingRate;
         private float size;
 
-        public Particle(ColorInterpolator colorInterpolator, Vector2D position, Vector2D velocity, float agingRate, float size)
+        public Particle(ColorInterpolator colorInterpolator, Vec2D position, Vec2D velocity, float agingRate, float size)
         {
             this.colorInterpolator = colorInterpolator;
             this.position = position;

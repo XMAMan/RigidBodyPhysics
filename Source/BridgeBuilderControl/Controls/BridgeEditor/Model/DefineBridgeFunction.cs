@@ -1,7 +1,6 @@
 ﻿using BridgeBuilderControl.Controls.Helper;
 using BridgeBuilderControl.Controls.LevelEditor;
 using BridgeBuilderControl.Controls.Simulator.Model;
-using GraphicMinimal;
 using GraphicPanels;
 using PhysicGlobal;
 using RigidBodyPhysics.MathHelper;
@@ -20,8 +19,8 @@ namespace BridgeBuilderControl.Controls.BridgeEditor.Model
         private GraphicPanel2D panel;
         private EditorCamera camera;
         private LevelExport levelData;
-        private Vector2D mousePosition = new Vector2D(0, 0); //Maus-Position im Kameraspace
-        private Vector2D screenMousePosition = new Vector2D(0, 0);
+        private Vec2D mousePosition = new Vec2D(0, 0); //Maus-Position im Kameraspace
+        private Vec2D screenMousePosition = new Vec2D(0, 0);
         enum State { PlacePoint1, PlacePoint2 };
         private State state = State.PlacePoint1;
         private List<Bar> bars = new List<Bar>();
@@ -198,7 +197,7 @@ namespace BridgeBuilderControl.Controls.BridgeEditor.Model
             return this.levelData.Budget > cost;
         }
 
-        private List<Bar> GetSelectedBars(Vector2D pixelPosition)
+        private List<Bar> GetSelectedBars(Vec2D pixelPosition)
         {
             List<Bar> bars = new List<Bar>();
 
@@ -218,7 +217,7 @@ namespace BridgeBuilderControl.Controls.BridgeEditor.Model
         }
 
         //Darf an diesen Punkt das Endstück von einer Brückenstange definiert werden?
-        private bool IsValidBarPoint(Vector2D pixelPoint, bool isPoint1)
+        private bool IsValidBarPoint(Vec2D pixelPoint, bool isPoint1)
         {
             var state = GetMouseHoverState(pixelPoint);
             if (isPoint1)
@@ -253,9 +252,8 @@ namespace BridgeBuilderControl.Controls.BridgeEditor.Model
 
         public void HandleMouseMove(MouseEventArgs e)
         {
-            this.mousePosition = this.camera.PointToCamera(new PointF(e.X, e.Y)).ToGrx();
-            //this.mousePosition = new Vector2D(e.X, e.Y);
-            this.screenMousePosition = new Vector2D(e.X, e.Y);
+            this.mousePosition = this.camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
+            this.screenMousePosition = new Vec2D(e.X, e.Y);
             this.mouseHoverState = GetMouseHoverState(this.mousePosition);
             this.selectedBars = GetSelectedBars(this.mousePosition);
         }
@@ -309,7 +307,7 @@ namespace BridgeBuilderControl.Controls.BridgeEditor.Model
             return false;
         }
 
-        private MouseHoverState GetMouseHoverState(Vector2D mousePosition)
+        private MouseHoverState GetMouseHoverState(Vec2D mousePosition)
         {
             var mouse = MouseGrid.SnapToInteger(mousePosition);
 
@@ -339,10 +337,10 @@ namespace BridgeBuilderControl.Controls.BridgeEditor.Model
             return p1.X == p2.X && p1.Y == p2.Y;
         }
 
-        private bool IsPointInGround(Vector2D point)
+        private bool IsPointInGround(Vec2D point)
         {
             var groundPoly = DrawingHelper.GetGroundPolygon(this.levelData.GroundPolygon, this.levelData.GroundHeight, this.levelData.XCount, this.levelData.YCount);
-            return PolygonHelper.PointIsInsidePolygon(groundPoly.ToPhx(), point.ToPhx());
+            return PolygonHelper.PointIsInsidePolygon(groundPoly, point);
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
 using GraphicPanelWpf;
 using ReactiveUI.Fody.Helpers;
 using ReactiveUI;
@@ -19,6 +18,7 @@ using DynamicData.Binding;
 using DynamicData;
 using System.Drawing;
 using Local = TextureEditorControl;
+using PhysicGlobal;
 
 namespace TextureEditorControl.Controls.Editor
 {
@@ -30,7 +30,7 @@ namespace TextureEditorControl.Controls.Editor
         private Drawer drawer = null;
         private TextureClickPoint selectedTexturePoint = null;
         private TextureClickPoint mouseOverPoint = null;
-        private Vector2D mousePosition;
+        private Vec2D mousePosition;
         private bool shiftIsPressed = false;
 
         public ReactiveCommand<Unit, Unit> ImportPhysicSceneClick { get; private set; }
@@ -155,7 +155,7 @@ namespace TextureEditorControl.Controls.Editor
                 }
                 else if (this.mousePosition != null)
                 {
-                    panel.DrawFillRectangle("Cursor", mousePosition.Xi, mousePosition.Yi, 20, 30, true, Color.White);
+                    panel.DrawFillRectangle("Cursor", (int)mousePosition.X, (int)mousePosition.Y, 20, 30, true, Color.White);
                 }
             }
             else
@@ -163,7 +163,7 @@ namespace TextureEditorControl.Controls.Editor
                 panel.ClearScreen(Color.White);
 
                 if (this.mousePosition != null)
-                    panel.DrawFillRectangle("Cursor", mousePosition.Xi, mousePosition.Yi, 20, 30, true, Color.White);
+                    panel.DrawFillRectangle("Cursor", (int)mousePosition.X, (int)mousePosition.Y, 20, 30, true, Color.White);
 
                 panel.FlipBuffer();
             }
@@ -179,7 +179,7 @@ namespace TextureEditorControl.Controls.Editor
         }
         public void HandleMouseMove(System.Windows.Forms.MouseEventArgs e)
         {
-            this.mousePosition = new Vector2D(e.X, e.Y);
+            this.mousePosition = new Vec2D(e.X, e.Y);
             Refresh();
 
             if (this.CameraViewModel == null) return;

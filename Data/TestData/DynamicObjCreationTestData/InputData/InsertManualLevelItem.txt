@@ -869,12 +869,10 @@
             "SizeFactor": 1.0,
             "AngleInDegree": 0.0,
             "LocalPivot": {
-              "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+              "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 0.0,
               "Y": 0.0,
-              "Xi": 0,
-              "Yi": 0
-            }
+			}
           },
           "CameraTrackedRigidBodyIds": null
         }
@@ -889,21 +887,17 @@
         "LevelItemId": 1,
         "PrototypId": 1,
         "Position": {
-          "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 220.0,
           "Y": 105.0,
-          "Xi": 220,
-          "Yi": 105
-        },
+		},
         "SizeFactor": 0.47550663,
         "AngleInDegree": 0.0,
         "LocalPivot": {
-          "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 0.0,
           "Y": 0.0,
-          "Xi": 0,
-          "Yi": 0
-        }
+			}
       }
     ]
   },
@@ -1011,7 +1005,7 @@
           "Name": "Original",
           "Color": 0,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1021,17 +1015,17 @@
           "Name": "body1",
           "Color": 1,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": [
               {
-                "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+                "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                 "X": -146.5,
                 "Y": -51.839996,
                 "Xi": -146,
                 "Yi": -51
               },
               {
-                "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+                "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                 "X": 145.5,
                 "Y": 50.160004,
                 "Xi": 145,
@@ -1046,7 +1040,7 @@
           "Name": "body2",
           "Color": 2,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1056,7 +1050,7 @@
           "Name": "body3",
           "Color": 3,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1066,7 +1060,7 @@
           "Name": "body4",
           "Color": 4,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1076,7 +1070,7 @@
           "Name": "joint1",
           "Color": 5,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1086,7 +1080,7 @@
           "Name": "joint2",
           "Color": 6,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1096,7 +1090,7 @@
           "Name": "joint3",
           "Color": 7,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1106,7 +1100,7 @@
           "Name": "motor1",
           "Color": 9,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1116,7 +1110,7 @@
           "Name": "thruster1",
           "Color": 8,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         }

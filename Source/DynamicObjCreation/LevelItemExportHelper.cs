@@ -12,12 +12,12 @@ namespace DynamicObjCreation
         public enum PivotOriantation { Center, TopLeft, BottomCenter };
 
         //Bewegt das Zentrem/LinkeObereRecke/UntenMitte vom LevelItem zum pivotPoint und skaliert dabei das Objekt im size und dreht es um angleInDegree
-        public static void MoveToPivotPoint(PhysikLevelItemExportData levelItem, Vector2D pivotPoint, PivotOriantation oriantation, float size, float angleInDegree)
+        public static void MoveToPivotPoint(PhysikLevelItemExportData levelItem, Vec2D pivotPoint, PivotOriantation oriantation, float size, float angleInDegree)
         {
             var box = PhysicSceneExportDataHelper.GetBoundingBoxFromScene(levelItem.PhysicSceneData);
 
             //An dieser Stelle liegt der Pivot-Punkt vom LevelItem
-            var itemPivot = new Vector2D(box.Min.X, box.Min.Y) + GetOriantationPoint(new SizeF(box.Width, box.Height), oriantation);
+            var itemPivot = new Vec2D(box.Min.X, box.Min.Y) + GetOriantationPoint(new SizeF(box.Width, box.Height), oriantation);
 
             var m = Matrix4x4.Ident();
 
@@ -37,18 +37,18 @@ namespace DynamicObjCreation
             }
         }
 
-        private static Vector2D GetOriantationPoint(SizeF size, PivotOriantation oriantation)
+        private static Vec2D GetOriantationPoint(SizeF size, PivotOriantation oriantation)
         {
             switch(oriantation)
             {
                 case PivotOriantation.Center:
-                    return new Vector2D(size.Width / 2, size.Height / 2);
+                    return new Vec2D(size.Width / 2, size.Height / 2);
 
                 case PivotOriantation.TopLeft:
-                    return new Vector2D(0, 0);
+                    return new Vec2D(0, 0);
 
                 case PivotOriantation.BottomCenter:
-                    return new Vector2D(size.Width / 2, size.Height);
+                    return new Vec2D(size.Width / 2, size.Height);
             }
 
             throw new NotImplementedException();

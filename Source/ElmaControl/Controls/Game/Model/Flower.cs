@@ -1,8 +1,8 @@
 ﻿using GameHelper;
 using GameHelper.Simulation;
-using GraphicMinimal;
 using GraphicPanels;
 using GraphicPanelWpf;
+using PhysicGlobal;
 using PhysicSceneDrawing;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using System;
@@ -18,7 +18,7 @@ namespace ElmaControl.Controls.Game.Model
         private Bike bike;
         private Apples apples;
 
-        public Vector2D Center { get => this.circle.Center.ToGrx(); }
+        public Vec2D Center { get => this.circle.Center; }
         public float Radius { get => this.circle.Radius; }
 
         public event Action BikeIsTouching;
@@ -57,7 +57,7 @@ namespace ElmaControl.Controls.Game.Model
 
         public void Draw(GraphicPanel2D panel)
         {
-            this.sprite.Draw(panel, this.circle.Center.ToGrx());
+            this.sprite.Draw(panel, this.circle.Center);
         }
 
         //Wird für die Minimap benötigt

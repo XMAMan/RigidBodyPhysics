@@ -1,8 +1,7 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
 using GraphicPanelWpf;
+using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
-using WpfControls.Extensions;
 
 namespace GameHelper.ParticleHandling
 {
@@ -64,21 +63,21 @@ namespace GameHelper.ParticleHandling
         {
             List<Particle> particles = new List<Particle>();
 
-            Vector2D p0 = r.Vertex[0].ToGrx();
-            Vector2D v1 = r.Vertex[1].ToGrx() - r.Vertex[0].ToGrx();
-            Vector2D v2 = r.Vertex[3].ToGrx() - r.Vertex[0].ToGrx();
-            Vector2D center = r.Center.ToGrx();
+            Vec2D p0 = r.Vertex[0];
+            Vec2D v1 = r.Vertex[1] - r.Vertex[0];
+            Vec2D v2 = r.Vertex[3] - r.Vertex[0];
+            Vec2D center = r.Center;
 
             var colorInterpolator = new ColorInterpolator(new Color[] { color1, color2 });
 
             for (int i = 0; i < count; i++)
             {
-                Vector2D position = p0 + v1 * (float)rand.NextDouble() + v2 * (float)rand.NextDouble();
-                Vector2D direction = (position - center).Normalize();
+                Vec2D position = p0 + v1 * (float)rand.NextDouble() + v2 * (float)rand.NextDouble();
+                Vec2D direction = (position - center).Normalize();
 
                 float fVel = (float)rand.NextDouble();
                 fVel = fVel / 8 + 0.25f;
-                Vector2D velocity = direction * fVel;
+                Vec2D velocity = direction * fVel;
 
                 float agingRate = 0.001f;
 
@@ -94,7 +93,7 @@ namespace GameHelper.ParticleHandling
         {
             List<Particle> particles = new List<Particle>();
 
-            var center = poly.Center.ToGrx();
+            var center = poly.Center;
             float radius = (poly.Vertex[0] - poly.Center).Length();
 
             var colorInterpolator = new ColorInterpolator(new Color[] { color1, color2 });
@@ -102,13 +101,13 @@ namespace GameHelper.ParticleHandling
             for (int i = 0; i < count; i++)
             {
                 double rad = 2 * Math.PI * rand.NextDouble();
-                Vector2D position = center + new Vector2D((float)Math.Cos(rad), (float)Math.Sin(rad)) * radius * (float)rand.NextDouble();
-                Vector2D direction = (position - center).Normalize();
+                Vec2D position = center + new Vec2D((float)Math.Cos(rad), (float)Math.Sin(rad)) * radius * (float)rand.NextDouble();
+                Vec2D direction = (position - center).Normalize();
 
 
                 float fVel = (float)rand.NextDouble();
                 fVel = fVel / 8 + 0.25f;
-                Vector2D velocity = direction * fVel;
+                Vec2D velocity = direction * fVel;
 
                 float agingRate = 0.001f;
 

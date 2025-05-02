@@ -1,6 +1,8 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
 using GraphicPanelWpf;
+using PhysicGlobal;
+using WpfControls.Extensions;
 
 namespace GameHelper
 {
@@ -18,7 +20,7 @@ namespace GameHelper
         public int ImageCount { get; private set; }//Für gewöhnlich ist imageCount=xCount*yCount aber wenn in der letzten Reihe Bilder fehlen, dann kann imageCount auch kleiner sein
         public int PivotX { get; private set; }
         public int PivotY { get; private set; }
-        public Vector2D Pivot { get; private set; }
+        public Vec2D Pivot { get; private set; }
         public bool AnimateOneTime { get; private set; } = false; //true = Animation wird nur einmal angezeigt. Danach kann dann per Reset() zurück an den Anfang gesprungen werden; false = Animation beginnt von alleine wieder von vorne 
         public float Zoom { get; set; } = 1;
         public float RotateZAngleInDegree { get; set; } = 0;
@@ -44,7 +46,7 @@ namespace GameHelper
             this.Height = image.Height / yCount;
             this.PivotX = pivotX;
             this.PivotY = pivotY;
-            this.Pivot = new Vector2D(pivotX, pivotY);
+            this.Pivot = new Vec2D(pivotX, pivotY);
             this.AnimateOneTime = animateOneTime;
         }
 
@@ -78,12 +80,12 @@ namespace GameHelper
         }
 
         //position = An dieser Stelle wird der Pivotpixel des aktiven EInzelbildes gezeichnet werden
-        public void Draw(GraphicPanel2D panel, Vector2D position)
+        public void Draw(GraphicPanel2D panel, Vec2D position)
         {
             DrawSingleImage(panel, position, this.spriteNr);
         }
 
-        public void DrawSingleImage(GraphicPanel2D panel, Vector2D position, int imageIndex)
+        public void DrawSingleImage(GraphicPanel2D panel, Vec2D position, int imageIndex)
         {
             panel.PushMatrix();
 
@@ -93,7 +95,7 @@ namespace GameHelper
             panel.PopMatrix();
         }
 
-        public Matrix4x4 GetLocalToWorldMatrix(Vector2D position)
+        public Matrix4x4 GetLocalToWorldMatrix(Vec2D position)
         {
             var m = Matrix4x4.Ident();
 
@@ -107,7 +109,7 @@ namespace GameHelper
         }
 
         //Ungedrehte BoundingBox
-        public Rectangle GetBoundingBox(Vector2D position)
+        public Rectangle GetBoundingBox(Vec2D position)
         {
             var points = GetCornerPoints(position);
 
@@ -119,16 +121,16 @@ namespace GameHelper
         }
 
         //BoundingBox welche gedreht wurde
-        public Vector2D[] GetCornerPoints(Vector2D position)
+        public Vec2D[] GetCornerPoints(Vec2D position)
         {
             var localToWorld = GetLocalToWorldMatrix(position);
 
-            return new Vector2D[]
+            return new Vec2D[]
             {
-                Matrix4x4.MultPosition(localToWorld, new Vector3D(0, 0, 0)).XY,
-                Matrix4x4.MultPosition(localToWorld, new Vector3D(Width, 0, 0)).XY,
-                Matrix4x4.MultPosition(localToWorld, new Vector3D(Width, Height, 0)).XY,
-                Matrix4x4.MultPosition(localToWorld, new Vector3D(0, Height, 0)).XY
+                Matrix4x4.MultPosition(localToWorld, new Vector3D(0, 0, 0)).XY.ToPhx(),
+                Matrix4x4.MultPosition(localToWorld, new Vector3D(Width, 0, 0)).XY.ToPhx(),
+                Matrix4x4.MultPosition(localToWorld, new Vector3D(Width, Height, 0)).XY.ToPhx(),
+                Matrix4x4.MultPosition(localToWorld, new Vector3D(0, Height, 0)).XY.ToPhx()
             };
         }
     }

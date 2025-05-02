@@ -8,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TextureEditorGlobal;
-using KeyFrameEditorControl.Controls.KeyFrameEditor;
 
 namespace PhysicItemEditorControl.Model.PhysicTabMerging
 {

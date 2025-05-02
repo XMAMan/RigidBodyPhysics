@@ -4,7 +4,6 @@ using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorThruster;
 using PhysicGlobal;
 using WpfControls.Model;
-using WpfControls.Extensions;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Shapes
 {
@@ -46,7 +45,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Shapes
             if (selectedShape != null && centerToMouseDown != null)
             {
                 var newPos = new Vec2D(e.X, e.Y) - centerToMouseDown;
-                newPos = this.mouseGrid.SnapMouse(newPos.ToGrx()).ToPhx();
+                newPos = this.mouseGrid.SnapMouse(newPos);
                 selectedShape.MoveTo(newPos);
 
                 UpdateJointsAndThrusters(this.selectedShape);

@@ -1,8 +1,10 @@
 ﻿using GraphicMinimal;
 using GraphicPanels;
+using PhysicGlobal;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using WpfControls.Extensions;
 
 namespace BridgeBuilderControl.Controls.Helper
 {
@@ -112,7 +114,7 @@ namespace BridgeBuilderControl.Controls.Helper
 
             for (int i = 1; i < groundPoints.Length; i++)
             {
-                panel.DrawLine(pen, groundPoints[i - 1], groundPoints[i]);
+                panel.DrawLine(pen, groundPoints[i - 1].ToGrx(), groundPoints[i].ToGrx());
             }
         }
 
@@ -122,22 +124,22 @@ namespace BridgeBuilderControl.Controls.Helper
 
             var groundPolygon = GetGroundPolygon(points, groundHeight, xCount, yCount).ToList();
 
-            panel.DrawFillPolygon(Color.FromArgb(50, 50, 50), groundPolygon);
+            panel.DrawFillPolygon(Color.FromArgb(50, 50, 50), groundPolygon.ToGrx().ToList());
         }
 
-        public static Vector2D[] GetGroundPolygon(IEnumerable<Point> points, uint groundHeight, uint xCount, uint yCount)
+        public static Vec2D[] GetGroundPolygon(IEnumerable<Point> points, uint groundHeight, uint xCount, uint yCount)
         {
             var groundPoints = GetGroundPoints(points, groundHeight, xCount).ToList();
 
             uint extraY = 200; //Sorge mit dieser Zahl dafür, dass das GroundPolygon sehr weit nach unten geht und damit bis zum unteren Fensterrand reicht
 
-            groundPoints.Add(new Vector2D(xCount, yCount + extraY));
-            groundPoints.Add(new Vector2D(0, yCount + extraY));
+            groundPoints.Add(new Vec2D(xCount, yCount + extraY));
+            groundPoints.Add(new Vec2D(0, yCount + extraY));
 
             return groundPoints.ToArray();
         }
 
-        public static Vector2D[] GetGroundPoints(IEnumerable<Point> points, uint groundHeight, uint xCount)
+        public static Vec2D[] GetGroundPoints(IEnumerable<Point> points, uint groundHeight, uint xCount)
         {
             List<Point> newPoints = new List<Point>();
             if (points.First().X > 0)
@@ -168,12 +170,12 @@ namespace BridgeBuilderControl.Controls.Helper
         public static void DrawPolyPoint(GraphicPanel2D panel, Color color, Point polyPoint, uint groundHeight)
         {
             var pixelPosition = PolyPointToPixel(polyPoint, groundHeight);
-            DrawFillCircle(panel, color, pixelPosition, 0.25f);
+            DrawFillCircle(panel, color, pixelPosition.ToGrx(), 0.25f);
         }
 
-        private static Vector2D PolyPointToPixel(Point point, uint groundHeight)
+        private static Vec2D PolyPointToPixel(Point point, uint groundHeight)
         {
-            return new Vector2D(point.X, (groundHeight + point.Y));
+            return new Vec2D(point.X, (groundHeight + point.Y));
         }
 
         //gridPoint = MouseGrid.SnapToInt
@@ -208,7 +210,7 @@ namespace BridgeBuilderControl.Controls.Helper
         }
 
 
-        public static float GetRightEdgeOfBridge(Vector2D[] groundPoints)
+        public static float GetRightEdgeOfBridge(Vec2D[] groundPoints)
         {
             float groundY = groundPoints.Last().Y;
             for (int i = groundPoints.Length - 1; i > 0; i--)

@@ -1,12 +1,12 @@
 using DynamicObjCreation.RigidBodyDestroying;
 using GameHelper.Simulation;
-using GraphicMinimal;
 using GraphicPanels;
 using LevelEditorControl;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Navigation;
+using WpfControls.Extensions;
 
 namespace DynamicObjCreation.UnitTests
 {
@@ -102,7 +102,7 @@ namespace DynamicObjCreation.UnitTests
             
             foreach (var poly in polys)
             {
-                panel.DrawPolygon(new Pen(Color.Red, 2), poly.Vertex.Select(x => new Vector2D(x.X, x.Y)).ToList());
+                panel.DrawPolygon(new Pen(Color.Red, 2), poly.Vertex.ToGrx().ToList());
             }
 
             outputImage = panel.GetScreenShoot();

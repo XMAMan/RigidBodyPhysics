@@ -11,7 +11,6 @@ using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using System.Drawing;
 using TextureEditorControl;
 using TextureEditorGlobal;
-using WpfControls.Extensions;
 
 namespace LevelToSimulatorConverter
 {
@@ -28,7 +27,7 @@ namespace LevelToSimulatorConverter
 
     public interface IMergeablePhysicPolygon : IPhysicMergerItem
     {
-        Vector2D[] Points { get; }
+        Vec2D[] Points { get; }
         bool IsOutside { get; } //Zeigen die Normalen nach Außen?
         int ZOrder { get; }
         float Friction { get; }
@@ -76,8 +75,8 @@ namespace LevelToSimulatorConverter
         //Konvertiert ein PolygonLevelItem in ein PhysicSceneExportData
         private static PhysicSceneExportData GetPhysicDataFromPolygon(IMergeablePhysicPolygon physicPolygon, int maxZOrder)
         {
-            var center = PolygonHelper.GetCenterOfMassFromPolygon(physicPolygon.Points.Select(x => x.ToPhx()).ToArray());
-            var pointsLocal = physicPolygon.Points.Select(x => x.ToPhx() - center).ToArray();
+            var center = PolygonHelper.GetCenterOfMassFromPolygon(physicPolygon.Points);
+            var pointsLocal = physicPolygon.Points.Select(x => x - center).ToArray();
 
             var polygonType = physicPolygon.IsOutside ? PolygonCollisionType.EdgeWithNormalsPointingOutside : PolygonCollisionType.EdgeWithNormalsPointingInside;
             if (physicPolygon.ZOrder == maxZOrder && physicPolygon.IsOutside == true) polygonType = PolygonCollisionType.Rigid; //Das innerste Polygon darf Rigid sein (dort kann die Kollisionsabfrage auch Objekte rausdrücken, die komplett innerhalb vom Polygon liegen)
@@ -196,7 +195,7 @@ namespace LevelToSimulatorConverter
             var polyBox = PhysicGlobal.BoundingBox.GetBoxFromBoxes(items
                 .Where(x => x is IMergeablePhysicPolygon)
                 .Cast<IMergeablePhysicPolygon>()
-                .Select(x => PolygonHelper.GetBoundingBoxFromPolygon(x.Points.Select(y => y.ToPhx()).ToArray()))
+                .Select(x => PolygonHelper.GetBoundingBoxFromPolygon(x.Points))
                 );
 
             for (int i = 0; i < items.Count; i++)

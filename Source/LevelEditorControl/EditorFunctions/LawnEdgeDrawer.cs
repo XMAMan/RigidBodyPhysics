@@ -1,10 +1,11 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
 using LevelEditorControl.LevelItems.Polygon;
+using PhysicGlobal;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using WpfControls.Extensions;
 
 namespace LevelEditorControl.EditorFunctions
 {
@@ -17,8 +18,8 @@ namespace LevelEditorControl.EditorFunctions
 
             public int Index;   //Index aus polygon.Points-Array
             public float FPos;  //0..1: 0 -> Punkt liegt bei Point[Index]; 1 -> Punkt liegt bei Point[Index+1]
-            public Vector2D Position { get => GetPosition(); }
-            public Vector2D Normal { get => GetNormal(); }
+            public Vec2D Position { get => GetPosition(); }
+            public Vec2D Normal { get => GetNormal(); }
 
             public PolygonPoint(int index, float fPos, ILevelItemPolygon polygon)
             {
@@ -28,7 +29,7 @@ namespace LevelEditorControl.EditorFunctions
                 FPos = fPos;
             }
 
-            private Vector2D GetNormal()
+            private Vec2D GetNormal()
             {
                 var p1 = polygon.Points[Index % polygon.Points.Length];
                 var p2 = polygon.Points[(Index + 1) % polygon.Points.Length];
@@ -37,7 +38,7 @@ namespace LevelEditorControl.EditorFunctions
                 return normal;
             }
 
-            private Vector2D GetPosition()
+            private Vec2D GetPosition()
             {
                 var p1 = polygon.Points[Index % polygon.Points.Length];
                 var p2 = polygon.Points[(Index + 1) % polygon.Points.Length];
@@ -53,15 +54,15 @@ namespace LevelEditorControl.EditorFunctions
 
         public class PolygonWith4Points
         {
-            public Vector2D[] Points;
+            public Vec2D[] Points;
 
-            public PolygonWith4Points(Vector2D[] points)
+            public PolygonWith4Points(Vec2D[] points)
             {
                 if (points.Length != 4) throw new ArgumentException("This polygon has only 4 Points");
                 Points = points;
             }
 
-            public bool IsPointInside(Vector2D point)
+            public bool IsPointInside(Vec2D point)
             {
                 return MathHelper.PointIsInsidePolygon(this.Points, point);
             }
@@ -101,13 +102,13 @@ namespace LevelEditorControl.EditorFunctions
                 var center = (p1A + p2B) / 2;
                 float width = (p1A - p2A).Length();
 
-                float angle = Vector2D.Angle360(new Vector2D(1, 0), (p1A - p2A).Normalize());
+                float angle = Vec2D.Angle360(new Vec2D(1, 0), (p1A - p2A).Normalize());
                 if (this.polygon.IsOutside == false) angle += 180;
 
                 if (string.IsNullOrEmpty(texture) == false)
-                    panel.DrawFillRectangle(texture, center.Xi, center.Yi, (int)width, (int)height, true, Color.White, angle);
+                    panel.DrawFillRectangle(texture, (int)center.X, (int)center.Y, (int)width, (int)height, true, Color.White, angle);
                 else
-                    panel.DrawPolygon(new Pen(Color.Green, 2), segment.Points.ToList());
+                    panel.DrawPolygon(new Pen(Color.Green, 2), segment.Points.ToGrx().ToList());
 
             }
 
@@ -167,7 +168,7 @@ namespace LevelEditorControl.EditorFunctions
             var p2A = p2.Position;
             var p2B = p2.Position + p2.Normal * this.LawnHeight;
 
-            return new PolygonWith4Points(new Vector2D[]
+            return new PolygonWith4Points(new Vec2D[]
             {
                 p1A, p1B, p2B, p2A
             });

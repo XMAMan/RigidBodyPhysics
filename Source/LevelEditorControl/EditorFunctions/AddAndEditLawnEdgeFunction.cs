@@ -1,5 +1,4 @@
-﻿using GraphicMinimal;
-using LevelEditorControl.LevelItems.LawnEdge;
+﻿using LevelEditorControl.LevelItems.LawnEdge;
 using LevelEditorControl.LevelItems.Polygon;
 using LevelEditorControl.LevelItems;
 using System;
@@ -10,6 +9,8 @@ using LevelEditorControl.Controls.PolygonControl;
 using ReactiveUI;
 using System.Windows.Forms;
 using System.Drawing;
+using WpfControls.Extensions;
+using PhysicGlobal;
 
 namespace LevelEditorControl.EditorFunctions
 {
@@ -113,7 +114,7 @@ namespace LevelEditorControl.EditorFunctions
 
         public override void HandleMouseMove(MouseEventArgs e)
         {
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToGrx();
+            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
 
             if (this.selectedPoint == null && (this.point1 == null || this.point2 == null))
             {
@@ -134,7 +135,7 @@ namespace LevelEditorControl.EditorFunctions
 
         public override void HandleMouseClick(MouseEventArgs e)
         {
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToGrx();
+            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
 
             if (this.point1 == null)
             {
@@ -160,7 +161,7 @@ namespace LevelEditorControl.EditorFunctions
 
         public override void HandleMouseDown(MouseEventArgs e)
         {
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToGrx();
+            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
 
             this.selectedPoint = null;
 
@@ -181,7 +182,7 @@ namespace LevelEditorControl.EditorFunctions
             this.selectedPoint = null;
         }
 
-        private LawnEdgeDrawer.PolygonPoint GetPolyPoint(Vector2D point)
+        private LawnEdgeDrawer.PolygonPoint GetPolyPoint(Vec2D point)
         {
             float lineWidth = state.Camera.LengthToCamera(40); //Die Linie vom Polygon soll 40 Pixel breit sein. 
 

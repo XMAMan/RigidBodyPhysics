@@ -579,12 +579,10 @@
             "SizeFactor": 1.0,
             "AngleInDegree": 0.0,
             "LocalPivot": {
-              "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+              "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 0.0,
               "Y": 0.0,
-              "Xi": 0,
-              "Yi": 0
-            }
+			}
           },
           "CameraTrackedRigidBodyIds": null
         },
@@ -1001,12 +999,10 @@
             "SizeFactor": 1.0,
             "AngleInDegree": 0.0,
             "LocalPivot": {
-              "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+              "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 0.0,
               "Y": 0.0,
-              "Xi": 0,
-              "Yi": 0
-            }
+			}
           },
           "CameraTrackedRigidBodyIds": null
         }
@@ -1021,42 +1017,34 @@
         "LevelItemId": 1,
         "PrototypId": 1,
         "Position": {
-          "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 843.0,
           "Y": 314.0,
-          "Xi": 843,
-          "Yi": 314
-        },
+		},
         "SizeFactor": 0.3914735,
         "AngleInDegree": 0.0,
         "LocalPivot": {
-          "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 0.0,
           "Y": 0.0,
-          "Xi": 0,
-          "Yi": 0
-        }
+			}
       },
       {
         "$type": "LevelEditorControl.LevelItems.PhysicItem.PhysicLevelItemExportData, LevelEditorControl",
         "LevelItemId": 2,
         "PrototypId": 2,
         "Position": {
-          "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 481.47888,
           "Y": 292.7211,
-          "Xi": 481,
-          "Yi": 292
-        },
+		},
         "SizeFactor": 0.37475908,
         "AngleInDegree": 0.0,
         "LocalPivot": {
-          "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 0.0,
           "Y": 0.0,
-          "Xi": 0,
-          "Yi": 0
-        }
+			}
       }
     ]
   },
@@ -1213,38 +1201,38 @@
           "Name": "rocketPolygon",
           "Color": 0,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": [
               {
-                "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+                "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                 "X": 129.20721,
                 "Y": 223.74585,
                 "Xi": 129,
                 "Yi": 223
               },
               {
-                "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+                "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                 "X": 85.82077,
                 "Y": 224.8305,
                 "Xi": 85,
                 "Yi": 224
               },
               {
-                "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+                "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                 "X": -84.47101,
                 "Y": 221.57654,
                 "Xi": -84,
                 "Yi": 221
               },
               {
-                "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+                "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                 "X": -128.94211,
                 "Y": 220.49188,
                 "Xi": -128,
                 "Yi": 220
               },
               {
-                "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+                "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                 "X": -1.340271,
                 "Y": -349.49097,
                 "Xi": -1,
@@ -1259,7 +1247,7 @@
           "Name": "rocket",
           "Color": 0,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1269,7 +1257,7 @@
           "Name": "satellit",
           "Color": 0,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1279,7 +1267,7 @@
           "Name": "thruster2",
           "Color": 0,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1289,7 +1277,7 @@
           "Name": "thruster1",
           "Color": 0,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1299,7 +1287,7 @@
           "Name": "satellitMain",
           "Color": 3,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1309,7 +1297,7 @@
           "Name": "",
           "Color": 3,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1319,7 +1307,7 @@
           "Name": "",
           "Color": 3,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1329,7 +1317,7 @@
           "Name": "",
           "Color": 3,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1339,7 +1327,7 @@
           "Name": "",
           "Color": 3,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1349,7 +1337,7 @@
           "Name": "",
           "Color": 3,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1359,7 +1347,7 @@
           "Name": "",
           "Color": 3,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1369,7 +1357,7 @@
           "Name": "",
           "Color": 3,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1379,7 +1367,7 @@
           "Name": "",
           "Color": 3,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1389,7 +1377,7 @@
           "Name": "",
           "Color": 3,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1399,7 +1387,7 @@
           "Name": "",
           "Color": 3,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1409,7 +1397,7 @@
           "Name": "",
           "Color": 3,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1419,7 +1407,7 @@
           "Name": "",
           "Color": 3,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1429,7 +1417,7 @@
           "Name": "",
           "Color": 3,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         },
@@ -1439,7 +1427,7 @@
           "Name": "",
           "Color": 3,
           "AnchorPoints": {
-            "$type": "System.Collections.Generic.List`1[[GraphicMinimal.Vector2D, GraphicMinimal]], System.Private.CoreLib",
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
             "$values": []
           }
         }

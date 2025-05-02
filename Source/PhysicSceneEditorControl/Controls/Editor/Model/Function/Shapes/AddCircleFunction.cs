@@ -36,7 +36,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Shapes
         public override void HandleMouseClick(MouseEventArgs e)
         {
             Vec2D center = new Vec2D(e.X, e.Y);
-            center = this.mouseGrid.SnapMouse(new GraphicMinimal.Vector2D(e.X, e.Y)).ToPhx();
+            center = this.mouseGrid.SnapMouse(new Vec2D(e.X, e.Y));
             shapes.Add(new EditorCircle(center, currentRadius));
         }
 

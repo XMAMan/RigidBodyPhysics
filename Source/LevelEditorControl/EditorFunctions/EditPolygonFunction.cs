@@ -1,5 +1,4 @@
-﻿using GraphicMinimal;
-using LevelEditorControl.Controls.EditPolygonControl;
+﻿using LevelEditorControl.Controls.EditPolygonControl;
 using LevelEditorControl.LevelItems.Polygon;
 using LevelEditorControl.LevelItems;
 using System;
@@ -7,6 +6,8 @@ using System.Windows.Forms;
 using System.Linq;
 using System.Collections.Generic;
 using System.Drawing;
+using WpfControls.Extensions;
+using PhysicGlobal;
 
 namespace LevelEditorControl.EditorFunctions
 {
@@ -18,15 +19,15 @@ namespace LevelEditorControl.EditorFunctions
         private EditorState state;
         private IEditablePolygon polygon;
 
-        private Vector2D mouseOverPoint = null;
+        private Vec2D mouseOverPoint = null;
         private int mouseOverPolyPointIndex = -1;
-        private Vector2D mouseOverPointOnLine = null;
+        private Vec2D mouseOverPointOnLine = null;
 
-        private Vector2D mouseDownPoint = null;
-        private Vector2D mouseDownPolyPoint = null;
-        private Vector2D mouseDownPointOnLine = null;
-        private Vector2D mouseDownPolyPivotPoint = null;
-        private Vector2D[] mouseDownSelectedPoints = null;
+        private Vec2D mouseDownPoint = null;
+        private Vec2D mouseDownPolyPoint = null;
+        private Vec2D mouseDownPointOnLine = null;
+        private Vec2D mouseDownPolyPivotPoint = null;
+        private Vec2D[] mouseDownSelectedPoints = null;
         private bool mouseDownIsInPolygon = false;
 
         private Action<MouseEventArgs?> isFinish;
@@ -66,7 +67,7 @@ namespace LevelEditorControl.EditorFunctions
 
         public override void HandleMouseMove(MouseEventArgs e)
         {
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToGrx();
+            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
 
             if (e.Button == MouseButtons.None)
             {
@@ -170,7 +171,7 @@ namespace LevelEditorControl.EditorFunctions
         }
 
         //Prüfe ob die Linien [i-1]-[i] und [i]-[i+1] andere Polygonlinien schneiden
-        private bool IsNewPolyPointPositionValid(int pointIndex, Vector2D newPosition)
+        private bool IsNewPolyPointPositionValid(int pointIndex, Vec2D newPosition)
         {
             var points = this.polygon.Points;
 
@@ -195,7 +196,7 @@ namespace LevelEditorControl.EditorFunctions
 
         public override void HandleMouseDown(MouseEventArgs e)
         {
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToGrx();
+            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
 
             this.mouseDownPoint = point;
             this.mouseDownPolyPoint = this.mouseOverPoint;
@@ -218,7 +219,7 @@ namespace LevelEditorControl.EditorFunctions
 
             if (e.Button == MouseButtons.Right)
             {
-                var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToGrx();
+                var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
                 var minDistance = this.polygon.Points.Select(x => (point - x).Length()).ToList().Min();
                 float distanceToQuit = state.Camera.LengthToCamera(50);
                 if (minDistance > distanceToQuit && this.polygon.IsPointInside(point) == false)
@@ -240,7 +241,7 @@ namespace LevelEditorControl.EditorFunctions
                 this.polygon.AddPointAfterIndex(this.mouseOverPolyPointIndex, this.mouseOverPointOnLine);
             }
 
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToGrx();
+            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
             if (e.Button == MouseButtons.Left && this.mouseDownPoint != null && (this.mouseDownPoint - point).Length() < 5)
             {
                 this.selectedPolyPoints.Clear();
@@ -262,17 +263,17 @@ namespace LevelEditorControl.EditorFunctions
             float radius = this.state.Camera.LengthToCamera(CircleRadius); //Die Punkte sollen unabhängig vom Kamera-Zoom immer gleich groß sein
             foreach (var point in this.polygon.Points)
             {
-                panel.DrawFillRegularPolygon(Color.Green, point, radius, 7);
+                panel.DrawFillRegularPolygon(Color.Green, point.ToGrx(), radius, 7);
             }
 
             if (this.mouseOverPolyPointIndex != -1 && this.mouseOverPoint != null)
             {
-                panel.DrawFillRegularPolygon(Color.Blue, this.polygon.Points[mouseOverPolyPointIndex], radius, 7);
+                panel.DrawFillRegularPolygon(Color.Blue, this.polygon.Points[mouseOverPolyPointIndex].ToGrx(), radius, 7);
             }
 
             if (this.mouseOverPointOnLine != null)
             {
-                panel.DrawCircle(new Pen(Color.Blue, 3), this.mouseOverPointOnLine, radius);
+                panel.DrawCircle(new Pen(Color.Blue, 3), this.mouseOverPointOnLine.ToGrx(), radius);
             }
 
             if (this.selectionRec != null)
@@ -285,7 +286,7 @@ namespace LevelEditorControl.EditorFunctions
             {
                 foreach (var index in this.selectedPolyPoints)
                 {
-                    panel.DrawFillRegularPolygon(Color.Blue, this.polygon.Points[index], radius, 7);
+                    panel.DrawFillRegularPolygon(Color.Blue, this.polygon.Points[index].ToGrx(), radius, 7);
                 }
             }
 

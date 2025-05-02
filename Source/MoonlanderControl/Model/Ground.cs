@@ -1,10 +1,10 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using GameHelper.Simulation.RigidBodyTagging;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
+using PhysicGlobal;
 
 namespace MoonlanderControl.Model
 {
@@ -91,7 +91,7 @@ namespace MoonlanderControl.Model
 
             return height;            
         }
-        public float GetDistanceToGround(Vector2D point)
+        public float GetDistanceToGround(Vec2D point)
         {
             if (point.X < 0 ||point.X > this.maxX)
                 return float.PositiveInfinity;
@@ -130,7 +130,7 @@ namespace MoonlanderControl.Model
                     int end = i - 1;
                     if (end > start)
                     {
-                        areas.Add(new LandingArea(new Vector2D(start * GridSize, height[start]), new Vector2D(end * GridSize, height[end])));
+                        areas.Add(new LandingArea(new Vec2D(start * GridSize, height[start]), new Vec2D(end * GridSize, height[end])));
                     }
 
                     last = h;

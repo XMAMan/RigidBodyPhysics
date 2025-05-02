@@ -1,11 +1,12 @@
-﻿using GraphicMinimal;
-using LevelEditorControl.Controls.RotateResizeControl;
+﻿using LevelEditorControl.Controls.RotateResizeControl;
 using LevelEditorControl.LevelItems;
 using LevelEditorGlobal;
+using PhysicGlobal;
 using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using WpfControls.Extensions;
 
 namespace LevelEditorControl.EditorFunctions
 {
@@ -15,9 +16,9 @@ namespace LevelEditorControl.EditorFunctions
         private readonly float CircleRadius = 8;
         private EditorState state;
         private RotatedRectangle rec;
-        private Vector2D mouseOverPoint = null;
-        private Vector2D mouseDownPoint = null;
-        private Vector2D mouseDownPivot = null;
+        private Vec2D mouseOverPoint = null;
+        private Vec2D mouseDownPoint = null;
+        private Vec2D mouseDownPivot = null;
         private bool pivotPointWasPressedDurringMouseDown = false;
         private float mouseDownSize = 0;
         private float mouseDownAngle = 0;
@@ -80,7 +81,7 @@ namespace LevelEditorControl.EditorFunctions
 
         public override void HandleMouseMove(MouseEventArgs e)
         {
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToGrx();
+            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
 
 
             if (e.Button == MouseButtons.None)
@@ -121,8 +122,8 @@ namespace LevelEditorControl.EditorFunctions
                     else
                     {
                         //Rotiere wenn Shift gedrückt ist
-                        float angle = Vector2D.Angle360(new Vector2D(1, 0), point - this.mouseDownPivot);
-                        float startAngle = Vector2D.Angle360(new Vector2D(1, 0), this.mouseDownPoint - this.mouseDownPivot);
+                        float angle = Vec2D.Angle360(new Vec2D(1, 0), point - this.mouseDownPivot);
+                        float startAngle = Vec2D.Angle360(new Vec2D(1, 0), this.mouseDownPoint - this.mouseDownPivot);
                         float angleDiff = angle - startAngle;
                         float newAngle = this.mouseDownAngle + angleDiff;
                         if (newAngle > 180) newAngle -= 360;
@@ -154,7 +155,7 @@ namespace LevelEditorControl.EditorFunctions
 
         public override void HandleMouseDown(MouseEventArgs e)
         {
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToGrx();
+            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
 
             this.mouseDownPoint = point;
             this.mouseDownPivot = this.rec.PivotPoint;
@@ -171,7 +172,7 @@ namespace LevelEditorControl.EditorFunctions
 
             if (e.Button == MouseButtons.Left && this.ctrlIsPressed == false && this.shiftIsPressed == false)
             {
-                var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToGrx();
+                var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
                 var pivotPoints = GetPivotPoints(this.rec.GetCornerPoints());
                 var minDistance = pivotPoints.Select(x => (point - x).Length()).ToList().Min();
                 float distanceToQuit = state.Camera.LengthToCamera(50);
@@ -193,25 +194,25 @@ namespace LevelEditorControl.EditorFunctions
             var cornerPoints = this.rec.GetCornerPoints();
             var pivotPoints = GetPivotPoints(this.rec.GetCornerPoints());
 
-            panel.DrawPolygon(new Pen(Color.Green, 3), cornerPoints.ToList());
+            panel.DrawPolygon(new Pen(Color.Green, 3), cornerPoints.ToGrx().ToList());
 
             foreach (var point in pivotPoints)
             {
                 //Zeichne die Punkte lila, wenn ein neuer Pivot-Punkt definiert werden soll
-                panel.DrawFillCircleWithTriangles(this.ctrlIsPressed ? Color.Purple : Color.Green, point, radius, 10);
+                panel.DrawFillCircleWithTriangles(this.ctrlIsPressed ? Color.Purple : Color.Green, point.ToGrx(), radius, 10);
             }
             if (this.mouseOverPoint != null && this.mouseDownPoint == null)
-                panel.DrawFillCircleWithTriangles(Color.Blue, this.mouseOverPoint, radius, 10); //Mouserover-Punkt blau
+                panel.DrawFillCircleWithTriangles(Color.Blue, this.mouseOverPoint.ToGrx(), radius, 10); //Mouserover-Punkt blau
 
-            panel.DrawFillCircleWithTriangles(Color.Red, this.rec.PivotPoint, radius, 10); //Pivot-Punkt rot
+            panel.DrawFillCircleWithTriangles(Color.Red, this.rec.PivotPoint.ToGrx(), radius, 10); //Pivot-Punkt rot
 
             panel.FlipBuffer();
         }
 
         //Gibt alle möglichen Punkte zurück, wo ein Pivot-Punkt definiert werden kann
-        private Vector2D[] GetPivotPoints(Vector2D[] cornerPoints)
+        private Vec2D[] GetPivotPoints(Vec2D[] cornerPoints)
         {
-            return new Vector2D[]
+            return new Vec2D[]
             {
                 cornerPoints[0],
                 cornerPoints[1],

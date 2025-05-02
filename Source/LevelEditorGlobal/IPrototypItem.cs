@@ -1,6 +1,6 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
 using LevelEditorExports.Editor.Prototyps;
+using PhysicGlobal;
 
 namespace LevelEditorGlobal
 {
@@ -22,7 +22,7 @@ namespace LevelEditorGlobal
     {
         public float SizeFactor { get; set; } = 1;//Mit dem SizeFactor werden LevelItems von diesen Prototyp angelegt
         public float AngleInDegree { get; set; } = 0;
-        public Vector2D LocalPivot { get; set; } = new Vector2D(0, 0);
+        public Vec2D LocalPivot { get; set; } = new Vec2D(0, 0);
     }
 
     public interface IPrototypItemFactory

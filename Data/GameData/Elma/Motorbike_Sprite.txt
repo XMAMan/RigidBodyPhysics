@@ -740,12 +740,10 @@
       "SizeFactor": 1.0,
       "AngleInDegree": 0.0,
       "LocalPivot": {
-        "$type": "GraphicMinimal.Vector2D, GraphicMinimal",
+        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
         "X": 0.0,
         "Y": 0.0,
-        "Xi": 0,
-        "Yi": 0
-      }
+			}
     },
     "CameraTrackedRigidBodyIds": null
   },

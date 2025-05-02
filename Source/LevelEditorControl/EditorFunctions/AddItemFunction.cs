@@ -1,9 +1,10 @@
-﻿using GraphicMinimal;
-using LevelEditorControl.LevelItems;
+﻿using LevelEditorControl.LevelItems;
 using LevelEditorGlobal;
+using PhysicGlobal;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using WpfControls.Extensions;
 
 namespace LevelEditorControl.EditorFunctions
 {
@@ -31,14 +32,14 @@ namespace LevelEditorControl.EditorFunctions
 
         public override void HandleMouseMove(MouseEventArgs e)
         {
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToGrx();
+            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
             point = state.Grid.SnapMouse(point);
             Draw(point);
         }
 
         public override void HandleMouseClick(MouseEventArgs e)
         {
-            var mousePosition = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToGrx();
+            var mousePosition = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
             mousePosition = state.Grid.SnapMouse(mousePosition);
 
             if (e.Button == MouseButtons.Left)
@@ -54,7 +55,7 @@ namespace LevelEditorControl.EditorFunctions
 
         }
 
-        private void Draw(Vector2D mousePosition)
+        private void Draw(Vec2D mousePosition)
         {
             var panel = this.state.Panel;
 

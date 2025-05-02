@@ -1,8 +1,6 @@
-﻿using GraphicMinimal;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
-using WpfControls.Extensions;
 
 namespace GameHelper.Simulation.RigidBodyTagging
 {
@@ -15,12 +13,12 @@ namespace GameHelper.Simulation.RigidBodyTagging
         {
             this.body = tagProvider.GetBodyByTagName(tagName);
             var tag = tagProvider.GetTagDataFromBody(body);
-            this.localAnchor = tag.AnchorPoints[index].ToPhx();
+            this.localAnchor = tag.AnchorPoints[index];
         }
 
-        public Vector2D GetPosition()
+        public Vec2D GetPosition()
         {
-            return this.body.GetWorldPointFromLocalDirection(this.localAnchor).ToGrx();
+            return this.body.GetWorldPointFromLocalDirection(this.localAnchor);
         }
     }
 }

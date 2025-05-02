@@ -1,4 +1,4 @@
-﻿using GraphicMinimal;
+﻿using PhysicGlobal;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -8,15 +8,15 @@ namespace LevelEditorControl.EditorFunctions
 {
     internal static class MathHelper
     {
-        public static Vector2D Center(this RectangleF rec)
+        public static Vec2D Center(this RectangleF rec)
         {
-            return new Vector2D(rec.X + rec.Width / 2, rec.Y + rec.Height / 2);
+            return new Vec2D(rec.X + rec.Width / 2, rec.Y + rec.Height / 2);
         }
 
         public static RectangleF GetBoundingBox(IEnumerable<RectangleF> boxes)
         {
-            Vector2D min = new Vector2D(float.MaxValue, float.MaxValue);
-            Vector2D max = new Vector2D(float.MinValue, float.MinValue);
+            Vec2D min = new Vec2D(float.MaxValue, float.MaxValue);
+            Vec2D max = new Vec2D(float.MinValue, float.MinValue);
 
             foreach (var box in boxes)
             {
@@ -31,7 +31,7 @@ namespace LevelEditorControl.EditorFunctions
         }
 
         //Gibt es ein Schnittpunkt zwischen zwei Linien?
-        public static bool IntersectLines(Vector2D p11, Vector2D p12, Vector2D p21, Vector2D p22)
+        public static bool IntersectLines(Vec2D p11, Vec2D p12, Vec2D p21, Vec2D p22)
         {
             if ((p11.X == p21.X) && (p11.Y == p21.Y))
                 return false;
@@ -45,17 +45,17 @@ namespace LevelEditorControl.EditorFunctions
             if ((p12.X == p22.X) && (p12.Y == p22.Y))
                 return false;
 
-            Vector2D min1 = new Vector2D(Math.Min(p11.X, p12.X), Math.Min(p11.Y, p12.Y));
-            Vector2D max1 = new Vector2D(Math.Max(p11.X, p12.X), Math.Max(p11.Y, p12.Y));
+            Vec2D min1 = new Vec2D(Math.Min(p11.X, p12.X), Math.Min(p11.Y, p12.Y));
+            Vec2D max1 = new Vec2D(Math.Max(p11.X, p12.X), Math.Max(p11.Y, p12.Y));
 
-            Vector2D min2 = new Vector2D(Math.Min(p21.X, p22.X), Math.Min(p21.Y, p22.Y));
-            Vector2D max2 = new Vector2D(Math.Max(p21.X, p22.X), Math.Max(p21.Y, p22.Y));
+            Vec2D min2 = new Vec2D(Math.Min(p21.X, p22.X), Math.Min(p21.Y, p22.Y));
+            Vec2D max2 = new Vec2D(Math.Max(p21.X, p22.X), Math.Max(p21.Y, p22.Y));
 
             bool boxIntersects = max1.X > min2.X && min1.X < max2.X && max1.Y > min2.Y && min1.Y < max2.Y;
             if (boxIntersects == false) return false;
 
-            Vector2D v1ort = new Vector2D(p12.Y - p11.Y, p11.X - p12.X);
-            Vector2D v2ort = new Vector2D(p22.Y - p21.Y, p21.X - p22.X);
+            Vec2D v1ort = new Vec2D(p12.Y - p11.Y, p11.X - p12.X);
+            Vec2D v2ort = new Vec2D(p22.Y - p21.Y, p21.X - p22.X);
 
             float dot21 = (p21 - p11) * v1ort;
             float dot22 = (p22 - p11) * v1ort;
@@ -72,13 +72,13 @@ namespace LevelEditorControl.EditorFunctions
         }
 
         //Die Linie geht von p1 nach p2
-        public static bool IsPointAboveLine(Vector2D p1, Vector2D p2, Vector2D point, float lineWidth)
+        public static bool IsPointAboveLine(Vec2D p1, Vec2D p2, Vec2D point, float lineWidth)
         {
-            Vector2D dir = (p2 - p1);
+            Vec2D dir = (p2 - p1);
             float dirLength = dir.Length();
             if (dirLength < 0.0001f) return false;
             dir /= dirLength;
-            Vector2D d = point - p1;
+            Vec2D d = point - p1;
 
             float projection1 = dir * d;
             if (projection1 < 0) return false;
@@ -90,9 +90,9 @@ namespace LevelEditorControl.EditorFunctions
             return true;
         }
 
-        public static Vector2D GetProjectedPointOnLine(Vector2D p1, Vector2D p2, Vector2D point, out float distance, out float distancePercent)
+        public static Vec2D GetProjectedPointOnLine(Vec2D p1, Vec2D p2, Vec2D point, out float distance, out float distancePercent)
         {
-            Vector2D dir = (p2 - p1);
+            Vec2D dir = (p2 - p1);
             float dirLength = dir.Length();
             if (dirLength < 0.0001f)
             {
@@ -101,7 +101,7 @@ namespace LevelEditorControl.EditorFunctions
                 return null;
             }
             dir /= dirLength;
-            Vector2D d = point - p1;
+            Vec2D d = point - p1;
 
             float projection = dir * d;
 
@@ -116,7 +116,7 @@ namespace LevelEditorControl.EditorFunctions
             return p1 + dir * projection;
         }
 
-        public static bool PointIsInsidePolygon(Vector2D[] polygon, Vector2D p)
+        public static bool PointIsInsidePolygon(Vec2D[] polygon, Vec2D p)
         {
             int i, j;
             bool c = false;
@@ -130,10 +130,10 @@ namespace LevelEditorControl.EditorFunctions
             return c;
         }
 
-        public static RectangleF GetBoundingBoxFromPolygon(Vector2D[] polygon)
+        public static RectangleF GetBoundingBoxFromPolygon(Vec2D[] polygon)
         {
-            Vector2D min = new Vector2D(float.MaxValue, float.MaxValue);
-            Vector2D max = new Vector2D(float.MinValue, float.MinValue);
+            Vec2D min = new Vec2D(float.MaxValue, float.MaxValue);
+            Vec2D max = new Vec2D(float.MinValue, float.MinValue);
             foreach (var p in polygon)
             {
                 if (p.X < min.X) min.X = p.X;
@@ -145,7 +145,7 @@ namespace LevelEditorControl.EditorFunctions
         }
 
         //Quelle: https://de.wikipedia.org/wiki/Gau%C3%9Fsche_Trapezformel
-        public static float GetAreaFromPolygon(Vector2D[] polygon)
+        public static float GetAreaFromPolygon(Vec2D[] polygon)
         {
             float area = 0;
             for (int i = 0; i < polygon.Length; i++)
@@ -158,7 +158,7 @@ namespace LevelEditorControl.EditorFunctions
             return Math.Abs(area * 0.5f);
         }
 
-        public static bool IsPolygonCCW(Vector2D[] polygon)
+        public static bool IsPolygonCCW(Vec2D[] polygon)
         {
             float area = 0;
             for (int i = 0; i < polygon.Length; i++)
@@ -166,12 +166,12 @@ namespace LevelEditorControl.EditorFunctions
                 var p1 = polygon[i];
                 var p2 = polygon[(i + 1) % polygon.Length];
 
-                area += Vector2D.ZValueFromCross(p1, p2); //Area from Triangle p1-p2-[0;0] = 1/2*|Cross(p1,p2)|
+                area += Vec2D.ZValueFromCross(p1, p2); //Area from Triangle p1-p2-[0;0] = 1/2*|Cross(p1,p2)|
             }
             return area < 0;
         }
 
-        public static Vector2D[] OrderPointsCCW(Vector2D[] polygon)
+        public static Vec2D[] OrderPointsCCW(Vec2D[] polygon)
         {
             if (IsPolygonCCW(polygon) == false)
             {
@@ -187,23 +187,23 @@ namespace LevelEditorControl.EditorFunctions
         //Gibt alle Schnittpunkte zwischen einer Scanline(Horizontale Linie) und dem Polygon zurück
         //yScan = Y-Wert der Scanline(x geht von -unendlich bis +unendlich
         //Liefert alle X-Wert der Schnittpunkte zurück. Y-Wert von allen Punkten ist yScan. Es liefert null, wenn Scanline durch ein Eckpunkt geht.
-        public static List<int> PolygonScanlineIntersectionTest(Vector2D[] polygon, float yScan)
+        public static List<int> PolygonScanlineIntersectionTest(Vec2D[] polygon, float yScan)
         {
             List<int> ret = new List<int>();
             for (int i = 0; i < polygon.Length; i++)
             {
-                Vector2D p1 = polygon[i];
-                Vector2D p2 = polygon[(i + 1) % polygon.Length];
+                Vec2D p1 = polygon[i];
+                Vec2D p2 = polygon[(i + 1) % polygon.Length];
                 if (!(yScan >= Math.Min(p1.Y, p2.Y) && yScan <= Math.Max(p1.Y, p2.Y))) continue;
                 if (p1.Y == p2.Y)
                 {
-                    ret.Add(p1.Xi);
-                    ret.Add(p2.Xi);
+                    ret.Add((int)p1.X);
+                    ret.Add((int)p2.X);
                     continue;
                 }
                 if (p1.X == p2.X) //Linie ist Senkrecht
                 {
-                    if (yScan >= Math.Min(p1.Y, p2.Y) && yScan <= Math.Max(p1.Y, p2.Y)) ret.Add(p1.Xi);
+                    if (yScan >= Math.Min(p1.Y, p2.Y) && yScan <= Math.Max(p1.Y, p2.Y)) ret.Add((int)p1.X);
                     continue;
                 }
 

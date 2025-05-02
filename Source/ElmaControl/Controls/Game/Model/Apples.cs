@@ -1,8 +1,8 @@
 ﻿using GameHelper;
 using GameHelper.Simulation;
-using GraphicMinimal;
 using GraphicPanels;
 using GraphicPanelWpf;
+using PhysicGlobal;
 using PhysicSceneDrawing;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using System.Collections.Generic;
@@ -17,7 +17,7 @@ namespace ElmaControl.Controls.Game.Model
         private SpriteImage sprite;
         public IPublicRigidCircle Body { get; }
 
-        public Vector2D Center { get => this.Body.Center.ToGrx(); }
+        public Vec2D Center { get => this.Body.Center; }
         public float Radius { get => this.Body.Radius; }
 
         public Apple(GameSimulator simulator, IPublicRigidCircle body, string dataFolder)
@@ -37,7 +37,7 @@ namespace ElmaControl.Controls.Game.Model
 
         public void Draw(GraphicPanel2D panel)
         {
-            this.sprite.Draw(panel, this.Body.Center.ToGrx());
+            this.sprite.Draw(panel, this.Body.Center);
         }
 
         public void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor)

@@ -1,5 +1,5 @@
 ﻿using BridgeBuilderControl.Controls.Helper;
-using GraphicMinimal;
+using PhysicGlobal;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -14,7 +14,7 @@ namespace BridgeBuilderControl.Controls.LevelEditor.Functions
         private List<Point> points = new List<Point>();
 
         private EditorState state;
-        private Vector2D mousePosition = new Vector2D(0, 0);
+        private Vec2D mousePosition = new Vec2D(0, 0);
         public FunctionType Type { get => FunctionType.DefineGround; }
         public IEditorFunction Init(EditorState state)
         {
@@ -57,7 +57,7 @@ namespace BridgeBuilderControl.Controls.LevelEditor.Functions
             
             if (e.Button == MouseButtons.Right)
             {
-                int index = GetPointIndex(new Vector2D(e.X, e.Y));
+                int index = GetPointIndex(new Vec2D(e.X, e.Y));
                 if (index != -1)
                 {
                     this.points.RemoveAt(index);
@@ -68,11 +68,11 @@ namespace BridgeBuilderControl.Controls.LevelEditor.Functions
 
         public void HandleMouseMove(MouseEventArgs e)
         {
-            this.mousePosition = new Vector2D(e.X, e.Y);
+            this.mousePosition = new Vec2D(e.X, e.Y);
         }
 
         //Gibt den nächsten Punkt zurück, wo ein Polygonpunkt erzeugt werden darf
-        private Point GetPolygonPoint(Vector2D pixelPosition)
+        private Point GetPolygonPoint(Vec2D pixelPosition)
         {
             //Es soll der erste Polygonpunkt definiert werden:
             if (this.points.Count == 0)
@@ -95,14 +95,14 @@ namespace BridgeBuilderControl.Controls.LevelEditor.Functions
             return new Point(Math.Max(this.points.Last().X + 1, snapPoint.X), snapPoint.Y);
         }
 
-        private Point PixelPointToPolyPoint(Vector2D pixelPosition)
+        private Point PixelPointToPolyPoint(Vec2D pixelPosition)
         {
             var snapPoint = state.MouseGrid.SnapToInt(pixelPosition);
             return new Point(snapPoint.X, snapPoint.Y - (int)state.GroundHeight);
         }
 
         //Gibt den Index des Punktes vom GroundPolygon zurück, wo die Maus gerade ist
-        private int GetPointIndex(Vector2D pixelPosition)
+        private int GetPointIndex(Vec2D pixelPosition)
         {
             var point = PixelPointToPolyPoint(pixelPosition);
             for (int i = 0; i < this.points.Count; i++)

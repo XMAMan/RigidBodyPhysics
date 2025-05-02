@@ -1,30 +1,32 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
 using LevelEditorControl.Controls.PolygonControl;
-using LevelEditorControl.EditorFunctions;
 using LevelEditorGlobal;
 using LevelToSimulatorConverter;
-using System;
+using PhysicGlobal;
+using static LevelEditorGlobal.ITagable;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using static LevelEditorGlobal.ITagable;
+using System;
+using LevelEditorControl.EditorFunctions;
+using GraphicMinimal;
+using WpfControls.Extensions;
 
 namespace LevelEditorControl.LevelItems.Polygon
 {
     internal class PolygonLevelItem : ILevelItem, IMergeablePhysicPolygon, ILevelItemPolygon, IEditablePolygon, ICollidable, IMouseclickableWithTagData
     {
-        private Vector2D[] localPoints;
+        private Vec2D[] localPoints;
         private SizeF localBoxSize;
         private PolygonImages images;
         private RectangleF globalBoundingBox; //BoundingBox über alle PolygonLevelItem im Editor
-        private Vector2D[] GlobalPoints { get => localPoints.Select(x => PivotPoint + x).ToArray(); }
+        private Vec2D[] GlobalPoints { get => localPoints.Select(x => PivotPoint + x).ToArray(); }
 
-        public PolygonLevelItem(Vector2D[] points, PolygonImages images, int id)
+        public PolygonLevelItem(Vec2D[] points, PolygonImages images, int id)
         {
             points = MathHelper.OrderPointsCCW(points);
             var box = MathHelper.GetBoundingBoxFromPolygon(points);
-            PivotPoint = new Vector2D(box.X, box.Y);
+            PivotPoint = new Vec2D(box.X, box.Y);
             localPoints = points.Select(x => x - PivotPoint).ToArray();
             localBoxSize = new SizeF(box.Width, box.Height);
             this.images = images;
@@ -34,13 +36,13 @@ namespace LevelEditorControl.LevelItems.Polygon
         public int Id { get; }
         public TagType TypeName { get => TagType.Polygon; } //ITagable
         public bool IsSelected { get; set; } = false;
-        public Vector2D PivotPoint { get; set; }
+        public Vec2D PivotPoint { get; set; }
         public RotatedRectangle Position { get; }
         public RectangleF GetBoundingBox()
         {
             return new RectangleF(PivotPoint.X, PivotPoint.Y, localBoxSize.Width, localBoxSize.Height);
         }
-        public Vector2D[] GetCornerPoints()
+        public Vec2D[] GetCornerPoints()
         {
             return this.Points;
         }
@@ -58,13 +60,13 @@ namespace LevelEditorControl.LevelItems.Polygon
             {
                 //Damit das Polygon zu sehen ist, wenn das Grid aktiv (liegt bei Z-Value=-1).
                 //Es soll aber hinter LevelItems (liegen bei Z-Value=0) liegen, weswegen hier -0.1 verwendet wird.
-                panel.ZValue2D = -0.1f; 
+                panel.ZValue2D = -0.1f;
 
-                panel.DrawPolygon(Pens.Black, GlobalPoints.ToList());
+                panel.DrawPolygon(Pens.Black, GlobalPoints.ToGrx().ToList());
                 return;
             }
 
-            var vertices = GlobalPoints.Select(x => new Vertex2D(x,
+            var vertices = GlobalPoints.Select(x => new Vertex2D(x.ToGrx(),
                 new Vector2D((x.X - globalBoundingBox.X) / globalBoundingBox.Width, (x.Y - globalBoundingBox.Y) / globalBoundingBox.Height)))
                 .ToList();
 
@@ -74,15 +76,15 @@ namespace LevelEditorControl.LevelItems.Polygon
         public void DrawBorder(GraphicPanel2D panel, Pen borderPen)
         {
             panel.ZValue2D = ZOrder;
-            panel.DrawPolygon(borderPen, GlobalPoints.ToList());
+            panel.DrawPolygon(borderPen, GlobalPoints.ToGrx().ToList());
         }
         public void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor)
         {
             panel.ZValue2D = ZOrder;
             var color = this.IsOutside ? frontColor : backColor;
-            panel.DrawFillPolygon(color, GlobalPoints.ToList());
+            panel.DrawFillPolygon(color, GlobalPoints.ToGrx().ToList());
         }
-        public bool IsPointInside(Vector2D point)
+        public bool IsPointInside(Vec2D point)
         {
             return MathHelper.PointIsInsidePolygon(localPoints, point - PivotPoint);
         }
@@ -109,9 +111,9 @@ namespace LevelEditorControl.LevelItems.Polygon
         }
 
         #region ICollidable
-        public bool IsPointInside(Vector2D point, Matrix4x4 screenToLocal)
+        public bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal)
         {
-            point = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY; //screenToLocal = ScreenToCamera-Space
+            point = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY.ToPhx(); //screenToLocal = ScreenToCamera-Space
             return MathHelper.PointIsInsidePolygon(localPoints, point - PivotPoint);
         }
         public Matrix4x4 GetScreenToLocalMatrix()
@@ -123,7 +125,7 @@ namespace LevelEditorControl.LevelItems.Polygon
 
         #region IMergeablePhysicPolygon
         public int LevelItemId { get => this.Id; }
-        public Vector2D[] Points { get => localPoints.Select(x => PivotPoint + x).ToArray(); }
+        public Vec2D[] Points { get => localPoints.Select(x => PivotPoint + x).ToArray(); }
         public bool IsOutside { get; private set; } = true; //Zeigen die Normalen nach Außen?
         public int ZOrder { get; private set; }
         public float Friction { get; set; } = 0.2f;
@@ -132,7 +134,7 @@ namespace LevelEditorControl.LevelItems.Polygon
         #endregion
 
         #region IEditablePolygon
-        public void MovePointAtIndex(int index, Vector2D newPosition)
+        public void MovePointAtIndex(int index, Vec2D newPosition)
         {
             this.localPoints[index] = newPosition - PivotPoint;
         }
@@ -142,7 +144,7 @@ namespace LevelEditorControl.LevelItems.Polygon
             list.RemoveAt(index);
             this.localPoints = list.ToArray();
         }
-        public void AddPointAfterIndex(int index, Vector2D newPosition)
+        public void AddPointAfterIndex(int index, Vec2D newPosition)
         {
             var list = this.localPoints.ToList();
             list.Insert((index + 1) % localPoints.Length, newPosition - this.PivotPoint);
@@ -237,14 +239,12 @@ namespace LevelEditorControl.LevelItems.Polygon
 
             return ret;
         }
-
-        
     }
 
     internal class PolygonLevelItemExportData
     {
         public int LevelItemId { get; set; }
-        public Vector2D[] Points { get; set; }
+        public Vec2D[] Points { get; set; }
         public float Friction { get; set; }
         public float Restiution { get; set; }
         public int CollisionCategory { get; set; }

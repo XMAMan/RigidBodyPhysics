@@ -38,6 +38,11 @@ namespace WpfControls.Extensions
             return new Vec2D(p.X, p.Y);
         }
 
+        public static Vec2D ToPhx(this Point p)
+        {
+            return new Vec2D(p.X, p.Y);
+        }
+
         public static Vec2D[] ToPhx(this GraphicMinimal.Vector2D[] vArray)
         {
             return vArray.Select(v => new Vec2D(v.X, v.Y)).ToArray();
@@ -61,6 +66,11 @@ namespace WpfControls.Extensions
         public static PointF ToPointF(this Vec2D v)
         {
             return new PointF(v.X, v.Y);
+        }
+
+        public static Point ToPoint(this Vec2D v)
+        {
+            return new Point((int)v.X, (int)v.Y);
         }
 
         public static Point ToPoint(this GraphicMinimal.Vector2D v)

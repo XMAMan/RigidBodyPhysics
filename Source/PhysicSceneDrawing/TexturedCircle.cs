@@ -1,5 +1,4 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
 using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using TextureEditorGlobal;
@@ -67,7 +66,7 @@ namespace PhysicSceneDrawing
             }
 
             float angleInDegree = r.Angle * 180 / (float)Math.PI;
-            var texCenter = Vector2D.RotatePointAroundPivotPoint(r.Center.ToGrx(), r.Center.ToGrx() + new Vector2D(p.DeltaX, p.DeltaY), angleInDegree);
+            var texCenter = Vec2D.RotatePointAroundPivotPoint(r.Center, r.Center + new Vec2D(p.DeltaX, p.DeltaY), angleInDegree);
 
             panel.DrawFillRectangle(p.TextureFile,
                         texCenter.X, texCenter.Y,

@@ -1,7 +1,6 @@
 ﻿using DynamicObjCreation;
 using DynamicObjCreation.RigidBodyDestroying;
 using GameHelper.Simulation.RigidBodyTagging;
-using GraphicMinimal;
 using KeyFrameGlobal;
 using LevelEditorControl;
 using LevelEditorGlobal;
@@ -130,7 +129,7 @@ namespace GameHelper.Simulation
                     Bodies = new IExportRigidBody[] { bodyWithTexture.Body },
                 },
                 TextureData = new VisualisizerOutputData(new TextureExportData[] { bodyWithTexture.Texture }),
-                TagdataEntries = new PhysicSceneTagdataEntry[] { new PhysicSceneTagdataEntry(ITagable.TagType.Body, newLevelItemId, 0, bodyWithTexture.TagNames, bodyWithTexture.TagColor, new Vector2D[0]) }
+                TagdataEntries = new PhysicSceneTagdataEntry[] { new PhysicSceneTagdataEntry(ITagable.TagType.Body, newLevelItemId, 0, bodyWithTexture.TagNames, bodyWithTexture.TagColor, new Vec2D[0]) }
             };
 
             int levelItemId = this.AddLevelItem(exportData);

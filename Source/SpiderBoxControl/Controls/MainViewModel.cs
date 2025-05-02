@@ -1,7 +1,7 @@
 ﻿using GameHelper.Simulation;
-using GraphicMinimal;
 using GraphicPanels;
 using GraphicPanelWpf;
+using PhysicGlobal;
 using ReactiveUI;
 using SoundEngine;
 using SpiderBoxControl.Model;
@@ -59,8 +59,8 @@ namespace SpiderBoxControl.Controls
 
             this.panel.PushMatrix();
             this.panel.SetTransformationMatrixToIdentity();
-            DrawProgressBar(panel, new Vector2D(10, 30), "Rope length", this.player.RopeLength, Rope.MinSegmentLength, Rope.MaxSegmentLength);
-            DrawProgressBar(panel, new Vector2D(10, 90), "Throwing distance", this.player.Power, 0, 1);
+            DrawProgressBar(panel, new Vec2D(10, 30), "Rope length", this.player.RopeLength, Rope.MinSegmentLength, Rope.MaxSegmentLength);
+            DrawProgressBar(panel, new Vec2D(10, 90), "Throwing distance", this.player.Power, 0, 1);
 
             if (this.showHelpText)
             {
@@ -82,7 +82,7 @@ namespace SpiderBoxControl.Controls
             panel.FlipBuffer();
         }
 
-        private static void DrawProgressBar(GraphicPanel2D panel, Vector2D position, string text, float value, float minValue, float maxValue)
+        private static void DrawProgressBar(GraphicPanel2D panel, Vec2D position, string text, float value, float minValue, float maxValue)
         {
             int borderWidth = 3;
             Size size = new Size(300, 40);

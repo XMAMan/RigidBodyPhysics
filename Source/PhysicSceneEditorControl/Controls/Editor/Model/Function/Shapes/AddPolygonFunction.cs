@@ -99,7 +99,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Shapes
                     currentMousePosition = GetP2WhichIsHorizontalVerticalToP1(points.Last(), currentMousePosition);
                 }
 
-                var point = this.mouseGrid.SnapMouse(currentMousePosition.ToGrx()).ToPhx();
+                var point = this.mouseGrid.SnapMouse(currentMousePosition);
                 points.Add(point);
             }
 

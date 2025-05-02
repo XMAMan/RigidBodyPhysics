@@ -4,9 +4,9 @@ using BridgeBuilderControl.Controls.Simulator.Model.Forcetracking;
 using BridgeBuilderControl.Testing;
 using GameHelper;
 using GameHelper.Simulation;
-using GraphicMinimal;
 using GraphicPanels;
 using LevelEditorGlobal;
+using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.Joints;
 using System;
 using System.Drawing;
@@ -20,7 +20,7 @@ namespace BridgeBuilderControl.Controls.Simulator.Model
     {
         private GraphicPanel2D panel;
         private EditorCamera camera;
-        private Vector2D screenMousePosition = new Vector2D(0, 0);
+        private Vec2D screenMousePosition = new Vec2D(0, 0);
         private GameSimulator simulator;
         private PhysikLevelItemExportData trainExportData;
         private SimulatorInput input;
@@ -159,7 +159,7 @@ namespace BridgeBuilderControl.Controls.Simulator.Model
 
         public void HandleMouseMove(MouseEventArgs e)
         {
-            this.screenMousePosition = new Vector2D(e.X, e.Y);
+            this.screenMousePosition = new Vec2D(e.X, e.Y);
         }
 
         private void Refresh()
@@ -188,7 +188,7 @@ namespace BridgeBuilderControl.Controls.Simulator.Model
                 }
 
                 this.panel.ZValue2D = isStreet ? 4 : 3;
-                DrawBar(panel, barColor, disJoint.Anchor1.ToGrx(), disJoint.Anchor2.ToGrx(), EditorToSimulatorConverter.BarWidth);
+                DrawBar(panel, barColor, disJoint.Anchor1, disJoint.Anchor2, EditorToSimulatorConverter.BarWidth);
             }
 
             if (this.ShowPhysicModel)
@@ -202,13 +202,13 @@ namespace BridgeBuilderControl.Controls.Simulator.Model
             panel.FlipBuffer();
         }
 
-        private static void DrawBar(GraphicPanel2D panel, Color color, Vector2D p1, Vector2D p2, float width)
+        private static void DrawBar(GraphicPanel2D panel, Color color, Vec2D p1, Vec2D p2, float width)
         {
             float length = (p2 - p1).Length();
             var direction = (p2 - p1).Normalize();
 
             var center = (p1 + p2) / 2;
-            float angleInDegree = Vector2D.Angle360(new Vector2D(1, 0), direction);
+            float angleInDegree = Vec2D.Angle360(new Vec2D(1, 0), direction);
 
             panel.DrawFillRectangle(color, center.X, center.Y, length, width, angleInDegree);
         }

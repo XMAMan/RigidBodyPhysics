@@ -1,12 +1,13 @@
 ﻿using DynamicData;
-using GraphicMinimal;
 using LevelEditorControl.LevelItems;
 using LevelEditorGlobal;
+using PhysicGlobal;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using WpfControls.Extensions;
 
 namespace LevelEditorControl.EditorFunctions
 {
@@ -14,10 +15,10 @@ namespace LevelEditorControl.EditorFunctions
     internal class MoveSelectFunction : DummyFunction, IEditorFunction
     {
         private EditorState state;
-        private Vector2D[] mouseDownToPivots = null; //Wenn ich mehrere Objekte verschieben will ist dass der Vektor vom PivotPunkt zum MouseDownpunkt
+        private Vec2D[] mouseDownToPivots = null; //Wenn ich mehrere Objekte verschieben will ist dass der Vektor vom PivotPunkt zum MouseDownpunkt
         private SmallWindow smallWindow;
-        private Vector2D mouseDownPoint = null;
-        private Vector2D mousePosition = null;
+        private Vec2D mouseDownPoint = null;
+        private Vec2D mousePosition = null;
 
         public override FunctionType Type { get; } = FunctionType.MoveSelect;
         public override IEditorFunction Init(EditorState state)
@@ -28,7 +29,7 @@ namespace LevelEditorControl.EditorFunctions
             return this;
         }
 
-        private ILevelItem GetItemFromPoint(Vector2D point)
+        private ILevelItem GetItemFromPoint(Vec2D point)
         {
             List<KeyValuePair<float, ILevelItem>> list = new List<KeyValuePair<float, ILevelItem>>();
             foreach (var item in state.LevelItems)
@@ -67,7 +68,7 @@ namespace LevelEditorControl.EditorFunctions
         {
             if (this.smallWindow.HandleMouseDown(e)) return;
 
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToGrx();
+            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
 
             this.mouseDownPoint = point;
             this.mousePosition = point;
@@ -112,7 +113,7 @@ namespace LevelEditorControl.EditorFunctions
         {
             if (this.smallWindow.HandleMouseMove(e)) return;
 
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToGrx();
+            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
 
             this.mousePosition = point;
 
@@ -194,9 +195,9 @@ namespace LevelEditorControl.EditorFunctions
             if (this.mouseDownPoint != null && this.mousePosition != null && this.state.SelectedItems.Count == 0)
             {
                 panel.DisableDepthTesting();
-                Vector2D min = new Vector2D(Math.Min(this.mouseDownPoint.X, this.mousePosition.X), Math.Min(this.mouseDownPoint.Y, this.mousePosition.Y));
-                Vector2D max = new Vector2D(Math.Max(this.mouseDownPoint.X, this.mousePosition.X), Math.Max(this.mouseDownPoint.Y, this.mousePosition.Y));
-                panel.DrawRectangle(Pens.Black, min.Xi, min.Yi, (int)(max.X - min.X), (int)(max.Y - min.Y));
+                Vec2D min = new Vec2D(Math.Min(this.mouseDownPoint.X, this.mousePosition.X), Math.Min(this.mouseDownPoint.Y, this.mousePosition.Y));
+                Vec2D max = new Vec2D(Math.Max(this.mouseDownPoint.X, this.mousePosition.X), Math.Max(this.mouseDownPoint.Y, this.mousePosition.Y));
+                panel.DrawRectangle(Pens.Black, (int)min.X, (int)min.Y, (int)(max.X - min.X), (int)(max.Y - min.Y));
             }
 
             panel.FlipBuffer();

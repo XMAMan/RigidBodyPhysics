@@ -2,9 +2,11 @@
 using GraphicPanels;
 using LevelEditorControl.EditorFunctions;
 using LevelEditorControl.LevelItems.Polygon;
+using PhysicGlobal;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using WpfControls.Extensions;
 
 namespace LevelEditorControl.LevelItems.LawnEdge
 {
@@ -28,7 +30,7 @@ namespace LevelEditorControl.LevelItems.LawnEdge
 
         public int Id { get; }
         public bool IsSelected { get; set; }
-        public Vector2D PivotPoint { get; set; } = null;
+        public Vec2D PivotPoint { get; set; } = null;
         public RotatedRectangle Position { get; } = null;
         public RectangleF GetBoundingBox()
         {
@@ -37,7 +39,7 @@ namespace LevelEditorControl.LevelItems.LawnEdge
 
             return MathHelper.GetBoundingBox(boxes);
         }
-        public Vector2D[] GetCornerPoints()
+        public Vec2D[] GetCornerPoints()
         {
             return this.Drawer.GetAllSegments(p1, p2).SelectMany(x => x.Points).ToArray();
         }
@@ -54,7 +56,7 @@ namespace LevelEditorControl.LevelItems.LawnEdge
             var segments = Drawer.GetAllSegments(p1, p2);
             foreach (var segment in segments)
             {
-                panel.DrawPolygon(borderPen, segment.Points.ToList());
+                panel.DrawPolygon(borderPen, segment.Points.ToGrx().ToList());
             }
         }
         public void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor)
@@ -62,17 +64,17 @@ namespace LevelEditorControl.LevelItems.LawnEdge
             var segments = Drawer.GetAllSegments(p1, p2);
             foreach (var segment in segments)
             {
-                panel.DrawFillPolygon(frontColor, segment.Points.ToList());
+                panel.DrawFillPolygon(frontColor, segment.Points.ToGrx().ToList());
             }
         }
-        public bool IsPointInside(Vector2D point)
+        public bool IsPointInside(Vec2D point)
         {
             bool isInside = Drawer.GetAllSegments(p1, p2).Any(x => x.IsPointInside(point));
             return isInside;
         }
-        public bool IsPointInside(Vector2D point, Matrix4x4 screenToLocal) //point = ScreenSpace-Mousepoint
+        public bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal) //point = ScreenSpace-Mousepoint
         {
-            point = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY; //CameraSpace-Mousepoint
+            point = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY.ToPhx(); //CameraSpace-Mousepoint
             return IsPointInside(point);
         }
         public Matrix4x4 GetScreenToLocalMatrix()
@@ -122,7 +124,7 @@ namespace LevelEditorControl.LevelItems.LawnEdge
             var center = (p1A + p2B) / 2;
             float width = (p1A - p2A).Length();
 
-            float angle = Vector2D.Angle360(new Vector2D(1, 0), (p1A - p2A).Normalize());
+            float angle = Vec2D.Angle360(new Vec2D(1, 0), (p1A - p2A).Normalize());
             if (AssocitedPolygon.IsOutside == false) angle += 180;
 
             return new LawnSegmentBackgroundItem(center, angle, width, Drawer.LawnHeight, Drawer.TextureFile, Drawer.ZValue);

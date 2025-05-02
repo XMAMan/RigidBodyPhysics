@@ -1,5 +1,5 @@
-﻿using GraphicMinimal;
-using LevelEditorGlobal;
+﻿using LevelEditorGlobal;
+using PhysicGlobal;
 using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 
@@ -19,8 +19,8 @@ namespace Simulator.CameraTracking
 
         private RectangleF GetBoundingBox()
         {
-            Vector2D min = new Vector2D(float.MaxValue, float.MaxValue);
-            Vector2D max = new Vector2D(float.MinValue, float.MinValue);
+            Vec2D min = new Vec2D(float.MaxValue, float.MaxValue);
+            Vec2D max = new Vec2D(float.MinValue, float.MinValue);
             for (int i = 0; i < bodys.Length; i++)
             {
                 var body = bodys[i];
@@ -38,7 +38,7 @@ namespace Simulator.CameraTracking
             if (body is IPublicRigidRectangle)
             {
                 var r = (IPublicRigidRectangle)body;
-                return new Vector2D(r.Size.X, r.Size.Y).Length() / 2;
+                return new Vec2D(r.Size.X, r.Size.Y).Length() / 2;
             }
 
             if (body is IPublicRigidCircle)

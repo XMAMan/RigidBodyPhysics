@@ -39,6 +39,7 @@ using PhysicSceneEditorControl.Controls.Editor.Model.EditorAxialFriction;
 using PhysicSceneEditorControl.Controls.AxialFriction;
 using PhysicSceneEditorControl.Controls.Editor.Model;
 using JsonHelper;
+using PhysicGlobal;
 
 namespace PhysicSceneEditorControl.Controls.Editor
 {
@@ -438,7 +439,7 @@ namespace PhysicSceneEditorControl.Controls.Editor
             panel.ClearScreen(System.Drawing.Color.White);
 
             if (this.functionData.MouseGrid.ShowGrid)
-                this.functionData.MouseGrid.Draw(panel, 1, new GraphicMinimal.Vector2D(0, 0));
+                this.functionData.MouseGrid.Draw(panel, 1, new Vec2D(0, 0));
 
             if (this.backgroundImageViewModel.Image != null)
             {

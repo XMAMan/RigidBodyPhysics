@@ -126,7 +126,7 @@ namespace BridgeBuilderControl.Controls.Simulator.Model.Converter
         {
             var groundPolyPoints = DrawingHelper
                 .GetGroundPolygon(lev.GroundPolygon, lev.GroundHeight, lev.XCount, lev.YCount)
-                .Select(x => x.ToPhx() - new Vec2D(0, BarWidth / 2)) //Verschiebe den Boden um eine halbe Stangenbreite nach oben damit es keine Stufe zwischen dem Boden und der der Brücke gibt
+                .Select(x => x - new Vec2D(0, BarWidth / 2)) //Verschiebe den Boden um eine halbe Stangenbreite nach oben damit es keine Stufe zwischen dem Boden und der der Brücke gibt
                 .ToArray();
 
             return groundPolyPoints;
@@ -429,7 +429,7 @@ namespace BridgeBuilderControl.Controls.Simulator.Model.Converter
                     joints.IndexOf(joint),
                     new string[] { BridgeDistanceTagName, BarToString(bar), IsGroundHeightBar(bar, groundHeight) ? BridgeDistanceStreetTagName : BridgeDistanceNoStreetTagName },
                     0,
-                    new Vector2D[0]
+                    new Vec2D[0]
                     );
                 tags.Add(tagData);
             }
@@ -449,7 +449,7 @@ namespace BridgeBuilderControl.Controls.Simulator.Model.Converter
                     bodies.IndexOf(rec.ExportRigidBody),
                     new string[] { BarToString(rec.Bar) },
                     0,
-                    new Vector2D[0]
+                    new Vec2D[0]
                     );
                 tags.Add(tagData);
             }

@@ -1,5 +1,4 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
 using System.Drawing;
 using System;
 using System.Collections.Generic;
@@ -9,6 +8,7 @@ using GameHelper;
 using GameHelper.ParticleHandling;
 using RigidBodyPhysics.RuntimeObjects.Thruster;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
+using PhysicGlobal;
 
 namespace MoonlanderControl.Model
 {
@@ -91,11 +91,11 @@ namespace MoonlanderControl.Model
             for (int i = 0; i < count; i++)
             {
                 float fPos = (float)rand.NextDouble();
-                Vector2D position = (1 - fPos) * p1 + fPos * p2;
+                Vec2D position = (1 - fPos) * p1 + fPos * p2;
 
                 float fVel = (float)rand.NextDouble();
                 fVel = fVel / 8 + 0.25f;
-                Vector2D velocity = direction * fVel;
+                Vec2D velocity = direction * fVel;
 
                 float agingRate = 0.001f;
 

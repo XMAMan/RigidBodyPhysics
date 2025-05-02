@@ -1,9 +1,9 @@
-﻿using GraphicMinimal;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using GameHelper.Simulation.RigidBodyTagging;
 using RigidBodyPhysics.RuntimeObjects.Joints;
+using PhysicGlobal;
 
 namespace MoonlanderControl.Model
 {
@@ -41,12 +41,12 @@ namespace MoonlanderControl.Model
             this.shipPoint2 = new AnchorPoint(tagProvider, "leg2", 0);
         }
 
-        public Vector2D GetLeg1()
+        public Vec2D GetLeg1()
         {
             return this.shipPoint1.GetPosition();
         }
 
-        public Vector2D GetLeg2()
+        public Vec2D GetLeg2()
         {
             return this.shipPoint2.GetPosition();
         }

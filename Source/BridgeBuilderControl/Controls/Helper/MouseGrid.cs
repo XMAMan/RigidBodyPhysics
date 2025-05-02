@@ -1,5 +1,5 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
+using PhysicGlobal;
 using System.Drawing;
 
 namespace BridgeBuilderControl.Controls.Helper
@@ -26,17 +26,17 @@ namespace BridgeBuilderControl.Controls.Helper
             this.XCount = xCount;
         }
 
-        public Point SnapToInt(Vector2D position)
+        public Point SnapToInt(Vec2D position)
         {
             return SnapToInteger(this.Size, position);
         }
 
-        public static Point SnapToInteger(Vector2D position)
+        public static Point SnapToInteger(Vec2D position)
         {
             return SnapToInteger(1, position);
         }
 
-        private static Point SnapToInteger(float size, Vector2D position)
+        private static Point SnapToInteger(float size, Vec2D position)
         {
             var snapPoint = SnapMouse(size, position);
 
@@ -44,7 +44,7 @@ namespace BridgeBuilderControl.Controls.Helper
         }
 
         //size = so groß ist ein Kästchen
-        private static Vector2D SnapMouse(float size, Vector2D position)
+        private static Vec2D SnapMouse(float size, Vec2D position)
         {
             float f1 = position.X / size;
             float f2 = position.Y / size;
@@ -62,7 +62,7 @@ namespace BridgeBuilderControl.Controls.Helper
             if (yf < Bias) y = yi * size;
             if (yf > 1 - Bias) y = (yi + 1) * size;
 
-            return new Vector2D(x, y);
+            return new Vec2D(x, y);
         }
     }
 }
