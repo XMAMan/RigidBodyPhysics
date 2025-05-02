@@ -19,6 +19,7 @@ using Simulator;
 using TextureEditorGlobal;
 using static RigidBodyPhysics.PhysicScene;
 using WpfControls.Extensions;
+using LevelEditorExports.Editor.KeyboardMappings;
 
 namespace GameHelper.Simulation
 {

@@ -4,6 +4,7 @@ using LevelEditorControl.Controls.PolygonControl;
 using LevelEditorControl.Controls.TagItemControl;
 using LevelEditorControl.LevelItems;
 using LevelEditorExports.Editor.CameraTracking;
+using LevelEditorExports.Editor.KeyboardMappings;
 using LevelEditorGlobal;
 using PhysicGlobal;
 using ReactiveUI;

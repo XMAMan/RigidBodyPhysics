@@ -5,6 +5,7 @@ using System.Reactive;
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using LevelEditorExports.Editor.KeyboardMappings;
 
 namespace LevelEditorControl.Controls.KeyboardMappingControl
 {

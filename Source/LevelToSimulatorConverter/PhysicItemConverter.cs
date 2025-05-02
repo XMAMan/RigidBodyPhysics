@@ -1,6 +1,7 @@
 ﻿using DynamicData;
 using GraphicMinimal;
 using KeyFrameGlobal;
+using LevelEditorExports.Editor.KeyboardMappings;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorGlobal;
 using PhysicGlobal;

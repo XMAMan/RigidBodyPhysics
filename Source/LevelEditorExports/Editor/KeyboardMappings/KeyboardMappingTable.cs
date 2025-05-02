@@ -1,0 +1,30 @@
+﻿namespace LevelEditorExports.Editor.KeyboardMappings
+{
+    //All die Keyboardmappings für ein einzelnes LevelItem (Wird vom internen Simulator benutzt)
+    public class KeyboardMappingTable
+    {
+        public int LevelItemId { get; set; } //Von diesen LevelItem wurde eine Mapping-Tabelle erstellt
+        public KeyboardMappingEntry[] Entries { get; set; } //Entries.HandlerId = Der wie vielte Handler von den jeweiligen LevelItem(PhysicScene) ist das?
+
+        public KeyboardMappingTable() { } //Für den Serialisierer
+
+        public KeyboardMappingTable(int levelItemId, KeyboardMappingEntry[] entries)
+        {
+            this.LevelItemId = levelItemId;
+            this.Entries = entries;
+        }
+    }
+
+    public class KeyboardMappingEntry
+    {
+        public System.Windows.Input.Key Key; //Benötigt <TargetFramework>net8.0-windows7.0</TargetFramework> und <UseWPF>true</UseWPF>
+        public int HandlerId; //Index aus PhysicSceneKeyPressHandlerProvider.GetHandler(physicScene, animators)
+
+        public KeyboardMappingEntry() { }
+        public KeyboardMappingEntry(KeyboardMappingEntry copy)
+        {
+            Key = copy.Key;
+            HandlerId = copy.HandlerId;
+        }
+    }
+}

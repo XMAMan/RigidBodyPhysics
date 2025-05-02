@@ -7,7 +7,6 @@ using LevelEditorControl.EditorFunctions;
 using LevelEditorControl.LevelItems.BackgroundItem;
 using LevelEditorControl.LevelItems.GroupedItems;
 using LevelEditorControl.LevelItems.LawnEdge;
-using LevelEditorControl.LevelItems.PhysicItem;
 using LevelEditorControl.LevelItems.Polygon;
 using LevelEditorControl.LevelItems;
 using LevelEditorGlobal;
@@ -34,6 +33,8 @@ using Simulator;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorExports.Editor.LevelItems;
 using LevelEditorExports.Editor.CameraTracking;
+using LevelEditorExports.Editor.KeyboardMappings;
+using LevelEditorExports.Editor;
 
 namespace LevelEditorControl.Controls.EditorControl
 {
@@ -622,9 +623,6 @@ namespace LevelEditorControl.Controls.EditorControl
                 }
             }
             this.LevelTreeViewModel.BuildTree(); //Aktualisiere das TreeControl
-
-            
-
         }
     }
 }

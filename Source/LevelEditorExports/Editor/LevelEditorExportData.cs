@@ -1,14 +1,14 @@
 ﻿using LevelEditorExports.Editor.BackgroundImage;
 using LevelEditorExports.Editor.CameraTracking;
+using LevelEditorExports.Editor.KeyboardMappings;
 using LevelEditorExports.Editor.LevelItems;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorExports.Editor.Tagging;
-using LevelEditorGlobal;
 using PhysicGlobal;
 
-namespace LevelEditorControl.Controls.EditorControl
+namespace LevelEditorExports.Editor
 {
-    internal class LevelEditorExportData
+    public class LevelEditorExportData
     {
         public PrototypControlExportData Prototyps { get; set; }
         public ILevelItemExportData[] LevelItems { get; set; }

@@ -4,6 +4,7 @@ using ReactiveUI;
 using System.Collections.ObjectModel;
 using System.Reactive;
 using System.Linq;
+using LevelEditorExports.Editor.KeyboardMappings;
 
 namespace LevelEditorControl.Controls.KeyboardMappingControl
 {

@@ -1,5 +1,5 @@
 {
-  "$type": "LevelEditorControl.Controls.EditorControl.LevelEditorExportData, LevelEditorControl",
+  "$type": "LevelEditorExports.Editor.LevelEditorExportData, LevelEditorExports",
   "Prototyps": {
     "$type": "LevelEditorExports.Editor.Prototyps.PrototypControlExportData, LevelEditorExports",
     "PrototypItems": {
@@ -1124,7 +1124,7 @@
   "SimulatorIterationCount": 50,
   "Gravity": 0.001,
   "KeyboardMappingTables": {
-    "$type": "LevelEditorGlobal.KeyboardMappingTable[], LevelEditorGlobal",
+    "$type": "LevelEditorExports.Editor.KeyboardMappings.KeyboardMappingTable[], LevelEditorExports",
     "$values": []
   },
   "ShowGrid": false,

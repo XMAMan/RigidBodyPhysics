@@ -1,5 +1,5 @@
 {
-  "$type": "LevelEditorControl.Controls.EditorControl.LevelEditorExportData, LevelEditorControl",
+  "$type": "LevelEditorExports.Editor.LevelEditorExportData, LevelEditorExports",
   "Prototyps": {
     "$type": "LevelEditorExports.Editor.Prototyps.PrototypControlExportData, LevelEditorExports",
     "PrototypItems": {
@@ -564,26 +564,26 @@
   "SimulatorIterationCount": 50,
   "Gravity": 5E-05,
   "KeyboardMappingTables": {
-    "$type": "LevelEditorGlobal.KeyboardMappingTable[], LevelEditorGlobal",
+    "$type": "LevelEditorExports.Editor.KeyboardMappings.KeyboardMappingTable[], LevelEditorExports",
     "$values": [
       {
-        "$type": "LevelEditorGlobal.KeyboardMappingTable, LevelEditorGlobal",
+        "$type": "LevelEditorExports.Editor.KeyboardMappings.KeyboardMappingTable, LevelEditorExports",
         "LevelItemId": 2,
         "Entries": {
-          "$type": "LevelEditorGlobal.KeyboardMappingEntry[], LevelEditorGlobal",
+          "$type": "LevelEditorExports.Editor.KeyboardMappings.KeyboardMappingEntry[], LevelEditorExports",
           "$values": [
             {
-              "$type": "LevelEditorGlobal.KeyboardMappingEntry, LevelEditorGlobal",
+              "$type": "LevelEditorExports.Editor.KeyboardMappings.KeyboardMappingEntry, LevelEditorExports",
               "Key": 24,
               "HandlerId": 0
             },
             {
-              "$type": "LevelEditorGlobal.KeyboardMappingEntry, LevelEditorGlobal",
+              "$type": "LevelEditorExports.Editor.KeyboardMappings.KeyboardMappingEntry, LevelEditorExports",
               "Key": 23,
               "HandlerId": 2
             },
             {
-              "$type": "LevelEditorGlobal.KeyboardMappingEntry, LevelEditorGlobal",
+              "$type": "LevelEditorExports.Editor.KeyboardMappings.KeyboardMappingEntry, LevelEditorExports",
               "Key": 25,
               "HandlerId": 1
             }

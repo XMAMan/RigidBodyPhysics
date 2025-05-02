@@ -1,5 +1,5 @@
 ﻿using KeyFrameGlobal;
-using LevelEditorGlobal;
+using LevelEditorExports.Editor.KeyboardMappings;
 using PhysicSceneKeyboardControl;
 using RigidBodyPhysics.ExportData;
 

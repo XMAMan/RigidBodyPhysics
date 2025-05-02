@@ -1,8 +1,8 @@
 ﻿using GraphicPanels;
 using LevelEditorControl.Controls.EditorControl;
+using LevelEditorExports.Editor;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorGlobal;
-using PhysicItemEditorControl.Model;
 using System.Linq;
 using WpfControls.Model;
 
