@@ -127,7 +127,7 @@ namespace LevelEditorControl.EditorFunctions
 
         private AnchorPoint GetAnchorPoint(Vec2D mousePoint, float anchorPointRadius)
         {
-            mousePoint = this.state.Camera.PointToCamera(mousePoint.ToPointF()).ToPhx();
+            mousePoint = this.state.Camera.PointToCamera(mousePoint);
             foreach (var item in this.tagables)
             {
                 var tagData = GetTagData(item);

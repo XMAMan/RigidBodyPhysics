@@ -12,9 +12,9 @@ namespace PhysicItemEditorControl.Model.MouseClickable
     internal class MouseClickableAxialFriction : IMouseclickableWithTagData
     {
         private IPublicAxialFriction runtimAxialFriction; //Läßt sich leichter zeichnen
-        private RectangleF sceneBoundingBox;
+        private PhysicGlobal.BoundingBox sceneBoundingBox;
 
-        public MouseClickableAxialFriction(IPublicAxialFriction runtimAxialFriction, RectangleF sceneBoundingBox, int bodyIndex)
+        public MouseClickableAxialFriction(IPublicAxialFriction runtimAxialFriction, PhysicGlobal.BoundingBox sceneBoundingBox, int bodyIndex)
         {
             this.sceneBoundingBox = sceneBoundingBox;
             this.runtimAxialFriction = runtimAxialFriction;

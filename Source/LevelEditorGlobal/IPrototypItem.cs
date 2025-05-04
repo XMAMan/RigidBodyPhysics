@@ -8,7 +8,7 @@ namespace LevelEditorGlobal
     {
         public PrototypItemType ProtoType { get; }
         int Id { get; }
-        RectangleF BoundingBox { get; }
+        PhysicGlobal.BoundingBox BoundingBox { get; }
         InitialRotatedRectangleValues InitialRecValues { get; } //Mit dem SizeFactor/Angle/Pivot werden LevelItems von diesen Prototyp angelegt
         IPrototypExportData EditorExportData { get; } //Mit diesen Daten kann der Editor der dieses Item erzeugt hat dann neu geladen werden
         Bitmap GetImage(int maxWidth, int maxHeight);

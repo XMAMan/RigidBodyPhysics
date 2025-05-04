@@ -12,7 +12,6 @@ using System.Reactive;
 using DynamicData;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using PhysicGlobal;
-using WpfControls.Extensions;
 
 namespace KeyFramePhysicImporter.ViewModel
 {
@@ -146,8 +145,8 @@ namespace KeyFramePhysicImporter.ViewModel
         {
             if (this.mouseState == MouseState.MakeFix)
             {
-                var objectSpacePoint = this.camera.PointToCamera(new PointF(e.X, e.Y));
-                var data = this.scene.TryToGetBodyWithMouseClick(objectSpacePoint.ToPhx());
+                var objectSpacePoint = this.camera.PointToCamera(new Vec2D(e.X, e.Y));
+                var data = this.scene.TryToGetBodyWithMouseClick(objectSpacePoint);
                 if (data != null)
                 {
                     this.scene = SwitchMassPropertyFromRigidBody(this.scene, data.RigidBody);
@@ -157,8 +156,8 @@ namespace KeyFramePhysicImporter.ViewModel
 
             if (this.mouseState == MouseState.DefineColor)
             {
-                var objectSpacePoint = this.camera.PointToCamera(new PointF(e.X, e.Y));
-                var data = this.scene.TryToGetBodyWithMouseClick(objectSpacePoint.ToPhx());
+                var objectSpacePoint = this.camera.PointToCamera(new Vec2D(e.X, e.Y));
+                var data = this.scene.TryToGetBodyWithMouseClick(objectSpacePoint);
                 if (data != null)
                 {
                     this.drawer.SetColorFromRigidBody(data.RigidBody, this.selectedColor);

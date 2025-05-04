@@ -36,7 +36,7 @@ namespace AstroidsControl.Controls
         private AstroidDestroyer collisionHandler;
 
         //In diesen Bereich wird gespielt. Um so größer, um so kleiner erscheint das Raumschiff
-        private readonly RectangleF GameArea = new RectangleF(0, 0, 2000, 1000);
+        private readonly PhysicGlobal.BoundingBox GameArea = new PhysicGlobal.BoundingBox(0, 0, 2000, 1000);
 
         private Sounds sounds;                          //Soundwiedergabe
         public MainViewModel(GraphicPanel2D panel, ISoundGenerator soundGenerator, float timerIntervallInMilliseconds, string dataFolder)

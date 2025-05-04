@@ -3,7 +3,6 @@ using KeyFrameGlobal;
 using RigidBodyPhysics;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using PhysicGlobal;
-using WpfControls.Extensions;
 
 namespace KeyFramePhysicImporter.Model.PhysicSceneDrawing
 {
@@ -68,9 +67,9 @@ namespace KeyFramePhysicImporter.Model.PhysicSceneDrawing
         }
 
         #region IAnimationModelDrawer
-        public RectangleF GetBoundingBoxFromScene()
+        public PhysicGlobal.BoundingBox GetBoundingBoxFromScene()
         {
-            return BoundingBox.GetBoxFromBoxes(this.shapes.Select(x => x.BoundingBox)).ToRectangleF();
+            return BoundingBox.GetBoxFromBoxes(this.shapes.Select(x => x.BoundingBox));
         }
         public void Draw(Camera2D camera)
         {
@@ -96,7 +95,7 @@ namespace KeyFramePhysicImporter.Model.PhysicSceneDrawing
                 {
                     dir = (m - center).Normalize();
                 }
-                panel.DrawStringOnCircleBorder(i + "", 20, Color.Red, camera.PointToScreen(center.ToPointF()).ToPhx(), dir);
+                panel.DrawStringOnCircleBorder(i + "", 20, Color.Red, camera.PointToScreen(center), dir);
             }
         }
         #endregion

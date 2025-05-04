@@ -26,7 +26,7 @@ namespace KeyFramePhysicImporter.Model.PhysicSceneDrawing
 
         public void Draw(GraphicPanel2D panel, Pen borderPen, Color fillColor, Camera2D camera)
         {
-            var points = this.model.Vertex.Select(x => camera.PointToScreen(x.ToPointF()).ToGrx()).ToList();
+            var points = this.model.Vertex.Select(x => camera.PointToScreen(x).ToGrx()).ToList();
             panel.DrawFillPolygon(fillColor, points);
             panel.DrawPolygon(borderPen, points);
         }

@@ -12,9 +12,9 @@ namespace PhysicItemEditorControl.Model.MouseClickable
     internal class MouseClickableThruster : IMouseclickableWithTagData
     {
         private IPublicThruster runtimThruster; //Läßt sich leichter zeichnen
-        private RectangleF sceneBoundingBox;
+        private PhysicGlobal.BoundingBox sceneBoundingBox;
 
-        public MouseClickableThruster(IPublicThruster runtimThruster, RectangleF sceneBoundingBox, int bodyIndex)
+        public MouseClickableThruster(IPublicThruster runtimThruster, PhysicGlobal.BoundingBox sceneBoundingBox, int bodyIndex)
         {
             this.sceneBoundingBox = sceneBoundingBox;
             this.runtimThruster = runtimThruster;

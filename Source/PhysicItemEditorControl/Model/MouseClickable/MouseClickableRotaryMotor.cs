@@ -12,9 +12,9 @@ namespace PhysicItemEditorControl.Model.MouseClickable
     internal class MouseClickableRotaryMotor : IMouseclickableWithTagData
     {
         private IPublicRotaryMotor runtimMotor; //Läßt sich leichter zeichnen
-        private RectangleF sceneBoundingBox;
+        private PhysicGlobal.BoundingBox sceneBoundingBox;
 
-        public MouseClickableRotaryMotor(IPublicRotaryMotor runtimMotor, RectangleF sceneBoundingBox, int bodyIndex)
+        public MouseClickableRotaryMotor(IPublicRotaryMotor runtimMotor, PhysicGlobal.BoundingBox sceneBoundingBox, int bodyIndex)
         {
             this.sceneBoundingBox = sceneBoundingBox;
             this.runtimMotor = runtimMotor;

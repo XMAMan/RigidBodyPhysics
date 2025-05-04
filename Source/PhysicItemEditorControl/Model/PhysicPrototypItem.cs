@@ -7,7 +7,6 @@ using RigidBodyPhysics;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using TextureEditorControl;
 using TextureEditorGlobal;
 using WpfControls.Controls.CameraSetting;
 using LevelEditorGlobal;
@@ -105,7 +104,7 @@ namespace PhysicItemEditorControl.Model
         public PrototypItemType ProtoType { get => PrototypItemType.PhysicItem; }
         public int Id { get; }
         public TagType TypeName { get => TagType.Proto; } //ITagable
-        public RectangleF BoundingBox { get; }
+        public PhysicGlobal.BoundingBox BoundingBox { get; }
         public InitialRotatedRectangleValues InitialRecValues { get; }
 
         public ICollidable[] Collidables { get; }

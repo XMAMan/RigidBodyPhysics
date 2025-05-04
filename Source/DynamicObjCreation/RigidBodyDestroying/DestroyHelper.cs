@@ -2,7 +2,6 @@
 using GraphicMinimal;
 using PhysicGlobal;
 using RigidBodyPhysics.ExportData.RigidBody;
-using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using TextureEditorGlobal;
 using WpfControls.Extensions;
@@ -83,7 +82,7 @@ namespace DynamicObjCreation.RigidBodyDestroying
         private static Vec2D GetTextureCenterFromPolygon(IPublicRigidPolygon body, TextureExportData p)
         {
             float angleInDegree = body.Angle / (float)Math.PI * 180;
-            var localCenter = PhysicGlobal.BoundingBox.GetBoxFromPoints(((PolygonExportData)body.GetExportData()).Points).Center;
+            var localCenter = PhysicGlobal.BoundingBox.GetBoxFromPoints(((PolygonExportData)body.GetExportData()).Points).GetCenter();
             return TextureRectangleHelper.GetTextureBorderPoints(body.Center, localCenter, p.Width, p.Height, angleInDegree, p.DeltaX, p.DeltaY, p.DeltaAngle).Last();
         }
 
@@ -109,7 +108,7 @@ namespace DynamicObjCreation.RigidBodyDestroying
 
             polyBody = p.UserParameter.TransformFunc(body, polyBody);
 
-            var toPolyCenter = PhysicGlobal.BoundingBox.GetBoxFromPoints(poly).Center - texCenter;
+            var toPolyCenter = PhysicGlobal.BoundingBox.GetBoxFromPoints(poly).GetCenter() - texCenter;
 
             var texData = new TextureExportData()
             {

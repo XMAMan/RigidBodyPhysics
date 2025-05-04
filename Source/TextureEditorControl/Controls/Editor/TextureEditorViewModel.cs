@@ -184,7 +184,7 @@ namespace TextureEditorControl.Controls.Editor
 
             if (this.CameraViewModel == null) return;
 
-            var localPoint = this.CameraViewModel.Camera.PointToCamera(new System.Drawing.PointF(e.X, e.Y)).ToPhx();
+            var localPoint = this.CameraViewModel.Camera.PointToCamera(new Vec2D(e.X, e.Y));
 
             //Schritt 1: Mauszeiger verändern, wenn er über ein Click-Point von ein TexturBorder ist
             this.mouseOverPoint = this.shapeContainer.GetClickPointFromSelectedShape(localPoint);
@@ -205,7 +205,7 @@ namespace TextureEditorControl.Controls.Editor
         {
             if (this.CameraViewModel == null) return;
 
-            var localPoint = this.CameraViewModel.Camera.PointToCamera(new System.Drawing.PointF(e.X, e.Y)).ToPhx();
+            var localPoint = this.CameraViewModel.Camera.PointToCamera(new Vec2D(e.X, e.Y));
 
             if (e.Button == MouseButtons.Left)
             {

@@ -2,9 +2,7 @@
 using LevelEditorGlobal;
 using PhysicGlobal;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
-using WpfControls.Extensions;
 
 namespace LevelEditorControl.EditorFunctions
 {
@@ -32,14 +30,14 @@ namespace LevelEditorControl.EditorFunctions
 
         public override void HandleMouseMove(MouseEventArgs e)
         {
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
+            var point = state.Camera.PointToCamera(new Vec2D(e.X, e.Y));
             point = state.Grid.SnapMouse(point);
             Draw(point);
         }
 
         public override void HandleMouseClick(MouseEventArgs e)
         {
-            var mousePosition = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
+            var mousePosition = state.Camera.PointToCamera(new Vec2D(e.X, e.Y));
             mousePosition = state.Grid.SnapMouse(mousePosition);
 
             if (e.Button == MouseButtons.Left)
@@ -62,7 +60,7 @@ namespace LevelEditorControl.EditorFunctions
             state.DrawItems();
 
             panel.PushMatrix();
-            panel.MultTransformationMatrix(new RotatedRectangle(mousePosition, this.prototypItem.BoundingBox.Size, this.prototypItem.InitialRecValues).GetLocalToScreenMatrix());
+            panel.MultTransformationMatrix(new RotatedRectangle(mousePosition, this.prototypItem.BoundingBox.GetSize(), this.prototypItem.InitialRecValues).GetLocalToScreenMatrix());
             this.prototypItem.Draw(panel);
             panel.PopMatrix();
 

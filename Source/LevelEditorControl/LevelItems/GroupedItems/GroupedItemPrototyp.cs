@@ -33,7 +33,7 @@ namespace LevelEditorControl.LevelItems.GroupedItems
 
         public PrototypItemType ProtoType { get => PrototypItemType.GroupedItem; }
         public int Id { get; }
-        public RectangleF BoundingBox { get; }
+        public PhysicGlobal.BoundingBox BoundingBox { get; }
         public InitialRotatedRectangleValues InitialRecValues { get; }
         public IPrototypExportData EditorExportData { get => CreateExportData(); } //Mit diesen Daten kann der Editor der dieses Item erzeugt hat dann neu geladen werden
 

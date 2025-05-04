@@ -14,7 +14,7 @@ namespace TexturePhysicImporter
 
         private static Size GetSizeFromShape(I2DAreaShape shape)
         {
-            return new Size((int)shape.LocalBoundingBox.Width, (int)shape.LocalBoundingBox.Height);
+            return new Size((int)shape.LocalBoundingBox.GetWidth(), (int)shape.LocalBoundingBox.GetHeight());
         }
 
         private static TextureExportData GetDefaultTexture(Size size)

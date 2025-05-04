@@ -33,12 +33,12 @@ namespace LevelEditorControl.LevelItems.LawnEdge
         public bool IsSelected { get; set; }
         public Vec2D PivotPoint { get; set; } = null;
         public RotatedRectangle Position { get; } = null;
-        public RectangleF GetBoundingBox()
+        public PhysicGlobal.BoundingBox GetBoundingBox()
         {
             var boxes = Drawer.GetAllSegments(p1, p2)
-                .Select(x => MathHelper.GetBoundingBoxFromPolygon(x.Points));
+                .Select(x => PolygonHelper.GetBoundingBoxFromPolygon(x.Points));
 
-            return MathHelper.GetBoundingBox(boxes);
+            return PhysicGlobal.BoundingBox.GetBoxFromBoxes(boxes);
         }
         public Vec2D[] GetCornerPoints()
         {

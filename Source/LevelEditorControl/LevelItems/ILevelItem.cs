@@ -18,7 +18,7 @@ namespace LevelEditorControl.LevelItems
         bool IsPointInside(Vec2D point);
         ILevelItemExportData GetExportData();
         Vec2D PivotPoint { get; set; } //Hiermit kann das Objekt verschoben werden
-        RectangleF GetBoundingBox();
+        BoundingBox GetBoundingBox();
         Vec2D[] GetCornerPoints(); //4 Eckpunkte vom Physik/Backgrounditem/Lawn oder die Polygonpunkte -> Zum Selektieren per Rechteck
     }
 

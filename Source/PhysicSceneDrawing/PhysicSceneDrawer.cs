@@ -36,14 +36,14 @@ namespace PhysicSceneDrawing
                 distanceJoints.Remove((IPublicDistanceJoint)joint);
         }
 
-        public RectangleF GetPhysicBoundingBoxFromScene()
+        public PhysicGlobal.BoundingBox GetPhysicBoundingBoxFromScene()
         {
-            return PhysicGlobal.BoundingBox.GetBoxFromBoxes(textures.Select(x => x.PhysicBoundingBox)).ToRectangleF();
+            return PhysicGlobal.BoundingBox.GetBoxFromBoxes(textures.Select(x => x.PhysicBoundingBox));
         }
 
-        public RectangleF GetTextureBoundingBoxFromScene()
+        public PhysicGlobal.BoundingBox GetTextureBoundingBoxFromScene()
         {
-            return PhysicGlobal.BoundingBox.GetBoxFromBoxes(textures.Select(x => x.TextureBoundingBox)).ToRectangleF();
+            return PhysicGlobal.BoundingBox.GetBoxFromBoxes(textures.Select(x => x.TextureBoundingBox));
         }
 
         private static ITexturedRigidBody[] ConvertPhysicScene(PhysicScene physicScene, VisualisizerOutputData textureData)

@@ -1,12 +1,12 @@
 ﻿using GraphicPanels;
 using PhysicGlobal;
-using Splat;
 using System;
 using System.Drawing;
 using System.Linq;
 using TextureEditorControl.Controls.DrawingSettings;
 using TextureEditorControl.Controls.TextureData;
 using TextureEditorGlobal;
+using WpfControls.Extensions;
 
 namespace TextureEditorControl.Controls.Editor.Model.Shape
 {
@@ -17,7 +17,7 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
         protected I2DAreaShape shape;
 
         public TextureDataViewModel Propertys { get; protected set; }
-        public RectangleF BoundingBox { get; protected set; }
+        public PhysicGlobal.BoundingBox BoundingBox { get; protected set; }
         public bool IsSelected { get; set; } = false;
 
         public AreaShape(I2DAreaShape rectangle)
@@ -26,18 +26,18 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
 
             this.Propertys = new TextureDataViewModel()
             {
-                Width = (int)rectangle.LocalBoundingBox.Width,
-                Height = (int)rectangle.LocalBoundingBox.Height,
+                Width = (int)rectangle.LocalBoundingBox.GetWidth(),
+                Height = (int)rectangle.LocalBoundingBox.GetHeight(),
             };
         }
 
-        protected RectangleF GetBoundingBox()
+        protected PhysicGlobal.BoundingBox GetBoundingBox()
         {
             Vec2D[] points = GetPhysicCornerPoints();
             var min = new Vec2D(points.Min(x => x.X), points.Min(x => x.Y));
             var max = new Vec2D(points.Max(x => x.X), points.Max(x => x.Y));
 
-            return new RectangleF(min.X, min.Y, max.X - min.X, max.Y - min.Y);
+            return new PhysicGlobal.BoundingBox(min.X, min.Y, max.X - min.X, max.Y - min.Y);
         }
 
         protected abstract Vec2D[] GetPhysicCornerPoints();
@@ -48,7 +48,7 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
             var r = this.shape;
             var p = this.Propertys;
 
-            return TextureRectangleHelper.GetTextureBorderPoints(r.Center, r.LocalBoundingBox.Center().ToPhx(), p.Width, p.Height, r.AngleInDegree, p.DeltaX, p.DeltaY, p.DeltaAngle);
+            return TextureRectangleHelper.GetTextureBorderPoints(r.Center, r.LocalBoundingBox.GetCenter(), p.Width, p.Height, r.AngleInDegree, p.DeltaX, p.DeltaY, p.DeltaAngle);
         }
 
         public void Draw(GraphicPanel2D panel, Camera2D camera, DrawingSettingsViewModel settings)
@@ -69,7 +69,7 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
         virtual protected void DrawPhysicModel(GraphicPanel2D panel, Camera2D camera)
         {
             var cornerPoints = GetPhysicCornerPoints();
-            var points = cornerPoints.Select(x => camera.PointToScreen(x.ToPointF()).ToGrx()).ToList();
+            var points = cornerPoints.Select(x => camera.PointToScreen(x).ToGrx()).ToList();
 
             panel.DrawPolygon(this.IsSelected ? new Pen(Color.Red, 4) : Pens.Black, points);
         }
@@ -82,7 +82,7 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
                 var p = this.Propertys;
 
                 var texPoints = GetTextureBorderPoints()
-                    .Select(x => camera.PointToScreen(x.ToPointF()).ToGrx())
+                    .Select(x => camera.PointToScreen(x).ToGrx())
                     .ToList();
 
                 int col = Math.Min(255, Math.Max(0, (int)(255 * p.ColorFactor)));
@@ -102,7 +102,7 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
         protected void DrawTextureBorder(GraphicPanel2D panel, Camera2D camera)
         {
             var texPoints = GetTextureBorderPoints()
-                    .Select(x => camera.PointToScreen(x.ToPointF()).ToGrx())
+                    .Select(x => camera.PointToScreen(x).ToGrx())
                     .ToList();
 
             panel.DrawPolygon(Pens.Green, texPoints.Take(4).ToList());

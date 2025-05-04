@@ -2,7 +2,6 @@
 using PhysicGlobal;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using TextureEditorControl.Controls.DrawingSettings;
 using TextureEditorGlobal;
@@ -14,22 +13,13 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
         public IShape[] Shapes { get; private set; }
         private IShape selectedShape = null;
 
-        public RectangleF BoundingBox { get; }
+        public PhysicGlobal.BoundingBox BoundingBox { get; }
 
         public ShapeContainer(VisualisizerInputData data)
         {
             this.Shapes = data.Shapes.Select(Convert).ToArray();
-            this.BoundingBox = GetBoundingBox(this.Shapes.Select(x => x.BoundingBox));
+            this.BoundingBox = PhysicGlobal.BoundingBox.GetBoxFromBoxes(this.Shapes.Select(x => x.BoundingBox));
         }
-
-        private static RectangleF GetBoundingBox(IEnumerable<RectangleF> boxes)
-        {
-            var min = new PointF(boxes.Min(x => x.X), boxes.Min(y => y.Y));
-            var max = new PointF(boxes.Max(x => x.X + x.Width), boxes.Max(y => y.Y + y.Height));
-
-            return new RectangleF(min, new SizeF(max.X - min.X, max.Y - min.Y));
-        }
-
         private static IShape Convert(I2DAreaShape shape)
         {
             if (shape is IRectangle)

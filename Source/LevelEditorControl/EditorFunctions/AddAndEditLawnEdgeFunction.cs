@@ -114,7 +114,7 @@ namespace LevelEditorControl.EditorFunctions
 
         public override void HandleMouseMove(MouseEventArgs e)
         {
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
+            var point = state.Camera.PointToCamera(new Vec2D(e.X, e.Y));
 
             if (this.selectedPoint == null && (this.point1 == null || this.point2 == null))
             {
@@ -135,7 +135,7 @@ namespace LevelEditorControl.EditorFunctions
 
         public override void HandleMouseClick(MouseEventArgs e)
         {
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
+            var point = state.Camera.PointToCamera(new Vec2D(e.X, e.Y));
 
             if (this.point1 == null)
             {
@@ -161,7 +161,7 @@ namespace LevelEditorControl.EditorFunctions
 
         public override void HandleMouseDown(MouseEventArgs e)
         {
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
+            var point = state.Camera.PointToCamera(new Vec2D(e.X, e.Y));
 
             this.selectedPoint = null;
 
@@ -192,9 +192,9 @@ namespace LevelEditorControl.EditorFunctions
             {
                 var p1 = points[i];
                 var p2 = points[(i + 1) % points.Length];
-                if (MathHelper.IsPointAboveLine(p1, p2, point, lineWidth))
+                if (PhysicGlobal.MathHelper.IsPointAboveLine(p1, p2, point, lineWidth))
                 {
-                    var pointOnLine = MathHelper.GetProjectedPointOnLine(p1, p2, point, out float distance, out float distancePercent);
+                    var pointOnLine = PhysicGlobal.MathHelper.GetProjectedPointOnLine(p1, p2, point, out float distance, out float distancePercent);
                     if (pointOnLine == null)
                         throw new Exception("Abnormal error");
 
@@ -253,8 +253,8 @@ namespace LevelEditorControl.EditorFunctions
         private void DrawPolyPoint(LawnEdgeDrawer.PolygonPoint point, Color color)
         {
             float height = this.state.Camera.LengthToScreen(this.drawer.LawnHeight);
-            var p1 = state.Camera.PointToScreen(point.Position.ToPointF()).ToGrx();
-            var p2 = state.Camera.PointToScreen((point.Position + point.Normal * height).ToPointF()).ToGrx();
+            var p1 = state.Camera.PointToScreen(point.Position).ToGrx();
+            var p2 = state.Camera.PointToScreen((point.Position + point.Normal * height)).ToGrx();
             this.state.Panel.DrawLine(new Pen(color, 5), p1, p2);
         }
 

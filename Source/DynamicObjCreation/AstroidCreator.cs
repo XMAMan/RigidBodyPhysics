@@ -1,6 +1,5 @@
 ﻿using PhysicGlobal;
 using RigidBodyPhysics.ExportData.RigidBody;
-using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using System.Drawing;
 using TextureEditorGlobal;
@@ -39,8 +38,8 @@ namespace DynamicObjCreation
                 ColorFactor = Color.White,
                 DeltaX = 0,
                 DeltaY = 0,
-                Width = (int)polyBox.Width,
-                Height = (int)polyBox.Height,
+                Width = (int)polyBox.GetWidth(),
+                Height = (int)polyBox.GetHeight(),
                 DeltaAngle = 0,
                 ZValue = 0
             };

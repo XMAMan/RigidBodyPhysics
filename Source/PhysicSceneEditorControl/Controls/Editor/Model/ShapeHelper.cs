@@ -17,7 +17,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model
             Vec2D localCenter = copy.Center - box.Min;
             copy.MoveTo(localCenter);
 
-            GraphicPanel2D panel = new GraphicPanel2D() { Width = (int)box.Width, Height = (int)box.Height, Mode = Mode2D.CPU };
+            GraphicPanel2D panel = new GraphicPanel2D() { Width = (int)box.GetWidth(), Height = (int)box.GetHeight(), Mode = Mode2D.CPU };
             panel.ClearScreen(Color.White);
             copy.BorderPen = Pens.Red;
             copy.Backcolor = Color.Red;

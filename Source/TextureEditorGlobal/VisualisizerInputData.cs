@@ -1,5 +1,4 @@
 ﻿using PhysicGlobal;
-using System.Drawing;
 
 namespace TextureEditorGlobal
 {
@@ -16,7 +15,7 @@ namespace TextureEditorGlobal
         float AngleInDegree { get; }
 
         //AABB-BoundingBox von der Shape im LokalSpace (Wenn Objekt nicht gedreht wurde und dessen Zentrum bei 0 liegt)
-        RectangleF LocalBoundingBox { get; }
+        PhysicGlobal.BoundingBox LocalBoundingBox { get; }
     }
 
     public interface IRectangle : I2DAreaShape

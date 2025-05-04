@@ -16,13 +16,13 @@ namespace LevelEditorControl.LevelItems.BackgroundItem
             this.Id = id;
             this.textureFile = textureFile;
             this.image = new Bitmap(textureFile);
-            this.BoundingBox = new RectangleF(0, 0, image.Width, image.Height);
+            this.BoundingBox = new PhysicGlobal.BoundingBox(0, 0, image.Width, image.Height);
             this.InitialRecValues = initialRecValues;
         }
 
         public PrototypItemType ProtoType { get => PrototypItemType.BackgroundItem; }
         public int Id { get; }
-        public RectangleF BoundingBox { get; }
+        public PhysicGlobal.BoundingBox BoundingBox { get; }
         public InitialRotatedRectangleValues InitialRecValues { get; }
         public IPrototypExportData EditorExportData { get => CreateExportData(); } //Mit diesen Daten kann der Editor der dieses Item erzeugt hat dann neu geladen werden
 

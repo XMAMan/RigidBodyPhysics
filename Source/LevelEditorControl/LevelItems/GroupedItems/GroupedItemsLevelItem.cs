@@ -18,7 +18,7 @@ namespace LevelEditorControl.LevelItems.GroupedItems
         {
             this.AssociatedPrototyp = prototyp;
             this.Id = id;
-            this.RotatedRectangle = new RotatedRectangle(position, prototyp.BoundingBox.Size, initialRecValues);
+            this.RotatedRectangle = new RotatedRectangle(position, prototyp.BoundingBox.GetSize(), initialRecValues);
         }
 
         public IPrototypItem AssociatedPrototyp { get; private set; }
@@ -31,7 +31,7 @@ namespace LevelEditorControl.LevelItems.GroupedItems
         public bool IsSelected { get; set; }
         public Vec2D PivotPoint { get => this.RotatedRectangle.PivotPoint; set => this.RotatedRectangle.PivotPoint = value; }
         public RotatedRectangle RotatedRectangle { get; }
-        public RectangleF GetBoundingBox()
+        public PhysicGlobal.BoundingBox GetBoundingBox()
         {
             return this.RotatedRectangle.GetBoundingBox();
         }
@@ -42,7 +42,7 @@ namespace LevelEditorControl.LevelItems.GroupedItems
         public float GetArea()
         {
             var protoBox = AssociatedPrototyp.BoundingBox;
-            return protoBox.Width * protoBox.Height;
+            return protoBox.GetWidth() * protoBox.GetHeight();
         }
 
         public void Draw(GraphicPanel2D panel)

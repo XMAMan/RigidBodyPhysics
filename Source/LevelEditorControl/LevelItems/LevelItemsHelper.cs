@@ -17,39 +17,9 @@ namespace LevelEditorControl.LevelItems
 {
     internal static class LevelItemsHelper
     {
-        public static RectangleF GetBoundingBox(List<ILevelItem> items)
+        public static PhysicGlobal.BoundingBox GetBoundingBox(List<ILevelItem> items)
         {
-            return GetBoundingBox(items.Select(x => x.GetBoundingBox()).ToList());
-        }
-
-        public static RectangleF GetBoundingBox(List<RectangleF> boxes)
-        {
-            if (boxes.Any() == false) return new RectangleF(0, 0, 0, 0);
-
-            Vec2D min = new Vec2D(float.MaxValue, float.MaxValue);
-            Vec2D max = new Vec2D(float.MinValue, float.MinValue);
-            foreach (var box in boxes)
-            {
-                min.X = Math.Min(min.X, box.X);
-                min.Y = Math.Min(min.Y, box.Y);
-                max.X = Math.Max(max.X, box.X + box.Width);
-                max.Y = Math.Max(max.Y, box.Y + box.Height);
-            }
-
-            return new RectangleF(min.X, min.Y, max.X - min.X, max.Y - min.Y);
-        }
-
-        public static RectangleF CreateRectangle(Vec2D mouseDownPoint, Vec2D mousePosition)
-        {
-            Vec2D min = new Vec2D(Math.Min(mouseDownPoint.X, mousePosition.X), Math.Min(mouseDownPoint.Y, mousePosition.Y));
-            Vec2D max = new Vec2D(Math.Max(mouseDownPoint.X, mousePosition.X), Math.Max(mouseDownPoint.Y, mousePosition.Y));
-
-            var range = max - min;
-            return new RectangleF(min.X, min.Y, range.X, range.Y);
-        }
-        public static bool IsPointInRectangle(RectangleF rec, Vec2D point)
-        {
-            return point.X >= rec.Left && point.X <= rec.Right && point.Y >= rec.Top && point.Y <= rec.Bottom;
+            return BoundingBox.GetBoxFromBoxes(items.Select(x => x.GetBoundingBox()));
         }
 
         public static void DrawItems(List<ILevelItem> items, IMouseClickable selectedSubItem, GraphicPanel2D panel, Camera2D camera, PolygonImages polygonImages, MouseGrid grid)
@@ -131,8 +101,8 @@ namespace LevelEditorControl.LevelItems
         public static void DrawBoundingBox(ILevelItem item, GraphicPanel2D panel, Camera2D camera)
         {
             var box = item.GetBoundingBox();
-            var min = camera.PointToScreen(new PointF(box.X, box.Y));
-            var size = new SizeF(camera.LengthToScreen(box.Width), camera.LengthToScreen(box.Height));
+            var min = camera.PointToScreen(new Vec2D(box.Min.X, box.Min.Y));
+            var size = new SizeF(camera.LengthToScreen(box.GetWidth()), camera.LengthToScreen(box.GetHeight()));
             panel.DrawRectangle(new Pen(Color.Red, 3), (int)min.X, (int)min.Y, (int)size.Width, (int)size.Height);
         }
 

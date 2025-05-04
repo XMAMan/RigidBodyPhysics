@@ -17,7 +17,6 @@ using RigidBodyPhysics.RuntimeObjects.Thruster;
 using Simulator;
 using TextureEditorGlobal;
 using static RigidBodyPhysics.PhysicScene;
-using WpfControls.Extensions;
 using LevelEditorExports.Editor.KeyboardMappings;
 using LevelEditorExports.Simulator;
 
@@ -79,9 +78,9 @@ namespace GameHelper.Simulation
         }
 
         #region MouseHandling
-        public Vec2D PointToCamera(PointF point)
+        public Vec2D PointToCamera(Vec2D point)
         {
-            return this.camera.PointToCamera(point).ToPhx();
+            return this.camera.PointToCamera(point);
         }
         #endregion
 

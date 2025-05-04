@@ -1,5 +1,5 @@
 ﻿using PhysicGlobal;
-using PolyHelp = RigidBodyPhysics.MathHelper.PolygonHelper;
+using PolyHelp = PhysicGlobal.PolygonHelper;
 
 namespace DynamicObjCreation.PolygonIntersection
 {

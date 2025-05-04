@@ -35,7 +35,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
         //points = Polygon dessen Schwerpunkt am Punkt [0,0] liegt. 
         protected ConcavePolygon(Vec2D center, Vec2D[] points, MassData massData, PolygonCollisionType polygonType)
         {
-            points = PolygonHelper.OrderPointsCCW(points); //Für IsConvex/EdgeNormalen/IsEdgeOutside muss das Polygon immer CCW sein
+            points = PhysicGlobal.PolygonHelper.OrderPointsCounterClockWise(points); //Für IsConvex/EdgeNormalen/IsEdgeOutside muss das Polygon immer CCW sein
 
             localPoints = points;
 
@@ -44,10 +44,10 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
             Angle = 0;
             Velocity = new Vec2D(0, 0);
             AngularVelocity = 0;
-            Area = PolygonHelper.GetAreaFromPolygon(points);
+            Area = PhysicGlobal.PolygonHelper.GetAreaFromPolygon(points);
             float mass = massData.GetMass(Area);
             InverseMass = float.MaxValue == mass ? 0 : 1 / mass;
-            InverseInertia = InverseMass == 0 ? 0 : 1.0f / PolygonHelper.GetInertiaFromPolygon(massData.GetDensity(Area), points);
+            InverseInertia = InverseMass == 0 ? 0 : 1.0f / MathHelper.PolygonHelper.GetInertiaFromPolygon(massData.GetDensity(Area), points);
             Force = new Vec2D(0, 0);
             Torque = 0;
 
@@ -120,7 +120,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
         {
             if (InverseMass == 0) return false;
 
-            return PolygonHelper.PointIsInsidePolygon(Vertex, position);
+            return PhysicGlobal.PolygonHelper.PointIsInsidePolygon(Vertex, position);
         }
         #endregion
 

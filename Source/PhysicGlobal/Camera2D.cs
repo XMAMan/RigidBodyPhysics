@@ -7,11 +7,11 @@ namespace PhysicGlobal
     //Das Kamerasichtfenster geht von X=min.X..min.X+screenWidth/factor und Y=min.Y..min.Y+screenHeight/factor -> Das ist der CameraSpace
     public class Camera2D
     {
-        private PointF min = new PointF(0, 0); //Camera-MinPoint
+        private Vec2D min = new Vec2D(0, 0); //Camera-MinPoint
         private float screenWidth;
         private float screenHeight;
         private float factor = 1;   //Um diesen Faktor muss die Scene skaliert werden, damit sie genau ins Fenster passt (Sie stößt dann oben/unten oder links/rechts an)
-        private RectangleF? box = null; //Das ist die BoundingBox von den Objekt, was die Kamera anzeigen soll
+        private BoundingBox box = null; //Das ist die BoundingBox von den Objekt, was die Kamera anzeigen soll
         private float zoom = 1;
         private Size backgroundImage = new Size(100, 100); //Größe vom Hintergrundbild
 
@@ -44,15 +44,15 @@ namespace PhysicGlobal
         }
 
         //Sichtfenster im Camera-Space
-        public RectangleF GetScreenBox()
+        public BoundingBox GetScreenBox()
         {
-            if (this.ShowOriginalPosition) return new RectangleF(0, 0, screenWidth, screenHeight);
+            if (this.ShowOriginalPosition) return new BoundingBox(0, 0, screenWidth, screenHeight);
 
-            return new RectangleF(X, Y, screenWidth / factor, screenHeight / factor);
+            return new BoundingBox(X, Y, screenWidth / factor, screenHeight / factor);
         }
 
         //Größe der Szene im Cameraspace
-        public RectangleF? GetSceneBoundingBox()
+        public BoundingBox GetSceneBoundingBox()
         {
             return box;
         }
@@ -66,7 +66,7 @@ namespace PhysicGlobal
         public bool ShowOriginalPosition { get; set; } = false;
 
         //Der Cameraspace wird so angeordnet, dass er die Box zeigt aber er hält die Seitenverhältnisse vom Screen bei
-        public Camera2D(int screenWidth, int screenHeight, RectangleF? boundingBoxFromScene = null)
+        public Camera2D(int screenWidth, int screenHeight, BoundingBox boundingBoxFromScene = null)
         {
             box = boundingBoxFromScene;
             this.screenWidth = screenWidth;
@@ -85,7 +85,7 @@ namespace PhysicGlobal
 
         //Wird gerufen, wenn im Editor AutoZoom auf true gestellt wird. Damit passt die Scene Dank der Aktualisierung der
         //factor-Variable genau ins Bild. 
-        public void UpdateSceneBoundingBox(RectangleF boundingBox)
+        public void UpdateSceneBoundingBox(BoundingBox boundingBox)
         {
             this.box = boundingBox;
             UpdateScaleFactor();
@@ -98,7 +98,7 @@ namespace PhysicGlobal
 
         //Wird gerufen, wenn im Editor ein LevelItem hinzu gefügt oder gelöscht wurde.
         //So wird im SmallWindow immer die Gesamtszene gezeigt aber im Hauptfenster ändert sich nicht der Zoom/die Kameraposition.
-        public void UpdateBoundingBoxWithoutZoomChange(RectangleF boundingBox)
+        public void UpdateBoundingBoxWithoutZoomChange(BoundingBox boundingBox)
         {
             this.box = boundingBox;
         }
@@ -107,7 +107,7 @@ namespace PhysicGlobal
         {
             if (box != null)
             {
-                factor = GetScaleFactor(new SizeF(screenWidth, screenHeight), box.Value.Size);
+                factor = GetScaleFactor(new SizeF(screenWidth, screenHeight), new SizeF(box.GetWidth(), box.GetHeight()));
             }
 
 
@@ -139,35 +139,35 @@ namespace PhysicGlobal
             {
                 case InitialPositionIfAutoZoomIsActivated.SceneCenterToScreenCenter:
                     {
-                        PointF centerFromScene = new PointF(0, 0);
+                        Vec2D centerFromScene = new Vec2D(0, 0);
                         if (this.box != null)
                         {
-                            centerFromScene = new PointF(box.Value.X + box.Value.Width / 2, box.Value.Y + box.Value.Height / 2);
+                            centerFromScene = new Vec2D(box.Min.X + box.GetWidth() / 2, box.Min.Y + box.GetHeight() / 2);
                         }
 
-                        PointF cameraCenter = new PointF((this.screenWidth / this.factor) / 2, (this.screenHeight / this.factor) / 2);
-                        this.min = new PointF(centerFromScene.X - cameraCenter.X, centerFromScene.Y - cameraCenter.Y);
+                        Vec2D cameraCenter = new Vec2D((this.screenWidth / this.factor) / 2, (this.screenHeight / this.factor) / 2);
+                        this.min = new Vec2D(centerFromScene.X - cameraCenter.X, centerFromScene.Y - cameraCenter.Y);
                     }
                     break;
 
                 case InitialPositionIfAutoZoomIsActivated.ToLeftTopCorner:
-                    this.min = new PointF(box.Value.X, box.Value.Y);
+                    this.min = new Vec2D(box.Min);
                     break;
 
                 case InitialPositionIfAutoZoomIsActivated.ToBackgroundImage:
-                    UpdateSceneBoundingBox(new RectangleF(0, 0, this.backgroundImage.Width, this.backgroundImage.Height));
+                    UpdateSceneBoundingBox(new BoundingBox(0, 0, this.backgroundImage.Width, this.backgroundImage.Height));
                     UpdateScaleFactor();
-                    this.min = new PointF(0, 0);
+                    this.min = new Vec2D(0, 0);
                     break;
             }
         }
 
         //ScreenSpace to Cameraspace
-        public PointF PointToCamera(PointF point)
+        public Vec2D PointToCamera(Vec2D point)
         {
             if (this.ShowOriginalPosition) return point;
 
-            return new PointF(min.X + point.X / this.factor, min.Y + point.Y / this.factor);
+            return new Vec2D(min.X + point.X / this.factor, min.Y + point.Y / this.factor);
         }
 
         public float LengthToCamera(float length)
@@ -178,11 +178,11 @@ namespace PhysicGlobal
         }
 
         //Cameraspace to ScreenSpace
-        public PointF PointToScreen(PointF point)
+        public Vec2D PointToScreen(Vec2D point)
         {
             if (this.ShowOriginalPosition) return point;
 
-            return new PointF((point.X - min.X) * this.factor, (point.Y - min.Y) * this.factor);
+            return new Vec2D((point.X - min.X) * this.factor, (point.Y - min.Y) * this.factor);
         }
 
         public float LengthToScreen(float length)

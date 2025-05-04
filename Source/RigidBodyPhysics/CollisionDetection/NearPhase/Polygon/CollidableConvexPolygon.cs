@@ -38,7 +38,7 @@ namespace RigidBodyPhysics.CollisionDetection.NearPhase.Polygon
         private void CalculateVariablesToGetCenterFromEdge0()
         {
             //Ich darf das Zentrum nicht fest definieren da das Elternpolygon zwar die Vertex-Werte beim bewegen ändert aber nicht diese lokale Variable hier
-            var center = PolygonHelper.GetCenterOfMassFromPolygon(this.Vertex);
+            var center = PhysicGlobal.PolygonHelper.GetCenterOfMassFromPolygon(this.Vertex);
 
             //Ich merke mit deswegen stattdessen, welche Tangent- und Normaldistanz das Zentrum zur Edge1 hat
             var edge1Dir = (this.Vertex[0] - this.Vertex[1]).Normalize();

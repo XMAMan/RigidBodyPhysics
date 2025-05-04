@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using TextureEditorGlobal;
+using WpfControls.Extensions;
 
 namespace TextureEditorControl.Controls.Editor.Model.Shape
 {
@@ -32,7 +33,7 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
                 int col = Math.Min(255, Math.Max(0, (int)(255 * p.ColorFactor)));
 
                 var texPoints = GetTextureBorderPoints()
-                    .Select(x => camera.PointToScreen(x.ToPointF()).ToGrx())
+                    .Select(x => camera.PointToScreen(x).ToGrx())
                     .ToList();
 
                 float xLength = (texPoints[1] - texPoints[0]).Length();
@@ -43,7 +44,7 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
                 List<Vertex2D> points = new List<Vertex2D>();
                 foreach (var local in r.Points)
                 {
-                    var screen = camera.PointToScreen(local.ToPointF()).ToGrx();
+                    var screen = camera.PointToScreen(local).ToGrx();
                     var tex = new Vector2D((screen - texPoints[0]) * xDir / xLength, (screen - texPoints[0]) * yDir / yLength);
                     points.Add(new Vertex2D(screen, tex));
                 }
@@ -55,7 +56,7 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
         public override bool IsPointInPhysicModel(Vec2D point)
         {
             var p = (IPolygon)this.shape;
-            return MathHelper.PointIsInsidePolygon(p.Points, point);
+            return PhysicGlobal.PolygonHelper.PointIsInsidePolygon(p.Points, point);
         }
     }
 }

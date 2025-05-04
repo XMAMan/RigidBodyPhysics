@@ -29,14 +29,14 @@ namespace LevelEditorGlobal
 
         public void Draw(GraphicPanel2D panel, Action<Color, Color> drawLevelAction)
         {
-            RectangleF smallWindow = new RectangleF(panel.Width * (1 - size), panel.Height * (1 - size), panel.Width * size, panel.Height * size);
+            PhysicGlobal.BoundingBox smallWindow = new PhysicGlobal.BoundingBox(panel.Width * (1 - size), panel.Height * (1 - size), panel.Width * size, panel.Height * size);
 
             panel.PushMatrix();
             panel.SetTransformationMatrixToIdentity();
             panel.DisableDepthTesting();
             panel.ZValue2D = -100; //Überschreibe mit ein Wert der weit hinten liegt um somit in diesen Bildbereich den Depth-Wert zu löschen
-            panel.DrawFillRectangle(backColor, (int)smallWindow.X, (int)smallWindow.Y, (int)smallWindow.Width, (int)smallWindow.Height);
-            panel.DrawRectangle(new Pen(Color.Blue, 3), (int)smallWindow.X, (int)smallWindow.Y, (int)smallWindow.Width, (int)smallWindow.Height);
+            panel.DrawFillRectangle(backColor, (int)smallWindow.X, (int)smallWindow.Y, (int)smallWindow.GetWidth(), (int)smallWindow.GetHeight());
+            panel.DrawRectangle(new Pen(Color.Blue, 3), (int)smallWindow.X, (int)smallWindow.Y, (int)smallWindow.GetWidth(), (int)smallWindow.GetHeight());
 
             var cameraToScreen = GetCameraToScreenMatrix(smallWindow);
             panel.MultTransformationMatrix(cameraToScreen);
@@ -48,7 +48,7 @@ namespace LevelEditorGlobal
             {
                 panel.DisableDepthTesting();
                 var cameraBox = this.camera.GetScreenBox();
-                panel.DrawRectangle(new Pen(Color.Yellow, 3), (int)cameraBox.X, (int)cameraBox.Y, (int)cameraBox.Width, (int)cameraBox.Height);
+                panel.DrawRectangle(new Pen(Color.Yellow, 3), (int)cameraBox.X, (int)cameraBox.Y, (int)cameraBox.GetWidth(), (int)cameraBox.GetHeight());
 
                 //Testausgabe der Scene-Boundingbox
                 //var sceneBoundingBox = this.camera.GetSceneBoundingBox().Value;
@@ -59,7 +59,7 @@ namespace LevelEditorGlobal
 
         }
 
-        private Matrix4x4 GetCameraToScreenMatrix(RectangleF smallWindow)
+        private Matrix4x4 GetCameraToScreenMatrix(PhysicGlobal.BoundingBox smallWindow)
         {
             if (this.camera.ShowOriginalPosition)
             {
@@ -69,8 +69,8 @@ namespace LevelEditorGlobal
             }
             else
             {
-                var box = this.camera.GetSceneBoundingBox().Value;
-                float factor = Camera2D.GetScaleFactor(new SizeF(this.panelWidth, this.panelHeight), box.Size);
+                var box = this.camera.GetSceneBoundingBox();
+                float factor = Camera2D.GetScaleFactor(new SizeF(this.panelWidth, this.panelHeight), box.GetSize());
                 var m = Matrix4x4.Translate(-box.X, -box.Y, 0);
                 m *= Matrix4x4.Scale(size * factor, size * factor, size * factor);
                 m *= Matrix4x4.Translate(smallWindow.X, smallWindow.Y, 0);
@@ -84,7 +84,7 @@ namespace LevelEditorGlobal
         //Umrechung der Mausposition in den CameraSpace/GlobalSpace
         private Vec2D MouseToCam(Vec2D mousePosition)
         {
-            RectangleF smallWindow = new RectangleF(this.panelWidth * (1 - size), this.panelHeight * (1 - size), this.panelWidth * size, this.panelHeight * size);
+            PhysicGlobal.BoundingBox smallWindow = new PhysicGlobal.BoundingBox(this.panelWidth * (1 - size), this.panelHeight * (1 - size), this.panelWidth * size, this.panelHeight * size);
 
             var cameraToScreen = GetCameraToScreenMatrix(smallWindow);
             var screenToCamera = Matrix4x4.Invert(cameraToScreen);
@@ -135,18 +135,13 @@ namespace LevelEditorGlobal
 
             float size = Math.Min(1, Math.Max(-1, e.Delta / 150f)); //Clamp from -1 to +1
 
-            var camBox1 = Center(this.camera.GetScreenBox()); //Vorher
+            var camBox1 = this.camera.GetScreenBox().GetCenter(); //Vorher
             this.camera.Zoom = Math.Max(0.1f, this.camera.Zoom * (1 + size / 10)); //Zoom darf nie 0 werden                                                                      
-            var camBox2 = Center(this.camera.GetScreenBox()); //Nachher
+            var camBox2 = this.camera.GetScreenBox().GetCenter(); //Nachher
 
             var delta = camBox2 - camBox1;
             this.camera.X -= delta.X;
             this.camera.Y -= delta.Y;
-        }
-
-        private static Vec2D Center(RectangleF rec)
-        {
-            return new Vec2D(rec.X + rec.Width / 2, rec.Y + rec.Height / 2);
         }
 
         private bool IsMouseInZoomRec(MouseEventArgs e)
@@ -154,7 +149,7 @@ namespace LevelEditorGlobal
             var mouseCam = MouseToCam(new Vec2D(e.X, e.Y));
             var camBox = this.camera.GetScreenBox();
 
-            return mouseCam.X > camBox.X && mouseCam.X < camBox.Right && mouseCam.Y > camBox.Y && mouseCam.Y < camBox.Bottom;
+            return mouseCam.X > camBox.X && mouseCam.X < camBox.Max.X && mouseCam.Y > camBox.Y && mouseCam.Y < camBox.Max.Y;
         }
 
         public void HandleSizeChanged(int width, int height)

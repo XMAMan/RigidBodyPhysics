@@ -1,7 +1,6 @@
 ﻿using RigidBodyPhysics.CollisionDetection.NearPhase.Polygon;
 using RigidBodyPhysics.CollisionDetection.NearPhase;
 using RigidBodyPhysics.ExportData.RigidBody;
-using RigidBodyPhysics.MathHelper;
 using PhysicGlobal;
 
 namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
@@ -55,7 +54,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
                         var pj1 = Vertex[j];
                         var pj2 = Vertex[(j + 1) % Vertex.Length];
 
-                        PolygonHelper.IntersectionTwoRays(pi1, (pi2 - pi1).Normalize(), pj1, (pj2 - pj1).Normalize(), out float t1, out float t2);
+                        MathHelper.PolygonHelper.IntersectionTwoRays(pi1, (pi2 - pi1).Normalize(), pj1, (pj2 - pj1).Normalize(), out float t1, out float t2);
                         if (float.IsNaN(t1) == false && float.IsInfinity(t1) == false)
                         {
                             if (t1 < 0)

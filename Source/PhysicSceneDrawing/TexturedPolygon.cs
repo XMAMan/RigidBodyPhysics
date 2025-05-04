@@ -76,7 +76,7 @@ namespace PhysicSceneDrawing
         protected Vec2D[] GetTextureBorderPoints()
         {
             float angleInDegree = r.Angle / (float)Math.PI * 180;
-            var localCenter = PhysicGlobal.BoundingBox.GetBoxFromPoints(((PolygonExportData)r.GetExportData()).Points).Center;
+            var localCenter = PhysicGlobal.BoundingBox.GetBoxFromPoints(((PolygonExportData)r.GetExportData()).Points).GetCenter();
             return TextureRectangleHelper.GetTextureBorderPoints(r.Center, localCenter, p.Width, p.Height, angleInDegree, p.DeltaX, p.DeltaY, p.DeltaAngle);
         }
 

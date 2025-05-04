@@ -1,7 +1,6 @@
 ﻿using GraphicPanels;
 using PhysicGlobal;
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
-using RigidBodyPhysics.MathHelper;
 using WpfControls.Model;
 using WpfControls.Extensions;
 
@@ -61,7 +60,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Shapes
             this.currentLineIntersects = false;
             for (int i = 0; i < points.Count - 2; i++)
             {
-                if (PolygonHelper.IntersectLines(points[i], points[i + 1], points.Last(), currentMousePosition))
+                if (PhysicGlobal.MathHelper.IntersectLines(points[i], points[i + 1], points.Last(), currentMousePosition))
                 {
                     this.currentLineIntersects = true;
                     break;
@@ -114,7 +113,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Shapes
             if (this.points.Count >= 3)
             {
                 //Stelle sicher, dass das Polygon immer in CCW-Richtung angegeben ist
-                Vec2D[] polygon = PolygonHelper.OrderPointsCCW(this.points.ToArray());
+                Vec2D[] polygon = PolygonHelper.OrderPointsClockWise(this.points.ToArray());
 
                 this.shapes.Add(new EditorPolygon(polygon));
                 this.points.Clear();

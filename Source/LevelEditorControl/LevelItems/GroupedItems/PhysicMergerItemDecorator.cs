@@ -1,5 +1,4 @@
-﻿using GraphicMinimal;
-using LevelEditorExports.Editor.Prototyps;
+﻿using LevelEditorExports.Editor.Prototyps;
 using LevelToSimulatorConverter;
 using PhysicGlobal;
 

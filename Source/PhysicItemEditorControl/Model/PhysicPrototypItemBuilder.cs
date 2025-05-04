@@ -5,7 +5,7 @@ namespace PhysicItemEditorControl.Model
 {
     public static class PhysicPrototypItemBuilder
     {
-        public static IPrototypItem CreateFromObject(object exportObject)
+        public static IPrototypItem CreateFromObject(IPrototypExportData exportObject)
         {
             var data = (PhysicItemExportData)exportObject;
             if (data.InitialRecValues == null) data.InitialRecValues = new InitialRotatedRectangleValues();

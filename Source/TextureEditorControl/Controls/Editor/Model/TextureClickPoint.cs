@@ -2,6 +2,7 @@
 using PhysicGlobal;
 using System.Drawing;
 using TextureEditorControl.Controls.Editor.Model.Shape;
+using WpfControls.Extensions;
 
 namespace TextureEditorControl.Controls.Editor.Model
 {

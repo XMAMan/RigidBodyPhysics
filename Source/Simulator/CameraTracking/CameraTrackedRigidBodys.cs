@@ -1,6 +1,5 @@
 ﻿using LevelEditorGlobal;
 using PhysicGlobal;
-using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 
 namespace Simulator.CameraTracking
@@ -8,7 +7,7 @@ namespace Simulator.CameraTracking
     internal class CameraTrackedRigidBodys : ICameraTrackedItem
     {
         private IPublicRigidBody[] bodys;
-        public RectangleF BoundingBox => GetBoundingBox();
+        public PhysicGlobal.BoundingBox BoundingBox => GetBoundingBox();
 
         private float[] radi;
         public CameraTrackedRigidBodys(IPublicRigidBody[] bodys)
@@ -17,7 +16,7 @@ namespace Simulator.CameraTracking
             this.radi = bodys.Select(x => GetRadius(x)).ToArray();
         }
 
-        private RectangleF GetBoundingBox()
+        private PhysicGlobal.BoundingBox GetBoundingBox()
         {
             Vec2D min = new Vec2D(float.MaxValue, float.MaxValue);
             Vec2D max = new Vec2D(float.MinValue, float.MinValue);
@@ -30,7 +29,7 @@ namespace Simulator.CameraTracking
                 max.Y = Math.Max(max.Y, body.Center.Y + radi[i]);
             }
             var range = max - min;
-            return new RectangleF(min.X, min.Y, range.X, range.Y);
+            return new PhysicGlobal.BoundingBox(min.X, min.Y, range.X, range.Y);
         }
 
         private static float GetRadius(IPublicRigidBody body)
@@ -50,7 +49,7 @@ namespace Simulator.CameraTracking
             if (body is IPublicRigidPolygon)
             {
                 var r = (IPublicRigidPolygon)body;
-                return PolygonHelper.GetBoundingBoxFromPolygon(r.Vertex).Radius;
+                return PolygonHelper.GetBoundingBoxFromPolygon(r.Vertex).GetRadius();
             }
 
             throw new ArgumentException("Unknown type " + body.GetType());

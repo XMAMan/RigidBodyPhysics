@@ -93,12 +93,12 @@ namespace Simulator
             this.BackgroundImage = data.BackgroundImage;
             this.backgroundItems = data.BackgroundItems;
 
-            this.FixCameraArea = new RectangleF(0, 0, panelSize.Width, panelSize.Height);
+            this.FixCameraArea = new PhysicGlobal.BoundingBox(0, 0, panelSize.Width, panelSize.Height);
 
             if (data.BackgroundImage.Mode == ImageMode.StretchWithAspectRatio && string.IsNullOrEmpty(data.BackgroundImage.FileName) == false)
             {
                 this.camera.UpdateBackgroundImage(data.BackgroundImage.Size);
-                this.FixCameraArea = new RectangleF(0, 0, data.BackgroundImage.Size.Width, data.BackgroundImage.Size.Height); //2D-Spiel, wo man von oben drauf schaut (Bsp: CarDrifter)
+                this.FixCameraArea = new PhysicGlobal.BoundingBox(0, 0, data.BackgroundImage.Size.Width, data.BackgroundImage.Size.Height); //2D-Spiel, wo man von oben drauf schaut (Bsp: CarDrifter)
                 this.CameraModus = CameraMode.FixArea;                
             }
             if (data.BackgroundImage.Mode == ImageMode.NoStretch)
@@ -166,9 +166,9 @@ namespace Simulator
             }
         }
 
-        public RectangleF FixCameraArea { get; set; } //Dieser Bereich wird angezeigt, wenn der Kamera-Modus FixArea verwendet wird
+        public PhysicGlobal.BoundingBox FixCameraArea { get; set; } //Dieser Bereich wird angezeigt, wenn der Kamera-Modus FixArea verwendet wird
 
-        public RectangleF GetScreenBox()
+        public PhysicGlobal.BoundingBox GetScreenBox()
         {
             return this.camera.GetScreenBox();
         }
@@ -361,7 +361,7 @@ namespace Simulator
             if (this.smallWindow.HandleMouseDown(e)) return;
 
             //Physik-Objekt anklicken und mit der Maus bewegen
-            var mousePosition = this.camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
+            var mousePosition = this.camera.PointToCamera(new Vec2D(e.X, e.Y));
             var data = this.physicScene.TryToGetBodyWithMouseClick(mousePosition);
             if (data != null)
             {
@@ -381,7 +381,7 @@ namespace Simulator
         {
             if (this.smallWindow.HandleMouseMove(e)) return;
 
-            var mousePosition = this.camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
+            var mousePosition = this.camera.PointToCamera(new Vec2D(e.X, e.Y));
             this.physicScene.UpdateMousePosition(mousePosition);
         }
 
@@ -399,7 +399,7 @@ namespace Simulator
             this.keyHandler.HandleKeyUp(key);
         }
 
-        public RectangleF GetBoundingBoxFromScene()
+        public PhysicGlobal.BoundingBox GetBoundingBoxFromScene()
         {
             return this.sceneDrawer.GetPhysicBoundingBoxFromScene();
         }

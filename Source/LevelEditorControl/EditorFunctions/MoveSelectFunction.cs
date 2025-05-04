@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using WpfControls.Extensions;
 
 namespace LevelEditorControl.EditorFunctions
 {
@@ -68,7 +67,7 @@ namespace LevelEditorControl.EditorFunctions
         {
             if (this.smallWindow.HandleMouseDown(e)) return;
 
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
+            var point = state.Camera.PointToCamera(new Vec2D(e.X, e.Y));
 
             this.mouseDownPoint = point;
             this.mousePosition = point;
@@ -113,7 +112,7 @@ namespace LevelEditorControl.EditorFunctions
         {
             if (this.smallWindow.HandleMouseMove(e)) return;
 
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
+            var point = state.Camera.PointToCamera(new Vec2D(e.X, e.Y));
 
             this.mousePosition = point;
 
@@ -123,14 +122,14 @@ namespace LevelEditorControl.EditorFunctions
                 if (this.state.SelectedItems.Count == 0)
                 {
                     //Prüfe für die 4 Eckpunkte von jeden LevelItem, ob es im Rechteck liegt
-                    var rec = LevelItemsHelper.CreateRectangle(this.mouseDownPoint, this.mousePosition);
+                    var rec = BoundingBox.GetBoxFromTwoPoints(this.mouseDownPoint, this.mousePosition);
                     foreach (var item in this.state.LevelItems)
                     {
                         item.IsSelected = false;
                         var points = item.GetCornerPoints();
                         foreach (var p in points)
                         {
-                            if (LevelItemsHelper.IsPointInRectangle(rec, p))
+                            if (rec.IsPointInBox(p))
                             {
                                 item.IsSelected = true;
                                 break;

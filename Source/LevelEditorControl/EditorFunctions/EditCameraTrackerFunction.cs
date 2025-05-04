@@ -40,14 +40,14 @@ namespace LevelEditorControl.EditorFunctions
                 panel.DrawRectangle(new System.Drawing.Pen(Color.Orange, 5),
                     (int)(box1.X + vm.DistanceToScreenBorder),
                     (int)(box1.Y + vm.DistanceToScreenBorder),
-                    (int)Math.Max(1, box1.Width - 2 * vm.DistanceToScreenBorder),
-                    (int)Math.Max(1, box1.Height - 2 * vm.DistanceToScreenBorder)
+                    (int)Math.Max(1, box1.GetWidth() - 2 * vm.DistanceToScreenBorder),
+                    (int)Math.Max(1, box1.GetHeight() - 2 * vm.DistanceToScreenBorder)
                     );
             }
 
             if (vm.TrackingMode == CameraTrackerData.TrackingMode.KeepInCenter)
             {
-                var box1 = state.Camera.GetScreenBox().Center();
+                var box1 = state.Camera.GetScreenBox().GetCenter();
                 panel.DrawRectangle(new System.Drawing.Pen(Color.Orange, 5),
                     (int)(box1.X - vm.DistanceToScreenCenter),
                     (int)(box1.Y - vm.DistanceToScreenCenter),
@@ -59,12 +59,12 @@ namespace LevelEditorControl.EditorFunctions
 
                 if (this.state.CameraTrackerData.MaxBorder != null)
             {
-                var box2 = this.state.CameraTrackerData.MaxBorder.Value;
+                var box2 = this.state.CameraTrackerData.MaxBorder;
                 panel.DrawRectangle(new System.Drawing.Pen(Color.Gray, 5),
                     (int)box2.X,
                     (int)box2.Y,
-                    (int)box2.Width,
-                    (int)box2.Height
+                    (int)box2.GetWidth(),
+                    (int)box2.GetHeight()
                 );
             }
 

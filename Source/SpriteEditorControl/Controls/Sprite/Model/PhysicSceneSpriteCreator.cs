@@ -69,9 +69,9 @@ namespace SpriteEditorControl.Controls.Sprite.Model
             }
         }
 
-        private RectangleF[] GetBoxs(int count, int timeStepsPerFrame)
+        private PhysicGlobal.BoundingBox[] GetBoxs(int count, int timeStepsPerFrame)
         {
-            List<RectangleF> boxes = new List<RectangleF>();
+            List<PhysicGlobal.BoundingBox> boxes = new List<PhysicGlobal.BoundingBox>();
             for (int i = 0; i < count; i++)
             {
                 GoToTimePosition(i / (float)(count - 1), timeStepsPerFrame);
@@ -93,7 +93,7 @@ namespace SpriteEditorControl.Controls.Sprite.Model
             return new Frame()
             {
                 Image = screen,
-                Box = new RectangleF(box.X - maxBox.X, box.Y - maxBox.Y, box.Width, box.Height),
+                Box = new RectangleF(box.X - maxBox.X, box.Y - maxBox.Y, box.GetWidth(), box.GetHeight()),
             };
         }
 
@@ -110,27 +110,9 @@ namespace SpriteEditorControl.Controls.Sprite.Model
             return frames.ToArray();
         }
 
-        private RectangleF GetMaxBorder(IEnumerable<RectangleF> boxes)
+        private Rectangle BoxToRec(PhysicGlobal.BoundingBox box)
         {
-            float minX = float.MaxValue;
-            float minY = float.MaxValue;
-            float maxX = float.MinValue;
-            float maxY = float.MinValue;
-
-            foreach (var box in boxes)
-            {
-                minX = Math.Min(minX, box.X);
-                minY = Math.Min(minY, box.Y);
-                maxX = Math.Max(maxX, box.Right);
-                maxY = Math.Max(maxY, box.Bottom);
-            }
-
-            return new RectangleF(minX, minY, maxX - minX, maxY - minY);
-        }
-
-        private Rectangle RecFToRec(RectangleF rectF)
-        {
-            return new Rectangle((int)rectF.X, (int)rectF.Y, (int)(rectF.Width + 1), (int)(rectF.Height + 1));
+            return new Rectangle((int)box.X, (int)box.Y, (int)(box.GetWidth() + 1), (int)(box.GetHeight() + 1));
         }
 
         
@@ -141,7 +123,7 @@ namespace SpriteEditorControl.Controls.Sprite.Model
 
             //Schritt 1: Ermittle von jeden Frame per PhysicSceneDrawer.GetTextureBoundingBoxFromScene wie groß es ist
             var boxes = GetBoxs(count, timeStepsPerFrame);
-            var maxBox = RecFToRec(GetMaxBorder(boxes));        //Innerhalb dieser BoundinBox erscheinen alle Zeichendaten
+            var maxBox = BoxToRec(PhysicGlobal.BoundingBox.GetBoxFromBoxes(boxes));        //Innerhalb dieser BoundinBox erscheinen alle Zeichendaten
 
             //Schritt 2: Erstelle alle Frames
             var panel = new GraphicPanel2D() { Width = maxBox.Width, Height = maxBox.Height, Mode = Mode2D.CPU };

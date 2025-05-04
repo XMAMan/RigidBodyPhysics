@@ -74,7 +74,7 @@ namespace DynamicObjCreation.UnitTests
             for (int i=0;i<allOriantations.Length;i++)
             {
                 var copyData = new PhysikLevelItemExportData(exportData); //Kopie vom Original-Export erstellen
-                var pivotPoint = new Vec2D(box.Width + i * box.Width * 2, box.Height);
+                var pivotPoint = new Vec2D(box.GetWidth() + i * box.GetWidth() * 2, box.GetHeight());
                 LevelItemExportHelper.MoveToPivotPoint(copyData, pivotPoint, allOriantations[i], 1, 0); //Kopie bearbeiten
                 int newId = simulator.AddLevelItem(copyData);
                 pivotPoints.Add(pivotPoint);
@@ -90,7 +90,7 @@ namespace DynamicObjCreation.UnitTests
             for (int i=0;i<allSizes.Length;i++)
             {
                 var copyData = new PhysikLevelItemExportData(exportData); //Kopie vom Original-Export erstellen
-                var pivotPoint = new Vec2D(box.Width + i * box.Width * 2, box.Height + 1 * box.Height * 2);
+                var pivotPoint = new Vec2D(box.GetWidth() + i * box.GetWidth() * 2, box.GetHeight() + 1 * box.GetHeight() * 2);
                 LevelItemExportHelper.MoveToPivotPoint(copyData, pivotPoint,  LevelItemExportHelper.PivotOriantation.Center, allSizes[i], 0); //Kopie bearbeiten
                 simulator.AddLevelItem(copyData);
                 pivotPoints.Add(pivotPoint);
@@ -100,7 +100,7 @@ namespace DynamicObjCreation.UnitTests
             for (int i = 0; i < allSizes.Length; i++)
             {
                 var copyData = new PhysikLevelItemExportData(exportData); //Kopie vom Original-Export erstellen
-                var pivotPoint = new Vec2D(box.Width + i * box.Width * 2, box.Height + 2 * box.Height * 2);
+                var pivotPoint = new Vec2D(box.GetWidth() + i * box.GetWidth() * 2, box.GetHeight() + 2 * box.GetHeight() * 2);
                 LevelItemExportHelper.MoveToPivotPoint(copyData, pivotPoint, LevelItemExportHelper.PivotOriantation.Center, 1, allAngles[i]); //Kopie bearbeiten
                 simulator.AddLevelItem(copyData);
                 pivotPoints.Add(pivotPoint);
@@ -117,7 +117,7 @@ namespace DynamicObjCreation.UnitTests
             //panel.DrawRectangle(Pens.Red, box.Min.X, box.Min.Y, box.Width, box.Height);
             for (int i=0;i<pivotPoints.Count;i++)
             {
-                panel.DrawRectangle(Pens.Green, pivotPoints[i].X - box.Width, pivotPoints[i].Y - box.Height, box.Width * 2, box.Height * 2);
+                panel.DrawRectangle(Pens.Green, pivotPoints[i].X - box.GetWidth(), pivotPoints[i].Y - box.GetHeight(), box.GetWidth() * 2, box.GetHeight() * 2);
                 panel.DrawFillCircle(Color.Red, pivotPoints[i].ToGrx(), 2);
             }
             foreach (var tagPoint in tagPoints)

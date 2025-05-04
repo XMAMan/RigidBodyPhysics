@@ -3,14 +3,12 @@ using BridgeBuilderControl.Controls.LevelEditor;
 using BridgeBuilderControl.Controls.Simulator.Model;
 using GraphicPanels;
 using PhysicGlobal;
-using RigidBodyPhysics.MathHelper;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using WpfControls.Controls.CameraSetting;
-using WpfControls.Extensions;
 
 namespace BridgeBuilderControl.Controls.BridgeEditor.Model
 {
@@ -206,7 +204,7 @@ namespace BridgeBuilderControl.Controls.BridgeEditor.Model
             {
                 if (IsEqual(mouse, bar.P1) || 
                     IsEqual(mouse, bar.P2) || 
-                    MathHelper.IsPointAboveBar(pixelPosition, bar, 1, this.camera.LengthToCamera(1))
+                    Helper.MathHelper.IsPointAboveBar(pixelPosition, bar, 1, this.camera.LengthToCamera(1))
                     )
                 {
                     bars.Add(bar);
@@ -235,24 +233,24 @@ namespace BridgeBuilderControl.Controls.BridgeEditor.Model
                 if (IsP1P2LineAboveBar(point1, point2)) return false;
 
                 //Maximallänge prüfen
-                if (MathHelper.GetDistance(this.point1, point2) > 8.99f) return false;
+                if (Helper.MathHelper.GetDistance(this.point1, point2) > 8.99f) return false;
 
                 //Wenn der Endpunkt ein Ankerpunkt ist, dann prüfe nicht, ob die P1-P2-Linie den Boden schneidet                
                 if (IsAnchorPoint(this.point1) || IsAnchorPoint(point2)) return true;
 
                 //Prüfe ob die P1-P2-Linie das Boden-Polygon schneidet
-                var p1 = MathHelper.GridToPixelPoint(this.point1, 1);
+                var p1 = Helper.MathHelper.GridToPixelPoint(this.point1, 1);
                 var p2 = pixelPoint;
                 var lev = this.levelData;
                 var groundPoly = DrawingHelper.GetGroundPolygon(lev.GroundPolygon, lev.GroundHeight, lev.XCount, lev.YCount);
 
-                return MathHelper.LineIntersectsPolygon(p1, p2, groundPoly) == false;
+                return PolygonHelper.LineIntersectsPolygon(p1, p2, groundPoly) == false;
             }            
         }
 
         public void HandleMouseMove(MouseEventArgs e)
         {
-            this.mousePosition = this.camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
+            this.mousePosition = this.camera.PointToCamera(new Vec2D(e.X, e.Y));
             this.screenMousePosition = new Vec2D(e.X, e.Y);
             this.mouseHoverState = GetMouseHoverState(this.mousePosition);
             this.selectedBars = GetSelectedBars(this.mousePosition);
@@ -340,7 +338,7 @@ namespace BridgeBuilderControl.Controls.BridgeEditor.Model
         private bool IsPointInGround(Vec2D point)
         {
             var groundPoly = DrawingHelper.GetGroundPolygon(this.levelData.GroundPolygon, this.levelData.GroundHeight, this.levelData.XCount, this.levelData.YCount);
-            return PolygonHelper.PointIsInsidePolygon(groundPoly, point);
+            return PhysicGlobal.PolygonHelper.PointIsInsidePolygon(groundPoly, point);
         }
     }
 }

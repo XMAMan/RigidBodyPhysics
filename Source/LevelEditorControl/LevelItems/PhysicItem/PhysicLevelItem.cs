@@ -34,7 +34,7 @@ namespace LevelEditorControl.LevelItems.PhysicItem
             Id = id;
             prototyp = item;
 
-            this.RotatedRectangle = new RotatedRectangle(position, new SizeF(prototyp.BoundingBox.Width, prototyp.BoundingBox.Height), initialRecValues);
+            this.RotatedRectangle = new RotatedRectangle(position, new SizeF(prototyp.BoundingBox.GetWidth(), prototyp.BoundingBox.GetHeight()), initialRecValues);
 
             this.Collidables = (item as ICollidableContainer).Collidables.Select(x => new MouseClickableWithCollision(x, this.RotatedRectangle)).ToArray();
             this.Tagables = (item as ITagableContainer).Tagables.Select(x => new MouseClickableDecorator(x, this.RotatedRectangle)).ToArray();
@@ -50,7 +50,7 @@ namespace LevelEditorControl.LevelItems.PhysicItem
         public ICollidable[] Collidables { get; } //ICollidableContainer
         public IMouseclickableWithTagData[] Tagables { get; } //ITagableContainer
 
-        public RectangleF GetBoundingBox()
+        public PhysicGlobal.BoundingBox GetBoundingBox()
         {
             return this.RotatedRectangle.GetBoundingBox();
         }
@@ -60,7 +60,7 @@ namespace LevelEditorControl.LevelItems.PhysicItem
         }
         public float GetArea()
         {
-            return prototyp.BoundingBox.Width * prototyp.BoundingBox.Height;
+            return prototyp.BoundingBox.GetWidth() * prototyp.BoundingBox.GetHeight();
         }
         public void Draw(GraphicPanel2D panel)
         {

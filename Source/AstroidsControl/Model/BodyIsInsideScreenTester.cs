@@ -3,7 +3,6 @@ using GraphicPanelWpf;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 
 namespace AstroidsControl.Model
 {
@@ -59,12 +58,12 @@ namespace AstroidsControl.Model
             }
         }
 
-        private bool IsInsideRectangle(IPublicRigidBody body, RectangleF box)
+        private bool IsInsideRectangle(IPublicRigidBody body, PhysicGlobal.BoundingBox box)
         {
-            return body.Center.X > box.Left - border &&
-                body.Center.X < box.Right + border &&
-                body.Center.Y > box.Top - border &&
-                body.Center.Y < box.Bottom + border;
+            return body.Center.X > box.Min.X - border &&
+                body.Center.X < box.Max.X + border &&
+                body.Center.Y > box.Min.Y - border &&
+                body.Center.Y < box.Max.Y + border;
         }
     }
 }

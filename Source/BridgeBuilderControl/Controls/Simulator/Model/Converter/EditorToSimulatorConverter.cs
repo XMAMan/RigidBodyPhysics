@@ -3,14 +3,12 @@ using BridgeBuilderControl.Controls.Helper;
 using BridgeBuilderControl.Controls.LevelEditor;
 using DynamicData;
 using GameHelper.Simulation;
-using GraphicMinimal;
 using LevelEditorControl;
 using LevelToSimulatorConverter;
 using PhysicGlobal;
 using RigidBodyPhysics.ExportData;
 using RigidBodyPhysics.ExportData.Joints;
 using RigidBodyPhysics.ExportData.RigidBody;
-using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.RuntimeObjects.Joints;
 using System.Collections.Generic;
 using System.Drawing;
@@ -169,7 +167,7 @@ namespace BridgeBuilderControl.Controls.Simulator.Model.Converter
         {
             var polyBox = PolygonHelper.GetBoundingBoxFromPolygon(polyData.Points.Select(x => polyData.Center + x).ToArray());
             string groundTexture = dataFolder + "\\Ground.png";
-            return new TextureExportData() { ColorFactor = Color.White, Width = polyBox.Width, Height = polyBox.Height, TextureFile = groundTexture, ZValue = 5 };
+            return new TextureExportData() { ColorFactor = Color.White, Width = polyBox.GetHeight(), Height = polyBox.GetHeight(), TextureFile = groundTexture, ZValue = 5 };
         }
 
         private static AnchorPoint[] GetGroundAnchorPoints(LevelExport lev, Vec2D polygonCenter)

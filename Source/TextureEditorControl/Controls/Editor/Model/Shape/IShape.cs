@@ -1,6 +1,5 @@
 ﻿using GraphicPanels;
 using PhysicGlobal;
-using System.Drawing;
 using TextureEditorControl.Controls.DrawingSettings;
 using TextureEditorControl.Controls.TextureData;
 
@@ -8,7 +7,7 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
 {
     interface IShape
     {
-        RectangleF BoundingBox { get; }
+        PhysicGlobal.BoundingBox BoundingBox { get; }
         TextureDataViewModel Propertys { get; }
         bool IsSelected { get; set; }
         void Draw(GraphicPanel2D panel, Camera2D camera, DrawingSettingsViewModel settings);

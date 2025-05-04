@@ -4,7 +4,6 @@ using GraphicPanels;
 using KeyboardRecordAndPlay;
 using PhysicSceneDrawing;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
-using Splat;
 using System;
 using System.Drawing;
 using System.IO;
@@ -18,7 +17,7 @@ namespace SpiderBoxControl.Model
     {
         private IPublicRigidRectangle block;
         private GameSimulator pongSimulator;
-        private RectangleF sceneBoundingBox;
+        private PhysicGlobal.BoundingBox sceneBoundingBox;
         private KeyBoardPlayer keyBoardPlayer = null;
 
         public PongBlock(GameSimulator simulator, string dataFolder, float timerIntervallInMilliseconds)
@@ -41,13 +40,13 @@ namespace SpiderBoxControl.Model
 
         public void Draw(GraphicPanel2D panel)
         {
-            float sizeX = this.block.Size.X / this.sceneBoundingBox.Width;
-            float sizeY = this.block.Size.Y / this.sceneBoundingBox.Height;
+            float sizeX = this.block.Size.X / this.sceneBoundingBox.GetWidth();
+            float sizeY = this.block.Size.Y / this.sceneBoundingBox.GetHeight();
             float size = Math.Min(sizeX, sizeY);
 
             //Zeichne das Pong-Level innerhalb des Blocks
             var m = Matrix4x4.Ident();
-            m *= Matrix4x4.Translate(-this.sceneBoundingBox.Center().X, -this.sceneBoundingBox.Center().Y, 0);
+            m *= Matrix4x4.Translate(-this.sceneBoundingBox.GetCenter().X, -this.sceneBoundingBox.GetCenter().Y, 0);
             m *= Matrix4x4.Scale(size, size, size);
             m *= Matrix4x4.Rotate(block.Angle / (float)Math.PI * 180, 0, 0, 1);
             m *= Matrix4x4.Translate(this.block.Center.X, this.block.Center.Y, 0);            

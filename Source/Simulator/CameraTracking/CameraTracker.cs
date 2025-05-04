@@ -2,7 +2,6 @@
 using LevelEditorExports.Editor.CameraTracking;
 using LevelEditorGlobal;
 using PhysicGlobal;
-using Splat;
 
 namespace Simulator.CameraTracking
 {
@@ -18,22 +17,22 @@ namespace Simulator.CameraTracking
         private CameraTrackerData data;
         private Vec2D velocity = new Vec2D(0, 0);       // Aktuelle Geschwindigkeit der Kamera
         private float mass = 1; //Masse der Kamera
-        private RectangleF boundingBoxFromScene;
+        private PhysicGlobal.BoundingBox boundingBoxFromScene;
 
 
-        public CameraTracker(Camera2D camera, ICameraTrackedItem item, CameraTrackerData data, RectangleF boundingBoxFromScene)
+        public CameraTracker(Camera2D camera, ICameraTrackedItem item, CameraTrackerData data, PhysicGlobal.BoundingBox boundingBoxFromScene)
         {
             this.camera = camera;
             this.item = item;
             this.data = data;
-            this.boundingBoxFromScene = data.MaxBorder != null ? data.MaxBorder.Value : boundingBoxFromScene;
+            this.boundingBoxFromScene = data.MaxBorder != null ? data.MaxBorder : boundingBoxFromScene;
             this.camera.Zoom = data.CameraZoom; //Zoom übernehmen
 
             var box = this.camera.GetScreenBox();
-            if (data.DistanceToScreenCenter * 2 > box.Width)
+            if (data.DistanceToScreenCenter * 2 > box.GetWidth())
                 throw new Exception("The DistanceToScreenCenter must be less than the half camera-view-width");
 
-            if (data.DistanceToScreenCenter * 2 > box.Height)
+            if (data.DistanceToScreenCenter * 2 > box.GetHeight())
                 throw new Exception("The DistanceToScreenCenter must be less than the half camera-view-height");
 
             SetTrackingPointToScreenCenter();
@@ -85,41 +84,41 @@ namespace Simulator.CameraTracking
             if (data.Mode == CameraTrackerData.TrackingMode.KeepAwayFromBorder)
             {
                 //Messe Abstand zum Bildschirmrand
-                float left = box.Left + this.data.DistanceToScreenBorder;
-                float right = box.Right - this.data.DistanceToScreenBorder;
-                float top = box.Top + this.data.DistanceToScreenBorder;
-                float bottom = box.Bottom - this.data.DistanceToScreenBorder;
+                float left = box.Min.X + this.data.DistanceToScreenBorder;
+                float right = box.Max.X - this.data.DistanceToScreenBorder;
+                float top = box.Min.Y + this.data.DistanceToScreenBorder;
+                float bottom = box.Max.Y - this.data.DistanceToScreenBorder;
 
                 //Federkraft wirken lassen wenn das Objekt am Rand ist
-                if (rec.Left < left)
+                if (rec.Min.X < left)
                 {
-                    this.velocity.X += GetSpringVelocityDelta(camera.LengthToScreen(left - rec.Left), dt);
+                    this.velocity.X += GetSpringVelocityDelta(camera.LengthToScreen(left - rec.Min.X), dt);
                 }
-                if (rec.Right > right)
+                if (rec.Max.X > right)
                 {
-                    this.velocity.X += GetSpringVelocityDelta(camera.LengthToScreen(right - rec.Right), dt);
+                    this.velocity.X += GetSpringVelocityDelta(camera.LengthToScreen(right - rec.Max.X), dt);
                 }
-                if (rec.Top < top)
+                if (rec.Min.Y < top)
                 {
-                    this.velocity.Y += GetSpringVelocityDelta(camera.LengthToScreen(top - rec.Top), dt);
+                    this.velocity.Y += GetSpringVelocityDelta(camera.LengthToScreen(top - rec.Min.Y), dt);
                 }
-                if (rec.Bottom > bottom)
+                if (rec.Max.Y > bottom)
                 {
-                    this.velocity.Y += GetSpringVelocityDelta(camera.LengthToScreen(bottom - rec.Bottom), dt);
+                    this.velocity.Y += GetSpringVelocityDelta(camera.LengthToScreen(bottom - rec.Max.Y), dt);
                 }
             }
 
             if (data.Mode == CameraTrackerData.TrackingMode.KeepInCenter)
             {
                 //Messe Abstand zur Bildschirmmitte            
-                var boxC = box.Center();
+                var boxC = box.GetCenter();
                 float left = boxC.X - this.data.DistanceToScreenCenter;
                 float right = boxC.X + this.data.DistanceToScreenCenter;
                 float top = boxC.Y - this.data.DistanceToScreenCenter;
                 float bottom = boxC.Y + this.data.DistanceToScreenCenter;
 
                 //Federkraft wirken lassen wenn das Objekt am Rand ist
-                var cen = rec.Center();
+                var cen = rec.GetCenter();
                 if (cen.X < left)
                 {
                     this.velocity.X += GetSpringVelocityDelta(camera.LengthToScreen(left - cen.X), dt);
@@ -148,8 +147,8 @@ namespace Simulator.CameraTracking
 
             camera.X = Math.Max(camera.X, this.boundingBoxFromScene.X);
             camera.Y = Math.Max(camera.Y, this.boundingBoxFromScene.Y);
-            camera.X = Math.Min(camera.X, this.boundingBoxFromScene.Right - box.Width);
-            camera.Y = Math.Min(camera.Y, this.boundingBoxFromScene.Bottom - box.Height);
+            camera.X = Math.Min(camera.X, this.boundingBoxFromScene.Max.X - box.GetWidth());
+            camera.Y = Math.Min(camera.Y, this.boundingBoxFromScene.Max.Y - box.GetHeight());
         }
 
         private float GetSpringVelocityDelta(float positionError, float dt)
@@ -175,10 +174,10 @@ namespace Simulator.CameraTracking
         private void SetTrackingPointToScreenCenter()
         {
             var screenBox = this.camera.GetScreenBox();
-            var screenCenter = new Vec2D(screenBox.X + screenBox.Width / 2, screenBox.Y + screenBox.Height / 2);
+            var screenCenter = new Vec2D(screenBox.X + screenBox.GetWidth() / 2, screenBox.Y + screenBox.GetHeight() / 2);
 
             var itemBox = this.item.BoundingBox;
-            var itemCenter = new Vec2D(itemBox.X + itemBox.Width / 2, itemBox.Y + itemBox.Height / 2);
+            var itemCenter = new Vec2D(itemBox.X + itemBox.GetWidth() / 2, itemBox.Y + itemBox.GetHeight() / 2);
             var delta = screenCenter - itemCenter;
             camera.X -= delta.X;
             camera.Y -= delta.Y;

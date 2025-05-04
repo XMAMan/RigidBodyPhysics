@@ -5,7 +5,6 @@ using LevelEditorExports.Simulator;
 using PhysicGlobal;
 using RigidBodyPhysics.ExportData;
 using RigidBodyPhysics.ExportData.RigidBody;
-using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using System.Drawing;
 using TextureEditorGlobal;
@@ -133,7 +132,7 @@ namespace LevelToSimulatorConverter
             Vec2D min = new Vec2D(physicPolygon.Points.Min(x => x.X), physicPolygon.Points.Min(x => x.Y));
             Vec2D max = new Vec2D(physicPolygon.Points.Max(x => x.X), physicPolygon.Points.Max(x => x.Y));
             Vec2D texCenter = min + (max - min) / 2; //Hier ist das Zentrum der Textur, wo es hin kommen würde, wenn DeltaXY=0 ist
-            Vec2D globalBoxCenter = polyBox.Center; //Hier ist das Zentrum von allen Polygonen. 
+            Vec2D globalBoxCenter = polyBox.GetCenter(); //Hier ist das Zentrum von allen Polygonen. 
             Vec2D delta = globalBoxCenter - texCenter; //Damit die Textur von diesen Polygon am GlobalCenter liegt muss es um Delta verschoben werden
 
             string textureFile = physicPolygon.IsOutside ? foregroundImage : backgroundImage;
@@ -145,8 +144,8 @@ namespace LevelToSimulatorConverter
                 ColorFactor = Color.White,
                 DeltaX = (int)delta.X,
                 DeltaY = (int)delta.Y,
-                Width = (int)polyBox.Width,
-                Height = (int)polyBox.Height,
+                Width = (int)polyBox.GetWidth(),
+                Height = (int)polyBox.GetHeight(),
                 DeltaAngle = 0,
                 ZValue = physicPolygon.ZOrder,
                 IsInvisible = string.IsNullOrEmpty(textureFile)

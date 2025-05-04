@@ -43,7 +43,7 @@ namespace LevelEditorControl.EditorFunctions
 
         public override void HandleMouseMove(MouseEventArgs e)
         {
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
+            var point = state.Camera.PointToCamera(new Vec2D(e.X, e.Y));
             point = state.Grid.SnapMouse(point);
 
             currentMousePosition = point;
@@ -51,7 +51,7 @@ namespace LevelEditorControl.EditorFunctions
             this.currentLineIntersects = false;
             for (int i = 0; i < points.Count - 2; i++)
             {
-                if (MathHelper.IntersectLines(points[i], points[i + 1], points.Last(), currentMousePosition))
+                if (PhysicGlobal.MathHelper.IntersectLines(points[i], points[i + 1], points.Last(), currentMousePosition))
                 {
                     this.currentLineIntersects = true;
                     break;
@@ -76,7 +76,7 @@ namespace LevelEditorControl.EditorFunctions
         {
             if (e.Button == MouseButtons.Left && this.currentLineIntersects == false)
             {
-                var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
+                var point = state.Camera.PointToCamera(new Vec2D(e.X, e.Y));
                 point = state.Grid.SnapMouse(point);
                 points.Add(point);
             }

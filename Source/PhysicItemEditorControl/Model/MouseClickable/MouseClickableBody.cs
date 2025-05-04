@@ -2,7 +2,6 @@
 using GraphicPanels;
 using LevelEditorGlobal;
 using RigidBodyPhysics.ExportData.RigidBody;
-using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using System;
 using System.Drawing;
@@ -19,9 +18,9 @@ namespace PhysicItemEditorControl.Model.MouseClickable
     {
         private IExportRigidBody exportBody; //Enthält die CollisionCategory
         private IPublicRigidBody runtimBody; //Läßt sich leichter zeichnen
-        private RectangleF sceneBoundingBox;
+        private PhysicGlobal.BoundingBox sceneBoundingBox;
 
-        public MouseClickableBody(IExportRigidBody exportBody, IPublicRigidBody runtimBody, RectangleF sceneBoundingBox, int bodyIndex)
+        public MouseClickableBody(IExportRigidBody exportBody, IPublicRigidBody runtimBody, PhysicGlobal.BoundingBox sceneBoundingBox, int bodyIndex)
         {
             this.exportBody = exportBody;
             this.sceneBoundingBox = sceneBoundingBox;
@@ -80,10 +79,10 @@ namespace PhysicItemEditorControl.Model.MouseClickable
             point = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY.ToPhx();
 
             if (runtimBody is IPublicRigidRectangle)
-                return PolygonHelper.PointIsInsidePolygon((runtimBody as IPublicRigidRectangle).Vertex, point);
+                return PhysicGlobal.PolygonHelper.PointIsInsidePolygon((runtimBody as IPublicRigidRectangle).Vertex, point);
 
             if (runtimBody is IPublicRigidPolygon)
-                return PolygonHelper.PointIsInsidePolygon((runtimBody as IPublicRigidPolygon).Vertex, point);
+                return PhysicGlobal.PolygonHelper.PointIsInsidePolygon((runtimBody as IPublicRigidPolygon).Vertex, point);
 
             if (runtimBody is IPublicRigidCircle)
                 return IsPointInsideCircle((IPublicRigidCircle)runtimBody, point);

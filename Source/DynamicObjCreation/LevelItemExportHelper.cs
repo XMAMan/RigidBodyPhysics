@@ -1,5 +1,4 @@
-﻿using GraphicMinimal;
-using LevelEditorExports.Simulator;
+﻿using LevelEditorExports.Simulator;
 using LevelToSimulatorConverter;
 using PhysicGlobal;
 using System.Drawing;
@@ -17,7 +16,7 @@ namespace DynamicObjCreation
             var box = PhysicSceneExportDataHelper.GetBoundingBoxFromScene(levelItem.PhysicSceneData);
 
             //An dieser Stelle liegt der Pivot-Punkt vom LevelItem
-            var itemPivot = new Vec2D(box.Min.X, box.Min.Y) + GetOriantationPoint(new SizeF(box.Width, box.Height), oriantation);
+            var itemPivot = new Vec2D(box.Min.X, box.Min.Y) + GetOriantationPoint(new SizeF(box.GetWidth(), box.GetHeight()), oriantation);
 
             var m = PhxMatrix.Ident();
 

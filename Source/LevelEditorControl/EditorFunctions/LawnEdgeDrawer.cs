@@ -64,12 +64,12 @@ namespace LevelEditorControl.EditorFunctions
 
             public bool IsPointInside(Vec2D point)
             {
-                return MathHelper.PointIsInsidePolygon(this.Points, point);
+                return PolygonHelper.PointIsInsidePolygon(this.Points, point);
             }
 
             public float GetArea()
             {
-                return MathHelper.GetAreaFromPolygon(this.Points);
+                return PolygonHelper.GetAreaFromPolygon(this.Points);
             }
         }
 

@@ -15,9 +15,9 @@ namespace PhysicItemEditorControl.Model.MouseClickable
     internal class MouseClickableJoints : IMouseclickableWithTagData
     {
         private IPublicJoint runtimJoint; //Läßt sich leichter zeichnen
-        private RectangleF sceneBoundingBox;
+        private PhysicGlobal.BoundingBox sceneBoundingBox;
 
-        public MouseClickableJoints(IPublicJoint runtimJoint, RectangleF sceneBoundingBox, int bodyIndex)
+        public MouseClickableJoints(IPublicJoint runtimJoint, PhysicGlobal.BoundingBox sceneBoundingBox, int bodyIndex)
         {
             this.sceneBoundingBox = sceneBoundingBox;
             this.runtimJoint = runtimJoint;

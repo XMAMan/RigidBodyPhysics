@@ -73,24 +73,24 @@ namespace AstroidsControl.Model
         {
             var box = this.simulator.GetScreenBox(); //Sichtfenster
 
-            if (this.rocketPolygon.Center.X > box.Right && this.rocketPolygon.Velocity.X > 0)
+            if (this.rocketPolygon.Center.X > box.Max.X && this.rocketPolygon.Velocity.X > 0)
             {
-                MoveRocket(new Vec2D(box.Left, this.rocketPolygon.Center.Y));
+                MoveRocket(new Vec2D(box.Min.X, this.rocketPolygon.Center.Y));
             }
 
-            if (this.rocketPolygon.Center.X < box.Left && this.rocketPolygon.Velocity.X < 0)
+            if (this.rocketPolygon.Center.X < box.Min.X && this.rocketPolygon.Velocity.X < 0)
             {
-                MoveRocket(new Vec2D(box.Right, this.rocketPolygon.Center.Y));
+                MoveRocket(new Vec2D(box.Max.X, this.rocketPolygon.Center.Y));
             }
 
-            if (this.rocketPolygon.Center.Y > box.Bottom && this.rocketPolygon.Velocity.Y > 0)
+            if (this.rocketPolygon.Center.Y > box.Max.Y && this.rocketPolygon.Velocity.Y > 0)
             {
-                MoveRocket(new Vec2D(this.rocketPolygon.Center.X, box.Top));
+                MoveRocket(new Vec2D(this.rocketPolygon.Center.X, box.Min.Y));
             }
 
-            if (this.rocketPolygon.Center.Y < box.Top && this.rocketPolygon.Velocity.Y < 0)
+            if (this.rocketPolygon.Center.Y < box.Min.Y && this.rocketPolygon.Velocity.Y < 0)
             {
-                MoveRocket(new Vec2D(this.rocketPolygon.Center.X, box.Bottom));
+                MoveRocket(new Vec2D(this.rocketPolygon.Center.X, box.Max.Y));
             }
         }
 

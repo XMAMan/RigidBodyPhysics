@@ -34,7 +34,7 @@ namespace RigidBodyPhysics.UnitTests.PolygonHelper
                 for (int y = 0; y < bitmap.Height; y++)
                 {
                     var p = min + new Vec2D(x, y);
-                    bool isInside = MathHelper.PolygonHelper.PointIsInsidePolygon(points, p);
+                    bool isInside = PhysicGlobal.PolygonHelper.PointIsInsidePolygon(points, p);
                     bitmap.SetPixel(x, y, isInside ? Color.Red : Color.White);
                 }
 
@@ -55,7 +55,7 @@ namespace RigidBodyPhysics.UnitTests.PolygonHelper
                 new Vec2D(483, 242)
             };
 
-            bool isInside = MathHelper.PolygonHelper.PointIsInsidePolygon(points, new Vec2D(300, 242));
+            bool isInside = PhysicGlobal.PolygonHelper.PointIsInsidePolygon(points, new Vec2D(300, 242));
 
             Assert.False(isInside);
         }
@@ -74,7 +74,7 @@ namespace RigidBodyPhysics.UnitTests.PolygonHelper
                 new Vec2D(483, 242)
             };
 
-            bool isInside = MathHelper.PolygonHelper.PointIsInsidePolygon(points, new Vec2D(300, 242.1f));
+            bool isInside = PhysicGlobal.PolygonHelper.PointIsInsidePolygon(points, new Vec2D(300, 242.1f));
 
             Assert.False(isInside);
         }

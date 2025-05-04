@@ -116,7 +116,7 @@ namespace SpiderBoxControl.Controls
         }
         public void HandleMouseClick(System.Windows.Forms.MouseEventArgs e)
         {
-            this.player.HandleMouseClick(this.simulator.PointToCamera(new PointF(e.X, e.Y)), e.Button);
+            this.player.HandleMouseClick(this.simulator.PointToCamera(new Vec2D(e.X, e.Y)), e.Button);
         }
         public void HandleMouseWheel(System.Windows.Forms.MouseEventArgs e)
         {
@@ -124,7 +124,7 @@ namespace SpiderBoxControl.Controls
         }
         public void HandleMouseMove(System.Windows.Forms.MouseEventArgs e)
         {
-            this.player.HandleMouseMove(this.simulator.PointToCamera(new PointF(e.X, e.Y)), e.Button);
+            this.player.HandleMouseMove(this.simulator.PointToCamera(new Vec2D(e.X, e.Y)), e.Button);
         }
         public void HandleMouseDown(System.Windows.Forms.MouseEventArgs e)
         {

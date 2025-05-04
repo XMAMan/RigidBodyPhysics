@@ -3052,24 +3052,20 @@
     "DistanceToScreenBorder": 50.0,
     "DistanceToScreenCenter": 200.0,
     "CameraZoom": 3.8383272,
-    "MaxBorder": {
-      "$type": "System.Nullable`1[[System.Drawing.RectangleF, System.Drawing.Primitives]], System.Private.CoreLib",
-      "Location": {
-        "$type": "System.Drawing.PointF, System.Drawing.Primitives",
-        "IsEmpty": false,
+	"MaxBorder": {
+      "$type": "PhysicGlobal.BoundingBox, PhysicGlobal",
+      "Min": {
+        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
         "X": -10920.053,
         "Y": -3259.065
       },
-      "Size": "14546.741, 7685.869",
+      "Max": {
+        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+        "X": 3626.6885,
+        "Y": 4426.804
+      },
       "X": -10920.053,
-      "Y": -3259.065,
-      "Width": 14546.741,
-      "Height": 7685.869,
-      "Left": -10920.053,
-      "Top": -3259.065,
-      "Right": 3626.6885,
-      "Bottom": 4426.804,
-      "IsEmpty": false
+      "Y": -3259.065
     },
     "SpringConstant": 0.001,
     "AirFriction": 0.005

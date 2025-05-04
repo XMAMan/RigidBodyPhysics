@@ -138,7 +138,6 @@ namespace ElmaControl.Controls.Game
         }
         public void HandleMouseMove(System.Windows.Forms.MouseEventArgs e)
         {
-            //var point = this.camera.PointToCamera(new PointF(e.X, e.Y)).ToGrx();
         }
         public void HandleMouseDown(System.Windows.Forms.MouseEventArgs e)
         {

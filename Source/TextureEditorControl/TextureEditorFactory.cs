@@ -1,13 +1,7 @@
 ﻿using System;
-using TextureEditorControl.Controls.Editor.Model.Shape;
 using TextureEditorControl.Controls.Editor;
-using TextureEditorGlobal;
-using TexturePhysicImporter;
 using WpfControls.Model;
 using System.Windows.Controls;
-using RigidBodyPhysics.ExportData;
-using System.Linq;
-using RigidBodyPhysics.ExportData.RigidBody;
 
 namespace TextureEditorControl
 {

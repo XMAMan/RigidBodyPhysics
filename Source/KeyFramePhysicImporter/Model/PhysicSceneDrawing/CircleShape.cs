@@ -26,7 +26,7 @@ namespace KeyFramePhysicImporter.Model.PhysicSceneDrawing
 
         public void Draw(GraphicPanel2D panel, Pen borderPen, Color fillColor, Camera2D camera)
         {
-            var pos = camera.PointToScreen(this.model.Center.ToPointF()).ToGrx();
+            var pos = camera.PointToScreen(this.model.Center).ToGrx();
             float radius = camera.LengthToScreen(this.model.Radius);
             panel.DrawFillCircle(fillColor, pos, radius);
             panel.DrawCircle(borderPen, pos, radius);

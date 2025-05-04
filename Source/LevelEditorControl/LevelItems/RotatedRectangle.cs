@@ -1,5 +1,4 @@
 ﻿using GraphicMinimal;
-using LevelEditorControl.EditorFunctions;
 using LevelEditorExports.Editor.Prototyps;
 using PhysicGlobal;
 using System.Drawing;
@@ -46,12 +45,12 @@ namespace LevelEditorControl.LevelItems
 
         public bool IsPointInside(Vec2D point)
         {
-            return MathHelper.PointIsInsidePolygon(GetCornerPoints(), point);
+            return PhysicGlobal.PolygonHelper.PointIsInsidePolygon(GetCornerPoints(), point);
         }
 
-        public RectangleF GetBoundingBox()
+        public PhysicGlobal.BoundingBox GetBoundingBox()
         {
-            return MathHelper.GetBoundingBoxFromPolygon(GetCornerPoints());
+            return PolygonHelper.GetBoundingBoxFromPolygon(GetCornerPoints());
         }
 
         public void DefinePivotPoint(Vec2D point)

@@ -1,9 +1,14 @@
-﻿namespace PhysicGlobal
+﻿using System.Drawing;
+
+namespace PhysicGlobal
 {
     public class BoundingBox
     {
-        public Vec2D Min { get; private set; }
-        public Vec2D Max { get; private set; }
+        public Vec2D Min { get; set; }
+        public Vec2D Max { get; set; }
+
+        //Wird für den Json-Serializer benötigt
+        public BoundingBox() { }
 
         public BoundingBox(Vec2D min, Vec2D max)
         {
@@ -11,40 +16,57 @@
             Max = max;
         }
 
-        public Vec2D Center
+        public BoundingBox(float minX, float minY, float width, float height)
+        {
+            Min = new Vec2D(minX, minY);
+            Max = new Vec2D(minX + width, minY + height);
+        }
+
+        public Vec2D GetCenter()
+        {
+            return new Vec2D(Min.X + (Max.X - Min.X) / 2, Min.Y + (Max.Y - Min.Y) / 2);
+        }
+
+        public float X
         {
             get
             {
-                return new Vec2D(Min.X + (Max.X - Min.X) / 2, Min.Y + (Max.Y - Min.Y) / 2);
+                return Min.X;
             }
         }
 
-        public float Radius
+        public float Y
         {
             get
             {
-                return (Max - Min).Length() / 2;
+                return Min.Y;
             }
         }
 
-        public float Width
+        public float GetRadius()
         {
-            get
-            {
-                return Max.X - Min.X;
-            }
+            return (Max - Min).Length() / 2;
         }
 
-        public float Height
+        public float GetWidth()
         {
-            get
-            {
-                return Max.Y - Min.Y;
-            }
+            return Max.X - Min.X;
+        }
+
+        public float GetHeight()
+        {
+            return Max.Y - Min.Y;
+        }
+
+        public SizeF GetSize()
+        {
+            return new SizeF(GetWidth(), GetHeight());
         }
 
         public static BoundingBox GetBoxFromBoxes(IEnumerable<BoundingBox> boundingBoxes)
         {
+            //if (boundingBoxes.Any() == false) return new BoundingBox(0, 0, 0, 0);
+
             Vec2D min = new Vec2D(float.MaxValue, float.MaxValue);
             Vec2D max = new Vec2D(float.MinValue, float.MinValue);
             foreach (BoundingBox box in boundingBoxes)
@@ -85,6 +107,19 @@
             }
 
             return new BoundingBox(min, max);
+        }
+
+        public static BoundingBox GetBoxFromTwoPoints(Vec2D p1, Vec2D p2)
+        {
+            Vec2D min = new Vec2D(Math.Min(p1.X, p2.X), Math.Min(p1.Y, p2.Y));
+            Vec2D max = new Vec2D(Math.Max(p1.X, p2.X), Math.Max(p1.Y, p2.Y));
+
+            return new BoundingBox(min, max);
+        }
+
+        public bool IsPointInBox( Vec2D point)
+        {
+            return point.X >= this.Min.X && point.X <= this.Max.X && point.Y >= this.Min.Y && point.Y <= this.Max.Y;
         }
     }
 }

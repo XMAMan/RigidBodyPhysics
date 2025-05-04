@@ -2,6 +2,7 @@
 using PhysicGlobal;
 using System.Drawing;
 using TextureEditorGlobal;
+using WpfControls.Extensions;
 
 namespace TextureEditorControl.Controls.Editor.Model.Shape
 {
@@ -30,7 +31,7 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
         {
             var c = (ICircle)this.shape;
 
-            var center = camera.PointToScreen(this.shape.Center.ToPointF()).ToGrx();
+            var center = camera.PointToScreen(this.shape.Center).ToGrx();
             float radius = camera.LengthToScreen(c.Radius);
 
             panel.DrawCircle(this.IsSelected ? new Pen(Color.Red, 4) : Pens.Black, center, radius);

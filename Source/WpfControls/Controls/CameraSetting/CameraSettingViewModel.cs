@@ -1,7 +1,6 @@
 ﻿using ReactiveUI.Fody.Helpers;
 using ReactiveUI;
 using System;
-using System.Drawing;
 using System.Reactive;
 using GraphicPanelWpf;
 using PhysicGlobal;
@@ -30,7 +29,7 @@ namespace WpfControls.Controls.CameraSetting
 
         private float step = 0.1f;
 
-        public CameraSettingViewModel(int screenWidth, int screenHeight, RectangleF boundingBoxFromScene)
+        public CameraSettingViewModel(int screenWidth, int screenHeight, PhysicGlobal.BoundingBox boundingBoxFromScene)
         {
             this.Camera = new Camera2D(screenWidth, screenHeight, boundingBoxFromScene);
 
@@ -52,25 +51,25 @@ namespace WpfControls.Controls.CameraSetting
 
             this.Left = ReactiveCommand.Create(() =>
             {
-                this.Camera.X += this.Camera.GetScreenBox().Width * step;
+                this.Camera.X += this.Camera.GetScreenBox().GetWidth() * step;
                 TriggerCameraChangedEvent();
             });
 
             this.Right = ReactiveCommand.Create(() =>
             {
-                this.Camera.X -= this.Camera.GetScreenBox().Width * step;
+                this.Camera.X -= this.Camera.GetScreenBox().GetWidth() * step;
                 TriggerCameraChangedEvent();
             });
 
             this.Top = ReactiveCommand.Create(() =>
             {
-                this.Camera.Y += this.Camera.GetScreenBox().Height * step;
+                this.Camera.Y += this.Camera.GetScreenBox().GetHeight() * step;
                 TriggerCameraChangedEvent();
             });
 
             this.Down = ReactiveCommand.Create(() =>
             {
-                this.Camera.Y -= this.Camera.GetScreenBox().Height * step;
+                this.Camera.Y -= this.Camera.GetScreenBox().GetHeight() * step;
                 TriggerCameraChangedEvent();
             });
 

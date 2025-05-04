@@ -32,7 +32,7 @@ namespace LevelEditorControl.EditorFunctions
 
         private Action<MouseEventArgs?> isFinish;
 
-        private RectangleF? selectionRec = null;
+        private PhysicGlobal.BoundingBox selectionRec = null;
         private List<int> selectedPolyPoints = new List<int>();
 
         public override FunctionType Type { get; } = FunctionType.EditPolygon;
@@ -67,7 +67,7 @@ namespace LevelEditorControl.EditorFunctions
 
         public override void HandleMouseMove(MouseEventArgs e)
         {
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
+            var point = state.Camera.PointToCamera(new Vec2D(e.X, e.Y));
 
             if (e.Button == MouseButtons.None)
             {
@@ -95,9 +95,9 @@ namespace LevelEditorControl.EditorFunctions
                 {
                     var p1 = points[i];
                     var p2 = points[(i + 1) % points.Length];
-                    if (MathHelper.IsPointAboveLine(p1, p2, point, radius))
+                    if (PhysicGlobal.MathHelper.IsPointAboveLine(p1, p2, point, radius))
                     {
-                        var linePoint = MathHelper.GetProjectedPointOnLine(p1, p2, point, out float distance, out float distancePercent);
+                        var linePoint = PhysicGlobal.MathHelper.GetProjectedPointOnLine(p1, p2, point, out float distance, out float distancePercent);
                         if (distance > radius * 2 && distance < (p1 - p2).Length() - radius * 2)
                         {
                             this.mouseOverPointOnLine = linePoint;
@@ -153,11 +153,11 @@ namespace LevelEditorControl.EditorFunctions
             if (e.Button == MouseButtons.Left && ShowSelectionRectangle())
             {
                 this.selectedPolyPoints.Clear();
-                this.selectionRec = LevelItemsHelper.CreateRectangle(this.mouseDownPoint, point);
+                this.selectionRec = BoundingBox.GetBoxFromTwoPoints(this.mouseDownPoint, point);
                 for (int i = 0; i < this.polygon.Points.Length; i++)
                 {
                     var polyPoint = this.polygon.Points[i];
-                    if (LevelItemsHelper.IsPointInRectangle(selectionRec.Value, polyPoint))
+                    if (selectionRec.IsPointInBox(polyPoint))
                     {
                         this.selectedPolyPoints.Add(i);
                     }
@@ -183,8 +183,8 @@ namespace LevelEditorControl.EditorFunctions
             {
                 if (i != i1 && i != pointIndex)
                 {
-                    bool intersectI1 = MathHelper.IntersectLines(points[i], points[(i + 1) % points.Length], points[i1], newPosition);
-                    bool intersectI2 = MathHelper.IntersectLines(points[i], points[(i + 1) % points.Length], newPosition, points[i2]);
+                    bool intersectI1 = PhysicGlobal.MathHelper.IntersectLines(points[i], points[(i + 1) % points.Length], points[i1], newPosition);
+                    bool intersectI2 = PhysicGlobal.MathHelper.IntersectLines(points[i], points[(i + 1) % points.Length], newPosition, points[i2]);
 
                     if (intersectI1 || intersectI2)
                         return false;
@@ -196,7 +196,7 @@ namespace LevelEditorControl.EditorFunctions
 
         public override void HandleMouseDown(MouseEventArgs e)
         {
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
+            var point = state.Camera.PointToCamera(new Vec2D(e.X, e.Y));
 
             this.mouseDownPoint = point;
             this.mouseDownPolyPoint = this.mouseOverPoint;
@@ -219,7 +219,7 @@ namespace LevelEditorControl.EditorFunctions
 
             if (e.Button == MouseButtons.Right)
             {
-                var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
+                var point = state.Camera.PointToCamera(new Vec2D(e.X, e.Y));
                 var minDistance = this.polygon.Points.Select(x => (point - x).Length()).ToList().Min();
                 float distanceToQuit = state.Camera.LengthToCamera(50);
                 if (minDistance > distanceToQuit && this.polygon.IsPointInside(point) == false)
@@ -241,7 +241,7 @@ namespace LevelEditorControl.EditorFunctions
                 this.polygon.AddPointAfterIndex(this.mouseOverPolyPointIndex, this.mouseOverPointOnLine);
             }
 
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
+            var point = state.Camera.PointToCamera(new Vec2D(e.X, e.Y));
             if (e.Button == MouseButtons.Left && this.mouseDownPoint != null && (this.mouseDownPoint - point).Length() < 5)
             {
                 this.selectedPolyPoints.Clear();
@@ -278,8 +278,8 @@ namespace LevelEditorControl.EditorFunctions
 
             if (this.selectionRec != null)
             {
-                var r = this.selectionRec.Value;
-                panel.DrawRectangle(Pens.Black, r.X, r.Y, r.Width, r.Height);
+                var r = this.selectionRec;
+                panel.DrawRectangle(Pens.Black, r.X, r.Y, r.GetWidth(), r.GetHeight());
             }
 
             if (this.selectedPolyPoints.Any())

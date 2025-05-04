@@ -1,7 +1,6 @@
 ﻿using GraphicPanels;
 using PhysicGlobal;
 using System.Drawing;
-using PolyHelp = RigidBodyPhysics.MathHelper.PolygonHelper;
 using WpfControls.Extensions;
 
 namespace DynamicObjCreation.RigidBodyDestroying
@@ -57,7 +56,7 @@ namespace DynamicObjCreation.RigidBodyDestroying
             for (int i = 0; i < voronioPolygons.Count; i++)
             {
                 var voroPoly = voronioPolygons[i];
-                if (PolyHelp.IsCCW(voroPoly.Select(x => new Vec2D(x.X, x.Y)).ToArray()) == false)
+                if (PolygonHelper.IsPolygonCounterClockWise(voroPoly.Select(x => new Vec2D(x.X, x.Y)).ToArray()) == false)
                 {
                     var list = voroPoly.ToList();
                     list.Reverse();

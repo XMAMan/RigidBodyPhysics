@@ -82,8 +82,8 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorThruster
         public bool IsPointInside(Vec2D position)
         {
             float r = 50;
-            var v1 = GraphicMinimal.Vector2D.GetV2FromAngle360(this.worldForceDirection.ToGrx(), 45 + 90).ToPhx();
-            var v2 = GraphicMinimal.Vector2D.GetV2FromAngle360(this.worldForceDirection.ToGrx(), -45 - 90).ToPhx();
+            var v1 = Vec2D.GetV2FromAngle360(this.worldForceDirection, 45 + 90);
+            var v2 = Vec2D.GetV2FromAngle360(this.worldForceDirection, -45 - 90);
 
             if (EditorShapeHelper.IsPointAboveLine(this.anchorWorldPosition - this.worldForceDirection * r, this.anchorWorldPosition, position)) return true;
             if (EditorShapeHelper.IsPointAboveLine(this.anchorWorldPosition + v1 * (r / 3), this.anchorWorldPosition, position)) return true;

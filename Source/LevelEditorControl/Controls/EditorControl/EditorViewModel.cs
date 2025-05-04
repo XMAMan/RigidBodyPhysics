@@ -154,7 +154,7 @@ namespace LevelEditorControl.Controls.EditorControl
                 UseFunction(FunctionType.DefineAnchorPoint);
             });
 
-            this.CameraSettingViewModel = new CameraSettingViewModel(inputData.Panel.Width, inputData.Panel.Height, new System.Drawing.RectangleF(0, 0, inputData.Panel.Width, inputData.Panel.Height));
+            this.CameraSettingViewModel = new CameraSettingViewModel(inputData.Panel.Width, inputData.Panel.Height, new PhysicGlobal.BoundingBox(0, 0, inputData.Panel.Width, inputData.Panel.Height));
             this.CameraSettingViewModel.Camera.ShowOriginalPosition = true;
             this.CameraSettingViewModel.WhenAnyValue(x => x.UseAutoZoom).Subscribe(x =>
             {

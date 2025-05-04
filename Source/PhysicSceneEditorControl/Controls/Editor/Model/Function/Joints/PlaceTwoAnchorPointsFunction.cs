@@ -230,7 +230,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Joints
                 Vec2D p = mode == Mode.PlaceAnchor1 ? currentMousePosition : anchor1;
                 Vec2D dir = (p - shape1.Center).Normalize();
                 var box = shape1.GetBoundingBox();
-                float r = box.Radius;
+                float r = box.GetRadius();
                 panel.DrawLine(Pens.Blue, (shape1.Center - dir * r).ToGrx(), (shape1.Center + dir * r).ToGrx());
             }
 

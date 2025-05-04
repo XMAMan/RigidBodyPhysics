@@ -81,7 +81,7 @@ namespace LevelEditorControl.EditorFunctions
 
         public override void HandleMouseMove(MouseEventArgs e)
         {
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
+            var point = state.Camera.PointToCamera(new Vec2D(e.X, e.Y));
 
 
             if (e.Button == MouseButtons.None)
@@ -155,7 +155,7 @@ namespace LevelEditorControl.EditorFunctions
 
         public override void HandleMouseDown(MouseEventArgs e)
         {
-            var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
+            var point = state.Camera.PointToCamera(new Vec2D(e.X, e.Y));
 
             this.mouseDownPoint = point;
             this.mouseDownPivot = this.rec.PivotPoint;
@@ -172,7 +172,7 @@ namespace LevelEditorControl.EditorFunctions
 
             if (e.Button == MouseButtons.Left && this.ctrlIsPressed == false && this.shiftIsPressed == false)
             {
-                var point = state.Camera.PointToCamera(new PointF(e.X, e.Y)).ToPhx();
+                var point = state.Camera.PointToCamera(new Vec2D(e.X, e.Y));
                 var pivotPoints = GetPivotPoints(this.rec.GetCornerPoints());
                 var minDistance = pivotPoints.Select(x => (point - x).Length()).ToList().Min();
                 float distanceToQuit = state.Camera.LengthToCamera(50);

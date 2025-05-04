@@ -194,7 +194,7 @@
                             var p3 = poly.Points[k];
                             var p4 = k == n - 1 ? poly.Points[0] : poly.Points[k + 1];
 
-                            if (PolyPointHelper.Intersects(p1, p2, p3, p4))
+                            if (PhysicGlobal.MathHelper.IntersectLines(p1, p2, p3, p4))
                             {
                                 dpstates[i, j].Visible = false;
                                 break;

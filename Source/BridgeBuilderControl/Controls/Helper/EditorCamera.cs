@@ -16,7 +16,7 @@ namespace BridgeBuilderControl.Controls.Helper
         private float userZoom = 1; //Geht von 1..3 (1 = Ganzes Level ist zu sehen; 3 = nah herran gezoomt)
 
         public EditorCamera(int screenWidth, int screenHeight, uint xCount, uint yCount)
-            :base(screenWidth, screenHeight, new RectangleF(0, 0, xCount, yCount))
+            :base(screenWidth, screenHeight, new BoundingBox(0, 0, xCount, yCount))
         {
             this.xCount = xCount;
             this.yCount = yCount;
@@ -41,7 +41,7 @@ namespace BridgeBuilderControl.Controls.Helper
         private void SetInitialLevelSize()
         {
             //Sorge dafür, dass wenn camera.Zoom == 1 ist, dann soll das ganze Level genau ins Fenster passen
-            this.UpdateSceneBoundingBox(new RectangleF(0, 0, this.xCount, this.yCount));
+            this.UpdateSceneBoundingBox(new BoundingBox(0, 0, this.xCount, this.yCount));
             this.SetInitialCameraPosition();
             SetCameraZoom();
         }
@@ -87,16 +87,16 @@ namespace BridgeBuilderControl.Controls.Helper
         //Sorge dafür, dass immer ScaleX genutzt wird 
         private void SetCameraZoom()
         {
-            var box = this.GetSceneBoundingBox().Value;
-            float scaleX = this.screenWidth / box.Width;
-            float scaleY = this.screenHeight / box.Height;
+            var box = this.GetSceneBoundingBox();
+            float scaleX = this.screenWidth / box.GetWidth();
+            float scaleY = this.screenHeight / box.GetHeight();
             if (scaleY > scaleX)
             {
                 this.Zoom = this.userZoom;
             }
             else
             {
-                float scaleFactor = GetScaleFactor(new SizeF(screenWidth, screenHeight), box.Size);
+                float scaleFactor = GetScaleFactor(new SizeF(screenWidth, screenHeight), box.GetSize());
                 this.Zoom = this.userZoom / scaleFactor * scaleX;
             }
         }
@@ -105,8 +105,8 @@ namespace BridgeBuilderControl.Controls.Helper
         private void MoveCamera(Vec2D translate)
         {
             float step = 0.01f;
-            this.X += this.GetScreenBox().Width * translate.X * step;
-            this.Y += this.GetScreenBox().Height * translate.Y * step;
+            this.X += this.GetScreenBox().GetWidth() * translate.X * step;
+            this.Y += this.GetScreenBox().GetHeight() * translate.Y * step;
 
             //Sorge dafür, dass man die Kamera nicht außerhalb des Levelrands verschiebt
             //Der DrawingHelper zeichnet das Level im Bereich von (0..xCount; 0..yCount)

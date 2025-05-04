@@ -5,7 +5,6 @@ using LevelEditorExports.Simulator;
 using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using System;
-using System.Drawing;
 using System.Linq;
 
 namespace AstroidsControl.Model
@@ -120,22 +119,22 @@ namespace AstroidsControl.Model
         }
 
         //f = 0..1 (0..0.25 = Top; 0.25..0.5=Right; 0.5..0.75=Bottom; 0.75..1=Left)
-        private Vec2D GetPointOnRectangleBorder(RectangleF box, float f)
+        private Vec2D GetPointOnRectangleBorder(BoundingBox box, float f)
         {
             if (f < 0 || f > 1) throw new ArgumentException();
 
-            if (f >= 0 && f < 0.25f) return new Vec2D(box.X + box.Width * (f / 0.25f), box.Y);                  //Top
-            if (f >= 0.25f && f < 0.5f) return new Vec2D(box.Right, box.Y + box.Height * (f - 0.25f) / 0.25f);  //Right
-            if (f >= 0.5f && f < 0.75f) return new Vec2D(box.Right - box.Width * (f-0.5f) / 0.25f, box.Bottom); //Bottom
-            if (f >= 0.75f && f < 1f) return new Vec2D(box.Left, box.Bottom - box.Height * (f - 0.75f) / 0.25f);//Left
+            if (f >= 0 && f < 0.25f) return new Vec2D(box.X + box.GetWidth() * (f / 0.25f), box.Y);                  //Top
+            if (f >= 0.25f && f < 0.5f) return new Vec2D(box.Max.X, box.Y + box.GetHeight() * (f - 0.25f) / 0.25f);  //Right
+            if (f >= 0.5f && f < 0.75f) return new Vec2D(box.Max.X - box.GetWidth() * (f-0.5f) / 0.25f, box.Max.Y); //Bottom
+            if (f >= 0.75f && f < 1f) return new Vec2D(box.Min.X, box.Max.Y - box.GetHeight() * (f - 0.75f) / 0.25f);//Left
 
             throw new NotImplementedException();
         }
 
         //f1/f2 = 0..1
-        private Vec2D GetPointInRectangle(RectangleF box, float f1, float f2)
+        private Vec2D GetPointInRectangle(BoundingBox box, float f1, float f2)
         {
-            return new Vec2D(box.X + box.Width * f1, box.Y + box.Height * f2);
+            return new Vec2D(box.X + box.GetWidth() * f1, box.Y + box.GetHeight() * f2);
         }
     }
 }

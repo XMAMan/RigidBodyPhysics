@@ -2,11 +2,11 @@
 using ReactiveUI.Fody.Helpers;
 using ReactiveUI;
 using System.Reactive;
-using System.Drawing;
 using System.Collections.Generic;
 using System;
 using System.Linq;
 using LevelEditorExports.Editor.CameraTracking;
+using PhysicGlobal;
 
 namespace LevelEditorControl.Controls.CameraTrackerControl
 {
@@ -69,12 +69,12 @@ namespace LevelEditorControl.Controls.CameraTrackerControl
             });
         }
 
-        private static string RecToString(RectangleF? rec)
+        private static string RecToString(BoundingBox rec)
         {
             if (rec == null) return "No Used";
 
-            var r = rec.Value;
-            return r.X + ";" + r.Y + ";" + r.Width + ";" + r.Height;
+            var r = rec;
+            return r.X + ";" + r.Y + ";" + r.GetWidth() + ";" + r.GetHeight();
         }
     }
 }
