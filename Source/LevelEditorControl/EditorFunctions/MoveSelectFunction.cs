@@ -1,7 +1,7 @@
 ﻿using DynamicData;
 using LevelEditorControl.LevelItems;
-using LevelEditorGlobal;
 using PhysicGlobal;
+using PhysicSceneDrawing;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

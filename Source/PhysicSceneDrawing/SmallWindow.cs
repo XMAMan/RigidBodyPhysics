@@ -3,7 +3,7 @@ using GraphicPanels;
 using GraphicPanelWpf;
 using PhysicGlobal;
 
-namespace LevelEditorGlobal
+namespace PhysicSceneDrawing
 {
     //Zeichnet das kleine Vorschaubild rechts unten in der Ecke.
     //Es benutzt dazu den Zustand der LevelItems und der Kamera und verändert auch die Kameraposition/Zoom

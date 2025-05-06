@@ -2,9 +2,7 @@
 using LevelEditorControl.Controls.EditorControl;
 using LevelEditorExports.Editor;
 using LevelEditorExports.Editor.Helper;
-using LevelEditorExports.Editor.Prototyps;
 using LevelEditorExports.Simulator;
-using System.Linq;
 using WpfControls.Model;
 
 namespace LevelEditorControl
@@ -20,41 +18,6 @@ namespace LevelEditorControl
             var editor = new EditorViewModel(new EditorInputData() { Panel = panel }, new EditorViewModelActions());
             editor.LoadFromExportObject(data);
             return editor.GetSimulatorExport();
-        }
-
-        //Konvertiert PhysikLevelItemExportData nach PrototypControlExportData
-        //Wenn man GameSimulator.GetExportDataFromLevelItem aufgerufen hat, kann man dieses LevelItem dann beim
-        //LevelEditor per PasteFromClipboard in das PrototypControl einfügen
-        public static string ConvertLevelItemExportToPhysicPrototyp(PhysikLevelItemExportData exportData)
-        {
-            return ConvertLevelItemsExportToPhysicPrototyps(new PhysikLevelItemExportData[] { exportData });
-        }
-
-        public static string ConvertLevelItemsExportToPhysicPrototyps(PhysikLevelItemExportData[] exportData)
-        {
-            var protoExport = new PrototypControlExportData()
-            {
-                PrototypItems = exportData.Select(x => Convert(x)).ToArray()
-            };
-
-            string exportString = JsonHelper.Helper.ToJson(protoExport);
-
-            return exportString;
-        }
-
-
-        private static PhysicItemExportData Convert(PhysikLevelItemExportData exportData)
-        {
-            return new PhysicItemExportData()
-            {
-                Id = -1,
-                PhysicSceneData = exportData.PhysicSceneData,
-                AnimationData = exportData.AnimationData.Select(x => new KeyFrameGlobal.KeyFrameEditorExportData()
-                {
-                    AnimationData = x
-                }).ToArray(),
-                TextureData = exportData.TextureData,
-            };
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using Simulator.CameraTracking;
 using GraphicPanels;
 using KeyFrameGlobal;
-using LevelEditorGlobal;
 using PhysicSceneDrawing;
 using RigidBodyPhysics;
 using Simulator.Animation;

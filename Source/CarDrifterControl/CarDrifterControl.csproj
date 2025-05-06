@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DemoApplicationHelper\DemoApplicationHelper.csproj" />
     <ProjectReference Include="..\GameHelper\GameHelper.csproj" />
+    <ProjectReference Include="..\LevelEditorControl\LevelEditorControl.csproj" />
     <ProjectReference Include="..\WpfControls\WpfControls.csproj" />
   </ItemGroup>
 

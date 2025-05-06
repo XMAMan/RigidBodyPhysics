@@ -9,11 +9,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DynamicObjCreation\DynamicObjCreation.csproj" />
-    <ProjectReference Include="..\LevelEditorControl\LevelEditorControl.csproj" />
-    <ProjectReference Include="..\LevelEditorGlobal\LevelEditorGlobal.csproj" />
+    <ProjectReference Include="..\KeyboardRecordAndPlay\KeyboardRecordAndPlay.csproj" />
+    <ProjectReference Include="..\LevelToSimulatorConverter\LevelToSimulatorConverter.csproj" />
     <ProjectReference Include="..\RigidBodyPhysics\RigidBodyPhysics.csproj" />
     <ProjectReference Include="..\Simulator\Simulator.csproj" />
-    <ProjectReference Include="..\WpfControls\WpfControls.csproj" />
   </ItemGroup>
 
   <ItemGroup>

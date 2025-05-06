@@ -1,10 +1,8 @@
 ﻿using DynamicObjCreation.PolygonIntersection;
-using GraphicMinimal;
 using PhysicGlobal;
 using RigidBodyPhysics.ExportData.RigidBody;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using TextureEditorGlobal;
-using WpfControls.Extensions;
 
 namespace DynamicObjCreation.RigidBodyDestroying
 {
@@ -32,14 +30,14 @@ namespace DynamicObjCreation.RigidBodyDestroying
 
             var localPolys = p.LocalPolyCreator(p.TextureExport.Width, p.TextureExport.Height);
 
-            var m = Matrix3x3.Ident();
-            m *= Matrix3x3.Translate(-p.TextureExport.Width / 2, -p.TextureExport.Height / 2);//Schritt 1: Verschiebe den PivotPunkt zum Nullpunkt
-            m *= Matrix3x3.Rotate(angleInDegree);                                             //Schritt 2: Rotiere um Z
-            m *= Matrix3x3.Translate(texCenter.X, texCenter.Y);                               //Schritt 3: Gehe zum Zielpunkt
+            var m = PhxMatrix.Ident();
+            m *= PhxMatrix.Translate(-p.TextureExport.Width / 2, -p.TextureExport.Height / 2, 0);//Schritt 1: Verschiebe den PivotPunkt zum Nullpunkt
+            m *= PhxMatrix.Rotate(angleInDegree, 0, 0, 1);                                       //Schritt 2: Rotiere um Z
+            m *= PhxMatrix.Translate(texCenter.X, texCenter.Y, 0);                               //Schritt 3: Gehe zum Zielpunkt
 
             foreach (var localPoly in localPolys)
             {
-                var poly = localPoly.Select(x => Matrix3x3.MultPosition(m, x.ToGrx()).ToPhx()).ToArray();
+                var poly = localPoly.Select(x => PhxMatrix.MultPosition(m, x)).ToArray();
                 returnList.Add(CreateTexturedPolygon(poly, texCenter, body, p));
             }
 
@@ -57,14 +55,14 @@ namespace DynamicObjCreation.RigidBodyDestroying
             var rotatedBox = new RotatedBoundingBox(body.Vertex, angleInDegree);
             var localPolys = p.LocalPolyCreator(rotatedBox.Width + 2, rotatedBox.Height + 2); //+2 steht hier, da es sonst bei der Line-Line-Intersection beim PolygonIntersector zu Rundungsfehlern kommt 
 
-            var m = Matrix3x3.Ident();
-            m *= Matrix3x3.Translate(-rotatedBox.Width / 2 - 1, -rotatedBox.Height / 2 - 1); //Schritt 1: Verschiebe den PivotPunkt zum Nullpunkt (Auch hier steht -1 wegen den Rundungsfehler bei PolyIntersections.GetIntersectionPointBetweenToLines) (Siehe Intersect11-Testcase)
-            m *= Matrix3x3.Rotate(angleInDegree);                                            //Schritt 2: Rotiere um Z
-            m *= Matrix3x3.Translate(rotatedBox.Center.X, rotatedBox.Center.Y);              //Schritt 3: Gehe zum Zielpunkt
+            var m = PhxMatrix.Ident();
+            m *= PhxMatrix.Translate(-rotatedBox.Width / 2 - 1, -rotatedBox.Height / 2 - 1, 0); //Schritt 1: Verschiebe den PivotPunkt zum Nullpunkt (Auch hier steht -1 wegen den Rundungsfehler bei PolyIntersections.GetIntersectionPointBetweenToLines) (Siehe Intersect11-Testcase)
+            m *= PhxMatrix.Rotate(angleInDegree, 0, 0, 1);                                      //Schritt 2: Rotiere um Z
+            m *= PhxMatrix.Translate(rotatedBox.Center.X, rotatedBox.Center.Y, 0);              //Schritt 3: Gehe zum Zielpunkt
 
             foreach (var localPoly in localPolys)
             {
-                var polyPoints = localPoly.Select(x => Matrix3x3.MultPosition(m, x.ToGrx()).ToPhx()).ToArray();
+                var polyPoints = localPoly.Select(x => PhxMatrix.MultPosition(m, x)).ToArray();
 
                 var polygons = PolygonIntersector.GetIntersection(body.Vertex, polyPoints);
                 if (polygons == null) continue;

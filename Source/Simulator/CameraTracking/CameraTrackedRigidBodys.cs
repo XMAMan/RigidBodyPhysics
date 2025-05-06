@@ -1,5 +1,4 @@
-﻿using LevelEditorGlobal;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 
 namespace Simulator.CameraTracking

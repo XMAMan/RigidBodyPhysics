@@ -2,6 +2,7 @@
 using LevelEditorExports.Editor.BackgroundImage;
 using LevelEditorExports.Editor.Helper;
 using LevelEditorExports.Editor.KeyboardMappings;
+using LevelEditorExports.Editor.Prototyps;
 using LevelEditorExports.Simulator;
 using LevelToSimulatorConverter._1_LokalToWorldTransform;
 using LevelToSimulatorConverter._2_MergeToSingleScene;
@@ -70,6 +71,41 @@ namespace LevelToSimulatorConverter
                 CameraTrackerData = data.CameraTrackerData,
                 BackgroundImage = data.BackgroundImage,
                 BackgroundItems = data.BackgroundItems,          
+            };
+        }
+
+        //Konvertiert PhysikLevelItemExportData nach PrototypControlExportData
+        //Wenn man GameSimulator.GetExportDataFromLevelItem aufgerufen hat, kann man dieses LevelItem dann beim
+        //LevelEditor per PasteFromClipboard in das PrototypControl einfügen
+        public static string ConvertLevelItemExportToPhysicPrototyp(PhysikLevelItemExportData exportData)
+        {
+            return ConvertLevelItemsExportToPhysicPrototyps(new PhysikLevelItemExportData[] { exportData });
+        }
+
+        public static string ConvertLevelItemsExportToPhysicPrototyps(PhysikLevelItemExportData[] exportData)
+        {
+            var protoExport = new PrototypControlExportData()
+            {
+                PrototypItems = exportData.Select(x => Convert(x)).ToArray()
+            };
+
+            string exportString = JsonHelper.Helper.ToJson(protoExport);
+
+            return exportString;
+        }
+
+
+        private static PhysicItemExportData Convert(PhysikLevelItemExportData exportData)
+        {
+            return new PhysicItemExportData()
+            {
+                Id = -1,
+                PhysicSceneData = exportData.PhysicSceneData,
+                AnimationData = exportData.AnimationData.Select(x => new KeyFrameGlobal.KeyFrameEditorExportData()
+                {
+                    AnimationData = x
+                }).ToArray(),
+                TextureData = exportData.TextureData,
             };
         }
     }

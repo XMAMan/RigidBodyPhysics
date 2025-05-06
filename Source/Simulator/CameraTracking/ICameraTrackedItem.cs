@@ -1,4 +1,4 @@
-﻿namespace LevelEditorGlobal
+﻿namespace Simulator.CameraTracking
 {
     public interface ICameraTrackedItem
     {

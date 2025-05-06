@@ -2,7 +2,6 @@
 using DynamicObjCreation.RigidBodyDestroying;
 using GameHelper.Simulation.RigidBodyTagging;
 using KeyFrameGlobal;
-using LevelEditorControl;
 using PhysicGlobal;
 using PhysicSceneDrawing;
 using RigidBodyPhysics;
@@ -476,7 +475,7 @@ namespace GameHelper.Simulation
         public void CopyLevelToClipboard()
         {
             var levelExport = this.GetExportDataFromAllLevelItems();
-            string clipboardText = EditorFileConverter.ConvertLevelItemsExportToPhysicPrototyps(levelExport);
+            string clipboardText = SimulatorExporter.ConvertLevelItemsExportToPhysicPrototyps(levelExport);
             System.Windows.Clipboard.SetText(clipboardText);
         }
 

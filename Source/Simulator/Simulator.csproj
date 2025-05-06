@@ -9,14 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KeyFrameGlobal\KeyFrameGlobal.csproj" />
-    <ProjectReference Include="..\LevelEditorGlobal\LevelEditorGlobal.csproj" />
+    <ProjectReference Include="..\LevelToSimulatorConverter\LevelToSimulatorConverter.csproj" />
     <ProjectReference Include="..\PhysicSceneDrawing\PhysicSceneDrawing.csproj" />
     <ProjectReference Include="..\PhysicSceneKeyboardControl\PhysicSceneKeyboardControl.csproj" />
     <ProjectReference Include="..\PhysicSceneToAnimationConverter\PhysicSceneToAnimationConverter.csproj" />
-    <ProjectReference Include="..\RigidBodyPhysics\RigidBodyPhysics.csproj" />
-    <ProjectReference Include="..\TextureEditorGlobal\TextureEditorGlobal.csproj" />
-    <ProjectReference Include="..\WpfControls\WpfControls.csproj" />
   </ItemGroup>
 
   <ItemGroup>

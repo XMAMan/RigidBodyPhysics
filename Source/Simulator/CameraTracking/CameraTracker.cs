@@ -1,6 +1,5 @@
 ﻿using GraphicPanelWpf;
 using LevelEditorExports.Editor.CameraTracking;
-using LevelEditorGlobal;
 using PhysicGlobal;
 
 namespace Simulator.CameraTracking
