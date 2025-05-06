@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\JsonHelper\JsonHelper.csproj" />
     <ProjectReference Include="..\KeyFrameGlobal\KeyFrameGlobal.csproj" />
+    <ProjectReference Include="..\PhysicSceneToAnimationConverter\PhysicSceneToAnimationConverter.csproj" />
     <ProjectReference Include="..\RigidBodyPhysics\RigidBodyPhysics.csproj" />
     <ProjectReference Include="..\WpfControls\WpfControls.csproj" />
   </ItemGroup>

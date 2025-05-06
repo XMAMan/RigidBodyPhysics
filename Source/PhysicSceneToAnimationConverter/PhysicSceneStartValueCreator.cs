@@ -1,9 +1,9 @@
 ﻿using KeyFrameGlobal;
+using PhysicGlobal;
 using RigidBodyPhysics.ExportData;
 using RigidBodyPhysics;
-using PhysicGlobal;
 
-namespace KeyFramePhysicImporter.Model
+namespace PhysicSceneToAnimationConverter
 {
     //Wenn man eine Animation für eine PhysicScene erstellt, dann definiert man im Importer welcehs Objekt fix ist und 
     //kann dann jede Play-Position anspringen ohne dass das PhysicScene-Objekt wegspringt.

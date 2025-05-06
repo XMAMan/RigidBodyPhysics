@@ -3,7 +3,6 @@ using GraphicPanelWpf;
 using JsonHelper;
 using KeyFrameGlobal;
 using KeyFramePhysicImporter.Model.PhysicSceneDrawing;
-using KeyFramePhysicImporter.Model;
 using ReactiveUI.Fody.Helpers;
 using ReactiveUI;
 using RigidBodyPhysics.ExportData;
@@ -12,6 +11,7 @@ using System.Reactive;
 using DynamicData;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using PhysicGlobal;
+using PhysicSceneToAnimationConverter;
 
 namespace KeyFramePhysicImporter.ViewModel
 {

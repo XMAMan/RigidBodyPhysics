@@ -1,6 +1,6 @@
 ﻿using KeyFrameGlobal;
 
-namespace KeyFramePhysicImporter.Model.AnimationPropertys
+namespace PhysicSceneToAnimationConverter.AnimationPropertys
 {
     internal class FloatAnimationProperty : IFloatAnimationProperty
     {

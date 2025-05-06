@@ -1,7 +1,6 @@
 ﻿using JsonHelper;
 using KeyFrameEditorControl;
 using KeyFrameGlobal;
-using KeyFramePhysicImporter.Model;
 using PhysicItemEditorControl.Model.PhysicTabMerging;
 using ReactiveUI.Fody.Helpers;
 using ReactiveUI;
@@ -25,6 +24,7 @@ using System.Windows.Forms;
 using System.IO;
 using DynamicData.Binding;
 using LevelEditorExports.Editor.Prototyps;
+using PhysicSceneToAnimationConverter;
 
 namespace PhysicItemEditorControl.ViewModel
 {

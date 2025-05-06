@@ -1,5 +1,4 @@
 ﻿using KeyFrameGlobal;
-using KeyFramePhysicImporter.Model;
 using RigidBodyPhysics.ExportData.Joints;
 using RigidBodyPhysics.ExportData.RigidBody;
 using RigidBodyPhysics.ExportData.Thruster;
@@ -8,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TextureEditorGlobal;
+using PhysicSceneToAnimationConverter;
 
 namespace PhysicItemEditorControl.Model.PhysicTabMerging
 {

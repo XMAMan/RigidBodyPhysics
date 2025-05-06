@@ -1,10 +1,10 @@
 ﻿using KeyFrameGlobal;
-using KeyFramePhysicImporter.Model.AnimationPropertys;
+using PhysicSceneToAnimationConverter.AnimationPropertys;
 using RigidBodyPhysics.ExportData;
-using RigidBodyPhysics.RuntimeObjects.Thruster;
 using RigidBodyPhysics.RuntimeObjects.Joints;
+using RigidBodyPhysics.RuntimeObjects.Thruster;
 
-namespace KeyFramePhysicImporter.Model
+namespace PhysicSceneToAnimationConverter
 {
     //Konvertiert ein PhysicScene-Objekt in eine Liste von IAnimationProperty
     public static class PhysicSceneAnimationPropertyConverter

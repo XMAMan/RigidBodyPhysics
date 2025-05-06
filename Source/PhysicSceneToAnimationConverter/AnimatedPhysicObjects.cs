@@ -1,11 +1,10 @@
-﻿using GraphicPanelWpf;
-using KeyFrameGlobal;
+﻿using KeyFrameGlobal;
 using RigidBodyPhysics.ExportData;
 
-namespace KeyFramePhysicImporter.Model
+namespace PhysicSceneToAnimationConverter
 {
     //Menge von Gelenken und Thrusters, die per Animation gesteuert werden
-    public class AnimatedPhysicObjects : ITimerHandler
+    public class AnimatedPhysicObjects
     {
         public PhysicScenePublicData PhysicObjects { get; private set; }
         public Animator[] Animators { get; private set; }

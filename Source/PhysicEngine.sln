@@ -155,6 +155,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Editor", "Editor", "{F7A1B4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LevelEditorControl.UnitTests", "LevelEditorControl.UnitTests\LevelEditorControl.UnitTests.csproj", "{D5075217-EF85-4612-B200-D2077010CC56}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhysicSceneToAnimationConverter", "PhysicSceneToAnimationConverter\PhysicSceneToAnimationConverter.csproj", "{8446F990-0915-4472-8C02-D0896149E09F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -317,6 +319,10 @@ Global
 		{D5075217-EF85-4612-B200-D2077010CC56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5075217-EF85-4612-B200-D2077010CC56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5075217-EF85-4612-B200-D2077010CC56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8446F990-0915-4472-8C02-D0896149E09F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8446F990-0915-4472-8C02-D0896149E09F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8446F990-0915-4472-8C02-D0896149E09F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8446F990-0915-4472-8C02-D0896149E09F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -395,6 +401,7 @@ Global
 		{E5274620-4503-41FD-9811-4769AB0008C1} = {94FAD22C-74D0-4561-9866-C9AF49AA07F3}
 		{F7A1B458-3D99-433D-A220-E0FA2211513B} = {94FAD22C-74D0-4561-9866-C9AF49AA07F3}
 		{D5075217-EF85-4612-B200-D2077010CC56} = {BD5E9F72-D125-4229-B03F-7A5500EFCAB9}
+		{8446F990-0915-4472-8C02-D0896149E09F} = {A16643C3-3DC4-420F-A181-97588A11B93F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {303CA1F7-831C-49AB-9EE1-BEBA7D82E68E}

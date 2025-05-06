@@ -1,10 +1,10 @@
 ﻿using KeyFrameGlobal;
-using RigidBodyPhysics.ExportData;
 using RigidBodyPhysics;
+using RigidBodyPhysics.ExportData;
 
-namespace KeyFramePhysicImporter.Model
+namespace PhysicSceneToAnimationConverter
 {
-    internal class PhysicSceneAnimationObject : IAnimationObject
+    public class PhysicSceneAnimationObject : IAnimationObject
     {
         private PhysicScene physicScene;
         private PhysicSceneExportData intialState;

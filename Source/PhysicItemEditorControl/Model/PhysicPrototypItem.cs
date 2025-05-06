@@ -1,6 +1,5 @@
 ﻿using GraphicPanels;
 using KeyFrameGlobal;
-using KeyFramePhysicImporter.Model;
 using PhysicSceneDrawing;
 using RigidBodyPhysics.ExportData;
 using RigidBodyPhysics;
@@ -18,6 +17,7 @@ using LevelEditorExports.Simulator;
 using TexturePhysicImporter;
 using WpfControls.Extensions;
 using LevelEditorExports.Editor.Helper;
+using PhysicSceneToAnimationConverter;
 
 namespace PhysicItemEditorControl.Model
 {

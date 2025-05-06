@@ -1,12 +1,11 @@
-﻿using GraphicPanelWpf;
-using KeyFrameGlobal;
-using KeyFramePhysicImporter.Model;
+﻿using KeyFrameGlobal;
+using PhysicSceneToAnimationConverter;
 using RigidBodyPhysics.ExportData;
 
 namespace Simulator.Animation
 {
     //Speichert für jedes LevelItem ein AnimatedPhysicObjects
-    public class LevelItemAnimator : ITimerHandler
+    public class LevelItemAnimator
     {
         private List<AnimatedPhysicObjects> levelItems = new List<AnimatedPhysicObjects>();
         private float timerIntervalInMilliseconds;
