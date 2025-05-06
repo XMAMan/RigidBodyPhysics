@@ -10,7 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using WpfControls.Controls.CameraSetting;
+using WpfControls.Extensions;
 using WpfControls.Model;
 
 namespace LevelEditorControl.LevelItems
@@ -47,7 +47,7 @@ namespace LevelEditorControl.LevelItems
             }
 
 
-            panel.MultTransformationMatrix(camera.GetPointToSceenMatrix());
+            panel.MultTransformationMatrix(camera.GetPointToSceenMatrix().To4x4Matrix());
 
             panel.EnableDepthTesting();
 

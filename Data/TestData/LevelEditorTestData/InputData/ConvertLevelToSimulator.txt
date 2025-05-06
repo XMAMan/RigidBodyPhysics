@@ -1,0 +1,1459 @@
+{
+  "$type": "LevelEditorExports.Editor.LevelEditorExportData, LevelEditorExports",
+  "Prototyps": {
+    "$type": "LevelEditorExports.Editor.Prototyps.PrototypControlExportData, LevelEditorExports",
+    "PrototypItems": {
+      "$type": "LevelEditorExports.Editor.Prototyps.IPrototypExportData[], LevelEditorExports",
+      "$values": [
+        {
+          "$type": "LevelEditorExports.Editor.Prototyps.PhysicItemExportData, LevelEditorExports",
+          "ProtoType": 0,
+          "Id": 1,
+          "PhysicSceneData": {
+            "$type": "RigidBodyPhysics.ExportData.PhysicSceneExportData, RigidBodyPhysics",
+            "Bodies": {
+              "$type": "RigidBodyPhysics.ExportData.RigidBody.IExportRigidBody[], RigidBodyPhysics",
+              "$values": [
+                {
+                  "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
+                  "Size": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 183.0,
+                    "Y": 170.0
+                  },
+                  "BreakWhenMaxPushPullForceIsReached": false,
+                  "MaxPushPullForce": 1.0,
+                  "Center": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 161.0,
+                    "Y": 154.0
+                  },
+                  "AngleInDegree": 12.0,
+                  "Velocity": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 0.0,
+                    "Y": 0.0
+                  },
+                  "AngularVelocity": 0.0,
+                  "MassData": {
+                    "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+                    "Type": 1,
+                    "Mass": 1.0,
+                    "Density": 0.0001
+                  },
+                  "Friction": 0.03,
+                  "Restituion": 0.5,
+                  "CollisionCategory": 0
+                },
+                {
+                  "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
+                  "Radius": 104.0,
+                  "Center": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 163.0,
+                    "Y": 388.0
+                  },
+                  "AngleInDegree": 24.0,
+                  "Velocity": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 0.0,
+                    "Y": 0.0
+                  },
+                  "AngularVelocity": 0.0,
+                  "MassData": {
+                    "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+                    "Type": 1,
+                    "Mass": 1.0,
+                    "Density": 0.0001
+                  },
+                  "Friction": 0.03,
+                  "Restituion": 0.5,
+                  "CollisionCategory": 0
+                },
+                {
+                  "$type": "RigidBodyPhysics.ExportData.RigidBody.PolygonExportData, RigidBodyPhysics",
+                  "PolygonType": 0,
+                  "Points": {
+                    "$type": "PhysicGlobal.Vec2D[], PhysicGlobal",
+                    "$values": [
+                      {
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                        "X": 106.000015,
+                        "Y": 48.333252
+                      },
+                      {
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                        "X": -2.9999847,
+                        "Y": -92.66675
+                      },
+                      {
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                        "X": -102.999985,
+                        "Y": 44.333252
+                      }
+                    ]
+                  },
+                  "Center": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 167.99998,
+                    "Y": 629.66675
+                  },
+                  "AngleInDegree": 12.0,
+                  "Velocity": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 0.0,
+                    "Y": 0.0
+                  },
+                  "AngularVelocity": 0.0,
+                  "MassData": {
+                    "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+                    "Type": 1,
+                    "Mass": 1.0,
+                    "Density": 0.0001
+                  },
+                  "Friction": 0.03,
+                  "Restituion": 0.5,
+                  "CollisionCategory": 0
+                },
+                {
+                  "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
+                  "Size": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 145.39944,
+                    "Y": 17.0
+                  },
+                  "BreakWhenMaxPushPullForceIsReached": false,
+                  "MaxPushPullForce": 1.0,
+                  "Center": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 178.0,
+                    "Y": 732.0
+                  },
+                  "AngleInDegree": 68.198586,
+                  "Velocity": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 0.0,
+                    "Y": 0.0
+                  },
+                  "AngularVelocity": 0.0,
+                  "MassData": {
+                    "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+                    "Type": 1,
+                    "Mass": 1.0,
+                    "Density": 0.0001
+                  },
+                  "Friction": 0.03,
+                  "Restituion": 0.5,
+                  "CollisionCategory": 0
+                }
+              ]
+            },
+            "Joints": {
+              "$type": "RigidBodyPhysics.ExportData.Joints.IExportJoint[], RigidBodyPhysics",
+              "$values": [
+                {
+                  "$type": "RigidBodyPhysics.ExportData.Joints.RevoluteJointExportData, RigidBodyPhysics",
+                  "BodyIndex1": 2,
+                  "BodyIndex2": 3,
+                  "R1": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": -6.702267,
+                    "Y": 40.61425
+                  },
+                  "R2": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": -68.707275,
+                    "Y": -0.55708313
+                  },
+                  "CollideConnected": false,
+                  "LimitIsEnabled": true,
+                  "LowerAngle": 97.63972,
+                  "UpperAngle": 246.99277,
+                  "Motor": 2,
+                  "MotorSpeed": 0.0,
+                  "MaxMotorTorque": 100.0,
+                  "SoftData": {
+                    "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
+                    "ParameterType": 1,
+                    "FrequencyHertz": 100.0,
+                    "DampingRatio": 0.5,
+                    "Stiffness": 200.0,
+                    "Damping": 0.1
+                  },
+                  "BreakWhenMaxForceIsReached": false,
+                  "MaxForceToBreak": 1.0
+                }
+              ]
+            },
+            "Thrusters": {
+              "$type": "RigidBodyPhysics.ExportData.Thruster.IExportThruster[], RigidBodyPhysics",
+              "$values": []
+            },
+            "Motors": {
+              "$type": "RigidBodyPhysics.ExportData.RotaryMotor.IExportRotaryMotor[], RigidBodyPhysics",
+              "$values": []
+            },
+            "AxialFrictions": {
+              "$type": "RigidBodyPhysics.ExportData.AxialFriction.IExportAxialFriction[], RigidBodyPhysics",
+              "$values": []
+            },
+            "CollisionMatrix": {
+              "$type": "System.Boolean[,], System.Private.CoreLib",
+              "$values": [
+                [
+                  true,
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                [
+                  false,
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                [
+                  false,
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                [
+                  false,
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                [
+                  false,
+                  false,
+                  false,
+                  false,
+                  false
+                ]
+              ]
+            }
+          },
+          "PhysicSceneForAnimationNull": {
+            "$type": "RigidBodyPhysics.ExportData.PhysicSceneExportData, RigidBodyPhysics",
+            "Bodies": {
+              "$type": "RigidBodyPhysics.ExportData.RigidBody.IExportRigidBody[], RigidBodyPhysics",
+              "$values": [
+                {
+                  "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
+                  "Size": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 183.0,
+                    "Y": 170.0
+                  },
+                  "BreakWhenMaxPushPullForceIsReached": false,
+                  "MaxPushPullForce": 1.0,
+                  "Center": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 161.0,
+                    "Y": 154.0
+                  },
+                  "AngleInDegree": 12.000001,
+                  "Velocity": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 0.0,
+                    "Y": 0.0
+                  },
+                  "AngularVelocity": 0.0,
+                  "MassData": {
+                    "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+                    "Type": 1,
+                    "Mass": 1.0,
+                    "Density": 0.0001
+                  },
+                  "Friction": 0.03,
+                  "Restituion": 0.5,
+                  "CollisionCategory": 0
+                },
+                {
+                  "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
+                  "Radius": 104.0,
+                  "Center": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 163.0,
+                    "Y": 388.0
+                  },
+                  "AngleInDegree": 24.000002,
+                  "Velocity": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 0.0,
+                    "Y": 0.0
+                  },
+                  "AngularVelocity": 0.0,
+                  "MassData": {
+                    "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+                    "Type": 1,
+                    "Mass": 1.0,
+                    "Density": 0.0001
+                  },
+                  "Friction": 0.03,
+                  "Restituion": 0.5,
+                  "CollisionCategory": 0
+                },
+                {
+                  "$type": "RigidBodyPhysics.ExportData.RigidBody.PolygonExportData, RigidBodyPhysics",
+                  "PolygonType": 0,
+                  "Points": {
+                    "$type": "PhysicGlobal.Vec2D[], PhysicGlobal",
+                    "$values": [
+                      {
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                        "X": -102.999985,
+                        "Y": 44.333252
+                      },
+                      {
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                        "X": -2.9999847,
+                        "Y": -92.66675
+                      },
+                      {
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                        "X": 106.000015,
+                        "Y": 48.333252
+                      }
+                    ]
+                  },
+                  "Center": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 167.99998,
+                    "Y": 629.66675
+                  },
+                  "AngleInDegree": 12.000001,
+                  "Velocity": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 0.0,
+                    "Y": 0.0
+                  },
+                  "AngularVelocity": 0.0,
+                  "MassData": {
+                    "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+                    "Type": 1,
+                    "Mass": 1.0,
+                    "Density": 0.0001
+                  },
+                  "Friction": 0.03,
+                  "Restituion": 0.5,
+                  "CollisionCategory": 0
+                },
+                {
+                  "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
+                  "Size": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 145.39944,
+                    "Y": 17.0
+                  },
+                  "BreakWhenMaxPushPullForceIsReached": false,
+                  "MaxPushPullForce": 1.0,
+                  "Center": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 135.71854,
+                    "Y": 734.50073
+                  },
+                  "AngleInDegree": 104.10262,
+                  "Velocity": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 0.0,
+                    "Y": 0.0
+                  },
+                  "AngularVelocity": 0.0,
+                  "MassData": {
+                    "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+                    "Type": 1,
+                    "Mass": 1.0,
+                    "Density": 0.0001
+                  },
+                  "Friction": 0.03,
+                  "Restituion": 0.5,
+                  "CollisionCategory": 0
+                }
+              ]
+            },
+            "Joints": {
+              "$type": "RigidBodyPhysics.ExportData.Joints.IExportJoint[], RigidBodyPhysics",
+              "$values": [
+                {
+                  "$type": "RigidBodyPhysics.ExportData.Joints.RevoluteJointExportData, RigidBodyPhysics",
+                  "BodyIndex1": 2,
+                  "BodyIndex2": 3,
+                  "R1": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": -6.702267,
+                    "Y": 40.61425
+                  },
+                  "R2": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": -68.707275,
+                    "Y": -0.55708313
+                  },
+                  "CollideConnected": false,
+                  "LimitIsEnabled": true,
+                  "LowerAngle": 97.63972,
+                  "UpperAngle": 246.99277,
+                  "Motor": 2,
+                  "MotorSpeed": 0.0,
+                  "MaxMotorTorque": 100.0,
+                  "SoftData": {
+                    "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
+                    "ParameterType": 1,
+                    "FrequencyHertz": 4527.196,
+                    "DampingRatio": 0.007111303,
+                    "Stiffness": 200.0,
+                    "Damping": 0.1
+                  },
+                  "BreakWhenMaxForceIsReached": false,
+                  "MaxForceToBreak": 1.0
+                }
+              ]
+            },
+            "Thrusters": {
+              "$type": "RigidBodyPhysics.ExportData.Thruster.IExportThruster[], RigidBodyPhysics",
+              "$values": []
+            },
+            "Motors": {
+              "$type": "RigidBodyPhysics.ExportData.RotaryMotor.IExportRotaryMotor[], RigidBodyPhysics",
+              "$values": []
+            },
+            "AxialFrictions": {
+              "$type": "RigidBodyPhysics.ExportData.AxialFriction.IExportAxialFriction[], RigidBodyPhysics",
+              "$values": []
+            },
+            "CollisionMatrix": {
+              "$type": "System.Boolean[,], System.Private.CoreLib",
+              "$values": [
+                [
+                  true,
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                [
+                  false,
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                [
+                  false,
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                [
+                  false,
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                [
+                  false,
+                  false,
+                  false,
+                  false,
+                  false
+                ]
+              ]
+            }
+          },
+          "TextureData": {
+            "$type": "TextureEditorGlobal.VisualisizerOutputData, TextureEditorGlobal",
+            "Textures": {
+              "$type": "TextureEditorGlobal.TextureExportData[], TextureEditorGlobal",
+              "$values": [
+                {
+                  "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
+                  "TextureFile": "SolidBlock1.png",
+                  "MakeFirstPixelTransparent": true,
+                  "ColorFactor": "White",
+                  "DeltaX": 0.0,
+                  "DeltaY": 0.0,
+                  "Width": 249.0,
+                  "Height": 133.0,
+                  "DeltaAngle": -21.78659,
+                  "ZValue": 0.0,
+                  "IsInvisible": false
+                },
+                {
+                  "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
+                  "TextureFile": "kopf1.png",
+                  "MakeFirstPixelTransparent": true,
+                  "ColorFactor": "White",
+                  "DeltaX": 0.0,
+                  "DeltaY": 0.0,
+                  "Width": 295.0,
+                  "Height": 197.0,
+                  "DeltaAngle": 58.56852,
+                  "ZValue": 0.0,
+                  "IsInvisible": false
+                },
+                {
+                  "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
+                  "TextureFile": "fuß.png",
+                  "MakeFirstPixelTransparent": true,
+                  "ColorFactor": "White",
+                  "DeltaX": 0.0,
+                  "DeltaY": 0.0,
+                  "Width": 209.0,
+                  "Height": 141.0,
+                  "DeltaAngle": 0.0,
+                  "ZValue": 0.0,
+                  "IsInvisible": false
+                },
+                {
+                  "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
+                  "TextureFile": "oberschenkel.png",
+                  "MakeFirstPixelTransparent": true,
+                  "ColorFactor": "White",
+                  "DeltaX": 0.0,
+                  "DeltaY": 0.0,
+                  "Width": 145.0,
+                  "Height": 17.0,
+                  "DeltaAngle": 0.0,
+                  "ZValue": 0.0,
+                  "IsInvisible": false
+                }
+              ]
+            }
+          },
+          "AnimationData": {
+            "$type": "KeyFrameGlobal.KeyFrameEditorExportData[], KeyFrameGlobal",
+            "$values": [
+              {
+                "$type": "KeyFrameGlobal.KeyFrameEditorExportData, KeyFrameGlobal",
+                "ImporterData": {
+                  "$type": "KeyFrameGlobal.ImporterControlExportData, KeyFrameGlobal",
+                  "HasGravity": true,
+                  "IsFix": {
+                    "$type": "System.Boolean[], System.Private.CoreLib",
+                    "$values": [
+                      true,
+                      true,
+                      true,
+                      false
+                    ]
+                  },
+                  "Colors": {
+                    "$type": "System.Drawing.Color[], System.Drawing.Primitives",
+                    "$values": [
+                      "Transparent",
+                      "Transparent",
+                      "Transparent",
+                      "Transparent"
+                    ]
+                  }
+                },
+                "AnimationData": {
+                  "$type": "KeyFrameGlobal.AnimationOutputData, KeyFrameGlobal",
+                  "Frames": {
+                    "$type": "KeyFrameGlobal.FrameData[], KeyFrameGlobal",
+                    "$values": [
+                      {
+                        "$type": "KeyFrameGlobal.FrameData, KeyFrameGlobal",
+                        "Time": 0.0,
+                        "Values": {
+                          "$type": "System.Object[], System.Private.CoreLib",
+                          "$values": [
+                            0.0
+                          ]
+                        }
+                      },
+                      {
+                        "$type": "KeyFrameGlobal.FrameData, KeyFrameGlobal",
+                        "Time": 0.98833334,
+                        "Values": {
+                          "$type": "System.Object[], System.Private.CoreLib",
+                          "$values": [
+                            1.0
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "DurrationInSeconds": 1.0,
+                  "Type": 2,
+                  "PropertyIsAnimated": {
+                    "$type": "System.Boolean[], System.Private.CoreLib",
+                    "$values": [
+                      true
+                    ]
+                  },
+                  "StartTime": 0.5
+                }
+              }
+            ]
+          },
+          "InitialRecValues": {
+            "$type": "LevelEditorExports.Editor.Prototyps.InitialRotatedRectangleValues, LevelEditorExports",
+            "SizeFactor": 1.0,
+            "AngleInDegree": 0.0,
+            "LocalPivot": {
+              "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+              "X": 0.0,
+              "Y": 0.0
+            }
+          },
+          "CameraTrackedRigidBodyIds": null
+        },
+        {
+          "$type": "LevelEditorExports.Editor.Prototyps.BackgroundPrototypExportData, LevelEditorExports",
+          "ProtoType": 1,
+          "Id": 2,
+          "TextureFile": "kopf1.png",
+          "ZValue": 0.0,
+          "InitialRecValues": {
+            "$type": "LevelEditorExports.Editor.Prototyps.InitialRotatedRectangleValues, LevelEditorExports",
+            "SizeFactor": 1.0,
+            "AngleInDegree": 0.0,
+            "LocalPivot": {
+              "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+              "X": 0.0,
+              "Y": 0.0
+            }
+          }
+        },
+        {
+          "$type": "LevelEditorExports.Editor.Prototyps.PhysicItemExportData, LevelEditorExports",
+          "ProtoType": 0,
+          "Id": 3,
+          "PhysicSceneData": {
+            "$type": "RigidBodyPhysics.ExportData.PhysicSceneExportData, RigidBodyPhysics",
+            "Bodies": {
+              "$type": "RigidBodyPhysics.ExportData.RigidBody.IExportRigidBody[], RigidBodyPhysics",
+              "$values": [
+                {
+                  "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
+                  "Size": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 177.0,
+                    "Y": 24.0
+                  },
+                  "BreakWhenMaxPushPullForceIsReached": false,
+                  "MaxPushPullForce": 1.0,
+                  "Center": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 154.0,
+                    "Y": 81.0
+                  },
+                  "AngleInDegree": 0.0,
+                  "Velocity": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 0.0,
+                    "Y": 0.0
+                  },
+                  "AngularVelocity": 0.0,
+                  "MassData": {
+                    "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+                    "Type": 1,
+                    "Mass": 1.0,
+                    "Density": 0.0001
+                  },
+                  "Friction": 0.03,
+                  "Restituion": 0.5,
+                  "CollisionCategory": 0
+                },
+                {
+                  "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
+                  "Radius": 20.0,
+                  "Center": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 149.0,
+                    "Y": 117.0
+                  },
+                  "AngleInDegree": 0.0,
+                  "Velocity": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 0.0,
+                    "Y": 0.0
+                  },
+                  "AngularVelocity": 0.0,
+                  "MassData": {
+                    "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+                    "Type": 1,
+                    "Mass": 1.0,
+                    "Density": 0.0001
+                  },
+                  "Friction": 0.03,
+                  "Restituion": 0.5,
+                  "CollisionCategory": 0
+                },
+                {
+                  "$type": "RigidBodyPhysics.ExportData.RigidBody.PolygonExportData, RigidBodyPhysics",
+                  "PolygonType": 0,
+                  "Points": {
+                    "$type": "PhysicGlobal.Vec2D[], PhysicGlobal",
+                    "$values": [
+                      {
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                        "X": 86.0,
+                        "Y": 13.666672
+                      },
+                      {
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                        "X": -3.0,
+                        "Y": -22.333328
+                      },
+                      {
+                        "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                        "X": -83.0,
+                        "Y": 8.666672
+                      }
+                    ]
+                  },
+                  "Center": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 144.0,
+                    "Y": 159.33333
+                  },
+                  "AngleInDegree": 0.0,
+                  "Velocity": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 0.0,
+                    "Y": 0.0
+                  },
+                  "AngularVelocity": 0.0,
+                  "MassData": {
+                    "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+                    "Type": 1,
+                    "Mass": 1.0,
+                    "Density": 0.0001
+                  },
+                  "Friction": 0.03,
+                  "Restituion": 0.5,
+                  "CollisionCategory": 0
+                }
+              ]
+            },
+            "Joints": {
+              "$type": "RigidBodyPhysics.ExportData.Joints.IExportJoint[], RigidBodyPhysics",
+              "$values": []
+            },
+            "Thrusters": {
+              "$type": "RigidBodyPhysics.ExportData.Thruster.IExportThruster[], RigidBodyPhysics",
+              "$values": []
+            },
+            "Motors": {
+              "$type": "RigidBodyPhysics.ExportData.RotaryMotor.IExportRotaryMotor[], RigidBodyPhysics",
+              "$values": []
+            },
+            "AxialFrictions": {
+              "$type": "RigidBodyPhysics.ExportData.AxialFriction.IExportAxialFriction[], RigidBodyPhysics",
+              "$values": []
+            },
+            "CollisionMatrix": {
+              "$type": "System.Boolean[,], System.Private.CoreLib",
+              "$values": [
+                [
+                  true,
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                [
+                  false,
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                [
+                  false,
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                [
+                  false,
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                [
+                  false,
+                  false,
+                  false,
+                  false,
+                  false
+                ]
+              ]
+            }
+          },
+          "PhysicSceneForAnimationNull": null,
+          "TextureData": null,
+          "AnimationData": null,
+          "InitialRecValues": {
+            "$type": "LevelEditorExports.Editor.Prototyps.InitialRotatedRectangleValues, LevelEditorExports",
+            "SizeFactor": 1.0,
+            "AngleInDegree": 0.0,
+            "LocalPivot": {
+              "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+              "X": 0.0,
+              "Y": 0.0
+            }
+          },
+          "CameraTrackedRigidBodyIds": null
+        },
+        {
+          "$type": "LevelEditorExports.Editor.Prototyps.GroupedItemProtoExportData, LevelEditorExports",
+          "ProtoType": 2,
+          "Id": 4,
+          "LevelItemsExport": {
+            "$type": "LevelEditorExports.Editor.LevelItems.ILevelItemExportData[], LevelEditorExports",
+            "$values": [
+              {
+                "$type": "LevelEditorExports.Editor.LevelItems.PhysicLevelItemExportData, LevelEditorExports",
+                "LevelItemId": -1,
+                "PrototypId": 3,
+                "Position": {
+                  "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                  "X": 1096.0,
+                  "Y": 197.0
+                },
+                "SizeFactor": 1.0,
+                "AngleInDegree": 0.0,
+                "LocalPivot": {
+                  "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                  "X": 0.0,
+                  "Y": 0.0
+                }
+              },
+              {
+                "$type": "LevelEditorExports.Editor.LevelItems.PhysicLevelItemExportData, LevelEditorExports",
+                "LevelItemId": -1,
+                "PrototypId": 3,
+                "Position": {
+                  "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                  "X": 1174.75,
+                  "Y": 397.0
+                },
+                "SizeFactor": 0.88328916,
+                "AngleInDegree": -176.94135,
+                "LocalPivot": {
+                  "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                  "X": 0.5,
+                  "Y": 0.5
+                }
+              },
+              {
+                "$type": "LevelEditorExports.Editor.LevelItems.BackgroundLevelItemExportData, LevelEditorExports",
+                "LevelItemId": -1,
+                "PrototypId": 2,
+                "Position": {
+                  "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                  "X": 1107.0,
+                  "Y": 306.0
+                },
+                "SizeFactor": 1.0,
+                "AngleInDegree": 0.0,
+                "LocalPivot": {
+                  "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                  "X": 0.0,
+                  "Y": 0.0
+                }
+              },
+              {
+                "$type": "LevelEditorExports.Editor.LevelItems.BackgroundLevelItemExportData, LevelEditorExports",
+                "LevelItemId": -1,
+                "PrototypId": 2,
+                "Position": {
+                  "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                  "X": 1253.0,
+                  "Y": 346.0
+                },
+                "SizeFactor": 1.0,
+                "AngleInDegree": -176.05481,
+                "LocalPivot": {
+                  "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                  "X": 0.0,
+                  "Y": 0.0
+                }
+              }
+            ]
+          },
+          "InitialRecValues": {
+            "$type": "LevelEditorExports.Editor.Prototyps.InitialRotatedRectangleValues, LevelEditorExports",
+            "SizeFactor": 1.0,
+            "AngleInDegree": 0.0,
+            "LocalPivot": {
+              "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+              "X": 0.0,
+              "Y": 0.0
+            }
+          }
+        },
+        {
+          "$type": "LevelEditorExports.Editor.Prototyps.GroupedItemProtoExportData, LevelEditorExports",
+          "ProtoType": 2,
+          "Id": 5,
+          "LevelItemsExport": {
+            "$type": "LevelEditorExports.Editor.LevelItems.ILevelItemExportData[], LevelEditorExports",
+            "$values": [
+              {
+                "$type": "LevelEditorExports.Editor.LevelItems.PhysicLevelItemExportData, LevelEditorExports",
+                "LevelItemId": -1,
+                "PrototypId": 3,
+                "Position": {
+                  "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                  "X": 1096.0,
+                  "Y": 197.0
+                },
+                "SizeFactor": 1.0,
+                "AngleInDegree": 0.0,
+                "LocalPivot": {
+                  "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                  "X": 0.0,
+                  "Y": 0.0
+                }
+              },
+              {
+                "$type": "LevelEditorExports.Editor.LevelItems.PhysicLevelItemExportData, LevelEditorExports",
+                "LevelItemId": -1,
+                "PrototypId": 3,
+                "Position": {
+                  "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                  "X": 1174.75,
+                  "Y": 397.0
+                },
+                "SizeFactor": 0.88328916,
+                "AngleInDegree": -176.94135,
+                "LocalPivot": {
+                  "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                  "X": 0.5,
+                  "Y": 0.5
+                }
+              },
+              {
+                "$type": "LevelEditorExports.Editor.LevelItems.BackgroundLevelItemExportData, LevelEditorExports",
+                "LevelItemId": -1,
+                "PrototypId": 2,
+                "Position": {
+                  "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                  "X": 1107.0,
+                  "Y": 306.0
+                },
+                "SizeFactor": 1.0,
+                "AngleInDegree": 0.0,
+                "LocalPivot": {
+                  "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                  "X": 0.0,
+                  "Y": 0.0
+                }
+              },
+              {
+                "$type": "LevelEditorExports.Editor.LevelItems.BackgroundLevelItemExportData, LevelEditorExports",
+                "LevelItemId": -1,
+                "PrototypId": 2,
+                "Position": {
+                  "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                  "X": 1253.0,
+                  "Y": 346.0
+                },
+                "SizeFactor": 1.0,
+                "AngleInDegree": -176.05481,
+                "LocalPivot": {
+                  "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                  "X": 0.0,
+                  "Y": 0.0
+                }
+              },
+              {
+                "$type": "LevelEditorExports.Editor.LevelItems.GroupedItemLevelExportData, LevelEditorExports",
+                "LevelItemId": -1,
+                "PrototypId": 4,
+                "Position": {
+                  "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                  "X": 1412.6226,
+                  "Y": 321.07135
+                },
+                "SizeFactor": 1.0,
+                "AngleInDegree": -87.922485,
+                "LocalPivot": {
+                  "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                  "X": 0.5,
+                  "Y": 0.49999994
+                }
+              }
+            ]
+          },
+          "InitialRecValues": {
+            "$type": "LevelEditorExports.Editor.Prototyps.InitialRotatedRectangleValues, LevelEditorExports",
+            "SizeFactor": 1.0,
+            "AngleInDegree": 0.0,
+            "LocalPivot": {
+              "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+              "X": 0.0,
+              "Y": 0.0
+            }
+          }
+        }
+      ]
+    }
+  },
+  "LevelItems": {
+    "$type": "LevelEditorExports.Editor.LevelItems.ILevelItemExportData[], LevelEditorExports",
+    "$values": [
+      {
+        "$type": "LevelEditorExports.Editor.LevelItems.PhysicLevelItemExportData, LevelEditorExports",
+        "LevelItemId": 1,
+        "PrototypId": 1,
+        "Position": {
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+          "X": 145.0,
+          "Y": 71.0
+        },
+        "SizeFactor": 0.73041296,
+        "AngleInDegree": -14.56728,
+        "LocalPivot": {
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+          "X": 0.0,
+          "Y": 0.0
+        }
+      },
+      {
+        "$type": "LevelEditorExports.Editor.LevelItems.PolygonLevelItemExportData, LevelEditorExports",
+        "LevelItemId": 2,
+        "Points": {
+          "$type": "PhysicGlobal.Vec2D[], PhysicGlobal",
+          "$values": [
+            {
+              "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+              "X": 921.0,
+              "Y": 502.0
+            },
+            {
+              "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+              "X": 878.0,
+              "Y": 146.0
+            },
+            {
+              "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+              "X": 526.0,
+              "Y": 124.0
+            },
+            {
+              "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+              "X": 524.0,
+              "Y": 465.0
+            }
+          ]
+        },
+        "Friction": 0.2,
+        "Restiution": 0.5,
+        "CollisionCategory": 0
+      },
+      {
+        "$type": "LevelEditorExports.Editor.LevelItems.PolygonLevelItemExportData, LevelEditorExports",
+        "LevelItemId": 3,
+        "Points": {
+          "$type": "PhysicGlobal.Vec2D[], PhysicGlobal",
+          "$values": [
+            {
+              "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+              "X": 871.0,
+              "Y": 447.0
+            },
+            {
+              "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+              "X": 850.0,
+              "Y": 203.0
+            },
+            {
+              "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+              "X": 579.0,
+              "Y": 169.0
+            },
+            {
+              "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+              "X": 577.0,
+              "Y": 427.0
+            }
+          ]
+        },
+        "Friction": 0.2,
+        "Restiution": 0.5,
+        "CollisionCategory": 0
+      },
+      {
+        "$type": "LevelEditorExports.Editor.LevelItems.BackgroundLevelItemExportData, LevelEditorExports",
+        "LevelItemId": 6,
+        "PrototypId": 2,
+        "Position": {
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+          "X": 742.73584,
+          "Y": 322.01508
+        },
+        "SizeFactor": 2.664196,
+        "AngleInDegree": -26.001965,
+        "LocalPivot": {
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+          "X": 0.5000003,
+          "Y": 0.49999976
+        }
+      },
+      {
+        "$type": "LevelEditorExports.Editor.LevelItems.PhysicLevelItemExportData, LevelEditorExports",
+        "LevelItemId": 7,
+        "PrototypId": 3,
+        "Position": {
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+          "X": 996.0,
+          "Y": 43.0
+        },
+        "SizeFactor": 1.0,
+        "AngleInDegree": 0.0,
+        "LocalPivot": {
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+          "X": 0.0,
+          "Y": 0.0
+        }
+      },
+      {
+        "$type": "LevelEditorExports.Editor.LevelItems.PhysicLevelItemExportData, LevelEditorExports",
+        "LevelItemId": 8,
+        "PrototypId": 3,
+        "Position": {
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+          "X": 1074.75,
+          "Y": 243.0
+        },
+        "SizeFactor": 0.88328916,
+        "AngleInDegree": -176.94135,
+        "LocalPivot": {
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+          "X": 0.5,
+          "Y": 0.5
+        }
+      },
+      {
+        "$type": "LevelEditorExports.Editor.LevelItems.BackgroundLevelItemExportData, LevelEditorExports",
+        "LevelItemId": 9,
+        "PrototypId": 2,
+        "Position": {
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+          "X": 1007.0,
+          "Y": 152.0
+        },
+        "SizeFactor": 1.0,
+        "AngleInDegree": 0.0,
+        "LocalPivot": {
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+          "X": 0.0,
+          "Y": 0.0
+        }
+      },
+      {
+        "$type": "LevelEditorExports.Editor.LevelItems.BackgroundLevelItemExportData, LevelEditorExports",
+        "LevelItemId": 10,
+        "PrototypId": 2,
+        "Position": {
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+          "X": 1153.0,
+          "Y": 192.0
+        },
+        "SizeFactor": 1.0,
+        "AngleInDegree": -176.05481,
+        "LocalPivot": {
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+          "X": 0.0,
+          "Y": 0.0
+        }
+      },
+      {
+        "$type": "LevelEditorExports.Editor.LevelItems.GroupedItemLevelExportData, LevelEditorExports",
+        "LevelItemId": 11,
+        "PrototypId": 4,
+        "Position": {
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+          "X": 1312.6226,
+          "Y": 167.07135
+        },
+        "SizeFactor": 1.0,
+        "AngleInDegree": -87.922485,
+        "LocalPivot": {
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+          "X": 0.5,
+          "Y": 0.49999994
+        }
+      },
+      {
+        "$type": "LevelEditorExports.Editor.LevelItems.GroupedItemLevelExportData, LevelEditorExports",
+        "LevelItemId": 12,
+        "PrototypId": 5,
+        "Position": {
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+          "X": 986.0,
+          "Y": 319.0
+        },
+        "SizeFactor": 1.0,
+        "AngleInDegree": 0.0,
+        "LocalPivot": {
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+          "X": 0.0,
+          "Y": 0.0
+        }
+      },
+      {
+        "$type": "LevelEditorExports.Editor.LevelItems.LawnEdgeExportData, LevelEditorExports",
+        "LevelItemId": 4,
+        "PolygonLevelItemId": 3,
+        "TextureFile": "oberschenkel.png",
+        "ZValue": 0.0,
+        "LawnHeight": 40.0,
+        "Index1": 3,
+        "FPos1": 0.17891198,
+        "Index2": 3,
+        "FPos2": 0.7857111
+      },
+      {
+        "$type": "LevelEditorExports.Editor.LevelItems.LawnEdgeExportData, LevelEditorExports",
+        "LevelItemId": 5,
+        "PolygonLevelItemId": 3,
+        "TextureFile": "oberschenkel.png",
+        "ZValue": 0.0,
+        "LawnHeight": 40.0,
+        "Index1": 3,
+        "FPos1": 0.17891198,
+        "Index2": 3,
+        "FPos2": 0.7857111
+      }
+    ]
+  },
+  "BackgroundImage": "white.png",
+  "ForegroundImage": "balken.png",
+  "BackgroundImageMode": 0,
+  "UseCameraAutoZoom": false,
+  "InitialCameraPosition": 0,
+  "HasGravity": true,
+  "SimulatorIterationCount": 50,
+  "Gravity": 0.001,
+  "KeyboardMappingTables": {
+    "$type": "LevelEditorExports.Editor.KeyboardMappings.KeyboardMappingTable[], LevelEditorExports",
+    "$values": []
+  },
+  "ShowGrid": false,
+  "GridSize": 50,
+  "CollisionMatrix": {
+    "$type": "System.Boolean[,], System.Private.CoreLib",
+    "$values": [
+      [
+        true,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      [
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    ]
+  },
+  "CameraTrackedLevelItemId": -1,
+  "CameraTrackerData": {
+    "$type": "LevelEditorExports.Editor.CameraTracking.CameraTrackerData, LevelEditorExports",
+    "IsActive": true,
+    "Mode": 0,
+    "DistanceToScreenBorder": 50.0,
+    "DistanceToScreenCenter": 50.0,
+    "CameraZoom": 1.0,
+    "MaxBorder": null,
+    "SpringConstant": 0.001,
+    "AirFriction": 0.005
+  },
+  "TagData": {
+    "$type": "LevelEditorExports.Editor.Tagging.TagEditorDataExport, LevelEditorExports",
+    "Tags": {
+      "$type": "LevelEditorExports.Editor.Tagging.TagEditorData[], LevelEditorExports",
+      "$values": [
+        {
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
+          "Id": "Proto_1",
+          "Name": "proto_1",
+          "Color": 0,
+          "AnchorPoints": {
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
+            "$values": []
+          }
+        },
+        {
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
+          "Id": "Body_1_0",
+          "Name": "body_1_0",
+          "Color": 0,
+          "AnchorPoints": {
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
+            "$values": []
+          }
+        },
+        {
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
+          "Id": "Body_1_1",
+          "Name": "body_1_1",
+          "Color": 0,
+          "AnchorPoints": {
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
+            "$values": []
+          }
+        },
+        {
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
+          "Id": "Body_1_2",
+          "Name": "body_1_2",
+          "Color": 0,
+          "AnchorPoints": {
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
+            "$values": []
+          }
+        },
+        {
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
+          "Id": "Body_1_3",
+          "Name": "body_1_3",
+          "Color": 0,
+          "AnchorPoints": {
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
+            "$values": []
+          }
+        },
+        {
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
+          "Id": "Joint_1_0",
+          "Name": "joint_1_0",
+          "Color": 0,
+          "AnchorPoints": {
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
+            "$values": []
+          }
+        },
+        {
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
+          "Id": "Proto_3",
+          "Name": "proto_3",
+          "Color": 0,
+          "AnchorPoints": {
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
+            "$values": []
+          }
+        },
+        {
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
+          "Id": "Body_7_0",
+          "Name": "body_7_0",
+          "Color": 0,
+          "AnchorPoints": {
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
+            "$values": []
+          }
+        },
+        {
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
+          "Id": "Body_7_1",
+          "Name": "body_7_1",
+          "Color": 0,
+          "AnchorPoints": {
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
+            "$values": []
+          }
+        },
+        {
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
+          "Id": "Body_7_2",
+          "Name": "body_7_2",
+          "Color": 0,
+          "AnchorPoints": {
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
+            "$values": []
+          }
+        },
+        {
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
+          "Id": "Body_8_0",
+          "Name": "body_8_0",
+          "Color": 0,
+          "AnchorPoints": {
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
+            "$values": []
+          }
+        },
+        {
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
+          "Id": "Body_8_1",
+          "Name": "body_8_1",
+          "Color": 0,
+          "AnchorPoints": {
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
+            "$values": []
+          }
+        },
+        {
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
+          "Id": "Body_8_2",
+          "Name": "body_8_2",
+          "Color": 0,
+          "AnchorPoints": {
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
+            "$values": []
+          }
+        },
+        {
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
+          "Id": "Level_2",
+          "Name": "poly1",
+          "Color": 0,
+          "AnchorPoints": {
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
+            "$values": []
+          }
+        },
+        {
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
+          "Id": "Level_3",
+          "Name": "poly2",
+          "Color": 0,
+          "AnchorPoints": {
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
+            "$values": []
+          }
+        }
+      ]
+    }
+  }
+}

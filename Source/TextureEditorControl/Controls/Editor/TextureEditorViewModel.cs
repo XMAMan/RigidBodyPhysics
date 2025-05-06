@@ -19,6 +19,8 @@ using DynamicData;
 using System.Drawing;
 using Local = TextureEditorControl;
 using PhysicGlobal;
+using JsonHelper;
+using RigidBodyPhysics.ExportData;
 
 namespace TextureEditorControl.Controls.Editor
 {
@@ -121,7 +123,7 @@ namespace TextureEditorControl.Controls.Editor
         private void ImportPhysicSceneFromJson(string physicSceneJson)
         {
             this.PhysicSceneJson = physicSceneJson;
-            var importer = ImporterBuilder.BuildPhysicImporter(physicSceneJson);
+            var importer = ImporterBuilder.BuildPhysicImporter(Helper.FromCompactJson<PhysicSceneExportData>(physicSceneJson));
             this.inputData = importer.Import();
             this.shapeContainer = new ShapeContainer(this.inputData);
             this.drawer = new Drawer(this.shapeContainer.Shapes);

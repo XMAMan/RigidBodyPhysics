@@ -1,15 +1,14 @@
 ﻿using GraphicPanels;
 using LevelEditorControl.Controls.EditorControl;
 using LevelEditorExports.Editor;
+using LevelEditorExports.Editor.Helper;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorExports.Simulator;
-using LevelEditorGlobal;
 using System.Linq;
 using WpfControls.Model;
 
 namespace LevelEditorControl
 {
-
     public static class EditorFileConverter
     {
         //Konvertiert ein LevelEditorExportData-Objekt, was zuerst noch aus einer Datei als JSON-String gelesen wird, in ein SimulatorInputData-Objekt

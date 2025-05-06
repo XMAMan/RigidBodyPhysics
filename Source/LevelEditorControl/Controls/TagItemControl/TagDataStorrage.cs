@@ -1,5 +1,5 @@
-﻿using LevelEditorExports.Editor.Tagging;
-using LevelEditorGlobal;
+﻿using LevelEditorExports.Editor.Helper;
+using LevelEditorExports.Editor.Tagging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,7 +52,7 @@ namespace LevelEditorControl.Controls.TagItemControl
 
             if (export == null) return;
 
-            foreach (var  tagData in export.Tags)
+            foreach (var tagData in export.Tags)
             {
                 data.Add(tagData.Id, tagData);
             }

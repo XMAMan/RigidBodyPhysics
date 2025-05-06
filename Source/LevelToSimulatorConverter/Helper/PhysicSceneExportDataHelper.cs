@@ -3,11 +3,18 @@ using RigidBodyPhysics.ExportData;
 using RigidBodyPhysics.ExportData.Joints;
 using PhysicGlobal;
 
-namespace LevelToSimulatorConverter
+namespace LevelToSimulatorConverter.Helper
 {
     //Hilfsfunktionen für ein PhysicSceneExportData-Objekt
     public static class PhysicSceneExportDataHelper
     {
+        public static PhysicSceneExportData CreateCopyFromScene(PhysicSceneExportData scene)
+        {
+            string json = JsonHelper.Helper.ToJson(scene);
+            var copy = JsonHelper.Helper.CreateFromJson<PhysicSceneExportData>(json);
+            return copy;
+        }
+
         //Hier wird eine Matrix4x4 und keine Matrix3x3 verwendet, weil an anderer Stelle mit der Matrix panel.MultTransformationMatrix aufgerufen wird
         //Man kann auch nicht so einfach eine Matrix3x3 in eine Matrix4x4 (oder umgekehrt) umwandeln, da die Translate-Matrix
         //einmal das XY in Zeile 3 und einmal in Zeile 4 stehen hat.
@@ -71,12 +78,12 @@ namespace LevelToSimulatorConverter
             }
         }
 
-        public static PhysicGlobal.BoundingBox GetBoundingBoxFromScene(PhysicSceneExportData data)
+        public static BoundingBox GetBoundingBoxFromScene(PhysicSceneExportData data)
         {
-            return PhysicGlobal.BoundingBox.GetBoxFromBoxes(data.Bodies.Select(GetBoundingBox));
+            return BoundingBox.GetBoxFromBoxes(data.Bodies.Select(GetBoundingBox));
         }
 
-        private static PhysicGlobal.BoundingBox GetBoundingBox(IExportRigidBody body)
+        private static BoundingBox GetBoundingBox(IExportRigidBody body)
         {
             if (body is RectangleExportData)
                 return GetBoundingBox((RectangleExportData)body);
@@ -90,7 +97,7 @@ namespace LevelToSimulatorConverter
             throw new NotImplementedException();
         }
 
-        private static PhysicGlobal.BoundingBox GetBoundingBox(RectangleExportData r)
+        private static BoundingBox GetBoundingBox(RectangleExportData r)
         {
             var size = r.Size;
             var vertexLocal = new Vec2D[]
@@ -103,20 +110,20 @@ namespace LevelToSimulatorConverter
 
             var cornerPoints = vertexLocal.Select(x => r.Center + Vec2D.RotatePointAroundPivotPoint(new Vec2D(0, 0), x, r.AngleInDegree)).ToArray();
 
-            return PhysicGlobal.BoundingBox.GetBoxFromPoints(cornerPoints);
+            return BoundingBox.GetBoxFromPoints(cornerPoints);
         }
 
-        private static PhysicGlobal.BoundingBox GetBoundingBox(CircleExportData r)
+        private static BoundingBox GetBoundingBox(CircleExportData r)
         {
-            return new PhysicGlobal.BoundingBox(new Vec2D(r.Center.X - r.Radius, r.Center.Y - r.Radius),
+            return new BoundingBox(new Vec2D(r.Center.X - r.Radius, r.Center.Y - r.Radius),
                     new Vec2D(r.Center.X + r.Radius, r.Center.Y + r.Radius));
         }
 
-        private static PhysicGlobal.BoundingBox GetBoundingBox(PolygonExportData r)
+        private static BoundingBox GetBoundingBox(PolygonExportData r)
         {
             var points = r.Points.Select(x => r.Center + x).ToArray();
 
-            return new PhysicGlobal.BoundingBox(new Vec2D(points.Min(x => x.X), points.Min(x => x.Y)),
+            return new BoundingBox(new Vec2D(points.Min(x => x.X), points.Min(x => x.Y)),
                     new Vec2D(points.Max(x => x.X), points.Max(x => x.Y)));
         }
     }

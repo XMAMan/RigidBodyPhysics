@@ -3,8 +3,6 @@ using BridgeBuilderControl.Controls.Helper;
 using BridgeBuilderControl.Controls.LevelEditor;
 using DynamicData;
 using GameHelper.Simulation;
-using LevelEditorControl;
-using LevelToSimulatorConverter;
 using PhysicGlobal;
 using RigidBodyPhysics.ExportData;
 using RigidBodyPhysics.ExportData.Joints;
@@ -17,6 +15,8 @@ using System.Linq;
 using TextureEditorGlobal;
 using static RigidBodyPhysics.RuntimeObjects.Joints.IPublicJoint;
 using LevelEditorExports.Simulator;
+using LevelToSimulatorConverter.Helper;
+using LevelToSimulatorConverter;
 
 namespace BridgeBuilderControl.Controls.Simulator.Model.Converter
 {
@@ -45,7 +45,7 @@ namespace BridgeBuilderControl.Controls.Simulator.Model.Converter
             dataFolder = new DirectoryInfo(dataFolder).FullName;
 
             string levelFile = dataFolder + "\\Train.txt";
-            var simulator = new GameSimulator(EditorFileConverter.Convert(levelFile), panelSize, input.Camera, timerIntervalInMilliseconds);
+            var simulator = new GameSimulator(SimulatorExporter.Convert(levelFile), panelSize, input.Camera, timerIntervalInMilliseconds);
 
             string pushPullLimitFile = dataFolder + "\\PushPullLimits.txt";
             var limits = JsonHelper.Helper.CreateFromJson<PushPullLimit[]>(File.ReadAllText(pushPullLimitFile));

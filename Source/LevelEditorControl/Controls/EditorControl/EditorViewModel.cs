@@ -36,6 +36,7 @@ using LevelEditorExports.Editor.CameraTracking;
 using LevelEditorExports.Editor.KeyboardMappings;
 using LevelEditorExports.Editor;
 using LevelEditorExports.Simulator;
+using LevelEditorExports.Editor.Helper;
 
 namespace LevelEditorControl.Controls.EditorControl
 {
@@ -327,7 +328,7 @@ namespace LevelEditorControl.Controls.EditorControl
                     break;
 
                 case FunctionType.Simulator:
-                    this.function = new SimulatorFunction().Init(this.editorData, this.SimulatorViewModel.ForceTrackerDrawingSettings);
+                    this.function = new SimulatorFunction().Init(this.editorData, this.SimulatorViewModel.ForceTrackerDrawingSettings, (LevelEditorExportData)GetExportObject());
                     break;
 
                 case FunctionType.AddPolygon:

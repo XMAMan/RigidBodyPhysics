@@ -3,12 +3,12 @@ using GraphicMinimal;
 using GraphicPanels;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorGlobal;
-using LevelToSimulatorConverter;
+using LevelToSimulatorConverter._2_MergeToSingleScene;
 using PhysicGlobal;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using WpfControls.Controls.CameraSetting;
+using WpfControls.Extensions;
 
 namespace LevelEditorControl.LevelItems.GroupedItems
 {
@@ -56,7 +56,7 @@ namespace LevelEditorControl.LevelItems.GroupedItems
 
             panel.ClearScreen(Color.White);
 
-            panel.MultTransformationMatrix(camera.GetPointToSceenMatrix());
+            panel.MultTransformationMatrix(camera.GetPointToSceenMatrix().To4x4Matrix());
             panel.EnableDepthTesting();
 
             foreach (var item in this.items)

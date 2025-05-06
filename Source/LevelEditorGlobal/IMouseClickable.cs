@@ -1,5 +1,4 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
 using PhysicGlobal;
 
 namespace LevelEditorGlobal
@@ -9,8 +8,8 @@ namespace LevelEditorGlobal
     {
         void Draw(GraphicPanel2D panel);
         void DrawBorder(GraphicPanel2D panel, Pen borderPen);
-        bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal); //modelMatrix = Mit der Matrix kann der ScreenSpace-Mauspunkt in den lokalen Objektraum gebracht werden
-        Matrix4x4 GetScreenToLocalMatrix();
+        bool IsPointInside(Vec2D point, PhxMatrix screenToLocal); //modelMatrix = Mit der Matrix kann der ScreenSpace-Mauspunkt in den lokalen Objektraum gebracht werden
+        PhxMatrix GetScreenToLocalMatrix();
         float GetArea();        
     }
 }

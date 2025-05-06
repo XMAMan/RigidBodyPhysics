@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Text.RegularExpressions;
 
-namespace LevelEditorGlobal
+namespace LevelEditorExports.Editor.Helper
 {
     //Ersetzt die absoluten Dateinamen beim Speichern der Editor-Datei durch relative und beim Laden durch absolute Pfade
     //Auf diese Weise kann der Projektordner, wo die Bilder und die Editor-Datei liegt (Muss nicht im selben Ordner liegen) verschoben werden

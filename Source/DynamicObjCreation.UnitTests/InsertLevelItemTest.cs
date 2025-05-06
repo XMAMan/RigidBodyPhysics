@@ -2,7 +2,7 @@
 using GraphicPanels;
 using LevelEditorControl;
 using LevelEditorExports.Simulator;
-using LevelToSimulatorConverter;
+using LevelToSimulatorConverter.Helper;
 using PhysicGlobal;
 using System.Drawing;
 using System.Reflection;

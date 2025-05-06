@@ -1,8 +1,9 @@
-﻿using PhysicGlobal;
+﻿using LevelEditorExports.Editor.Helper;
+using PhysicGlobal;
 
 namespace LevelEditorControl.LevelItems.Polygon
 {
-    internal interface ILevelItemPolygon
+    internal interface ILevelItemPolygon : LawnEdgePositionCalculator.IPolygon
     {
         int Id { get; }
         Vec2D[] Points { get; }

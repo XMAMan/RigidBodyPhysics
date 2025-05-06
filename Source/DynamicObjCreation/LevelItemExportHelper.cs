@@ -1,5 +1,5 @@
 ﻿using LevelEditorExports.Simulator;
-using LevelToSimulatorConverter;
+using LevelToSimulatorConverter.Helper;
 using PhysicGlobal;
 using System.Drawing;
 

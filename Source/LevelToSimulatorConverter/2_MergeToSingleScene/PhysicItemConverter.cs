@@ -2,6 +2,7 @@
 using LevelEditorExports.Editor.KeyboardMappings;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorExports.Simulator;
+using LevelToSimulatorConverter.Helper;
 using PhysicGlobal;
 using RigidBodyPhysics.ExportData;
 using RigidBodyPhysics.ExportData.RigidBody;
@@ -10,7 +11,7 @@ using System.Drawing;
 using TextureEditorGlobal;
 using TexturePhysicImporter;
 
-namespace LevelToSimulatorConverter
+namespace LevelToSimulatorConverter._2_MergeToSingleScene
 {
     public interface IPhysicMergerItem
     {

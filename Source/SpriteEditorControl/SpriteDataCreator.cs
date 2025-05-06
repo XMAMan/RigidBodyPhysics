@@ -1,5 +1,5 @@
 ﻿using GraphicPanels;
-using LevelEditorGlobal;
+using LevelEditorExports.Editor.Helper;
 using SpriteEditorControl.Controls.Main;
 using SpriteEditorControl.Controls.Main.Model;
 using SpriteEditorControl.Controls.Sprite.Model;

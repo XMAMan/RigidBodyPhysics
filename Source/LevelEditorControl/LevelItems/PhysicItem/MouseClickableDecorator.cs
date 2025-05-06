@@ -1,9 +1,10 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
+using LevelEditorExports.Editor.Helper;
 using LevelEditorExports.Simulator;
 using LevelEditorGlobal;
 using PhysicGlobal;
 using System.Drawing;
+using WpfControls.Extensions;
 
 namespace LevelEditorControl.LevelItems.PhysicItem
 {
@@ -24,14 +25,14 @@ namespace LevelEditorControl.LevelItems.PhysicItem
         public void Draw(GraphicPanel2D panel)
         {
             panel.PushMatrix();
-            panel.MultTransformationMatrix(this.rotatedRectangle.GetLocalToScreenMatrix());
+            panel.MultTransformationMatrix(this.rotatedRectangle.GetLocalToScreenMatrix().To4x4Matrix());
             this.decoree.Draw(panel);
             panel.PopMatrix();
         }
         public void DrawBorder(GraphicPanel2D panel, Pen borderPen)
         {
             panel.PushMatrix();
-            panel.MultTransformationMatrix(this.rotatedRectangle.GetLocalToScreenMatrix());
+            panel.MultTransformationMatrix(this.rotatedRectangle.GetLocalToScreenMatrix().To4x4Matrix());
             this.decoree.DrawBorder(panel, borderPen);
             panel.PopMatrix();
         }
@@ -42,15 +43,15 @@ namespace LevelEditorControl.LevelItems.PhysicItem
         }
 
         //screenToLocal = ScreenToCamera-Space-Matrix
-        public bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal)
+        public bool IsPointInside(Vec2D point, PhxMatrix screenToLocal)
         {
-            screenToLocal *= Matrix4x4.Invert(this.rotatedRectangle.GetLocalToScreenMatrix());  //Camera to LevelItem
+            screenToLocal *= PhxMatrix.Invert(this.rotatedRectangle.GetLocalToScreenMatrix());  //Camera to LevelItem
             return this.decoree.IsPointInside(point, screenToLocal);
         }
 
-        public Matrix4x4 GetScreenToLocalMatrix()
+        public PhxMatrix GetScreenToLocalMatrix()
         {
-            return Matrix4x4.Invert(this.rotatedRectangle.GetLocalToScreenMatrix()) * this.decoree.GetScreenToLocalMatrix();
+            return PhxMatrix.Invert(this.rotatedRectangle.GetLocalToScreenMatrix()) * this.decoree.GetScreenToLocalMatrix();
         }
     }
 }

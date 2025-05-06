@@ -1,4 +1,5 @@
 ﻿using LevelEditorControl.LevelItems;
+using LevelEditorExports.Editor.Helper;
 using LevelEditorGlobal;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
@@ -33,7 +34,7 @@ namespace LevelEditorControl.Controls.TreeControl
         {
             this.Tagable = prototypItem as ITagable;        //Bei Prototyps die nicht ITagable sind soll hier null rauskommen
             this.prototypItem = prototypItem;
-            this.Title = "Proto_" + prototypItem.Id;
+            this.Title = TreeItemNameCreator.CreateNameForProtoItem(prototypItem.Id);
         }
 
         public void UpdateCheckboxSelectionState(IPrototypItem selectedPrototyp, List<ILevelItem> selectedLevelItems)
@@ -49,7 +50,7 @@ namespace LevelEditorControl.Controls.TreeControl
         {
             this.Tagable = levelItem as ITagable; //Bei LevelItems die nicht ITagable sind soll hier null rauskommen
             this.levelItem = levelItem;
-            this.Title = "Level_" + levelItem.Id;
+            this.Title = TreeItemNameCreator.CreateNameForLevelItem(levelItem.Id);
         }
 
         public void UpdateCheckboxSelectionState(IPrototypItem selectedPrototyp, List<ILevelItem> selectedLevelItems)
@@ -63,7 +64,7 @@ namespace LevelEditorControl.Controls.TreeControl
         public RigidBodyTreeItem(ILevelItem parentLevelItem, ITagable body)
         {
             this.Tagable = body;
-            this.Title = this.Tagable.TypeName + "_" + parentLevelItem.Id + "_" + body.Id;
+            this.Title = TreeItemNameCreator.CreateNameForRigidBodyItem(this.Tagable.TypeName, parentLevelItem.Id, body.Id);
         }
 
         //Ein Body kann nicht selektiert werden

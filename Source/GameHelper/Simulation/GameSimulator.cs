@@ -19,6 +19,7 @@ using TextureEditorGlobal;
 using static RigidBodyPhysics.PhysicScene;
 using LevelEditorExports.Editor.KeyboardMappings;
 using LevelEditorExports.Simulator;
+using LevelToSimulatorConverter;
 
 namespace GameHelper.Simulation
 {
@@ -36,7 +37,7 @@ namespace GameHelper.Simulation
 
         //Wird von der Demo-Game-Anwendung genutzt
         public GameSimulator(string levelFile, Size panelSize, float timerIntervalInMilliseconds)
-            :base(EditorFileConverter.Convert(levelFile), panelSize, new Camera2D(panelSize.Width, panelSize.Height), timerIntervalInMilliseconds)
+            :base(SimulatorExporter.Convert(levelFile), panelSize, new Camera2D(panelSize.Width, panelSize.Height), timerIntervalInMilliseconds)
         {
             Init();
 

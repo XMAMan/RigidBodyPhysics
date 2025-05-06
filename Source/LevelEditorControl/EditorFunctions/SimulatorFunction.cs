@@ -10,8 +10,10 @@ using System.Windows.Forms;
 using Simulator.ForceTracking;
 using Simulator;
 using RigidBodyPhysics.ExportData;
-using WpfControls.Controls.CameraSetting;
+using WpfControls.Extensions;
 using LevelEditorExports.Simulator;
+using LevelEditorExports.Editor;
+using LevelToSimulatorConverter._2_MergeToSingleScene;
 
 namespace LevelEditorControl.EditorFunctions
 {
@@ -24,6 +26,7 @@ namespace LevelEditorControl.EditorFunctions
         }
 
         private EditorState state;
+        private LevelEditorExportData levelExport = null; //Level, wenn der Editor in den Simulator-Modus wechselt
         private ILeveleditorUsedSimulator simulator;
         private RunningState runningState = RunningState.Record;
         private KeyboardRecorder keyboardRecorder;
@@ -44,9 +47,10 @@ namespace LevelEditorControl.EditorFunctions
             throw new NotImplementedException();
         }
 
-        public IEditorFunction Init(EditorState state, PhysisSceneIndexDrawerSettings forceTrackerDrawingSettings)
+        public IEditorFunction Init(EditorState state, PhysisSceneIndexDrawerSettings forceTrackerDrawingSettings, LevelEditorExportData levelExport)
         {
             this.state = state;
+            this.levelExport = levelExport;
             this.forceTrackerDrawingSettings = forceTrackerDrawingSettings;
 
             return this;
@@ -65,12 +69,20 @@ namespace LevelEditorControl.EditorFunctions
 
         public SimulatorInputData GetSimulatorExportData()
         {
-            return SimulatorExporter.Convert(GetSimulatorInputData());
+            //var data1 = SimulatorExporter.Convert(this.levelExport);
+            //var data2 = SimulatorExporter.Convert(GetSimulatorInputData());
+
+            //string test1 = JsonHelper.Helper.ToJson(data1);
+            //string test2 = JsonHelper.Helper.ToJson(data2);
+            //if (test1 != test2) throw new Exception("Abnormal error");
+
+            return SimulatorExporter.Convert(this.levelExport);   //Möglichkeit 1
+            //return SimulatorExporter.Convert(GetSimulatorInputData()); //Möglichkeit 2
         }
 
         public void Restart()
         {
-            this.simulator = state.CreateSimulator(SimulatorExporter.Convert(GetSimulatorInputData()), this.state.Panel.Size, state.Camera, state.TimerIntervallInMilliseconds);
+            this.simulator = state.CreateSimulator(GetSimulatorExportData(), this.state.Panel.Size, state.Camera, state.TimerIntervallInMilliseconds);
 
             this.keyboardRecorder = new KeyboardRecorder();
             this.keyboardPlayer = null;
@@ -107,7 +119,6 @@ namespace LevelEditorControl.EditorFunctions
                 Items = items,
                 KeyboardMappings = state.KeyboradMappings.ToArray(),
                 CollisionMatrix = state.CollisionMatrixViewModel.CollideMatrix,
-                timerIntervalInMilliseconds = state.TimerIntervallInMilliseconds,
                 BackgroundImage = state.PolygonImages.Background,
                 ForegroundImage = state.PolygonImages.ForegroundImage,
                 HasGravity = state.HasGravity,
@@ -233,7 +244,7 @@ namespace LevelEditorControl.EditorFunctions
             }else
             {                
                 panel.ClearScreen(Color.White);
-                panel.MultTransformationMatrix(state.Camera.GetPointToSceenMatrix());
+                panel.MultTransformationMatrix(state.Camera.GetPointToSceenMatrix().To4x4Matrix());
 
                 //Gibt zu jeden Körper und Gelenk die Indizes aus. Wird für den ForceTracker benötigt
                 this.simulator.DrawPhysicItemBorders(panel, Pens.Black);

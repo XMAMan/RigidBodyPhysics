@@ -2,17 +2,17 @@
 using LevelEditorExports.Editor.CameraTracking;
 using LevelEditorExports.Editor.KeyboardMappings;
 using LevelEditorExports.Simulator;
+using LevelToSimulatorConverter._2_MergeToSingleScene;
 using PhysicGlobal;
 
 namespace LevelToSimulatorConverter
 {
-    //Dieses Klasse wird aus dem EditorState-Objekt erzeugt
+    //Dieses Klasse wird aus dem EditorState- oder LevelEditorExportData-Objekt erzeugt
     public class EditorDataForSimulation
     {
         public List<IPhysicMergerItem> Items;
         public KeyboardMappingTable[] KeyboardMappings;
         public bool[,] CollisionMatrix;
-        public float timerIntervalInMilliseconds;
         public ImageData BackgroundImage;
         public string ForegroundImage;
         public bool HasGravity;

@@ -1,16 +1,16 @@
 ﻿using GraphicPanels;
 using LevelEditorControl.Controls.PolygonControl;
 using LevelEditorGlobal;
-using LevelToSimulatorConverter;
 using PhysicGlobal;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System;
 using GraphicMinimal;
 using WpfControls.Extensions;
 using LevelEditorExports.Editor.LevelItems;
 using LevelEditorExports.Simulator;
+using LevelEditorExports.Editor.Helper;
+using LevelToSimulatorConverter._2_MergeToSingleScene;
 
 namespace LevelEditorControl.LevelItems.Polygon
 {
@@ -111,14 +111,14 @@ namespace LevelEditorControl.LevelItems.Polygon
         }
 
         #region ICollidable
-        public bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal)
+        public bool IsPointInside(Vec2D point, PhxMatrix screenToLocal)
         {
-            point = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY.ToPhx(); //screenToLocal = ScreenToCamera-Space
+            point = PhxMatrix.MultPosition(screenToLocal, point); //screenToLocal = ScreenToCamera-Space
             return PhysicGlobal.PolygonHelper.PointIsInsidePolygon(localPoints, point - PivotPoint);
         }
-        public Matrix4x4 GetScreenToLocalMatrix()
+        public PhxMatrix GetScreenToLocalMatrix()
         {
-            return Matrix4x4.Ident();
+            return PhxMatrix.Ident();
         }
         #endregion
 

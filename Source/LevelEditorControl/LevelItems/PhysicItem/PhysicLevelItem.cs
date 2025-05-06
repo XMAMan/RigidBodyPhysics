@@ -1,9 +1,9 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
+using LevelEditorExports.Editor.Helper;
 using LevelEditorExports.Editor.LevelItems;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorGlobal;
-using LevelToSimulatorConverter;
+using LevelToSimulatorConverter._2_MergeToSingleScene;
 using PhysicGlobal;
 using System;
 using System.Collections.Generic;
@@ -34,7 +34,7 @@ namespace LevelEditorControl.LevelItems.PhysicItem
             Id = id;
             prototyp = item;
 
-            this.RotatedRectangle = new RotatedRectangle(position, new SizeF(prototyp.BoundingBox.GetWidth(), prototyp.BoundingBox.GetHeight()), initialRecValues);
+            this.RotatedRectangle = new RotatedRectangle(position, prototyp.BoundingBox.GetSize(), initialRecValues);
 
             this.Collidables = (item as ICollidableContainer).Collidables.Select(x => new MouseClickableWithCollision(x, this.RotatedRectangle)).ToArray();
             this.Tagables = (item as ITagableContainer).Tagables.Select(x => new MouseClickableDecorator(x, this.RotatedRectangle)).ToArray();
@@ -65,21 +65,21 @@ namespace LevelEditorControl.LevelItems.PhysicItem
         public void Draw(GraphicPanel2D panel)
         {
             panel.PushMatrix();
-            panel.MultTransformationMatrix(this.RotatedRectangle.GetLocalToScreenMatrix());
+            panel.MultTransformationMatrix(this.RotatedRectangle.GetLocalToScreenMatrix().To4x4Matrix());
             prototyp.Draw(panel);
             panel.PopMatrix();
         }
         public void DrawBorder(GraphicPanel2D panel, Pen borderPen)
         {
             panel.PushMatrix();
-            panel.MultTransformationMatrix(this.RotatedRectangle.GetLocalToScreenMatrix());
+            panel.MultTransformationMatrix(this.RotatedRectangle.GetLocalToScreenMatrix().To4x4Matrix());
             this.prototyp.DrawBorder(panel, borderPen);
             panel.PopMatrix();
         }
         public void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor)
         {
             panel.PushMatrix();
-            panel.MultTransformationMatrix(this.RotatedRectangle.GetLocalToScreenMatrix());
+            panel.MultTransformationMatrix(this.RotatedRectangle.GetLocalToScreenMatrix().To4x4Matrix());
             this.prototyp.DrawWithTwoColors(panel, frontColor, backColor);
             panel.PopMatrix();
         }
@@ -87,14 +87,14 @@ namespace LevelEditorControl.LevelItems.PhysicItem
         {
             return this.RotatedRectangle.IsPointInside(point);
         }
-        public bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal) //point = ScreenSpace-Mousepoint
+        public bool IsPointInside(Vec2D point, PhxMatrix screenToLocal) //point = ScreenSpace-Mousepoint
         {
-            point = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY.ToPhx(); //CameraSpace-Mousepoint
+            point = PhxMatrix.MultPosition(screenToLocal, point); //CameraSpace-Mousepoint
             return IsPointInside(point);
         }
-        public Matrix4x4 GetScreenToLocalMatrix()
+        public PhxMatrix GetScreenToLocalMatrix()
         {
-            return Matrix4x4.Invert(this.RotatedRectangle.GetLocalToScreenMatrix());
+            return PhxMatrix.Invert(this.RotatedRectangle.GetLocalToScreenMatrix());
         }
 
         #region IObjectSerializable
@@ -130,7 +130,7 @@ namespace LevelEditorControl.LevelItems.PhysicItem
         public int LevelItemId { get => this.Id; }
         public PhxMatrix GetTranslationMatrix()
         {
-            return PhxMatrix.Translate(-this.prototyp.BoundingBox.X, -this.prototyp.BoundingBox.Y, 0) * new PhxMatrix(this.RotatedRectangle.GetLocalToScreenMatrix().Values);
+            return PhxMatrix.Translate(-this.prototyp.BoundingBox.X, -this.prototyp.BoundingBox.Y, 0) * this.RotatedRectangle.GetLocalToScreenMatrix();
         }
         public Vec2D LocalPivotPoint { get => this.RotatedRectangle.LocalPivot; }
         public float SizeFactor { get => this.RotatedRectangle.SizeFactor; }

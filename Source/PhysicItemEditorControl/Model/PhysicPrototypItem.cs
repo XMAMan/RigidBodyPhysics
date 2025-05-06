@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using TextureEditorGlobal;
-using WpfControls.Controls.CameraSetting;
 using LevelEditorGlobal;
 using GraphicMinimal;
 using PhysicSceneKeyboardControl;
@@ -17,6 +16,8 @@ using PhysicGlobal;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorExports.Simulator;
 using TexturePhysicImporter;
+using WpfControls.Extensions;
+using LevelEditorExports.Editor.Helper;
 
 namespace PhysicItemEditorControl.Model
 {
@@ -115,7 +116,7 @@ namespace PhysicItemEditorControl.Model
             var camera = new Camera2D(maxWidth, maxHeight, this.BoundingBox) { ShowOriginalPosition = false };
 
             panel.ClearScreen(Color.White);
-            panel.MultTransformationMatrix(camera.GetPointToSceenMatrix());
+            panel.MultTransformationMatrix(camera.GetPointToSceenMatrix().To4x4Matrix());
             this.sceneDrawer.Draw(panel);
             panel.FlipBuffer();
 

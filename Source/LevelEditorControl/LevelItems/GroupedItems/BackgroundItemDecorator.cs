@@ -1,6 +1,6 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
 using LevelEditorExports.Simulator;
+using PhysicGlobal;
 using WpfControls.Extensions;
 
 namespace LevelEditorControl.LevelItems.GroupedItems
@@ -10,8 +10,8 @@ namespace LevelEditorControl.LevelItems.GroupedItems
     internal class BackgroundItemDecorator : IBackgroundItem
     {
         private IBackgroundItem decoree;
-        private Matrix4x4 matrix;
-        public BackgroundItemDecorator(IBackgroundItem decoree, Matrix4x4 matrix)
+        private PhxMatrix matrix;
+        public BackgroundItemDecorator(IBackgroundItem decoree, PhxMatrix matrix)
         {
             this.decoree = decoree;
             this.matrix = matrix;
@@ -19,7 +19,7 @@ namespace LevelEditorControl.LevelItems.GroupedItems
         public void Draw(GraphicPanel2D panel)
         {
             panel.PushMatrix();
-            panel.MultTransformationMatrix(this.matrix);
+            panel.MultTransformationMatrix(this.matrix.To4x4Matrix());
             this.decoree.Draw(panel);
             panel.PopMatrix();
         }
@@ -28,10 +28,10 @@ namespace LevelEditorControl.LevelItems.GroupedItems
         {
             var data = this.decoree.GetSimulatorExportData();
 
-            float angleInDegreeMatrix = Matrix4x4.GetAngleInDegreeFromMatrix(matrix);
-            float sizeFactorMatrix = Matrix4x4.GetSizeFactorFromMatrix(matrix);
+            float angleInDegreeMatrix = PhxMatrix.GetAngleInDegreeFromMatrix(matrix);
+            float sizeFactorMatrix = PhxMatrix.GetSizeFactorFromMatrix(matrix);
 
-            data.Center = Matrix4x4.MultPosition(matrix, new Vector3D(data.Center.X, data.Center.Y, 0)).XY.ToPhx();
+            data.Center = PhxMatrix.MultPosition(matrix, data.Center);
             data.AngleInDegree += angleInDegreeMatrix;
             data.Width *= sizeFactorMatrix;
             data.Height *= sizeFactorMatrix;

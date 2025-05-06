@@ -1,5 +1,4 @@
 ﻿using GraphicPanelWpf;
-using LevelEditorGlobal;
 using SpriteEditorControl.Controls.Main.Model;
 using SpriteEditorControl.Controls.Sprite;
 using SpriteEditorControl.Controls.Sprite.Model;
@@ -14,6 +13,7 @@ using System.Reactive.Linq;
 using System.Windows.Forms;
 using WpfControls.Model;
 using LevelEditorExports.Editor.Prototyps;
+using LevelEditorExports.Editor.Helper;
 
 namespace SpriteEditorControl.Controls.Main
 {

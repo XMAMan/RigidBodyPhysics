@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\JsonHelper\JsonHelper.csproj" />
     <ProjectReference Include="..\RigidBodyPhysics\RigidBodyPhysics.csproj" />
     <ProjectReference Include="..\TextureEditorGlobal\TextureEditorGlobal.csproj" />
   </ItemGroup>

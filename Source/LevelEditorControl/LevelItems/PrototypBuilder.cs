@@ -29,7 +29,7 @@ namespace LevelEditorControl.LevelItems
             throw new ArgumentException("Unknown type " + protoExport.ProtoType);
         }
 
-        public static IPrototypLevelItem BuildLevelItem(object exportData, List<IPrototypItem> prototyps)
+        public static IPrototypLevelItem BuildLevelItem(ILevelItemExportData exportData, List<IPrototypItem> prototyps)
         {
             if (exportData is PhysicLevelItemExportData)
                 return LevelItems.PhysicItem.PhysicLevelItem.CreateFromExportData((PhysicLevelItemExportData)exportData, prototyps);

@@ -2,6 +2,7 @@
 using GraphicPanels;
 using LevelEditorControl.EditorFunctions;
 using LevelEditorControl.LevelItems.Polygon;
+using LevelEditorExports.Editor.Helper;
 using LevelEditorExports.Editor.LevelItems;
 using PhysicGlobal;
 using System.Collections.Generic;
@@ -73,14 +74,14 @@ namespace LevelEditorControl.LevelItems.LawnEdge
             bool isInside = Drawer.GetAllSegments(p1, p2).Any(x => x.IsPointInside(point));
             return isInside;
         }
-        public bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal) //point = ScreenSpace-Mousepoint
+        public bool IsPointInside(Vec2D point, PhxMatrix screenToLocal) //point = ScreenSpace-Mousepoint
         {
-            point = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY.ToPhx(); //CameraSpace-Mousepoint
+            point = PhxMatrix.MultPosition(screenToLocal, point); //CameraSpace-Mousepoint
             return IsPointInside(point);
         }
-        public Matrix4x4 GetScreenToLocalMatrix()
+        public PhxMatrix GetScreenToLocalMatrix()
         {
-            return Matrix4x4.Ident();
+            return PhxMatrix.Ident();
         }
 
         public ILevelItemExportData GetExportData()
@@ -117,18 +118,7 @@ namespace LevelEditorControl.LevelItems.LawnEdge
 
         private LawnSegmentBackgroundItem Convert(LawnEdgeDrawer.PolygonWith4Points segment)
         {
-            var p1A = segment.Points[0];
-            var p1B = segment.Points[1];
-            var p2B = segment.Points[2];
-            var p2A = segment.Points[3];
-
-            var center = (p1A + p2B) / 2;
-            float width = (p1A - p2A).Length();
-
-            float angle = Vec2D.Angle360(new Vec2D(1, 0), (p1A - p2A).Normalize());
-            if (AssocitedPolygon.IsOutside == false) angle += 180;
-
-            return new LawnSegmentBackgroundItem(center, angle, width, Drawer.LawnHeight, Drawer.TextureFile, Drawer.ZValue);
+            return new LawnSegmentBackgroundItem(segment.GetCenter(), segment.GetAngle(), segment.GetWidth(), Drawer.LawnHeight, Drawer.TextureFile, Drawer.ZValue);
         }
     }
 }

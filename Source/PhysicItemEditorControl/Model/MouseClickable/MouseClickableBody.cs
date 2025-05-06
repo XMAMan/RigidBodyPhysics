@@ -73,10 +73,10 @@ namespace PhysicItemEditorControl.Model.MouseClickable
             panel.DrawCircle(borderPen, circle.Center.ToGrx(), circle.Radius);
         }
 
-        public bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal)
+        public bool IsPointInside(Vec2D point, PhxMatrix screenToLocal)
         {
-            screenToLocal *= Matrix4x4.Translate(sceneBoundingBox.X, sceneBoundingBox.Y, 0);
-            point = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY.ToPhx();
+            screenToLocal *= PhxMatrix.Translate(sceneBoundingBox.X, sceneBoundingBox.Y, 0);
+            point = PhxMatrix.MultPosition(screenToLocal, point);
 
             if (runtimBody is IPublicRigidRectangle)
                 return PhysicGlobal.PolygonHelper.PointIsInsidePolygon((runtimBody as IPublicRigidRectangle).Vertex, point);
@@ -90,10 +90,10 @@ namespace PhysicItemEditorControl.Model.MouseClickable
             throw new Exception("Unknown type " + runtimBody.GetType());
         }
 
-        public Matrix4x4 GetScreenToLocalMatrix()
+        public PhxMatrix GetScreenToLocalMatrix()
         {
             float angleInDegree = runtimBody.Angle * 180 / (float)Math.PI;
-            return Matrix4x4.Translate(sceneBoundingBox.X - runtimBody.Center.X, sceneBoundingBox.Y - runtimBody.Center.Y, 0) * Matrix4x4.Rotate(-angleInDegree, 0, 0, 1);
+            return PhxMatrix.Translate(sceneBoundingBox.X - runtimBody.Center.X, sceneBoundingBox.Y - runtimBody.Center.Y, 0) * PhxMatrix.Rotate(-angleInDegree, 0, 0, 1);
         }
 
         private static bool IsPointInsideCircle(IPublicRigidCircle circle, Vec2D p)

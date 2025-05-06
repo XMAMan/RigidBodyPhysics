@@ -1,8 +1,10 @@
 ﻿using LevelEditorControl.LevelItems;
+using LevelEditorExports.Editor.Helper;
 using LevelEditorGlobal;
 using PhysicGlobal;
 using System;
 using System.Windows.Forms;
+using WpfControls.Extensions;
 
 namespace LevelEditorControl.EditorFunctions
 {
@@ -60,7 +62,7 @@ namespace LevelEditorControl.EditorFunctions
             state.DrawItems();
 
             panel.PushMatrix();
-            panel.MultTransformationMatrix(new RotatedRectangle(mousePosition, this.prototypItem.BoundingBox.GetSize(), this.prototypItem.InitialRecValues).GetLocalToScreenMatrix());
+            panel.MultTransformationMatrix(new RotatedRectangle(mousePosition, this.prototypItem.BoundingBox.GetSize(), this.prototypItem.InitialRecValues).GetLocalToScreenMatrix().To4x4Matrix());
             this.prototypItem.Draw(panel);
             panel.PopMatrix();
 

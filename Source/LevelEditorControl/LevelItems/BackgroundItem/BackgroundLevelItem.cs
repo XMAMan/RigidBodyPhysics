@@ -1,5 +1,5 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
+using LevelEditorExports.Editor.Helper;
 using LevelEditorExports.Editor.LevelItems;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorExports.Simulator;
@@ -47,21 +47,21 @@ namespace LevelEditorControl.LevelItems.BackgroundItem
         public void Draw(GraphicPanel2D panel)
         {
             panel.PushMatrix();
-            panel.MultTransformationMatrix(this.RotatedRectangle.GetLocalToScreenMatrix());
+            panel.MultTransformationMatrix(this.RotatedRectangle.GetLocalToScreenMatrix().To4x4Matrix());
             this.AssociatedPrototyp.Draw(panel);
             panel.PopMatrix();
         }
         public void DrawBorder(GraphicPanel2D panel, Pen borderPen)
         {
             panel.PushMatrix();
-            panel.MultTransformationMatrix(this.RotatedRectangle.GetLocalToScreenMatrix());
+            panel.MultTransformationMatrix(this.RotatedRectangle.GetLocalToScreenMatrix().To4x4Matrix());
             this.AssociatedPrototyp.DrawBorder(panel, borderPen);
             panel.PopMatrix();
         }
         public void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor)
         {
             panel.PushMatrix();
-            panel.MultTransformationMatrix(this.RotatedRectangle.GetLocalToScreenMatrix());
+            panel.MultTransformationMatrix(this.RotatedRectangle.GetLocalToScreenMatrix().To4x4Matrix());
             this.AssociatedPrototyp.DrawWithTwoColors(panel, frontColor, backColor);
             panel.PopMatrix();
         }
@@ -70,14 +70,14 @@ namespace LevelEditorControl.LevelItems.BackgroundItem
             return this.RotatedRectangle.IsPointInside(point);
         }
         
-        public bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal) //point = ScreenSpace-Mousepoint
+        public bool IsPointInside(Vec2D point, PhxMatrix screenToLocal) //point = ScreenSpace-Mousepoint
         {
-            point = Matrix4x4.MultPosition(screenToLocal, new Vector3D(point.X, point.Y, 0)).XY.ToPhx(); //CameraSpace-Mousepoint
+            point = PhxMatrix.MultPosition(screenToLocal, point); //CameraSpace-Mousepoint
             return IsPointInside(point);
         }
-        public Matrix4x4 GetScreenToLocalMatrix()
+        public PhxMatrix GetScreenToLocalMatrix()
         {
-            return Matrix4x4.Invert(this.RotatedRectangle.GetLocalToScreenMatrix());
+            return PhxMatrix.Invert(this.RotatedRectangle.GetLocalToScreenMatrix());
         }
         public IPrototypLevelItem CreateCopy(int newId)
         {

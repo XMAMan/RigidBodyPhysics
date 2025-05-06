@@ -1,5 +1,4 @@
-﻿using JsonHelper;
-using RigidBodyPhysics.ExportData;
+﻿using RigidBodyPhysics.ExportData;
 using RigidBodyPhysics.ExportData.RigidBody;
 using PhysicGlobal;
 using TextureEditorGlobal;
@@ -9,11 +8,6 @@ namespace TexturePhysicImporter
     public class PhysicSceneImporter : IVisualisizerImporter
     {
         private PhysicSceneExportData physicScene;
-        public PhysicSceneImporter(string physicSceneJson)
-        {
-            var rawPhysicData = Helper.FromCompactJson<PhysicSceneExportData>(physicSceneJson);
-            this.physicScene = rawPhysicData;
-        }
         public PhysicSceneImporter(PhysicSceneExportData physicSceneData)
         {
             this.physicScene = physicSceneData;

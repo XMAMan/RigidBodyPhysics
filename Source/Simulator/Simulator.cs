@@ -4,7 +4,6 @@ using KeyFrameGlobal;
 using LevelEditorGlobal;
 using PhysicSceneDrawing;
 using RigidBodyPhysics;
-using WpfControls.Controls.CameraSetting;
 using Simulator.Animation;
 using TextureEditorGlobal;
 using Simulator.ForceTracking;
@@ -264,7 +263,7 @@ namespace Simulator
 
         public virtual void SetCameraMatrix(GraphicPanel2D panel)
         {
-            panel.MultTransformationMatrix(camera.GetPointToSceenMatrix());
+            panel.MultTransformationMatrix(camera.GetPointToSceenMatrix().To4x4Matrix());
         }
 
         public virtual void DrawPhysicItemBorders(GraphicPanel2D panel, Pen borderPen)
@@ -348,10 +347,12 @@ namespace Simulator
 
             foreach (var item in this.backgroundItems)
             {
+                panel.ZValue2D = item.ZValue;
+
                 if (string.IsNullOrEmpty(item.TextureFile) == false)
-                    panel.DrawFillRectangle(item.TextureFile, (int)item.Center.X, (int)item.Center.Y, (int)item.Width, (int)item.Height, true, Color.White, item.AngleInDegree);
+                    panel.DrawFillRectangle(item.TextureFile, item.Center.X, item.Center.Y, item.Width, item.Height, true, Color.White, item.AngleInDegree);
                 else
-                    panel.DrawFillRectangle(Color.Green, (int)item.Center.X, (int)item.Center.Y, (int)item.Width, (int)item.Height, item.AngleInDegree);
+                    panel.DrawFillRectangle(Color.Green, item.Center.X, item.Center.Y, item.Width, item.Height, item.AngleInDegree);
             }
         }
 

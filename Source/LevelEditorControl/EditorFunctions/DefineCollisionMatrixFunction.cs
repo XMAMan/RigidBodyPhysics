@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using WpfControls.Controls.CameraSetting;
+using WpfControls.Extensions;
 
 namespace LevelEditorControl.EditorFunctions
 {
@@ -87,7 +87,7 @@ namespace LevelEditorControl.EditorFunctions
 
             panel.ClearScreen(Color.White);
 
-            panel.MultTransformationMatrix(this.state.Camera.GetPointToSceenMatrix());
+            panel.MultTransformationMatrix(this.state.Camera.GetPointToSceenMatrix().To4x4Matrix());
 
             foreach (var item in this.collidables)
             {

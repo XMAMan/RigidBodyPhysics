@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\JsonHelper\JsonHelper.csproj" />
     <ProjectReference Include="..\KeyFrameGlobal\KeyFrameGlobal.csproj" />
     <ProjectReference Include="..\LevelEditorExports\LevelEditorExports.csproj" />
     <ProjectReference Include="..\RigidBodyPhysics\RigidBodyPhysics.csproj" />

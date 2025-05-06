@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using WpfControls.Controls.CameraSetting;
+using WpfControls.Extensions;
 
 namespace BridgeBuilderControl.Controls.BridgeEditor.Model
 {
@@ -88,7 +88,7 @@ namespace BridgeBuilderControl.Controls.BridgeEditor.Model
             var lev = levelData;
 
             DrawingHelper.ClearScreen(panel);
-            panel.MultTransformationMatrix(camera.GetPointToSceenMatrix());
+            panel.MultTransformationMatrix(camera.GetPointToSceenMatrix().To4x4Matrix());
             DrawingHelper.DrawBackground(panel, lev.XCount, lev.YCount, lev.WaterHeight, lev.GroundHeight);
             DrawingHelper.DrawGround(panel, lev.GroundPolygon, lev.GroundHeight, lev.XCount, lev.YCount);
             DrawingHelper.DrawAnchorPoints(panel, lev.AnchorPoints);

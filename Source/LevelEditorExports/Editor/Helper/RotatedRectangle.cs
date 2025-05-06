@@ -1,14 +1,12 @@
-﻿using GraphicMinimal;
-using LevelEditorExports.Editor.Prototyps;
+﻿using LevelEditorExports.Editor.Prototyps;
 using PhysicGlobal;
 using System.Drawing;
-using System.Linq;
 
-namespace LevelEditorControl.LevelItems
+namespace LevelEditorExports.Editor.Helper
 {
     //Das ist ein Rechteck, was im Original-Zustand OriginalSize groß ist und was dann aber noch um SizeFactor skaliert wurde
     //und um AngleInDegree gedreht wurde. Der Drehpunkt ist der PivotPoint. Dieser Punkt liegt aber nicht zwangsweise im Rechteck-Zentrum.
-    internal class RotatedRectangle
+    public class RotatedRectangle
     {
         public Vec2D PivotPoint { get; set; } //Das ist die Mausklickposition aus der AddItem/MoveSelect-Funktion
         public SizeF OriginalSize { get; set; } //Breite und höhe des Objektes wenn es nicht gedreht/skaliert wurde
@@ -68,14 +66,14 @@ namespace LevelEditorControl.LevelItems
             this.PivotPoint += (dirX * diff.X * OriginalSize.Width + dirY * diff.Y * OriginalSize.Height) * SizeFactor;
         }
 
-        public Matrix4x4 GetLocalToScreenMatrix()
+        public PhxMatrix GetLocalToScreenMatrix()
         {
-            var m = Matrix4x4.Ident();
+            var m = PhxMatrix.Ident();
 
-            m *= Matrix4x4.Translate(-LocalPivot.X * OriginalSize.Width, -LocalPivot.Y * OriginalSize.Height, 0); //Schritt 1: Verschiebe den PivotPunkt zum Nullpunkt
-            m *= Matrix4x4.Scale(SizeFactor, SizeFactor, SizeFactor);  //Schritt 2: Skaliere
-            m *= Matrix4x4.Rotate(AngleInDegree, 0, 0, 1);             //Schritt 3: Rotiere
-            m *= Matrix4x4.Translate(+PivotPoint.X, +PivotPoint.Y, 0); //Schritt 4: Zurück zum Pivotpunkt
+            m *= PhxMatrix.Translate(-LocalPivot.X * OriginalSize.Width, -LocalPivot.Y * OriginalSize.Height, 0); //Schritt 1: Verschiebe den PivotPunkt zum Nullpunkt
+            m *= PhxMatrix.Scale(SizeFactor, SizeFactor, SizeFactor);  //Schritt 2: Skaliere
+            m *= PhxMatrix.Rotate(AngleInDegree, 0, 0, 1);             //Schritt 3: Rotiere
+            m *= PhxMatrix.Translate(+PivotPoint.X, +PivotPoint.Y, 0); //Schritt 4: Zurück zum Pivotpunkt
 
 
             return m;
