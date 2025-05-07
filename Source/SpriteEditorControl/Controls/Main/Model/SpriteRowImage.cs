@@ -1,6 +1,7 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
 using GraphicPanelWpf;
+using PhysicGlobal;
+using PhysicSceneDrawing;
 using SpriteEditorControl.Controls.Sprite.Model;
 using System;
 using System.Drawing;
@@ -47,15 +48,15 @@ namespace SpriteEditorControl.Controls.Main.Model
         {
             panel.PushMatrix();
 
-            var m = Matrix4x4.Ident();
+            var m = PhxMatrix.Ident();
             
-            m *= Matrix4x4.Translate(-pivotX, -pivotY, 0);          //Schritt 1: Verschiebe den PivotPunkt zum Nullpunkt
-            m *= Matrix4x4.Scale(zoom, zoom, zoom);                 //Schritt 2: Skaliere
-            m *= Matrix4x4.Rotate(rotateYAngleInDegree, 0, 1, 0);   //Schritt 3: Rotiere um Y
-            m *= Matrix4x4.Rotate(rotateZAngleInDegree, 0, 0, 1);   //Schritt 4: Rotiere um Z
-            m *= Matrix4x4.Translate(x, y, 0);                      //Schritt 5: Gehe zum Zielpunkt
+            m *= PhxMatrix.Translate(-pivotX, -pivotY, 0);          //Schritt 1: Verschiebe den PivotPunkt zum Nullpunkt
+            m *= PhxMatrix.Scale(zoom, zoom, zoom);                 //Schritt 2: Skaliere
+            m *= PhxMatrix.Rotate(rotateYAngleInDegree, 0, 1, 0);   //Schritt 3: Rotiere um Y
+            m *= PhxMatrix.Rotate(rotateZAngleInDegree, 0, 0, 1);   //Schritt 4: Rotiere um Z
+            m *= PhxMatrix.Translate(x, y, 0);                      //Schritt 5: Gehe zum Zielpunkt
 
-            panel.MultTransformationMatrix(m);
+            panel.MultTransformationMatrix(m.To4x4Matrix());
 
             panel.DrawSprite(this.textureName, this.xCount, 1, this.xPos, 0, 0, 0, Width, Height, 0, true, Color.White);
             panel.DrawRectangle(Pens.Red, 0, 0, this.Width, this.Height);//Rahmen

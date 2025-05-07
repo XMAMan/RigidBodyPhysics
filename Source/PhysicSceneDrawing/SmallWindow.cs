@@ -1,5 +1,4 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
 using GraphicPanelWpf;
 using PhysicGlobal;
 
@@ -39,7 +38,7 @@ namespace PhysicSceneDrawing
             panel.DrawRectangle(new Pen(Color.Blue, 3), (int)smallWindow.X, (int)smallWindow.Y, (int)smallWindow.GetWidth(), (int)smallWindow.GetHeight());
 
             var cameraToScreen = GetCameraToScreenMatrix(smallWindow);
-            panel.MultTransformationMatrix(cameraToScreen);
+            panel.MultTransformationMatrix(cameraToScreen.To4x4Matrix());
 
             panel.EnableDepthTesting();
             drawLevelAction(frontColor, backColor);
@@ -59,21 +58,21 @@ namespace PhysicSceneDrawing
 
         }
 
-        private Matrix4x4 GetCameraToScreenMatrix(PhysicGlobal.BoundingBox smallWindow)
+        private PhxMatrix GetCameraToScreenMatrix(PhysicGlobal.BoundingBox smallWindow)
         {
             if (this.camera.ShowOriginalPosition)
             {
-                var m = Matrix4x4.Scale(size, size, size);
-                m *= Matrix4x4.Translate(smallWindow.X, smallWindow.Y, 0);
+                var m = PhxMatrix.Scale(size, size, size);
+                m *= PhxMatrix.Translate(smallWindow.X, smallWindow.Y, 0);
                 return m;
             }
             else
             {
                 var box = this.camera.GetSceneBoundingBox();
                 float factor = Camera2D.GetScaleFactor(new SizeF(this.panelWidth, this.panelHeight), box.GetSize());
-                var m = Matrix4x4.Translate(-box.X, -box.Y, 0);
-                m *= Matrix4x4.Scale(size * factor, size * factor, size * factor);
-                m *= Matrix4x4.Translate(smallWindow.X, smallWindow.Y, 0);
+                var m = PhxMatrix.Translate(-box.X, -box.Y, 0);
+                m *= PhxMatrix.Scale(size * factor, size * factor, size * factor);
+                m *= PhxMatrix.Translate(smallWindow.X, smallWindow.Y, 0);
 
                 return m;
             }
@@ -87,10 +86,10 @@ namespace PhysicSceneDrawing
             PhysicGlobal.BoundingBox smallWindow = new PhysicGlobal.BoundingBox(this.panelWidth * (1 - size), this.panelHeight * (1 - size), this.panelWidth * size, this.panelHeight * size);
 
             var cameraToScreen = GetCameraToScreenMatrix(smallWindow);
-            var screenToCamera = Matrix4x4.Invert(cameraToScreen);
-            var mouseCam = Matrix4x4.MultPosition(screenToCamera, new Vector3D(mousePosition.X, mousePosition.Y, 0)).XY;
+            var screenToCamera = PhxMatrix.Invert(cameraToScreen);
+            var mouseCam = PhxMatrix.MultPosition(screenToCamera, new Vec2D(mousePosition.X, mousePosition.Y));
 
-            return new Vec2D(mouseCam.X, mouseCam.Y);
+            return mouseCam;
         }
 
         public bool HandleMouseClick(MouseEventArgs e)

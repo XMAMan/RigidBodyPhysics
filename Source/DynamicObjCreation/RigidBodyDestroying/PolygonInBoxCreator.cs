@@ -1,5 +1,4 @@
 ﻿using PhysicGlobal;
-using PhysicSceneDrawing;
 
 namespace DynamicObjCreation.RigidBodyDestroying
 {

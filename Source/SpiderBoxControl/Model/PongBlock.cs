@@ -1,7 +1,7 @@
 ﻿using GameHelper.Simulation;
-using GraphicMinimal;
 using GraphicPanels;
 using KeyboardRecordAndPlay;
+using PhysicGlobal;
 using PhysicSceneDrawing;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using System;
@@ -44,11 +44,11 @@ namespace SpiderBoxControl.Model
             float size = Math.Min(sizeX, sizeY);
 
             //Zeichne das Pong-Level innerhalb des Blocks
-            var m = Matrix4x4.Ident();
-            m *= Matrix4x4.Translate(-this.sceneBoundingBox.GetCenter().X, -this.sceneBoundingBox.GetCenter().Y, 0);
-            m *= Matrix4x4.Scale(size, size, size);
-            m *= Matrix4x4.Rotate(block.Angle / (float)Math.PI * 180, 0, 0, 1);
-            m *= Matrix4x4.Translate(this.block.Center.X, this.block.Center.Y, 0);            
+            var m = PhxMatrix.Ident();
+            m *= PhxMatrix.Translate(-this.sceneBoundingBox.GetCenter().X, -this.sceneBoundingBox.GetCenter().Y, 0);
+            m *= PhxMatrix.Scale(size, size, size);
+            m *= PhxMatrix.Rotate(block.Angle / (float)Math.PI * 180, 0, 0, 1);
+            m *= PhxMatrix.Translate(this.block.Center.X, this.block.Center.Y, 0);            
            
             //Hintergrund zeichnen
             panel.DrawFillRectangle(Color.Black, block.Center.X, block.Center.Y, block.Size.X, block.Size.Y, block.Angle / (float)Math.PI * 180);
@@ -56,7 +56,7 @@ namespace SpiderBoxControl.Model
 
             //Physikitems zeichnen
             panel.PushMatrix();
-            panel.MultTransformationMatrix(m);
+            panel.MultTransformationMatrix(m.To4x4Matrix());
             this.pongSimulator.DrawPhysicItems(panel, false);
             panel.PopMatrix();
         }

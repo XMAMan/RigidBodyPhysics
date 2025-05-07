@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LevelToSimulatorConverter\LevelToSimulatorConverter.csproj" />
-    <ProjectReference Include="..\PhysicSceneDrawing\PhysicSceneDrawing.csproj" />
     <ProjectReference Include="..\RigidBodyPhysics\RigidBodyPhysics.csproj" />
   </ItemGroup>
 

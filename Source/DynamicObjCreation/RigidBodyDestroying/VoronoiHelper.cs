@@ -1,7 +1,8 @@
-﻿using GraphicPanels;
+﻿using DynamicObjCreation.RigidBodyDestroying.FortuneVoronio;
 using PhysicGlobal;
+using System.Drawing;
 
-namespace PhysicSceneDrawing
+namespace DynamicObjCreation.RigidBodyDestroying
 {
     public static class VoronoiHelper
     {
@@ -10,8 +11,8 @@ namespace PhysicSceneDrawing
             List<Vec2D[]> polys = new List<Vec2D[]>();
 
             var texSize = new Size((int)width, (int)height);
-            var voronoiCellPoints = GraphicPanel2D.GetRandomPointList(cellPointCount, texSize.Width, texSize.Height, rand);
-            var voronioPolygons = GraphicPanel2D.GetVoronoiPolygons(texSize, voronoiCellPoints);
+            var voronoiCellPoints = GetRandomPointList(cellPointCount, texSize.Width, texSize.Height, rand);
+            var voronioPolygons = Voronoi.GetVoronoiPolygons(texSize, voronoiCellPoints);
 
             //Sorge dafür, dass alle Voronoi-Polygone CCW sind
             for (int i = 0; i < voronioPolygons.Count; i++)
@@ -24,10 +25,21 @@ namespace PhysicSceneDrawing
                     voronioPolygons[i] = list.ToArray();
                 }
 
-                polys.Add(voronioPolygons[i].Select(x => new Vec2D(x.Position.X, x.Position.Y)).ToArray());
+                polys.Add(voronioPolygons[i]);
             }
 
             return polys;
+        }
+
+        private static List<Point> GetRandomPointList(int cellPointCount, int maxX, int maxY, Random rand)
+        {
+            List<Point> cellPoints = new List<Point>();
+            for (int i = 0; i < cellPointCount; i++)
+            {
+                Point P = new Point((int)(rand.NextDouble() * maxX), (int)(rand.NextDouble() * maxY));
+                if (!cellPoints.Contains(P)) cellPoints.Add(P);
+            }
+            return cellPoints;
         }
     }
 }
