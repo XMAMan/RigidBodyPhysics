@@ -1,8 +1,7 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
+﻿using GraphicPanels;
 using GraphicPanelWpf;
 using PhysicGlobal;
-using WpfControls.Extensions;
+using PhysicSceneDrawing;
 
 namespace GameHelper
 {
@@ -89,21 +88,21 @@ namespace GameHelper
         {
             panel.PushMatrix();
 
-            panel.MultTransformationMatrix(GetLocalToWorldMatrix(position));
+            panel.MultTransformationMatrix(GetLocalToWorldMatrix(position).To4x4Matrix());
             panel.DrawSprite(this.fileName, this.xCount, this.yCount, imageIndex % this.xCount, imageIndex / this.xCount, 0, 0, Width, Height, 0, true, Color.White);
 
             panel.PopMatrix();
         }
 
-        public Matrix4x4 GetLocalToWorldMatrix(Vec2D position)
+        public PhxMatrix GetLocalToWorldMatrix(Vec2D position)
         {
-            var m = Matrix4x4.Ident();
+            var m = PhxMatrix.Ident();
 
-            m *= Matrix4x4.Translate(-this.PivotX, -this.PivotY, 0);     //Schritt 1: Verschiebe den PivotPunkt zum Nullpunkt
-            m *= Matrix4x4.Scale(this.Zoom, this.Zoom, this.Zoom);       //Schritt 2: Skaliere
-            m *= Matrix4x4.Rotate(this.RotateYAngleInDegree, 0, 1, 0);   //Schritt 3: Rotiere um Y
-            m *= Matrix4x4.Rotate(this.RotateZAngleInDegree, 0, 0, 1);   //Schritt 4: Rotiere um Z
-            m *= Matrix4x4.Translate(position.X, position.Y, 0);         //Schritt 5: Gehe zum Zielpunkt
+            m *= PhxMatrix.Translate(-this.PivotX, -this.PivotY, 0);     //Schritt 1: Verschiebe den PivotPunkt zum Nullpunkt
+            m *= PhxMatrix.Scale(this.Zoom, this.Zoom, this.Zoom);       //Schritt 2: Skaliere
+            m *= PhxMatrix.Rotate(this.RotateYAngleInDegree, 0, 1, 0);   //Schritt 3: Rotiere um Y
+            m *= PhxMatrix.Rotate(this.RotateZAngleInDegree, 0, 0, 1);   //Schritt 4: Rotiere um Z
+            m *= PhxMatrix.Translate(position.X, position.Y, 0);         //Schritt 5: Gehe zum Zielpunkt
 
             return m;
         }
@@ -127,10 +126,10 @@ namespace GameHelper
 
             return new Vec2D[]
             {
-                Matrix4x4.MultPosition(localToWorld, new Vector3D(0, 0, 0)).XY.ToPhx(),
-                Matrix4x4.MultPosition(localToWorld, new Vector3D(Width, 0, 0)).XY.ToPhx(),
-                Matrix4x4.MultPosition(localToWorld, new Vector3D(Width, Height, 0)).XY.ToPhx(),
-                Matrix4x4.MultPosition(localToWorld, new Vector3D(0, Height, 0)).XY.ToPhx()
+                PhxMatrix.MultPosition(localToWorld, new Vec2D(0, 0)),
+                PhxMatrix.MultPosition(localToWorld, new Vec2D(Width, 0)),
+                PhxMatrix.MultPosition(localToWorld, new Vec2D(Width, Height)),
+                PhxMatrix.MultPosition(localToWorld, new Vec2D(0, Height))
             };
         }
     }

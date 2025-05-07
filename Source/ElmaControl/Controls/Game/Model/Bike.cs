@@ -12,7 +12,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using WpfControls.Extensions;
 using PhysicGlobal;
 
 namespace ElmaControl.Controls.Game.Model
@@ -381,8 +380,8 @@ namespace ElmaControl.Controls.Game.Model
         {
             var localToWorld = armsUpSprite.GetLocalToWorldMatrix(pivot);
 
-            var a1 = Matrix4x4.MultPosition(localToWorld, new Vector3D(235, 400, 0) / ScaleFactor).XY.ToPhx(); //An diesen Punkt ist das Hinterrad befestigt, wenn Direction==Right
-            var a2 = Matrix4x4.MultPosition(localToWorld, new Vector3D(330, 295, 0) / ScaleFactor).XY.ToPhx(); //An diesen Punkt ist das Vorderrad befestigt, wenn Direction==Right
+            var a1 = PhxMatrix.MultPosition(localToWorld, new Vec2D(235, 400) / ScaleFactor); //An diesen Punkt ist das Hinterrad befestigt, wenn Direction==Right
+            var a2 = PhxMatrix.MultPosition(localToWorld, new Vec2D(330, 295) / ScaleFactor); //An diesen Punkt ist das Vorderrad befestigt, wenn Direction==Right
 
             Vec2D b1, b2;
             if (this.direction == DirectionState.Right)
@@ -398,8 +397,8 @@ namespace ElmaControl.Controls.Game.Model
 
             if (this.spin != SpinState.NoSpin)
             {
-                b1 = Matrix4x4.MultPosition(localToWorld, new Vector3D(-93, 442, 0) / ScaleFactor).XY.ToPhx();  //Diese ist die Hinterradposition wenn Direction==Right
-                b2 = Matrix4x4.MultPosition(localToWorld, new Vector3D(417, 442, 0) / ScaleFactor).XY.ToPhx();  //Diese ist die Vorderradposition wenn Direction==Right
+                b1 = PhxMatrix.MultPosition(localToWorld, new Vec2D(-93, 442) / ScaleFactor);  //Diese ist die Hinterradposition wenn Direction==Right
+                b2 = PhxMatrix.MultPosition(localToWorld, new Vec2D(417, 442) / ScaleFactor);  //Diese ist die Vorderradposition wenn Direction==Right
             }
 
             panel.DrawLineWithTexture(dataFolder + "GrayColors.png", a1.ToGrx(), b1.ToGrx(), 15);

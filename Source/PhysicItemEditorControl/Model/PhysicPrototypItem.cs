@@ -15,7 +15,6 @@ using PhysicGlobal;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorExports.Simulator;
 using TexturePhysicImporter;
-using WpfControls.Extensions;
 using LevelEditorExports.Editor.Helper;
 using PhysicSceneToAnimationConverter;
 
