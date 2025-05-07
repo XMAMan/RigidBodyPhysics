@@ -1,4 +1,3 @@
-using GraphicPanels;
 using LevelEditorControl.Controls.EditorControl;
 using LevelEditorControl.Controls.LevelEditorControl1;
 using System.Drawing;
@@ -39,7 +38,7 @@ namespace LevelEditorControl.UnitTests
         [StaFact]
         public void ConvertLevelWithAllLevelItemTypes()
         {
-            var panel = new GraphicPanel2D() { Width = 1500, Height = 600, Mode = Mode2D.OpenGL_Version_3_0 };
+            var panel = new DrawingPanel.DrawingPanel(1500, 600);
 
             var vm = (LevelEditorViewModel)new LevelEditorFactory().CreateEditorViewModel(new WpfControls.Model.EditorInputData()
             {

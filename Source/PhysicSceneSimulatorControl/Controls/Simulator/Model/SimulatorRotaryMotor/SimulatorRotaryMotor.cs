@@ -1,8 +1,6 @@
-﻿using GraphicPanels;
-using PhysicSceneSimulatorControl.Dialogs.PrintSettings;
+﻿using PhysicSceneSimulatorControl.Dialogs.PrintSettings;
 using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RotaryMotor;
-using WpfControls.Extensions;
 
 namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorRotaryMotor
 {
@@ -13,7 +11,7 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorRotaryMo
         {
             this.PhysicModel = ctor;
         }
-        public void Draw(GraphicPanel2D panel, PrintSettingsViewModel printSettings)
+        public void Draw(IDrawingPanel panel, PrintSettingsViewModel printSettings)
         {
             var c = this.PhysicModel;
 
@@ -23,18 +21,18 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorRotaryMo
             }
         }
 
-        private void DrawArrow(GraphicPanel2D panel, Pen pen)
+        private void DrawArrow(IDrawingPanel panel, Pen pen)
         {
             var c = this.PhysicModel;
 
             var center = this.PhysicModel.Body.Center;
-            panel.DrawCircleArc(pen, center.ToGrx(), 20, 30, 320, false);
+            panel.DrawCircleArc(pen, center, 20, 30, 320, false);
             var p = Vec2D.RotatePointAroundPivotPoint(center, center + new Vec2D(20, 0), 320);
             var dir1 = Vec2D.RotatePointAroundPivotPoint(center, center + new Vec2D(20 + 10, 0 - 10), 320);
             var dir2 = Vec2D.RotatePointAroundPivotPoint(center, center + new Vec2D(20 - 10, 0 - 10), 320);
 
-            panel.DrawLine(pen, p.ToGrx(), dir1.ToGrx());
-            panel.DrawLine(pen, p.ToGrx(), dir2.ToGrx());
+            panel.DrawLine(pen, p, dir1);
+            panel.DrawLine(pen, p, dir2);
         }
     }
 }

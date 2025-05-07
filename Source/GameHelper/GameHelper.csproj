@@ -15,8 +15,4 @@
     <ProjectReference Include="..\Simulator\Simulator.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="XMAMan.GraphicEngine2D" Version="0.0.1" />
-  </ItemGroup>
-
 </Project>

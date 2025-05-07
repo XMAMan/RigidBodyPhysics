@@ -1,7 +1,6 @@
-﻿using GraphicPanels;
+﻿using PhysicGlobal;
 using PhysicSceneSimulatorControl.Dialogs.PrintSettings;
 using RigidBodyPhysics.RuntimeObjects.Joints;
-using WpfControls.Extensions;
 
 namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorJoint
 {
@@ -13,15 +12,15 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorJoint
         {
             this.PhysicModel = this.distanceJoint = ctor;
         }
-        public void Draw(GraphicPanel2D panel, PrintSettingsViewModel printSettings)
+        public void Draw(IDrawingPanel panel, PrintSettingsViewModel printSettings)
         {
             var c = this.distanceJoint;
 
             if (printSettings.ShowJoints)
-                panel.DrawLine(Pens.Blue, c.Anchor1.ToGrx(), c.Anchor2.ToGrx());
+                panel.DrawLine(Pens.Blue, c.Anchor1, c.Anchor2);
 
             if (printSettings.ShowJointPosition)
-                panel.DrawString(c.Anchor1.ToGrx(), Color.Black, 30, (int)(c.CurrentPosition) + "");
+                panel.DrawString(c.Anchor1, Color.Black, 30, (int)(c.CurrentPosition) + "");
         }
     }
 }

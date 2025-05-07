@@ -1,5 +1,4 @@
 ﻿using DemoApplicationHelper;
-using GraphicPanels;
 using GraphicPanelWpf;
 using PhysicEngine.Tools;
 using PowerArgs;
@@ -15,7 +14,7 @@ namespace PhysicEngine
 {
     internal class MainWindowViewModel : ReactiveObject, IDisposable
     {
-        private GraphicPanel2D panel;
+        private DrawingPanel.DrawingPanel panel;
         private ISoundGenerator soundGenerator;
         private System.Windows.Threading.DispatcherTimer timer;
 
@@ -24,7 +23,7 @@ namespace PhysicEngine
 
         public MainWindowViewModel()
         {
-            this.panel = new GraphicPanel2D() { Width = 100, Height = 100, Mode = Mode2D.OpenGL_Version_3_0 };
+            this.panel = new DrawingPanel.DrawingPanel(100, 100);
 
             this.panel.MouseClick += Panel_MouseClick;
             this.panel.MouseWheel += Panel_MouseWheel;

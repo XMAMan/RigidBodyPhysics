@@ -30,14 +30,14 @@ namespace DynamicObjCreation.RigidBodyDestroying
 
             var localPolys = p.LocalPolyCreator(p.TextureExport.Width, p.TextureExport.Height);
 
-            var m = PhxMatrix.Ident();
-            m *= PhxMatrix.Translate(-p.TextureExport.Width / 2, -p.TextureExport.Height / 2, 0);//Schritt 1: Verschiebe den PivotPunkt zum Nullpunkt
-            m *= PhxMatrix.Rotate(angleInDegree, 0, 0, 1);                                       //Schritt 2: Rotiere um Z
-            m *= PhxMatrix.Translate(texCenter.X, texCenter.Y, 0);                               //Schritt 3: Gehe zum Zielpunkt
+            var m = Matrix4x4.Ident();
+            m *= Matrix4x4.Translate(-p.TextureExport.Width / 2, -p.TextureExport.Height / 2, 0);//Schritt 1: Verschiebe den PivotPunkt zum Nullpunkt
+            m *= Matrix4x4.Rotate(angleInDegree, 0, 0, 1);                                       //Schritt 2: Rotiere um Z
+            m *= Matrix4x4.Translate(texCenter.X, texCenter.Y, 0);                               //Schritt 3: Gehe zum Zielpunkt
 
             foreach (var localPoly in localPolys)
             {
-                var poly = localPoly.Select(x => PhxMatrix.MultPosition(m, x)).ToArray();
+                var poly = localPoly.Select(x => Matrix4x4.MultPosition(m, x)).ToArray();
                 returnList.Add(CreateTexturedPolygon(poly, texCenter, body, p));
             }
 
@@ -55,14 +55,14 @@ namespace DynamicObjCreation.RigidBodyDestroying
             var rotatedBox = new RotatedBoundingBox(body.Vertex, angleInDegree);
             var localPolys = p.LocalPolyCreator(rotatedBox.Width + 2, rotatedBox.Height + 2); //+2 steht hier, da es sonst bei der Line-Line-Intersection beim PolygonIntersector zu Rundungsfehlern kommt 
 
-            var m = PhxMatrix.Ident();
-            m *= PhxMatrix.Translate(-rotatedBox.Width / 2 - 1, -rotatedBox.Height / 2 - 1, 0); //Schritt 1: Verschiebe den PivotPunkt zum Nullpunkt (Auch hier steht -1 wegen den Rundungsfehler bei PolyIntersections.GetIntersectionPointBetweenToLines) (Siehe Intersect11-Testcase)
-            m *= PhxMatrix.Rotate(angleInDegree, 0, 0, 1);                                      //Schritt 2: Rotiere um Z
-            m *= PhxMatrix.Translate(rotatedBox.Center.X, rotatedBox.Center.Y, 0);              //Schritt 3: Gehe zum Zielpunkt
+            var m = Matrix4x4.Ident();
+            m *= Matrix4x4.Translate(-rotatedBox.Width / 2 - 1, -rotatedBox.Height / 2 - 1, 0); //Schritt 1: Verschiebe den PivotPunkt zum Nullpunkt (Auch hier steht -1 wegen den Rundungsfehler bei PolyIntersections.GetIntersectionPointBetweenToLines) (Siehe Intersect11-Testcase)
+            m *= Matrix4x4.Rotate(angleInDegree, 0, 0, 1);                                      //Schritt 2: Rotiere um Z
+            m *= Matrix4x4.Translate(rotatedBox.Center.X, rotatedBox.Center.Y, 0);              //Schritt 3: Gehe zum Zielpunkt
 
             foreach (var localPoly in localPolys)
             {
-                var polyPoints = localPoly.Select(x => PhxMatrix.MultPosition(m, x)).ToArray();
+                var polyPoints = localPoly.Select(x => Matrix4x4.MultPosition(m, x)).ToArray();
 
                 var polygons = PolygonIntersector.GetIntersection(body.Vertex, polyPoints);
                 if (polygons == null) continue;

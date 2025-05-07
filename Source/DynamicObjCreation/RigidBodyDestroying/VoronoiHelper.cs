@@ -18,20 +18,25 @@ namespace DynamicObjCreation.RigidBodyDestroying
             for (int i = 0; i < voronioPolygons.Count; i++)
             {
                 var voroPoly = voronioPolygons[i];
-                if (PolygonHelper.IsPolygonCounterClockWise(voroPoly.Select(x => new Vec2D(x.X, x.Y)).ToArray()) == false)
+                if (PolygonHelper.IsPolygonCounterClockWise(voroPoly.Select(x =>x.Position).ToArray()) == false)
                 {
                     var list = voroPoly.ToList();
                     list.Reverse();
                     voronioPolygons[i] = list.ToArray();
                 }
 
-                polys.Add(voronioPolygons[i]);
+                polys.Add(voronioPolygons[i].Select(x => x.Position).ToArray());
             }
 
             return polys;
         }
 
-        private static List<Point> GetRandomPointList(int cellPointCount, int maxX, int maxY, Random rand)
+        public static List<Vertex2D[]> GetVoronoiPolygons(Size imageSize, List<Point> cellPoints)
+        {
+            return Voronoi.GetVoronoiPolygons(imageSize, cellPoints);
+        }
+
+        public static List<Point> GetRandomPointList(int cellPointCount, int maxX, int maxY, Random rand)
         {
             List<Point> cellPoints = new List<Point>();
             for (int i = 0; i < cellPointCount; i++)

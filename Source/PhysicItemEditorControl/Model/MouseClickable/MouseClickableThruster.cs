@@ -1,9 +1,6 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
-using LevelEditorGlobal;
+﻿using LevelEditorGlobal;
 using RigidBodyPhysics.RuntimeObjects.Thruster;
 using System.Drawing;
-using WpfControls.Extensions;
 using PhysicGlobal;
 using LevelEditorExports.Simulator;
 
@@ -24,11 +21,11 @@ namespace PhysicItemEditorControl.Model.MouseClickable
         public int Id { get; } //ITagable
         public TagType TypeName { get => TagType.Thruster; } //ITagable
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             DrawBorder(panel, Pens.Blue);
         }
-        public void DrawBorder(GraphicPanel2D panel, Pen borderPen)
+        public void DrawBorder(IDrawingPanel panel, Pen borderPen)
         {
             panel.PushMatrix();
             panel.MultTransformationMatrix(Matrix4x4.Translate(-sceneBoundingBox.X, -sceneBoundingBox.Y, 0));
@@ -37,23 +34,23 @@ namespace PhysicItemEditorControl.Model.MouseClickable
             panel.PopMatrix();
         }
 
-        private void DrawArrow(GraphicPanel2D panel, Pen pen)
+        private void DrawArrow(IDrawingPanel panel, Pen pen)
         {
-            var dir = runtimThruster.ForceDirection.ToGrx();
-            var pos = runtimThruster.Anchor.ToGrx();
+            var dir = runtimThruster.ForceDirection;
+            var pos = runtimThruster.Anchor;
             float r = 50;
-            var v1 = Vector2D.GetV2FromAngle360(dir, 45 + 90);
-            var v2 = Vector2D.GetV2FromAngle360(dir, -45 - 90);
+            var v1 = Vec2D.GetV2FromAngle360(dir, 45 + 90);
+            var v2 = Vec2D.GetV2FromAngle360(dir, -45 - 90);
 
             panel.DrawLine(pen, (pos - dir * r), pos);
             panel.DrawLine(pen, pos, pos + v1 * (r / 3));
             panel.DrawLine(pen, pos, pos + v2 * (r / 3));
         }
 
-        public bool IsPointInside(Vec2D point, PhxMatrix screenToLocal)
+        public bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal)
         {
-            screenToLocal *= PhxMatrix.Translate(sceneBoundingBox.X, sceneBoundingBox.Y, 0);
-            point = PhxMatrix.MultPosition(screenToLocal, point);
+            screenToLocal *= Matrix4x4.Translate(sceneBoundingBox.X, sceneBoundingBox.Y, 0);
+            point = Matrix4x4.MultPosition(screenToLocal, point);
 
             var dir = runtimThruster.ForceDirection;
             var pos = runtimThruster.Anchor;
@@ -67,9 +64,9 @@ namespace PhysicItemEditorControl.Model.MouseClickable
             return false;
         }
 
-        public PhxMatrix GetScreenToLocalMatrix()
+        public Matrix4x4 GetScreenToLocalMatrix()
         {
-            return PhxMatrix.Ident();
+            return Matrix4x4.Ident();
         }
 
         public float GetArea()

@@ -1,4 +1,4 @@
-﻿using GraphicPanels;
+﻿using PhysicGlobal;
 using PhysicSceneSimulatorControl.Dialogs.PrintSettings;
 using RigidBodyPhysics.RuntimeObjects.AxialFriction;
 
@@ -7,6 +7,6 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorAxialFri
     internal interface ISimulatorAxialFriction
     {
         IPublicAxialFriction PhysicModel { get; }
-        void Draw(GraphicPanel2D panel, PrintSettingsViewModel printSettings);
+        void Draw(IDrawingPanel panel, PrintSettingsViewModel printSettings);
     }
 }

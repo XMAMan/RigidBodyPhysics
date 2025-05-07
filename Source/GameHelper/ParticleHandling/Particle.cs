@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 
 namespace GameHelper.ParticleHandling
 {
@@ -34,7 +33,7 @@ namespace GameHelper.ParticleHandling
             return this.lifeTime > 1;
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             panel.DrawFillRectangle(colorInterpolator.GetColor(this.lifeTime), this.position.X - size, this.position.Y - size, size * 2, size * 2);
         }

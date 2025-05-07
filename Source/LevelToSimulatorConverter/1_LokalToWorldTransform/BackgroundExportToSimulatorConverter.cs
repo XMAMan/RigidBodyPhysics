@@ -117,19 +117,19 @@ namespace LevelToSimulatorConverter._1_LokalToWorldTransform
             var rotRec = new RotatedRectangle(levelItem.Position, protoBox.GetSize(), initialRecData);
 
             //Schritt 4: LocalToGlobal-Matrix erstellen
-            var matrix = PhxMatrix.Translate(-protoBox.Min.X, -protoBox.Min.Y, 0) * rotRec.GetLocalToScreenMatrix();
+            var matrix = Matrix4x4.Translate(-protoBox.Min.X, -protoBox.Min.Y, 0) * rotRec.GetLocalToScreenMatrix();
 
             return childItems.Select(x => TransformWithMatrix(x, matrix)).ToArray();
         }
 
-        private static BackgroundItemSimulatorExportData TransformWithMatrix(BackgroundItemSimulatorExportData data, PhxMatrix matrix)
+        private static BackgroundItemSimulatorExportData TransformWithMatrix(BackgroundItemSimulatorExportData data, Matrix4x4 matrix)
         {
-            float angleInDegreeMatrix = PhxMatrix.GetAngleInDegreeFromMatrix(matrix);
-            float sizeFactorMatrix = PhxMatrix.GetSizeFactorFromMatrix(matrix);
+            float angleInDegreeMatrix = Matrix4x4.GetAngleInDegreeFromMatrix(matrix);
+            float sizeFactorMatrix = Matrix4x4.GetSizeFactorFromMatrix(matrix);
 
             return new BackgroundItemSimulatorExportData()
             {
-                Center = PhxMatrix.MultPosition(matrix, data.Center),
+                Center = Matrix4x4.MultPosition(matrix, data.Center),
                 AngleInDegree = data.AngleInDegree + angleInDegreeMatrix,
                 Width = data.Width * sizeFactorMatrix,
                 Height = data.Height * sizeFactorMatrix,

@@ -1,6 +1,5 @@
 ﻿using DynamicData;
 using GameHelper.Simulation;
-using GraphicPanels;
 using LevelEditorExports.Simulator;
 using PhysicGlobal;
 using RigidBodyPhysics;
@@ -15,7 +14,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using TextureEditorGlobal;
-using WpfControls.Extensions;
 
 namespace SpiderBoxControl.Model
 {
@@ -235,29 +233,29 @@ namespace SpiderBoxControl.Model
             return distanceJoint;
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             Pen pen = new Pen(Color.Black, 3);
             foreach (var d in this.distanceJoints)
             {
-                 panel.DrawLine(pen, d.Anchor1.ToGrx(), d.Anchor2.ToGrx());
+                 panel.DrawLine(pen, d.Anchor1, d.Anchor2);
             }
 
             {
                 var d = this.clampFirst;
-                panel.DrawLine(pen, d.Anchor1.ToGrx(), d.Anchor2.ToGrx());
+                panel.DrawLine(pen, d.Anchor1, d.Anchor2);
             }
 
             if (this.clampLast != null)
             {
                 var d = this.clampLast;
-                panel.DrawLine(pen, d.Anchor1.ToGrx(), d.Anchor2.ToGrx());                
+                panel.DrawLine(pen, d.Anchor1, d.Anchor2);                
             }
 
             if (this.clampLast == null)
-                panel.DrawFillCircle(Color.Black, distanceJoints.Last().Anchor2.ToGrx(), 3);
+                panel.DrawFillCircle(Color.Black, distanceJoints.Last().Anchor2, 3);
             else
-                panel.DrawFillCircle(Color.Black, clampLast.Anchor1.ToGrx(), 3);
+                panel.DrawFillCircle(Color.Black, clampLast.Anchor1, 3);
         }
 
         public void RemoveFromSimulation()

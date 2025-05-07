@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
+﻿using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorThruster;
 using PhysicGlobal;
 
@@ -20,7 +19,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.Function
             this.thrusters.Add(new EditorThruster.EditorThruster(shape, r1, forceDirection));
         }
 
-        protected override void DrawObject(GraphicPanel2D panel, Vec2D position, Vec2D direction)
+        protected override void DrawObject(IDrawingPanel panel, Vec2D position, Vec2D direction)
         {
             EditorThruster.EditorThruster.DrawArrow(panel, position, direction, Pens.Blue);
         }

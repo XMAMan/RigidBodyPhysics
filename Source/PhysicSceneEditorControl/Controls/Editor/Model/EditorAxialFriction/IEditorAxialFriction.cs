@@ -1,4 +1,4 @@
-﻿using GraphicPanels;
+﻿using PhysicGlobal;
 using PhysicSceneEditorControl.Controls.AxialFriction;
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using RigidBodyPhysics.ExportData.AxialFriction;
@@ -9,7 +9,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorAxialFriction
     {
         IEditorShape Body { get; }        
         AxialFrictionPropertyViewModel Properties { get; set; }
-        void Draw(GraphicPanel2D panel); //Zeichnet die Editor-Daten
+        void Draw(IDrawingPanel panel); //Zeichnet die Editor-Daten
         IExportAxialFriction GetExportData(List<IEditorShape> bodies);
         void UpdateAfterMovingBodys();
     }

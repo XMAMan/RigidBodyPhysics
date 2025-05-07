@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using LevelEditorExports.Editor.Helper;
+﻿using LevelEditorExports.Editor.Helper;
 using SpriteEditorControl.Controls.Main;
 using SpriteEditorControl.Controls.Main.Model;
 using SpriteEditorControl.Controls.Sprite.Model;
@@ -14,7 +13,7 @@ namespace SpriteEditorControl
         {
             var editorData = JsonHelper.Helper.CreateFromJson<SpriteEditorExportData>(FileNameReplacer.LoadEditorFile(filePath));
 
-            var panel = new GraphicPanel2D() { Width = 100, Height = 100, Mode = Mode2D.CPU };
+            var panel = new DrawingPanel.DrawingPanel(100, 100, true);
             var editorControl = new SpriteEditorFactory().CreateEditorControl(new WpfControls.Model.EditorInputData()
             {
                  DataFolder = ".",

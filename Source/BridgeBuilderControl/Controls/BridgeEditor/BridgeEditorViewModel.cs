@@ -2,8 +2,8 @@
 using BridgeBuilderControl.Controls.Helper;
 using BridgeBuilderControl.Controls.LevelEditor;
 using BridgeBuilderControl.Controls.Simulator.Model;
-using GraphicPanels;
 using GraphicPanelWpf;
+using PhysicGlobal;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using System;
@@ -22,7 +22,7 @@ namespace BridgeBuilderControl.Controls.BridgeEditor
             public ITextDialog SaveDialog;
         }
 
-        private GraphicPanel2D panel;
+        private IDrawingPanel panel;
         private string dataFolder;
         private string levelFile;
         private string bridgeFile;
@@ -97,7 +97,7 @@ namespace BridgeBuilderControl.Controls.BridgeEditor
             return this;
         }
 
-        public BridgeEditorViewModel(GraphicPanel2D panel, string dataFolder) 
+        public BridgeEditorViewModel(IDrawingPanel panel, string dataFolder) 
         {
             this.panel = panel;
             this.dataFolder = dataFolder;

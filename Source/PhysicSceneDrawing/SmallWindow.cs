@@ -1,12 +1,10 @@
-﻿using GraphicPanels;
-using GraphicPanelWpf;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 
 namespace PhysicSceneDrawing
 {
     //Zeichnet das kleine Vorschaubild rechts unten in der Ecke.
     //Es benutzt dazu den Zustand der LevelItems und der Kamera und verändert auch die Kameraposition/Zoom
-    public class SmallWindow : ISizeChangeable
+    public class SmallWindow
     {
         private readonly float size = 0.1f; //So viel Prozent vom Bildschirm ist das Fenster hier groß
         private readonly Color backColor = Color.FromArgb(153, 217, 234);
@@ -26,7 +24,7 @@ namespace PhysicSceneDrawing
             this.camera = camera;
         }
 
-        public void Draw(GraphicPanel2D panel, Action<Color, Color> drawLevelAction)
+        public void Draw(IDrawingPanel panel, Action<Color, Color> drawLevelAction)
         {
             PhysicGlobal.BoundingBox smallWindow = new PhysicGlobal.BoundingBox(panel.Width * (1 - size), panel.Height * (1 - size), panel.Width * size, panel.Height * size);
 
@@ -38,7 +36,7 @@ namespace PhysicSceneDrawing
             panel.DrawRectangle(new Pen(Color.Blue, 3), (int)smallWindow.X, (int)smallWindow.Y, (int)smallWindow.GetWidth(), (int)smallWindow.GetHeight());
 
             var cameraToScreen = GetCameraToScreenMatrix(smallWindow);
-            panel.MultTransformationMatrix(cameraToScreen.To4x4Matrix());
+            panel.MultTransformationMatrix(cameraToScreen);
 
             panel.EnableDepthTesting();
             drawLevelAction(frontColor, backColor);
@@ -58,21 +56,21 @@ namespace PhysicSceneDrawing
 
         }
 
-        private PhxMatrix GetCameraToScreenMatrix(PhysicGlobal.BoundingBox smallWindow)
+        private Matrix4x4 GetCameraToScreenMatrix(PhysicGlobal.BoundingBox smallWindow)
         {
             if (this.camera.ShowOriginalPosition)
             {
-                var m = PhxMatrix.Scale(size, size, size);
-                m *= PhxMatrix.Translate(smallWindow.X, smallWindow.Y, 0);
+                var m = Matrix4x4.Scale(size, size, size);
+                m *= Matrix4x4.Translate(smallWindow.X, smallWindow.Y, 0);
                 return m;
             }
             else
             {
                 var box = this.camera.GetSceneBoundingBox();
                 float factor = Camera2D.GetScaleFactor(new SizeF(this.panelWidth, this.panelHeight), box.GetSize());
-                var m = PhxMatrix.Translate(-box.X, -box.Y, 0);
-                m *= PhxMatrix.Scale(size * factor, size * factor, size * factor);
-                m *= PhxMatrix.Translate(smallWindow.X, smallWindow.Y, 0);
+                var m = Matrix4x4.Translate(-box.X, -box.Y, 0);
+                m *= Matrix4x4.Scale(size * factor, size * factor, size * factor);
+                m *= Matrix4x4.Translate(smallWindow.X, smallWindow.Y, 0);
 
                 return m;
             }
@@ -86,8 +84,8 @@ namespace PhysicSceneDrawing
             PhysicGlobal.BoundingBox smallWindow = new PhysicGlobal.BoundingBox(this.panelWidth * (1 - size), this.panelHeight * (1 - size), this.panelWidth * size, this.panelHeight * size);
 
             var cameraToScreen = GetCameraToScreenMatrix(smallWindow);
-            var screenToCamera = PhxMatrix.Invert(cameraToScreen);
-            var mouseCam = PhxMatrix.MultPosition(screenToCamera, new Vec2D(mousePosition.X, mousePosition.Y));
+            var screenToCamera = Matrix4x4.Invert(cameraToScreen);
+            var mouseCam = Matrix4x4.MultPosition(screenToCamera, new Vec2D(mousePosition.X, mousePosition.Y));
 
             return mouseCam;
         }

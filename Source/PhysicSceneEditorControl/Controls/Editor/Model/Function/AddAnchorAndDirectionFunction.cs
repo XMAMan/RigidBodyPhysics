@@ -1,7 +1,5 @@
-﻿using GraphicPanels;
-using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
+﻿using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using PhysicGlobal;
-using WpfControls.Extensions;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.Function
 {
@@ -181,11 +179,11 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.Function
             }
         }
 
-        public override void Draw(GraphicPanel2D panel)
+        public override void Draw(IDrawingPanel panel)
         {
             if (anchor != null)
             {
-                panel.DrawFillCircle(Color.DarkGreen, anchor.ToGrx(), 3);
+                panel.DrawFillCircle(Color.DarkGreen, anchor, 3);
             }
 
             //Snap-Anchor-Points
@@ -196,16 +194,16 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.Function
                 {
                     bool mouseIsOverSnapPoint = (point - currentMousePosition).Length() < 5;
                     if (mouseIsOverSnapPoint)
-                        panel.DrawFillCircle(Color.Yellow, point.ToGrx(), 5);
+                        panel.DrawFillCircle(Color.Yellow, point, 5);
 
-                    panel.DrawFillCircle(Color.Blue, point.ToGrx(), 3);
+                    panel.DrawFillCircle(Color.Blue, point, 3);
                 }
             }
 
             if (mode == Mode.PlaceAnchor)
             {
                 bool isInside = InsideCheck(shape, currentMousePosition);
-                panel.DrawFillCircle(isInside ? Color.DarkGreen : Color.Red, currentMousePosition.ToGrx(), 3);
+                panel.DrawFillCircle(isInside ? Color.DarkGreen : Color.Red, currentMousePosition, 3);
             }
 
 
@@ -217,7 +215,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.Function
             }
         }
 
-        protected abstract void DrawObject(GraphicPanel2D panel, Vec2D position, Vec2D direction);
+        protected abstract void DrawObject(IDrawingPanel panel, Vec2D position, Vec2D direction);
 
         private bool InsideCheck(IEditorShape shape, Vec2D position)
         {

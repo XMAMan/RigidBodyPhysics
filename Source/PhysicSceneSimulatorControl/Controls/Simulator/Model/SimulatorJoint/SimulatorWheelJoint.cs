@@ -1,8 +1,6 @@
-﻿using GraphicPanels;
-using PhysicSceneSimulatorControl.Dialogs.PrintSettings;
+﻿using PhysicSceneSimulatorControl.Dialogs.PrintSettings;
 using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.Joints;
-using WpfControls.Extensions;
 
 namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorJoint
 {
@@ -14,7 +12,7 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorJoint
         {
             this.PhysicModel = this.wheelJoint = ctor;
         }
-        public void Draw(GraphicPanel2D panel, PrintSettingsViewModel printSettings)
+        public void Draw(IDrawingPanel panel, PrintSettingsViewModel printSettings)
         {
             var c = this.wheelJoint;
 
@@ -27,13 +25,13 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorJoint
 
                 Vec2D a1 = center + centerToA1;
                 Vec2D a2 = center - centerToA1;
-                panel.DrawLine(Pens.Blue, a1.ToGrx(), a2.ToGrx());
-                panel.DrawLine(Pens.Blue, (a1 - a1ToTangent).ToGrx(), (a1 + a1ToTangent).ToGrx());
-                panel.DrawCircle(Pens.Blue, a2.ToGrx(), 15);
+                panel.DrawLine(Pens.Blue, a1, a2);
+                panel.DrawLine(Pens.Blue, (a1 - a1ToTangent), (a1 + a1ToTangent));
+                panel.DrawCircle(Pens.Blue, a2, 15);
             }
 
             if (printSettings.ShowJointPosition)
-                panel.DrawString(c.Anchor1.ToGrx(), Color.Black, 30, (int)(c.CurrentPosition * 100) + "");
+                panel.DrawString(c.Anchor1, Color.Black, 30, (int)(c.CurrentPosition * 100) + "");
         }
     }
 }

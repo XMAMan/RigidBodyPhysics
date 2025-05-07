@@ -1,7 +1,5 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
-using RigidBodyPhysics;
-using PhysicSceneDrawing;
+﻿using RigidBodyPhysics;
+using PhysicGlobal;
 
 namespace Simulator.ForceTracking
 {
@@ -16,7 +14,7 @@ namespace Simulator.ForceTracking
             this.forceTrackerDrawingSettings = forceTrackerDrawingSettings;
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             float sizeFactor = 1.0f / GetSizeFactorFromCurrentMatrix(panel);
 
@@ -25,7 +23,7 @@ namespace Simulator.ForceTracking
                 var bodys = this.physicScene.GetAllBodys();
                 for (int i = 0; i < bodys.Length; i++)
                 {
-                    panel.DrawString(bodys[i].Center.ToGrx(), Color.Blue, 40 * sizeFactor, i.ToString());
+                    panel.DrawString(bodys[i].Center, Color.Blue, 40 * sizeFactor, i.ToString());
                 }
             }
 
@@ -35,7 +33,7 @@ namespace Simulator.ForceTracking
                 for (int i = 0; i < joints.Length; i++)
                 {
                     var center = (joints[i].Anchor1 + joints[i].Anchor2) / 2;
-                    panel.DrawString(center.ToGrx(), Color.Green, 40 * sizeFactor, i.ToString());
+                    panel.DrawString(center, Color.Green, 40 * sizeFactor, i.ToString());
                 }
             }
 
@@ -44,12 +42,12 @@ namespace Simulator.ForceTracking
                 var axialFrictions = this.physicScene.GetAllAxialFrictions();
                 for (int i = 0; i < axialFrictions.Length; i++)
                 {
-                    panel.DrawString(axialFrictions[i].Anchor.ToGrx(), Color.Green, 40 * sizeFactor, i.ToString());
+                    panel.DrawString(axialFrictions[i].Anchor, Color.Green, 40 * sizeFactor, i.ToString());
                 }
             }                
         }
 
-        private float GetSizeFactorFromCurrentMatrix(GraphicPanel2D panel)
+        private float GetSizeFactorFromCurrentMatrix(IDrawingPanel panel)
         {
             var matrix = panel.GetTransformationMatrix();
             return Matrix4x4.GetSizeFactorFromMatrix(matrix);

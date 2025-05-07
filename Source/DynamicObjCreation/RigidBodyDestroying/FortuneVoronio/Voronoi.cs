@@ -5,10 +5,10 @@ namespace DynamicObjCreation.RigidBodyDestroying.FortuneVoronio
 {
     internal class Voronoi
     {
-        public static List<Vec2D[]> GetVoronoiPolygons(Size imageSize, List<Point> cellPoints)
+        public static List<Vertex2D[]> GetVoronoiPolygons(Size imageSize, List<Point> cellPoints)
         {
             List<Point[]> cells = getVoronoiCells(cellPoints, imageSize.Width - 1, imageSize.Height - 1);
-            return cells.Select(x => x.Select(y => new Vec2D(y.X, y.Y)).ToArray()).ToList();
+            return cells.Select(x => x.Select(y => new Vertex2D(y.X, y.Y, y.X / (float)imageSize.Width, y.Y / (float)imageSize.Height)).ToArray()).ToList();
         }
 
         private static List<Point[]> getVoronoiCells(List<Point> cellPoints, int Width, int Height)

@@ -1,8 +1,6 @@
-﻿using GraphicPanels;
-using PhysicSceneSimulatorControl.Dialogs.PrintSettings;
+﻿using PhysicSceneSimulatorControl.Dialogs.PrintSettings;
 using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.Thruster;
-using WpfControls.Extensions;
 
 namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorThruster
 {
@@ -13,7 +11,7 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorThruster
         {
             this.PhysicModel = ctor;
         }
-        public void Draw(GraphicPanel2D panel, PrintSettingsViewModel printSettings)
+        public void Draw(IDrawingPanel panel, PrintSettingsViewModel printSettings)
         {
             var c = this.PhysicModel;
 
@@ -23,7 +21,7 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorThruster
             }
         }
 
-        private void DrawArrow(GraphicPanel2D panel, Pen pen)
+        private void DrawArrow(IDrawingPanel panel, Pen pen)
         {
             var c = this.PhysicModel;
 
@@ -32,9 +30,9 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorThruster
             var v1 = Vec2D.GetV2FromAngle360(forceDirection, 45 + 90);
             var v2 = Vec2D.GetV2FromAngle360(forceDirection, -45 - 90);
 
-            panel.DrawLine(pen, (c.Anchor - forceDirection * r).ToGrx(), c.Anchor.ToGrx());
-            panel.DrawLine(pen, c.Anchor.ToGrx(), (c.Anchor + v1 * (r / 3)).ToGrx());
-            panel.DrawLine(pen, c.Anchor.ToGrx(), (c.Anchor + v2 * (r / 3)).ToGrx());
+            panel.DrawLine(pen, (c.Anchor - forceDirection * r), c.Anchor);
+            panel.DrawLine(pen, c.Anchor, (c.Anchor + v1 * (r / 3)));
+            panel.DrawLine(pen, c.Anchor, (c.Anchor + v2 * (r / 3)));
         }
     }
 }

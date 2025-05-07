@@ -1,10 +1,8 @@
-﻿using GraphicPanels;
-using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
+﻿using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using PhysicSceneEditorControl.Controls.JointPropertys.WeldJoint;
 using PhysicSceneEditorControl.Controls.SoftProperty;
 using RigidBodyPhysics.ExportData.Joints;
 using PhysicGlobal;
-using WpfControls.Extensions;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorJoint
 {
@@ -62,18 +60,18 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorJoint
             this.anchorWorldPosition2 = EditorShapeHelper.LocalBodyDirectionToWorldPosition(this.Body2, this.r2);
         }
 
-        public void Draw(GraphicPanel2D panel) //Zeichnet die Editor-Daten
+        public void Draw(IDrawingPanel panel) //Zeichnet die Editor-Daten
         {
             if (this.Backcolor != Color.Transparent)
             {
-                panel.DrawFillCircle(this.Backcolor, this.anchorWorldPosition1.ToGrx(), 5);
+                panel.DrawFillCircle(this.Backcolor, this.anchorWorldPosition1, 5);
                 DrawJoint(panel, new Pen(this.Backcolor, 5));
             }
 
             DrawJoint(panel, this.BorderPen);
         }
 
-        private void DrawJoint(GraphicPanel2D panel, Pen pen)
+        private void DrawJoint(IDrawingPanel panel, Pen pen)
         {
             int cornerCount = 7;
             float radius = 20;
@@ -83,10 +81,10 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorJoint
             {
                 points.Add(this.anchorWorldPosition1 + new Vec2D((float)Math.Cos(i / (float)cornerCount * 2 * Math.PI), (float)Math.Sin(i / (float)cornerCount * 2 * Math.PI)) * radius);
 
-                panel.DrawLine(pen, this.anchorWorldPosition1.ToGrx(), points.Last().ToGrx());
+                panel.DrawLine(pen, this.anchorWorldPosition1, points.Last());
             }
 
-            panel.DrawPolygon(pen, points.Select(x => x.ToGrx()).ToList());
+            panel.DrawPolygon(pen, points.ToArray());
         }
 
         public IExportJoint GetExportData(List<IEditorShape> bodies)

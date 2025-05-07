@@ -1,12 +1,9 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using TextureEditorGlobal;
-using WpfControls.Extensions;
 
 namespace TextureEditorControl.Controls.Editor.Model.Shape
 {
@@ -23,7 +20,7 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
             return (this.shape as IPolygon).Points;
         }
 
-        protected override void DrawTexture(GraphicPanel2D panel, Camera2D camera)
+        protected override void DrawTexture(IDrawingPanel panel, Camera2D camera)
         {
             if (string.IsNullOrEmpty(this.Propertys.TextureFile) == false)
             {
@@ -33,7 +30,7 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
                 int col = Math.Min(255, Math.Max(0, (int)(255 * p.ColorFactor)));
 
                 var texPoints = GetTextureBorderPoints()
-                    .Select(x => camera.PointToScreen(x).ToGrx())
+                    .Select(x => camera.PointToScreen(x))
                     .ToList();
 
                 float xLength = (texPoints[1] - texPoints[0]).Length();
@@ -44,8 +41,8 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
                 List<Vertex2D> points = new List<Vertex2D>();
                 foreach (var local in r.Points)
                 {
-                    var screen = camera.PointToScreen(local).ToGrx();
-                    var tex = new Vector2D((screen - texPoints[0]) * xDir / xLength, (screen - texPoints[0]) * yDir / yLength);
+                    var screen = camera.PointToScreen(local);
+                    var tex = new Vec2D((screen - texPoints[0]) * xDir / xLength, (screen - texPoints[0]) * yDir / yLength);
                     points.Add(new Vertex2D(screen, tex));
                 }
 

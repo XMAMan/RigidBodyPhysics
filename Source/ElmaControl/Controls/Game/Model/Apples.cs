@@ -1,6 +1,5 @@
 ﻿using GameHelper;
 using GameHelper.Simulation;
-using GraphicPanels;
 using GraphicPanelWpf;
 using PhysicGlobal;
 using PhysicSceneDrawing;
@@ -34,14 +33,14 @@ namespace ElmaControl.Controls.Game.Model
             this.sprite.HandleTimerTick(dt);
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             this.sprite.Draw(panel, this.Body.Center);
         }
 
-        public void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor)
+        public void DrawWithTwoColors(IDrawingPanel panel, Color frontColor, Color backColor)
         {
-            panel.DrawFillCircle(frontColor, this.Body.Center.ToGrx(), this.Body.Radius);
+            panel.DrawFillCircle(frontColor, this.Body.Center, this.Body.Radius);
         }
     }
 
@@ -96,7 +95,7 @@ namespace ElmaControl.Controls.Game.Model
             return false;
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             foreach (var apple in apples)
             {

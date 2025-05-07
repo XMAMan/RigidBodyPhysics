@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using GraphicPanelWpf;
+﻿using GraphicPanelWpf;
 using JsonHelper;
 using KeyFrameGlobal;
 using KeyFramePhysicImporter.Model.PhysicSceneDrawing;
@@ -18,7 +17,7 @@ namespace KeyFramePhysicImporter.ViewModel
     //Zeigt die PhysicScene an. Hier kann man auswählen, welche Objekte fix sein sollen. 
     public class ImporterControlViewModel : ReactiveObject, IImporterControl, IGraphicPanelHandler, ITimerHandler
     {
-        private GraphicPanel2D panel;
+        private IDrawingPanel panel;
         private PhysicSceneDrawer drawer;
         private PhysicScene scene;
         private Camera2D camera;
@@ -49,7 +48,7 @@ namespace KeyFramePhysicImporter.ViewModel
         [Reactive] public System.Windows.Media.SolidColorBrush Color3 { get; set; } = System.Windows.Media.Brushes.Black;
 
 
-        public ImporterControlViewModel(GraphicPanel2D panel, string physicSceneJson)
+        public ImporterControlViewModel(IDrawingPanel panel, string physicSceneJson)
         {
             this.panel = panel;
             this.scene = StringToPhysicScene(physicSceneJson);

@@ -1,6 +1,5 @@
 ﻿using ElmaControl.Controls.Game.Model;
 using GameHelper;
-using GraphicPanels;
 using GraphicPanelWpf;
 using KeyboardRecordAndPlay;
 using LevelEditorExports.Simulator;
@@ -18,7 +17,7 @@ namespace ElmaControl.Controls.Game
     {
         private string DataFolder = null;
 
-        private GraphicPanel2D panel;                   //Grafik-Ausgabe
+        private IDrawingPanel panel;                   //Grafik-Ausgabe
 
         private float timerIntervallInMilliseconds;     //Timer
 
@@ -41,7 +40,7 @@ namespace ElmaControl.Controls.Game
         public event Action<string, string> GoBackHandler;      //Esc wurde Esc gedrückt (Parameter: levelFile, keyboardFile)
 
 
-        public GameViewModel(GraphicPanel2D panel, ISoundGenerator soundGenerator, float timerIntervallInMilliseconds, string dataFolder)
+        public GameViewModel(IDrawingPanel panel, ISoundGenerator soundGenerator, float timerIntervallInMilliseconds, string dataFolder)
         {
             this.DataFolder = dataFolder;
             this.panel = panel;

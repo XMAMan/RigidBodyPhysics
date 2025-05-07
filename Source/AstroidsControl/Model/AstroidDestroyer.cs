@@ -2,8 +2,7 @@
 using GameHelper.ParticleHandling;
 using GameHelper.Simulation;
 using GameHelper.Simulation.RigidBodyTagging;
-using GraphicPanels;
-using GraphicPanelWpf;
+using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using System;
 using System.Drawing;
@@ -12,7 +11,7 @@ using System.Linq;
 namespace AstroidsControl.Model
 {
     //Zerstört die Astroiden und den Satellit, wenn er vom Schuss berührt wird
-    class AstroidDestroyer : ITimerHandler
+    class AstroidDestroyer
     {
         private GameSimulator simulator;
         private Sounds sounds;
@@ -39,7 +38,7 @@ namespace AstroidsControl.Model
             this.particleHandler.HandleTimerTick(dt);
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             this.particleHandler.DrawParticles(panel);
         }

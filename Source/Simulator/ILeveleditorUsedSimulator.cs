@@ -1,4 +1,4 @@
-﻿using GraphicPanels;
+﻿using PhysicGlobal;
 using RigidBodyPhysics.ExportData;
 using Simulator.ForceTracking;
 
@@ -7,9 +7,9 @@ namespace Simulator
     //All diese Funktionen nutzt der Leveleditor vom Simulator
     public interface ILeveleditorUsedSimulator
     {
-        void Draw(GraphicPanel2D panel);
-        void DrawPhysicItemBorders(GraphicPanel2D panel, Pen borderPen);
-        void DrawSmallWindow(GraphicPanel2D panel);
+        void Draw(IDrawingPanel panel);
+        void DrawPhysicItemBorders(IDrawingPanel panel, Pen borderPen);
+        void DrawSmallWindow(IDrawingPanel panel);
         void PanelSizeChangedHandler(int width, int height);
         void MoveOneStep(float dt);
         void HandleKeyDown(System.Windows.Input.Key key);

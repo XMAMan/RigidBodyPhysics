@@ -1,13 +1,11 @@
 ﻿using GameHelper;
 using GameHelper.Simulation.RigidBodyTagging;
-using GraphicPanels;
-using GraphicPanelWpf;
 using PhysicGlobal;
 
 namespace AstroidsControl.Model
 {
     //Klebt eine Sprite-Datei an zwei AnchorPoints
-    class FireSprite : ITimerHandler
+    class FireSprite
     {
         private SpriteImage sprite;
         private AnchorPoint anchorPoint1;
@@ -27,7 +25,7 @@ namespace AstroidsControl.Model
             HandleTimerTick(0);
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             this.sprite.Draw(panel, this.anchorMiddle);
         }

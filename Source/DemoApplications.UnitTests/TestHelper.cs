@@ -1,7 +1,6 @@
 ﻿using DemoApplicationHelper;
 using DemoApplications.UnitTests.SoundMocking;
 using GameHelper;
-using GraphicPanels;
 using System.Drawing;
 using WpfControls.Model;
 
@@ -12,7 +11,7 @@ namespace DemoApplications.UnitTests
         public static TestResult RunSimulation(IEditorFactory editorFactory, string gameFolder, string levelFile, string keyboardFile, int singleImageWidth = 300, int singleImageHeight = 200, int imageCountPerRow = 10)
         {
             var sound = new SoundGeneratorMock();
-            var panel = new GraphicPanel2D() { Width = singleImageWidth, Height = singleImageHeight, Mode = Mode2D.OpenGL_Version_3_0 };
+            var panel = new DrawingPanel.DrawingPanel(singleImageWidth, singleImageHeight);
 
             var sut = (IPhysicSimulated)editorFactory.CreateEditorViewModel(new EditorInputDataWithSound()
             {

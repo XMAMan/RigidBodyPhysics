@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 
 namespace KeyFramePhysicImporter.Model.PhysicSceneDrawing
@@ -9,6 +8,6 @@ namespace KeyFramePhysicImporter.Model.PhysicSceneDrawing
         IPublicRigidBody PhysicModel { get; }
         Color FillColor { get; set; }
         PhysicGlobal.BoundingBox BoundingBox { get; }
-        void Draw(GraphicPanel2D panel, Pen borderPen, Color fillColor, Camera2D camera);
+        void Draw(IDrawingPanel panel, Pen borderPen, Color fillColor, Camera2D camera);
     }
 }

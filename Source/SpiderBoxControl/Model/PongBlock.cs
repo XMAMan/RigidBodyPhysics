@@ -1,5 +1,4 @@
 ﻿using GameHelper.Simulation;
-using GraphicPanels;
 using KeyboardRecordAndPlay;
 using PhysicGlobal;
 using PhysicSceneDrawing;
@@ -7,7 +6,6 @@ using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using System;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 
 namespace SpiderBoxControl.Model
 {
@@ -37,31 +35,31 @@ namespace SpiderBoxControl.Model
             });
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             float sizeX = this.block.Size.X / this.sceneBoundingBox.GetWidth();
             float sizeY = this.block.Size.Y / this.sceneBoundingBox.GetHeight();
             float size = Math.Min(sizeX, sizeY);
 
             //Zeichne das Pong-Level innerhalb des Blocks
-            var m = PhxMatrix.Ident();
-            m *= PhxMatrix.Translate(-this.sceneBoundingBox.GetCenter().X, -this.sceneBoundingBox.GetCenter().Y, 0);
-            m *= PhxMatrix.Scale(size, size, size);
-            m *= PhxMatrix.Rotate(block.Angle / (float)Math.PI * 180, 0, 0, 1);
-            m *= PhxMatrix.Translate(this.block.Center.X, this.block.Center.Y, 0);            
+            var m = Matrix4x4.Ident();
+            m *= Matrix4x4.Translate(-this.sceneBoundingBox.GetCenter().X, -this.sceneBoundingBox.GetCenter().Y, 0);
+            m *= Matrix4x4.Scale(size, size, size);
+            m *= Matrix4x4.Rotate(block.Angle / (float)Math.PI * 180, 0, 0, 1);
+            m *= Matrix4x4.Translate(this.block.Center.X, this.block.Center.Y, 0);            
            
             //Hintergrund zeichnen
             panel.DrawFillRectangle(Color.Black, block.Center.X, block.Center.Y, block.Size.X, block.Size.Y, block.Angle / (float)Math.PI * 180);
-            panel.DrawPolygon(new Pen(Color.Red, 2), block.Vertex.Select(x => x.ToGrx()).ToList());
+            panel.DrawPolygon(new Pen(Color.Red, 2), block.Vertex);
 
             //Physikitems zeichnen
             panel.PushMatrix();
-            panel.MultTransformationMatrix(m.To4x4Matrix());
+            panel.MultTransformationMatrix(m);
             this.pongSimulator.DrawPhysicItems(panel, false);
             panel.PopMatrix();
         }
 
-        public void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor)
+        public void DrawWithTwoColors(IDrawingPanel panel, Color frontColor, Color backColor)
         {
             panel.DrawFillRectangle(frontColor, block.Center.X, block.Center.Y, block.Size.X, block.Size.Y, block.Angle / (float)Math.PI * 180);
         }

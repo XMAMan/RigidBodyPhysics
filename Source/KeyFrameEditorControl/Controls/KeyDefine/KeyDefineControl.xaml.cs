@@ -1,6 +1,4 @@
-﻿using GraphicPanels;
-using GraphicPanelWpf;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace KeyFrameEditorControl.Controls.KeyDefine
 {
@@ -14,12 +12,12 @@ namespace KeyFrameEditorControl.Controls.KeyDefine
             InitializeComponent();
         }
 
-        public KeyDefineControl(KeyDefineViewModel vm, GraphicPanel2D panel)
+        public KeyDefineControl(KeyDefineViewModel vm, DrawingPanel.DrawingPanel panel)
             : this()
         {
             this.DataContext = vm;
 
-            this.graphicControlBorder.Child = new GraphicControl(panel);
+            this.graphicControlBorder.Child = new DrawingPanel.GraphicControl(panel);
         }
     }
 }

@@ -7,8 +7,8 @@ namespace LevelEditorControl.LevelItems.GroupedItems
     internal class PhysicMergerItemDecorator : IMergeablePhysicScene
     {
         private IMergeablePhysicScene decoree;
-        private PhxMatrix matrix;
-        public PhysicMergerItemDecorator(IMergeablePhysicScene decoree, PhxMatrix matrix)
+        private Matrix4x4 matrix;
+        public PhysicMergerItemDecorator(IMergeablePhysicScene decoree, Matrix4x4 matrix)
         {
             this.decoree = decoree;
             this.matrix = matrix;
@@ -17,7 +17,7 @@ namespace LevelEditorControl.LevelItems.GroupedItems
         public int LevelItemId => this.decoree.LevelItemId;
 
         public PhysicItemExportData PhysicData => this.decoree.PhysicData;
-        public PhxMatrix GetTranslationMatrix()
+        public Matrix4x4 GetTranslationMatrix()
         {
             return this.decoree.GetTranslationMatrix() * this.matrix;
         }

@@ -1,11 +1,8 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
-using LevelEditorExports.Simulator;
+﻿using LevelEditorExports.Simulator;
 using LevelEditorGlobal;
 using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.AxialFriction;
 using System.Drawing;
-using WpfControls.Extensions;
 
 namespace PhysicItemEditorControl.Model.MouseClickable
 {
@@ -24,11 +21,11 @@ namespace PhysicItemEditorControl.Model.MouseClickable
         public int Id { get; } //ITagable
         public TagType TypeName { get => TagType.AxialFriction; } //ITagable
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             DrawBorder(panel, Pens.Blue);
         }
-        public void DrawBorder(GraphicPanel2D panel, Pen borderPen)
+        public void DrawBorder(IDrawingPanel panel, Pen borderPen)
         {
             panel.PushMatrix();
             panel.MultTransformationMatrix(Matrix4x4.Translate(-sceneBoundingBox.X, -sceneBoundingBox.Y, 0));
@@ -37,12 +34,12 @@ namespace PhysicItemEditorControl.Model.MouseClickable
             panel.PopMatrix();
         }
 
-        private static void DrawStick(GraphicPanel2D panel, Vec2D position, Vec2D direction, Pen pen)
+        private static void DrawStick(IDrawingPanel panel, Vec2D position, Vec2D direction, Pen pen)
         {
             float r = 25;
             var p1 = position - direction * r;
             var p2 = position + direction * r;
-            panel.DrawLine(pen, p1.ToGrx(), p2.ToGrx());
+            panel.DrawLine(pen, p1, p2);
 
             int count = 5;
             float l = 10;
@@ -51,14 +48,14 @@ namespace PhysicItemEditorControl.Model.MouseClickable
             {
                 float f = (float)i / count;
                 var p = (1 - f) * p1 + f * p2;
-                panel.DrawLine(pen, (p - normal * l).ToGrx(), (p + normal * l).ToGrx());
+                panel.DrawLine(pen, (p - normal * l), (p + normal * l));
             }
         }
 
-        public bool IsPointInside(Vec2D point, PhxMatrix screenToLocal)
+        public bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal)
         {
-            screenToLocal *= PhxMatrix.Translate(sceneBoundingBox.X, sceneBoundingBox.Y, 0);
-            point = PhxMatrix.MultPosition(screenToLocal, point);
+            screenToLocal *= Matrix4x4.Translate(sceneBoundingBox.X, sceneBoundingBox.Y, 0);
+            point = Matrix4x4.MultPosition(screenToLocal, point);
 
             float r = 25;
             var dir = runtimAxialFriction.ForceDirection;
@@ -68,9 +65,9 @@ namespace PhysicItemEditorControl.Model.MouseClickable
             return MathHelper.IsPointAboveLine(p1, p2, point);
         }
 
-        public PhxMatrix GetScreenToLocalMatrix()
+        public Matrix4x4 GetScreenToLocalMatrix()
         {
-            return PhxMatrix.Ident();
+            return Matrix4x4.Ident();
         }
 
         public float GetArea()

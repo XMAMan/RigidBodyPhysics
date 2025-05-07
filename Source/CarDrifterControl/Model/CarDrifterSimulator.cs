@@ -1,5 +1,4 @@
 ﻿using GameHelper.Simulation;
-using GraphicPanels;
 using LevelEditorExports.Simulator;
 using PhysicGlobal;
 using System.Drawing;
@@ -23,7 +22,7 @@ namespace CarDrifterControl.Model
         }
 
         //Wird vom GameViewModel genutzt
-        public CarDrifterSimulator(string levelFile, float timerIntervalInMilliseconds, Sounds sounds, string dataFolder, GraphicPanel2D panel)
+        public CarDrifterSimulator(string levelFile, float timerIntervalInMilliseconds, Sounds sounds, string dataFolder, IDrawingPanel panel)
             : base(levelFile, panel.Size, timerIntervalInMilliseconds)
         {
             Init(sounds, dataFolder);
@@ -50,7 +49,7 @@ namespace CarDrifterControl.Model
             this.car = new Car(this, this.sounds);
         }
 
-        public override void Draw(GraphicPanel2D panel)
+        public override void Draw(IDrawingPanel panel)
         {
             base.Draw(panel);
 

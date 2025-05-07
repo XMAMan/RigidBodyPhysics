@@ -1,8 +1,6 @@
 ﻿using DynamicObjCreation.RigidBodyDestroying;
-using GraphicPanels;
 using PhysicGlobal;
 using System.Drawing;
-using WpfControls.Extensions;
 
 namespace DynamicObjCreation.UnitTests
 {
@@ -53,10 +51,10 @@ namespace DynamicObjCreation.UnitTests
             var sut = new RotatedBoundingBox(poly1a, AngleInDegreeA);
 
             var min = new Vec2D(547, 120);
-            var panel = new GraphicPanel2D() { Width = 380, Height = 380, Mode = Mode2D.CPU };
+            var panel = new DrawingPanel.DrawingPanel(380, 380, true);
             panel.ClearScreen(Color.White);
-            panel.DrawPolygon(Pens.Red, poly1a.Select(x => (x - min).ToGrx()).ToList());
-            panel.DrawPolygon(Pens.Green, sut.CornerPoints.Select(x => (x - min).ToGrx()).ToList());
+            panel.DrawPolygon(Pens.Red, poly1a.Select(x => (x - min)).ToArray());
+            panel.DrawPolygon(Pens.Green, sut.CornerPoints.Select(x => (x - min)).ToArray());
             panel.FlipBuffer();
 
             panel.GetScreenShoot().Save(DataFolder + "RotatedBoxA.bmp");
@@ -70,10 +68,10 @@ namespace DynamicObjCreation.UnitTests
             var sut = new RotatedBoundingBox(poly1b, AngleInDegreeB);
 
             var min = new Vec2D(573, 540);
-            var panel = new GraphicPanel2D() { Width = 306, Height = 325, Mode = Mode2D.CPU };
+            var panel = new DrawingPanel.DrawingPanel(306, 325, true);
             panel.ClearScreen(Color.White);
-            panel.DrawPolygon(Pens.Red, poly1b.Select(x => (x - min).ToGrx()).ToList());
-            panel.DrawPolygon(Pens.Green, sut.CornerPoints.Select(x => (x - min).ToGrx()).ToList());
+            panel.DrawPolygon(Pens.Red, poly1b.Select(x => (x - min)).ToArray());
+            panel.DrawPolygon(Pens.Green, sut.CornerPoints.Select(x => (x - min)).ToArray());
             panel.FlipBuffer();
 
             panel.GetScreenShoot().Save(DataFolder + "RotatedBoxB.bmp");

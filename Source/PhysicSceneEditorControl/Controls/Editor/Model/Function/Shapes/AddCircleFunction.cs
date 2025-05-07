@@ -1,8 +1,6 @@
-﻿using GraphicPanels;
-using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
+﻿using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using PhysicGlobal;
 using WpfControls.Model;
-using WpfControls.Extensions;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Shapes
 {
@@ -57,9 +55,9 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Shapes
             currentMousePosition = new Vec2D(e.X, e.Y);
         }
 
-        public override void Draw(GraphicPanel2D panel)
+        public override void Draw(IDrawingPanel panel)
         {
-            panel.DrawCircle(Pens.Black, currentMousePosition.ToGrx(), currentRadius);
+            panel.DrawCircle(Pens.Black, currentMousePosition, currentRadius);
         }
 
         public override FunctionHelpText GetHelpText()

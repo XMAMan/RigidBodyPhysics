@@ -1,5 +1,4 @@
 ﻿using GameHelper;
-using GraphicPanels;
 using System;
 using System.Drawing;
 using GameHelper.Simulation;
@@ -48,7 +47,7 @@ namespace MoonlanderControl.Model
             this.particleHandler.HandleTimerTick(dt);            
         }
 
-        public void DrawParticles(GraphicPanel2D panel)
+        public void DrawParticles(IDrawingPanel panel)
         {
             this.particleHandler.DrawParticles(panel);
         }

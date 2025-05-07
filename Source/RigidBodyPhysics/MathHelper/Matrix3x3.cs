@@ -1,4 +1,6 @@
-﻿namespace RigidBodyPhysics.MathHelper
+﻿using PhysicGlobal;
+
+namespace RigidBodyPhysics.MathHelper
 {
     internal class Matrix3x3
     {

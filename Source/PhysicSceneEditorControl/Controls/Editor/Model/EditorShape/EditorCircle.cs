@@ -1,8 +1,6 @@
-﻿using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using PhysicSceneEditorControl.Controls.ShapeProperty;
 using RigidBodyPhysics.ExportData.RigidBody;
-using WpfControls.Extensions;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorShape
 {
@@ -51,15 +49,15 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorShape
         {
             this.radius *= size;
         }
-        public void Draw(GraphicPanel2D panel) //Zeichnet die Editor-Daten
+        public void Draw(IDrawingPanel panel) //Zeichnet die Editor-Daten
         {
             if (this.Backcolor != Color.Transparent)
-                panel.DrawFillCircle(this.Backcolor, this.Center.ToGrx(), this.radius);
+                panel.DrawFillCircle(this.Backcolor, this.Center, this.radius);
 
-            panel.DrawCircle(this.BorderPen, this.Center.ToGrx(), this.radius);
+            panel.DrawCircle(this.BorderPen, this.Center, this.radius);
 
             Vec2D r = Vec2D.DirectionFromPhi(this.AngleInDegree / 180 * (float)Math.PI);
-            panel.DrawLine(Pens.Black, this.Center.ToGrx(), (this.Center + r * this.radius).ToGrx());
+            panel.DrawLine(Pens.Black, this.Center, (this.Center + r * this.radius));
         }
 
         public IExportRigidBody GetExportData()

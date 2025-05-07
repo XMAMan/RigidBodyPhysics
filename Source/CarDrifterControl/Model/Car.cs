@@ -1,11 +1,11 @@
 ﻿using GameHelper.Simulation;
-using GraphicPanels;
 using ReactiveUI;
 using System;
 using RigidBodyPhysics.RuntimeObjects.AxialFriction;
 using RigidBodyPhysics.RuntimeObjects.Joints;
 using RigidBodyPhysics.RuntimeObjects.Thruster;
 using System.Windows.Input;
+using PhysicGlobal;
 
 namespace CarDrifterControl.Model
 {
@@ -178,7 +178,7 @@ namespace CarDrifterControl.Model
             }
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             this.slidingTracker.Draw(panel);
         }

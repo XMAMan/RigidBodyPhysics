@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using GraphicPanelWpf;
+﻿using GraphicPanelWpf;
 using ReactiveUI.Fody.Helpers;
 using ReactiveUI;
 using System;
@@ -26,7 +25,7 @@ namespace TextureEditorControl.Controls.Editor
 {
     public class TextureEditorViewModel : ReactiveObject, IGraphicPanelHandler, IStringSerializable, IObjectSerializable, IPhysicSceneEditor
     {
-        private GraphicPanel2D panel;
+        private IDrawingPanel panel;
         private VisualisizerInputData inputData = null;
         private ShapeContainer shapeContainer;
         private Drawer drawer = null;
@@ -51,7 +50,7 @@ namespace TextureEditorControl.Controls.Editor
 
         public string PhysicSceneJson { get; private set; } //Wird für den PhysicEngine-Editor benötigt damit er sieht, ob es Änderungen in der PhysicScene gab
 
-        public TextureEditorViewModel(GraphicPanel2D panel, bool showSaveLoadButtons, string physicSceneJson)
+        public TextureEditorViewModel(IDrawingPanel panel, bool showSaveLoadButtons, string physicSceneJson)
         {
             this.panel = panel;
             this.ShowSaveLoadButtons = showSaveLoadButtons;

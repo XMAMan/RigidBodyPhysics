@@ -1,5 +1,5 @@
-﻿using GraphicPanels;
-using LevelEditorExports.Simulator;
+﻿using LevelEditorExports.Simulator;
+using PhysicGlobal;
 
 namespace LevelEditorControl.LevelItems
 {
@@ -8,7 +8,7 @@ namespace LevelEditorControl.LevelItems
     //Möglichkeit 2: Item ist weiter weg im Hintergrund und bewegt sich langsam mit der Kamera mit
     internal interface IBackgroundItem
     {
-        void Draw(GraphicPanel2D panel);
+        void Draw(IDrawingPanel panel);
         BackgroundItemSimulatorExportData GetSimulatorExportData();
     }
 

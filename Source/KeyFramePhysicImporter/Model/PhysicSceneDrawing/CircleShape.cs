@@ -1,7 +1,5 @@
-﻿using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
-using WpfControls.Extensions;
 
 namespace KeyFramePhysicImporter.Model.PhysicSceneDrawing
 {
@@ -24,9 +22,9 @@ namespace KeyFramePhysicImporter.Model.PhysicSceneDrawing
             }
         }
 
-        public void Draw(GraphicPanel2D panel, Pen borderPen, Color fillColor, Camera2D camera)
+        public void Draw(IDrawingPanel panel, Pen borderPen, Color fillColor, Camera2D camera)
         {
-            var pos = camera.PointToScreen(this.model.Center).ToGrx();
+            var pos = camera.PointToScreen(this.model.Center);
             float radius = camera.LengthToScreen(this.model.Radius);
             panel.DrawFillCircle(fillColor, pos, radius);
             panel.DrawCircle(borderPen, pos, radius);

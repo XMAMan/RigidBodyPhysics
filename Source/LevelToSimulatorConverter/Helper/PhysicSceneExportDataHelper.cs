@@ -18,14 +18,14 @@ namespace LevelToSimulatorConverter.Helper
         //Hier wird eine Matrix4x4 und keine Matrix3x3 verwendet, weil an anderer Stelle mit der Matrix panel.MultTransformationMatrix aufgerufen wird
         //Man kann auch nicht so einfach eine Matrix3x3 in eine Matrix4x4 (oder umgekehrt) umwandeln, da die Translate-Matrix
         //einmal das XY in Zeile 3 und einmal in Zeile 4 stehen hat.
-        public static void TranslateScene(PhysicSceneExportData scene, PhxMatrix matrix)
+        public static void TranslateScene(PhysicSceneExportData scene, Matrix4x4 matrix)
         {
-            float angleInDegreeMatrix = PhxMatrix.GetAngleInDegreeFromMatrix(matrix);
-            float sizeFactorMatrix = PhxMatrix.GetSizeFactorFromMatrix(matrix);
+            float angleInDegreeMatrix = Matrix4x4.GetAngleInDegreeFromMatrix(matrix);
+            float sizeFactorMatrix = Matrix4x4.GetSizeFactorFromMatrix(matrix);
 
             foreach (var body in scene.Bodies)
             {
-                body.Center = PhxMatrix.MultPosition(matrix, new Vec2D(body.Center.X, body.Center.Y));
+                body.Center = Matrix4x4.MultPosition(matrix, new Vec2D(body.Center.X, body.Center.Y));
 
                 body.AngleInDegree += angleInDegreeMatrix;
 

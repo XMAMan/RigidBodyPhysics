@@ -1,9 +1,7 @@
-﻿using GraphicPanels;
-using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
+﻿using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using PhysicSceneEditorControl.Controls.RotaryMotorProperty;
 using RigidBodyPhysics.ExportData.RotaryMotor;
 using PhysicGlobal;
-using WpfControls.Extensions;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorRotaryMotor
 {
@@ -39,7 +37,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorRotaryMotor
             UpdateAfterMovingBodys();
         }
 
-        public void Draw(GraphicPanel2D panel) //Zeichnet die Editor-Daten
+        public void Draw(IDrawingPanel panel) //Zeichnet die Editor-Daten
         {
             if (this.Backcolor != Color.Transparent)
             {
@@ -49,15 +47,15 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorRotaryMotor
             Draw(this.BorderPen, panel);
         }
 
-        private void Draw(Pen pen, GraphicPanel2D panel)
+        private void Draw(Pen pen, IDrawingPanel panel)
         {
-            panel.DrawCircleArc(pen, this.Body.Center.ToGrx(), 20, 30, 320, false);
+            panel.DrawCircleArc(pen, this.Body.Center, 20, 30, 320, false);
             var p = Vec2D.RotatePointAroundPivotPoint(this.Body.Center, this.Body.Center + new Vec2D(20, 0), 320);
             var dir1 = Vec2D.RotatePointAroundPivotPoint(this.Body.Center, this.Body.Center + new Vec2D(20 + 10, 0 - 10), 320);
             var dir2 = Vec2D.RotatePointAroundPivotPoint(this.Body.Center, this.Body.Center + new Vec2D(20 - 10, 0 - 10), 320);
 
-            panel.DrawLine(pen, p.ToGrx(), dir1.ToGrx());
-            panel.DrawLine(pen, p.ToGrx(), dir2.ToGrx());
+            panel.DrawLine(pen, p, dir1);
+            panel.DrawLine(pen, p, dir2);
         }
 
         public IExportRotaryMotor GetExportData(List<IEditorShape> bodies)

@@ -6,7 +6,6 @@ using System.Windows.Forms;
 using System.Linq;
 using System.Collections.Generic;
 using System.Drawing;
-using WpfControls.Extensions;
 using PhysicGlobal;
 
 namespace LevelEditorControl.EditorFunctions
@@ -263,17 +262,17 @@ namespace LevelEditorControl.EditorFunctions
             float radius = this.state.Camera.LengthToCamera(CircleRadius); //Die Punkte sollen unabhängig vom Kamera-Zoom immer gleich groß sein
             foreach (var point in this.polygon.Points)
             {
-                panel.DrawFillRegularPolygon(Color.Green, point.ToGrx(), radius, 7);
+                panel.DrawFillRegularPolygon(Color.Green, point, radius, 7);
             }
 
             if (this.mouseOverPolyPointIndex != -1 && this.mouseOverPoint != null)
             {
-                panel.DrawFillRegularPolygon(Color.Blue, this.polygon.Points[mouseOverPolyPointIndex].ToGrx(), radius, 7);
+                panel.DrawFillRegularPolygon(Color.Blue, this.polygon.Points[mouseOverPolyPointIndex], radius, 7);
             }
 
             if (this.mouseOverPointOnLine != null)
             {
-                panel.DrawCircle(new Pen(Color.Blue, 3), this.mouseOverPointOnLine.ToGrx(), radius);
+                panel.DrawCircle(new Pen(Color.Blue, 3), this.mouseOverPointOnLine, radius);
             }
 
             if (this.selectionRec != null)
@@ -286,7 +285,7 @@ namespace LevelEditorControl.EditorFunctions
             {
                 foreach (var index in this.selectedPolyPoints)
                 {
-                    panel.DrawFillRegularPolygon(Color.Blue, this.polygon.Points[index].ToGrx(), radius, 7);
+                    panel.DrawFillRegularPolygon(Color.Blue, this.polygon.Points[index], radius, 7);
                 }
             }
 

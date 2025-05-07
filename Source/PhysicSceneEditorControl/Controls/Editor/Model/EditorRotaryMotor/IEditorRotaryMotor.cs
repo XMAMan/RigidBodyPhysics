@@ -1,4 +1,4 @@
-﻿using GraphicPanels;
+﻿using PhysicGlobal;
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using PhysicSceneEditorControl.Controls.RotaryMotorProperty;
 using RigidBodyPhysics.ExportData.RotaryMotor;
@@ -9,7 +9,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorRotaryMotor
     {
         IEditorShape Body { get; }
         RotaryMotorPropertyViewModel Properties { get; set; }
-        void Draw(GraphicPanel2D panel); //Zeichnet die Editor-Daten
+        void Draw(IDrawingPanel panel); //Zeichnet die Editor-Daten
         IExportRotaryMotor GetExportData(List<IEditorShape> bodies);
         void UpdateAfterMovingBodys();
     }

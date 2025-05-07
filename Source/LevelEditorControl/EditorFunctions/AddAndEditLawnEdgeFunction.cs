@@ -9,7 +9,6 @@ using LevelEditorControl.Controls.PolygonControl;
 using ReactiveUI;
 using System.Windows.Forms;
 using System.Drawing;
-using WpfControls.Extensions;
 using PhysicGlobal;
 
 namespace LevelEditorControl.EditorFunctions
@@ -253,8 +252,8 @@ namespace LevelEditorControl.EditorFunctions
         private void DrawPolyPoint(LawnEdgeDrawer.PolygonPoint point, Color color)
         {
             float height = this.state.Camera.LengthToScreen(this.drawer.LawnHeight);
-            var p1 = state.Camera.PointToScreen(point.Position).ToGrx();
-            var p2 = state.Camera.PointToScreen((point.Position + point.Normal * height)).ToGrx();
+            var p1 = state.Camera.PointToScreen(point.Position);
+            var p2 = state.Camera.PointToScreen((point.Position + point.Normal * height));
             this.state.Panel.DrawLine(new Pen(color, 5), p1, p2);
         }
 

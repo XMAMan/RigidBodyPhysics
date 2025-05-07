@@ -14,7 +14,6 @@ using TextureEditorControl;
 using TextureEditorGlobal;
 using WpfControls.Model;
 using GraphicPanelWpf;
-using GraphicPanels;
 using System.Reactive.Linq;
 using KeyFrameEditorControl.Controls.KeyFrameEditor;
 using PhysicSceneEditorControl;
@@ -30,7 +29,7 @@ namespace PhysicItemEditorControl.ViewModel
 {
     public class PhysicItemViewModel : ReactiveObject, IGraphicPanelHandler, ITimerHandler, IStringSerializable, IObjectSerializable, IPrototypItemFactory
     {
-        private GraphicPanel2D panel;
+        private DrawingPanel.DrawingPanel panel;
         private float timerTickRateInMs;
         private int id;
         private InitialRotatedRectangleValues initialRecValues = new InitialRotatedRectangleValues();

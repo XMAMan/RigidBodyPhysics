@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using System.Drawing;
 
 namespace BridgeBuilderControl.Controls.Helper
@@ -9,7 +8,7 @@ namespace BridgeBuilderControl.Controls.Helper
     {
         private static float Bias = 0.5f; //So viel Prozent ist der Snap-Einzugsbereich groß
 
-        private GraphicPanel2D panel;
+        private IDrawingPanel panel;
 
         public uint XCount { get; set; }
 
@@ -20,7 +19,7 @@ namespace BridgeBuilderControl.Controls.Helper
             get => panel.Width / (float)this.XCount;
         }
 
-        public MouseGrid(GraphicPanel2D panel, uint xCount)
+        public MouseGrid(IDrawingPanel panel, uint xCount)
         {
             this.panel = panel;
             this.XCount = xCount;

@@ -32,10 +32,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="XMAMan.GraphicEngine2D" Version="0.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Controls\KeyDefine\ChangeBackground.PNG" />
     <Resource Include="Controls\KeyDefine\Revert.png" />
     <Resource Include="Controls\KeyFrameEditor\Load.PNG" />

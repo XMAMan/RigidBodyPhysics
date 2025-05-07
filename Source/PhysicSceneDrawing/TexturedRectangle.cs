@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using TextureEditorGlobal;
 
@@ -59,11 +58,11 @@ namespace PhysicSceneDrawing
             p = textureData;
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             if (string.IsNullOrEmpty(p.TextureFile))
             {
-                panel.DrawPolygon(Pens.Black, r.Vertex.ToGrx().ToList());
+                panel.DrawPolygon(Pens.Black, r.Vertex);
                 return;
             }
 
@@ -78,17 +77,17 @@ namespace PhysicSceneDrawing
                         angleInDegree + p.DeltaAngle);
         }
 
-        public void DrawPhysicBorder(GraphicPanel2D panel, Pen borderPen)
+        public void DrawPhysicBorder(IDrawingPanel panel, Pen borderPen)
         {
-            panel.DrawPolygon(borderPen, r.Vertex.ToGrx().ToList()); //Physik-Border
+            panel.DrawPolygon(borderPen, r.Vertex); //Physik-Border
         }
-        public void DrawTextureBorder(GraphicPanel2D panel, Pen borderPen)
+        public void DrawTextureBorder(IDrawingPanel panel, Pen borderPen)
         {
-            panel.DrawPolygon(borderPen, GetTextureCornerPoints().ToGrx().ToList()); //Texture-Border
+            panel.DrawPolygon(borderPen, GetTextureCornerPoints().ToArray()); //Texture-Border
         }
-        public void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor)
+        public void DrawWithTwoColors(IDrawingPanel panel, Color frontColor, Color backColor)
         {
-            panel.DrawFillPolygon(frontColor, r.Vertex.ToGrx().ToList());
+            panel.DrawFillPolygon(frontColor, r.Vertex);
         }
     }
 }

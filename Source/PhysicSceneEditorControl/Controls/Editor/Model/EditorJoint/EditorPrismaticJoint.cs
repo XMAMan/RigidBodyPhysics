@@ -1,11 +1,9 @@
-﻿using GraphicPanels;
-using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
+﻿using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using PhysicSceneEditorControl.Controls.Editor.Model.Function.Joints;
 using PhysicSceneEditorControl.Controls.JointPropertys.PrismaticJoint;
 using PhysicSceneEditorControl.Controls.SoftProperty;
 using RigidBodyPhysics.ExportData.Joints;
 using PhysicGlobal;
-using WpfControls.Extensions;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorJoint
 {
@@ -105,7 +103,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorJoint
             this.tangent = Vec2D.CrossWithZ(r1Dir, 1) * 10;
         }
 
-        public void Draw(GraphicPanel2D panel) //Zeichnet die Editor-Daten
+        public void Draw(IDrawingPanel panel) //Zeichnet die Editor-Daten
         {
             if (this.Backcolor != Color.Transparent)
             {
@@ -121,9 +119,9 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorJoint
                     Vec2D min = this.Body1.Center + this.r1Dir * this.Properties.MinTranslation * this.baseLength;
 
                     float angle = Vec2D.Angle360YMirrored(new Vec2D(1, 0), this.r1Dir);
-                    panel.DrawCircleArc(this.MinLimitPen, min.ToGrx(), 15, angle - 90, angle + 90, false);
+                    panel.DrawCircleArc(this.MinLimitPen, min, 15, angle - 90, angle + 90, false);
 
-                    panel.DrawFillCircle(this.MinLimitPen.Color, min.ToGrx(), 3);
+                    panel.DrawFillCircle(this.MinLimitPen.Color, min, 3);
                     panel.DrawStringOnCircleBorder("Min=" + (int)(this.Properties.MinTranslation * 100), 20, Color.Black, min, this.r1Dir.Spin90());
                 }
 
@@ -132,15 +130,15 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorJoint
                     Vec2D max = this.Body1.Center + this.r1Dir * this.Properties.MaxTranslation * this.baseLength;
 
                     float angle = Vec2D.Angle360YMirrored(new Vec2D(1, 0), this.r1Dir);
-                    panel.DrawCircleArc(this.MaxLimitPen, max.ToGrx(), 15, angle + 90, angle - 90, false);
+                    panel.DrawCircleArc(this.MaxLimitPen, max, 15, angle + 90, angle - 90, false);
 
-                    panel.DrawFillCircle(this.MaxLimitPen.Color, max.ToGrx(), 3);
+                    panel.DrawFillCircle(this.MaxLimitPen.Color, max, 3);
                     panel.DrawStringOnCircleBorder("Max=" + (int)(this.Properties.MaxTranslation * 100), 20, Color.Black, max, this.r1Dir.Spin90());
                 }
             }
         }
 
-        private void Draw(GraphicPanel2D panel, Pen pen)
+        private void Draw(IDrawingPanel panel, Pen pen)
         {
             Vec2D a1 = Body1.Center - this.tangent;
             Vec2D a2 = Body1.Center + this.tangent;
@@ -149,15 +147,15 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorJoint
             Vec2D b2 = a2 + this.r1Dir * this.baseLength;
 
             //Hülse
-            panel.DrawLine(pen, a1.ToGrx(), a2.ToGrx());
-            panel.DrawLine(pen, a1.ToGrx(), b1.ToGrx());
-            panel.DrawLine(pen, a2.ToGrx(), b2.ToGrx());
+            panel.DrawLine(pen, a1, a2);
+            panel.DrawLine(pen, a1, b1);
+            panel.DrawLine(pen, a2, b2);
 
             //Stift
-            panel.DrawLine(new Pen(pen.Color, pen.Width + 3), Body1.Center.ToGrx(), this.r1Point.ToGrx());
+            panel.DrawLine(new Pen(pen.Color, pen.Width + 3), Body1.Center, this.r1Point);
 
             //Anchor2-Abstandslinie
-            panel.DrawLine(pen, r1Point.ToGrx(), this.anchor2.ToGrx());
+            panel.DrawLine(pen, r1Point, this.anchor2);
         }
         public IExportJoint GetExportData(List<IEditorShape> bodies)
         {

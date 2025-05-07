@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using GraphicPanelWpf;
+﻿using DrawingPanel;
 using PhysicSceneSimulatorControl.Controls.Simulator.ViewModel;
 
 namespace PhysicSceneSimulatorControl.Controls.Simulator.View
@@ -14,7 +13,7 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.View
             InitializeComponent();
         }
 
-        public SimulatorControl(SimulatorViewModel vm, GraphicPanel2D panel)
+        public SimulatorControl(SimulatorViewModel vm, DrawingPanel.DrawingPanel panel)
             : this()
         {
             this.DataContext = vm;

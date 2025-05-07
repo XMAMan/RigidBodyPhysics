@@ -1,9 +1,7 @@
-﻿using GraphicPanels;
-using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
+﻿using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using PhysicSceneEditorControl.Controls.ThrusterProperty;
 using RigidBodyPhysics.ExportData.Thruster;
 using PhysicGlobal;
-using WpfControls.Extensions;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorThruster
 {
@@ -47,7 +45,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorThruster
             UpdateAfterMovingBodys();
         }
 
-        public void Draw(GraphicPanel2D panel) //Zeichnet die Editor-Daten
+        public void Draw(IDrawingPanel panel) //Zeichnet die Editor-Daten
         {
             if (this.Backcolor != Color.Transparent)
             {
@@ -57,15 +55,15 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorThruster
             DrawArrow(panel, this.anchorWorldPosition, this.worldForceDirection, this.BorderPen);
         }
 
-        public static void DrawArrow(GraphicPanel2D panel, Vec2D position, Vec2D direction, Pen pen)
+        public static void DrawArrow(IDrawingPanel panel, Vec2D position, Vec2D direction, Pen pen)
         {
             float r = 50;
             var v1 = Vec2D.GetV2FromAngle360(direction, 45 + 90);
             var v2 = Vec2D.GetV2FromAngle360(direction, -45 - 90);
 
-            panel.DrawLine(pen, (position - direction * r).ToGrx(), position.ToGrx());
-            panel.DrawLine(pen, position.ToGrx(), (position + v1 * (r / 3)).ToGrx());
-            panel.DrawLine(pen, position.ToGrx(), (position + v2 * (r / 3)).ToGrx());
+            panel.DrawLine(pen, (position - direction * r), position);
+            panel.DrawLine(pen, position, (position + v1 * (r / 3)));
+            panel.DrawLine(pen, position, (position + v2 * (r / 3)));
         }
 
         public IExportThruster GetExportData(List<IEditorShape> bodies)

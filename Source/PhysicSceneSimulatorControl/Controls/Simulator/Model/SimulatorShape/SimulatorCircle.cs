@@ -1,8 +1,6 @@
-﻿using GraphicPanels;
-using PhysicSceneSimulatorControl.Dialogs.PrintSettings;
+﻿using PhysicSceneSimulatorControl.Dialogs.PrintSettings;
 using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
-using WpfControls.Extensions;
 
 namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorShape
 {
@@ -17,13 +15,13 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorShape
             this.PhysicModel = this.rigidCircle = ctor;
         }
 
-        public void Draw(GraphicPanel2D panel, PrintSettingsViewModel printSettings)
+        public void Draw(IDrawingPanel panel, PrintSettingsViewModel printSettings)
         {
             var c = this.rigidCircle;
-            panel.DrawCircle(Pens.Black, c.Center.ToGrx(), c.Radius);
+            panel.DrawCircle(Pens.Black, c.Center, c.Radius);
 
             Vec2D r = Vec2D.DirectionFromPhi(c.Angle);
-            panel.DrawLine(Pens.Black, c.Center.ToGrx(), (c.Center + r * c.Radius).ToGrx());
+            panel.DrawLine(Pens.Black, c.Center, (c.Center + r * c.Radius));
         }
     }
 }

@@ -18,12 +18,12 @@ namespace DynamicObjCreation
             //An dieser Stelle liegt der Pivot-Punkt vom LevelItem
             var itemPivot = new Vec2D(box.Min.X, box.Min.Y) + GetOriantationPoint(new SizeF(box.GetWidth(), box.GetHeight()), oriantation);
 
-            var m = PhxMatrix.Ident();
+            var m = Matrix4x4.Ident();
 
-            m *= PhxMatrix.Translate(-itemPivot.X, -itemPivot.Y, 0);     //Schritt 1: Verschiebe den PivotPunkt zum Nullpunkt
-            m *= PhxMatrix.Scale(size, size, size);                      //Schritt 2: Skaliere
-            m *= PhxMatrix.Rotate(angleInDegree, 0, 0, 1);               //Schritt 3: Rotiere um Z
-            m *= PhxMatrix.Translate(pivotPoint.X, pivotPoint.Y, 0);     //Schritt 4: Gehe zum Zielpunkt
+            m *= Matrix4x4.Translate(-itemPivot.X, -itemPivot.Y, 0);     //Schritt 1: Verschiebe den PivotPunkt zum Nullpunkt
+            m *= Matrix4x4.Scale(size, size, size);                      //Schritt 2: Skaliere
+            m *= Matrix4x4.Rotate(angleInDegree, 0, 0, 1);               //Schritt 3: Rotiere um Z
+            m *= Matrix4x4.Translate(pivotPoint.X, pivotPoint.Y, 0);     //Schritt 4: Gehe zum Zielpunkt
 
             Transform(levelItem, m);
         }
@@ -53,11 +53,11 @@ namespace DynamicObjCreation
             throw new NotImplementedException();
         }
 
-        private static void Transform(PhysikLevelItemExportData levelItem, PhxMatrix matrix)
+        private static void Transform(PhysikLevelItemExportData levelItem, Matrix4x4 matrix)
         {
             PhysicSceneExportDataHelper.TranslateScene(levelItem.PhysicSceneData, matrix);
 
-            float sizeFactor = PhxMatrix.GetSizeFactorFromMatrix(matrix);
+            float sizeFactor = Matrix4x4.GetSizeFactorFromMatrix(matrix);
             foreach (var tex in levelItem.TextureData.Textures)
             {
                 tex.Width = tex.Width * sizeFactor;

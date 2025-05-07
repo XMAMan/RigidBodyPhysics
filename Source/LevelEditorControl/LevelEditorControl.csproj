@@ -39,10 +39,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="XMAMan.GraphicEngine2D" Version="0.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Controls\EditorControl\DoubleDown.png">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>

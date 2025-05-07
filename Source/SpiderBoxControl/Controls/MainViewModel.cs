@@ -1,5 +1,4 @@
 ﻿using GameHelper.Simulation;
-using GraphicPanels;
 using GraphicPanelWpf;
 using PhysicGlobal;
 using ReactiveUI;
@@ -14,7 +13,7 @@ namespace SpiderBoxControl.Controls
     {
         private string DataFolder = null;
 
-        private GraphicPanel2D panel;                   //Grafik-Ausgabe
+        private IDrawingPanel panel;                    //Grafik-Ausgabe
 
         private float timerIntervallInMilliseconds;     //Timer
 
@@ -27,7 +26,7 @@ namespace SpiderBoxControl.Controls
         private bool showPhysicModel = false;
         private bool showHelpText = false;
 
-        public MainViewModel(GraphicPanel2D panel, ISoundGenerator soundGenerator, float timerIntervallInMilliseconds, string dataFolder)
+        public MainViewModel(IDrawingPanel panel, ISoundGenerator soundGenerator, float timerIntervallInMilliseconds, string dataFolder)
         {
             this.DataFolder = dataFolder;
             this.panel = panel;
@@ -82,7 +81,7 @@ namespace SpiderBoxControl.Controls
             panel.FlipBuffer();
         }
 
-        private static void DrawProgressBar(GraphicPanel2D panel, Vec2D position, string text, float value, float minValue, float maxValue)
+        private static void DrawProgressBar(IDrawingPanel panel, Vec2D position, string text, float value, float minValue, float maxValue)
         {
             int borderWidth = 3;
             Size size = new Size(300, 40);

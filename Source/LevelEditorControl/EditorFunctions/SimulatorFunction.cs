@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using Simulator.ForceTracking;
 using Simulator;
 using RigidBodyPhysics.ExportData;
-using WpfControls.Extensions;
 using LevelEditorExports.Simulator;
 using LevelEditorExports.Editor;
 using LevelToSimulatorConverter._2_MergeToSingleScene;
@@ -244,7 +243,7 @@ namespace LevelEditorControl.EditorFunctions
             }else
             {                
                 panel.ClearScreen(Color.White);
-                panel.MultTransformationMatrix(state.Camera.GetPointToSceenMatrix().To4x4Matrix());
+                panel.MultTransformationMatrix(state.Camera.GetPointToSceenMatrix());
 
                 //Gibt zu jeden Körper und Gelenk die Indizes aus. Wird für den ForceTracker benötigt
                 this.simulator.DrawPhysicItemBorders(panel, Pens.Black);

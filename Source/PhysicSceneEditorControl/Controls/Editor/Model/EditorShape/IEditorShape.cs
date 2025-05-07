@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using PhysicSceneEditorControl.Controls.ShapeProperty;
 using RigidBodyPhysics.ExportData.RigidBody;
 
@@ -14,7 +13,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorShape
         void MoveTo(Vec2D position);
         void Rotate(float angleInDegree);
         void Resize(float size);
-        void Draw(GraphicPanel2D panel); //Zeichnet die Editor-Daten
+        void Draw(IDrawingPanel panel); //Zeichnet die Editor-Daten
         IExportRigidBody GetExportData();
         BoundingBox GetBoundingBox();
         Vec2D[] GetAnchorPoints();

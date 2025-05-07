@@ -1,7 +1,7 @@
 ﻿using DynamicData.Aggregation;
 using GraphicMinimal;
-using GraphicPanels;
 using KeyFrameGlobal;
+using PhysicGlobal;
 using PhysicSceneDrawing;
 using PhysicSceneToAnimationConverter;
 using RigidBodyPhysics;
@@ -81,11 +81,11 @@ namespace SpriteEditorControl.Controls.Sprite.Model
             return boxes.ToArray();
         }
 
-        private Frame GetFrame(GraphicPanel2D panel, Rectangle maxBox)
+        private Frame GetFrame(IDrawingPanel panel, Rectangle maxBox)
         {
             var box = drawer.GetTextureBoundingBoxFromScene();
             panel.ClearScreen(ClearColor);
-            panel.MultTransformationMatrix(Matrix4x4.Translate(-maxBox.X, -maxBox.Y, 0)); //Die linke obere Ecke von der Max-Frame-Boundingbox soll bei (0,0) sein
+            panel.MultTransformationMatrix(PhysicGlobal.Matrix4x4.Translate(-maxBox.X, -maxBox.Y, 0)); //Die linke obere Ecke von der Max-Frame-Boundingbox soll bei (0,0) sein
             drawer.Draw(panel);
             panel.FlipBuffer();
             var screen = panel.GetScreenShoot();
@@ -98,7 +98,7 @@ namespace SpriteEditorControl.Controls.Sprite.Model
         }
 
         //timeStepsPerFrame = So viele Frame läuft die Physiksimulation noch um das Model zu beruhigen
-        private Frame[] GetFrames(GraphicPanel2D panel, int count, int timeStepsPerFrame, Rectangle maxBox)
+        private Frame[] GetFrames(IDrawingPanel panel, int count, int timeStepsPerFrame, Rectangle maxBox)
         {           
             List< Frame > frames = new List<Frame>();
             for (int i=0; i<count; i++)
@@ -126,7 +126,7 @@ namespace SpriteEditorControl.Controls.Sprite.Model
             var maxBox = BoxToRec(PhysicGlobal.BoundingBox.GetBoxFromBoxes(boxes));        //Innerhalb dieser BoundinBox erscheinen alle Zeichendaten
 
             //Schritt 2: Erstelle alle Frames
-            var panel = new GraphicPanel2D() { Width = maxBox.Width, Height = maxBox.Height, Mode = Mode2D.CPU };
+            var panel = new DrawingPanel.DrawingPanel(maxBox.Width, maxBox.Height, true);
             var frames = GetFrames(panel, count, timeStepsPerFrame, maxBox);
 
             int width = frames.Sum(x => x.Image.Width);

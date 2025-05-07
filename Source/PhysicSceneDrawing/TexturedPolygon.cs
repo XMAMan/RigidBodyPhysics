@@ -1,6 +1,4 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
-using RigidBodyPhysics.ExportData.RigidBody;
+﻿using RigidBodyPhysics.ExportData.RigidBody;
 using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using TextureEditorGlobal;
@@ -33,7 +31,7 @@ namespace PhysicSceneDrawing
         public Vec2D[] GetTextureCornerPoints()
         {
             return GetTextureBorderPoints();
-            //return r.Vertex.Select(x => x.ToGrx()).ToArray();
+            //return r.Vertex;
         }
         public IPublicRigidBody AssociatedBody { get => r; }
         public TextureExportData TextureExportData { get => p; }
@@ -79,36 +77,36 @@ namespace PhysicSceneDrawing
             return TextureRectangleHelper.GetTextureBorderPoints(r.Center, localCenter, p.Width, p.Height, angleInDegree, p.DeltaX, p.DeltaY, p.DeltaAngle);
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             if (string.IsNullOrEmpty(p.TextureFile))
             {
-                panel.DrawPolygon(Pens.Black, r.Vertex.ToGrx().ToList());
+                panel.DrawPolygon(Pens.Black, r.Vertex);
                 return;
             }
 
             List<Vertex2D> points = new List<Vertex2D>();
             for (int i = 0; i < uvCoords.Length; i++)
             {
-                points.Add(new Vertex2D(r.Vertex[i].ToGrx(), uvCoords[i].ToGrx()));
+                points.Add(new Vertex2D(r.Vertex[i], uvCoords[i]));
             }
 
             panel.DrawFillPolygon(p.TextureFile, p.MakeFirstPixelTransparent, p.ColorFactor, points.ToList());
         }
 
-        public void DrawPhysicBorder(GraphicPanel2D panel, Pen borderPen)
+        public void DrawPhysicBorder(IDrawingPanel panel, Pen borderPen)
         {
-            panel.DrawPolygon(borderPen, r.Vertex.ToGrx().ToList()); //Physik-Border
+            panel.DrawPolygon(borderPen, r.Vertex); //Physik-Border
         }
-        public void DrawTextureBorder(GraphicPanel2D panel, Pen borderPen)
+        public void DrawTextureBorder(IDrawingPanel panel, Pen borderPen)
         {
-            panel.DrawPolygon(borderPen, GetTextureCornerPoints().Take(4).ToGrx().ToList()); //Texture-Border
+            panel.DrawPolygon(borderPen, GetTextureCornerPoints().Take(4).ToArray()); //Texture-Border
         }
 
-        public void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor)
+        public void DrawWithTwoColors(IDrawingPanel panel, Color frontColor, Color backColor)
         {
             var color = r.PolygonType == PolygonCollisionType.EdgeWithNormalsPointingInside ? backColor : frontColor;
-            panel.DrawFillPolygon(color, r.Vertex.ToGrx().ToList());
+            panel.DrawFillPolygon(color, r.Vertex);
         }
     }
 }

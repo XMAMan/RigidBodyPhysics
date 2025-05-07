@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using GraphicPanelWpf;
+﻿using GraphicPanelWpf;
 using MoonlanderControl.Model;
 using ReactiveUI;
 using System;
@@ -9,6 +8,7 @@ using System.IO;
 using GameHelper;
 using SoundEngine;
 using GameHelper.Simulation;
+using PhysicGlobal;
 
 namespace MoonlanderControl.Controls
 {
@@ -26,7 +26,7 @@ namespace MoonlanderControl.Controls
 
         private bool showIntroScreen = true;
 
-        private GraphicPanel2D panel;                   //Grafik-Ausgabe
+        private IDrawingPanel panel;                   //Grafik-Ausgabe
 
         private float timerIntervallInMilliseconds;     //Timer
 
@@ -44,7 +44,7 @@ namespace MoonlanderControl.Controls
 
         private Sounds sounds;                          //Soundwiedergabe
 
-        public MainViewModel(GraphicPanel2D panel, ISoundGenerator soundGenerator, float timerIntervallInMilliseconds, string dataFolder) 
+        public MainViewModel(IDrawingPanel panel, ISoundGenerator soundGenerator, float timerIntervallInMilliseconds, string dataFolder) 
         {
             this.DataFolder = dataFolder;
             this.panel = panel;

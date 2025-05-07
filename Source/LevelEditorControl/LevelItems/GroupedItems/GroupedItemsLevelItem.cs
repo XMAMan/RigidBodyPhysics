@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using LevelEditorExports.Editor.Helper;
+﻿using LevelEditorExports.Editor.Helper;
 using LevelEditorExports.Editor.LevelItems;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorGlobal;
@@ -7,7 +6,6 @@ using PhysicGlobal;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using WpfControls.Extensions;
 using LevelToSimulatorConverter._2_MergeToSingleScene;
 
 namespace LevelEditorControl.LevelItems.GroupedItems
@@ -45,25 +43,25 @@ namespace LevelEditorControl.LevelItems.GroupedItems
             return protoBox.GetWidth() * protoBox.GetHeight();
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             panel.PushMatrix();
-            panel.MultTransformationMatrix(this.RotatedRectangle.GetLocalToScreenMatrix().To4x4Matrix());
+            panel.MultTransformationMatrix(this.RotatedRectangle.GetLocalToScreenMatrix());
             this.AssociatedPrototyp.Draw(panel);
             panel.PopMatrix();
         }
 
-        public void DrawBorder(GraphicPanel2D panel, Pen borderPen)
+        public void DrawBorder(IDrawingPanel panel, Pen borderPen)
         {
             panel.PushMatrix();
-            panel.MultTransformationMatrix(this.RotatedRectangle.GetLocalToScreenMatrix().To4x4Matrix());
+            panel.MultTransformationMatrix(this.RotatedRectangle.GetLocalToScreenMatrix());
             this.AssociatedPrototyp.DrawBorder(panel, borderPen);
             panel.PopMatrix();
         }
-        public void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor)
+        public void DrawWithTwoColors(IDrawingPanel panel, Color frontColor, Color backColor)
         {
             panel.PushMatrix();
-            panel.MultTransformationMatrix(this.RotatedRectangle.GetLocalToScreenMatrix().To4x4Matrix());
+            panel.MultTransformationMatrix(this.RotatedRectangle.GetLocalToScreenMatrix());
             this.AssociatedPrototyp.DrawWithTwoColors(panel, frontColor, backColor);
             panel.PopMatrix();
         }
@@ -71,9 +69,9 @@ namespace LevelEditorControl.LevelItems.GroupedItems
         {
             return this.RotatedRectangle.IsPointInside(point);
         }
-        public bool IsPointInside(Vec2D point, PhxMatrix screenToLocal) //point = ScreenSpace-Mousepoint
+        public bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal) //point = ScreenSpace-Mousepoint
         {
-            point = PhxMatrix.MultPosition(screenToLocal, point); //CameraSpace-Mousepoint
+            point = Matrix4x4.MultPosition(screenToLocal, point); //CameraSpace-Mousepoint
             return IsPointInside(point);
         }
 
@@ -117,7 +115,7 @@ namespace LevelEditorControl.LevelItems.GroupedItems
         public IBackgroundItem[] GetBackgroundItems()
         {
             var protoBox = this.AssociatedPrototyp.BoundingBox;
-            var matrix = PhxMatrix.Translate(-protoBox.X, -protoBox.Y, 0) * this.RotatedRectangle.GetLocalToScreenMatrix();
+            var matrix = Matrix4x4.Translate(-protoBox.X, -protoBox.Y, 0) * this.RotatedRectangle.GetLocalToScreenMatrix();
 
             return (this.AssociatedPrototyp as IBackgroundItemProvider)
                 .GetBackgroundItems()
@@ -130,7 +128,7 @@ namespace LevelEditorControl.LevelItems.GroupedItems
         public IMergeablePhysicScene[] GetPhysicMergerItems()
         {
             var protoBox = this.AssociatedPrototyp.BoundingBox;
-            var matrix = PhxMatrix.Translate(-protoBox.X, -protoBox.Y, 0) * this.RotatedRectangle.GetLocalToScreenMatrix();
+            var matrix = Matrix4x4.Translate(-protoBox.X, -protoBox.Y, 0) * this.RotatedRectangle.GetLocalToScreenMatrix();
 
             return (this.AssociatedPrototyp as IPhysicSceneContainer)
                 .GetPhysicMergerItems()

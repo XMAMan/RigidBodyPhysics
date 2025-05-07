@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using System.Drawing;
+﻿using System.Drawing;
 using System;
 using System.Collections.Generic;
 using GameHelper.Simulation;
@@ -58,7 +57,7 @@ namespace MoonlanderControl.Model
 
         public bool IsEnabled { get => this.mainThruster.IsEnabled; }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             //var p1 = GetAnchor1();
             //var p2 = GetAnchor2();

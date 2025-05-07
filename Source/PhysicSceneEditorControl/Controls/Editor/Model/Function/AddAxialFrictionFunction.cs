@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using PhysicSceneEditorControl.Controls.Editor.Model.EditorAxialFriction;
+﻿using PhysicSceneEditorControl.Controls.Editor.Model.EditorAxialFriction;
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using PhysicGlobal;
 
@@ -20,7 +19,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.Function
             this.axialFrictions.Add(new EditorAxialFriction.EditorAxialFriction(shape, r1, forceDirection));
         }
 
-        protected override void DrawObject(GraphicPanel2D panel, Vec2D position, Vec2D direction)
+        protected override void DrawObject(IDrawingPanel panel, Vec2D position, Vec2D direction)
         {
             EditorAxialFriction.EditorAxialFriction.DrawStick(panel, position, direction, Pens.Blue);
         }

@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using TextureEditorControl.Controls.DrawingSettings;
 using TextureEditorControl.Controls.TextureData;
 
@@ -10,7 +9,7 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
         PhysicGlobal.BoundingBox BoundingBox { get; }
         TextureDataViewModel Propertys { get; }
         bool IsSelected { get; set; }
-        void Draw(GraphicPanel2D panel, Camera2D camera, DrawingSettingsViewModel settings);
+        void Draw(IDrawingPanel panel, Camera2D camera, DrawingSettingsViewModel settings);
         bool IsPointInPhysicModel(Vec2D point);
         bool IsPointInTextureBorder(Vec2D point);
         RectanglePart GetSelectedPartFromTextureBorder(Vec2D point);

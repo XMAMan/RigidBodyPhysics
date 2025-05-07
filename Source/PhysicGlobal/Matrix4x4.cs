@@ -1,34 +1,34 @@
 ﻿namespace PhysicGlobal
 {
     //4*4-Matrix, welche für die Transformation von 2D-Objekten genutzt wird
-    public class PhxMatrix
+    public class Matrix4x4
     {
         public float[] Values { get; private set; }
 
-        public PhxMatrix(float[] values)
+        public Matrix4x4(float[] values)
         {
             this.Values = values;
         }
 
-        public static PhxMatrix Ident()
+        public static Matrix4x4 Ident()
         {
-            return new PhxMatrix(new float[] {1, 0, 0, 0,
+            return new Matrix4x4(new float[] {1, 0, 0, 0,
                                               0, 1, 0, 0,
                                               0, 0, 1, 0,
                                               0, 0, 0, 1});
         }
 
-        public static PhxMatrix Translate(float x, float y, float z)
+        public static Matrix4x4 Translate(float x, float y, float z)
         {
-            return new PhxMatrix(new float[] {1,    0,    0,    0,
+            return new Matrix4x4(new float[] {1,    0,    0,    0,
                                               0,    1,    0,    0,
                                               0,    0,    1,    0,
                                               x,    y,    z,    1});
         }
 
-        public static PhxMatrix Scale(float x, float y, float z)
+        public static Matrix4x4 Scale(float x, float y, float z)
         {
-            return new PhxMatrix(new float[] {x, 0, 0, 0,
+            return new Matrix4x4(new float[] {x, 0, 0, 0,
                                               0, y, 0, 0,
                                               0, 0, z, 0,
                                               0, 0, 0, 1});
@@ -36,19 +36,19 @@
 
         //Quelle: http://www.gamedev.net/topic/600537-instead-of-glrotatef-build-a-matrix/
         //[x | y | z] - Drehachse
-        public static PhxMatrix Rotate(float angle, float x, float y, float z)
+        public static Matrix4x4 Rotate(float angle, float x, float y, float z)
         {
             float c = (float)Math.Cos(angle * Math.PI / 180);
             float s = (float)Math.Sin(angle * Math.PI / 180);
 
-            return new PhxMatrix(
+            return new Matrix4x4(
                 new float[] {x * x * (1-c)+c,       y * x * (1-c)+z*s,  x*z*(1-c)-y*s,  0,
                              x*y*(1-c)-z*s,         y*y*(1-c)+c,        y*z*(1-c)+x*s,  0,
                              x*z*(1-c)+y*s,         y*z*(1-c)-x*s,      z*z*(1-c)+c,    0,
                              0,                     0,                  0,              1});
         }
 
-        public static PhxMatrix operator *(PhxMatrix m1, PhxMatrix m2)
+        public static Matrix4x4 operator *(Matrix4x4 m1, Matrix4x4 m2)
         {
             float[] P1 = m1.Values;
             float[] P2 = m2.Values;
@@ -76,10 +76,10 @@
             R[14] = P2[2] * P1[12] + P2[6] * P1[13] + P2[10] * P1[14] + P2[14] * P1[15];
             R[15] = P2[3] * P1[12] + P2[7] * P1[13] + P2[11] * P1[14] + P2[15] * P1[15];
 
-            return new PhxMatrix(R);
+            return new Matrix4x4(R);
         }
 
-        public static Vec2D MultPosition(PhxMatrix matrix, Vec2D position)
+        public static Vec2D MultPosition(Matrix4x4 matrix, Vec2D position)
         {
             var m = matrix.Values;
             Vec2D res = new Vec2D(m[0] * position.X + m[4] * position.Y + m[12],
@@ -87,22 +87,22 @@
             return res;
         }
 
-        public static float GetSizeFactorFromMatrix(PhxMatrix matrix)
+        public static float GetSizeFactorFromMatrix(Matrix4x4 matrix)
         {
-            var p1 = PhxMatrix.MultPosition(matrix, new Vec2D(0, 0));
-            var p2 = PhxMatrix.MultPosition(matrix, new Vec2D(1, 0));
+            var p1 = Matrix4x4.MultPosition(matrix, new Vec2D(0, 0));
+            var p2 = Matrix4x4.MultPosition(matrix, new Vec2D(1, 0));
             return (p2 - p1).Length();
         }
 
-        public static float GetAngleInDegreeFromMatrix(PhxMatrix matrix)
+        public static float GetAngleInDegreeFromMatrix(Matrix4x4 matrix)
         {
-            var p1 = PhxMatrix.MultPosition(matrix, new Vec2D(0, 0));
-            var p2 = PhxMatrix.MultPosition(matrix, new Vec2D(1, 0));
+            var p1 = Matrix4x4.MultPosition(matrix, new Vec2D(0, 0));
+            var p2 = Matrix4x4.MultPosition(matrix, new Vec2D(1, 0));
             return Vec2D.Angle360(new Vec2D(1, 0), p2 - p1);
         }
 
         //http://www.cg.info.hiroshima-cu.ac.jp/~miyazaki/knowledge/teche23.html
-        public static PhxMatrix Invert(PhxMatrix matrix4x4)
+        public static Matrix4x4 Invert(Matrix4x4 matrix4x4)
         {
             float[] m = matrix4x4.Values;
 
@@ -142,7 +142,7 @@
 
             for (int i = 0; i < inverse.Length; i++) inverse[i] *= invDet;
 
-            return new PhxMatrix(inverse);
+            return new Matrix4x4(inverse);
         }
     }
 }

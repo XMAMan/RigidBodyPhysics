@@ -1,8 +1,6 @@
-﻿using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using System.Drawing;
 using TextureEditorGlobal;
-using WpfControls.Extensions;
 
 namespace TextureEditorControl.Controls.Editor.Model.Shape
 {
@@ -27,11 +25,11 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
             };
         }
 
-        protected override void DrawPhysicModel(GraphicPanel2D panel, Camera2D camera)
+        protected override void DrawPhysicModel(IDrawingPanel panel, Camera2D camera)
         {
             var c = (ICircle)this.shape;
 
-            var center = camera.PointToScreen(this.shape.Center).ToGrx();
+            var center = camera.PointToScreen(this.shape.Center);
             float radius = camera.LengthToScreen(c.Radius);
 
             panel.DrawCircle(this.IsSelected ? new Pen(Color.Red, 4) : Pens.Black, center, radius);

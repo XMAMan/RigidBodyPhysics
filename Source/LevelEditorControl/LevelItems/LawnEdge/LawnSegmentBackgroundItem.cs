@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using LevelEditorExports.Simulator;
+﻿using LevelEditorExports.Simulator;
 using PhysicGlobal;
 using System.Drawing;
 
@@ -24,7 +23,7 @@ namespace LevelEditorControl.LevelItems.LawnEdge
             this.textureFile = textureFile;
             this.zValue = zValue;
         }
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             panel.ZValue2D = zValue;
 

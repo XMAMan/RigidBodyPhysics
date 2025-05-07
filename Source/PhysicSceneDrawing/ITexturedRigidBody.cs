@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using TextureEditorGlobal;
 
@@ -14,9 +13,9 @@ namespace PhysicSceneDrawing
         Vec2D[] GetTextureCornerPoints();        //Eckpunkte des Textur-Objektes (Rechteck oder Polygon)
         IPublicRigidBody AssociatedBody { get; }
         TextureExportData TextureExportData { get; }
-        void Draw(GraphicPanel2D panel);
-        void DrawPhysicBorder(GraphicPanel2D panel, Pen borderPen);
-        void DrawTextureBorder(GraphicPanel2D panel, Pen borderPen);
-        void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor);
+        void Draw(IDrawingPanel panel);
+        void DrawPhysicBorder(IDrawingPanel panel, Pen borderPen);
+        void DrawTextureBorder(IDrawingPanel panel, Pen borderPen);
+        void DrawWithTwoColors(IDrawingPanel panel, Color frontColor, Color backColor);
     }
 }

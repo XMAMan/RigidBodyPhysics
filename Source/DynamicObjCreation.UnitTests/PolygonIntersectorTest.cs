@@ -1,8 +1,6 @@
 ﻿using DynamicObjCreation.PolygonIntersection;
-using GraphicPanels;
 using PhysicGlobal;
 using System.Drawing;
-using WpfControls.Extensions;
 
 namespace DynamicObjCreation.UnitTests
 {
@@ -268,7 +266,7 @@ namespace DynamicObjCreation.UnitTests
             var box2 = PhysicGlobal.BoundingBox.GetBoxFromPoints(poly2);
             var box = PhysicGlobal.BoundingBox.GetBoxFromBoxes(new PhysicGlobal.BoundingBox[] { box1, box2 });
 
-            GraphicPanel2D panel = new GraphicPanel2D() { Width = (int)box.GetWidth() + border * 2, Height = (int)box.GetHeight() + border * 2, Mode = Mode2D.CPU };
+            var panel = new DrawingPanel.DrawingPanel((int)box.GetWidth() + border * 2, (int)box.GetHeight() + border * 2, true);
 
             panel.ClearScreen(Color.White);
 
@@ -280,7 +278,7 @@ namespace DynamicObjCreation.UnitTests
                         var point = new Vec2D(x + box.Min.X - border, y + box.Min.Y - border);
                         if (PhysicGlobal.PolygonHelper.PointIsInsidePolygon(poly1, point) && PhysicGlobal.PolygonHelper.PointIsInsidePolygon(poly2, point))
                         {
-                            panel.DrawPixel(new GraphicMinimal.Vector2D(x - 1, y - 1), Color.Red, 1);
+                            panel.DrawPixel(new Vec2D(x - 1, y - 1), Color.Red, 1);
                         }
                     }
             }
@@ -289,12 +287,12 @@ namespace DynamicObjCreation.UnitTests
             {
                 foreach (var poly in intersectionPolys)
                 {
-                    panel.DrawFillPolygon(Color.Green, poly.Select(x => (x - box.Min + b).ToGrx()).ToList());
+                    panel.DrawFillPolygon(Color.Green, poly.Select(x => (x - box.Min + b)).ToArray());
                 }
             }                
 
-            panel.DrawPolygon(Pens.Black, poly1.Select(x => (x - box.Min + b).ToGrx()).ToList());
-            panel.DrawPolygon(Pens.Black, poly2.Select(x => (x - box.Min + b).ToGrx()).ToList());
+            panel.DrawPolygon(Pens.Black, poly1.Select(x => (x - box.Min + b)).ToArray());
+            panel.DrawPolygon(Pens.Black, poly2.Select(x => (x - box.Min + b)).ToArray());
             panel.FlipBuffer();
             return panel.GetScreenShoot();
         }

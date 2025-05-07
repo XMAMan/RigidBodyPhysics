@@ -1,20 +1,18 @@
 ﻿using BridgeBuilderControl.Controls.Helper;
 using BridgeBuilderControl.Controls.LevelEditor;
 using BridgeBuilderControl.Controls.Simulator.Model;
-using GraphicPanels;
 using PhysicGlobal;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using WpfControls.Extensions;
 
 namespace BridgeBuilderControl.Controls.BridgeEditor.Model
 {
     internal class DefineBridgeFunction
     {
-        private GraphicPanel2D panel;
+        private IDrawingPanel panel;
         private EditorCamera camera;
         private LevelExport levelData;
         private Vec2D mousePosition = new Vec2D(0, 0); //Maus-Position im Kameraspace
@@ -32,7 +30,7 @@ namespace BridgeBuilderControl.Controls.BridgeEditor.Model
 
         public int BarCount { get => this.bars.Count; }
 
-        public DefineBridgeFunction(GraphicPanel2D panel, LevelExport levelExport, Action barCountChanged)
+        public DefineBridgeFunction(IDrawingPanel panel, LevelExport levelExport, Action barCountChanged)
         {
             this.panel = panel;
             this.levelData = levelExport;
@@ -88,7 +86,7 @@ namespace BridgeBuilderControl.Controls.BridgeEditor.Model
             var lev = levelData;
 
             DrawingHelper.ClearScreen(panel);
-            panel.MultTransformationMatrix(camera.GetPointToSceenMatrix().To4x4Matrix());
+            panel.MultTransformationMatrix(camera.GetPointToSceenMatrix());
             DrawingHelper.DrawBackground(panel, lev.XCount, lev.YCount, lev.WaterHeight, lev.GroundHeight);
             DrawingHelper.DrawGround(panel, lev.GroundPolygon, lev.GroundHeight, lev.XCount, lev.YCount);
             DrawingHelper.DrawAnchorPoints(panel, lev.AnchorPoints);

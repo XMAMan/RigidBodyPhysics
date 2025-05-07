@@ -1,12 +1,8 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
-using LevelEditorGlobal;
+﻿using LevelEditorGlobal;
 using RigidBodyPhysics.ExportData.RigidBody;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using System;
 using System.Drawing;
-using System.Linq;
-using WpfControls.Extensions;
 using PhysicGlobal;
 using LevelEditorExports.Simulator;
 
@@ -32,12 +28,12 @@ namespace PhysicItemEditorControl.Model.MouseClickable
         public int Id { get; } //ITagable
         public TagType TypeName { get => TagType.Body; } //ITagable
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             //Mache nichts, da bereits der PhysicSceneDrawer das Objekt zeichnet
         }
 
-        public void DrawBorder(GraphicPanel2D panel, Pen borderPen)
+        public void DrawBorder(IDrawingPanel panel, Pen borderPen)
         {
             panel.PushMatrix();
             panel.MultTransformationMatrix(Matrix4x4.Translate(-sceneBoundingBox.X, -sceneBoundingBox.Y, 0));
@@ -46,7 +42,7 @@ namespace PhysicItemEditorControl.Model.MouseClickable
             panel.PopMatrix();
         }
 
-        private void DrawBody(GraphicPanel2D panel, Pen borderPen)
+        private void DrawBody(IDrawingPanel panel, Pen borderPen)
         {
             if (runtimBody is IPublicRigidRectangle)
                 DrawRectangle((IPublicRigidRectangle)runtimBody, panel, borderPen);
@@ -58,25 +54,25 @@ namespace PhysicItemEditorControl.Model.MouseClickable
                 DrawCircle((IPublicRigidCircle)runtimBody, panel, borderPen);
         }
 
-        private void DrawRectangle(IPublicRigidRectangle rec, GraphicPanel2D panel, Pen borderPen)
+        private void DrawRectangle(IPublicRigidRectangle rec, IDrawingPanel panel, Pen borderPen)
         {
-            panel.DrawPolygon(borderPen, rec.Vertex.ToGrx().ToList());
+            panel.DrawPolygon(borderPen, rec.Vertex);
         }
 
-        private void DrawPolygon(IPublicRigidPolygon polygon, GraphicPanel2D panel, Pen borderPen)
+        private void DrawPolygon(IPublicRigidPolygon polygon, IDrawingPanel panel, Pen borderPen)
         {
-            panel.DrawPolygon(borderPen, polygon.Vertex.ToGrx().ToList());
+            panel.DrawPolygon(borderPen, polygon.Vertex);
         }
 
-        private void DrawCircle(IPublicRigidCircle circle, GraphicPanel2D panel, Pen borderPen)
+        private void DrawCircle(IPublicRigidCircle circle, IDrawingPanel panel, Pen borderPen)
         {
-            panel.DrawCircle(borderPen, circle.Center.ToGrx(), circle.Radius);
+            panel.DrawCircle(borderPen, circle.Center, circle.Radius);
         }
 
-        public bool IsPointInside(Vec2D point, PhxMatrix screenToLocal)
+        public bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal)
         {
-            screenToLocal *= PhxMatrix.Translate(sceneBoundingBox.X, sceneBoundingBox.Y, 0);
-            point = PhxMatrix.MultPosition(screenToLocal, point);
+            screenToLocal *= Matrix4x4.Translate(sceneBoundingBox.X, sceneBoundingBox.Y, 0);
+            point = Matrix4x4.MultPosition(screenToLocal, point);
 
             if (runtimBody is IPublicRigidRectangle)
                 return PhysicGlobal.PolygonHelper.PointIsInsidePolygon((runtimBody as IPublicRigidRectangle).Vertex, point);
@@ -90,10 +86,10 @@ namespace PhysicItemEditorControl.Model.MouseClickable
             throw new Exception("Unknown type " + runtimBody.GetType());
         }
 
-        public PhxMatrix GetScreenToLocalMatrix()
+        public Matrix4x4 GetScreenToLocalMatrix()
         {
             float angleInDegree = runtimBody.Angle * 180 / (float)Math.PI;
-            return PhxMatrix.Translate(sceneBoundingBox.X - runtimBody.Center.X, sceneBoundingBox.Y - runtimBody.Center.Y, 0) * PhxMatrix.Rotate(-angleInDegree, 0, 0, 1);
+            return Matrix4x4.Translate(sceneBoundingBox.X - runtimBody.Center.X, sceneBoundingBox.Y - runtimBody.Center.Y, 0) * Matrix4x4.Rotate(-angleInDegree, 0, 0, 1);
         }
 
         private static bool IsPointInsideCircle(IPublicRigidCircle circle, Vec2D p)

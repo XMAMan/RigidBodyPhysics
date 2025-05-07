@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using LevelEditorControl.Controls.PolygonControl;
+﻿using LevelEditorControl.Controls.PolygonControl;
 using LevelEditorControl.LevelItems.BackgroundItem;
 using LevelEditorControl.LevelItems.GroupedItems;
 using LevelEditorExports.Editor.BackgroundImage;
@@ -10,7 +9,6 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using WpfControls.Extensions;
 using WpfControls.Model;
 
 namespace LevelEditorControl.LevelItems
@@ -22,7 +20,7 @@ namespace LevelEditorControl.LevelItems
             return BoundingBox.GetBoxFromBoxes(items.Select(x => x.GetBoundingBox()));
         }
 
-        public static void DrawItems(List<ILevelItem> items, IMouseClickable selectedSubItem, GraphicPanel2D panel, Camera2D camera, PolygonImages polygonImages, MouseGrid grid)
+        public static void DrawItems(List<ILevelItem> items, IMouseClickable selectedSubItem, IDrawingPanel panel, Camera2D camera, PolygonImages polygonImages, MouseGrid grid)
         {
             panel.ClearScreen(Color.White);
             if (string.IsNullOrEmpty(polygonImages.BackgroundImage) == false)
@@ -47,7 +45,7 @@ namespace LevelEditorControl.LevelItems
             }
 
 
-            panel.MultTransformationMatrix(camera.GetPointToSceenMatrix().To4x4Matrix());
+            panel.MultTransformationMatrix(camera.GetPointToSceenMatrix());
 
             panel.EnableDepthTesting();
 
@@ -90,7 +88,7 @@ namespace LevelEditorControl.LevelItems
             }
         }
 
-        public static void DrawItemsWithTwoColors(List<ILevelItem> items, GraphicPanel2D panel, Color frontColor, Color backColor)
+        public static void DrawItemsWithTwoColors(List<ILevelItem> items, IDrawingPanel panel, Color frontColor, Color backColor)
         {
             foreach (var item in items)
             {
@@ -98,7 +96,7 @@ namespace LevelEditorControl.LevelItems
             }
         }
 
-        public static void DrawBoundingBox(ILevelItem item, GraphicPanel2D panel, Camera2D camera)
+        public static void DrawBoundingBox(ILevelItem item, IDrawingPanel panel, Camera2D camera)
         {
             var box = item.GetBoundingBox();
             var min = camera.PointToScreen(new Vec2D(box.Min.X, box.Min.Y));

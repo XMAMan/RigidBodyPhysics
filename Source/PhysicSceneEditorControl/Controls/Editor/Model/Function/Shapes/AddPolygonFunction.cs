@@ -1,8 +1,6 @@
-﻿using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using WpfControls.Model;
-using WpfControls.Extensions;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Shapes
 {
@@ -137,16 +135,16 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Shapes
             }
         }
 
-        public override void Draw(GraphicPanel2D panel)
+        public override void Draw(IDrawingPanel panel)
         {
             if (this.points.Any())
             {
                 for (int i = 0; i < this.points.Count - 1; i++)
                 {
-                    panel.DrawLine(new Pen(Color.Black, 2), this.points[i].ToGrx(), this.points[i + 1].ToGrx());
+                    panel.DrawLine(new Pen(Color.Black, 2), this.points[i], this.points[i + 1]);
                 }
 
-                panel.DrawLine(new Pen(this.currentLineIntersects ? Color.Red : Color.Black, 2), this.points.Last().ToGrx(), this.currentMousePosition.ToGrx());
+                panel.DrawLine(new Pen(this.currentLineIntersects ? Color.Red : Color.Black, 2), this.points.Last(), this.currentMousePosition);
             }
         }
 

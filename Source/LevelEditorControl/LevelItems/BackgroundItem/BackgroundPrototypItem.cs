@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using LevelEditorExports.Editor.Prototyps;
+﻿using LevelEditorExports.Editor.Prototyps;
 using LevelEditorGlobal;
 using PhysicGlobal;
 using System.Drawing;
@@ -45,7 +44,7 @@ namespace LevelEditorControl.LevelItems.BackgroundItem
 
         public Bitmap GetImage(int maxWidth, int maxHeight)
         {
-            var panel = new GraphicPanel2D() { Width = maxWidth, Height = maxHeight, Mode = Mode2D.CPU };
+            var panel = new DrawingPanel.DrawingPanel(maxWidth, maxHeight, true);
             var camera = new Camera2D(maxWidth, maxHeight, this.BoundingBox);
 
             panel.ClearScreen(Color.White);
@@ -54,16 +53,16 @@ namespace LevelEditorControl.LevelItems.BackgroundItem
 
             return panel.GetScreenShoot();
         }
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             panel.ZValue2D = this.ZValue;
             panel.DrawFillRectangle(this.textureFile, 0, 0, image.Width, image.Height, true, Color.White);
         }
-        public void DrawBorder(GraphicPanel2D panel, Pen borderPen)
+        public void DrawBorder(IDrawingPanel panel, Pen borderPen)
         {
             panel.DrawRectangle(borderPen, 0, 0, image.Width, image.Height);
         }
-        public void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor)
+        public void DrawWithTwoColors(IDrawingPanel panel, Color frontColor, Color backColor)
         {
             panel.ZValue2D = this.ZValue;
             panel.DrawFillRectangle(frontColor, 0, 0, image.Width, image.Height);

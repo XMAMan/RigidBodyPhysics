@@ -1,5 +1,4 @@
-﻿using GraphicPanelWpf;
-using LevelEditorExports.Editor.CameraTracking;
+﻿using LevelEditorExports.Editor.CameraTracking;
 using PhysicGlobal;
 
 namespace Simulator.CameraTracking
@@ -9,7 +8,7 @@ namespace Simulator.CameraTracking
     //dass der LevelItem im Sichtfeld gehalten wird. Abhängig davon, wie sehr der CameraTracking-Punkt des LevelItems aus dem
     //DistanceToScreenCenter-Bereich raus geht, wird die Kamera per Federkraft beschleunigt. Die Feder bekommt ihre Steifigkeit 
     //über SpringConstant und ihre Reibung über AirFriction
-    public class CameraTracker : ITimerHandler
+    public class CameraTracker
     {
         private Camera2D camera;                        // Die Position/Zoom soll von dieser Kamera verändert werden
         private ICameraTrackedItem item;                // Dieser bewegbare Punkt soll immer im Sichtbereich bleiben

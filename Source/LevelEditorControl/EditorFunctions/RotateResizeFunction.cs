@@ -7,7 +7,6 @@ using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using WpfControls.Extensions;
 
 namespace LevelEditorControl.EditorFunctions
 {
@@ -195,17 +194,17 @@ namespace LevelEditorControl.EditorFunctions
             var cornerPoints = this.rec.GetCornerPoints();
             var pivotPoints = GetPivotPoints(this.rec.GetCornerPoints());
 
-            panel.DrawPolygon(new Pen(Color.Green, 3), cornerPoints.ToGrx().ToList());
+            panel.DrawPolygon(new Pen(Color.Green, 3), cornerPoints);
 
             foreach (var point in pivotPoints)
             {
                 //Zeichne die Punkte lila, wenn ein neuer Pivot-Punkt definiert werden soll
-                panel.DrawFillCircleWithTriangles(this.ctrlIsPressed ? Color.Purple : Color.Green, point.ToGrx(), radius, 10);
+                panel.DrawFillCircleWithTriangles(this.ctrlIsPressed ? Color.Purple : Color.Green, point, radius, 10);
             }
             if (this.mouseOverPoint != null && this.mouseDownPoint == null)
-                panel.DrawFillCircleWithTriangles(Color.Blue, this.mouseOverPoint.ToGrx(), radius, 10); //Mouserover-Punkt blau
+                panel.DrawFillCircleWithTriangles(Color.Blue, this.mouseOverPoint, radius, 10); //Mouserover-Punkt blau
 
-            panel.DrawFillCircleWithTriangles(Color.Red, this.rec.PivotPoint.ToGrx(), radius, 10); //Pivot-Punkt rot
+            panel.DrawFillCircleWithTriangles(Color.Red, this.rec.PivotPoint, radius, 10); //Pivot-Punkt rot
 
             panel.FlipBuffer();
         }

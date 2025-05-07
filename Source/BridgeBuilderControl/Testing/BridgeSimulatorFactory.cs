@@ -3,7 +3,6 @@ using BridgeBuilderControl.Controls.Helper;
 using BridgeBuilderControl.Controls.LevelEditor;
 using BridgeBuilderControl.Controls.Simulator.Model;
 using BridgeBuilderControl.Controls.Simulator.Model.Converter;
-using GraphicPanels;
 using PhysicGlobal;
 using System.IO;
 
@@ -11,10 +10,10 @@ namespace BridgeBuilderControl.Testing
 {
     public class BridgeSimulatorFactory
     {
-        private GraphicPanel2D panel;
+        private IDrawingPanel panel;
         private string dataFolder;
         private float timerIntervallInMilliseconds;
-        public BridgeSimulatorFactory(GraphicPanel2D panel, string dataFolder, float timerIntervallInMilliseconds)
+        public BridgeSimulatorFactory(IDrawingPanel panel, string dataFolder, float timerIntervallInMilliseconds)
         {
             this.panel = panel;
             this.dataFolder = dataFolder;

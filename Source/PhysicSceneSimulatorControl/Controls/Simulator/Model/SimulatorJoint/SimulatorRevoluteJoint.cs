@@ -1,8 +1,6 @@
-﻿using GraphicPanels;
-using PhysicSceneSimulatorControl.Dialogs.PrintSettings;
+﻿using PhysicSceneSimulatorControl.Dialogs.PrintSettings;
 using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.Joints;
-using WpfControls.Extensions;
 
 namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorJoint
 {
@@ -14,7 +12,7 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorJoint
         {
             this.PhysicModel = this.revoluteJoint = ctor;
         }
-        public void Draw(GraphicPanel2D panel, PrintSettingsViewModel printSettings)
+        public void Draw(IDrawingPanel panel, PrintSettingsViewModel printSettings)
         {
             var c = this.revoluteJoint;
 
@@ -22,18 +20,18 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorJoint
             {
                 float radius = 10;
                 Vec2D dir1 = (c.Body1.Center - c.Anchor1).Normalize();
-                panel.DrawLine(Pens.Blue, (c.Anchor1 + dir1 * radius).ToGrx(), c.Body1.Center.ToGrx());
+                panel.DrawLine(Pens.Blue, (c.Anchor1 + dir1 * radius), c.Body1.Center);
 
                 Vec2D dir2 = (c.Body2.Center - c.Anchor2).Normalize();
-                panel.DrawLine(Pens.Blue, (c.Anchor2 + dir2 * radius).ToGrx(), c.Body2.Center.ToGrx());
+                panel.DrawLine(Pens.Blue, (c.Anchor2 + dir2 * radius), c.Body2.Center);
 
-                panel.DrawCircle(Pens.Blue, c.Anchor1.ToGrx(), radius);
-                panel.DrawFillCircle(Color.Blue, c.Anchor2.ToGrx(), radius / 2);
+                panel.DrawCircle(Pens.Blue, c.Anchor1, radius);
+                panel.DrawFillCircle(Color.Blue, c.Anchor2, radius / 2);
             }
 
 
             if (printSettings.ShowJointPosition)
-                panel.DrawString(c.Anchor1.ToGrx(), Color.Black, 30, (int)(c.CurrentPosition * 100) + " " + (int)(c.MotorPosition * 100));
+                panel.DrawString(c.Anchor1, Color.Black, 30, (int)(c.CurrentPosition * 100) + " " + (int)(c.MotorPosition * 100));
         }
     }
 }

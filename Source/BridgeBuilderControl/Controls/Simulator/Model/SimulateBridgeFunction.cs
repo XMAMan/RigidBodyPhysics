@@ -4,7 +4,6 @@ using BridgeBuilderControl.Controls.Simulator.Model.Forcetracking;
 using BridgeBuilderControl.Testing;
 using GameHelper;
 using GameHelper.Simulation;
-using GraphicPanels;
 using LevelEditorExports.Simulator;
 using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.Joints;
@@ -18,7 +17,7 @@ namespace BridgeBuilderControl.Controls.Simulator.Model
 {
     internal class SimulateBridgeFunction : IBridgeSimulator
     {
-        private GraphicPanel2D panel;
+        private IDrawingPanel panel;
         private EditorCamera camera;
         private Vec2D screenMousePosition = new Vec2D(0, 0);
         private GameSimulator simulator;
@@ -35,7 +34,7 @@ namespace BridgeBuilderControl.Controls.Simulator.Model
         public bool ShowPhysicModel { get; set; } = false;
         public bool FirstBarIsBroken { get; private set; } = false;
 
-        public SimulateBridgeFunction(GraphicPanel2D panel, string dataFolder, float timerIntervallInMilliseconds, SimulatorInput input, BridgeConverterSettings converterSettings)
+        public SimulateBridgeFunction(IDrawingPanel panel, string dataFolder, float timerIntervallInMilliseconds, SimulatorInput input, BridgeConverterSettings converterSettings)
         {
             this.panel = panel;
             this.camera = input.Camera;
@@ -202,7 +201,7 @@ namespace BridgeBuilderControl.Controls.Simulator.Model
             panel.FlipBuffer();
         }
 
-        private static void DrawBar(GraphicPanel2D panel, Color color, Vec2D p1, Vec2D p2, float width)
+        private static void DrawBar(IDrawingPanel panel, Color color, Vec2D p1, Vec2D p2, float width)
         {
             float length = (p2 - p1).Length();
             var direction = (p2 - p1).Normalize();

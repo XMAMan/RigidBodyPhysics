@@ -1,6 +1,4 @@
 ﻿using DynamicData;
-using GraphicMinimal;
-using GraphicPanels;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorGlobal;
 using LevelToSimulatorConverter._2_MergeToSingleScene;
@@ -8,7 +6,6 @@ using PhysicGlobal;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using WpfControls.Extensions;
 
 namespace LevelEditorControl.LevelItems.GroupedItems
 {
@@ -51,12 +48,12 @@ namespace LevelEditorControl.LevelItems.GroupedItems
 
         public Bitmap GetImage(int maxWidth, int maxHeight)
         {
-            var panel = new GraphicPanel2D() { Width = maxWidth, Height = maxHeight, Mode = Mode2D.CPU };
+            var panel = new DrawingPanel.DrawingPanel(maxWidth, maxHeight, true);
             var camera = new Camera2D(maxWidth, maxHeight, this.BoundingBox);
 
             panel.ClearScreen(Color.White);
 
-            panel.MultTransformationMatrix(camera.GetPointToSceenMatrix().To4x4Matrix());
+            panel.MultTransformationMatrix(camera.GetPointToSceenMatrix());
             panel.EnableDepthTesting();
 
             foreach (var item in this.items)
@@ -68,7 +65,7 @@ namespace LevelEditorControl.LevelItems.GroupedItems
             return panel.GetScreenShoot();
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             panel.PushMatrix();
             panel.MultTransformationMatrix(Matrix4x4.Translate(-this.BoundingBox.X, -this.BoundingBox.Y, 0));
@@ -78,7 +75,7 @@ namespace LevelEditorControl.LevelItems.GroupedItems
             }
             panel.PopMatrix();
         }
-        public void DrawBorder(GraphicPanel2D panel, Pen borderPen)
+        public void DrawBorder(IDrawingPanel panel, Pen borderPen)
         {
             panel.PushMatrix();
             panel.MultTransformationMatrix(Matrix4x4.Translate(-this.BoundingBox.X, -this.BoundingBox.Y, 0));
@@ -89,7 +86,7 @@ namespace LevelEditorControl.LevelItems.GroupedItems
             panel.PopMatrix();
         }
 
-        public void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor)
+        public void DrawWithTwoColors(IDrawingPanel panel, Color frontColor, Color backColor)
         {
             panel.PushMatrix();
             panel.MultTransformationMatrix(Matrix4x4.Translate(-this.BoundingBox.X, -this.BoundingBox.Y, 0));

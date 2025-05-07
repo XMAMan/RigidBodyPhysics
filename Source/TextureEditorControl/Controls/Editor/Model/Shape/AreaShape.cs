@@ -1,12 +1,10 @@
-﻿using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using System;
 using System.Drawing;
 using System.Linq;
 using TextureEditorControl.Controls.DrawingSettings;
 using TextureEditorControl.Controls.TextureData;
 using TextureEditorGlobal;
-using WpfControls.Extensions;
 
 namespace TextureEditorControl.Controls.Editor.Model.Shape
 {
@@ -51,7 +49,7 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
             return TextureRectangleHelper.GetTextureBorderPoints(r.Center, r.LocalBoundingBox.GetCenter(), p.Width, p.Height, r.AngleInDegree, p.DeltaX, p.DeltaY, p.DeltaAngle);
         }
 
-        public void Draw(GraphicPanel2D panel, Camera2D camera, DrawingSettingsViewModel settings)
+        public void Draw(IDrawingPanel panel, Camera2D camera, DrawingSettingsViewModel settings)
         {
             //Physik-Model-Rechteck
             if (settings.ShowPhysikModel)
@@ -66,15 +64,15 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
                 DrawTextureBorder(panel, camera);
         }
 
-        virtual protected void DrawPhysicModel(GraphicPanel2D panel, Camera2D camera)
+        virtual protected void DrawPhysicModel(IDrawingPanel panel, Camera2D camera)
         {
             var cornerPoints = GetPhysicCornerPoints();
-            var points = cornerPoints.Select(x => camera.PointToScreen(x).ToGrx()).ToList();
+            var points = cornerPoints.Select(x => camera.PointToScreen(x)).ToArray();
 
             panel.DrawPolygon(this.IsSelected ? new Pen(Color.Red, 4) : Pens.Black, points);
         }
 
-        virtual protected void DrawTexture(GraphicPanel2D panel, Camera2D camera)
+        virtual protected void DrawTexture(IDrawingPanel panel, Camera2D camera)
         {
             if (string.IsNullOrEmpty(this.Propertys.TextureFile) == false)
             {
@@ -82,7 +80,7 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
                 var p = this.Propertys;
 
                 var texPoints = GetTextureBorderPoints()
-                    .Select(x => camera.PointToScreen(x).ToGrx())
+                    .Select(x => camera.PointToScreen(x))
                     .ToList();
 
                 int col = Math.Min(255, Math.Max(0, (int)(255 * p.ColorFactor)));
@@ -99,13 +97,13 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
             }
         }
 
-        protected void DrawTextureBorder(GraphicPanel2D panel, Camera2D camera)
+        protected void DrawTextureBorder(IDrawingPanel panel, Camera2D camera)
         {
             var texPoints = GetTextureBorderPoints()
-                    .Select(x => camera.PointToScreen(x).ToGrx())
+                    .Select(x => camera.PointToScreen(x))
                     .ToList();
 
-            panel.DrawPolygon(Pens.Green, texPoints.Take(4).ToList());
+            panel.DrawPolygon(Pens.Green, texPoints.Take(4).ToArray());
 
             if (this.IsSelected)
             {

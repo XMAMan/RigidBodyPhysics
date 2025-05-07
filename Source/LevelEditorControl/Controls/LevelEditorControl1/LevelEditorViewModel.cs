@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using GraphicPanelWpf;
+﻿using GraphicPanelWpf;
 using LevelEditorGlobal;
 using ReactiveUI.Fody.Helpers;
 using ReactiveUI;
@@ -15,7 +14,7 @@ namespace LevelEditorControl.Controls.LevelEditorControl1
     //Er bekommt von den Control, was er gerade anzeigt dann ein Event, wenn er das Control wechseln soll
     internal class LevelEditorViewModel : ReactiveObject, IGraphicPanelHandler, ITimerHandler, IToTextWriteable, IObjectSerializable, ISimlatorUser
     {
-        private GraphicPanel2D panel;
+        private DrawingPanel.DrawingPanel panel;
         private float timerIntervalInMilliseconds;
 
         public enum SubControl { MainControl, AddNewPhysicItem }

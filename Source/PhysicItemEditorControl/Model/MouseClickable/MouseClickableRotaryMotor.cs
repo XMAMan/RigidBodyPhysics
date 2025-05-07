@@ -1,11 +1,8 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
-using LevelEditorExports.Simulator;
+﻿using LevelEditorExports.Simulator;
 using LevelEditorGlobal;
 using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RotaryMotor;
 using System.Drawing;
-using WpfControls.Extensions;
 
 namespace PhysicItemEditorControl.Model.MouseClickable
 {
@@ -24,11 +21,11 @@ namespace PhysicItemEditorControl.Model.MouseClickable
         public int Id { get; } //ITagable
         public TagType TypeName { get => TagType.Motor; } //ITagable
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             DrawBorder(panel, Pens.Blue);
         }
-        public void DrawBorder(GraphicPanel2D panel, Pen borderPen)
+        public void DrawBorder(IDrawingPanel panel, Pen borderPen)
         {
             panel.PushMatrix();
             panel.MultTransformationMatrix(Matrix4x4.Translate(-sceneBoundingBox.X, -sceneBoundingBox.Y, 0));
@@ -37,28 +34,28 @@ namespace PhysicItemEditorControl.Model.MouseClickable
             panel.PopMatrix();
         }
 
-        private void DrawCircle(Pen pen, GraphicPanel2D panel)
+        private void DrawCircle(Pen pen, IDrawingPanel panel)
         {
-            panel.DrawCircleArc(pen, this.runtimMotor.Body.Center.ToGrx(), 20, 30, 320, false);
+            panel.DrawCircleArc(pen, this.runtimMotor.Body.Center, 20, 30, 320, false);
             var p = Vec2D.RotatePointAroundPivotPoint(this.runtimMotor.Body.Center, this.runtimMotor.Body.Center + new Vec2D(20, 0), 320);
             var dir1 = Vec2D.RotatePointAroundPivotPoint(this.runtimMotor.Body.Center, this.runtimMotor.Body.Center + new Vec2D(20 + 10, 0 - 10), 320);
             var dir2 = Vec2D.RotatePointAroundPivotPoint(this.runtimMotor.Body.Center, this.runtimMotor.Body.Center + new Vec2D(20 - 10, 0 - 10), 320);
 
-            panel.DrawLine(pen, p.ToGrx(), dir1.ToGrx());
-            panel.DrawLine(pen, p.ToGrx(), dir2.ToGrx());
+            panel.DrawLine(pen, p, dir1);
+            panel.DrawLine(pen, p, dir2);
         }
 
-        public bool IsPointInside(Vec2D point, PhxMatrix screenToLocal)
+        public bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal)
         {
-            screenToLocal *= PhxMatrix.Translate(sceneBoundingBox.X, sceneBoundingBox.Y, 0);
-            point = PhxMatrix.MultPosition(screenToLocal, point);
+            screenToLocal *= Matrix4x4.Translate(sceneBoundingBox.X, sceneBoundingBox.Y, 0);
+            point = Matrix4x4.MultPosition(screenToLocal, point);
 
             return (this.runtimMotor.Body.Center - point).Length() < 20;
         }
 
-        public PhxMatrix GetScreenToLocalMatrix()
+        public Matrix4x4 GetScreenToLocalMatrix()
         {
-            return PhxMatrix.Ident();
+            return Matrix4x4.Ident();
         }
 
         public float GetArea()

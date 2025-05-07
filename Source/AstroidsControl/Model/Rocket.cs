@@ -1,15 +1,13 @@
 ﻿using DynamicObjCreation;
 using GameHelper.Simulation;
 using GameHelper.Simulation.RigidBodyTagging;
-using GraphicPanels;
-using GraphicPanelWpf;
 using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using RigidBodyPhysics.RuntimeObjects.Thruster;
 
 namespace AstroidsControl.Model
 {
-    internal class Rocket : ITimerHandler
+    internal class Rocket
     {
         private string dataFolder;
         private GameSimulator simulator;
@@ -21,7 +19,7 @@ namespace AstroidsControl.Model
         private BodyIsInsideScreenTester bullets;
         private BulletCreator bulletCreator;
 
-        public Rocket(string dataFolder, GameSimulator simulator, Sounds sounds, GraphicPanel2D panel)
+        public Rocket(string dataFolder, GameSimulator simulator, Sounds sounds, IDrawingPanel panel)
         {
             this.dataFolder = dataFolder;
             this.simulator = simulator;
@@ -52,7 +50,7 @@ namespace AstroidsControl.Model
                 this.sounds.StopThruster();
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             if (this.thruster1.IsEnabled)
                 this.fireSprite1.Draw(panel);

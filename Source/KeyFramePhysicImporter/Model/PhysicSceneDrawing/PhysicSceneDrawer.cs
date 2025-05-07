@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using KeyFrameGlobal;
+﻿using KeyFrameGlobal;
 using RigidBodyPhysics;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using PhysicGlobal;
@@ -8,12 +7,12 @@ namespace KeyFramePhysicImporter.Model.PhysicSceneDrawing
 {
     internal class PhysicSceneDrawer : IAnimationModelDrawer
     {
-        private GraphicPanel2D panel;
+        private IDrawingPanel panel;
         private PhysicScene physicScene;
         private IShape[] shapes;
         private bool[] isFix;
 
-        public PhysicSceneDrawer(PhysicScene physicScene, GraphicPanel2D panel)
+        public PhysicSceneDrawer(PhysicScene physicScene, IDrawingPanel panel)
         {
             this.panel = panel;
             ReloadNewPhysicScene(physicScene);

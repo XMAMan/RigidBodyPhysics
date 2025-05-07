@@ -1,6 +1,6 @@
 ﻿using BridgeBuilderControl.Controls.Simulator.Model;
-using GraphicPanels;
 using GraphicPanelWpf;
+using PhysicGlobal;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using System;
@@ -15,7 +15,7 @@ namespace BridgeBuilderControl.Controls.Simulator
             public Action GoBack; //Gehe zum BridgeEditor zurück
         }
 
-        private GraphicPanel2D panel;
+        private IDrawingPanel panel;
         private string dataFolder;
         private float timerIntervallInMilliseconds;
         private SimulateBridgeFunction model;
@@ -91,7 +91,7 @@ namespace BridgeBuilderControl.Controls.Simulator
 
         
 
-        public SimulatorViewModel(GraphicPanel2D panel, string dataFolder, float timerIntervallInMilliseconds)
+        public SimulatorViewModel(IDrawingPanel panel, string dataFolder, float timerIntervallInMilliseconds)
         {
             this.panel = panel;
             this.dataFolder = dataFolder;

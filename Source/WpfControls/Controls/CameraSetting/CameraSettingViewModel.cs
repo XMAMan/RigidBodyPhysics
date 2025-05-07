@@ -2,12 +2,11 @@
 using ReactiveUI;
 using System;
 using System.Reactive;
-using GraphicPanelWpf;
 using PhysicGlobal;
 
 namespace WpfControls.Controls.CameraSetting
 {
-    public class CameraSettingViewModel : ReactiveObject, ISizeChangeable
+    public class CameraSettingViewModel : ReactiveObject
     {
         public ReactiveCommand<Unit, Unit> Left { get; private set; }
         public ReactiveCommand<Unit, Unit> Right { get; private set; }

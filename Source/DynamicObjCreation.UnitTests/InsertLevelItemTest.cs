@@ -1,13 +1,8 @@
 ﻿using GameHelper.Simulation;
-using GraphicPanels;
-using LevelEditorControl;
 using LevelEditorExports.Simulator;
 using LevelToSimulatorConverter.Helper;
 using PhysicGlobal;
 using System.Drawing;
-using System.Reflection;
-using System.Windows.Navigation;
-using WpfControls.Extensions;
 
 namespace DynamicObjCreation.UnitTests
 {
@@ -19,32 +14,32 @@ namespace DynamicObjCreation.UnitTests
         public const string Expected = @"..\..\..\..\..\Data\TestData\DynamicObjCreationTestData\ExpectedImages\";
         public const float TimerTickRateInMs = 30; //ms
 
-        #region SetUp
-        //Wird benötigt, damit EditorFileConverter.Convert keine Exception wirft (Erkärung: Siehe DemoGameTests.cs)
-        public InsertLevelItemTest()
-        {
-            if (!UriParser.IsKnownScheme("pack")) UriParser.Register(new GenericUriParser(GenericUriParserOptions.GenericAuthority), "pack", -1);
-            SetResourceAssembly(typeof(LevelEditorFactory).Assembly);
-        }
-        //https://github.com/microsoft/testfx/issues/975
-        public static void SetResourceAssembly(Assembly assembly)
-        {
-            var _resourceAssemblyField = typeof(System.Windows.Application).GetField("_resourceAssembly", BindingFlags.Static | BindingFlags.NonPublic);
-            if (_resourceAssemblyField != null)
-                _resourceAssemblyField.SetValue(null, assembly);
+        //#region SetUp
+        ////Wird benötigt, damit EditorFileConverter.Convert keine Exception wirft (Erkärung: Siehe DemoGameTests.cs)
+        //public InsertLevelItemTest()
+        //{
+        //    if (!UriParser.IsKnownScheme("pack")) UriParser.Register(new GenericUriParser(GenericUriParserOptions.GenericAuthority), "pack", -1);
+        //    SetResourceAssembly(typeof(LevelEditorFactory).Assembly);
+        //}
+        ////https://github.com/microsoft/testfx/issues/975
+        //public static void SetResourceAssembly(Assembly assembly)
+        //{
+        //    var _resourceAssemblyField = typeof(System.Windows.Application).GetField("_resourceAssembly", BindingFlags.Static | BindingFlags.NonPublic);
+        //    if (_resourceAssemblyField != null)
+        //        _resourceAssemblyField.SetValue(null, assembly);
 
-            var resourceAssemblyProperty = typeof(BaseUriHelper).GetProperty("ResourceAssembly", BindingFlags.Static | BindingFlags.NonPublic);
-            if (resourceAssemblyProperty != null)
-                resourceAssemblyProperty.SetValue(null, assembly);
-        }
-        #endregion
+        //    var resourceAssemblyProperty = typeof(BaseUriHelper).GetProperty("ResourceAssembly", BindingFlags.Static | BindingFlags.NonPublic);
+        //    if (resourceAssemblyProperty != null)
+        //        resourceAssemblyProperty.SetValue(null, assembly);
+        //}
+        //#endregion
 
         //Prüft ab, dass man Kopien von LevelItems erzeugen kann und sie dann beim platzieren rotieren/skalieren kann und
         //dessen TagDaten nutzen kann. Außerdem wird geprüft, dass ich alle erzeugten Objekte per Tastendruck und Autoanimaiton bewegen kann.
         [Fact]
         public void CreateCopyFromLevelItem()
         {
-            var panel = new GraphicPanel2D() { Width = 920, Height = 650, Mode = Mode2D.OpenGL_Version_3_0 };
+            var panel = new DrawingPanel.DrawingPanel(920, 650);
             var simulator = new GameSimulator(InputData + "InsertLevelItem.txt", panel.Size, TimerTickRateInMs) { ShowSmallWindow = false, CameraModus = Simulator.Simulator.CameraMode.Pixel };
 
             //Bewege zuerst das Originalobjekt und erzeuge erst danach dann Kopien davon
@@ -118,11 +113,11 @@ namespace DynamicObjCreation.UnitTests
             for (int i=0;i<pivotPoints.Count;i++)
             {
                 panel.DrawRectangle(Pens.Green, pivotPoints[i].X - box.GetWidth(), pivotPoints[i].Y - box.GetHeight(), box.GetWidth() * 2, box.GetHeight() * 2);
-                panel.DrawFillCircle(Color.Red, pivotPoints[i].ToGrx(), 2);
+                panel.DrawFillCircle(Color.Red, pivotPoints[i], 2);
             }
             foreach (var tagPoint in tagPoints)
             {
-                panel.DrawFillCircle(Color.Blue, tagPoint.ToGrx(), 2);
+                panel.DrawFillCircle(Color.Blue, tagPoint, 2);
             }
             
             var image = panel.GetScreenShoot();
@@ -138,7 +133,7 @@ namespace DynamicObjCreation.UnitTests
         [Fact]
         public void CreateCopyFromManualAnimation()
         {
-            var panel = new GraphicPanel2D() { Width = 340, Height = 216, Mode = Mode2D.OpenGL_Version_3_0 };
+            var panel = new DrawingPanel.DrawingPanel(340, 216);
 
             //Schritt 1: Animation läuft 400 Steps ab
             var simulator1 = new GameSimulator(InputData + "InsertManualLevelItem.txt", panel.Size, TimerTickRateInMs) { ShowSmallWindow = false, CameraModus = Simulator.Simulator.CameraMode.Pixel };
@@ -186,7 +181,7 @@ namespace DynamicObjCreation.UnitTests
         [Fact]
         public void CreateCopyFromRectangleLevelItem()
         {
-            var panel = new GraphicPanel2D() { Width = 200, Height = 200, Mode = Mode2D.OpenGL_Version_3_0 };
+            var panel = new DrawingPanel.DrawingPanel(200, 200);
             var simulator = new GameSimulator(InputData + "InsertLevelItemRectangle.txt", panel.Size, TimerTickRateInMs) { ShowSmallWindow = false, CameraModus = Simulator.Simulator.CameraMode.Pixel };
 
             int levelItemId = 1;

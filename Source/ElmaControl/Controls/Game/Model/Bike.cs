@@ -1,7 +1,5 @@
 ﻿using GameHelper;
 using GameHelper.Simulation;
-using GraphicMinimal;
-using GraphicPanels;
 using GraphicPanelWpf;
 using SpriteEditorControl.Controls.Main.Model;
 using PhysicSceneDrawing;
@@ -52,7 +50,7 @@ namespace ElmaControl.Controls.Game.Model
 
         public event Action HeadIsTouchingTheGround;
 
-        public Bike(GameSimulator simulator, Sounds sounds, string dataFolder, GraphicPanel2D panel)
+        public Bike(GameSimulator simulator, Sounds sounds, string dataFolder, IDrawingPanel panel)
         {
             this.dataFolder = dataFolder;
             this.simulator = simulator;
@@ -316,7 +314,7 @@ namespace ElmaControl.Controls.Game.Model
             return new Rectangle((int)minX, (int)minY, (int)(maxX - minX), (int)(maxY - minY));
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             if (this.bikeIsRemovedFromSimulation) return;
 
@@ -359,7 +357,7 @@ namespace ElmaControl.Controls.Game.Model
             return sprite;
         }
 
-        private void DrawSprite(GraphicPanel2D panel, Vec2D pivot)
+        private void DrawSprite(IDrawingPanel panel, Vec2D pivot)
         {
             //Ermittle, welche Sprite-Datei gezeichnet werden soll
             var sprite = GetActiveSprite();
@@ -376,12 +374,12 @@ namespace ElmaControl.Controls.Game.Model
             }
         }
 
-        private void DrawSticks(GraphicPanel2D panel, Vec2D pivot, Vec2D w1, Vec2D w2)
+        private void DrawSticks(IDrawingPanel panel, Vec2D pivot, Vec2D w1, Vec2D w2)
         {
             var localToWorld = armsUpSprite.GetLocalToWorldMatrix(pivot);
 
-            var a1 = PhxMatrix.MultPosition(localToWorld, new Vec2D(235, 400) / ScaleFactor); //An diesen Punkt ist das Hinterrad befestigt, wenn Direction==Right
-            var a2 = PhxMatrix.MultPosition(localToWorld, new Vec2D(330, 295) / ScaleFactor); //An diesen Punkt ist das Vorderrad befestigt, wenn Direction==Right
+            var a1 = Matrix4x4.MultPosition(localToWorld, new Vec2D(235, 400) / ScaleFactor); //An diesen Punkt ist das Hinterrad befestigt, wenn Direction==Right
+            var a2 = Matrix4x4.MultPosition(localToWorld, new Vec2D(330, 295) / ScaleFactor); //An diesen Punkt ist das Vorderrad befestigt, wenn Direction==Right
 
             Vec2D b1, b2;
             if (this.direction == DirectionState.Right)
@@ -397,33 +395,33 @@ namespace ElmaControl.Controls.Game.Model
 
             if (this.spin != SpinState.NoSpin)
             {
-                b1 = PhxMatrix.MultPosition(localToWorld, new Vec2D(-93, 442) / ScaleFactor);  //Diese ist die Hinterradposition wenn Direction==Right
-                b2 = PhxMatrix.MultPosition(localToWorld, new Vec2D(417, 442) / ScaleFactor);  //Diese ist die Vorderradposition wenn Direction==Right
+                b1 = Matrix4x4.MultPosition(localToWorld, new Vec2D(-93, 442) / ScaleFactor);  //Diese ist die Hinterradposition wenn Direction==Right
+                b2 = Matrix4x4.MultPosition(localToWorld, new Vec2D(417, 442) / ScaleFactor);  //Diese ist die Vorderradposition wenn Direction==Right
             }
 
-            panel.DrawLineWithTexture(dataFolder + "GrayColors.png", a1.ToGrx(), b1.ToGrx(), 15);
-            panel.DrawLineWithTexture(dataFolder + "GrayColors.png", a2.ToGrx(), b2.ToGrx(), 15);
+            panel.DrawLineWithTexture(dataFolder + "GrayColors.png", a1, b1, 15);
+            panel.DrawLineWithTexture(dataFolder + "GrayColors.png", a2, b2, 15);
         }
 
-        private void DrawWheels(GraphicPanel2D panel, Vec2D w1, Vec2D w2)
+        private void DrawWheels(IDrawingPanel panel, Vec2D w1, Vec2D w2)
         {
             float size = Matrix4x4.GetSizeFactorFromMatrix(panel.GetTransformationMatrix());
 
             var wheelDir1 = Vec2D.DirectionFromPhi(this.wheel1.Angle);
             float r1 = this.wheel1.Radius;
-            panel.DrawLine(new Pen(Color.Gray, 10 * size), (w1 + wheelDir1 * r1).ToGrx(), (w1 - wheelDir1 * r1).ToGrx());
+            panel.DrawLine(new Pen(Color.Gray, 10 * size), (w1 + wheelDir1 * r1), (w1 - wheelDir1 * r1));
             wheelDir1 = wheelDir1.Spin90();
-            panel.DrawLine(new Pen(Color.Gray, 10 * size), (w1 + wheelDir1 * r1).ToGrx(), (w1 - wheelDir1 * r1).ToGrx());
+            panel.DrawLine(new Pen(Color.Gray, 10 * size), (w1 + wheelDir1 * r1), (w1 - wheelDir1 * r1));
 
-            panel.DrawCircle(new Pen(Color.Black, 15 * size), w1.ToGrx(), this.wheel1.Radius);
+            panel.DrawCircle(new Pen(Color.Black, 15 * size), w1, this.wheel1.Radius);
 
             var wheelDir2 = Vec2D.DirectionFromPhi(this.wheel2.Angle);
             float r2 = this.wheel2.Radius;
-            panel.DrawLine(new Pen(Color.Gray, 10 * size), (w2 + wheelDir2 * r2).ToGrx(), (w2 - wheelDir2 * r2).ToGrx());
+            panel.DrawLine(new Pen(Color.Gray, 10 * size), (w2 + wheelDir2 * r2), (w2 - wheelDir2 * r2));
             wheelDir2 = wheelDir2.Spin90();
-            panel.DrawLine(new Pen(Color.Gray, 10 * size), (w2 + wheelDir2 * r2).ToGrx(), (w2 - wheelDir2 * r2).ToGrx());
+            panel.DrawLine(new Pen(Color.Gray, 10 * size), (w2 + wheelDir2 * r2), (w2 - wheelDir2 * r2));
 
-            panel.DrawCircle(new Pen(Color.Black, 15 * size), w2.ToGrx(), this.wheel2.Radius);
+            panel.DrawCircle(new Pen(Color.Black, 15 * size), w2, this.wheel2.Radius);
         }
 
         public void HandleTimerTick(float dt)
@@ -473,11 +471,11 @@ namespace ElmaControl.Controls.Game.Model
             this.sounds.MotorFrequency = GetMotorFrequency();
         }
 
-        public void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor)
+        public void DrawWithTwoColors(IDrawingPanel panel, Color frontColor, Color backColor)
         {
-            panel.DrawFillCircle(frontColor, this.HeadCenter.ToGrx(), this.HeadRadius);
-            panel.DrawFillCircle(frontColor, this.Wheel1Center.ToGrx(), this.Wheel1Radius);
-            panel.DrawFillCircle(frontColor, this.Wheel2Center.ToGrx(), this.Wheel2Radius);
+            panel.DrawFillCircle(frontColor, this.HeadCenter, this.HeadRadius);
+            panel.DrawFillCircle(frontColor, this.Wheel1Center, this.Wheel1Radius);
+            panel.DrawFillCircle(frontColor, this.Wheel2Center, this.Wheel2Radius);
         }
     }
 }

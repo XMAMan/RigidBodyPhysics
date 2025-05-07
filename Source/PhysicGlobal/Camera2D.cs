@@ -194,20 +194,20 @@ namespace PhysicGlobal
 
         //Diese Funktion macht das gleiche wie PointToScreen nur dass ich eine Matrix dafür nutzen kann:
         //Vec2D point = PhxMatrix.MultPosition(camera.GetPointToSceenMatrix(), point)
-        public PhxMatrix GetPointToSceenMatrix()
+        public Matrix4x4 GetPointToSceenMatrix()
         {
             if (this.ShowOriginalPosition)
-                return PhxMatrix.Ident();
+                return Matrix4x4.Ident();
 
-            return PhxMatrix.Translate(-this.X, -this.Y, 0) * PhxMatrix.Scale(this.ScaleFactor, this.ScaleFactor, 1);
+            return Matrix4x4.Translate(-this.X, -this.Y, 0) * Matrix4x4.Scale(this.ScaleFactor, this.ScaleFactor, 1);
         }
 
-        public PhxMatrix GetPointToCameraMatrix()
+        public Matrix4x4 GetPointToCameraMatrix()
         {
             if (this.ShowOriginalPosition)
-                return PhxMatrix.Ident();
+                return Matrix4x4.Ident();
 
-            return PhxMatrix.Scale(1.0f / this.ScaleFactor, 1.0f / this.ScaleFactor, 1) * PhxMatrix.Translate(this.X, this.Y, 0);
+            return Matrix4x4.Scale(1.0f / this.ScaleFactor, 1.0f / this.ScaleFactor, 1) * Matrix4x4.Translate(this.X, this.Y, 0);
         }
     }
 }

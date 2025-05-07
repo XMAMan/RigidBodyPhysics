@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using GraphicPanelWpf;
+﻿using GraphicPanelWpf;
 using PhysicSceneSimulatorControl.Controls.Simulator.Model;
 using PhysicSceneSimulatorControl.Dialogs.PrintSettings;
 using ReactiveUI.Fody.Helpers;
@@ -20,7 +19,7 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.ViewModel
     public class SimulatorViewModel : ReactiveObject, IGraphicPanelHandler, IStringSerializable, ITimerHandler
     {
         private bool isRunning = false;
-        private readonly GraphicPanel2D panel;
+        private readonly IDrawingPanel panel;
         private Scene model;
 
         private string lastLoadedScene = string.Empty;

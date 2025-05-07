@@ -1,8 +1,8 @@
 ﻿using GameHelper;
 using GameHelper.Simulation;
-using GraphicPanels;
 using GraphicPanelWpf;
 using KeyboardRecordAndPlay;
+using PhysicGlobal;
 using ReactiveUI;
 using SkiJumperControl.Model;
 using SoundEngine;
@@ -15,7 +15,7 @@ namespace SkiJumperControl.Controls
     {
         private string DataFolder = null;
 
-        private GraphicPanel2D panel;                   //Grafik-Ausgabe
+        private IDrawingPanel panel;                   //Grafik-Ausgabe
 
         private float timerIntervallInMilliseconds;     //Timer
 
@@ -31,7 +31,7 @@ namespace SkiJumperControl.Controls
         enum MainState { ShowIntro, PlayGame, Replay}
         private MainState state = MainState.ShowIntro;
 
-        public MainViewModel(GraphicPanel2D panel, ISoundGenerator soundGenerator, float timerIntervallInMilliseconds, string dataFolder)
+        public MainViewModel(IDrawingPanel panel, ISoundGenerator soundGenerator, float timerIntervallInMilliseconds, string dataFolder)
         {
             this.DataFolder = dataFolder;
             this.panel = panel;

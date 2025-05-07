@@ -1,12 +1,9 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
-using LevelEditorGlobal;
+﻿using LevelEditorGlobal;
 using RigidBodyPhysics.RuntimeObjects.Joints;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using WpfControls.Extensions;
 using PhysicGlobal;
 using LevelEditorExports.Simulator;
 
@@ -27,12 +24,12 @@ namespace PhysicItemEditorControl.Model.MouseClickable
         public int Id { get; } //ITagable
         public TagType TypeName { get => TagType.Joint; } //ITagable
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             DrawBorder(panel, Pens.Blue);
         }
 
-        public void DrawBorder(GraphicPanel2D panel, Pen borderPen)
+        public void DrawBorder(IDrawingPanel panel, Pen borderPen)
         {
             panel.PushMatrix();
             panel.MultTransformationMatrix(Matrix4x4.Translate(-sceneBoundingBox.X, -sceneBoundingBox.Y, 0));
@@ -41,7 +38,7 @@ namespace PhysicItemEditorControl.Model.MouseClickable
             panel.PopMatrix();
         }
 
-        private void DrawJoint(GraphicPanel2D panel, Pen borderPen)
+        private void DrawJoint(IDrawingPanel panel, Pen borderPen)
         {
             if (runtimJoint is IPublicDistanceJoint)
                 DrawDistanceJoint((IPublicDistanceJoint)runtimJoint, panel, borderPen);
@@ -59,15 +56,15 @@ namespace PhysicItemEditorControl.Model.MouseClickable
                 DrawWheelJoint((IPublicWheelJoint)runtimJoint, panel, borderPen);
         }
 
-        private void DrawDistanceJoint(IPublicDistanceJoint j, GraphicPanel2D panel, Pen borderPen)
+        private void DrawDistanceJoint(IPublicDistanceJoint j, IDrawingPanel panel, Pen borderPen)
         {
-            panel.DrawLine(borderPen, j.Anchor1.ToGrx(), j.Anchor2.ToGrx());
+            panel.DrawLine(borderPen, j.Anchor1, j.Anchor2);
         }
 
-        private void DrawPrismaticJoint(IPublicPrismaticJoint j, GraphicPanel2D panel, Pen borderPen)
+        private void DrawPrismaticJoint(IPublicPrismaticJoint j, IDrawingPanel panel, Pen borderPen)
         {
-            var p1 = j.Anchor1.ToGrx();
-            var p2 = j.Anchor2.ToGrx();
+            var p1 = j.Anchor1;
+            var p2 = j.Anchor2;
             panel.DrawLine(borderPen, p1, p2);
 
             float d = (p2 - p1).Length();
@@ -79,11 +76,11 @@ namespace PhysicItemEditorControl.Model.MouseClickable
             panel.DrawLine(borderPen, p1 + tangent, p1 - tangent);
         }
 
-        private void DrawRevoluteJoint(IPublicRevoluteJoint j, GraphicPanel2D panel, Pen borderPen)
+        private void DrawRevoluteJoint(IPublicRevoluteJoint j, IDrawingPanel panel, Pen borderPen)
         {
-            var p1 = j.Anchor1.ToGrx();
-            var b1 = j.Body1.Center.ToGrx();
-            var b2 = j.Body2.Center.ToGrx();
+            var p1 = j.Anchor1;
+            var b1 = j.Body1.Center;
+            var b2 = j.Body2.Center;
 
             var r1 = b1 - p1;
             var r2 = b2 - p1;
@@ -107,11 +104,11 @@ namespace PhysicItemEditorControl.Model.MouseClickable
             panel.DrawLine(borderPen, p1 + r2 * circleRadius, p1 + r2 * armLength);
         }
 
-        private void DrawWeldJoint(IPublicWeldJoint j, GraphicPanel2D panel, Pen borderPen)
+        private void DrawWeldJoint(IPublicWeldJoint j, IDrawingPanel panel, Pen borderPen)
         {
-            var p1 = j.Anchor1.ToGrx();
-            var b1 = j.Body1.Center.ToGrx();
-            var b2 = j.Body2.Center.ToGrx();
+            var p1 = j.Anchor1;
+            var b1 = j.Body1.Center;
+            var b2 = j.Body2.Center;
             var r1 = b1 - p1;
             var r2 = b2 - p1;
 
@@ -123,21 +120,21 @@ namespace PhysicItemEditorControl.Model.MouseClickable
             int cornerCount = 7;
             float radius = circleRadius;
 
-            List<Vector2D> points = new List<Vector2D>();
+            List<Vec2D> points = new List<Vec2D>();
             for (int i = 0; i < cornerCount; i++)
             {
-                points.Add(p1 + new Vector2D((float)Math.Cos(i / (float)cornerCount * 2 * Math.PI), (float)Math.Sin(i / (float)cornerCount * 2 * Math.PI)) * radius);
+                points.Add(p1 + new Vec2D((float)Math.Cos(i / (float)cornerCount * 2 * Math.PI), (float)Math.Sin(i / (float)cornerCount * 2 * Math.PI)) * radius);
 
                 panel.DrawLine(borderPen, p1, points.Last());
             }
 
-            panel.DrawPolygon(borderPen, points);
+            panel.DrawPolygon(borderPen, points.ToArray());
         }
 
-        private void DrawWheelJoint(IPublicWheelJoint j, GraphicPanel2D panel, Pen borderPen)
+        private void DrawWheelJoint(IPublicWheelJoint j, IDrawingPanel panel, Pen borderPen)
         {
-            var p1 = j.Anchor1.ToGrx();
-            var p2 = j.Anchor2.ToGrx();
+            var p1 = j.Anchor1;
+            var p2 = j.Anchor2;
             panel.DrawLine(borderPen, p1, p2);
 
             float d = (p2 - p1).Length();
@@ -146,10 +143,10 @@ namespace PhysicItemEditorControl.Model.MouseClickable
             panel.DrawCircle(borderPen, p2, radius);
         }
 
-        public bool IsPointInside(Vec2D point, PhxMatrix screenToLocal)
+        public bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal)
         {
-            screenToLocal *= PhxMatrix.Translate(sceneBoundingBox.X, sceneBoundingBox.Y, 0);
-            point = PhxMatrix.MultPosition(screenToLocal, point);
+            screenToLocal *= Matrix4x4.Translate(sceneBoundingBox.X, sceneBoundingBox.Y, 0);
+            point = Matrix4x4.MultPosition(screenToLocal, point);
 
             if (runtimJoint is IPublicDistanceJoint)
                 return IsPointAboveDistanceJoint((IPublicDistanceJoint)runtimJoint, point);
@@ -196,9 +193,9 @@ namespace PhysicItemEditorControl.Model.MouseClickable
 
         
 
-        public PhxMatrix GetScreenToLocalMatrix()
+        public Matrix4x4 GetScreenToLocalMatrix()
         {
-            return PhxMatrix.Ident();
+            return Matrix4x4.Ident();
         }
 
         public float GetArea()

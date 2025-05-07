@@ -1,6 +1,5 @@
 ﻿using GameHelper;
 using GameHelper.Simulation;
-using GraphicPanels;
 using GraphicPanelWpf;
 using PhysicGlobal;
 using PhysicSceneDrawing;
@@ -54,15 +53,15 @@ namespace ElmaControl.Controls.Game.Model
             return false;
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             this.sprite.Draw(panel, this.circle.Center);
         }
 
         //Wird für die Minimap benötigt
-        public void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor)
+        public void DrawWithTwoColors(IDrawingPanel panel, Color frontColor, Color backColor)
         {
-            panel.DrawFillCircle(frontColor, this.circle.Center.ToGrx(), this.circle.Radius);
+            panel.DrawFillCircle(frontColor, this.circle.Center, this.circle.Radius);
         }
     }
 }

@@ -1,8 +1,6 @@
-﻿using GraphicPanels;
-using PhysicSceneEditorControl.Controls.Editor.Model.EditorJoint;
+﻿using PhysicSceneEditorControl.Controls.Editor.Model.EditorJoint;
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using PhysicGlobal;
-using WpfControls.Extensions;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Joints
 {
@@ -186,11 +184,11 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Joints
                 }
             }
         }
-        public override void Draw(GraphicPanel2D panel)
+        public override void Draw(IDrawingPanel panel)
         {
             if (anchor1 != null)
             {
-                panel.DrawFillCircle(Color.DarkGreen, anchor1.ToGrx(), 3);
+                panel.DrawFillCircle(Color.DarkGreen, anchor1, 3);
             }
 
             //Snap-Anchor-Points
@@ -201,22 +199,22 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Joints
                 {
                     bool mouseIsOverSnapPoint = (point - currentMousePosition).Length() < 5;
                     if (mouseIsOverSnapPoint)
-                        panel.DrawFillCircle(Color.Yellow, point.ToGrx(), 5);
+                        panel.DrawFillCircle(Color.Yellow, point, 5);
 
-                    panel.DrawFillCircle(Color.Blue, point.ToGrx(), 3);
+                    panel.DrawFillCircle(Color.Blue, point, 3);
                 }
             }
 
             if (mode == Mode.PlaceAnchor1)
             {
                 bool isInside = InsideCheck(shape1, currentMousePosition);
-                panel.DrawFillCircle(isInside ? Color.DarkGreen : Color.Red, currentMousePosition.ToGrx(), 3);
+                panel.DrawFillCircle(isInside ? Color.DarkGreen : Color.Red, currentMousePosition, 3);
             }
 
             if (mode == Mode.PlaceAnchor2)
             {
                 bool isInside = InsideCheck(shape2, currentMousePosition);
-                panel.DrawFillCircle(isInside ? Color.DarkGreen : Color.Red, currentMousePosition.ToGrx(), 3);
+                panel.DrawFillCircle(isInside ? Color.DarkGreen : Color.Red, currentMousePosition, 3);
             }
 
             //Linie vom BodyCenter1 zu MousePosition
@@ -231,7 +229,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Joints
                 Vec2D dir = (p - shape1.Center).Normalize();
                 var box = shape1.GetBoundingBox();
                 float r = box.GetRadius();
-                panel.DrawLine(Pens.Blue, (shape1.Center - dir * r).ToGrx(), (shape1.Center + dir * r).ToGrx());
+                panel.DrawLine(Pens.Blue, (shape1.Center - dir * r), (shape1.Center + dir * r));
             }
 
 

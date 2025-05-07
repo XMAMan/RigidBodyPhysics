@@ -1,8 +1,6 @@
-﻿using PhysicGlobal;
-
-namespace RigidBodyPhysics.MathHelper
+﻿namespace PhysicGlobal
 {
-    internal class Vec3D
+    public class Vec3D
     {
         public float X { get; set; }
         public float Y { get; set; }

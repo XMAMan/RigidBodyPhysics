@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using LevelEditorExports.Editor.Helper;
+﻿using LevelEditorExports.Editor.Helper;
 using LevelEditorExports.Editor.LevelItems;
 using LevelEditorGlobal;
 using PhysicGlobal;
@@ -13,9 +12,9 @@ namespace LevelEditorControl.LevelItems
         int Id { get; }
         bool IsSelected { get; set; }
         float GetArea();
-        void Draw(GraphicPanel2D panel);
-        void DrawBorder(GraphicPanel2D panel, Pen borderPen);
-        void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor);
+        void Draw(IDrawingPanel panel);
+        void DrawBorder(IDrawingPanel panel, Pen borderPen);
+        void DrawWithTwoColors(IDrawingPanel panel, Color frontColor, Color backColor);
         bool IsPointInside(Vec2D point);
         ILevelItemExportData GetExportData();
         Vec2D PivotPoint { get; set; } //Hiermit kann das Objekt verschoben werden

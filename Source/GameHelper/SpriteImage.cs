@@ -1,17 +1,14 @@
-﻿using GraphicPanels;
-using GraphicPanelWpf;
-using PhysicGlobal;
-using PhysicSceneDrawing;
+﻿using PhysicGlobal;
 
 namespace GameHelper
 {
     //Hilft bei der Darstellung einer Spritedatei. Speichert welches Bild gerade ausgewählt ist und man kann das Bild auch über die Y- und Z-Achse drehen.
-    public class SpriteImage : ITimerHandler
+    public class SpriteImage
     {
         private string fileName;
         private int xCount;
         private int yCount;
-                private float durrationInMs;
+        private float durrationInMs;
         private float time = 0;         //Geht von 0 bis durrationInMs
         private int spriteNr = 0;       //Aktuell ausgewähltes Bild
         private bool isRunning = true;
@@ -79,30 +76,30 @@ namespace GameHelper
         }
 
         //position = An dieser Stelle wird der Pivotpixel des aktiven EInzelbildes gezeichnet werden
-        public void Draw(GraphicPanel2D panel, Vec2D position)
+        public void Draw(IDrawingPanel panel, Vec2D position)
         {
             DrawSingleImage(panel, position, this.spriteNr);
         }
 
-        public void DrawSingleImage(GraphicPanel2D panel, Vec2D position, int imageIndex)
+        public void DrawSingleImage(IDrawingPanel panel, Vec2D position, int imageIndex)
         {
             panel.PushMatrix();
 
-            panel.MultTransformationMatrix(GetLocalToWorldMatrix(position).To4x4Matrix());
+            panel.MultTransformationMatrix(GetLocalToWorldMatrix(position));
             panel.DrawSprite(this.fileName, this.xCount, this.yCount, imageIndex % this.xCount, imageIndex / this.xCount, 0, 0, Width, Height, 0, true, Color.White);
 
             panel.PopMatrix();
         }
 
-        public PhxMatrix GetLocalToWorldMatrix(Vec2D position)
+        public Matrix4x4 GetLocalToWorldMatrix(Vec2D position)
         {
-            var m = PhxMatrix.Ident();
+            var m = Matrix4x4.Ident();
 
-            m *= PhxMatrix.Translate(-this.PivotX, -this.PivotY, 0);     //Schritt 1: Verschiebe den PivotPunkt zum Nullpunkt
-            m *= PhxMatrix.Scale(this.Zoom, this.Zoom, this.Zoom);       //Schritt 2: Skaliere
-            m *= PhxMatrix.Rotate(this.RotateYAngleInDegree, 0, 1, 0);   //Schritt 3: Rotiere um Y
-            m *= PhxMatrix.Rotate(this.RotateZAngleInDegree, 0, 0, 1);   //Schritt 4: Rotiere um Z
-            m *= PhxMatrix.Translate(position.X, position.Y, 0);         //Schritt 5: Gehe zum Zielpunkt
+            m *= Matrix4x4.Translate(-this.PivotX, -this.PivotY, 0);     //Schritt 1: Verschiebe den PivotPunkt zum Nullpunkt
+            m *= Matrix4x4.Scale(this.Zoom, this.Zoom, this.Zoom);       //Schritt 2: Skaliere
+            m *= Matrix4x4.Rotate(this.RotateYAngleInDegree, 0, 1, 0);   //Schritt 3: Rotiere um Y
+            m *= Matrix4x4.Rotate(this.RotateZAngleInDegree, 0, 0, 1);   //Schritt 4: Rotiere um Z
+            m *= Matrix4x4.Translate(position.X, position.Y, 0);         //Schritt 5: Gehe zum Zielpunkt
 
             return m;
         }
@@ -126,10 +123,10 @@ namespace GameHelper
 
             return new Vec2D[]
             {
-                PhxMatrix.MultPosition(localToWorld, new Vec2D(0, 0)),
-                PhxMatrix.MultPosition(localToWorld, new Vec2D(Width, 0)),
-                PhxMatrix.MultPosition(localToWorld, new Vec2D(Width, Height)),
-                PhxMatrix.MultPosition(localToWorld, new Vec2D(0, Height))
+                Matrix4x4.MultPosition(localToWorld, new Vec2D(0, 0)),
+                Matrix4x4.MultPosition(localToWorld, new Vec2D(Width, 0)),
+                Matrix4x4.MultPosition(localToWorld, new Vec2D(Width, Height)),
+                Matrix4x4.MultPosition(localToWorld, new Vec2D(0, Height))
             };
         }
     }

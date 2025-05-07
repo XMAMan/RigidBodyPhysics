@@ -1,5 +1,4 @@
 ﻿using DynamicData;
-using GraphicPanels;
 using LevelEditorControl.Controls.PolygonControl;
 using LevelEditorControl.Controls.TagItemControl;
 using LevelEditorControl.LevelItems;
@@ -19,7 +18,7 @@ namespace LevelEditorControl.EditorFunctions
 {
     internal class EditorState : ReactiveObject
     {
-        public GraphicPanel2D Panel;
+        public IDrawingPanel Panel;
         public Camera2D Camera;
         public ObservableCollection<IPrototypItem> Prototyps = new ObservableCollection<IPrototypItem>();
         [Reactive] public IPrototypItem SelectedPrototyp { get; set; }

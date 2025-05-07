@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using TextureEditorGlobal;
 
@@ -52,14 +51,14 @@ namespace PhysicSceneDrawing
             p = textureData;
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             if (string.IsNullOrEmpty(p.TextureFile))
             {
                 if (r.Radius > 1)
-                    panel.DrawCircle(Pens.Black, r.Center.ToGrx(), r.Radius);   //Physik-Border
+                    panel.DrawCircle(Pens.Black, r.Center, r.Radius);   //Physik-Border
                 else
-                    panel.DrawCircleWithLines(Pens.Black, r.Center.ToGrx(), r.Radius, 10);
+                    panel.DrawCircleWithLines(Pens.Black, r.Center, r.Radius, 10);
 
                 return;
             }
@@ -75,24 +74,24 @@ namespace PhysicSceneDrawing
                         angleInDegree + p.DeltaAngle);
         }
 
-        public void DrawPhysicBorder(GraphicPanel2D panel, Pen borderPen)
+        public void DrawPhysicBorder(IDrawingPanel panel, Pen borderPen)
         {
             if (r.Radius > 1)
-                panel.DrawCircle(borderPen, r.Center.ToGrx(), r.Radius);   //Physik-Border
+                panel.DrawCircle(borderPen, r.Center, r.Radius);   //Physik-Border
             else
-                panel.DrawCircleWithLines(borderPen, r.Center.ToGrx(), r.Radius, 10);            
+                panel.DrawCircleWithLines(borderPen, r.Center, r.Radius, 10);            
         }
-        public void DrawTextureBorder(GraphicPanel2D panel, Pen borderPen)
+        public void DrawTextureBorder(IDrawingPanel panel, Pen borderPen)
         {
-            panel.DrawPolygon(borderPen, GetTextureCornerPoints().ToGrx().ToList()); //Texture-Border
+            panel.DrawPolygon(borderPen, GetTextureCornerPoints()); //Texture-Border
         }
 
-        public void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor)
+        public void DrawWithTwoColors(IDrawingPanel panel, Color frontColor, Color backColor)
         {
             if (r.Radius > 1)
-                panel.DrawFillCircle(frontColor, r.Center.ToGrx(), r.Radius);
+                panel.DrawFillCircle(frontColor, r.Center, r.Radius);
             else
-                panel.DrawFillCircleWithTriangles(frontColor, r.Center.ToGrx(), r.Radius, 10);
+                panel.DrawFillCircleWithTriangles(frontColor, r.Center, r.Radius, 10);
         }
     }
 }

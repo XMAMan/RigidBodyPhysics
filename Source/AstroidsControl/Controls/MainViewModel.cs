@@ -1,9 +1,9 @@
 ﻿using AstroidsControl.Model;
 using GameHelper;
 using GameHelper.Simulation;
-using GraphicPanels;
 using GraphicPanelWpf;
 using KeyboardRecordAndPlay;
+using PhysicGlobal;
 using ReactiveUI;
 using SoundEngine;
 using System;
@@ -22,7 +22,7 @@ namespace AstroidsControl.Controls
     {
         private string DataFolder;
 
-        private GraphicPanel2D panel;                   //Grafik-Ausgabe
+        private IDrawingPanel panel;                   //Grafik-Ausgabe
 
         private float timerIntervallInMilliseconds;     //Timer
 
@@ -39,7 +39,7 @@ namespace AstroidsControl.Controls
         private readonly PhysicGlobal.BoundingBox GameArea = new PhysicGlobal.BoundingBox(0, 0, 2000, 1000);
 
         private Sounds sounds;                          //Soundwiedergabe
-        public MainViewModel(GraphicPanel2D panel, ISoundGenerator soundGenerator, float timerIntervallInMilliseconds, string dataFolder)
+        public MainViewModel(IDrawingPanel panel, ISoundGenerator soundGenerator, float timerIntervallInMilliseconds, string dataFolder)
         {
             this.DataFolder = dataFolder;
             this.panel = panel;

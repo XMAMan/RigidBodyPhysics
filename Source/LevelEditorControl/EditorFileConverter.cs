@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using LevelEditorControl.Controls.EditorControl;
+﻿using LevelEditorControl.Controls.EditorControl;
 using LevelEditorExports.Editor;
 using LevelEditorExports.Editor.Helper;
 using LevelEditorExports.Simulator;
@@ -14,7 +13,7 @@ namespace LevelEditorControl
         {
             var data = JsonHelper.Helper.CreateFromJson<LevelEditorExportData>(FileNameReplacer.LoadEditorFile(editorFileName));
 
-            var panel = new GraphicPanel2D() { Width = 100, Height = 100, Mode = Mode2D.CPU };
+            var panel = new DrawingPanel.DrawingPanel(100, 100, true);
             var editor = new EditorViewModel(new EditorInputData() { Panel = panel }, new EditorViewModelActions());
             editor.LoadFromExportObject(data);
             return editor.GetSimulatorExport();

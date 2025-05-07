@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
+﻿using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using PhysicGlobal;
 using WpfControls.Model;
 using WpfControls.Extensions;
@@ -102,7 +101,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Shapes
 
         }
 
-        public override void Draw(GraphicPanel2D panel)
+        public override void Draw(IDrawingPanel panel)
         {
             //Es wird gerade ein neues Rechteck aufgezogen
             if (firstMouseClick != null)
@@ -125,7 +124,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Shapes
                         Vec2D.RotatePointAroundPivotPoint(r.Center, new Vec2D(r.Center.X - r.Size.X / 2, r.Center.Y - r.Size.Y / 2), r.AngleInDegree),
                         Vec2D.RotatePointAroundPivotPoint(r.Center, new Vec2D(r.Center.X + r.Size.X / 2, r.Center.Y - r.Size.Y / 2), r.AngleInDegree),
                     };
-                    panel.DrawPolygon(Pens.Black, points.ToGrx().ToList());
+                    panel.DrawPolygon(Pens.Black, points);
                 }
             }
         }

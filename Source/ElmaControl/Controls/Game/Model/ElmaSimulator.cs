@@ -1,13 +1,11 @@
 ﻿using GameHelper;
 using GameHelper.Simulation;
-using GraphicPanels;
 using KeyboardRecordAndPlay;
 using LevelEditorExports.Simulator;
 using PhysicGlobal;
 using System;
 using System.Drawing;
 using System.Windows.Input;
-using WpfControls.Extensions;
 
 namespace ElmaControl.Controls.Game.Model
 {
@@ -16,7 +14,7 @@ namespace ElmaControl.Controls.Game.Model
     {
         private string DataFolder = null;
 
-        private GraphicPanel2D panel;   //Grafik-Ausgabe
+        private IDrawingPanel panel;   //Grafik-Ausgabe
 
         private Sounds sounds;          //Soundwiedergabe
 
@@ -47,13 +45,13 @@ namespace ElmaControl.Controls.Game.Model
         }
 
         //Wird vom GameViewModel genutzt
-        public ElmaSimulator(string levelFile, float timerIntervalInMilliseconds, Sounds sounds, string dataFolder, GraphicPanel2D panel)
+        public ElmaSimulator(string levelFile, float timerIntervalInMilliseconds, Sounds sounds, string dataFolder, IDrawingPanel panel)
             :base(levelFile, panel.Size, timerIntervalInMilliseconds)
         {
             Init(sounds, dataFolder, panel);
         }
 
-        public void Init(Sounds sounds, string dataFolder, GraphicPanel2D panel)
+        public void Init(Sounds sounds, string dataFolder, IDrawingPanel panel)
         {
             this.DataFolder = dataFolder;
             this.panel = panel;
@@ -91,7 +89,7 @@ namespace ElmaControl.Controls.Game.Model
             }
         }
 
-        public override void Draw(GraphicPanel2D panel)
+        public override void Draw(IDrawingPanel panel)
         {
             base.Draw(panel);
 
@@ -103,7 +101,7 @@ namespace ElmaControl.Controls.Game.Model
             //Zeichne die Distanz-Joints als Ketten, welche das Tag 'chain' haben
             foreach (var dis in this.GetJointsByTagName("chain"))
             {
-                panel.DrawLineWithTexture(DataFolder + "Chain.png", dis.Anchor1.ToGrx(), dis.Anchor2.ToGrx(), 15, true);
+                panel.DrawLineWithTexture(DataFolder + "Chain.png", dis.Anchor1, dis.Anchor2, 15, true);
             }
 
             //Ausgabe der verstrichenen Zeit

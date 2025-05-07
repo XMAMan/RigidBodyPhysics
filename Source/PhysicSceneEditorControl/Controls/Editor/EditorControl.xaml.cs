@@ -1,7 +1,4 @@
-﻿using GraphicPanels;
-using GraphicPanelWpf;
-
-namespace PhysicSceneEditorControl.Controls.Editor
+﻿namespace PhysicSceneEditorControl.Controls.Editor
 {
     /// <summary>
     /// Interaktionslogik für EditorControl.xaml
@@ -13,12 +10,12 @@ namespace PhysicSceneEditorControl.Controls.Editor
             InitializeComponent();
         }
 
-        public EditorControl(EditorViewModel vm, GraphicPanel2D panel)
+        public EditorControl(EditorViewModel vm, DrawingPanel.DrawingPanel panel)
             : this()
         {
             this.DataContext = vm;
 
-            this.graphicControlBorder.Child = new GraphicControl(panel);
+            this.graphicControlBorder.Child = new DrawingPanel.GraphicControl(panel);
         }
     }
 }

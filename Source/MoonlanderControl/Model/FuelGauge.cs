@@ -1,9 +1,9 @@
-﻿using GraphicPanels;
-using System;
+﻿using System;
 using System.Drawing;
 using GameHelper.Simulation.RigidBodyTagging;
 using GameHelper;
 using RigidBodyPhysics.RuntimeObjects.Thruster;
+using PhysicGlobal;
 
 namespace MoonlanderControl.Model
 {
@@ -41,7 +41,7 @@ namespace MoonlanderControl.Model
             }
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             float f = this.fuelAmount / maxFuelAmount;
 

@@ -1,9 +1,7 @@
-﻿using GraphicPanels;
-using PhysicSceneEditorControl.Controls.AxialFriction;
+﻿using PhysicSceneEditorControl.Controls.AxialFriction;
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using RigidBodyPhysics.ExportData.AxialFriction;
 using PhysicGlobal;
-using WpfControls.Extensions;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorAxialFriction
 {
@@ -46,7 +44,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorAxialFriction
             UpdateAfterMovingBodys();
         }
 
-        public void Draw(GraphicPanel2D panel) //Zeichnet die Editor-Daten
+        public void Draw(IDrawingPanel panel) //Zeichnet die Editor-Daten
         {
             if (this.Backcolor != Color.Transparent)
             {
@@ -56,12 +54,12 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorAxialFriction
             DrawStick(panel, this.anchorWorldPosition, this.worldForceDirection, this.BorderPen);
         }
 
-        public static void DrawStick(GraphicPanel2D panel, Vec2D position, Vec2D direction, Pen pen)
+        public static void DrawStick(IDrawingPanel panel, Vec2D position, Vec2D direction, Pen pen)
         {
             float r = 25;
             var p1 = position - direction * r;
             var p2 = position + direction * r;
-            panel.DrawLine(pen, p1.ToGrx(), p2.ToGrx());
+            panel.DrawLine(pen, p1, p2);
 
             int count = 5;
             float l = 10;
@@ -70,7 +68,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorAxialFriction
             {
                 float f = (float)i / count;
                 var p = (1-f) * p1 + f * p2;
-                panel.DrawLine(pen, (p - normal * l).ToGrx(), (p + normal * l).ToGrx());
+                panel.DrawLine(pen, (p - normal * l), (p + normal * l));
             }
         }
 

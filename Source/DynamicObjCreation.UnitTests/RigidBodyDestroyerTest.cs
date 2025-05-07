@@ -1,12 +1,7 @@
 using DynamicObjCreation.RigidBodyDestroying;
 using GameHelper.Simulation;
-using GraphicPanels;
-using LevelEditorControl;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using System.Drawing;
-using System.Reflection;
-using System.Windows.Navigation;
-using WpfControls.Extensions;
 
 namespace DynamicObjCreation.UnitTests
 {
@@ -19,25 +14,25 @@ namespace DynamicObjCreation.UnitTests
         public const string Expected = @"..\..\..\..\..\Data\TestData\DynamicObjCreationTestData\ExpectedImages\";
         public const float TimerTickRateInMs = 30; //ms
 
-        #region SetUp
-        //Wird benötigt, damit EditorFileConverter.Convert keine Exception wirft (Erkärung: Siehe DemoGameTests.cs)
-        public RigidBodyDestroyerTest()
-        {
-            if (!UriParser.IsKnownScheme("pack")) UriParser.Register(new GenericUriParser(GenericUriParserOptions.GenericAuthority), "pack", -1);
-            SetResourceAssembly(typeof(LevelEditorFactory).Assembly);
-        }
-        //https://github.com/microsoft/testfx/issues/975
-        public static void SetResourceAssembly(Assembly assembly)
-        {
-            var _resourceAssemblyField = typeof(System.Windows.Application).GetField("_resourceAssembly", BindingFlags.Static | BindingFlags.NonPublic);
-            if (_resourceAssemblyField != null)
-                _resourceAssemblyField.SetValue(null, assembly);
+        //#region SetUp
+        ////Wird benötigt, damit EditorFileConverter.Convert keine Exception wirft (Erkärung: Siehe DemoGameTests.cs)
+        //public RigidBodyDestroyerTest()
+        //{
+        //    if (!UriParser.IsKnownScheme("pack")) UriParser.Register(new GenericUriParser(GenericUriParserOptions.GenericAuthority), "pack", -1);
+        //    SetResourceAssembly(typeof(LevelEditorFactory).Assembly);
+        //}
+        ////https://github.com/microsoft/testfx/issues/975
+        //public static void SetResourceAssembly(Assembly assembly)
+        //{
+        //    var _resourceAssemblyField = typeof(System.Windows.Application).GetField("_resourceAssembly", BindingFlags.Static | BindingFlags.NonPublic);
+        //    if (_resourceAssemblyField != null)
+        //        _resourceAssemblyField.SetValue(null, assembly);
 
-            var resourceAssemblyProperty = typeof(BaseUriHelper).GetProperty("ResourceAssembly", BindingFlags.Static | BindingFlags.NonPublic);
-            if (resourceAssemblyProperty != null)
-                resourceAssemblyProperty.SetValue(null, assembly);
-        }
-        #endregion
+        //    var resourceAssemblyProperty = typeof(BaseUriHelper).GetProperty("ResourceAssembly", BindingFlags.Static | BindingFlags.NonPublic);
+        //    if (resourceAssemblyProperty != null)
+        //        resourceAssemblyProperty.SetValue(null, assembly);
+        //}
+        //#endregion
 
         [Fact]
         public void CreateWithSingleBox_InputImageIsEqualOutputImage()
@@ -75,7 +70,7 @@ namespace DynamicObjCreation.UnitTests
 
         private static void GetImages(IRigidDestroyerParameter.DestroyMethod method, out Bitmap inputImage, out Bitmap outputImage)
         {
-            var panel = new GraphicPanel2D() { Width = 1400, Height = 900, Mode = Mode2D.OpenGL_Version_3_0 };
+            var panel = new DrawingPanel.DrawingPanel(1400, 900);
             var simulator = new GameSimulator(InputData + "TextureDestory.txt", panel.Size, TimerTickRateInMs) { ShowSmallWindow = false, CameraModus = Simulator.Simulator.CameraMode.Pixel };
 
             simulator.Draw(panel);
@@ -102,7 +97,7 @@ namespace DynamicObjCreation.UnitTests
             
             foreach (var poly in polys)
             {
-                panel.DrawPolygon(new Pen(Color.Red, 2), poly.Vertex.ToGrx().ToList());
+                panel.DrawPolygon(new Pen(Color.Red, 2), poly.Vertex);
             }
 
             outputImage = panel.GetScreenShoot();
@@ -113,7 +108,7 @@ namespace DynamicObjCreation.UnitTests
         [Fact]
         public void DestroyPolygonWithoutTexture()
         {
-            var panel = new GraphicPanel2D() { Width = 240, Height = 250, Mode = Mode2D.OpenGL_Version_3_0 };
+            var panel = new DrawingPanel.DrawingPanel(240, 250);
             var simulator = new GameSimulator(InputData + "PolygonWithoutTextureDestroy.txt", panel.Size, TimerTickRateInMs) { ShowSmallWindow = false, CameraModus = Simulator.Simulator.CameraMode.Pixel };
 
             var body = simulator.GetAllBodiesOfType<IPublicRigidBody>().First();

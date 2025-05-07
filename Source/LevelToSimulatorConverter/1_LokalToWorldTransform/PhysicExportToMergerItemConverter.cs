@@ -86,7 +86,7 @@ namespace LevelToSimulatorConverter._1_LokalToWorldTransform
             var rotRec = new RotatedRectangle(levelItem.Position, protoBox.GetSize(), initialRecValues);
 
             //Schritt 4: LocalToGlobal-Matrix erstellen
-            var m1 = PhxMatrix.Translate(-protoBox.Min.X, -protoBox.Min.Y, 0);
+            var m1 = Matrix4x4.Translate(-protoBox.Min.X, -protoBox.Min.Y, 0);
             var m2 = rotRec.GetLocalToScreenMatrix();
 
             return new PhysicLevelMergerItem(levelItem.LevelItemId, protoData, m1 * m2);
@@ -128,7 +128,7 @@ namespace LevelToSimulatorConverter._1_LokalToWorldTransform
             var rotRec = new RotatedRectangle(levelItem.Position, protoBox.GetSize(), initialRecData);
 
             //Schritt 4: LocalToGlobal-Matrix erstellen
-            var groupedItemMatrix = PhxMatrix.Translate(-protoBox.Min.X, -protoBox.Min.Y, 0) * rotRec.GetLocalToScreenMatrix();
+            var groupedItemMatrix = Matrix4x4.Translate(-protoBox.Min.X, -protoBox.Min.Y, 0) * rotRec.GetLocalToScreenMatrix();
 
             //Schritt 5: Die Kindelemente mit der LocalToGlobal-Matrix multiplizieren
             return childItems.Select(x => new PhysicLevelMergerItem(-1, x.PhysicData, x.GetTranslationMatrix() * groupedItemMatrix)).ToArray();
@@ -141,12 +141,12 @@ namespace LevelToSimulatorConverter._1_LokalToWorldTransform
     internal class PhysicLevelMergerItem : IMergeablePhysicScene
     {
         public int LevelItemId { get; }
-        public PhxMatrix GetTranslationMatrix() => this.translationMatrix; //Enthält die Positon/Ausrichtung/Skalierung vom LevelItem
+        public Matrix4x4 GetTranslationMatrix() => this.translationMatrix; //Enthält die Positon/Ausrichtung/Skalierung vom LevelItem
         public PhysicItemExportData PhysicData { get; }
 
-        private PhxMatrix translationMatrix;
+        private Matrix4x4 translationMatrix;
 
-        public PhysicLevelMergerItem(int levelItemId, PhysicItemExportData physicData, PhxMatrix translationMatrix)
+        public PhysicLevelMergerItem(int levelItemId, PhysicItemExportData physicData, Matrix4x4 translationMatrix)
         {
             LevelItemId = levelItemId;
             PhysicData = physicData;

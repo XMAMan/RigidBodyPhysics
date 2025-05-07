@@ -1,10 +1,7 @@
-﻿using GraphicPanels;
-using LevelEditorControl.LevelItems.Polygon;
+﻿using LevelEditorControl.LevelItems.Polygon;
 using LevelEditorExports.Editor.Helper;
 using PhysicGlobal;
 using System.Drawing;
-using System.Linq;
-using WpfControls.Extensions;
 
 namespace LevelEditorControl.EditorFunctions
 {
@@ -20,7 +17,7 @@ namespace LevelEditorControl.EditorFunctions
         {
         }
 
-        public void DrawLawn(PolygonPoint p1, PolygonPoint p2, GraphicPanel2D panel)
+        public void DrawLawn(PolygonPoint p1, PolygonPoint p2, IDrawingPanel panel)
         {
             var segments = GetAllSegments(p1, p2);
 
@@ -37,7 +34,7 @@ namespace LevelEditorControl.EditorFunctions
                 if (string.IsNullOrEmpty(texture) == false)
                     panel.DrawFillRectangle(texture, (int)center.X, (int)center.Y, (int)width, (int)height, true, Color.White, angle);
                 else
-                    panel.DrawPolygon(new Pen(Color.Green, 2), segment.Points.ToGrx().ToList());
+                    panel.DrawPolygon(new Pen(Color.Green, 2), segment.Points);
 
             }
         }

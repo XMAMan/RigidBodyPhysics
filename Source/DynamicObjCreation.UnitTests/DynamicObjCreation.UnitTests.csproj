@@ -23,14 +23,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DrawingPanel\DrawingPanel.csproj" />
     <ProjectReference Include="..\DynamicObjCreation\DynamicObjCreation.csproj" />
     <ProjectReference Include="..\GameHelper\GameHelper.csproj" />
-    <ProjectReference Include="..\LevelEditorControl\LevelEditorControl.csproj" />
     <ProjectReference Include="..\Simulator\Simulator.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="XMAMan.GraphicEngine2D" Version="0.0.1" />
   </ItemGroup>
 
 </Project>

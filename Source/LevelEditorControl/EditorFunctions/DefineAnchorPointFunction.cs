@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using WpfControls.Extensions;
 
 namespace LevelEditorControl.EditorFunctions
 {
@@ -69,7 +68,7 @@ namespace LevelEditorControl.EditorFunctions
             if (this.selectedItem != null)
             {
                 var screenToLocal = this.state.Camera.GetPointToCameraMatrix() * this.selectedItem.GetScreenToLocalMatrix();
-                this.localAnchorPosition = PhxMatrix.MultPosition(screenToLocal, point);
+                this.localAnchorPosition = Matrix4x4.MultPosition(screenToLocal, point);
             }else
             {
                 this.localAnchorPosition = null;
@@ -94,7 +93,7 @@ namespace LevelEditorControl.EditorFunctions
                 if (this.selectedItem != null)
                 {
                     var screenToLocal = this.state.Camera.GetPointToCameraMatrix() * this.selectedItem.GetScreenToLocalMatrix();
-                    var anchorPoint = PhxMatrix.MultPosition(screenToLocal, point);
+                    var anchorPoint = Matrix4x4.MultPosition(screenToLocal, point);
                     var tagData = GetTagData(this.selectedItem);
                     tagData.AnchorPoints.Add(anchorPoint);
                 }
@@ -131,11 +130,11 @@ namespace LevelEditorControl.EditorFunctions
                 var tagData = GetTagData(item);
                 if (tagData.AnchorPoints.Any())
                 {
-                    var localToScreen = PhxMatrix.Invert(item.GetScreenToLocalMatrix());
+                    var localToScreen = Matrix4x4.Invert(item.GetScreenToLocalMatrix());
                     for (int i=0;i<tagData.AnchorPoints.Count;i++)
                     {
                         var localPoint = tagData.AnchorPoints[i];
-                        var screenPoint = PhxMatrix.MultPosition(localToScreen, localPoint);
+                        var screenPoint = Matrix4x4.MultPosition(localToScreen, localPoint);
                         if ((screenPoint - mousePoint).Length() < anchorPointRadius)
                         {
                             return new AnchorPoint() {Item = item, PointIndex = i };
@@ -169,7 +168,7 @@ namespace LevelEditorControl.EditorFunctions
                 panel.DrawString(10, 20, Color.Black, 20, localAnchorPosition.ToString());
             }
 
-            panel.MultTransformationMatrix(this.state.Camera.GetPointToSceenMatrix().To4x4Matrix());
+            panel.MultTransformationMatrix(this.state.Camera.GetPointToSceenMatrix());
 
             float size1 = this.state.Camera.LengthToCamera(5);
             float size2 = this.state.Camera.LengthToCamera(3);
@@ -182,11 +181,11 @@ namespace LevelEditorControl.EditorFunctions
                 var tagData = GetTagData(item);
                 if (tagData.AnchorPoints.Any())
                 {
-                    var localToScreen = PhxMatrix.Invert(item.GetScreenToLocalMatrix());
+                    var localToScreen = Matrix4x4.Invert(item.GetScreenToLocalMatrix());
                     foreach (var localPoint in tagData.AnchorPoints)
                     {
-                        var screenPoint = PhxMatrix.MultPosition(localToScreen, localPoint);
-                        panel.DrawFillRegularPolygon(Color.Green, screenPoint.ToGrx(), size1, 7);
+                        var screenPoint = Matrix4x4.MultPosition(localToScreen, localPoint);
+                        panel.DrawFillRegularPolygon(Color.Green, screenPoint, size1, 7);
                     }
                 }
             }
@@ -194,10 +193,10 @@ namespace LevelEditorControl.EditorFunctions
             if (this.mouseOverPoint != null)
             {
                 var item = this.mouseOverPoint.Item;
-                var localToScreen = PhxMatrix.Invert(item.GetScreenToLocalMatrix());
+                var localToScreen = Matrix4x4.Invert(item.GetScreenToLocalMatrix());
                 var localPoint = GetTagData(item).AnchorPoints[this.mouseOverPoint.PointIndex];
-                var screenPoint = PhxMatrix.MultPosition(localToScreen, localPoint);
-                panel.DrawCircle(Pens.Red, screenPoint.ToGrx(), 6);
+                var screenPoint = Matrix4x4.MultPosition(localToScreen, localPoint);
+                panel.DrawCircle(Pens.Red, screenPoint, 6);
             }
 
             panel.FlipBuffer();

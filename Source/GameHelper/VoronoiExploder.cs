@@ -1,19 +1,18 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
-using GraphicPanelWpf;
+﻿using DynamicObjCreation.RigidBodyDestroying;
+using PhysicGlobal;
 
 namespace GameHelper
 {
     public interface IDrawable
     {
         Rectangle GetBoundingBox();
-        void Draw(GraphicPanel2D panel);
+        void Draw(IDrawingPanel panel);
     }
 
-    public class VoronoiExploder : ITimerHandler
+    public class VoronoiExploder
     {
         private List<VoronoiPolygon> polygons;
-        public VoronoiExploder(IDrawable drawable, GraphicPanel2D panel) 
+        public VoronoiExploder(IDrawable drawable, IDrawingPanel panel) 
         {
             var image = CreateImageFromDrawable(drawable, panel);
 
@@ -21,17 +20,17 @@ namespace GameHelper
             string textureName = "voronoiTexture";
             panel.CreateOrUpdateNamedBitmapTexture(textureName, image);
 
-            var voronoiCellPoints = GraphicPanel2D.GetRandomPointList(10, image.Width, image.Height, new Random());
-            var voronioPolygons = GraphicPanel2D.GetVoronoiPolygons(image.Size, voronoiCellPoints);
+            var voronoiCellPoints = VoronoiHelper.GetRandomPointList(10, image.Width, image.Height, new Random());
+            var voronioPolygons = VoronoiHelper.GetVoronoiPolygons(image.Size, voronoiCellPoints);
             var box = drawable.GetBoundingBox();
-            voronioPolygons = voronioPolygons.Select(x => VoronoiPolygon.TransformPolygon(x, new Vector2D(box.X, box.Y))).ToList();
+            voronioPolygons = voronioPolygons.Select(x => VoronoiPolygon.TransformPolygon(x, new Vec2D(box.X, box.Y))).ToList();
 
-            var center = new Vector2D(box.X + box.Width / 2, box.Y + box.Height / 2);
+            var center = new Vec2D(box.X + box.Width / 2, box.Y + box.Height / 2);
             float speed = 0.001f;
             this.polygons = voronioPolygons.Select(x => new VoronoiPolygon(textureName, x, (x[0].Position - center) * speed)).ToList();
         }
 
-        private Bitmap CreateImageFromDrawable(IDrawable drawable, GraphicPanel2D panel)
+        private Bitmap CreateImageFromDrawable(IDrawable drawable, IDrawingPanel panel)
         {
             var box = drawable.GetBoundingBox();
 
@@ -52,7 +51,7 @@ namespace GameHelper
             return image;
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             foreach (var poly in this.polygons)
             {
@@ -69,23 +68,23 @@ namespace GameHelper
         }
     }
 
-    internal class VoronoiPolygon : ITimerHandler
+    internal class VoronoiPolygon
     {
         private const float gravity = 0.0001f;
 
         private string textureName;
         private Vertex2D[] polygon;
-        private Vector2D position;
-        private Vector2D velocity;
-        public VoronoiPolygon(string textureName, Vertex2D[] polygon, Vector2D velocity)
+        private Vec2D position;
+        private Vec2D velocity;
+        public VoronoiPolygon(string textureName, Vertex2D[] polygon, Vec2D velocity)
         {
             this.textureName = textureName;
             this.polygon = polygon;
-            this.position = new Vector2D(0, 0);
+            this.position = new Vec2D(0, 0);
             this.velocity = velocity;
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             var movedPoly = TransformPolygon(this.polygon, this.position);
             panel.DrawFillPolygon(this.textureName, false, Color.FromArgb(255, 255, 255), movedPoly.ToList());
@@ -97,7 +96,7 @@ namespace GameHelper
             this.position += this.velocity * dt;            
         }
 
-        internal static Vertex2D[] TransformPolygon(Vertex2D[] polygon, Vector2D position)
+        internal static Vertex2D[] TransformPolygon(Vertex2D[] polygon, Vec2D position)
         {
             return polygon.Select(x => new Vertex2D(x.Position + position, x.Textcoord)).ToArray();
         }

@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using JsonHelper;
+﻿using JsonHelper;
 using PhysicSceneSimulatorControl.Controls.Simulator.Model.ShapeExporter;
 using PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorJoint;
 using PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorRotaryMotor;
@@ -16,7 +15,6 @@ using RigidBodyPhysics.RuntimeObjects.Thruster;
 using RigidBodyPhysics.RuntimeObjects.RotaryMotor;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using RigidBodyPhysics.RuntimeObjects.Joints;
-using WpfControls.Extensions;
 
 namespace PhysicSceneSimulatorControl.Controls.Simulator.Model
 {
@@ -65,7 +63,7 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model
             this.scene.TimeStep(dt);
         }
 
-        public void Draw(GraphicPanel2D panel, PrintSettingsViewModel printSettings)
+        public void Draw(IDrawingPanel panel, PrintSettingsViewModel printSettings)
         {
             //panel.DrawLine(Pens.Black, new GraphicMinimal.Vector2D(0, 0), new GraphicMinimal.Vector2D(panel.Width, panel.Height));
 
@@ -74,13 +72,13 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model
                 shape.Draw(panel, printSettings);
 
                 if (printSettings.ShowOrientation)
-                    panel.DrawString(shape.PhysicModel.Center.ToGrx(), Color.Black, 20, (int)(shape.PhysicModel.Angle / (2 * Math.PI) * 360) + "");
+                    panel.DrawString(shape.PhysicModel.Center, Color.Black, 20, (int)(shape.PhysicModel.Angle / (2 * Math.PI) * 360) + "");
 
                 if (printSettings.ShowBodyIndex)
-                    panel.DrawString(shape.PhysicModel.Center.ToGrx(), Color.Black, 20, this.shapes.IndexOf(shape) + "");
+                    panel.DrawString(shape.PhysicModel.Center, Color.Black, 20, this.shapes.IndexOf(shape) + "");
 
                 if (printSettings.ShowPushPullForce && shape.PhysicModel is IPublicRigidRectangle)
-                    panel.DrawString(shape.PhysicModel.Center.ToGrx(), Color.Black, 20, (shape.PhysicModel as IPublicRigidRectangle).GetPushPullForce() + "");
+                    panel.DrawString(shape.PhysicModel.Center, Color.Black, 20, (shape.PhysicModel as IPublicRigidRectangle).GetPushPullForce() + "");
             }
 
             foreach (ISimulatorJoint joint in this.joints) joint.Draw(panel, printSettings);
@@ -92,9 +90,9 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model
             {
                 foreach (var c in this.scene.GetCollisions())
                 {
-                    panel.DrawFillCircle(Color.Green, c.Start.ToGrx(), 3);
-                    panel.DrawFillCircle(Color.Blue, c.End.ToGrx(), 3);
-                    panel.DrawLine(Pens.Red, c.Start.ToGrx(), (c.Start + c.Normal * 20).ToGrx());
+                    panel.DrawFillCircle(Color.Green, c.Start, 3);
+                    panel.DrawFillCircle(Color.Blue, c.End, 3);
+                    panel.DrawLine(Pens.Red, c.Start, (c.Start + c.Normal * 20));
                 }
             }
         }

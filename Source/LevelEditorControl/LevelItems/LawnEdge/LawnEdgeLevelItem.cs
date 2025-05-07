@@ -1,6 +1,4 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
-using LevelEditorControl.EditorFunctions;
+﻿using LevelEditorControl.EditorFunctions;
 using LevelEditorControl.LevelItems.Polygon;
 using LevelEditorExports.Editor.Helper;
 using LevelEditorExports.Editor.LevelItems;
@@ -8,7 +6,6 @@ using PhysicGlobal;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using WpfControls.Extensions;
 
 namespace LevelEditorControl.LevelItems.LawnEdge
 {
@@ -49,24 +46,24 @@ namespace LevelEditorControl.LevelItems.LawnEdge
         {
             return Drawer.GetAllSegments(p1, p2).Select(x => x.GetArea()).Sum();
         }
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             Drawer.DrawLawn(p1, p2, panel);
         }
-        public void DrawBorder(GraphicPanel2D panel, Pen borderPen)
+        public void DrawBorder(IDrawingPanel panel, Pen borderPen)
         {
             var segments = Drawer.GetAllSegments(p1, p2);
             foreach (var segment in segments)
             {
-                panel.DrawPolygon(borderPen, segment.Points.ToGrx().ToList());
+                panel.DrawPolygon(borderPen, segment.Points);
             }
         }
-        public void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor)
+        public void DrawWithTwoColors(IDrawingPanel panel, Color frontColor, Color backColor)
         {
             var segments = Drawer.GetAllSegments(p1, p2);
             foreach (var segment in segments)
             {
-                panel.DrawFillPolygon(frontColor, segment.Points.ToGrx().ToList());
+                panel.DrawFillPolygon(frontColor, segment.Points);
             }
         }
         public bool IsPointInside(Vec2D point)
@@ -74,14 +71,14 @@ namespace LevelEditorControl.LevelItems.LawnEdge
             bool isInside = Drawer.GetAllSegments(p1, p2).Any(x => x.IsPointInside(point));
             return isInside;
         }
-        public bool IsPointInside(Vec2D point, PhxMatrix screenToLocal) //point = ScreenSpace-Mousepoint
+        public bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal) //point = ScreenSpace-Mousepoint
         {
-            point = PhxMatrix.MultPosition(screenToLocal, point); //CameraSpace-Mousepoint
+            point = Matrix4x4.MultPosition(screenToLocal, point); //CameraSpace-Mousepoint
             return IsPointInside(point);
         }
-        public PhxMatrix GetScreenToLocalMatrix()
+        public Matrix4x4 GetScreenToLocalMatrix()
         {
-            return PhxMatrix.Ident();
+            return Matrix4x4.Ident();
         }
 
         public ILevelItemExportData GetExportData()

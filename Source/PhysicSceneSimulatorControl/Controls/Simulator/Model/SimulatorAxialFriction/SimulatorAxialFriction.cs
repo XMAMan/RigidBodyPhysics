@@ -1,8 +1,6 @@
-﻿using GraphicPanels;
-using PhysicSceneSimulatorControl.Dialogs.PrintSettings;
+﻿using PhysicSceneSimulatorControl.Dialogs.PrintSettings;
 using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.AxialFriction;
-using WpfControls.Extensions;
 
 namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorAxialFriction
 {
@@ -13,7 +11,7 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorAxialFri
         {
             this.PhysicModel = ctor;
         }
-        public void Draw(GraphicPanel2D panel, PrintSettingsViewModel printSettings)
+        public void Draw(IDrawingPanel panel, PrintSettingsViewModel printSettings)
         {
             var c = this.PhysicModel;
 
@@ -23,12 +21,12 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorAxialFri
             }
         }
 
-        private static void DrawStick(GraphicPanel2D panel, Vec2D position, Vec2D direction, Pen pen)
+        private static void DrawStick(IDrawingPanel panel, Vec2D position, Vec2D direction, Pen pen)
         {
             float r = 25;
             var p1 = position - direction * r;
             var p2 = position + direction * r;
-            panel.DrawLine(pen, p1.ToGrx(), p2.ToGrx());
+            panel.DrawLine(pen, p1, p2);
 
             int count = 5;
             float l = 10;
@@ -37,7 +35,7 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorAxialFri
             {
                 float f = (float)i / count;
                 var p = (1 - f) * p1 + f * p2;
-                panel.DrawLine(pen, (p - normal * l).ToGrx(), (p + normal * l).ToGrx());
+                panel.DrawLine(pen, (p - normal * l), (p + normal * l));
             }
         }
     }

@@ -1,7 +1,6 @@
 ﻿using GameHelper;
 using GameHelper.Simulation;
 using GameHelper.Simulation.RigidBodyTagging;
-using GraphicPanels;
 using PhysicGlobal;
 using PhysicSceneDrawing;
 using RigidBodyPhysics.RuntimeObjects.Joints;
@@ -10,7 +9,6 @@ using SpriteEditorControl.Controls.Main.Model;
 using System;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace SpiderBoxControl.Model
@@ -154,7 +152,7 @@ namespace SpiderBoxControl.Model
             return angle / 180;
         }
         #region IRigidBodyDrawer
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             //Sprite
             int index = Math.Min(this.sprite.ImageCount - 1, (int)(this.armJoint.CurrentPosition * (this.sprite.ImageCount - 1) + 0.5f));
@@ -169,8 +167,8 @@ namespace SpiderBoxControl.Model
                 var tip = this.armTip.GetPosition();
                 var dir = (tip - this.arm.Center).Normalize();
                 var targetPoint = this.arm.Center + dir * (80 + 20 * this.Power);
-                //panel.DrawLine(new Pen(Color.Red, 2), targetPoint.ToGrx(), tip);
-                //panel.DrawFillCircle(Color.Red, targetPoint.ToGrx(), 5);
+                //panel.DrawLine(new Pen(Color.Red, 2), targetPoint, tip);
+                //panel.DrawFillCircle(Color.Red, targetPoint, 5);
             }else
             {
                 //Seil
@@ -178,16 +176,16 @@ namespace SpiderBoxControl.Model
             }            
         }
 
-        public void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor)
+        public void DrawWithTwoColors(IDrawingPanel panel, Color frontColor, Color backColor)
         {
             panel.DrawFillRectangle(frontColor, this.ton.Center.X, this.ton.Center.Y, this.ton.Size.X, this.ton.Size.Y, this.ton.Angle / (float)Math.PI * 180);
             panel.DrawFillRectangle(frontColor, this.arm.Center.X, this.arm.Center.Y, this.arm.Size.X, this.arm.Size.Y, this.arm.Angle / (float)Math.PI * 180);
         }
         #endregion
 
-        public void DrawPhysicBorderFromArm(GraphicPanel2D panel, Pen pen)
+        public void DrawPhysicBorderFromArm(IDrawingPanel panel, Pen pen)
         {
-            panel.DrawPolygon(pen, this.arm.Vertex.Select(x => x.ToGrx()).ToList());
+            panel.DrawPolygon(pen, this.arm.Vertex);
         }
     }
 }

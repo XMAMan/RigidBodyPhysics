@@ -26,10 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="XMAMan.GraphicEngine2D" Version="0.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Controls\Editor\Load.PNG" />
     <Resource Include="Controls\Editor\Save.PNG" />
   </ItemGroup>

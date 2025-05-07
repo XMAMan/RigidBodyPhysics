@@ -1,12 +1,9 @@
-﻿using GraphicPanels;
-using LevelEditorControl.Controls.PolygonControl;
+﻿using LevelEditorControl.Controls.PolygonControl;
 using LevelEditorGlobal;
 using PhysicGlobal;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using GraphicMinimal;
-using WpfControls.Extensions;
 using LevelEditorExports.Editor.LevelItems;
 using LevelEditorExports.Simulator;
 using LevelEditorExports.Editor.Helper;
@@ -50,7 +47,7 @@ namespace LevelEditorControl.LevelItems.Polygon
         {
             return PolygonHelper.GetAreaFromPolygon(localPoints);
         }
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             string texture = IsOutside ? images.ForegroundImage : images.BackgroundImage;
 
@@ -62,27 +59,27 @@ namespace LevelEditorControl.LevelItems.Polygon
                 //Es soll aber hinter LevelItems (liegen bei Z-Value=0) liegen, weswegen hier -0.1 verwendet wird.
                 panel.ZValue2D = -0.1f;
 
-                panel.DrawPolygon(Pens.Black, GlobalPoints.ToGrx().ToList());
+                panel.DrawPolygon(Pens.Black, GlobalPoints);
                 return;
             }
 
-            var vertices = GlobalPoints.Select(x => new Vertex2D(x.ToGrx(),
-                new Vector2D((x.X - globalBoundingBox.Min.X) / globalBoundingBox.GetWidth(), (x.Y - globalBoundingBox.Min.Y) / globalBoundingBox.GetHeight())))
+            var vertices = GlobalPoints.Select(x => new PhysicGlobal.Vertex2D(x,
+                new Vec2D((x.X - globalBoundingBox.Min.X) / globalBoundingBox.GetWidth(), (x.Y - globalBoundingBox.Min.Y) / globalBoundingBox.GetHeight())))
                 .ToList();
 
 
             panel.DrawFillPolygon(texture, false, Color.White, vertices);
         }
-        public void DrawBorder(GraphicPanel2D panel, Pen borderPen)
+        public void DrawBorder(IDrawingPanel panel, Pen borderPen)
         {
             panel.ZValue2D = ZOrder;
-            panel.DrawPolygon(borderPen, GlobalPoints.ToGrx().ToList());
+            panel.DrawPolygon(borderPen, GlobalPoints);
         }
-        public void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor)
+        public void DrawWithTwoColors(IDrawingPanel panel, Color frontColor, Color backColor)
         {
             panel.ZValue2D = ZOrder;
             var color = this.IsOutside ? frontColor : backColor;
-            panel.DrawFillPolygon(color, GlobalPoints.ToGrx().ToList());
+            panel.DrawFillPolygon(color, GlobalPoints);
         }
         public bool IsPointInside(Vec2D point)
         {
@@ -111,14 +108,14 @@ namespace LevelEditorControl.LevelItems.Polygon
         }
 
         #region ICollidable
-        public bool IsPointInside(Vec2D point, PhxMatrix screenToLocal)
+        public bool IsPointInside(Vec2D point, Matrix4x4 screenToLocal)
         {
-            point = PhxMatrix.MultPosition(screenToLocal, point); //screenToLocal = ScreenToCamera-Space
+            point = Matrix4x4.MultPosition(screenToLocal, point); //screenToLocal = ScreenToCamera-Space
             return PhysicGlobal.PolygonHelper.PointIsInsidePolygon(localPoints, point - PivotPoint);
         }
-        public PhxMatrix GetScreenToLocalMatrix()
+        public Matrix4x4 GetScreenToLocalMatrix()
         {
-            return PhxMatrix.Ident();
+            return Matrix4x4.Ident();
         }
         #endregion
 

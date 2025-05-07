@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using TextureEditorGlobal;
 
@@ -23,19 +22,19 @@ namespace PhysicSceneDrawing
         public Vec2D[] GetTextureCornerPoints() => this.decoree.GetTextureCornerPoints();
         public IPublicRigidBody AssociatedBody { get => this.decoree.AssociatedBody; }
         public TextureExportData TextureExportData { get => this.decoree.TextureExportData; }
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             this.bodyDrawer.Draw(panel);
         }
-        public void DrawPhysicBorder(GraphicPanel2D panel, Pen borderPen)
+        public void DrawPhysicBorder(IDrawingPanel panel, Pen borderPen)
         {
             this.decoree.DrawPhysicBorder(panel, borderPen);
         }
-        public void DrawTextureBorder(GraphicPanel2D panel, Pen borderPen)
+        public void DrawTextureBorder(IDrawingPanel panel, Pen borderPen)
         {
             this.decoree.DrawTextureBorder(panel, borderPen);
         }
-        public void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor)
+        public void DrawWithTwoColors(IDrawingPanel panel, Color frontColor, Color backColor)
         {
             this.bodyDrawer.DrawWithTwoColors(panel, frontColor, backColor);
         }

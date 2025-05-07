@@ -1,6 +1,5 @@
 ﻿using BridgeBuilderControl.Controls.Simulator.Model.Converter;
 using BridgeBuilderControl.Testing;
-using GraphicPanels;
 
 namespace DemoApplications.UnitTests.BridgeBuilder
 {
@@ -58,8 +57,8 @@ namespace DemoApplications.UnitTests.BridgeBuilder
         }
 
         public static SingleBridgeTestResult SimulateSingleBridge(SingleBridgeInputData input)
-        {
-            var panel = new GraphicPanel2D() { Width = 1000, Height = 800, Mode = Mode2D.CPU };
+        { 
+            var panel = new DrawingPanel.DrawingPanel(1000, 800, true);
             var simulatorFactory = new BridgeSimulatorFactory(panel, GameFolder, TimerTickRateInMs);
             var simulator = simulatorFactory.CreateSimulator(input.BridgeFile, input.Settings);
 

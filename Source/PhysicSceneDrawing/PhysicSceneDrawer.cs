@@ -1,8 +1,8 @@
-﻿using GraphicPanels;
-using RigidBodyPhysics;
+﻿using RigidBodyPhysics;
 using TextureEditorGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using RigidBodyPhysics.RuntimeObjects.Joints;
+using PhysicGlobal;
 
 namespace PhysicSceneDrawing
 {
@@ -73,7 +73,7 @@ namespace PhysicSceneDrawing
             throw new ArgumentException("Unknown type " + body.GetType());
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             panel.EnableDepthTesting();
             foreach (var tex in textures)
@@ -84,20 +84,20 @@ namespace PhysicSceneDrawing
             }
         }
 
-        public void DrawDistanceJoints(GraphicPanel2D panel)
+        public void DrawDistanceJoints(IDrawingPanel panel)
         {
             DrawDistanceJoints(panel, new Pen(Color.Blue, 2));
         }
 
-        public void DrawDistanceJoints(GraphicPanel2D panel, Pen borderPen)
+        public void DrawDistanceJoints(IDrawingPanel panel, Pen borderPen)
         {
             foreach (var disJoint in distanceJoints)
             {
-                panel.DrawLine(borderPen, disJoint.Anchor1.ToGrx(), disJoint.Anchor2.ToGrx());
+                panel.DrawLine(borderPen, disJoint.Anchor1, disJoint.Anchor2);
             }
         }
 
-        public void DrawPhysicBorder(GraphicPanel2D panel, Pen borderPen)
+        public void DrawPhysicBorder(IDrawingPanel panel, Pen borderPen)
         {
             panel.EnableDepthTesting();
             foreach (var tex in textures)
@@ -106,7 +106,7 @@ namespace PhysicSceneDrawing
                 tex.DrawPhysicBorder(panel, borderPen);
             }            
         }
-        public void DrawTextureBorder(GraphicPanel2D panel, Pen borderPen)
+        public void DrawTextureBorder(IDrawingPanel panel, Pen borderPen)
         {
             panel.EnableDepthTesting();
             foreach (var tex in textures)
@@ -116,7 +116,7 @@ namespace PhysicSceneDrawing
             }
         }
 
-        public void DrawWithTwoColors(GraphicPanel2D panel, Color frontColor, Color backColor)
+        public void DrawWithTwoColors(IDrawingPanel panel, Color frontColor, Color backColor)
         {
             panel.EnableDepthTesting();
             foreach (var tex in textures)

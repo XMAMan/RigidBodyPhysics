@@ -1,6 +1,4 @@
-﻿using GraphicPanels;
-using GraphicPanelWpf;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace ElmaControl.Controls.Game
 {
@@ -14,12 +12,12 @@ namespace ElmaControl.Controls.Game
             InitializeComponent();
         }
 
-        internal GameControl(GameViewModel vm, GraphicPanel2D panel)
+        internal GameControl(GameViewModel vm, DrawingPanel.DrawingPanel panel)
            : this()
         {
             this.DataContext = vm;
 
-            this.graphicControlBorder.Child = new GraphicControl(panel);
+            this.graphicControlBorder.Child = new DrawingPanel.GraphicControl(panel);
         }
     }
 }

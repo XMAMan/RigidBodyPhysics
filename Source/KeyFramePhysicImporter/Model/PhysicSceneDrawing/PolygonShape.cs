@@ -1,7 +1,5 @@
-﻿using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
-using WpfControls.Extensions;
 
 namespace KeyFramePhysicImporter.Model.PhysicSceneDrawing
 {
@@ -24,9 +22,9 @@ namespace KeyFramePhysicImporter.Model.PhysicSceneDrawing
             }
         }
 
-        public void Draw(GraphicPanel2D panel, Pen borderPen, Color fillColor, Camera2D camera)
+        public void Draw(IDrawingPanel panel, Pen borderPen, Color fillColor, Camera2D camera)
         {
-            var points = this.model.Vertex.Select(x => camera.PointToScreen(x).ToGrx()).ToList();
+            var points = this.model.Vertex.Select(x => camera.PointToScreen(x)).ToArray();
             panel.DrawFillPolygon(fillColor, points);
             panel.DrawPolygon(borderPen, points);
         }

@@ -1,6 +1,4 @@
-﻿using GraphicPanels;
-using GraphicPanelWpf;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace BridgeBuilderControl.Controls.LevelEditor
 {
@@ -14,12 +12,12 @@ namespace BridgeBuilderControl.Controls.LevelEditor
             InitializeComponent();
         }
 
-        internal LevelEditorControl(LevelEditorViewModel vm, GraphicPanel2D panel)
+        internal LevelEditorControl(LevelEditorViewModel vm, DrawingPanel.DrawingPanel panel)
            : this()
         {
             this.DataContext = vm;
 
-            this.graphicControlBorder.Child = new GraphicControl(panel);
+            this.graphicControlBorder.Child = new DrawingPanel.GraphicControl(panel);
         }
     }
 }

@@ -1,8 +1,6 @@
-﻿using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using PhysicSceneSimulatorControl.Dialogs.PrintSettings;
 using RigidBodyPhysics.RuntimeObjects.Joints;
-using WpfControls.Extensions;
 
 namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorJoint
 {
@@ -14,7 +12,7 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorJoint
         {
             this.PhysicModel = this.prismaticJoint = ctor;
         }
-        public void Draw(GraphicPanel2D panel, PrintSettingsViewModel printSettings)
+        public void Draw(IDrawingPanel panel, PrintSettingsViewModel printSettings)
         {
             var c = this.prismaticJoint;
 
@@ -25,17 +23,17 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorJoint
                 var pen = Pens.Blue;
 
                 //Hülse
-                panel.DrawLine(pen, (c.Anchor1 - tangent).ToGrx(), (c.Anchor1 + tangent).ToGrx());
-                panel.DrawLine(pen, (c.Anchor1 - tangent).ToGrx(), (c.Anchor2 - tangent).ToGrx());
-                panel.DrawLine(pen, (c.Anchor1 + tangent).ToGrx(), (c.Anchor2 + tangent).ToGrx());
+                panel.DrawLine(pen, (c.Anchor1 - tangent), (c.Anchor1 + tangent));
+                panel.DrawLine(pen, (c.Anchor1 - tangent), (c.Anchor2 - tangent));
+                panel.DrawLine(pen, (c.Anchor1 + tangent), (c.Anchor2 + tangent));
 
                 //Stift
-                panel.DrawLine(new Pen(pen.Color, pen.Width + 3), c.Anchor1.ToGrx(), c.Anchor2.ToGrx());
+                panel.DrawLine(new Pen(pen.Color, pen.Width + 3), c.Anchor1, c.Anchor2);
             }
 
 
             if (printSettings.ShowJointPosition)
-                panel.DrawString(c.Anchor1.ToGrx(), Color.Black, 30, (int)(c.CurrentPosition * 100) + "");
+                panel.DrawString(c.Anchor1, Color.Black, 30, (int)(c.CurrentPosition * 100) + "");
         }
     }
 }

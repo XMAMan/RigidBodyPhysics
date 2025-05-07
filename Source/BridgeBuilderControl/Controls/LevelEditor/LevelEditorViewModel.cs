@@ -1,8 +1,8 @@
 ﻿using BridgeBuilderControl.Controls.Helper;
 using BridgeBuilderControl.Controls.LevelEditor.Controls;
 using BridgeBuilderControl.Controls.LevelEditor.Functions;
-using GraphicPanels;
 using GraphicPanelWpf;
+using PhysicGlobal;
 using ReactiveUI;
 using System;
 using System.Drawing;
@@ -48,7 +48,7 @@ namespace BridgeBuilderControl.Controls.LevelEditor
             return this;
         }
 
-        public LevelEditorViewModel(GraphicPanel2D panel, string dataFolder)
+        public LevelEditorViewModel(IDrawingPanel panel, string dataFolder)
         {
             this.DataFolder = dataFolder;
 

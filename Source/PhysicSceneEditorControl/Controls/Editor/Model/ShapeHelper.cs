@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
+﻿using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using PhysicSceneEditorControl.Controls.Editor.Model.ShapeExporter;
 using PhysicGlobal;
 
@@ -17,7 +16,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model
             Vec2D localCenter = copy.Center - box.Min;
             copy.MoveTo(localCenter);
 
-            GraphicPanel2D panel = new GraphicPanel2D() { Width = (int)box.GetWidth(), Height = (int)box.GetHeight(), Mode = Mode2D.CPU };
+            var panel = new DrawingPanel.DrawingPanel((int)box.GetWidth(), (int)box.GetHeight(), true);
             panel.ClearScreen(Color.White);
             copy.BorderPen = Pens.Red;
             copy.Backcolor = Color.Red;

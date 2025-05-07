@@ -1,6 +1,4 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using System.Drawing;
 
 namespace WpfControls.Model
@@ -14,7 +12,7 @@ namespace WpfControls.Model
         public uint Size = 50; //So viele Pixel ist ein Grid-Kästchen breit und hoch
 
         //cameraLeftTop = Linke obere Ecke der Kamera im Cameraspace
-        public void Draw(GraphicPanel2D panel, float cameraFactor, Vec2D cameraLeftTop)
+        public void Draw(IDrawingPanel panel, float cameraFactor, Vec2D cameraLeftTop)
         {
             float screenWidth = (panel.Width * cameraFactor);
             float screenHeight = (panel.Height * cameraFactor);
@@ -27,12 +25,12 @@ namespace WpfControls.Model
 
             for (int i = 0; i <= xCount; i++)
             {
-                panel.DrawLine(Pens.LightGray, new Vector2D((i + xStart) * Size, 0 + yStart * Size), new Vector2D((i + xStart) * Size, screenHeight + yStart * Size));
+                panel.DrawLine(Pens.LightGray, new Vec2D((i + xStart) * Size, 0 + yStart * Size), new Vec2D((i + xStart) * Size, screenHeight + yStart * Size));
             }
 
             for (int i = 0; i <= yCount; i++)
             {
-                panel.DrawLine(Pens.LightGray, new Vector2D(0 + xStart * Size, (i + yStart) * Size), new Vector2D(screenWidth + xStart * Size, (i + yStart) * Size));
+                panel.DrawLine(Pens.LightGray, new Vec2D(0 + xStart * Size, (i + yStart) * Size), new Vec2D(screenWidth + xStart * Size, (i + yStart) * Size));
             }
         }
 

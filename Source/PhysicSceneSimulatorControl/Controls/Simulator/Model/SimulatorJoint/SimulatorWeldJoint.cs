@@ -1,8 +1,6 @@
-﻿using GraphicPanels;
-using PhysicSceneSimulatorControl.Dialogs.PrintSettings;
+﻿using PhysicSceneSimulatorControl.Dialogs.PrintSettings;
 using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.Joints;
-using WpfControls.Extensions;
 
 namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorJoint
 {
@@ -14,7 +12,7 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorJoint
         {
             this.PhysicModel = this.weldJoint = ctor;
         }
-        public void Draw(GraphicPanel2D panel, PrintSettingsViewModel printSettings)
+        public void Draw(IDrawingPanel panel, PrintSettingsViewModel printSettings)
         {
             var c = this.weldJoint;
 
@@ -28,10 +26,10 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorJoint
                 {
                     points.Add(c.Anchor1 + new Vec2D((float)Math.Cos(i / (float)cornerCount * 2 * Math.PI), (float)Math.Sin(i / (float)cornerCount * 2 * Math.PI)) * radius);
 
-                    panel.DrawLine(Pens.Blue, c.Anchor1.ToGrx(), points.Last().ToGrx());
+                    panel.DrawLine(Pens.Blue, c.Anchor1, points.Last());
                 }
 
-                panel.DrawPolygon(Pens.Blue, points.Select(x => x.ToGrx()).ToList());
+                panel.DrawPolygon(Pens.Blue, points.ToArray());
             }
         }
     }

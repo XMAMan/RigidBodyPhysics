@@ -1,6 +1,4 @@
-﻿using GraphicPanels;
-using GraphicPanelWpf;
-using KeyFramePhysicImporter.ViewModel;
+﻿using KeyFramePhysicImporter.ViewModel;
 
 namespace KeyFramePhysicImporter.View
 {
@@ -14,12 +12,12 @@ namespace KeyFramePhysicImporter.View
             InitializeComponent();
         }
 
-        public ImporterControl(ImporterControlViewModel vm, GraphicPanel2D panel)
+        public ImporterControl(ImporterControlViewModel vm, DrawingPanel.DrawingPanel panel)
             : this()
         {
             this.DataContext = vm;
 
-            this.graphicControlBorder.Child = new GraphicControl(panel);
+            this.graphicControlBorder.Child = new DrawingPanel.GraphicControl(panel);
         }
     }
 }

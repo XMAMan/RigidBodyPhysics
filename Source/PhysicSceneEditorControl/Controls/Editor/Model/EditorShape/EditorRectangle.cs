@@ -1,9 +1,7 @@
-﻿using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using PhysicSceneEditorControl.Controls.RectangleProperty;
 using PhysicSceneEditorControl.Controls.ShapeProperty;
 using RigidBodyPhysics.ExportData.RigidBody;
-using WpfControls.Extensions;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorShape
 {
@@ -55,15 +53,15 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorShape
         {
             this.size *= size;
         }
-        public void Draw(GraphicPanel2D panel) //Zeichnet die Editor-Daten
+        public void Draw(IDrawingPanel panel) //Zeichnet die Editor-Daten
         {
             Vec2D[] points = GetCornerPoints();
 
             if (this.Backcolor != Color.Transparent)
-                panel.DrawFillPolygon(this.Backcolor, points.ToGrx().ToList());
-            //panel.DrawFillPolygon("#FF0000", points.ToGrx().ToList(), false, Color.FromArgb(128, 255, 255, 255));
+                panel.DrawFillPolygon(this.Backcolor, points);
+            //panel.DrawFillPolygon("#FF0000", points, false, Color.FromArgb(128, 255, 255, 255));
 
-            panel.DrawPolygon(this.BorderPen, points.ToGrx().ToList());
+            panel.DrawPolygon(this.BorderPen, points);
         }
 
         private Vec2D[] GetCornerPoints()

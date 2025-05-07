@@ -1,5 +1,4 @@
 ﻿using DynamicData;
-using GraphicPanels;
 using LevelEditorControl.LevelItems.Polygon;
 using PhysicGlobal;
 using System;
@@ -7,7 +6,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using WpfControls.Extensions;
 
 namespace LevelEditorControl.EditorFunctions
 {
@@ -99,7 +97,7 @@ namespace LevelEditorControl.EditorFunctions
             }
         }
 
-        private void Refresh(GraphicPanel2D panel, Camera2D camera)
+        private void Refresh(IDrawingPanel panel, Camera2D camera)
         {
             state.DrawItems();
 
@@ -107,10 +105,10 @@ namespace LevelEditorControl.EditorFunctions
             {
                 for (int i = 0; i < this.points.Count - 1; i++)
                 {
-                    panel.DrawLine(new Pen(Color.Black, 2), this.points[i].ToGrx(), this.points[i + 1].ToGrx());
+                    panel.DrawLine(new Pen(Color.Black, 2), this.points[i], this.points[i + 1]);
                 }
 
-                panel.DrawLine(new Pen(this.currentLineIntersects ? Color.Red : Color.Black, 2), this.points.Last().ToGrx(), this.currentMousePosition.ToGrx());
+                panel.DrawLine(new Pen(this.currentLineIntersects ? Color.Red : Color.Black, 2), this.points.Last(), this.currentMousePosition);
             }
             panel.FlipBuffer();
         }

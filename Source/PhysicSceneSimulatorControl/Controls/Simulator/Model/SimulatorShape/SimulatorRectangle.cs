@@ -1,4 +1,4 @@
-﻿using GraphicPanels;
+﻿using PhysicGlobal;
 using PhysicSceneSimulatorControl.Dialogs.PrintSettings;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using WpfControls.Extensions;
@@ -15,13 +15,13 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorShape
         {
             this.PhysicModel = this.rigidRectangle = ctor;
         }
-        public void Draw(GraphicPanel2D panel, PrintSettingsViewModel printSettings)
+        public void Draw(IDrawingPanel panel, PrintSettingsViewModel printSettings)
         {
             var r = this.rigidRectangle;
 
 
 
-            panel.DrawPolygon(Pens.Black, r.Vertex.ToGrx().ToList());
+            panel.DrawPolygon(Pens.Black, r.Vertex);
 
             if (printSettings.VisualizePushPullForce)
             {
@@ -29,19 +29,19 @@ namespace PhysicSceneSimulatorControl.Controls.Simulator.Model.SimulatorShape
 
                 if (f == 0) return;
 
-                GraphicMinimal.Vector3D color;
+                Vec3D color;
                 if (f < 0)
                 {
-                    var c1 = new GraphicMinimal.Vector3D(0, 0, 1);
-                    var c2 = new GraphicMinimal.Vector3D(0, 1, 0);
+                    var c1 = new Vec3D(0, 0, 1);
+                    var c2 = new Vec3D(0, 1, 0);
                     f += 1;
                     color = (1 - f) * c1 + f * c2;
 
                 }
                 else
                 {
-                    var c1 = new GraphicMinimal.Vector3D(0, 1, 0);
-                    var c2 = new GraphicMinimal.Vector3D(1, 0, 0);
+                    var c1 = new Vec3D(0, 1, 0);
+                    var c2 = new Vec3D(1, 0, 0);
                     color = (1 - f) * c1 + f * c2;
                 }
 

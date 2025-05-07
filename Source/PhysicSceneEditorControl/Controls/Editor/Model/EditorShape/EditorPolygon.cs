@@ -1,9 +1,7 @@
-﻿using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using PhysicSceneEditorControl.Controls.PolygonProperty;
 using PhysicSceneEditorControl.Controls.ShapeProperty;
 using RigidBodyPhysics.ExportData.RigidBody;
-using WpfControls.Extensions;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorShape
 {
@@ -69,12 +67,12 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorShape
             this.pointsLocal = this.pointsLocal.Select(x => x * size).ToArray();
             this.points = GetWorldPoints();
         }
-        public void Draw(GraphicPanel2D panel) //Zeichnet die Editor-Daten
+        public void Draw(IDrawingPanel panel) //Zeichnet die Editor-Daten
         {
             if (this.Backcolor != Color.Transparent)
-                panel.DrawFillPolygon(this.Backcolor, this.points.Select(x => x.ToGrx()).ToList());
+                panel.DrawFillPolygon(this.Backcolor, this.points);
 
-            panel.DrawPolygon(this.BorderPen, this.points.Select(x => x.ToGrx()).ToList());
+            panel.DrawPolygon(this.BorderPen, this.points);
         }
 
         public IExportRigidBody GetExportData()

@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using System;
+﻿using System;
 using System.Windows.Controls;
 
 namespace WpfControls.Model
@@ -15,7 +14,7 @@ namespace WpfControls.Model
 
     public class EditorInputData
     {
-        public GraphicPanel2D Panel; //Es gibt ein globales GraphicPanel2D-Objekt, was von allen Editor-Controls genutzt wird. 
+        public DrawingPanel.DrawingPanel Panel; //Es gibt ein globales DrawingPanel.DrawingPanel-Objekt, was von allen Editor-Controls genutzt wird. 
         public float TimerTickRateInMs = float.NaN; //Falls das ViewModel ITimerHandler implementiert ist wird dieser Parameter gebraucht
         public object InputData = null; //Ergebnis von IObjectSerializable.GetExportObject()
         public Action<object> IsFinished; //Jemand hat den Switch/GoBack-Button gedrückt; Parameter: Sender-Viewmodel

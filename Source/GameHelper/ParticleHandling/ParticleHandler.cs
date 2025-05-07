@@ -1,12 +1,10 @@
-﻿using GraphicPanels;
-using GraphicPanelWpf;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 
 namespace GameHelper.ParticleHandling
 {
     //Bewegt/Zeichnet eine Menge von Partikeln
-    public class ParticleHandler : ITimerHandler
+    public class ParticleHandler
     {
         private List<Particle> particles = new List<Particle>();
 
@@ -23,7 +21,7 @@ namespace GameHelper.ParticleHandling
             }
         }
 
-        public void DrawParticles(GraphicPanel2D panel)
+        public void DrawParticles(IDrawingPanel panel)
         {
             foreach (var particle in this.particles)
             {

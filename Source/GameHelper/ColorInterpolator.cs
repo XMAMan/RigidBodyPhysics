@@ -1,11 +1,11 @@
-﻿using GraphicMinimal;
+﻿using PhysicGlobal;
 
 namespace GameHelper
 {
     //Erzeugt ein Farbverlauf zwischen vorgegebenen Farbwerten
     public class ColorInterpolator
     {
-        private Vector3D[] colors;
+        private Vec3D[] colors;
         private float sectionLength;
         public ColorInterpolator(Color[] supportColors)
         {
@@ -31,11 +31,11 @@ namespace GameHelper
             return VectorToColor(interpolate);
         }
 
-        private static Vector3D ColorToVector(Color color)
+        private static Vec3D ColorToVector(Color color)
         {
-            return new Vector3D(color.R / 255.0f, color.G / 255.0f, color.B / 255.0f);
+            return new Vec3D(color.R / 255.0f, color.G / 255.0f, color.B / 255.0f);
         }
-        private static Color VectorToColor(Vector3D color)
+        private static Color VectorToColor(Vec3D color)
         {
             color.X = Clamp(color.X, 0, 1);
             color.Y = Clamp(color.Y, 0, 1);

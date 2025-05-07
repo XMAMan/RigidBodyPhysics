@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using GraphicPanelWpf;
+﻿using GraphicPanelWpf;
 using LevelEditorControl;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
@@ -11,14 +10,14 @@ namespace Leveleditor
 {
     class ViewModel : ReactiveObject
     {
-        private GraphicPanel2D panel;
+        private DrawingPanel.DrawingPanel panel;
         private System.Windows.Threading.DispatcherTimer timer;
 
         [Reactive] public System.Windows.Controls.UserControl ContentUserControl { get; set; }
 
         public ViewModel()
         {
-            this.panel = new GraphicPanel2D() { Width = 100, Height = 100, Mode = Mode2D.OpenGL_Version_3_0 };
+            this.panel = new DrawingPanel.DrawingPanel(100, 100);
 
             this.panel.MouseClick += Panel_MouseClick;
             this.panel.MouseWheel += Panel_MouseWheel;

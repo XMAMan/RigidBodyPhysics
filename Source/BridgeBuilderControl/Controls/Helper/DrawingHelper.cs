@@ -1,16 +1,13 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using WpfControls.Extensions;
 
 namespace BridgeBuilderControl.Controls.Helper
 {
     internal static class DrawingHelper
     {
-        public static void DrawBackgroundOrClipboardImage(GraphicPanel2D panel, uint xCount, uint yCount, uint waterHeight, uint groundHeight)
+        public static void DrawBackgroundOrClipboardImage(IDrawingPanel panel, uint xCount, uint yCount, uint waterHeight, uint groundHeight)
         {
             if (panel.IsNamedBitmapTextureAvailable("BackgroundEditorImage"))
             {
@@ -27,20 +24,20 @@ namespace BridgeBuilderControl.Controls.Helper
         }
 
         //Skaliert das Level so, dass dessen Breite genau so breit ist wie das Fenster
-        public static void SetTransformationMatrix(GraphicPanel2D panel, uint xCount)
+        public static void SetTransformationMatrix(IDrawingPanel panel, uint xCount)
         {
             float sizeFactor = panel.Width / (float)xCount; //So viele Pixel ist ein kleines Kästchen breit
             panel.SetTransformationMatrixToIdentity();
             panel.MultTransformationMatrix(Matrix4x4.Scale(sizeFactor, sizeFactor, 0));
         }
 
-        public static void ClearScreen(GraphicPanel2D panel)
+        public static void ClearScreen(IDrawingPanel panel)
         {
             Color backColor = Color.FromArgb(31, 32, 39);
             panel.ClearScreen(backColor);
         }
 
-        public static void DrawBackground(GraphicPanel2D panel, uint xCount, uint yCount, uint waterHeight, uint groundHeight)
+        public static void DrawBackground(IDrawingPanel panel, uint xCount, uint yCount, uint waterHeight, uint groundHeight)
         {
             //Ein kleines Kästchen ist 1*1 groß
             //Ein großes Kästchen ist 8*8 groß
@@ -54,14 +51,14 @@ namespace BridgeBuilderControl.Controls.Helper
             for (uint x = 0; x < xCount; x++)
             {
                 float xi = x;
-                panel.DrawLine(new Pen(lineColorMiddle, 1), new Vector2D(xi, 0), new Vector2D(xi, yCount));
+                panel.DrawLine(new Pen(lineColorMiddle, 1), new Vec2D(xi, 0), new Vec2D(xi, yCount));
             }
 
             //Horizontallinien von den kleinen Kästchen
             for (uint y = 0; y < yCount; y++)
             {
                 float yi = y;
-                panel.DrawLine(new Pen(lineColorMiddle, 1), new Vector2D(0, yi), new Vector2D(xCount, yi));
+                panel.DrawLine(new Pen(lineColorMiddle, 1), new Vec2D(0, yi), new Vec2D(xCount, yi));
             }
 
             //Vertikallinien von den großen Kästchen
@@ -70,7 +67,7 @@ namespace BridgeBuilderControl.Controls.Helper
             {
                 float xi = 8 * x;
                 Color color = (x % 4 == 0) ? lineColorDark : lineColorBright;
-                panel.DrawLine(new Pen(color, 1), new Vector2D(xi, 0), new Vector2D(xi, yCount));
+                panel.DrawLine(new Pen(color, 1), new Vec2D(xi, 0), new Vec2D(xi, yCount));
             }
 
             //Horizontallinien von den großen Kästchen
@@ -80,7 +77,7 @@ namespace BridgeBuilderControl.Controls.Helper
             {
                 float yi = yHeight * y;
                 Color color = (y % 4 == 0) ? lineColorDark : lineColorBright;
-                panel.DrawLine(new Pen(color, 1), new Vector2D(0, yi), new Vector2D(xCount, yi));
+                panel.DrawLine(new Pen(color, 1), new Vec2D(0, yi), new Vec2D(xCount, yi));
             }
 
             //Wasser
@@ -88,10 +85,10 @@ namespace BridgeBuilderControl.Controls.Helper
 
             //Boden
             float groundY = groundHeight;
-            panel.DrawLine(new Pen(lineColorYellow, 1), new Vector2D(0, groundY), new Vector2D(xCount, groundY));
+            panel.DrawLine(new Pen(lineColorYellow, 1), new Vec2D(0, groundY), new Vec2D(xCount, groundY));
         }
 
-        public static void DrawWater(GraphicPanel2D panel, uint waterHeight, uint groundHeight, uint xCount, uint yCount)
+        public static void DrawWater(IDrawingPanel panel, uint waterHeight, uint groundHeight, uint xCount, uint yCount)
         {
             Color waterColor = Color.FromArgb(150, 13, 20, 85);
 
@@ -99,7 +96,7 @@ namespace BridgeBuilderControl.Controls.Helper
             panel.DrawFillRectangle(waterColor, 0, waterY, xCount, yCount);
         }
 
-        public static void DrawGroundBorder(GraphicPanel2D panel, IEnumerable<Point> points, uint groundHeight, uint xCount)
+        public static void DrawGroundBorder(IDrawingPanel panel, IEnumerable<Point> points, uint groundHeight, uint xCount)
         {
             if (points == null || points.Any() == false) return;
 
@@ -114,17 +111,17 @@ namespace BridgeBuilderControl.Controls.Helper
 
             for (int i = 1; i < groundPoints.Length; i++)
             {
-                panel.DrawLine(pen, groundPoints[i - 1].ToGrx(), groundPoints[i].ToGrx());
+                panel.DrawLine(pen, groundPoints[i - 1], groundPoints[i]);
             }
         }
 
-        public static void DrawGround(GraphicPanel2D panel, IEnumerable<Point> points, uint groundHeight, uint xCount, uint yCount)
+        public static void DrawGround(IDrawingPanel panel, IEnumerable<Point> points, uint groundHeight, uint xCount, uint yCount)
         {
             if (points == null || points.Any() == false) return;
 
             var groundPolygon = GetGroundPolygon(points, groundHeight, xCount, yCount).ToList();
 
-            panel.DrawFillPolygon(Color.FromArgb(50, 50, 50), groundPolygon.ToGrx().ToList());
+            panel.DrawFillPolygon(Color.FromArgb(50, 50, 50), groundPolygon.ToArray());
         }
 
         public static Vec2D[] GetGroundPolygon(IEnumerable<Point> points, uint groundHeight, uint xCount, uint yCount)
@@ -154,7 +151,7 @@ namespace BridgeBuilderControl.Controls.Helper
             return newPoints.Select(x => PolyPointToPixel(x, groundHeight)).ToArray();
         }
 
-        public static void DrawAnchorPoints(GraphicPanel2D panel, IEnumerable<Point> points)
+        public static void DrawAnchorPoints(IDrawingPanel panel, IEnumerable<Point> points)
         {
             if (points == null || points.Any() == false) return;
 
@@ -167,10 +164,10 @@ namespace BridgeBuilderControl.Controls.Helper
         }
 
         //polyPoint = DefineGround.GetPolygonPoint
-        public static void DrawPolyPoint(GraphicPanel2D panel, Color color, Point polyPoint, uint groundHeight)
+        public static void DrawPolyPoint(IDrawingPanel panel, Color color, Point polyPoint, uint groundHeight)
         {
             var pixelPosition = PolyPointToPixel(polyPoint, groundHeight);
-            DrawFillCircle(panel, color, pixelPosition.ToGrx(), 0.25f);
+            DrawFillCircle(panel, color, pixelPosition, 0.25f);
         }
 
         private static Vec2D PolyPointToPixel(Point point, uint groundHeight)
@@ -179,12 +176,12 @@ namespace BridgeBuilderControl.Controls.Helper
         }
 
         //gridPoint = MouseGrid.SnapToInt
-        public static void DrawGridPoint(GraphicPanel panel, Color color, Point gridPoint)
+        public static void DrawGridPoint(IDrawingPanel panel, Color color, Point gridPoint)
         {
-            DrawFillCircle(panel, color, new Vector2D(gridPoint.X, gridPoint.Y), 0.25f);
+            DrawFillCircle(panel, color, new Vec2D(gridPoint.X, gridPoint.Y), 0.25f);
         }
 
-        public static void DrawFillCircle(GraphicPanel panel, Color color, Vector2D pos, float radius)
+        public static void DrawFillCircle(IDrawingPanel panel, Color color, Vec2D pos, float radius)
         {
             panel.DrawFillCircleWithTriangles(color, pos, radius, 10);
 
@@ -193,18 +190,18 @@ namespace BridgeBuilderControl.Controls.Helper
 
         }
 
-        public static void DrawBar(GraphicPanel panel, Color color, Point p1, Point p2)
+        public static void DrawBar(IDrawingPanel panel, Color color, Point p1, Point p2)
         {
             float lineWidth = 3;
-            panel.DrawLine(new Pen(color, lineWidth), new Vector2D(p1.X, p1.Y), new Vector2D(p2.X, p2.Y));
+            panel.DrawLine(new Pen(color, lineWidth), new Vec2D(p1.X, p1.Y), new Vec2D(p2.X, p2.Y));
             DrawGridPoint(panel, color, p1);
             DrawGridPoint(panel, color, p2);
         }
 
-        public static void DrawBar(GraphicPanel panel, Color point1Color, Color point2Color, Color lineColor, Point p1, Point p2)
+        public static void DrawBar(IDrawingPanel panel, Color point1Color, Color point2Color, Color lineColor, Point p1, Point p2)
         {
             float lineWidth = 3;
-            panel.DrawLine(new Pen(lineColor, lineWidth), new Vector2D(p1.X, p1.Y), new Vector2D(p2.X, p2.Y));
+            panel.DrawLine(new Pen(lineColor, lineWidth), new Vec2D(p1.X, p1.Y), new Vec2D(p2.X, p2.Y));
             DrawGridPoint(panel, point1Color, p1);
             DrawGridPoint(panel, point2Color, p2);
         }

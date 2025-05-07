@@ -1,6 +1,4 @@
-﻿using GraphicPanels;
-using GraphicPanelWpf;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace SpriteEditorControl.Controls.Sprite
 {
@@ -14,10 +12,10 @@ namespace SpriteEditorControl.Controls.Sprite
             InitializeComponent();
         }
 
-        public SpriteControl(GraphicPanel2D panel)
+        public SpriteControl(DrawingPanel.DrawingPanel panel)
             : this()
         {
-            this.graphicControlBorder.Child = new GraphicControl(panel);
+            this.graphicControlBorder.Child = new DrawingPanel.GraphicControl(panel);
         }
     }
 }

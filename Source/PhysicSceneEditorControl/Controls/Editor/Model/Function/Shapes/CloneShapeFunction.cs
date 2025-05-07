@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
+﻿using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using PhysicSceneEditorControl.Controls.Editor.Model.ShapeExporter;
 using PhysicGlobal;
 
@@ -101,7 +100,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.Function.Shapes
             }
         }
 
-        public override void Draw(GraphicPanel2D panel)
+        public override void Draw(IDrawingPanel panel)
         {
             if (clone != null)
                 clone.Draw(panel);

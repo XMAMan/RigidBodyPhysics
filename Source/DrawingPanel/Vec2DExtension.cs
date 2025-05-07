@@ -1,8 +1,8 @@
 ﻿using PhysicGlobal;
 
-namespace PhysicSceneDrawing
+namespace DrawingPanel
 {
-    public static class Vec2DExtension
+    internal static class Vec2DExtension
     {
         public static GraphicMinimal.Vector2D ToGrx(this Vec2D v)
         {

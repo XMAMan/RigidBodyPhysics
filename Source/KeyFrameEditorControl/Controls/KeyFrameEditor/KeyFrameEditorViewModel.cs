@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using GraphicPanelWpf;
+﻿using GraphicPanelWpf;
 using KeyFrameEditorControl.Controls.KeyDefine;
 using KeyFrameGlobal;
 using KeyFramePhysicImporter.ViewModel;
@@ -19,7 +18,7 @@ namespace KeyFrameEditorControl.Controls.KeyFrameEditor
     //Auf diese Weise kann aus ein beliebigen Objekt, was aus einer Menge von Propertys besteht ein zugehöriges AnimationOutputData-Objekt erzeugt werden
     public class KeyFrameEditorViewModel : ReactiveObject, IGraphicPanelHandler, ITimerHandler, IStringSerializable, IObjectSerializable, IPhysicSceneEditor
     {
-        private GraphicPanel2D panel;
+        private DrawingPanel.DrawingPanel panel;
         private float timerTickRateInMs; //Wird für die Anzeige der Animationsdauer in Sekunden gebraucht
         private KeyFrameEditorExportData initialSettings;
         private ImporterControlViewModel importerViewModel = null;
@@ -36,7 +35,7 @@ namespace KeyFrameEditorControl.Controls.KeyFrameEditor
 
         public string PhysicSceneJson { get; private set; } //Wird für den PhysicEngine-Editor benötigt damit er sieht, ob es Änderungen in der PhysicScene gab
 
-        public KeyFrameEditorViewModel(GraphicPanel2D panel, float timerTickRateInMs, bool showSaveLoadButtons, bool showStartTimeTextbox, string physicSceneJson)
+        public KeyFrameEditorViewModel(DrawingPanel.DrawingPanel panel, float timerTickRateInMs, bool showSaveLoadButtons, bool showStartTimeTextbox, string physicSceneJson)
         {
             this.panel = panel;
             this.timerTickRateInMs = timerTickRateInMs;

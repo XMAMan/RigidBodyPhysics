@@ -1,6 +1,4 @@
-﻿using GraphicMinimal;
-using GraphicPanels;
-using GraphicPanelWpf;
+﻿using GraphicPanelWpf;
 using SpriteEditorControl.Controls.Main.Model;
 using SpriteEditorControl.Controls.Sprite.Model;
 using ReactiveUI;
@@ -14,12 +12,13 @@ using System.Reactive;
 using System.Windows.Forms;
 using WpfControls.Model;
 using LevelEditorExports.Editor.Prototyps;
+using PhysicGlobal;
 
 namespace SpriteEditorControl.Controls.Sprite
 {
     internal class SpriteViewModel : ReactiveObject, IGraphicPanelHandler, ITimerHandler, IStringSerializable, IObjectSerializable
     {
-        private GraphicPanel2D panel;
+        private IDrawingPanel panel;
         private SpriteRowImage spriteImage = null;
         private PhysicItemExportData physicData;
 
@@ -55,7 +54,7 @@ namespace SpriteEditorControl.Controls.Sprite
         public ReactiveCommand<object, Unit> RotateZRightClick { get; private set; }
         public ReactiveCommand<object, Unit> RotateYRightClick { get; private set; }
 
-        public SpriteViewModel(GraphicPanel2D panel, string dataFolder) 
+        public SpriteViewModel(IDrawingPanel panel, string dataFolder) 
         {
             this.panel = panel;
 
@@ -141,7 +140,7 @@ namespace SpriteEditorControl.Controls.Sprite
                 int y = panel.Height / 2;
                 this.spriteImage.Draw(this.panel, x, y, this.PivotX, this.PivotY, this.Zoom, this.RotateZ, this.RotateY, this.ShowBoundingBox);
                 
-                panel.DrawFillCircle(Color.Green, new Vector2D(x, y), 5); //Pivotpunkt
+                panel.DrawFillCircle(Color.Green, new Vec2D(x, y), 5); //Pivotpunkt
 
                 //this.panel.DrawImage("sprite", 0, 0, this.spriteImage.Image.Width, this.spriteImage.Image.Height, 0, 0, this.spriteImage.Image.Width, this.spriteImage.Image.Height, false, Color.White);
             }

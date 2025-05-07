@@ -81,7 +81,7 @@ namespace LevelEditorControl.Controls.EditorControl
 
 
         private EditorState editorData = new EditorState(); //Diese Variable wird der jeweils aktiven IEditorFunction-Funktion reingegeben 
-        private IEditorFunction function = null; //State-Designpattern für das GraphicPanel2D
+        private IEditorFunction function = null; //State-Designpattern für das IDrawingPanel
         private string dataFolder;
 
 

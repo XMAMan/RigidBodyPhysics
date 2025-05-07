@@ -1,10 +1,8 @@
-﻿using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using PhysicSceneEditorControl.Controls.Editor.Model.EditorShape;
 using PhysicSceneEditorControl.Controls.JointPropertys.RevoluteJoint;
 using PhysicSceneEditorControl.Controls.SoftProperty;
 using RigidBodyPhysics.ExportData.Joints;
-using WpfControls.Extensions;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorJoint
 {
@@ -86,42 +84,42 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorJoint
             this.limitArmB = Vec2D.GetV2FromAngle360(r1, this.Properties.UpperAngle);
         }
 
-        public void Draw(GraphicPanel2D panel) //Zeichnet die Editor-Daten
+        public void Draw(IDrawingPanel panel) //Zeichnet die Editor-Daten
         {
             if (this.Backcolor != Color.Transparent)
             {
-                panel.DrawFillCircle(this.Backcolor, this.anchorWorldPosition1.ToGrx(), 5);
-                panel.DrawLine(new Pen(this.Backcolor, 3), this.leverArmAP1.ToGrx(), this.Body1.Center.ToGrx());
-                panel.DrawLine(new Pen(this.Backcolor, 3), this.leverArmBP1.ToGrx(), this.Body2.Center.ToGrx());
+                panel.DrawFillCircle(this.Backcolor, this.anchorWorldPosition1, 5);
+                panel.DrawLine(new Pen(this.Backcolor, 3), this.leverArmAP1, this.Body1.Center);
+                panel.DrawLine(new Pen(this.Backcolor, 3), this.leverArmBP1, this.Body2.Center);
             }
 
-            panel.DrawLine(this.BorderPen, this.leverArmAP1.ToGrx(), this.Body1.Center.ToGrx());
-            panel.DrawLine(this.BorderPen, this.leverArmBP1.ToGrx(), this.Body2.Center.ToGrx());
-            panel.DrawCircle(this.BorderPen, this.anchorWorldPosition1.ToGrx(), this.circleForP1);
+            panel.DrawLine(this.BorderPen, this.leverArmAP1, this.Body1.Center);
+            panel.DrawLine(this.BorderPen, this.leverArmBP1, this.Body2.Center);
+            panel.DrawCircle(this.BorderPen, this.anchorWorldPosition1, this.circleForP1);
 
             //Testausgabe
             //if (IsAngleInMinMaxRange(GetLimitAngle(this.Body2.Center)))
-            //    panel.DrawString(Center.ToGrx(), Color.Green, 30, "JA");
+            //    panel.DrawString(Center, Color.Green, 30, "JA");
             //else
-            //    panel.DrawString(Center.ToGrx(), Color.Red, 30, "NEIN");
+            //    panel.DrawString(Center, Color.Red, 30, "NEIN");
 
 
 
-            panel.DrawFillCircle(this.BorderPen.Color, this.anchorWorldPosition1.ToGrx(), 2);
+            panel.DrawFillCircle(this.BorderPen.Color, this.anchorWorldPosition1, 2);
 
             if (this.DrawLimits && this.Properties.LimitIsEnabled)
             {
                 Vec2D limitAP1 = this.anchorWorldPosition1 + this.limitArmA * this.circleForP1;
                 Vec2D limitAP2 = this.anchorWorldPosition1 + this.limitArmA * this.limitArmLength;
-                panel.DrawLine(this.LimitArmAPen, limitAP1.ToGrx(), limitAP2.ToGrx());
+                panel.DrawLine(this.LimitArmAPen, limitAP1, limitAP2);
 
                 Vec2D limitBP1 = this.anchorWorldPosition1 + this.limitArmB * this.circleForP1;
                 Vec2D limitBP2 = this.anchorWorldPosition1 + this.limitArmB * this.limitArmLength;
-                panel.DrawLine(this.LimitArmBPen, limitBP1.ToGrx(), limitBP2.ToGrx());
+                panel.DrawLine(this.LimitArmBPen, limitBP1, limitBP2);
 
                 float lowerAngle = Vec2D.Angle360YMirrored(new Vec2D(1, 0), this.limitArmA);
                 float upperAngle = Vec2D.Angle360YMirrored(new Vec2D(1, 0), this.limitArmB);
-                panel.DrawCircleArc(new Pen(Color.Yellow, 5), this.anchorWorldPosition1.ToGrx(), (int)this.limitArmLength, upperAngle, lowerAngle, false);
+                panel.DrawCircleArc(new Pen(Color.Yellow, 5), this.anchorWorldPosition1, (int)this.limitArmLength, upperAngle, lowerAngle, false);
 
                 panel.DrawStringOnCircleBorder("1", 20, Color.Green, this.Body1.Center, (this.Body1.Center - this.anchorWorldPosition1).Normalize());
                 panel.DrawStringOnCircleBorder("2", 20, Color.Green, this.Body2.Center, (this.Body2.Center - this.anchorWorldPosition1).Normalize());

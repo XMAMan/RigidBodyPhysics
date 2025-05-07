@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using ReactiveUI;
+﻿using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using PhysicGlobal;
 using RigidBodyPhysics.RuntimeObjects.AxialFriction;
@@ -7,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using WpfControls.Extensions;
 
 namespace CarDrifterControl.Model
 {
@@ -50,7 +48,7 @@ namespace CarDrifterControl.Model
             };
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             for (int i = 1; i < points.Count; i++)
             {
@@ -61,7 +59,7 @@ namespace CarDrifterControl.Model
                 {
                     if (p1.IsSliding[j])
                     {
-                        panel.DrawLine(Pens.Black, p2.Position[j].ToGrx(), p1.Position[j].ToGrx());
+                        panel.DrawLine(Pens.Black, p2.Position[j], p1.Position[j]);
                     }                    
                 }
             }

@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using GraphicPanelWpf;
+﻿using GraphicPanelWpf;
 using KeyFrameEditorControl.Controls.ControlListBox;
 using KeyFrameEditorControl.Controls.PlayAnimation;
 using KeyFrameGlobal;
@@ -14,6 +13,7 @@ using WpfControls.Controls.CameraSetting;
 using KeyFrameEditorControl.Dialogs.LoadSprite;
 using DynamicData;
 using System.Drawing;
+using PhysicGlobal;
 
 namespace KeyFrameEditorControl.Controls.KeyDefine
 {
@@ -25,7 +25,7 @@ namespace KeyFrameEditorControl.Controls.KeyDefine
     //Über AnimatorInputData.Properties wird das anzuzeigende Objekt verändert
     public class KeyDefineViewModel : ReactiveObject, ISizeChangeable, ITimerHandler
     {
-        private GraphicPanel2D panel;
+        private IDrawingPanel panel;
         private AnimatorInputData animationData;
         private FrameToTimeConverter frameToTimeConverter;
         private FrameData timeNullData; //Zustand des zu animierenden Objekts zum Zeitpunkt (t=0)
@@ -47,7 +47,7 @@ namespace KeyFrameEditorControl.Controls.KeyDefine
 
         public ReactiveCommand<FloatListCanvas.Entry, Unit> NewKeyHandler { get; private set; } //Command (Event) wenn ein neuer Key erzeugt wurde
 
-        public KeyDefineViewModel(GraphicPanel2D panel, AnimatorInputData animationData, float timerTickRateInMs, bool showStartTimeTextbox)
+        public KeyDefineViewModel(IDrawingPanel panel, AnimatorInputData animationData, float timerTickRateInMs, bool showStartTimeTextbox)
         {
             this.panel = panel;
             this.timeNullData = animationData.Properties.GetFrameFromAnimatedObject(0);

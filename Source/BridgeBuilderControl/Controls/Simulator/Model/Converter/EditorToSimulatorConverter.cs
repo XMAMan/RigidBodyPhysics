@@ -85,7 +85,7 @@ namespace BridgeBuilderControl.Controls.Simulator.Model.Converter
             simulator.RemoveLevelItem(trainId); //Entferne den Zug mit falscher Y-Koordinate
 
             //Setze den Zug genau auf dem Boden auf
-            PhysicSceneExportDataHelper.TranslateScene(trainExport.PhysicSceneData, PhxMatrix.Translate(0, groundHeight - trainBottom, 0));
+            PhysicSceneExportDataHelper.TranslateScene(trainExport.PhysicSceneData, Matrix4x4.Translate(0, groundHeight - trainBottom, 0));
             trainExportData = trainExport;
 
             int bridgeAndGroundId = simulator.AddLevelItem(GetBridgeAndGround(input, dataFolder, out ExportObject[] exportObjects));

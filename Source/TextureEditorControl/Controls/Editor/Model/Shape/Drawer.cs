@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using System.Drawing;
 using TextureEditorControl.Controls.DrawingSettings;
 
@@ -14,7 +13,7 @@ namespace TextureEditorControl.Controls.Editor.Model.Shape
             this.shapes = shapes;
         }
 
-        public void Draw(GraphicPanel2D panel, Camera2D camera, DrawingSettingsViewModel settings)
+        public void Draw(IDrawingPanel panel, Camera2D camera, DrawingSettingsViewModel settings)
         {
             panel.ClearScreen(Color.White); //Achtung: Clear-Screen ruft intern DisableDepthTesting auf. Deswegen muss das zuerst kommen
 

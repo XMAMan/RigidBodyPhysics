@@ -1,6 +1,5 @@
 ﻿using CarDrifterControl.Model;
 using GameHelper;
-using GraphicPanels;
 using GraphicPanelWpf;
 using KeyboardRecordAndPlay;
 using LevelEditorExports.Simulator;
@@ -16,7 +15,7 @@ namespace CarDrifterControl.Controls
     {
         private string DataFolder;
 
-        private GraphicPanel2D panel;                   //Grafik-Ausgabe
+        private IDrawingPanel panel;                    //Grafik-Ausgabe
 
         private float timerIntervallInMilliseconds;     //Timer
 
@@ -27,7 +26,7 @@ namespace CarDrifterControl.Controls
 
         private Sounds sounds;                          //Soundwiedergabe
 
-        public MainViewModel(GraphicPanel2D panel, ISoundGenerator soundGenerator, float timerIntervallInMilliseconds, string dataFolder)
+        public MainViewModel(IDrawingPanel panel, ISoundGenerator soundGenerator, float timerIntervallInMilliseconds, string dataFolder)
         {
             this.DataFolder = dataFolder;
             this.panel = panel;

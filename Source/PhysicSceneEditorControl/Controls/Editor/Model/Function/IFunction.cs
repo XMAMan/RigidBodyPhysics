@@ -1,4 +1,4 @@
-﻿using GraphicPanels;
+﻿using PhysicGlobal;
 
 namespace PhysicSceneEditorControl.Controls.Editor.Model.Function
 {
@@ -14,7 +14,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.Function
         void HandleMouseMove(System.Windows.Forms.MouseEventArgs e);
         void HandleMouseDown(System.Windows.Forms.MouseEventArgs e);
         void HandleMouseUp(System.Windows.Forms.MouseEventArgs e);
-        void Draw(GraphicPanel2D panel);
+        void Draw(IDrawingPanel panel);
         FunctionHelpText GetHelpText();
     }
 

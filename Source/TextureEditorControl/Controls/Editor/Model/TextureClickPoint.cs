@@ -1,8 +1,6 @@
-﻿using GraphicPanels;
-using PhysicGlobal;
+﻿using PhysicGlobal;
 using System.Drawing;
 using TextureEditorControl.Controls.Editor.Model.Shape;
-using WpfControls.Extensions;
 
 namespace TextureEditorControl.Controls.Editor.Model
 {
@@ -65,7 +63,7 @@ namespace TextureEditorControl.Controls.Editor.Model
                 part == RectanglePart.RightBottomCorner;
         }
 
-        public void DrawClickPoint(GraphicPanel2D panel, Vec2D point, bool rotateCornerPoint)
+        public void DrawClickPoint(IDrawingPanel panel, Vec2D point, bool rotateCornerPoint)
         {
             foreach (var normal in this.Normals)
             {
@@ -84,14 +82,14 @@ namespace TextureEditorControl.Controls.Editor.Model
             }
         }
 
-        private void DrawArrow(GraphicPanel2D panel, Vec2D p1, Vec2D p2)
+        private void DrawArrow(IDrawingPanel panel, Vec2D p1, Vec2D p2)
         {
             Pen pen = new Pen(Color.Black, 3);
-            panel.DrawLine(pen, p1.ToGrx(), p2.ToGrx());
+            panel.DrawLine(pen, p1, p2);
             var v1 = Vec2D.GetV2FromAngle360(p2 - p1, 135) / 2;
             var v2 = Vec2D.GetV2FromAngle360(p2 - p1, -135) / 2;
-            panel.DrawLine(pen, p2.ToGrx(), (p2 + v1).ToGrx());
-            panel.DrawLine(pen, p2.ToGrx(), (p2 + v2).ToGrx());
+            panel.DrawLine(pen, p2, (p2 + v1));
+            panel.DrawLine(pen, p2, (p2 + v2));
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using GameHelper.Simulation.RigidBodyTagging;
@@ -146,7 +145,7 @@ namespace MoonlanderControl.Model
             this.LandingArea.MoveOnStep(dt);
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {
             this.LandingArea.Draw(panel);
         }

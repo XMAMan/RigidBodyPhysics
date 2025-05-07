@@ -1,6 +1,4 @@
-﻿using GraphicPanels;
-using GraphicPanelWpf;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace TextureEditorControl.Controls.Editor
@@ -15,12 +13,12 @@ namespace TextureEditorControl.Controls.Editor
             InitializeComponent();
         }
 
-        public TextureEditorControl(TextureEditorViewModel vm, GraphicPanel2D panel)
+        public TextureEditorControl(TextureEditorViewModel vm, DrawingPanel.DrawingPanel panel)
             : this()
         {
             this.DataContext = vm;
 
-            this.graphicControlBorder.Child = new GraphicControl(panel);
+            this.graphicControlBorder.Child = new DrawingPanel.GraphicControl(panel);
 
             this.graphicControlBorder.Cursor = Cursors.None;
         }

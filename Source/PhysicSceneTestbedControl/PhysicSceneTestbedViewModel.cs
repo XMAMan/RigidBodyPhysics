@@ -3,16 +3,15 @@ using PhysicSceneSimulatorControl;
 using ReactiveUI.Fody.Helpers;
 using ReactiveUI;
 using System.Windows.Controls;
-using GraphicPanels;
 using WpfControls.Model;
 using GraphicPanelWpf;
 
 namespace PhysicSceneTestbedControl
 {
-    //Speichert das GraphicPanel2D-Objekt; Schaltet zwischen den Simulator und Editor um
+    //Speichert das DrawingPanel.DrawingPanel-Objekt; Schaltet zwischen den Simulator und Editor um
     class PhysicSceneTestbedViewModel : ReactiveObject, IGraphicPanelHandler, ITimerHandler, IStringSerializable, IObjectSerializable
     {
-        private GraphicPanel2D panel;
+        private DrawingPanel.DrawingPanel panel;
         private float timerIntervalInMilliseconds;
         private UserControl simulatorControl;
         private UserControl editorControl;
@@ -21,7 +20,7 @@ namespace PhysicSceneTestbedControl
 
         [Reactive] public UserControl ContentUserControl { get; set; }
 
-        public PhysicSceneTestbedViewModel(GraphicPanel2D panel, float timerIntervalInMilliseconds)
+        public PhysicSceneTestbedViewModel(DrawingPanel.DrawingPanel panel, float timerIntervalInMilliseconds)
         {
             this.panel = panel;
             this.timerIntervalInMilliseconds = timerIntervalInMilliseconds;

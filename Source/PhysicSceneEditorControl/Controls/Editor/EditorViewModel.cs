@@ -1,5 +1,4 @@
-﻿using GraphicPanels;
-using GraphicPanelWpf;
+﻿using GraphicPanelWpf;
 using PhysicSceneEditorControl.Controls.ActionSelect;
 using PhysicSceneEditorControl.Controls.PolygonProperty;
 using PhysicSceneEditorControl.Controls.RectangleProperty;
@@ -65,7 +64,7 @@ namespace PhysicSceneEditorControl.Controls.Editor
         public ReactiveCommand<Unit, Unit> CopyToClipboardClick { get; private set; }
         public ReactiveCommand<Unit, Unit> PasteFromClipboardClick { get; private set; }
 
-        private GraphicPanel2D panel;
+        private IDrawingPanel panel;
         private FunctionData functionData = new FunctionData();
 
         private IFunction activeFunction = null;

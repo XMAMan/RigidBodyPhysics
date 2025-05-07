@@ -1,12 +1,10 @@
 ﻿using Simulator.CameraTracking;
-using GraphicPanels;
 using KeyFrameGlobal;
 using PhysicSceneDrawing;
 using RigidBodyPhysics;
 using Simulator.Animation;
 using TextureEditorGlobal;
 using Simulator.ForceTracking;
-using GraphicMinimal;
 using RigidBodyPhysics.ExportData;
 using PhysicGlobal;
 using LevelEditorExports.Editor.BackgroundImage;
@@ -249,7 +247,7 @@ namespace Simulator
             }
         }
 
-        public virtual void Draw(GraphicPanel2D panel)
+        public virtual void Draw(IDrawingPanel panel)
         {
             panel.ClearScreen(Color.White);
             DrawBackground(panel);
@@ -259,27 +257,27 @@ namespace Simulator
             DrawSmallWindow(panel);            
         }
 
-        public virtual void SetCameraMatrix(GraphicPanel2D panel)
+        public virtual void SetCameraMatrix(IDrawingPanel panel)
         {
-            panel.MultTransformationMatrix(camera.GetPointToSceenMatrix().To4x4Matrix());
+            panel.MultTransformationMatrix(camera.GetPointToSceenMatrix());
         }
 
-        public virtual void DrawPhysicItemBorders(GraphicPanel2D panel, Pen borderPen)
+        public virtual void DrawPhysicItemBorders(IDrawingPanel panel, Pen borderPen)
         {
             this.sceneDrawer.DrawPhysicBorder(panel, borderPen);
         }
 
-        public virtual void DrawTextureBorders(GraphicPanel2D panel, Pen borderPen)
+        public virtual void DrawTextureBorders(IDrawingPanel panel, Pen borderPen)
         {
             this.sceneDrawer.DrawTextureBorder(panel, borderPen);
         }
 
-        public virtual void DrawDistanceJoints(GraphicPanel2D panel, Pen borderPen)
+        public virtual void DrawDistanceJoints(IDrawingPanel panel, Pen borderPen)
         {
             this.sceneDrawer.DrawDistanceJoints(panel, borderPen);
         }
 
-        public virtual void DrawBackground(GraphicPanel2D panel)
+        public virtual void DrawBackground(IDrawingPanel panel)
         {
             if (string.IsNullOrEmpty(this.BackgroundImage.FileName) == false)
             {
@@ -305,7 +303,7 @@ namespace Simulator
                 
         }
 
-        public virtual void DrawPhysicItems(GraphicPanel2D panel, bool drawDistanceJoints)
+        public virtual void DrawPhysicItems(IDrawingPanel panel, bool drawDistanceJoints)
         {
             this.sceneDrawer.Draw(panel);
 
@@ -316,7 +314,7 @@ namespace Simulator
         }
 
         //Testausgabe der Kollisionspunkte
-        public virtual void DrawCollisionPoints(GraphicPanel2D panel)
+        public virtual void DrawCollisionPoints(IDrawingPanel panel)
         {
             panel.DisableDepthTesting();
 
@@ -326,12 +324,12 @@ namespace Simulator
             var points = this.physicScene.GetCollisions();
             foreach (var point in points)
             {
-                //panel.DrawCircleWithLines(Pens.Red, point.Start.ToGrx(), 80 * sizeFactor, 10);
-                panel.DrawLine(new Pen(Color.Red, 2), point.End.ToGrx(), (point.End - point.Normal * 20 * sizeFactor).ToGrx());
+                //panel.DrawCircleWithLines(Pens.Red, point.Start, 80 * sizeFactor, 10);
+                panel.DrawLine(new Pen(Color.Red, 2), point.End, (point.End - point.Normal * 20 * sizeFactor));
             }
         }
 
-        public virtual void DrawSmallWindow(GraphicPanel2D panel)
+        public virtual void DrawSmallWindow(IDrawingPanel panel)
         {
             if (this.ShowSmallWindow)
             {
@@ -339,7 +337,7 @@ namespace Simulator
             }            
         }
 
-        public virtual void DrawBackgroundItems(GraphicPanel2D panel)
+        public virtual void DrawBackgroundItems(IDrawingPanel panel)
         {
             if (this.backgroundItems == null) return;
 

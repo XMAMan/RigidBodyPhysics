@@ -1,10 +1,7 @@
 ﻿using GameHelper;
-using GraphicMinimal;
-using GraphicPanels;
 using PhysicGlobal;
 using System;
 using System.Drawing;
-using WpfControls.Extensions;
 
 namespace MoonlanderControl.Model
 {
@@ -46,7 +43,7 @@ namespace MoonlanderControl.Model
             this.time += radiusVelocity * dt;
         }
 
-        public void Draw(GraphicPanel2D panel)
+        public void Draw(IDrawingPanel panel)
         {            
             float timeF = this.time / colorVelocity;
             timeF -= (int)timeF;
@@ -65,12 +62,12 @@ namespace MoonlanderControl.Model
                 //panel.DrawCircle(new Pen(colorInterpolator.GetColor(col), 1), new Vector2D(x, p1.Y), 7 * size);
                 //panel.DrawFillCircle(colorInterpolator.GetColor(col), new Vector2D(x, p1.Y + 7), 7 * size);
 
-                panel.DrawLine(new Pen(colorInterpolator.GetColor(col), 4), new Vector2D(x - 6, p1.Y), new Vector2D(x + 6, p1.Y));
+                panel.DrawLine(new Pen(colorInterpolator.GetColor(col), 4), new Vec2D(x - 6, p1.Y), new Vec2D(x + 6, p1.Y));
             }
 
 
-            panel.DrawLine(new Pen(Color.Red, 4), p1.ToGrx(), (p1 - new Vec2D(0, 15)).ToGrx());
-            panel.DrawLine(new Pen(Color.Red, 4), p2.ToGrx(), (p2 - new Vec2D(0, 15)).ToGrx());
+            panel.DrawLine(new Pen(Color.Red, 4), p1, (p1 - new Vec2D(0, 15)));
+            panel.DrawLine(new Pen(Color.Red, 4), p2, (p2 - new Vec2D(0, 15)));
         }
     }
 }

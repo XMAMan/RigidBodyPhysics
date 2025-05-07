@@ -1,7 +1,4 @@
-﻿using GraphicPanels;
-using GraphicPanelWpf;
-
-namespace LevelEditorControl.Controls.EditorControl
+﻿namespace LevelEditorControl.Controls.EditorControl
 {
     /// <summary>
     /// Interaktionslogik für EditorControl.xaml
@@ -13,12 +10,12 @@ namespace LevelEditorControl.Controls.EditorControl
             InitializeComponent();
         }
 
-        internal EditorControl(EditorViewModel vm, GraphicPanel2D panel)
+        internal EditorControl(EditorViewModel vm, DrawingPanel.DrawingPanel panel)
             : this()
         {
             this.DataContext = vm;
 
-            this.graphicControlBorder.Child = new GraphicControl(panel);
+            this.graphicControlBorder.Child = new DrawingPanel.GraphicControl(panel);
         }
     }
 }
