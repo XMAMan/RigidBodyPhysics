@@ -22,7 +22,7 @@ namespace DrawingPanel
 
         private GraphicPanel2D panel;
 
-        internal GraphicPanel2D Panel => this.panel;
+        public GraphicPanel2D Panel { get => this.panel; } 
 
         public new event MouseEventHandler MouseClick
         {
@@ -118,6 +118,11 @@ namespace DrawingPanel
             {
                 this.panel.MouseLeave -= value;
             }
+        }
+
+        public DrawingPanel(GraphicPanel2D panel)
+        {
+            this.panel = panel;
         }
 
         public DrawingPanel(int width, int height, bool useCpuMode = false)
@@ -217,10 +222,12 @@ namespace DrawingPanel
         public void DisableDepthTesting()
             => this.panel.DisableDepthTesting();
 
+        #region IDisposable
         public void Dispose()
         {
             this.panel.Dispose();
             this.panel = null;
         }
+        #endregion
     }
 }

@@ -2,7 +2,7 @@
 
 namespace PhysicGlobal
 {
-    public interface IDrawingPanel
+    public interface IDrawingPanel : IDisposable
     {
         //Propertys
         int Width { get; }
@@ -59,7 +59,5 @@ namespace PhysicGlobal
         //DepthTesting
         void EnableDepthTesting();
         void DisableDepthTesting();
-
-        void Dispose();
     }
 }

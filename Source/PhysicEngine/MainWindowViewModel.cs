@@ -285,6 +285,7 @@ namespace PhysicEngine
             try
             {
                 this.soundGenerator.Dispose();
+                this.panel.Dispose();
             }
             catch (Exception ex)
             {
