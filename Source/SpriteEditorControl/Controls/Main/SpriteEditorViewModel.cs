@@ -13,7 +13,7 @@ using System.Reactive.Linq;
 using System.Windows.Forms;
 using WpfControls.Model;
 using LevelEditorExports.Editor.Prototyps;
-using LevelEditorExports.Editor.Helper;
+using LevelEditorGlobal.Helper;
 
 namespace SpriteEditorControl.Controls.Main
 {

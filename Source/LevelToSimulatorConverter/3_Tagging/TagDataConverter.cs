@@ -1,8 +1,9 @@
-﻿using LevelEditorExports.Editor.Helper;
-using LevelEditorExports.Editor.LevelItems;
+﻿using LevelEditorExports.Editor.LevelItems;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorExports.Editor.Tagging;
 using LevelEditorExports.Simulator;
+using LevelEditorGlobal;
+using LevelEditorGlobal.Helper;
 
 namespace LevelToSimulatorConverter._3_Tagging
 {

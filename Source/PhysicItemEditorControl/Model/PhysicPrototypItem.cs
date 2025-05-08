@@ -13,7 +13,6 @@ using PhysicGlobal;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorExports.Simulator;
 using TexturePhysicImporter;
-using LevelEditorExports.Editor.Helper;
 using PhysicSceneToAnimationConverter;
 
 namespace PhysicItemEditorControl.Model

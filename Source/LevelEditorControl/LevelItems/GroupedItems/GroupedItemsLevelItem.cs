@@ -1,5 +1,4 @@
-﻿using LevelEditorExports.Editor.Helper;
-using LevelEditorExports.Editor.LevelItems;
+﻿using LevelEditorExports.Editor.LevelItems;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorGlobal;
 using PhysicGlobal;
@@ -7,6 +6,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using LevelToSimulatorConverter._2_MergeToSingleScene;
+using LevelEditorGlobal.Helper;
 
 namespace LevelEditorControl.LevelItems.GroupedItems
 {

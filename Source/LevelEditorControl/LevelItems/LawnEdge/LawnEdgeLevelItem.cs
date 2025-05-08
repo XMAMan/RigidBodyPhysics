@@ -1,7 +1,7 @@
 ﻿using LevelEditorControl.EditorFunctions;
 using LevelEditorControl.LevelItems.Polygon;
-using LevelEditorExports.Editor.Helper;
 using LevelEditorExports.Editor.LevelItems;
+using LevelEditorGlobal.Helper;
 using PhysicGlobal;
 using System.Collections.Generic;
 using System.Drawing;

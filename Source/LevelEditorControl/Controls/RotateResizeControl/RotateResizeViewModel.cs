@@ -1,5 +1,5 @@
-﻿using LevelEditorExports.Editor.Helper;
-using LevelEditorGlobal;
+﻿using LevelEditorGlobal;
+using LevelEditorGlobal.Helper;
 using PhysicGlobal;
 using ReactiveUI;
 using System.Reactive;

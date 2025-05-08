@@ -1,5 +1,5 @@
 ﻿using LevelEditorControl.LevelItems.Polygon;
-using LevelEditorExports.Editor.Helper;
+using LevelEditorGlobal.Helper;
 using PhysicGlobal;
 using System.Drawing;
 

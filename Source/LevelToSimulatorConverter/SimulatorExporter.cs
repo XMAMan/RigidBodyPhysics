@@ -1,6 +1,6 @@
 ﻿using LevelEditorExports.Editor;
 using LevelEditorExports.Editor.BackgroundImage;
-using LevelEditorExports.Editor.Helper;
+using LevelEditorGlobal.Helper;
 using LevelEditorExports.Editor.KeyboardMappings;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorExports.Simulator;

@@ -1,6 +1,6 @@
 ﻿using PhysicGlobal;
 
-namespace LevelEditorExports.Editor.Helper
+namespace LevelEditorGlobal.Helper
 {
     //Berechnet die PolygonWith4Points für ein gegebenes IPolygon-Objekt mit zwei PolygonPoints
     public class LawnEdgePositionCalculator

@@ -1,7 +1,7 @@
 ﻿using LevelEditorControl.Controls.EditorControl;
 using LevelEditorExports.Editor;
-using LevelEditorExports.Editor.Helper;
 using LevelEditorExports.Simulator;
+using LevelEditorGlobal.Helper;
 using WpfControls.Model;
 
 namespace LevelEditorControl

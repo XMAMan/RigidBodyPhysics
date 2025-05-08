@@ -2,11 +2,11 @@
 using LevelEditorExports.Editor;
 using PhysicGlobal;
 using LevelToSimulatorConverter.Helper;
-using LevelEditorExports.Editor.Helper;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorExports.Simulator;
 using System.Drawing;
 using LevelToSimulatorConverter._2_MergeToSingleScene;
+using LevelEditorGlobal.Helper;
 
 namespace LevelToSimulatorConverter._1_LokalToWorldTransform
 {

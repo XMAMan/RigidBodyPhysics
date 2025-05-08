@@ -1,5 +1,5 @@
-﻿using LevelEditorExports.Editor.Helper;
-using LevelEditorExports.Editor.Tagging;
+﻿using LevelEditorExports.Editor.Tagging;
+using LevelEditorGlobal;
 using System;
 using System.Collections.Generic;
 using System.Linq;

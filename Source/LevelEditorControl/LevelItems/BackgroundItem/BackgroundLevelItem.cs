@@ -1,8 +1,8 @@
-﻿using LevelEditorExports.Editor.Helper;
-using LevelEditorExports.Editor.LevelItems;
+﻿using LevelEditorExports.Editor.LevelItems;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorExports.Simulator;
 using LevelEditorGlobal;
+using LevelEditorGlobal.Helper;
 using PhysicGlobal;
 using System.Collections.Generic;
 using System.Drawing;

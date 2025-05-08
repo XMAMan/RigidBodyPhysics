@@ -1,6 +1,6 @@
-﻿using LevelEditorExports.Editor.Helper;
-using LevelEditorExports.Simulator;
+﻿using LevelEditorExports.Simulator;
 using LevelEditorGlobal;
+using LevelEditorGlobal.Helper;
 using PhysicGlobal;
 using System.Drawing;
 

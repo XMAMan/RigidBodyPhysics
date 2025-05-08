@@ -4,7 +4,7 @@ using LevelEditorExports.Simulator;
 using LevelEditorExports.Editor.Prototyps;
 using PhysicGlobal;
 using System.Drawing;
-using LevelEditorExports.Editor.Helper;
+using LevelEditorGlobal.Helper;
 
 namespace LevelToSimulatorConverter._1_LokalToWorldTransform
 {

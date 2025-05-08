@@ -1,4 +1,4 @@
-﻿using LevelEditorExports.Editor.Helper;
+﻿using LevelEditorGlobal.Helper;
 using PhysicGlobal;
 
 namespace LevelEditorControl.LevelItems.Polygon

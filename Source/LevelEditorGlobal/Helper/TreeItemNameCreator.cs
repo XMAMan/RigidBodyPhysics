@@ -1,6 +1,6 @@
 ﻿using LevelEditorExports.Simulator;
 
-namespace LevelEditorExports.Editor.Helper
+namespace LevelEditorGlobal.Helper
 {
     //Die hier verwendeten Namen werden beim Exportieren der Tagdaten bei der TagEditorData.Id-Property verwendet
     //Damit sowohl der Editor als auch der Simulator beim Einlesen der Editordaten die gleichen Namen verwenden, werden sie hier definiert
@@ -16,7 +16,7 @@ namespace LevelEditorExports.Editor.Helper
             return "Level_" + levelItemId;
         }
 
-        public static string CreateNameForRigidBodyItem(TagType tagType,  int levelItemId, int index)
+        public static string CreateNameForRigidBodyItem(TagType tagType, int levelItemId, int index)
         {
             return tagType + "_" + levelItemId + "_" + index;
         }

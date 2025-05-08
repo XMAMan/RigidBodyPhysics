@@ -2,7 +2,7 @@
 using PhysicGlobal;
 using System.Drawing;
 
-namespace LevelEditorExports.Editor.Helper
+namespace LevelEditorGlobal.Helper
 {
     //Das ist ein Rechteck, was im Original-Zustand OriginalSize groß ist und was dann aber noch um SizeFactor skaliert wurde
     //und um AngleInDegree gedreht wurde. Der Drehpunkt ist der PivotPoint. Dieser Punkt liegt aber nicht zwangsweise im Rechteck-Zentrum.

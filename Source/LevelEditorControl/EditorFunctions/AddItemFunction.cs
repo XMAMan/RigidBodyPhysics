@@ -1,6 +1,6 @@
 ﻿using LevelEditorControl.LevelItems;
-using LevelEditorExports.Editor.Helper;
 using LevelEditorGlobal;
+using LevelEditorGlobal.Helper;
 using PhysicGlobal;
 using System;
 using System.Windows.Forms;

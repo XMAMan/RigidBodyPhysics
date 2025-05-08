@@ -3,7 +3,6 @@ using LevelEditorControl.Controls.TagItemControl;
 using LevelEditorControl.LevelItems;
 using LevelEditorControl.LevelItems.LawnEdge;
 using LevelEditorControl.LevelItems.Polygon;
-using LevelEditorExports.Editor.Helper;
 using LevelEditorExports.Simulator;
 using LevelEditorGlobal;
 using PhysicSceneDrawing;

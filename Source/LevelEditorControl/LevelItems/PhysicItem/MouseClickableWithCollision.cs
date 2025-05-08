@@ -1,5 +1,5 @@
-﻿using LevelEditorExports.Editor.Helper;
-using LevelEditorGlobal;
+﻿using LevelEditorGlobal;
+using LevelEditorGlobal.Helper;
 
 namespace LevelEditorControl.LevelItems.PhysicItem
 {

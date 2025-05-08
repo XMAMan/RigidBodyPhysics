@@ -6,8 +6,8 @@ using System.Drawing;
 using System.Linq;
 using LevelEditorExports.Editor.LevelItems;
 using LevelEditorExports.Simulator;
-using LevelEditorExports.Editor.Helper;
 using LevelToSimulatorConverter._2_MergeToSingleScene;
+using LevelEditorGlobal.Helper;
 
 namespace LevelEditorControl.LevelItems.Polygon
 {

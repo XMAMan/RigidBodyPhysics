@@ -1,6 +1,4 @@
-﻿using LevelEditorExports.Editor.Helper;
-
-namespace LevelEditorGlobal
+﻿namespace LevelEditorGlobal
 {
     //Über dieses Interface können all die LevelItems und RigidBodys mit der Maus angeklickt werden
     public interface IMouseclickableWithTagData : IMouseClickable, ITagable

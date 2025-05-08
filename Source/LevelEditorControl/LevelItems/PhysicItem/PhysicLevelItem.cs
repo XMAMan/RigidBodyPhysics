@@ -1,7 +1,7 @@
-﻿using LevelEditorExports.Editor.Helper;
-using LevelEditorExports.Editor.LevelItems;
+﻿using LevelEditorExports.Editor.LevelItems;
 using LevelEditorExports.Editor.Prototyps;
 using LevelEditorGlobal;
+using LevelEditorGlobal.Helper;
 using LevelToSimulatorConverter._2_MergeToSingleScene;
 using PhysicGlobal;
 using System;
