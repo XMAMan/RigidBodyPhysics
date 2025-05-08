@@ -5,30 +5,33 @@
 
 # UnitTestResults Ignore all Files from UnitTestResults, ImageCreatorSaveFolder and SceneBatfiles
 
-PhysicEngine/Dokumentation/Part4\ -\ Soft-\ and\ Multi-Constraints/ExampleCode/Data/TestResults/*
-!PhysicEngine/Dokumentation/Part4\ -\ Soft-\ and\ Multi-Constraints/ExampleCode/Data/TestResults/.gitkeep
-PhysicEngine/Dokumentation/Part5\ -\ Joints/ExampleCode/Data/TestResults/*
-!PhysicEngine/Dokumentation/Part5\ -\ Joints/ExampleCode/Data/TestResults/.gitkeep
-PhysicEngine/Dokumentation/Part6\ -\ Polygons/ExampleCode/Data/TestResults/*
-!PhysicEngine/Dokumentation/Part6\ -\ Polygons/ExampleCode/Data/TestResults/.gitkeep
+Dokumentation/Part4\ -\ Soft-\ and\ Multi-Constraints/ExampleCode/Data/TestResults/*
+!Dokumentation/Part4\ -\ Soft-\ and\ Multi-Constraints/ExampleCode/Data/TestResults/.gitkeep
+Dokumentation/Part5\ -\ Joints/ExampleCode/Data/TestResults/*
+!Dokumentation/Part5\ -\ Joints/ExampleCode/Data/TestResults/.gitkeep
+Dokumentation/Part6\ -\ Polygons/ExampleCode/Data/TestResults/*
+!Dokumentation/Part6\ -\ Polygons/ExampleCode/Data/TestResults/.gitkeep
 
-PhysicEngine/Data/TestData/DemoGameTestResults/*
-!PhysicEngine/Data/TestData/DemoGameTestResults/Expected/
-!PhysicEngine/Data/TestData/DemoGameTestResults/BridgeBuilder/*
+Data/TestData/DemoGameTestResults/*
+!Data/TestData/DemoGameTestResults/Expected/
+!Data/TestData/DemoGameTestResults/BridgeBuilder/*
 
-#Damit die nachfolgende Zeile ging musste ich das noch ausführen: git rm --cached PhysicEngine/Data/TestData/DemoGameTestResults/BridgeBuilder/TestRun.txt
-PhysicEngine/Data/TestData/DemoGameTestResults/BridgeBuilder/TestRun.txt
-PhysicEngine/Data/TestData/DynamicObjCreationTestData/*
-!PhysicEngine/Data/TestData/DynamicObjCreationTestData/ExpectedImages/
-!PhysicEngine/Data/TestData/DynamicObjCreationTestData/InputData/
-PhysicEngine/Data/TestData/RigidBodyPhysicsTestData/TestResults/*
-!PhysicEngine/Data/TestData/RigidBodyPhysicsTestData/TestResults/.gitkeep
+#Damit die nachfolgende Zeile ging musste ich das noch ausführen: git rm --cached Data/TestData/DemoGameTestResults/BridgeBuilder/TestRun.txt
+Data/TestData/DemoGameTestResults/BridgeBuilder/TestRun.txt
+Data/TestData/DynamicObjCreationTestData/*
+!Data/TestData/DynamicObjCreationTestData/ExpectedImages/
+!Data/TestData/DynamicObjCreationTestData/InputData/
+Data/TestData/LevelEditorTestData/*
+!Data/TestData/LevelEditorTestData/ExpectedImages/
+!Data/TestData/LevelEditorTestData/InputData/
+Data/TestData/RigidBodyPhysicsTestData/TestResults/*
+!Data/TestData/RigidBodyPhysicsTestData/TestResults/.gitkeep
 
 #Damit das hier funktioniert musste ich zuerst mit diesen Befehl prüfen, warum der Ordner TestResults nicht mit eingecheckt wurde:
-#git check-ignore -v PhysicEngine/Data/TestData/RigidBodyPhysicsTestData/TestResults/
+#git check-ignore -v Data/TestData/RigidBodyPhysicsTestData/TestResults/
 #Es kam herraus, dass in dieser Datei bei Zeile 69 das hier stand was verhinder hat, dass TestResults eingecheckt werden konnte: [Tt]est[Rr]esult*/
-PhysicEngine/Data/TestData/RigidBodyPhysicsTestData/TestResults/*
-!PhysicEngine/Data/TestData/RigidBodyPhysicsTestData/TestResults/.gitkeep
+Data/TestData/RigidBodyPhysicsTestData/TestResults/*
+!Data/TestData/RigidBodyPhysicsTestData/TestResults/.gitkeep
 
 # User-specific files
 *.rsuser

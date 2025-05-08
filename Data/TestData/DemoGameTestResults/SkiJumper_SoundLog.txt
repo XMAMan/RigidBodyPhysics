@@ -1,3 +1,0 @@
-SkiJumper\Intro.music	Play
-SkiJumper\Intro.music	Stop
-SkiJumper\yes_2.wav.mp3	Play
