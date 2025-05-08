@@ -6,8 +6,12 @@ cd BridgeBuilderControl/bin && rmdir /S /Q . 2>nul & cd ../..
 cd BridgeBuilderControl/obj && rmdir /S /Q . 2>nul & cd ../..
 cd CarDrifterControl/bin && rmdir /S /Q . 2>nul & cd ../..
 cd CarDrifterControl/obj && rmdir /S /Q . 2>nul & cd ../..
+cd DemoApplicationHelper/bin && rmdir /S /Q . 2>nul & cd ../..
+cd DemoApplicationHelper/obj && rmdir /S /Q . 2>nul & cd ../..
 cd DemoApplications.UnitTests/bin && rmdir /S /Q . 2>nul & cd ../..
 cd DemoApplications.UnitTests/obj && rmdir /S /Q . 2>nul & cd ../..
+cd DrawingPanel/bin && rmdir /S /Q . 2>nul & cd ../..
+cd DrawingPanel/obj && rmdir /S /Q . 2>nul & cd ../..
 cd DynamicObjCreation/bin && rmdir /S /Q . 2>nul & cd ../..
 cd DynamicObjCreation/obj && rmdir /S /Q . 2>nul & cd ../..
 cd DynamicObjCreation.UnitTests/bin && rmdir /S /Q . 2>nul & cd ../..
@@ -26,8 +30,14 @@ cd KeyFrameGlobal/bin && rmdir /S /Q . 2>nul & cd ../..
 cd KeyFrameGlobal/obj && rmdir /S /Q . 2>nul & cd ../..
 cd KeyFramePhysicImporter/bin && rmdir /S /Q . 2>nul & cd ../..
 cd KeyFramePhysicImporter/obj && rmdir /S /Q . 2>nul & cd ../..
+cd Leveleditor/bin && rmdir /S /Q . 2>nul & cd ../..
+cd Leveleditor/obj && rmdir /S /Q . 2>nul & cd ../..
 cd LevelEditorControl/bin && rmdir /S /Q . 2>nul & cd ../..
 cd LevelEditorControl/obj && rmdir /S /Q . 2>nul & cd ../..
+cd LevelEditorControl.UnitTests/bin && rmdir /S /Q . 2>nul & cd ../..
+cd LevelEditorControl.UnitTests/obj && rmdir /S /Q . 2>nul & cd ../..
+cd LevelEditorExports/bin && rmdir /S /Q . 2>nul & cd ../..
+cd LevelEditorExports/obj && rmdir /S /Q . 2>nul & cd ../..
 cd LevelEditorGlobal/bin && rmdir /S /Q . 2>nul & cd ../..
 cd LevelEditorGlobal/obj && rmdir /S /Q . 2>nul & cd ../..
 cd LevelToSimulatorConverter/bin && rmdir /S /Q . 2>nul & cd ../..
@@ -36,6 +46,8 @@ cd MoonlanderControl/bin && rmdir /S /Q . 2>nul & cd ../..
 cd MoonlanderControl/obj && rmdir /S /Q . 2>nul & cd ../..
 cd PhysicEngine/bin && rmdir /S /Q . 2>nul & cd ../..
 cd PhysicEngine/obj && rmdir /S /Q . 2>nul & cd ../..
+cd PhysicGlobal/bin && rmdir /S /Q . 2>nul & cd ../..
+cd PhysicGlobal/obj && rmdir /S /Q . 2>nul & cd ../..
 cd PhysicItemEditorControl/bin && rmdir /S /Q . 2>nul & cd ../..
 cd PhysicItemEditorControl/obj && rmdir /S /Q . 2>nul & cd ../..
 cd PhysicSceneDrawing/bin && rmdir /S /Q . 2>nul & cd ../..
@@ -48,6 +60,8 @@ cd PhysicSceneSimulatorControl/bin && rmdir /S /Q . 2>nul & cd ../..
 cd PhysicSceneSimulatorControl/obj && rmdir /S /Q . 2>nul & cd ../..
 cd PhysicSceneTestbedControl/bin && rmdir /S /Q . 2>nul & cd ../..
 cd PhysicSceneTestbedControl/obj && rmdir /S /Q . 2>nul & cd ../..
+cd PhysicSceneToAnimationConverter/bin && rmdir /S /Q . 2>nul & cd ../..
+cd PhysicSceneToAnimationConverter/obj && rmdir /S /Q . 2>nul & cd ../..
 cd RigidBodyPhysics/bin && rmdir /S /Q . 2>nul & cd ../..
 cd RigidBodyPhysics/obj && rmdir /S /Q . 2>nul & cd ../..
 cd RigidBodyPhysics.UnitTests/bin && rmdir /S /Q . 2>nul & cd ../..
@@ -56,6 +70,8 @@ cd Simulator/bin && rmdir /S /Q . 2>nul & cd ../..
 cd Simulator/obj && rmdir /S /Q . 2>nul & cd ../..
 cd SkiJumperControl/bin && rmdir /S /Q . 2>nul & cd ../..
 cd SkiJumperControl/obj && rmdir /S /Q . 2>nul & cd ../..
+cd SpiderBoxControl/bin && rmdir /S /Q . 2>nul & cd ../..
+cd SpiderBoxControl/obj && rmdir /S /Q . 2>nul & cd ../..
 cd SpriteEditorControl/bin && rmdir /S /Q . 2>nul & cd ../..
 cd SpriteEditorControl/obj && rmdir /S /Q . 2>nul & cd ../..
 cd TextureEditorControl/bin && rmdir /S /Q . 2>nul & cd ../..
