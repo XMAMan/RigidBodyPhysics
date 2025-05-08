@@ -2,6 +2,7 @@
 
 namespace PhysicGlobal
 {
+    //Enthält all die Zeichenmethoden, die vom Editor und Simulator verwendet werden
     public interface IDrawingPanel : IDisposable
     {
         //Propertys

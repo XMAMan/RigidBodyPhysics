@@ -22,6 +22,7 @@ namespace DrawingPanel
 
         private GraphicPanel2D panel;
 
+        //Nutze diese Property, wenn die Zeichenoperationen vom IDrawingPanel-Interface nicht reichen
         public GraphicPanel2D Panel { get => this.panel; } 
 
         public new event MouseEventHandler MouseClick
