@@ -45,6 +45,16 @@ namespace PhysicSceneDrawing
             return PhysicGlobal.BoundingBox.GetBoxFromBoxes(textures.Select(x => x.TextureBoundingBox));
         }
 
+        public PhysicGlobal.BoundingBox GetPhysicBoundingBoxFromBodies(IEnumerable<IPublicRigidBody> bodies)
+        {
+            return PhysicGlobal.BoundingBox.GetBoxFromBoxes(bodies.Select(body => textures.First(tex => tex.AssociatedBody == body).PhysicBoundingBox));
+        }
+
+        public PhysicGlobal.BoundingBox GetTextureBoundingBoxFromBodies(IEnumerable<IPublicRigidBody> bodies)
+        {
+            return PhysicGlobal.BoundingBox.GetBoxFromBoxes(bodies.Select(body => textures.First(tex => tex.AssociatedBody == body).TextureBoundingBox));
+        }
+
         private static ITexturedRigidBody[] ConvertPhysicScene(PhysicScene physicScene, VisualisizerOutputData textureData)
         {
             var bodys = physicScene.GetAllBodys().ToList();

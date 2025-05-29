@@ -353,6 +353,18 @@ namespace GameHelper.Simulation
             return this.levelItems.First(x => x.LevelItemId == levelItemId).Joints.ToArray();
         }
 
+        public PhysicGlobal.BoundingBox GetPhysicBoundingBoxFromLevelItem(int levelItemId)
+        {
+            var bodies = this.GetAllBodiesFromLevelItem(levelItemId);
+            return this.sceneDrawer.GetPhysicBoundingBoxFromBodies(bodies);
+        }
+
+        public PhysicGlobal.BoundingBox GetTextureBoundingBoxFromLevelItem(int levelItemId)
+        {
+            var bodies = this.GetAllBodiesFromLevelItem(levelItemId);
+            return this.sceneDrawer.GetTextureBoundingBoxFromBodies(bodies);
+        }
+
         #endregion
 
         #region PhysicSceneDrawer-Handling
