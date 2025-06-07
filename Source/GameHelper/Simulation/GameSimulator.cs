@@ -107,6 +107,25 @@ namespace GameHelper.Simulation
             return exportItem.PhysicSceneData.Bodies.SelectMany(GetCollisionPointsFromExternBodyWithScene).ToArray();
         }
 
+        public IRigidBodyCollision[] GetCollisionPointsBetweenTwoLevelItems(int levelItemId1, int levelItemId2)
+        {
+            var bodies1 = this.GetAllBodiesFromLevelItem(levelItemId1);
+            var bodies2 = this.GetAllBodiesFromLevelItem(levelItemId2);
+
+            List<IRigidBodyCollision> points = new List<IRigidBodyCollision>();
+            foreach (var body1 in bodies1)
+            {
+                foreach (var body2 in bodies2)
+                {
+                    if (body1 == body2) throw new ArgumentException("Cannot get collision points between the same body.");
+
+                    points.AddRange(PhysicScene.GetCollisionPointsBetweenTwoBodies(body1, body2));
+                }
+            }
+
+            return points.ToArray();
+        }
+
         public IEnumerable<T> GetAllBodiesOfType<T>() where T : IPublicRigidBody
         {
             return this.physicScene.GetAllBodys().Where(x => x is T).Cast<T>();

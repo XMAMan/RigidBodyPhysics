@@ -389,6 +389,13 @@ namespace RigidBodyPhysics
             return this.collisionManager.GetCollisionsWithExternObject(body);
         }
 
+        //Ermittelt die Kollisionspunkte zwischen zwei Körpern ohne IsNotMoveable, CollideExcludeList und CollisionMatrix zu beachten
+        //Wird benötigt, wenn zwei Körper nicht kollidieren sollen aber man prüfen will, ob diese Körper sich überlappen
+        public static IRigidBodyCollision[] GetCollisionPointsBetweenTwoBodies(IPublicRigidBody body1,  IPublicRigidBody body2)
+        {
+            return CollisionManager.GetCollisionsWithoutShouldCollideCheck((IRigidBody)body1, (IRigidBody)body2);
+        }
+
         public void TimeStep(float dt)
         {
             //1. Weise der externen Kraft einen Wert zu (Der Nutzer darf vor jeden TimeStep-Aufruf auch selber Kraftwerte setzen)

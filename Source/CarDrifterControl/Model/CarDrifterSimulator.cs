@@ -12,6 +12,8 @@ namespace CarDrifterControl.Model
         private Sounds sounds;                          //Soundwiedergabe
 
         private Car car;
+        private int carLevelId;
+        private int ballLevelId;
 
         private bool showHelpText = true;
 
@@ -47,6 +49,9 @@ namespace CarDrifterControl.Model
             
 
             this.car = new Car(this, this.sounds);
+
+            this.carLevelId = GetTagDataFromBody(GetBodiesByTagName("car").First()).LevelItemId;
+            this.ballLevelId = GetTagDataFromBody(GetBodyByTagName("ball")).LevelItemId;
         }
 
         public override void Draw(IDrawingPanel panel)
@@ -54,6 +59,15 @@ namespace CarDrifterControl.Model
             base.Draw(panel);
 
             this.car.Draw(panel);   
+
+            //Hiermit teste ich, dass Kollisionspuntke auch zwischen zwei Objekten ermittelt werden können, welche laut 
+            //CollisionMatrix nicht kollidieren
+            panel.DisableDepthTesting();
+            var collisonPoints = GetCollisionPointsBetweenTwoLevelItems(this.carLevelId, this.ballLevelId);
+            foreach (var point in collisonPoints)
+            {
+                panel.DrawFillCircle(Color.Red, point.Start, 5);
+            }
 
             if (showHelpText)
             {

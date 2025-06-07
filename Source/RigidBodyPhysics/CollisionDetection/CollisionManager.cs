@@ -28,6 +28,19 @@ namespace RigidBodyPhysics.CollisionDetection
             return GetAllCollisionsFromPairList(pairList);
         }
 
+        //Ermittelt die Kollisionspunkte zwischen zwei Körpern ohne IsNotMoveable, CollideExcludeList und CollisionMatrix zu beachten
+        public static RigidBodyCollision[] GetCollisionsWithoutShouldCollideCheck(IRigidBody body1, IRigidBody body2)
+        {
+            if (BoundingCircleTest.Collide(body1, body2)) //Broudphase-Test
+            {
+                var contacts = GetCollisions(body1, body2); //Nearphase-Test
+                if (contacts.Any())
+                    return contacts.Select(x => new RigidBodyCollision(x, body1, body2, -1, -1)).ToArray();
+            }
+
+            return Array.Empty<RigidBodyCollision>();
+        }
+
         private RigidBodyCollision[] GetAllCollisionsFromPairList(IEnumerable<CollidablePair<IRigidBody>> pairs)
         {
             List<RigidBodyCollision> collisions = new List<RigidBodyCollision>();

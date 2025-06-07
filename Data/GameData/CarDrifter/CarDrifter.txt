@@ -613,8 +613,136 @@
             "LocalPivot": {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 0.0,
-              "Y": 0.0,
-			}
+              "Y": 0.0
+            }
+          },
+          "CameraTrackedRigidBodyIds": null
+        },
+        {
+          "$type": "LevelEditorExports.Editor.Prototyps.PhysicItemExportData, LevelEditorExports",
+          "ProtoType": 0,
+          "Id": 3,
+          "PhysicSceneData": {
+            "$type": "RigidBodyPhysics.ExportData.PhysicSceneExportData, RigidBodyPhysics",
+            "Bodies": {
+              "$type": "RigidBodyPhysics.ExportData.RigidBody.IExportRigidBody[], RigidBodyPhysics",
+              "$values": [
+                {
+                  "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
+                  "Radius": 75.0,
+                  "Center": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 153.0,
+                    "Y": 137.0
+                  },
+                  "AngleInDegree": 0.0,
+                  "Velocity": {
+                    "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+                    "X": 0.0,
+                    "Y": 0.0
+                  },
+                  "AngularVelocity": 0.0,
+                  "MassData": {
+                    "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
+                    "Type": 1,
+                    "Mass": 1.0,
+                    "Density": 0.0001
+                  },
+                  "Friction": 0.03,
+                  "Restituion": 0.5,
+                  "CollisionCategory": 1
+                }
+              ]
+            },
+            "Joints": {
+              "$type": "RigidBodyPhysics.ExportData.Joints.IExportJoint[], RigidBodyPhysics",
+              "$values": []
+            },
+            "Thrusters": {
+              "$type": "RigidBodyPhysics.ExportData.Thruster.IExportThruster[], RigidBodyPhysics",
+              "$values": []
+            },
+            "Motors": {
+              "$type": "RigidBodyPhysics.ExportData.RotaryMotor.IExportRotaryMotor[], RigidBodyPhysics",
+              "$values": []
+            },
+            "AxialFrictions": {
+              "$type": "RigidBodyPhysics.ExportData.AxialFriction.IExportAxialFriction[], RigidBodyPhysics",
+              "$values": []
+            },
+            "CollisionMatrix": {
+              "$type": "System.Boolean[,], System.Private.CoreLib",
+              "$values": [
+                [
+                  true,
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                [
+                  false,
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                [
+                  false,
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                [
+                  false,
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                [
+                  false,
+                  false,
+                  false,
+                  false,
+                  false
+                ]
+              ]
+            }
+          },
+          "PhysicSceneForAnimationNull": null,
+          "TextureData": {
+            "$type": "TextureEditorGlobal.VisualisizerOutputData, TextureEditorGlobal",
+            "Textures": {
+              "$type": "TextureEditorGlobal.TextureExportData[], TextureEditorGlobal",
+              "$values": [
+                {
+                  "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
+                  "TextureFile": "Ball.png",
+                  "MakeFirstPixelTransparent": true,
+                  "ColorFactor": "White",
+                  "DeltaX": 0.0,
+                  "DeltaY": 0.0,
+                  "Width": 150.0,
+                  "Height": 150.0,
+                  "DeltaAngle": 0.0,
+                  "ZValue": 0.0,
+                  "IsInvisible": false
+                }
+              ]
+            }
+          },
+          "AnimationData": null,
+          "InitialRecValues": {
+            "$type": "LevelEditorExports.Editor.Prototyps.InitialRotatedRectangleValues, LevelEditorExports",
+            "SizeFactor": 1.0,
+            "AngleInDegree": 0.0,
+            "LocalPivot": {
+              "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+              "X": 0.0,
+              "Y": 0.0
+            }
           },
           "CameraTrackedRigidBodyIds": null
         }
@@ -631,15 +759,15 @@
         "Position": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 91.65527,
-          "Y": 746.51483,
-		},
+          "Y": 746.51483
+        },
         "SizeFactor": 0.0685517,
         "AngleInDegree": 88.51778,
         "LocalPivot": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 0.0,
-          "Y": 0.0,
-			}
+          "Y": 0.0
+        }
       },
       {
         "$type": "LevelEditorExports.Editor.LevelItems.PolygonLevelItemExportData, LevelEditorExports",
@@ -650,58 +778,42 @@
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 167.98169,
-              "Y": 122.18271,
-              "Xi": 167,
-              "Yi": 122
+              "Y": 122.18271
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 168.98169,
-              "Y": 281.1827,
-              "Xi": 168,
-              "Yi": 281
+              "Y": 281.1827
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 180.98169,
-              "Y": 293.1827,
-              "Xi": 180,
-              "Yi": 293
+              "Y": 293.1827
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 442.9817,
-              "Y": 291.1827,
-              "Xi": 442,
-              "Yi": 291
+              "Y": 291.1827
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 453.9817,
-              "Y": 279.1827,
-              "Xi": 453,
-              "Yi": 279
+              "Y": 279.1827
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 453.9817,
-              "Y": 123.18271,
-              "Xi": 453,
-              "Yi": 123
+              "Y": 123.18271
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 444.9817,
-              "Y": 112.18271,
-              "Xi": 444,
-              "Yi": 112
+              "Y": 112.18271
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 180.98169,
-              "Y": 111.18271,
-              "Xi": 180,
-              "Yi": 111
+              "Y": 111.18271
             }
           ]
         },
@@ -718,58 +830,42 @@
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 328.0,
-              "Y": 489.0,
-              "Xi": 328,
-              "Yi": 489
+              "Y": 489.0
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 329.0,
-              "Y": 618.0,
-              "Xi": 329,
-              "Yi": 618
+              "Y": 618.0
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 342.0,
-              "Y": 629.0,
-              "Xi": 342,
-              "Yi": 629
+              "Y": 629.0
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 447.0,
-              "Y": 628.0,
-              "Xi": 447,
-              "Yi": 628
+              "Y": 628.0
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 457.0,
-              "Y": 617.0,
-              "Xi": 457,
-              "Yi": 617
+              "Y": 617.0
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 456.0,
-              "Y": 485.0,
-              "Xi": 456,
-              "Yi": 485
+              "Y": 485.0
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 443.0,
-              "Y": 471.0,
-              "Xi": 443,
-              "Yi": 471
+              "Y": 471.0
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 340.0,
-              "Y": 472.0,
-              "Xi": 340,
-              "Yi": 472
+              "Y": 472.0
             }
           ]
         },
@@ -786,58 +882,42 @@
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 174.81886,
-              "Y": 489.724,
-              "Xi": 174,
-              "Yi": 489
+              "Y": 489.724
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 172.81886,
-              "Y": 612.724,
-              "Xi": 172,
-              "Yi": 612
+              "Y": 612.724
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 185.81886,
-              "Y": 624.724,
-              "Xi": 185,
-              "Yi": 624
+              "Y": 624.724
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 302.81885,
-              "Y": 624.724,
-              "Xi": 302,
-              "Yi": 624
+              "Y": 624.724
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 316.81885,
-              "Y": 612.724,
-              "Xi": 316,
-              "Yi": 612
+              "Y": 612.724
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 314.81885,
-              "Y": 483.724,
-              "Xi": 314,
-              "Yi": 483
+              "Y": 483.724
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 300.81885,
-              "Y": 470.724,
-              "Xi": 300,
-              "Yi": 470
+              "Y": 470.724
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 185.81886,
-              "Y": 469.724,
-              "Xi": 185,
-              "Yi": 469
+              "Y": 469.724
             }
           ]
         },
@@ -854,30 +934,22 @@
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 644.0,
-              "Y": 650.0,
-              "Xi": 644,
-              "Yi": 650
+              "Y": 650.0
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 652.0,
-              "Y": 651.0,
-              "Xi": 652,
-              "Yi": 651
+              "Y": 651.0
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 653.0,
-              "Y": 117.0,
-              "Xi": 653,
-              "Yi": 117
+              "Y": 117.0
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 643.0,
-              "Y": 117.0,
-              "Xi": 643,
-              "Yi": 117
+              "Y": 117.0
             }
           ]
         },
@@ -894,58 +966,42 @@
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 764.0,
-              "Y": 124.0,
-              "Xi": 764,
-              "Yi": 124
+              "Y": 124.0
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 763.0,
-              "Y": 620.0,
-              "Xi": 763,
-              "Yi": 620
+              "Y": 620.0
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 773.0,
-              "Y": 632.0,
-              "Xi": 773,
-              "Yi": 632
+              "Y": 632.0
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 903.0,
-              "Y": 634.0,
-              "Xi": 903,
-              "Yi": 634
+              "Y": 634.0
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 918.0,
-              "Y": 621.0,
-              "Xi": 918,
-              "Yi": 621
+              "Y": 621.0
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 919.0,
-              "Y": 123.0,
-              "Xi": 919,
-              "Yi": 123
+              "Y": 123.0
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 901.0,
-              "Y": 110.0,
-              "Xi": 901,
-              "Yi": 110
+              "Y": 110.0
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 782.0,
-              "Y": 110.0,
-              "Xi": 782,
-              "Yi": 110
+              "Y": 110.0
             }
           ]
         },
@@ -962,30 +1018,22 @@
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 1.0,
-              "Y": 9.0,
-              "Xi": 1,
-              "Yi": 9
+              "Y": 9.0
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 1082.0,
-              "Y": 9.0,
-              "Xi": 1082,
-              "Yi": 9
+              "Y": 9.0
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 1081.7747,
-              "Y": -19.850945,
-              "Xi": 1081,
-              "Yi": -19
+              "Y": -19.850945
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 2.8725586,
-              "Y": -19.267265,
-              "Xi": 2,
-              "Yi": -19
+              "Y": -19.267265
             }
           ]
         },
@@ -1002,30 +1050,22 @@
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": -26.421738,
-              "Y": 795.11145,
-              "Xi": -26,
-              "Yi": 795
+              "Y": 795.11145
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 7.0,
-              "Y": 799.0,
-              "Xi": 7,
-              "Yi": 799
+              "Y": 799.0
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 8.0,
-              "Y": 10.0,
-              "Xi": 8,
-              "Yi": 10
+              "Y": 10.0
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": -23.986328,
-              "Y": 11.659939,
-              "Xi": -23,
-              "Yi": 11
+              "Y": 11.659939
             }
           ]
         },
@@ -1042,30 +1082,22 @@
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 6.3378906,
-              "Y": 836.5685,
-              "Xi": 6,
-              "Yi": 836
+              "Y": 836.5685
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 1078.165,
-              "Y": 835.6001,
-              "Xi": 1078,
-              "Yi": 835
+              "Y": 835.6001
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 1077.0,
-              "Y": 794.0,
-              "Xi": 1077,
-              "Yi": 794
+              "Y": 794.0
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 7.0,
-              "Y": 796.0,
-              "Xi": 7,
-              "Yi": 796
+              "Y": 796.0
             }
           ]
         },
@@ -1082,36 +1114,45 @@
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 1074.0,
-              "Y": 795.0,
-              "Xi": 1074,
-              "Yi": 795
+              "Y": 795.0
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 1110.7983,
-              "Y": 795.23914,
-              "Xi": 1110,
-              "Yi": 795
+              "Y": 795.23914
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 1112.259,
-              "Y": 12.145798,
-              "Xi": 1112,
-              "Yi": 12
+              "Y": 12.145798
             },
             {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 1073.0,
-              "Y": 10.0,
-              "Xi": 1073,
-              "Yi": 10
+              "Y": 10.0
             }
           ]
         },
         "Friction": 0.0,
         "Restiution": 0.5,
         "CollisionCategory": 0
+      },
+      {
+        "$type": "LevelEditorExports.Editor.LevelItems.PhysicLevelItemExportData, LevelEditorExports",
+        "LevelItemId": 12,
+        "PrototypId": 3,
+        "Position": {
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+          "X": 719.06,
+          "Y": 661.28217
+        },
+        "SizeFactor": 0.124997154,
+        "AngleInDegree": 0.0,
+        "LocalPivot": {
+          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
+          "X": 0.4999997,
+          "Y": 0.5
+        }
       }
     ]
   },
@@ -1370,6 +1411,26 @@
           "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
           "Id": "Level_6",
           "Name": "box",
+          "Color": 0,
+          "AnchorPoints": {
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
+            "$values": []
+          }
+        },
+        {
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
+          "Id": "Proto_2",
+          "Name": "car",
+          "Color": 0,
+          "AnchorPoints": {
+            "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
+            "$values": []
+          }
+        },
+        {
+          "$type": "LevelEditorExports.Editor.Tagging.TagEditorData, LevelEditorExports",
+          "Id": "Body_12_0",
+          "Name": "ball",
           "Color": 0,
           "AnchorPoints": {
             "$type": "System.Collections.Generic.List`1[[PhysicGlobal.Vec2D, PhysicGlobal]], System.Private.CoreLib",
