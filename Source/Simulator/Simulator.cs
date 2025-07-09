@@ -161,8 +161,20 @@ namespace Simulator
             }
         }
 
-        public PhysicGlobal.BoundingBox FixCameraArea { get; set; } //Dieser Bereich wird angezeigt, wenn der Kamera-Modus FixArea verwendet wird
-
+        //Dieser Bereich wird angezeigt, wenn der Kamera-Modus FixArea verwendet wird
+        private PhysicGlobal.BoundingBox fixCameraArea;       
+        public PhysicGlobal.BoundingBox FixCameraArea 
+        { 
+            get => this.fixCameraArea;
+            set
+            {
+                this.fixCameraArea = value;
+                if (this.CameraModus == CameraMode.FixArea)
+                {
+                    SetCameraMode(CameraMode.FixArea); //Aktualisiere die Kamera-Position, wenn der FixCameraArea-Bereich verändert wurde
+                }
+            }
+        } 
         public PhysicGlobal.BoundingBox GetScreenBox()
         {
             return this.camera.GetScreenBox();
