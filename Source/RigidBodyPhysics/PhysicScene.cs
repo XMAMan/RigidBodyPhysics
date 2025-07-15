@@ -323,6 +323,7 @@ namespace RigidBodyPhysics
             {
                 var publicAxialFriction = (IPublicAxialFriction)this.axialFrictions[i];
                 publicAxialFriction.Friction = data.AxialFrictions[i].Friction;
+                publicAxialFriction.TargetVelocity = data.AxialFrictions[i].TargetVelocity;
             }
 
             SetVelocityFromFixBodiesToZero();

@@ -6,8 +6,15 @@
              xmlns:local="clr-namespace:PhysicSceneEditorControl.Controls.AxialFriction"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel Orientation="Horizontal">
-        <Label Content="Friction"/>
-        <TextBox Text="{Binding Path=Friction, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,StringFormat=N6}"/>
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Friction"/>
+            <TextBox Text="{Binding Path=Friction, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,StringFormat=N6}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="TargetVelocity"/>
+            <TextBox Text="{Binding Path=TargetVelocity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,StringFormat=N6}"/>
+        </StackPanel>
     </StackPanel>
+    
 </UserControl>

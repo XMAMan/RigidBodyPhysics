@@ -7,7 +7,14 @@ using PhysicGlobal;
 
 namespace RigidBodyPhysics.RuntimeObjects.AxialFriction
 {
-    //Reibung, die nur in Richtung der Axe wirkt
+    //Reibung/Motor, die nur in Richtung der Axe wirkt
+    //Anwendungsfälle:
+    // -Autospiel, wo man das Auto von oben sieht. Die AxialFriction mit TargetVelocity=0 zeigt von der Radmitte nach außen und
+    //  verhindert so, dass die Räder seitlich wegrutschen.
+    // -Autospiel, wo man das Auto von oben sieht. Die AxialFriction mit TargetVelocity != 0 zeigt von der Radmitte nach vorne und
+    //  sie dient somit als Motor, welcher das Rad auf die Geschwindigkeit "TargetVelocity" bringen will. Der Friction-Wert
+    //  bestimmt dabei mit welcher Kraft der Motor arbeitet. Je höher der Wert, desto schneller wird das Rad auf die Ziel-
+    //  geschwindigkeit beschleunigt.
     internal class AxialFriction : IAxialFriction
     {
         private Vec2D r1; //lokaler Richtungsvektor von B1.Center nach Anchor
@@ -18,6 +25,7 @@ namespace RigidBodyPhysics.RuntimeObjects.AxialFriction
         public Vec2D Anchor { get; private set; }
         public Vec2D ForceDirection { get; private set; } //Richtungsvektor im Globalspace
         public float Friction { get; set; }
+        public float TargetVelocity { get; set; }
         #endregion
 
         #region IAxialFriction
@@ -38,6 +46,7 @@ namespace RigidBodyPhysics.RuntimeObjects.AxialFriction
             r1 = data.R1;
             forceDirection = data.ForceDirection;
             Friction = data.Friction;
+            TargetVelocity = data.TargetVelocity;
 
             UpdateAnchorPoints();
         }
@@ -50,7 +59,8 @@ namespace RigidBodyPhysics.RuntimeObjects.AxialFriction
                 BodyIndex = bodies.IndexOf(B1),
                 R1 = r1,
                 ForceDirection = forceDirection,
-                Friction = Friction
+                Friction = Friction,
+                TargetVelocity = TargetVelocity
             };
         }
         #endregion

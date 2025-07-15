@@ -8,7 +8,7 @@ namespace RigidBodyPhysics.ExportData.AxialFriction
         public Vec2D R1 { get; set; } //Hebelarm im lokalen Bodyspace von B1.Center nach Anchor-Punkt
         public Vec2D ForceDirection { get; set; }
         public float Friction { get; set; }
-
+        public float TargetVelocity { get; set; }
         public AxialFrictionExportData() { }
 
         public AxialFrictionExportData(AxialFrictionExportData copy)
@@ -17,6 +17,7 @@ namespace RigidBodyPhysics.ExportData.AxialFriction
             this.R1 = new Vec2D(copy.R1);
             this.ForceDirection = new Vec2D(copy.ForceDirection);
             this.Friction = copy.Friction;
+            this.TargetVelocity = copy.TargetVelocity;
         }
 
         public IExportAxialFriction GetCopy()

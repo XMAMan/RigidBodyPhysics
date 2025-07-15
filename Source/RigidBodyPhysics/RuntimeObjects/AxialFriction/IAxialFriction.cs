@@ -10,6 +10,7 @@ namespace RigidBodyPhysics.RuntimeObjects.AxialFriction
         Vec2D R1 { get; } //Angabe in Weltkoordinaten
         Vec2D ForceDirection { get; } //Angabe in Weltkoordinaten
         float Friction { get; }
+        float TargetVelocity { get; } //Die Geschwindigkeit, die der Ankerpunkt in der Richtung der ForceDirection haben soll
         float AccumulatedFrictionImpulse { get; set; }
         void UpdateAnchorPoints(); //Muss aufgerufen werden, wenn sich die Position der Bodys geändert hat
     }

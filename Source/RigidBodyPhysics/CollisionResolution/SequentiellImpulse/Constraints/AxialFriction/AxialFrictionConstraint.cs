@@ -36,7 +36,7 @@ namespace RigidBodyPhysics.CollisionResolution.SequentiellImpulse.Constraints.Ax
                 r1crossT * r1crossT * B1.InverseInertia);
 
             ForceDirection = axialFriction.ForceDirection;
-            Bias = 0;
+            Bias = axialFriction.TargetVelocity;
 
 
             MaxImpulse = axialFriction.Friction * data.Dt;

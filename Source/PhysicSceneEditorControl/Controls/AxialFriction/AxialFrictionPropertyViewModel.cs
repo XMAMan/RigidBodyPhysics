@@ -6,5 +6,6 @@ namespace PhysicSceneEditorControl.Controls.AxialFriction
     public class AxialFrictionPropertyViewModel : ReactiveObject
     {
         [Reactive] public float Friction { get; set; } = 1;
+        [Reactive] public float TargetVelocity { get; set; } = 0;
     }
 }

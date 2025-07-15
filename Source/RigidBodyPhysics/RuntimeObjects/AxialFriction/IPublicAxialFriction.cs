@@ -9,6 +9,7 @@ namespace RigidBodyPhysics.RuntimeObjects.AxialFriction
         Vec2D Anchor { get; }
         Vec2D ForceDirection { get; }
         float Friction { get; set; }
+        float TargetVelocity { get; set; } //Die Geschwindigkeit, die der Ankerpunkt in der Richtung der ForceDirection haben soll
         float AccumulatedFrictionImpulse { get; }
     }
 }
