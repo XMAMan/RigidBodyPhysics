@@ -10,6 +10,7 @@ namespace PhysicSceneEditorControl.Dialogs.BackgroundImage
         [Reactive] public float Zoom { get; set; } = 1;
         [Reactive] public float XPosition { get; set; } = 0; //Linke obere Ecke vom Bild, was gezeichnet werden soll
         [Reactive] public float YPosition { get; set; } = 0; //Linke obere Ecke vom Bild, was gezeichnet werden soll
+        [Reactive] public bool MakeFirstPixelTransparent { get; set; } = false;
         [Reactive] public Bitmap Image { get; set; } = null; //Eingeladenes Bild
 
         public BackgroundImageViewModel()

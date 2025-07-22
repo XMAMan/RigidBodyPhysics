@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PhysicSceneEditorControl.Dialogs.BackgroundImage"
         mc:Ignorable="d"
-        Title="BackgroundImageWindow" Height="150" Width="200">
+        Title="BackgroundImageWindow" Height="170" Width="200">
     <StackPanel>
         <Button Content="Load Image from File" Command="{Binding LoadImageFromFileClick}"/>
         <StackPanel Orientation="Horizontal">
@@ -21,6 +21,11 @@
         <StackPanel Orientation="Horizontal">
             <Label Content="YPosition: "/>
             <Slider Minimum="0" Maximum="1" Value="{Binding YPosition}" Width="100"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal">
+            <Label Content="MakeFirstPixelTransparent: "/>
+            <CheckBox IsChecked="{Binding MakeFirstPixelTransparent}" Margin="5"/>
         </StackPanel>
 
     </StackPanel>

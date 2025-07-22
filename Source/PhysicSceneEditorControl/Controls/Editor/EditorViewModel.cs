@@ -443,7 +443,7 @@ namespace PhysicSceneEditorControl.Controls.Editor
             if (this.backgroundImageViewModel.Image != null)
             {
                 var v = this.backgroundImageViewModel;
-                panel.DrawFillRectangle("BackgroundImage", (int)(v.XPosition * panel.Width), (int)(v.YPosition * panel.Height), (int)(v.Image.Width * v.Zoom), (int)(v.Image.Height * v.Zoom), false, Color.White);
+                panel.DrawFillRectangle("BackgroundImage", (int)(v.XPosition * panel.Width), (int)(v.YPosition * panel.Height), (int)(v.Image.Width * v.Zoom), (int)(v.Image.Height * v.Zoom), v.MakeFirstPixelTransparent, Color.White);
             }
             foreach (IEditorShape shape in this.functionData.Shapes) shape.Draw(panel);
             foreach (IEditorJoint joint in this.functionData.Joints) joint.Draw(panel);
