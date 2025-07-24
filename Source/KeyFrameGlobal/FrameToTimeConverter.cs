@@ -74,5 +74,11 @@ namespace KeyFrameGlobal
             this.currentFrame = 0;
             this.Time = 0;
         }
+
+        public void ResetToInitialTime(float initialTime)
+        {
+            this.Time = initialTime;
+            this.currentFrame = (int)(this.FrameAnimationCount * initialTime);
+        }
     }
 }

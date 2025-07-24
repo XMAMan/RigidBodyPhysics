@@ -12,10 +12,10 @@ namespace KeyFrameGlobal
         private bool[] propertyIsAnimated;
         private AnimationOutputData data;
 
-        public Animator(IAnimationProperty[] propertys, AnimationOutputData data, float framesPerSecond, float initialTime)
+        public Animator(IAnimationProperty[] propertys, AnimationOutputData data, float framesPerSecond)
         {
             this.propertys = propertys;
-            this.frameToTimeConverter = new FrameToTimeConverter((long)(data.DurrationInSeconds * framesPerSecond), data.Type, initialTime);
+            this.frameToTimeConverter = new FrameToTimeConverter((long)(data.DurrationInSeconds * framesPerSecond), data.Type, data.StartTime);
             this.frameInterpolator = new FrameInterpolator(propertys, data);
             this.propertyIsAnimated = data.PropertyIsAnimated;
             this.data = data;
@@ -37,6 +37,13 @@ namespace KeyFrameGlobal
         {
             //Gelenk-Sollwerte laut Animationsdatei festlegen
             this.frameToTimeConverter.HandleTimerTick(0); //Erhöhe den internen TimerTick-Zähler
+            var frame = frameInterpolator.GetFrame(this.frameToTimeConverter.Time);
+            this.propertys.WriteFrameToAnimatedObject(frame, this.propertyIsAnimated); //Schreibe den interpolierten Frame auf das Animation-Anzeigeobjekt
+        }
+
+        public void ResetToInitialTime(float initialTime)
+        {
+            this.frameToTimeConverter.ResetToInitialTime(initialTime);
             var frame = frameInterpolator.GetFrame(this.frameToTimeConverter.Time);
             this.propertys.WriteFrameToAnimatedObject(frame, this.propertyIsAnimated); //Schreibe den interpolierten Frame auf das Animation-Anzeigeobjekt
         }

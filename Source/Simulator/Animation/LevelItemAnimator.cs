@@ -51,5 +51,13 @@ namespace Simulator.Animation
                 item.HandleTimerTick(dt);
             }
         }
+
+        public void ResetToInitialTime()
+        {
+            foreach (var item in levelItems)
+            {
+                item.ResetToInitialTime();
+            }
+        }
     }
 }

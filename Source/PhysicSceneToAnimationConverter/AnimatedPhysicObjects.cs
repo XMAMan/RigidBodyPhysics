@@ -17,7 +17,7 @@ namespace PhysicSceneToAnimationConverter
             float framesPerSecond = 1000 / timerIntervalInMilliseconds; //Wenn ich den Timer mit diesen Intervall nutze, dann ergeben sich daraus so viele TimerTicks pro Sekunde
 
             this.PhysicObjects = physicObjects;
-            this.Animators = animations.Select(x => new Animator(propertys, x, framesPerSecond, x.StartTime)).ToArray();
+            this.Animators = animations.Select(x => new Animator(propertys, x, framesPerSecond)).ToArray();
             this.AnimationData = animations;
         }
 
@@ -26,6 +26,14 @@ namespace PhysicSceneToAnimationConverter
             foreach (var animator in Animators)
             {
                 animator.TimerTick();
+            }
+        }
+
+        public void ResetToInitialTime()
+        {
+            for (int i=0;i<this.Animators.Length;i++)
+            {
+                this.Animators[i].ResetToInitialTime(this.AnimationData[i].StartTime);
             }
         }
     }

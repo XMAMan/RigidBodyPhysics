@@ -259,6 +259,13 @@ namespace Simulator
             }
         }
 
+        //Legt für alle animierten Gelenke den Sollwert auf den Anfangszustand zurück, 
+        //wie er nach Aufruf des Simulator-Konstruktors war.
+        public virtual void ResetAllAnimationsToInitialTime()
+        {
+            this.animator.ResetToInitialTime();
+        }
+
         public virtual void Draw(IDrawingPanel panel)
         {
             panel.ClearScreen(Color.White);
