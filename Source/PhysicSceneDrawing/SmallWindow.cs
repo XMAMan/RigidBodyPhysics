@@ -99,6 +99,7 @@ namespace PhysicSceneDrawing
         public bool HandleMouseDown(MouseEventArgs e)
         {
             if (IsMouseInZoomRec(e) == false) return false;
+            if (e.Button != MouseButtons.Left) return false;
 
             var mouseCam = MouseToCam(new Vec2D(e.X, e.Y));
             this.delta = new Vec2D(mouseCam.X - this.camera.X, mouseCam.Y - this.camera.Y);
@@ -122,6 +123,14 @@ namespace PhysicSceneDrawing
         }
 
         public void HandleMouseUp(MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.mouseIsDown = false;
+            }            
+        }
+
+        public void ReleaseAllMouseKeys()
         {
             this.mouseIsDown = false;
         }

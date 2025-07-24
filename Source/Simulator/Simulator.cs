@@ -399,6 +399,12 @@ namespace Simulator
             this.smallWindow.HandleMouseWheel(e);
         }
 
+        public virtual void ReleaseAllMouseKeys()
+        {
+            this.smallWindow.ReleaseAllMouseKeys();  //Kamera nicht mehr weiter bewegen
+            this.physicScene.ClearMouseConstraint(); //Angeklicktes Physikobjekt loslassen
+        }
+
         public virtual void HandleKeyDown(System.Windows.Input.Key key)
         {
             this.keyHandler.HandleKeyDown(key);
