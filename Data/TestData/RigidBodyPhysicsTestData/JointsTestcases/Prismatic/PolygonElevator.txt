@@ -9,7 +9,6 @@
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
         "Center": [701.0, 547.0],
-        "AngleInDegree": 0.0,
         "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
@@ -36,7 +35,6 @@
           ]
         },
         "Center": [555.9839, 734.8957],
-        "AngleInDegree": 0.0,
         "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
@@ -56,7 +54,6 @@
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
         "Center": [1293.0, 547.0],
-        "AngleInDegree": 0.0,
         "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
@@ -83,7 +80,6 @@
           ]
         },
         "Center": [1148.9839, 320.8957],
-        "AngleInDegree": 0.0,
         "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,

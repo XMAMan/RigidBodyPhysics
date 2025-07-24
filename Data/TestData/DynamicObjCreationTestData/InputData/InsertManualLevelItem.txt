@@ -28,7 +28,6 @@
                     "X": 327.0,
                     "Y": 269.0
                   },
-                  "AngleInDegree": 0.0,
                   "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
@@ -60,7 +59,6 @@
                     "X": 322.0,
                     "Y": 183.0
                   },
-                  "AngleInDegree": 0.0,
                   "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
@@ -92,7 +90,6 @@
                     "X": 322.0,
                     "Y": 101.0
                   },
-                  "AngleInDegree": 0.0,
                   "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
@@ -124,7 +121,6 @@
                     "X": 476.0,
                     "Y": 261.0
                   },
-                  "AngleInDegree": 0.0,
                   "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
@@ -343,7 +339,6 @@
                     "X": 327.0,
                     "Y": 269.0
                   },
-                  "AngleInDegree": 0.0,
                   "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
@@ -375,7 +370,6 @@
                     "X": 323.5849,
                     "Y": 183.0299
                   },
-                  "AngleInDegree": 2.162605,
                   "AngleInRad": 0.03774458,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
@@ -407,7 +401,6 @@
                     "X": 338.21024,
                     "Y": 103.86747
                   },
-                  "AngleInDegree": 21.665762,
                   "AngleInRad": 0.3781389,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
@@ -439,7 +432,6 @@
                     "X": 465.4492,
                     "Y": 264.37198
                   },
-                  "AngleInDegree": 163.75267,
                   "AngleInRad": 2.8580234,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",

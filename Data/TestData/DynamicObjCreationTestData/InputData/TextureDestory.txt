@@ -28,7 +28,6 @@
                     "X": 263.0,
                     "Y": 246.0
                   },
-                  "AngleInDegree": 24.0,
                   "AngleInRad": 0.41887906,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
@@ -60,7 +59,6 @@
                     "X": 263.0,
                     "Y": 656.0
                   },
-                  "AngleInDegree": 24.0,
                   "AngleInRad": 0.41887906,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
@@ -151,7 +149,6 @@
                     "X": 598.0285,
                     "Y": 256.8425
                   },
-                  "AngleInDegree": 24.0,
                   "AngleInRad": 0.41887906,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
@@ -242,7 +239,6 @@
                     "X": 598.0285,
                     "Y": 649.8425
                   },
-                  "AngleInDegree": 24.0,
                   "AngleInRad": 0.41887906,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
@@ -268,7 +264,6 @@
                     "X": 993.0,
                     "Y": 240.0
                   },
-                  "AngleInDegree": 24.0,
                   "AngleInRad": 0.41887906,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
@@ -294,7 +289,6 @@
                     "X": 993.0,
                     "Y": 647.0
                   },
-                  "AngleInDegree": 24.0,
                   "AngleInRad": 0.41887906,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",

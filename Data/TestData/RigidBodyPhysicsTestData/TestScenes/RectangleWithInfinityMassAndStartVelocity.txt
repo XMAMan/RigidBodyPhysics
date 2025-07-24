@@ -9,7 +9,6 @@
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
         "Center": [696.0414, 766.8362],
-        "AngleInDegree": -0.18865162,
         "AngleInRad": -0.003292592,
         "Velocity": [1.3065289E-05, 0.0410878],
         "AngularVelocity": -0.000110648034,

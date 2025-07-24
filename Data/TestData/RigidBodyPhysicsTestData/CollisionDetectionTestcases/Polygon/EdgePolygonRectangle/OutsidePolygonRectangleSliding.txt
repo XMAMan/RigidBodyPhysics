@@ -26,7 +26,6 @@
           ]
         },
         "Center": [536.45325, 776.3122],
-        "AngleInDegree": 0.0,
         "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
@@ -46,7 +45,6 @@
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
         "Center": [311.5146, 247.86761],
-        "AngleInDegree": 65.10247,
         "AngleInRad": 1.1362525,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,

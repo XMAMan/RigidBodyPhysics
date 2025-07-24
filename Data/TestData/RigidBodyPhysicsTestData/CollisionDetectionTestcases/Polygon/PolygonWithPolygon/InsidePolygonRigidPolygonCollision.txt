@@ -17,7 +17,6 @@
           ]
         },
         "Center": [792.958, 525.8538],
-        "AngleInDegree": 0.0,
         "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
@@ -45,7 +44,6 @@
           ]
         },
         "Center": [664.9262, 778.32495],
-        "AngleInDegree": -138.13872,
         "AngleInRad": -2.4109755,
         "Velocity": [-4.1789272E-10, 1.1554466E-10],
         "AngularVelocity": -4.8443506E-12,

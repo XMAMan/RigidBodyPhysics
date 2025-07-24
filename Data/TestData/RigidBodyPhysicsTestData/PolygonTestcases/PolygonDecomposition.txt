@@ -42,7 +42,6 @@
           ]
         },
         "Center": [276.60303, 204.7533],
-        "AngleInDegree": 0.0,
         "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,

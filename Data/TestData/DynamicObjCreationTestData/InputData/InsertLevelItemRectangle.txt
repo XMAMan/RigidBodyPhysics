@@ -28,7 +28,6 @@
                     "X": 117.0,
                     "Y": 101.0
                   },
-                  "AngleInDegree": 0.0,
                   "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
