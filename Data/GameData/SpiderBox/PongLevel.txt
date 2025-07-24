@@ -29,6 +29,7 @@
                     "Y": 543.0
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -84,6 +85,7 @@
                     "Y": 548.99994
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -212,6 +214,7 @@
                     "Y": 543.0
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -267,6 +270,7 @@
                     "Y": 551.0
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -479,8 +483,8 @@
             "LocalPivot": {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 0.0,
-              "Y": 0.0,
-			}
+              "Y": 0.0
+            }
           },
           "CameraTrackedRigidBodyIds": null
         },
@@ -502,6 +506,7 @@
                     "Y": 300.0
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 1.0,
@@ -607,8 +612,8 @@
             "LocalPivot": {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 0.0,
-              "Y": 0.0,
-			}
+              "Y": 0.0
+            }
           },
           "CameraTrackedRigidBodyIds": null
         },
@@ -655,6 +660,7 @@
                     "Y": 75.0
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -760,8 +766,8 @@
             "LocalPivot": {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 0.0,
-              "Y": 0.0,
-			}
+              "Y": 0.0
+            }
           },
           "CameraTrackedRigidBodyIds": null
         }
@@ -778,15 +784,15 @@
         "Position": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 133.0,
-          "Y": 72.0,
-		},
+          "Y": 72.0
+        },
         "SizeFactor": 1.0,
         "AngleInDegree": 0.0,
         "LocalPivot": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 0.0,
-          "Y": 0.0,
-			}
+          "Y": 0.0
+        }
       },
       {
         "$type": "LevelEditorExports.Editor.LevelItems.PhysicLevelItemExportData, LevelEditorExports",
@@ -795,15 +801,15 @@
         "Position": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 1968.0,
-          "Y": 1044.0,
-		},
+          "Y": 1044.0
+        },
         "SizeFactor": 1.0,
         "AngleInDegree": 180.0,
         "LocalPivot": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 0.0,
-          "Y": 0.0,
-			}
+          "Y": 0.0
+        }
       },
       {
         "$type": "LevelEditorExports.Editor.LevelItems.PhysicLevelItemExportData, LevelEditorExports",
@@ -812,15 +818,15 @@
         "Position": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 927.0,
-          "Y": 537.0,
-		},
+          "Y": 537.0
+        },
         "SizeFactor": 0.63648295,
         "AngleInDegree": 0.0,
         "LocalPivot": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 0.0,
-          "Y": 0.0,
-			}
+          "Y": 0.0
+        }
       },
       {
         "$type": "LevelEditorExports.Editor.LevelItems.PhysicLevelItemExportData, LevelEditorExports",
@@ -829,15 +835,15 @@
         "Position": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 6.0,
-          "Y": 1060.0,
-		},
+          "Y": 1060.0
+        },
         "SizeFactor": 1.4016724,
         "AngleInDegree": 0.0,
         "LocalPivot": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 0.0,
-          "Y": 0.0,
-			}
+          "Y": 0.0
+        }
       },
       {
         "$type": "LevelEditorExports.Editor.LevelItems.PhysicLevelItemExportData, LevelEditorExports",
@@ -846,15 +852,15 @@
         "Position": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": -1.0,
-          "Y": -19.0,
-		},
+          "Y": -19.0
+        },
         "SizeFactor": 1.403791,
         "AngleInDegree": 0.0,
         "LocalPivot": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 0.0,
-          "Y": 0.0,
-			}
+          "Y": 0.0
+        }
       },
       {
         "$type": "LevelEditorExports.Editor.LevelItems.PhysicLevelItemExportData, LevelEditorExports",
@@ -863,15 +869,15 @@
         "Position": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 40.85782,
-          "Y": -12.325684,
-		},
+          "Y": -12.325684
+        },
         "SizeFactor": 0.783896,
         "AngleInDegree": 90.0,
         "LocalPivot": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 0.0,
-          "Y": 0.0,
-			}
+          "Y": 0.0
+        }
       },
       {
         "$type": "LevelEditorExports.Editor.LevelItems.PhysicLevelItemExportData, LevelEditorExports",
@@ -880,15 +886,15 @@
         "Position": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 2071.6196,
-          "Y": -10.42659,
-		},
+          "Y": -10.42659
+        },
         "SizeFactor": 0.7797116,
         "AngleInDegree": 90.0,
         "LocalPivot": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 0.0,
-          "Y": 0.0,
-			}
+          "Y": 0.0
+        }
       }
     ]
   },

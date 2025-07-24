@@ -47,7 +47,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
         }
 
         public RigidCircle(CircleExportData data)
-            : this(data.Center, data.Radius, data.AngleInDegree / 180 * (float)Math.PI, data.MassData)
+            : this(data.Center, data.Radius, data.AngleInRad, data.MassData)
         {
             Velocity = new Vec2D(data.Velocity);
             AngularVelocity = data.AngularVelocity;
@@ -83,7 +83,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
             {
                 Center = new Vec2D(Center),
                 Radius = Radius,
-                AngleInDegree = (float)(Angle / (2 * Math.PI) * 360),
+                AngleInRad = Angle,
                 Velocity = new Vec2D(Velocity),
                 AngularVelocity = AngularVelocity,
                 MassData = new MassData(massData),

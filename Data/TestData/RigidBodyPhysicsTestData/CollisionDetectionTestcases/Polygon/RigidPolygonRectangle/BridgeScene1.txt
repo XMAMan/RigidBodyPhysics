@@ -34,6 +34,7 @@
         },
         "Center": [72.00376, 141.05865],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -53,6 +54,7 @@
         "MaxPushPullForce": 1.0,
         "Center": [22.7783, 21.942215],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {

@@ -103,7 +103,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
                 PolygonType = PolygonType,
                 Points = localPoints.Select(x => new Vec2D(x)).ToArray(),
                 Center = new Vec2D(Center),
-                AngleInDegree = (float)(Angle / Math.PI * 180),
+                AngleInRad = Angle,
                 Velocity = new Vec2D(Velocity),
                 AngularVelocity = AngularVelocity,
                 MassData = new MassData(massData),

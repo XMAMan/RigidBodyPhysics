@@ -76,7 +76,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
                 Colliables[i] = edges[i] = new PolygonEdge(this, i, isConvex[i], isConvex[(i + 1) % isConvex.Length], minValues[i], maxValues[i]);
             }
 
-            RotateTo(data.AngleInDegree / 180 * (float)Math.PI);
+            RotateTo(data.AngleInRad);
         }
         public override void RotateTo(float angle)
         {

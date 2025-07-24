@@ -5,24 +5,13 @@
     "$values": [
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
-        "Size": {
-          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
-          "X": 167.0,
-          "Y": 140.0
-        },
+        "Size": [167.0, 140.0],
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 1.0,
-        "Center": {
-          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
-          "X": 679.0,
-          "Y": 260.0
-        },
+        "Center": [679.0, 260.0],
         "AngleInDegree": 0.0,
-        "Velocity": {
-          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
-          "X": 0.0,
-          "Y": 0.0
-        },
+        "AngleInRad": 0.0,
+        "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
           "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
@@ -37,17 +26,10 @@
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
         "Radius": 20.0,
-        "Center": {
-          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
-          "X": 340.0,
-          "Y": 260.0
-        },
+        "Center": [340.0, 260.0],
         "AngleInDegree": 0.0,
-        "Velocity": {
-          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
-          "X": 1.0,
-          "Y": 0.0
-        },
+        "AngleInRad": 0.0,
+        "Velocity": [1.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
           "$type": "RigidBodyPhysics.ExportData.RigidBody.MassData, RigidBodyPhysics",
@@ -79,17 +61,10 @@
       {
         "$type": "RigidBodyPhysics.ExportData.AxialFriction.AxialFrictionExportData, RigidBodyPhysics",
         "BodyIndex": 0,
-        "R1": {
-          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
-          "X": 0.0,
-          "Y": 0.0
-        },
-        "ForceDirection": {
-          "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
-          "X": -1.0,
-          "Y": 0.0
-        },
-        "Friction": 0.0001
+        "R1": [0.0, 0.0],
+        "ForceDirection": [-1.0, 0.0],
+        "Friction": 0.0001,
+        "TargetVelocity": 0.0
       }
     ]
   },

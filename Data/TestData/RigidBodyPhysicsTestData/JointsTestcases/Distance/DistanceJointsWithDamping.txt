@@ -5,9 +5,12 @@
     "$values": [
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
+        "Size": [79.0, 79.0],
+        "BreakWhenMaxPushPullForceIsReached": false,
+        "MaxPushPullForce": 0.0,
         "Center": [269.0, 202.0],
-        "Size": [79.0, 79.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -17,13 +20,15 @@
           "Density": 1.0
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
+        "Radius": 32.0,
         "Center": [568.0, 202.0],
-        "Radius": 32.0,
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -33,13 +38,17 @@
           "Density": 1.0
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
+        "Size": [79.0, 79.0],
+        "BreakWhenMaxPushPullForceIsReached": false,
+        "MaxPushPullForce": 0.0,
         "Center": [269.0, 308.0],
-        "Size": [79.0, 79.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -49,13 +58,15 @@
           "Density": 1.0
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
-        "Center": [568.0, 308.0],
         "Radius": 32.0,
+        "Center": [568.0, 308.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -65,13 +76,17 @@
           "Density": 1.0
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
-        "Center": [269.0, 408.0],
         "Size": [79.0, 79.0],
+        "BreakWhenMaxPushPullForceIsReached": false,
+        "MaxPushPullForce": 0.0,
+        "Center": [269.0, 408.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -81,13 +96,15 @@
           "Density": 1.0
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
-        "Center": [568.0, 408.0],
         "Radius": 32.0,
+        "Center": [568.0, 408.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -97,7 +114,8 @@
           "Density": 1.0
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       }
     ]
   },
@@ -110,17 +128,22 @@
         "BodyIndex2": 1,
         "R1": [0.0, 0.0],
         "R2": [0.0, 0.0],
-        "LengthPosition": 0.8,
+        "CollideConnected": false,
+        "LimitIsEnabled": false,
+        "JointIsRope": false,
         "MinLength": 0.0,
-        "MaxLength": 3.4028235E+38,      
-	"SoftData": {
+        "MaxLength": 3.4028235E+38,
+        "SoftData": {
           "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
           "ParameterType": 0,
           "FrequencyHertz": 1.0,
           "DampingRatio": 0.0,
-          "Stiffness": 0,
-          "Damping": 0
-        }	
+          "Stiffness": 0.0,
+          "Damping": 0.0
+        },
+        "BreakWhenMaxForceIsReached": false,
+        "MinForceToBreak": 0.0,
+        "MaxForceToBreak": 0.0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.Joints.DistanceJointExportData, RigidBodyPhysics",
@@ -128,17 +151,22 @@
         "BodyIndex2": 3,
         "R1": [0.0, 0.0],
         "R2": [0.0, 0.0],
-        "LengthPosition": 0.8,
+        "CollideConnected": false,
+        "LimitIsEnabled": false,
+        "JointIsRope": false,
         "MinLength": 0.0,
         "MaxLength": 3.4028235E+38,
-	"SoftData": {
+        "SoftData": {
           "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
           "ParameterType": 0,
           "FrequencyHertz": 1.0,
           "DampingRatio": 0.1,
-          "Stiffness": 0,
-          "Damping": 0
-        }
+          "Stiffness": 0.0,
+          "Damping": 0.0
+        },
+        "BreakWhenMaxForceIsReached": false,
+        "MinForceToBreak": 0.0,
+        "MaxForceToBreak": 0.0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.Joints.DistanceJointExportData, RigidBodyPhysics",
@@ -146,19 +174,27 @@
         "BodyIndex2": 5,
         "R1": [0.0, 0.0],
         "R2": [0.0, 0.0],
-        "LengthPosition": 0.8,
+        "CollideConnected": false,
+        "LimitIsEnabled": false,
+        "JointIsRope": false,
         "MinLength": 0.0,
         "MaxLength": 3.4028235E+38,
-	"SoftData": {
+        "SoftData": {
           "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
           "ParameterType": 0,
           "FrequencyHertz": 1.0,
           "DampingRatio": 0.5,
-          "Stiffness": 0,
-          "Damping": 0
-        }
-		
+          "Stiffness": 0.0,
+          "Damping": 0.0
+        },
+        "BreakWhenMaxForceIsReached": false,
+        "MinForceToBreak": 0.0,
+        "MaxForceToBreak": 0.0
       }
     ]
-  }
+  },
+  "Thrusters": null,
+  "Motors": null,
+  "AxialFrictions": null,
+  "CollisionMatrix": null
 }

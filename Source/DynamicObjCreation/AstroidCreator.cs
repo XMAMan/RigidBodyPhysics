@@ -20,7 +20,7 @@ namespace DynamicObjCreation
                 PolygonType = PolygonCollisionType.Rigid,
                 Points = poly.Select(x => x - center).ToArray(),
                 Center = position,
-                AngleInDegree = 0,
+                AngleInRad = 0,
                 Velocity = velocity,
                 AngularVelocity = angularVelocity,
                 MassData = new MassData(MassData.MassType.Density, 1, 0.001f),

@@ -5,9 +5,12 @@
     "$values": [
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
-        "Center": [608.0, 673.0],
         "Size": [991.0, 59.0],
+        "BreakWhenMaxPushPullForceIsReached": false,
+        "MaxPushPullForce": 0.0,
+        "Center": [608.0, 673.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -17,13 +20,17 @@
           "Density": 0.0001
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
+        "Size": [101.00495, 17.0],
+        "BreakWhenMaxPushPullForceIsReached": false,
+        "MaxPushPullForce": 0.0,
         "Center": [516.0, 630.0],
-        "Size": [101.00495, 17.0],
         "AngleInDegree": -177.83282,
+        "AngleInRad": -3.1037683,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -33,13 +40,17 @@
           "Density": 0.0001
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
+        "Size": [168.57639, 17.0],
+        "BreakWhenMaxPushPullForceIsReached": false,
+        "MaxPushPullForce": 0.0,
         "Center": [514.0, 560.0],
-        "Size": [168.57639, 17.0],
         "AngleInDegree": 301.8417,
+        "AngleInRad": 5.2681317,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -49,13 +60,17 @@
           "Density": 0.0001
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
+        "Size": [153.15352, 17.0],
+        "BreakWhenMaxPushPullForceIsReached": false,
+        "MaxPushPullForce": 0.0,
         "Center": [578.0, 423.0],
-        "Size": [153.15352, 17.0],
         "AngleInDegree": 286.7636,
+        "AngleInRad": 5.0049696,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -65,13 +80,17 @@
           "Density": 0.0001
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
-        "Center": [674.0, 416.0],
         "Size": [153.15352, 17.0],
+        "BreakWhenMaxPushPullForceIsReached": false,
+        "MaxPushPullForce": 0.0,
+        "Center": [674.0, 416.0],
         "AngleInDegree": 238.76361,
+        "AngleInRad": 4.1672115,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -81,13 +100,17 @@
           "Density": 0.0001
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
-        "Center": [716.0, 556.0],
         "Size": [168.57639, 17.0],
+        "BreakWhenMaxPushPullForceIsReached": false,
+        "MaxPushPullForce": 0.0,
+        "Center": [716.0, 556.0],
         "AngleInDegree": 265.8417,
+        "AngleInRad": 4.639813,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -97,13 +120,17 @@
           "Density": 0.0001
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
-        "Center": [767.0, 630.0],
         "Size": [101.00495, 17.0],
+        "BreakWhenMaxPushPullForceIsReached": false,
+        "MaxPushPullForce": 0.0,
+        "Center": [767.0, 630.0],
         "AngleInDegree": 0.56717277,
+        "AngleInRad": 0.009899032,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -113,13 +140,17 @@
           "Density": 0.0001
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
-        "Center": [618.0, 236.0],
         "Size": [248.0504, 89.0],
+        "BreakWhenMaxPushPullForceIsReached": false,
+        "MaxPushPullForce": 0.0,
+        "Center": [618.0, 236.0],
         "AngleInDegree": 268.845,
+        "AngleInRad": 4.6922307,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -129,13 +160,17 @@
           "Density": 0.0001
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
-        "Center": [527.0, 165.0],
         "Size": [156.4161, 17.0],
+        "BreakWhenMaxPushPullForceIsReached": false,
+        "MaxPushPullForce": 0.0,
+        "Center": [527.0, 165.0],
         "AngleInDegree": 149.66446,
+        "AngleInRad": 2.6121378,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -145,13 +180,17 @@
           "Density": 0.0001
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
-        "Center": [467.0, 277.0],
         "Size": [149.27156, 17.0],
+        "BreakWhenMaxPushPullForceIsReached": false,
+        "MaxPushPullForce": 0.0,
+        "Center": [467.0, 277.0],
         "AngleInDegree": 86.54338,
+        "AngleInRad": 1.5104669,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -161,13 +200,17 @@
           "Density": 0.0001
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
-        "Center": [695.0, 201.0],
         "Size": [172.28465, 17.0],
+        "BreakWhenMaxPushPullForceIsReached": false,
+        "MaxPushPullForce": 0.0,
+        "Center": [695.0, 201.0],
         "AngleInDegree": 54.926243,
+        "AngleInRad": 0.95864385,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -177,13 +220,17 @@
           "Density": 0.0001
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
-        "Center": [814.0, 264.0],
         "Size": [145.0138, 17.0],
+        "BreakWhenMaxPushPullForceIsReached": false,
+        "MaxPushPullForce": 0.0,
+        "Center": [814.0, 264.0],
         "AngleInDegree": 359.20993,
+        "AngleInRad": 6.2693963,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -193,13 +240,15 @@
           "Density": 0.0001
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
-        "Center": [616.0, 58.0],
         "Radius": 56.0,
+        "Center": [616.0, 58.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -209,7 +258,8 @@
           "Density": 0.0001
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       }
     ]
   },
@@ -228,16 +278,17 @@
         "UpperAngle": 301.32404,
         "Motor": 2,
         "MotorSpeed": 0.0,
-        "MotorPosition": 0.5,
         "MaxMotorTorque": 100.0,
-	"SoftData": {
+        "SoftData": {
           "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
           "ParameterType": 1,
           "FrequencyHertz": 100.0,
           "DampingRatio": 0.5,
           "Stiffness": 200.0,
           "Damping": 0.1
-        }
+        },
+        "BreakWhenMaxForceIsReached": false,
+        "MaxForceToBreak": 0.0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.Joints.RevoluteJointExportData, RigidBodyPhysics",
@@ -251,16 +302,17 @@
         "UpperAngle": 281.9031,
         "Motor": 2,
         "MotorSpeed": 0.0,
-        "MotorPosition": 0.5,
         "MaxMotorTorque": 100.0,
-	"SoftData": {
+        "SoftData": {
           "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
           "ParameterType": 1,
           "FrequencyHertz": 100.0,
           "DampingRatio": 0.5,
           "Stiffness": 200.0,
           "Damping": 0.1
-        }
+        },
+        "BreakWhenMaxForceIsReached": false,
+        "MaxForceToBreak": 0.0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.Joints.RevoluteJointExportData, RigidBodyPhysics",
@@ -274,16 +326,17 @@
         "UpperAngle": 194.20277,
         "Motor": 2,
         "MotorSpeed": 0.0,
-        "MotorPosition": 0.5,
         "MaxMotorTorque": 100.0,
-	"SoftData": {
+        "SoftData": {
           "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
           "ParameterType": 1,
           "FrequencyHertz": 100.0,
           "DampingRatio": 0.5,
           "Stiffness": 200.0,
           "Damping": 0.1
-        }
+        },
+        "BreakWhenMaxForceIsReached": false,
+        "MaxForceToBreak": 0.0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.Joints.RevoluteJointExportData, RigidBodyPhysics",
@@ -297,16 +350,17 @@
         "UpperAngle": 180.17694,
         "Motor": 2,
         "MotorSpeed": 0.0,
-        "MotorPosition": 0.5,
         "MaxMotorTorque": 100.0,
-	"SoftData": {
+        "SoftData": {
           "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
           "ParameterType": 1,
           "FrequencyHertz": 100.0,
           "DampingRatio": 0.5,
           "Stiffness": 200.0,
           "Damping": 0.1
-        }
+        },
+        "BreakWhenMaxForceIsReached": false,
+        "MaxForceToBreak": 0.0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.Joints.RevoluteJointExportData, RigidBodyPhysics",
@@ -320,16 +374,17 @@
         "UpperAngle": 221.37851,
         "Motor": 2,
         "MotorSpeed": 0.0,
-        "MotorPosition": 0.5,
         "MaxMotorTorque": 100.0,
-	"SoftData": {
+        "SoftData": {
           "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
           "ParameterType": 1,
           "FrequencyHertz": 100.0,
           "DampingRatio": 0.5,
           "Stiffness": 200.0,
           "Damping": 0.1
-        }
+        },
+        "BreakWhenMaxForceIsReached": false,
+        "MaxForceToBreak": 0.0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.Joints.RevoluteJointExportData, RigidBodyPhysics",
@@ -343,16 +398,17 @@
         "UpperAngle": 102.40152,
         "Motor": 2,
         "MotorSpeed": 0.0,
-        "MotorPosition": 0.5,
         "MaxMotorTorque": 100.0,
-	"SoftData": {
+        "SoftData": {
           "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
           "ParameterType": 1,
           "FrequencyHertz": 100.0,
           "DampingRatio": 0.5,
           "Stiffness": 200.0,
           "Damping": 0.1
-        }
+        },
+        "BreakWhenMaxForceIsReached": false,
+        "MaxForceToBreak": 0.0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.Joints.RevoluteJointExportData, RigidBodyPhysics",
@@ -366,16 +422,17 @@
         "UpperAngle": 138.86073,
         "Motor": 2,
         "MotorSpeed": 0.0,
-        "MotorPosition": 0.5,
         "MaxMotorTorque": 100.0,
-	"SoftData": {
+        "SoftData": {
           "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
           "ParameterType": 1,
           "FrequencyHertz": 100.0,
           "DampingRatio": 0.5,
           "Stiffness": 200.0,
           "Damping": 0.1
-        }
+        },
+        "BreakWhenMaxForceIsReached": false,
+        "MaxForceToBreak": 0.0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.Joints.RevoluteJointExportData, RigidBodyPhysics",
@@ -389,16 +446,17 @@
         "UpperAngle": 323.3327,
         "Motor": 2,
         "MotorSpeed": 0.0,
-        "MotorPosition": 0.5,
         "MaxMotorTorque": 100.0,
-	"SoftData": {
+        "SoftData": {
           "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
           "ParameterType": 1,
           "FrequencyHertz": 100.0,
           "DampingRatio": 0.5,
           "Stiffness": 200.0,
           "Damping": 0.1
-        }
+        },
+        "BreakWhenMaxForceIsReached": false,
+        "MaxForceToBreak": 0.0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.Joints.RevoluteJointExportData, RigidBodyPhysics",
@@ -412,16 +470,17 @@
         "UpperAngle": 154.5305,
         "Motor": 2,
         "MotorSpeed": 0.0,
-        "MotorPosition": 0.5,
         "MaxMotorTorque": 100.0,
-	"SoftData": {
+        "SoftData": {
           "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
           "ParameterType": 1,
           "FrequencyHertz": 100.0,
           "DampingRatio": 0.5,
           "Stiffness": 200.0,
           "Damping": 0.1
-        }
+        },
+        "BreakWhenMaxForceIsReached": false,
+        "MaxForceToBreak": 0.0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.Joints.RevoluteJointExportData, RigidBodyPhysics",
@@ -435,16 +494,17 @@
         "UpperAngle": 200.0,
         "Motor": 2,
         "MotorSpeed": 0.0,
-        "MotorPosition": 0.5,
         "MaxMotorTorque": 100.0,
-	"SoftData": {
+        "SoftData": {
           "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
           "ParameterType": 1,
           "FrequencyHertz": 100.0,
           "DampingRatio": 0.5,
           "Stiffness": 200.0,
           "Damping": 0.1
-        }
+        },
+        "BreakWhenMaxForceIsReached": false,
+        "MaxForceToBreak": 0.0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.Joints.RevoluteJointExportData, RigidBodyPhysics",
@@ -458,17 +518,22 @@
         "UpperAngle": 215.72462,
         "Motor": 2,
         "MotorSpeed": 0.0,
-        "MotorPosition": 0.5,
         "MaxMotorTorque": 100.0,
-	"SoftData": {
+        "SoftData": {
           "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
           "ParameterType": 1,
           "FrequencyHertz": 100.0,
           "DampingRatio": 0.5,
           "Stiffness": 200.0,
           "Damping": 0.1
-        }
+        },
+        "BreakWhenMaxForceIsReached": false,
+        "MaxForceToBreak": 0.0
       }
     ]
-  }
+  },
+  "Thrusters": null,
+  "Motors": null,
+  "AxialFrictions": null,
+  "CollisionMatrix": null
 }

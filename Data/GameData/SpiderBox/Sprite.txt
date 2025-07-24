@@ -24,6 +24,7 @@
               "Y": 592.0
             },
             "AngleInDegree": 0.0,
+            "AngleInRad": 0.0,
             "Velocity": {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 0.0,
@@ -55,6 +56,7 @@
               "Y": 414.0
             },
             "AngleInDegree": 0.0,
+            "AngleInRad": 0.0,
             "Velocity": {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 0.0,
@@ -86,6 +88,7 @@
               "Y": 401.0
             },
             "AngleInDegree": 140.88245,
+            "AngleInRad": 2.4588628,
             "Velocity": {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 0.0,
@@ -117,6 +120,7 @@
               "Y": 465.0
             },
             "AngleInDegree": 33.651062,
+            "AngleInRad": 0.5873218,
             "Velocity": {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 0.0,
@@ -148,6 +152,7 @@
               "Y": 402.0
             },
             "AngleInDegree": 40.082443,
+            "AngleInRad": 0.69957066,
             "Velocity": {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 0.0,
@@ -179,6 +184,7 @@
               "Y": 468.0
             },
             "AngleInDegree": 141.65106,
+            "AngleInRad": 2.4722774,
             "Velocity": {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 0.0,
@@ -204,6 +210,7 @@
               "Y": 321.0
             },
             "AngleInDegree": 0.0,
+            "AngleInRad": 0.0,
             "Velocity": {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 0.0,
@@ -235,6 +242,7 @@
               "Y": 412.0
             },
             "AngleInDegree": 0.0,
+            "AngleInRad": 0.0,
             "Velocity": {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 0.0,
@@ -266,6 +274,7 @@
               "Y": 416.0
             },
             "AngleInDegree": 0.0,
+            "AngleInRad": 0.0,
             "Velocity": {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 0.0,
@@ -596,7 +605,7 @@
             "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
             "TextureFile": "Tonne.png",
             "MakeFirstPixelTransparent": true,
-            "ColorFactor": "255, 255, 255",
+            "ColorFactor": "White",
             "DeltaX": 0.0,
             "DeltaY": 0.0,
             "Width": 159.0,
@@ -609,7 +618,7 @@
             "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
             "TextureFile": "Torso.png",
             "MakeFirstPixelTransparent": true,
-            "ColorFactor": "255, 255, 255",
+            "ColorFactor": "White",
             "DeltaX": 0.0,
             "DeltaY": 8.0,
             "Width": 75.0,
@@ -622,7 +631,7 @@
             "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
             "TextureFile": "UpperArm2.png",
             "MakeFirstPixelTransparent": true,
-            "ColorFactor": "255, 255, 255",
+            "ColorFactor": "White",
             "DeltaX": 0.0,
             "DeltaY": 0.0,
             "Width": 117.0,
@@ -635,7 +644,7 @@
             "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
             "TextureFile": "LowerArm.png",
             "MakeFirstPixelTransparent": true,
-            "ColorFactor": "255, 255, 255",
+            "ColorFactor": "White",
             "DeltaX": 0.0,
             "DeltaY": 0.0,
             "Width": 124.0,
@@ -648,7 +657,7 @@
             "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
             "TextureFile": "UpperArm1.png",
             "MakeFirstPixelTransparent": true,
-            "ColorFactor": "255, 255, 255",
+            "ColorFactor": "White",
             "DeltaX": 0.0,
             "DeltaY": 0.0,
             "Width": 117.0,
@@ -661,7 +670,7 @@
             "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
             "TextureFile": "LowerArm.png",
             "MakeFirstPixelTransparent": true,
-            "ColorFactor": "255, 255, 255",
+            "ColorFactor": "White",
             "DeltaX": 0.0,
             "DeltaY": 0.0,
             "Width": 124.0,
@@ -674,7 +683,7 @@
             "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
             "TextureFile": "Head.png",
             "MakeFirstPixelTransparent": true,
-            "ColorFactor": "255, 255, 255",
+            "ColorFactor": "White",
             "DeltaX": 5.0,
             "DeltaY": 5.0,
             "Width": 62.0,
@@ -687,7 +696,7 @@
             "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
             "TextureFile": "Stock.png",
             "MakeFirstPixelTransparent": true,
-            "ColorFactor": "255, 255, 255",
+            "ColorFactor": "White",
             "DeltaX": 0.0,
             "DeltaY": 0.0,
             "Width": 19.0,
@@ -700,7 +709,7 @@
             "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
             "TextureFile": "",
             "MakeFirstPixelTransparent": true,
-            "ColorFactor": "255, 255, 255",
+            "ColorFactor": "White",
             "DeltaX": 0.0,
             "DeltaY": 10.0,
             "Width": 17.0,
@@ -953,8 +962,8 @@
       "LocalPivot": {
         "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
         "X": 0.0,
-        "Y": 0.0,
-			}
+        "Y": 0.0
+      }
     },
     "CameraTrackedRigidBodyIds": null
   },

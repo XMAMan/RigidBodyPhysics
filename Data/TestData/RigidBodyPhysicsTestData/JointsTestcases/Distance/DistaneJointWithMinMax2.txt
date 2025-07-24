@@ -5,9 +5,10 @@
     "$values": [
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
-        "Center": [325.0, 162.0],
         "Radius": 20.0,
+        "Center": [325.0, 162.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -17,13 +18,15 @@
           "Density": 1.0
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
-        "Center": [325.0, 381.0],
         "Radius": 20.0,
+        "Center": [325.0, 381.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -33,13 +36,15 @@
           "Density": 1.0
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
+        "Radius": 20.0,
         "Center": [398.0, 322.0],
-        "Radius": 20.0,
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -49,13 +54,15 @@
           "Density": 1.0
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
-        "Center": [399.0, 457.0],
         "Radius": 20.0,
+        "Center": [399.0, 457.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -65,7 +72,8 @@
           "Density": 1.0
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       }
     ]
   },
@@ -78,19 +86,27 @@
         "BodyIndex2": 1,
         "R1": [0.0, 0.0],
         "R2": [0.0, 0.0],
-        "LengthPosition": 1.0,
+        "CollideConnected": false,
         "LimitIsEnabled": true,
+        "JointIsRope": false,
         "MinLength": 0.74885845,
         "MaxLength": 1.3333334,
-	"SoftData": {
+        "SoftData": {
           "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
           "ParameterType": 2,
-        "FrequencyHertz": 0.0,
-        "DampingRatio": 0.0,
-        "Stiffness": 0.0,
-        "Damping": 0.0
-        }            
+          "FrequencyHertz": 0.0,
+          "DampingRatio": 0.0,
+          "Stiffness": 0.0,
+          "Damping": 0.0
+        },
+        "BreakWhenMaxForceIsReached": false,
+        "MinForceToBreak": 0.0,
+        "MaxForceToBreak": 0.0
       }
     ]
-  }
+  },
+  "Thrusters": null,
+  "Motors": null,
+  "AxialFrictions": null,
+  "CollisionMatrix": null
 }

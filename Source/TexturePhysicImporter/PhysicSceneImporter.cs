@@ -45,7 +45,7 @@ namespace TexturePhysicImporter
     {
         private RectangleExportData r;
         public Vec2D Center { get => r.Center; }
-        public float AngleInDegree { get => r.AngleInDegree; }
+        public float AngleInDegree { get => r.AngleInRad * 180 / (float)Math.PI; }
         public PhysicGlobal.BoundingBox LocalBoundingBox { get => new PhysicGlobal.BoundingBox(- r.Size.X / 2, - r.Size.Y / 2, r.Size.X, r.Size.Y); }
         public float Width { get => r.Size.X; }
         public float Height { get => r.Size.Y; }
@@ -60,9 +60,9 @@ namespace TexturePhysicImporter
     {
         private PolygonExportData r;
         public Vec2D Center { get => r.Center; }
-        public float AngleInDegree { get => r.AngleInDegree; }
+        public float AngleInDegree { get => r.AngleInRad * 180 / (float)Math.PI; }
         public PhysicGlobal.BoundingBox LocalBoundingBox { get => PhysicGlobal.BoundingBox.GetBoxFromPoints(r.Points); }
-        public Vec2D[] Points { get => r.Points.Select(x => Vec2D.RotatePointAroundPivotPoint(r.Center, r.Center + x, r.AngleInDegree)).ToArray(); }
+        public Vec2D[] Points { get => r.Points.Select(x => Vec2D.RotatePointAroundPivotPoint(r.Center, r.Center + x, r.AngleInRad * 180 / (float)Math.PI)).ToArray(); }
 
         public RigidPolygon(PolygonExportData rec)
         {
@@ -74,7 +74,7 @@ namespace TexturePhysicImporter
     {
         private CircleExportData r;
         public Vec2D Center { get => r.Center; }
-        public float AngleInDegree { get => r.AngleInDegree; }
+        public float AngleInDegree { get => r.AngleInRad * 180 / (float)Math.PI; }
         public PhysicGlobal.BoundingBox LocalBoundingBox { get => new PhysicGlobal.BoundingBox(-r.Radius, -r.Radius, r.Radius * 2, r.Radius * 2); }
         public float Radius { get => r.Radius; }
 

@@ -20,14 +20,14 @@ namespace LevelToSimulatorConverter.Helper
         //einmal das XY in Zeile 3 und einmal in Zeile 4 stehen hat.
         public static void TranslateScene(PhysicSceneExportData scene, Matrix4x4 matrix)
         {
-            float angleInDegreeMatrix = Matrix4x4.GetAngleInDegreeFromMatrix(matrix);
+            float angleInRadMatrix = Matrix4x4.GetAngleInDegreeFromMatrix(matrix) / 180 * (float)Math.PI;
             float sizeFactorMatrix = Matrix4x4.GetSizeFactorFromMatrix(matrix);
 
             foreach (var body in scene.Bodies)
             {
                 body.Center = Matrix4x4.MultPosition(matrix, new Vec2D(body.Center.X, body.Center.Y));
 
-                body.AngleInDegree += angleInDegreeMatrix;
+                body.AngleInRad += angleInRadMatrix;
 
                 if (body is RectangleExportData)
                 {
@@ -108,7 +108,7 @@ namespace LevelToSimulatorConverter.Helper
                 new Vec2D(-size.X / 2, +size.Y / 2), //BottomLeft
             };
 
-            var cornerPoints = vertexLocal.Select(x => r.Center + Vec2D.RotatePointAroundPivotPoint(new Vec2D(0, 0), x, r.AngleInDegree)).ToArray();
+            var cornerPoints = vertexLocal.Select(x => r.Center + Vec2D.RotatePointAroundPivotPoint(new Vec2D(0, 0), x, r.AngleInRad * 180 / (float)Math.PI)).ToArray();
 
             return BoundingBox.GetBoxFromPoints(cornerPoints);
         }

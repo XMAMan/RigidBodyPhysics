@@ -19,7 +19,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorShape
         {
             this.Center = ctor.Center;
             this.radius = ctor.Radius;
-            this.AngleInDegree = ctor.AngleInDegree;
+            this.AngleInDegree = ctor.AngleInRad * 180 / (float)Math.PI;
             this.Properties.VelocityX = ctor.Velocity.X;
             this.Properties.VelocityY = ctor.Velocity.Y;
             this.Properties.AngularVelocity = ctor.AngularVelocity;
@@ -68,7 +68,7 @@ namespace PhysicSceneEditorControl.Controls.Editor.Model.EditorShape
             {
                 Center = this.Center,
                 Radius = this.radius,
-                AngleInDegree = this.AngleInDegree,
+                AngleInRad = this.AngleInDegree / 180 * (float)Math.PI,
                 Velocity = new Vec2D(p.VelocityX, p.VelocityY),
                 AngularVelocity = p.AngularVelocity,
                 MassData = new MassData(p.MassType1, p.Mass, p.Density),

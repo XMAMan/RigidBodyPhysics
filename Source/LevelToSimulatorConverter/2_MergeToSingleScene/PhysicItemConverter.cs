@@ -85,7 +85,7 @@ namespace LevelToSimulatorConverter._2_MergeToSingleScene
                 PolygonType = polygonType,
                 Points = pointsLocal,
                 Center = center,
-                AngleInDegree = 0,
+                AngleInRad = 0,
                 Velocity = new Vec2D(0, 0),
                 AngularVelocity = 0,
                 MassData = new MassData(MassData.MassType.Infinity, 1, 1),

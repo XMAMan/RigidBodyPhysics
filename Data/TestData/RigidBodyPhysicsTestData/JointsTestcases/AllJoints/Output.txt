@@ -10,6 +10,7 @@
         "MaxPushPullForce": 0.0,
         "Center": [642.0, 651.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -28,7 +29,8 @@
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
         "Center": [193.0, 548.0],
-        "AngleInDegree": 272.20264,
+        "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [1.371455E-09, -3.1588632E-09],
         "AngularVelocity": -2.4655855E-10,
         "MassData": {
@@ -47,7 +49,8 @@
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
         "Center": [249.00002, 396.00003],
-        "AngleInDegree": 306.72864,
+        "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [-1.6116608E-07, -1.1010949E-07],
         "AngularVelocity": -2.5106668E-09,
         "MassData": {
@@ -66,7 +69,8 @@
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
         "Center": [369.00003, 322.00003],
-        "AngleInDegree": 345.87213,
+        "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [-3.4644108E-07, 1.9606027E-07],
         "AngularVelocity": -2.7383098E-09,
         "MassData": {
@@ -85,7 +89,8 @@
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
         "Center": [513.0, 332.00006],
-        "AngleInDegree": 23.051294,
+        "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [-9.2940945E-07, 4.120953E-07],
         "AngularVelocity": -2.73831E-09,
         "MassData": {
@@ -104,7 +109,8 @@
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
         "Center": [1005.70593, 538.04614],
-        "AngleInDegree": 271.93835,
+        "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [-4.6989652E-07, -2.2884859E-07],
         "AngularVelocity": -5.8760556E-09,
         "MassData": {
@@ -123,7 +129,8 @@
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
         "Center": [1071.1499, 514.12286],
-        "AngleInDegree": 403.73828,
+        "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [6.066774E-07, 9.406529E-10],
         "AngularVelocity": -5.8074896E-09,
         "MassData": {
@@ -142,7 +149,8 @@
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
         "Center": [790.0, 481.0],
-        "AngleInDegree": 270.0,
+        "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -161,7 +169,8 @@
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
         "Center": [719.76013, 396.02005],
-        "AngleInDegree": 1.4593828,
+        "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [-5.278499E-07, -2.1065583E-07],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -180,7 +189,8 @@
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
         "Center": [701.7275, 344.26804],
-        "AngleInDegree": 1.4618051,
+        "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [-5.2707765E-07, -2.126691E-07],
         "AngularVelocity": 1.954783E-11,
         "MassData": {
@@ -200,6 +210,7 @@
         "MaxPushPullForce": 0.0,
         "Center": [107.0, 315.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -219,6 +230,7 @@
         "MaxPushPullForce": 0.0,
         "Center": [588.0, 17.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -237,7 +249,8 @@
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
         "Center": [764.2576, 50.000072],
-        "AngleInDegree": -0.44722012,
+        "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [-0.0027689075, 2.9301018E-05],
         "AngularVelocity": 8.391603E-05,
         "MassData": {
@@ -255,6 +268,7 @@
         "Radius": 20.0,
         "Center": [764.4944, 134.00426],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0016994466, 0.000103379214],
         "AngularVelocity": 0.0,
         "MassData": {

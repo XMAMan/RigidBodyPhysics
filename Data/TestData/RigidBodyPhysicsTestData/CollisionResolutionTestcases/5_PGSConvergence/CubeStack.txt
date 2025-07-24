@@ -10,6 +10,7 @@
         "MaxPushPullForce": 0.0,
         "Center": [467.0, 633.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -29,6 +30,7 @@
         "MaxPushPullForce": 0.0,
         "Center": [433.19638, 561.5834],
         "AngleInDegree": 0.56407636,
+        "AngleInRad": 0.0098449895,
         "Velocity": [8E-07, -1E-07],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -48,6 +50,7 @@
         "MaxPushPullForce": 0.0,
         "Center": [434.50433, 481.52316],
         "AngleInDegree": 0.63770175,
+        "AngleInRad": 0.011129995,
         "Velocity": [2.6E-06, 1E-07],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -67,6 +70,7 @@
         "MaxPushPullForce": 0.0,
         "Center": [435.91156, 401.53082],
         "AngleInDegree": 0.6334041,
+        "AngleInRad": 0.011054987,
         "Velocity": [4.8E-06, 2E-07],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -86,6 +90,7 @@
         "MaxPushPullForce": 0.0,
         "Center": [436.79645, 321.41806],
         "AngleInDegree": 0.7754986,
+        "AngleInRad": 0.013535005,
         "Velocity": [7.1E-06, 2E-07],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -105,6 +110,7 @@
         "MaxPushPullForce": 0.0,
         "Center": [437.13663, 241.22063],
         "AngleInDegree": 0.5027708,
+        "AngleInRad": 0.008775006,
         "Velocity": [9.2E-06, 2E-07],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -131,6 +137,7 @@
     "$type": "RigidBodyPhysics.ExportData.RotaryMotor.IExportRotaryMotor[], RigidBodyPhysics",
     "$values": []
   },
+  "AxialFrictions": null,
   "CollisionMatrix": {
     "$type": "System.Boolean[,], System.Private.CoreLib",
     "$values": [

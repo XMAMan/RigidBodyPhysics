@@ -19,7 +19,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
             var convexes = PolygonHelper.ConvertConcavePolygonToConvexes(Vertex);
             Colliables = subPolys = convexes.Select(x => new CollidableConvexPolygon(this, x)).ToArray();
 
-            RotateTo(data.AngleInDegree / 180 * (float)Math.PI);
+            RotateTo(data.AngleInRad);
 
             SubPolys = Colliables.Select(x => ((CollidableConvexPolygon)x).Vertex).ToList(); //Zum Testausgabe
         }

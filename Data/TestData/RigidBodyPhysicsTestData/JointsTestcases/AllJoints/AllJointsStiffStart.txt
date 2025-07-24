@@ -10,6 +10,7 @@
         "MaxPushPullForce": 0.0,
         "Center": [642.0, 651.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -29,6 +30,7 @@
         "MaxPushPullForce": 0.0,
         "Center": [193.0, 548.0],
         "AngleInDegree": 272.20264,
+        "AngleInRad": 4.750832,
         "Velocity": [-2.1880645E-08, 0.0],
         "AngularVelocity": -2.7736097E-10,
         "MassData": {
@@ -48,6 +50,7 @@
         "MaxPushPullForce": 0.0,
         "Center": [249.0, 396.0],
         "AngleInDegree": 306.7286,
+        "AngleInRad": 5.353424,
         "Velocity": [-7.170794E-08, -1.3493738E-08],
         "AngularVelocity": -4.9879084E-10,
         "MassData": {
@@ -67,6 +70,7 @@
         "MaxPushPullForce": 0.0,
         "Center": [369.0, 321.99997],
         "AngleInDegree": 345.8721,
+        "AngleInRad": 6.0366073,
         "Velocity": [-6.0698625E-08, 8.568168E-08],
         "AngularVelocity": 1.6832857E-09,
         "MassData": {
@@ -86,6 +90,7 @@
         "MaxPushPullForce": 0.0,
         "Center": [513.0, 331.99994],
         "AngleInDegree": 23.051281,
+        "AngleInRad": 0.40232074,
         "Velocity": [-2.8519628E-08, 2.0954401E-07],
         "AngularVelocity": -1.5080558E-10,
         "MassData": {
@@ -105,6 +110,7 @@
         "MaxPushPullForce": 0.0,
         "Center": [1004.7099, 538.01825],
         "AngleInDegree": 271.22476,
+        "AngleInRad": 4.733765,
         "Velocity": [6.82247E-08, 0.0],
         "AngularVelocity": 8.5406965E-10,
         "MassData": {
@@ -124,6 +130,7 @@
         "MaxPushPullForce": 0.0,
         "Center": [1063.7273, 407.22897],
         "AngleInDegree": 311.32715,
+        "AngleInRad": 5.433684,
         "Velocity": [-9.964975E-07, 8.940697E-08],
         "AngularVelocity": 1.6333204E-09,
         "MassData": {
@@ -143,6 +150,7 @@
         "MaxPushPullForce": 0.0,
         "Center": [790.0, 481.0],
         "AngleInDegree": 270.0,
+        "AngleInRad": 4.712389,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -162,6 +170,7 @@
         "MaxPushPullForce": 0.0,
         "Center": [720.8363, 465.44052],
         "AngleInDegree": 1.4593863,
+        "AngleInRad": 0.025471099,
         "Velocity": [-3.2952642E-07, 1.04307425E-07],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -181,6 +190,7 @@
         "MaxPushPullForce": 0.0,
         "Center": [702.73773, 413.68546],
         "AngleInDegree": 1.4625937,
+        "AngleInRad": 0.025527075,
         "Velocity": [-3.2829118E-07, 1.0238727E-07],
         "AngularVelocity": 2.9103824E-11,
         "MassData": {
@@ -200,6 +210,7 @@
         "MaxPushPullForce": 0.0,
         "Center": [107.0, 315.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -219,6 +230,7 @@
         "MaxPushPullForce": 0.0,
         "Center": [588.0, 17.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -238,6 +250,7 @@
         "MaxPushPullForce": 0.0,
         "Center": [764.3139, 49.99971],
         "AngleInDegree": -0.54496616,
+        "AngleInRad": -0.009511454,
         "Velocity": [0.0027887144, -1.9286423E-05],
         "AngularVelocity": -8.450767E-05,
         "MassData": {
@@ -255,6 +268,7 @@
         "Radius": 20.0,
         "Center": [764.469, 219.00256],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [-0.0015948401, -4.353622E-05],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -442,6 +456,7 @@
         "R2": [0.0, 0.0],
         "CollideConnected": true,
         "LimitIsEnabled": true,
+        "JointIsRope": false,
         "MinLength": 40.00509,
         "MaxLength": 271.00864,
         "SoftData": {
@@ -453,6 +468,7 @@
           "Damping": 0.1
         },
         "BreakWhenMaxForceIsReached": false,
+        "MinForceToBreak": 0.0,
         "MaxForceToBreak": 0.0
       }
     ]
@@ -465,6 +481,7 @@
     "$type": "RigidBodyPhysics.ExportData.RotaryMotor.IExportRotaryMotor[], RigidBodyPhysics",
     "$values": []
   },
+  "AxialFrictions": null,
   "CollisionMatrix": {
     "$type": "System.Boolean[,], System.Private.CoreLib",
     "$values": [

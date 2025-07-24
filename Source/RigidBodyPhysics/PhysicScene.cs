@@ -303,7 +303,7 @@ namespace RigidBodyPhysics
                 this.bodies[i].MoveCenterBy(-this.bodies[i].Center);
                 this.bodies[i].MoveCenterBy(data.Bodies[i].Center);
                 this.bodies[i].Velocity = data.Bodies[i].Velocity;
-                this.bodies[i].RotateTo(data.Bodies[i].AngleInDegree / 180 * (float)Math.PI);
+                this.bodies[i].RotateTo(data.Bodies[i].AngleInRad);
                 this.bodies[i].AngularVelocity = data.Bodies[i].AngularVelocity;
             }
 

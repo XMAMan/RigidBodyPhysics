@@ -16,6 +16,7 @@
         },
         "Center": [606.6666, 616.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -41,6 +42,7 @@
         },
         "Center": [476.9025, 575.0649],
         "AngleInDegree": -1981.0272,
+        "AngleInRad": -34.575447,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -63,6 +65,8 @@
     "$type": "RigidBodyPhysics.ExportData.Thruster.IExportThruster[], RigidBodyPhysics",
     "$values": []
   },
+  "Motors": null,
+  "AxialFrictions": null,
   "CollisionMatrix": {
     "$type": "System.Boolean[,], System.Private.CoreLib",
     "$values": [

@@ -29,6 +29,7 @@
                     "Y": 600.0
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -60,6 +61,7 @@
                     "Y": 322.0
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -91,6 +93,7 @@
                     "Y": 322.0
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -122,6 +125,7 @@
                     "Y": 884.0
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -153,6 +157,7 @@
                     "Y": 881.0
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -381,7 +386,8 @@
                     "X": -1.0,
                     "Y": 0.0
                   },
-                  "Friction": 0.001
+                  "Friction": 0.001,
+                  "TargetVelocity": 0.0
                 },
                 {
                   "$type": "RigidBodyPhysics.ExportData.AxialFriction.AxialFrictionExportData, RigidBodyPhysics",
@@ -396,7 +402,8 @@
                     "X": -1.0,
                     "Y": 0.0
                   },
-                  "Friction": 0.001
+                  "Friction": 0.001,
+                  "TargetVelocity": 0.0
                 },
                 {
                   "$type": "RigidBodyPhysics.ExportData.AxialFriction.AxialFrictionExportData, RigidBodyPhysics",
@@ -411,7 +418,8 @@
                     "X": -1.0,
                     "Y": 0.0
                   },
-                  "Friction": 0.001
+                  "Friction": 0.001,
+                  "TargetVelocity": 0.0
                 },
                 {
                   "$type": "RigidBodyPhysics.ExportData.AxialFriction.AxialFrictionExportData, RigidBodyPhysics",
@@ -426,7 +434,8 @@
                     "X": -1.0,
                     "Y": 0.0
                   },
-                  "Friction": 0.001
+                  "Friction": 0.001,
+                  "TargetVelocity": 0.0
                 },
                 {
                   "$type": "RigidBodyPhysics.ExportData.AxialFriction.AxialFrictionExportData, RigidBodyPhysics",
@@ -441,7 +450,8 @@
                     "X": 0.0,
                     "Y": 1.0
                   },
-                  "Friction": 0.0
+                  "Friction": 0.0,
+                  "TargetVelocity": 0.0
                 },
                 {
                   "$type": "RigidBodyPhysics.ExportData.AxialFriction.AxialFrictionExportData, RigidBodyPhysics",
@@ -456,7 +466,8 @@
                     "X": 0.0,
                     "Y": 1.0
                   },
-                  "Friction": 0.0
+                  "Friction": 0.0,
+                  "TargetVelocity": 0.0
                 },
                 {
                   "$type": "RigidBodyPhysics.ExportData.AxialFriction.AxialFrictionExportData, RigidBodyPhysics",
@@ -471,7 +482,8 @@
                     "X": 0.0,
                     "Y": 1.0
                   },
-                  "Friction": 0.0
+                  "Friction": 0.0,
+                  "TargetVelocity": 0.0
                 },
                 {
                   "$type": "RigidBodyPhysics.ExportData.AxialFriction.AxialFrictionExportData, RigidBodyPhysics",
@@ -486,7 +498,8 @@
                     "X": 0.0,
                     "Y": 1.0
                   },
-                  "Friction": 0.0
+                  "Friction": 0.0,
+                  "TargetVelocity": 0.0
                 }
               ]
             },
@@ -636,6 +649,7 @@
                     "Y": 137.0
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,

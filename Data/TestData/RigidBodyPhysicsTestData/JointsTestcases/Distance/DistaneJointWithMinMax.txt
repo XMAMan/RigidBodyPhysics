@@ -8,6 +8,7 @@
         "Radius": 44.0,
         "Center": [567.0, 428.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -25,6 +26,7 @@
         "Radius": 44.0,
         "Center": [567.0, 60.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -42,6 +44,7 @@
         "Radius": 44.0,
         "Center": [567.0, 591.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -67,6 +70,7 @@
         "R2": [0.0, 0.0],
         "CollideConnected": false,
         "LimitIsEnabled": true,
+        "JointIsRope": false,
         "MinLength": 144.0,
         "MaxLength": 302.0,
         "SoftData": {
@@ -78,6 +82,7 @@
           "Damping": 0.0
         },
         "BreakWhenMaxForceIsReached": false,
+        "MinForceToBreak": 0.0,
         "MaxForceToBreak": 0.0
       },
       {
@@ -88,6 +93,7 @@
         "R2": [0.0, 0.0],
         "CollideConnected": false,
         "LimitIsEnabled": true,
+        "JointIsRope": false,
         "MinLength": 25.0,
         "MaxLength": 344.0,
         "SoftData": {
@@ -99,6 +105,7 @@
           "Damping": 0.0
         },
         "BreakWhenMaxForceIsReached": false,
+        "MinForceToBreak": 0.0,
         "MaxForceToBreak": 0.0
       }
     ]
@@ -111,6 +118,7 @@
     "$type": "RigidBodyPhysics.ExportData.RotaryMotor.IExportRotaryMotor[], RigidBodyPhysics",
     "$values": []
   },
+  "AxialFrictions": null,
   "CollisionMatrix": {
     "$type": "System.Boolean[,], System.Private.CoreLib",
     "$values": [

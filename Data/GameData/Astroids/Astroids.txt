@@ -29,6 +29,7 @@
                     "Y": 491.0
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -60,6 +61,7 @@
                     "Y": 767.0
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -91,6 +93,7 @@
                     "Y": 210.0
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -191,6 +194,7 @@
                     "Y": 485.0989
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -222,6 +226,7 @@
                     "Y": 485.0
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -509,7 +514,7 @@
                   "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
                   "TextureFile": "Satellit1.png",
                   "MakeFirstPixelTransparent": true,
-                  "ColorFactor": "255, 255, 255",
+                  "ColorFactor": "White",
                   "DeltaX": 0.0,
                   "DeltaY": 0.0,
                   "Width": 577.0,
@@ -522,7 +527,7 @@
                   "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
                   "TextureFile": "Satellit3.png",
                   "MakeFirstPixelTransparent": true,
-                  "ColorFactor": "255, 255, 255",
+                  "ColorFactor": "White",
                   "DeltaX": 2.0,
                   "DeltaY": -10.0,
                   "Width": 164.0,
@@ -535,7 +540,7 @@
                   "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
                   "TextureFile": "Satellit3.png",
                   "MakeFirstPixelTransparent": true,
-                  "ColorFactor": "255, 255, 255",
+                  "ColorFactor": "White",
                   "DeltaX": -3.0,
                   "DeltaY": 13.0,
                   "Width": 164.0,
@@ -548,7 +553,7 @@
                   "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
                   "TextureFile": "",
                   "MakeFirstPixelTransparent": true,
-                  "ColorFactor": "255, 255, 255",
+                  "ColorFactor": "White",
                   "DeltaX": 0.0,
                   "DeltaY": 0.0,
                   "Width": 233.0,
@@ -561,7 +566,7 @@
                   "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
                   "TextureFile": "Satellit2.png",
                   "MakeFirstPixelTransparent": true,
-                  "ColorFactor": "255, 255, 255",
+                  "ColorFactor": "White",
                   "DeltaX": -40.0,
                   "DeltaY": -1.0,
                   "Width": 247.0,
@@ -581,8 +586,8 @@
             "LocalPivot": {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 0.0,
-              "Y": 0.0,
-			}
+              "Y": 0.0
+            }
           },
           "CameraTrackedRigidBodyIds": null
         },
@@ -799,6 +804,7 @@
                     "Y": 478.80185
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -981,7 +987,7 @@
                   "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
                   "TextureFile": "RedRocket.png",
                   "MakeFirstPixelTransparent": true,
-                  "ColorFactor": "255, 255, 255",
+                  "ColorFactor": "White",
                   "DeltaX": -4.0,
                   "DeltaY": -19.0,
                   "Width": 466.0,
@@ -1001,8 +1007,8 @@
             "LocalPivot": {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 0.0,
-              "Y": 0.0,
-			}
+              "Y": 0.0
+            }
           },
           "CameraTrackedRigidBodyIds": null
         }
@@ -1019,15 +1025,15 @@
         "Position": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 843.0,
-          "Y": 314.0,
-		},
+          "Y": 314.0
+        },
         "SizeFactor": 0.3914735,
         "AngleInDegree": 0.0,
         "LocalPivot": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 0.0,
-          "Y": 0.0,
-			}
+          "Y": 0.0
+        }
       },
       {
         "$type": "LevelEditorExports.Editor.LevelItems.PhysicLevelItemExportData, LevelEditorExports",
@@ -1036,20 +1042,23 @@
         "Position": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 481.47888,
-          "Y": 292.7211,
-		},
+          "Y": 292.7211
+        },
         "SizeFactor": 0.37475908,
         "AngleInDegree": 0.0,
         "LocalPivot": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 0.0,
-          "Y": 0.0,
-			}
+          "Y": 0.0
+        }
       }
     ]
   },
   "BackgroundImage": "Starwalk.JPG",
   "ForegroundImage": null,
+  "BackgroundImageMode": 0,
+  "UseCameraAutoZoom": false,
+  "InitialCameraPosition": 0,
   "HasGravity": false,
   "SimulatorIterationCount": 50,
   "Gravity": 0.001,
@@ -1206,37 +1215,27 @@
               {
                 "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                 "X": 129.20721,
-                "Y": 223.74585,
-                "Xi": 129,
-                "Yi": 223
+                "Y": 223.74585
               },
               {
                 "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                 "X": 85.82077,
-                "Y": 224.8305,
-                "Xi": 85,
-                "Yi": 224
+                "Y": 224.8305
               },
               {
                 "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                 "X": -84.47101,
-                "Y": 221.57654,
-                "Xi": -84,
-                "Yi": 221
+                "Y": 221.57654
               },
               {
                 "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                 "X": -128.94211,
-                "Y": 220.49188,
-                "Xi": -128,
-                "Yi": 220
+                "Y": 220.49188
               },
               {
                 "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                 "X": -1.340271,
-                "Y": -349.49097,
-                "Xi": -1,
-                "Yi": -349
+                "Y": -349.49097
               }
             ]
           }

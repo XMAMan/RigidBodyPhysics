@@ -5,9 +5,10 @@
     "$values": [
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
-        "Center": [137.0, 128.0],
         "Radius": 44.0,
+        "Center": [137.0, 128.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -17,13 +18,15 @@
           "Density": 1.0
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
-        "Center": [464.0, 373.0],
         "Radius": 44.0,
+        "Center": [464.0, 373.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -33,7 +36,8 @@
           "Density": 1.0
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       }
     ]
   },
@@ -52,17 +56,22 @@
         "UpperAngle": 285.87857,
         "Motor": 0,
         "MotorSpeed": 1.0,
-        "MotorPosition": 2.0,
         "MaxMotorTorque": 3.0,
-	"SoftData": {
+        "SoftData": {
           "$type": "RigidBodyPhysics.ExportData.SoftExportData, RigidBodyPhysics",
           "ParameterType": 2,
           "FrequencyHertz": 0.0,
           "DampingRatio": 0.0,
           "Stiffness": 0.0,
           "Damping": 0.0
-        }
+        },
+        "BreakWhenMaxForceIsReached": false,
+        "MaxForceToBreak": 0.0
       }
     ]
-  }
+  },
+  "Thrusters": null,
+  "Motors": null,
+  "AxialFrictions": null,
+  "CollisionMatrix": null
 }

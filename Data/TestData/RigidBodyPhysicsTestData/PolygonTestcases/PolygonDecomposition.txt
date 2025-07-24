@@ -5,7 +5,7 @@
     "$values": [
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.PolygonExportData, RigidBodyPhysics",
-        "IsEdgePolygon": false,
+        "PolygonType": 0,
         "Points": {
           "$type": "PhysicGlobal.Vec2D[], PhysicGlobal",
           "$values": [
@@ -43,6 +43,7 @@
         },
         "Center": [276.60303, 204.7533],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -65,6 +66,8 @@
     "$type": "RigidBodyPhysics.ExportData.Thruster.IExportThruster[], RigidBodyPhysics",
     "$values": []
   },
+  "Motors": null,
+  "AxialFrictions": null,
   "CollisionMatrix": {
     "$type": "System.Boolean[,], System.Private.CoreLib",
     "$values": [

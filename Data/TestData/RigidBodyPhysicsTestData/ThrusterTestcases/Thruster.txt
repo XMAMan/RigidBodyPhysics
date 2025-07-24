@@ -6,8 +6,11 @@
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
         "Size": [804.0, 68.0],
+        "BreakWhenMaxPushPullForceIsReached": false,
+        "MaxPushPullForce": 0.0,
         "Center": [571.0, 590.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -17,13 +20,17 @@
           "Density": 0.0001
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       },
       {
         "$type": "RigidBodyPhysics.ExportData.RigidBody.RectangleExportData, RigidBodyPhysics",
         "Size": [146.0, 93.0],
+        "BreakWhenMaxPushPullForceIsReached": false,
+        "MaxPushPullForce": 0.0,
         "Center": [578.2974, 483.64697],
         "AngleInDegree": -89.77895,
+        "AngleInRad": -1.5669384,
         "Velocity": [1.8389729E-09, 0.0],
         "AngularVelocity": 2.5147157E-11,
         "MassData": {
@@ -33,7 +40,8 @@
           "Density": 0.0001
         },
         "Friction": 0.2,
-        "Restituion": 0.5
+        "Restituion": 0.5,
+        "CollisionCategory": 0
       }
     ]
   },
@@ -53,5 +61,8 @@
         "IsEnabled": false
       }
     ]
-  }
+  },
+  "Motors": null,
+  "AxialFrictions": null,
+  "CollisionMatrix": null
 }

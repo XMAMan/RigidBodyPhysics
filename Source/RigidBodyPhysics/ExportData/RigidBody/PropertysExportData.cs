@@ -6,6 +6,7 @@ namespace RigidBodyPhysics.ExportData.RigidBody
     {
         public Vec2D Center { get; set; }
         public float AngleInDegree { get; set; }
+        public float AngleInRad { get; set; }
         public Vec2D Velocity { get; set; } = new Vec2D(0, 0);
         public float AngularVelocity { get; set; } = 0;
         public MassData MassData { get; set; } = null;
@@ -18,7 +19,7 @@ namespace RigidBodyPhysics.ExportData.RigidBody
         public PropertysExportData(PropertysExportData copy)
         {
             this.Center = new Vec2D(copy.Center);
-            this.AngleInDegree = copy.AngleInDegree;
+            this.AngleInRad = copy.AngleInRad;
             this.Velocity = new Vec2D(copy.Velocity);
             this.AngularVelocity = copy.AngularVelocity;
             this.MassData = new MassData(copy.MassData);
@@ -32,6 +33,7 @@ namespace RigidBodyPhysics.ExportData.RigidBody
     {
         Vec2D Center { get; set; }
         float AngleInDegree { get; set; }
+        float AngleInRad { get; set; }
         Vec2D Velocity { get; set; }
         float AngularVelocity { get; set; }
         MassData MassData { get; set; }

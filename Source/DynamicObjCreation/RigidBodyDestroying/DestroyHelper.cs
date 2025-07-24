@@ -87,7 +87,7 @@ namespace DynamicObjCreation.RigidBodyDestroying
         private static BodyWithTexture CreateTexturedPolygon(Vec2D[] poly, Vec2D texCenter, IPublicRigidBody body, HelperParameter p)
         {
             var bodyExport = body.GetExportData();
-            float angleInDegree = bodyExport.AngleInDegree + p.TextureExport.DeltaAngle;
+            float angleInDegree = bodyExport.AngleInRad * 180 / (float)Math.PI + p.TextureExport.DeltaAngle;
             var center = PolygonHelper.GetCenterOfMassFromPolygon(poly);
 
             var polyBody = new PolygonExportData()
@@ -95,7 +95,7 @@ namespace DynamicObjCreation.RigidBodyDestroying
                 PolygonType = PolygonCollisionType.Rigid,
                 Points = poly.Select(x => x - center).ToArray(),
                 Center = center,
-                AngleInDegree = 0,
+                AngleInRad = 0,
                 Velocity = body.Velocity,
                 AngularVelocity = body.AngularVelocity,
                 MassData = bodyExport.MassData,

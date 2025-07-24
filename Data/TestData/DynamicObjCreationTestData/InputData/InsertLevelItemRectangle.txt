@@ -29,6 +29,7 @@
                     "Y": 101.0
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -114,8 +115,8 @@
             "LocalPivot": {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 0.0,
-              "Y": 0.0,
-			}
+              "Y": 0.0
+            }
           },
           "CameraTrackedRigidBodyIds": null
         }
@@ -132,20 +133,23 @@
         "Position": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 40.0,
-          "Y": 30.0,
-		},
+          "Y": 30.0
+        },
         "SizeFactor": 1.0,
         "AngleInDegree": 0.0,
         "LocalPivot": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 0.0,
-          "Y": 0.0,
-			}
+          "Y": 0.0
+        }
       }
     ]
   },
   "BackgroundImage": null,
   "ForegroundImage": null,
+  "BackgroundImageMode": 0,
+  "UseCameraAutoZoom": false,
+  "InitialCameraPosition": 0,
   "HasGravity": true,
   "SimulatorIterationCount": 50,
   "Gravity": 0.001,

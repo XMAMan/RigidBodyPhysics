@@ -1,8 +1,9 @@
 ﻿using DynamicObjCreation;
 using GameHelper.Simulation;
-using RigidBodyPhysics.ExportData.RigidBody;
 using PhysicGlobal;
+using RigidBodyPhysics.ExportData.RigidBody;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
+using System;
 using System.Drawing;
 using TextureEditorGlobal;
 
@@ -35,7 +36,7 @@ namespace AstroidsControl.Model
             {
                 Size = new Vec2D(5 * size, 15 * size),
                 Center = position,
-                AngleInDegree = Vec2D.Angle360(new Vec2D(0, 1), shipDirection),
+                AngleInRad = Vec2D.Angle360(new Vec2D(0, 1), shipDirection) / 180 * (float)Math.PI,
                 Velocity = velocity + shipDirection * vel,
                 AngularVelocity = 0,
                 MassData = new MassData(MassData.MassType.Density, 1, 0.001f),

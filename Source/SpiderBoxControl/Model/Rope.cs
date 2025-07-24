@@ -152,7 +152,7 @@ namespace SpiderBoxControl.Model
                     Center = position,
                     Velocity = initialVelocity,
                     MassData = new MassData(MassData.MassType.Density, 1, this.circleDensity),
-                    AngleInDegree = 0,
+                    AngleInRad = 0,
                     AngularVelocity = 0,
                     Friction = 0,
                     Restituion = 0.2f,

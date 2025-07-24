@@ -29,6 +29,7 @@
                     "Y": 269.0
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -60,6 +61,7 @@
                     "Y": 183.0
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -91,6 +93,7 @@
                     "Y": 101.0
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -122,6 +125,7 @@
                     "Y": 261.0
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -340,6 +344,7 @@
                     "Y": 269.0
                   },
                   "AngleInDegree": 0.0,
+                  "AngleInRad": 0.0,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -371,6 +376,7 @@
                     "Y": 183.0299
                   },
                   "AngleInDegree": 2.162605,
+                  "AngleInRad": 0.03774458,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -402,6 +408,7 @@
                     "Y": 103.86747
                   },
                   "AngleInDegree": 21.665762,
+                  "AngleInRad": 0.3781389,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -433,6 +440,7 @@
                     "Y": 264.37198
                   },
                   "AngleInDegree": 163.75267,
+                  "AngleInRad": 2.8580234,
                   "Velocity": {
                     "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                     "X": 0.0,
@@ -640,7 +648,7 @@
                   "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
                   "TextureFile": "SolidBlock1.png",
                   "MakeFirstPixelTransparent": true,
-                  "ColorFactor": "255, 255, 255",
+                  "ColorFactor": "White",
                   "DeltaX": 0.0,
                   "DeltaY": 0.0,
                   "Width": 295.0,
@@ -653,7 +661,7 @@
                   "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
                   "TextureFile": "oberschenkel.png",
                   "MakeFirstPixelTransparent": true,
-                  "ColorFactor": "255, 255, 255",
+                  "ColorFactor": "White",
                   "DeltaX": 0.0,
                   "DeltaY": 0.0,
                   "Width": 15.0,
@@ -666,7 +674,7 @@
                   "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
                   "TextureFile": "fuß.png",
                   "MakeFirstPixelTransparent": true,
-                  "ColorFactor": "255, 255, 255",
+                  "ColorFactor": "White",
                   "DeltaX": 0.0,
                   "DeltaY": 0.0,
                   "Width": 11.0,
@@ -679,7 +687,7 @@
                   "$type": "TextureEditorGlobal.TextureExportData, TextureEditorGlobal",
                   "TextureFile": "balken.png",
                   "MakeFirstPixelTransparent": true,
-                  "ColorFactor": "255, 255, 255",
+                  "ColorFactor": "White",
                   "DeltaX": 0.0,
                   "DeltaY": 0.0,
                   "Width": 17.0,
@@ -871,8 +879,8 @@
             "LocalPivot": {
               "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
               "X": 0.0,
-              "Y": 0.0,
-			}
+              "Y": 0.0
+            }
           },
           "CameraTrackedRigidBodyIds": null
         }
@@ -889,20 +897,23 @@
         "Position": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 220.0,
-          "Y": 105.0,
-		},
+          "Y": 105.0
+        },
         "SizeFactor": 0.47550663,
         "AngleInDegree": 0.0,
         "LocalPivot": {
           "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
           "X": 0.0,
-          "Y": 0.0,
-			}
+          "Y": 0.0
+        }
       }
     ]
   },
   "BackgroundImage": null,
   "ForegroundImage": null,
+  "BackgroundImageMode": 0,
+  "UseCameraAutoZoom": false,
+  "InitialCameraPosition": 0,
   "HasGravity": true,
   "SimulatorIterationCount": 50,
   "Gravity": 0.001,
@@ -1020,16 +1031,12 @@
               {
                 "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                 "X": -146.5,
-                "Y": -51.839996,
-                "Xi": -146,
-                "Yi": -51
+                "Y": -51.839996
               },
               {
                 "$type": "PhysicGlobal.Vec2D, PhysicGlobal",
                 "X": 145.5,
-                "Y": 50.160004,
-                "Xi": 145,
-                "Yi": 50
+                "Y": 50.160004
               }
             ]
           }

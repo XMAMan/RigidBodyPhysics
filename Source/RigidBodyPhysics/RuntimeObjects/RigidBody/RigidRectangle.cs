@@ -79,7 +79,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
         }
 
         public RigidRectangle(RectangleExportData data)
-            : this(data.Center, data.Size, data.AngleInDegree / 180 * (float)Math.PI, data.MassData)
+            : this(data.Center, data.Size, data.AngleInRad, data.MassData)
         {
             Velocity = new Vec2D(data.Velocity);
             AngularVelocity = data.AngularVelocity;
@@ -143,7 +143,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
             {
                 Center = new Vec2D(Center),
                 Size = Size,
-                AngleInDegree = (float)(Angle / Math.PI * 180),
+                AngleInRad = Angle,
                 Velocity = new Vec2D(Velocity),
                 AngularVelocity = AngularVelocity,
                 MassData = new MassData(massData),

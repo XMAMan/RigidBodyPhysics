@@ -3,20 +3,21 @@ using BridgeBuilderControl.Controls.Helper;
 using BridgeBuilderControl.Controls.LevelEditor;
 using DynamicData;
 using GameHelper.Simulation;
+using LevelEditorExports.Simulator;
+using LevelToSimulatorConverter;
+using LevelToSimulatorConverter.Helper;
 using PhysicGlobal;
 using RigidBodyPhysics.ExportData;
 using RigidBodyPhysics.ExportData.Joints;
 using RigidBodyPhysics.ExportData.RigidBody;
 using RigidBodyPhysics.RuntimeObjects.Joints;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using TextureEditorGlobal;
 using static RigidBodyPhysics.RuntimeObjects.Joints.IPublicJoint;
-using LevelEditorExports.Simulator;
-using LevelToSimulatorConverter.Helper;
-using LevelToSimulatorConverter;
 
 namespace BridgeBuilderControl.Controls.Simulator.Model.Converter
 {
@@ -213,7 +214,7 @@ namespace BridgeBuilderControl.Controls.Simulator.Model.Converter
                     TextureExportData = tex1,
                     AnchorPoints = new AnchorPoint[]
                     {
-                        new AnchorPoint(bar.P1, body1.Center, body1.AngleInDegree),      
+                        new AnchorPoint(bar.P1, body1.Center, body1.AngleInRad),      
                         null
                     },
                     Bar = bar,
@@ -225,7 +226,7 @@ namespace BridgeBuilderControl.Controls.Simulator.Model.Converter
                     AnchorPoints = new AnchorPoint[]
                     {
                         null,
-                        new AnchorPoint(bar.P2, body2.Center, body2.AngleInDegree)
+                        new AnchorPoint(bar.P2, body2.Center, body2.AngleInRad)
                     },
                     Bar = bar,
                 }
@@ -248,13 +249,13 @@ namespace BridgeBuilderControl.Controls.Simulator.Model.Converter
             var direction = (p2 - p1).Normalize();
 
             var center = (p1 + p2) / 2;
-            float angleInDegree = Vec2D.Angle360(new Vec2D(1, 0), direction);
+            float angleInRad = Vec2D.Angle360(new Vec2D(1, 0), direction) / 180 * (float)Math.PI;
 
             var body = new RectangleExportData()
             {
                 Size = new Vec2D(length + barWidth * 2, barWidth),
                 Center = center,
-                AngleInDegree = angleInDegree,
+                AngleInRad = angleInRad,
                 Velocity = new Vec2D(0, 0),
                 AngularVelocity = 0,
                 MassData = new MassData(MassData.MassType.Density, 1, Settings.RectangleDensity),
@@ -332,7 +333,7 @@ namespace BridgeBuilderControl.Controls.Simulator.Model.Converter
             {
                 Radius = BarWidth,
                 Center = position,
-                AngleInDegree = 0,
+                AngleInRad = 0,
                 Velocity = new Vec2D(0, 0),
                 AngularVelocity = 0,
                 MassData = new MassData(MassData.MassType.Density, 1, CircleDensity),
@@ -358,8 +359,8 @@ namespace BridgeBuilderControl.Controls.Simulator.Model.Converter
         {
             return new AnchorPoint[]
             {
-                new AnchorPoint(bar.P1, p1.Center, p1.AngleInDegree),
-                new AnchorPoint(bar.P2, p2.Center, p2.AngleInDegree),
+                new AnchorPoint(bar.P1, p1.Center, p1.AngleInRad),
+                new AnchorPoint(bar.P2, p2.Center, p2.AngleInRad),
             };
         }
 

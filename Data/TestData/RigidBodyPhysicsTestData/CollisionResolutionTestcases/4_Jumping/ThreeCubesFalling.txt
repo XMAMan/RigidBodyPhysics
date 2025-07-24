@@ -10,6 +10,7 @@
         "MaxPushPullForce": 1.0,
         "Center": [168.0, 240.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -29,6 +30,7 @@
         "MaxPushPullForce": 1.0,
         "Center": [168.0, 358.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
@@ -48,6 +50,7 @@
         "MaxPushPullForce": 1.0,
         "Center": [397.0, 240.0],
         "AngleInDegree": 0.0,
+        "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
         "MassData": {
