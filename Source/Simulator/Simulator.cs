@@ -445,5 +445,18 @@ namespace Simulator
         {
             return this.physicScene.GetExportData();
         }
+
+        public void ResetPositionFromPhysicScene(PhysicSceneExportData data)
+        {
+            this.physicScene.ResetPosition(data);
+        }
+
+        public virtual void ResetAndReleaseAllKeys(PhysicSceneExportData data)
+        {
+            ReleaseAllKeys();
+            ReleaseAllMouseKeys();
+            ResetAllAnimationsToInitialTime(); //Gelenksollwerte zurück auf Anfangszustand
+            ResetPositionFromPhysicScene(data);
+        }
     }
 }
