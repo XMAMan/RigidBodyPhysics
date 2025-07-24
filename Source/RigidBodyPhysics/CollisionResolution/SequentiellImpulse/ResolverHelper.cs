@@ -8,6 +8,7 @@ using RigidBodyPhysics.RuntimeObjects.Joints;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using RigidBodyPhysics.RuntimeObjects.RotaryMotor;
 using RigidBodyPhysics.RuntimeObjects.Thruster;
+using System.Runtime.CompilerServices;
 
 namespace RigidBodyPhysics.CollisionResolution.SequentiellImpulse
 {
@@ -38,20 +39,34 @@ namespace RigidBodyPhysics.CollisionResolution.SequentiellImpulse
 
             //Schritt 3: Wende den ersten Impuls an, welcher bereits den Großteil der Korrektur erreichen sollte
             if (settings.DoWarmStart)
-            {
+            {                
                 foreach (var c in constraints)
                 {
                     c.ApplyWarmStartImpulse();
-                }
+                }                
             }
 
 
+            List<string> txtOutput = new List<string>();
             //Schritt 4: Finde per PGS Relative-Kontaktpunktgeschwindigkeitswerte, welche dem Bias-Wert entsprechen
             for (int i = 0; i < settings.IterationCount; i++)
             {
+                int count = 0;
                 foreach (var c in constraints)
                 {
+                    count++;
+                    if (i == 0 && count == 7)
+                    {
+                        int ja = 1;
+                    }
+                    var v1 = new Vec2D(bodies[2].Velocity);
                     c.DoSingleSIStep();
+                    var v2 = new Vec2D(bodies[2].Velocity);
+                    if (v1.X != v2.X || v1.Y != v2.Y)
+                    {
+                        int jetzt = 1;
+                        txtOutput.Add(i + ":" + count + ":" + v2.ToString());
+                    }
                 }
             }
 

@@ -41,6 +41,7 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
         public float AccumulatedImpulse { get; internal set; } = 0; //Für DistanceJointConstraint
         public float AccumulatedImpulseForMinMax { get; internal set; } = 0; //Für MinMaxDistanceConstraint
 
+
         public DistanceJoint(DistanceJointExportData data, List<IRigidBody> bodies)
         {
             Body1 = B1 = bodies[data.BodyIndex1];
@@ -106,6 +107,12 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
             }
 
             return list;
+        }
+
+        public void SetAllAccumulatedImpulsesToZero()
+        {
+            this.AccumulatedImpulse = 0;
+            this.AccumulatedImpulseForMinMax = 0;
         }
     }
 }

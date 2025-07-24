@@ -62,7 +62,11 @@ namespace RigidBodyPhysics.UnitTests.TestHelper
         {
             var sceneData = ExportHelper.ReadFromFile(startScene);
             var scene = new PhysicScene(sceneData);
+            return SimulateAndCompare(scene, expectedEndScene, timeStepTickRate, phase1Steps, phase2Steps, setpoints);
+        }
 
+        public static float SimulateAndCompare(PhysicScene scene, string expectedEndScene, float timeStepTickRate, int phase1Steps, int phase2Steps, JointSetpoint[] setpoints)
+        {
             var setter = setpoints.Select(x => new Joint(scene.GetAllJoints()[x.JointIndex])).ToArray();
 
             for (int i = 0; i < phase1Steps; i++)

@@ -299,7 +299,9 @@ namespace RigidBodyPhysics
 
             for (int i = 0; i < this.bodies.Count; i++)
             {
-                this.bodies[i].MoveCenterBy(data.Bodies[i].Center - this.bodies[i].Center);
+                //this.bodies[i].MoveCenterBy(data.Bodies[i].Center - this.bodies[i].Center);
+                this.bodies[i].MoveCenterBy(-this.bodies[i].Center);
+                this.bodies[i].MoveCenterBy(data.Bodies[i].Center);
                 this.bodies[i].Velocity = data.Bodies[i].Velocity;
                 this.bodies[i].RotateTo(data.Bodies[i].AngleInDegree / 180 * (float)Math.PI);
                 this.bodies[i].AngularVelocity = data.Bodies[i].AngularVelocity;
@@ -327,7 +329,30 @@ namespace RigidBodyPhysics
             }
 
             SetVelocityFromFixBodiesToZero();
+            SetAllAccumulatedImpulsesToZero();
 
+            foreach (var joint in this.joints)
+            {
+                joint.UpdateAnchorPoints();
+            }
+
+            foreach (var thruster in this.thrusters)
+            {
+                thruster.UpdateAnchorPoints();
+            }
+
+            foreach (var axialFriction in this.axialFrictions)
+            {
+                axialFriction.UpdateAnchorPoints();
+            }
+        }
+
+        private void SetAllAccumulatedImpulsesToZero()
+        {
+            this.impulseResolver.ClearCollisionPointCache();
+            foreach (var obj in this.rotaryMotors) obj.SetAllAccumulatedImpulsesToZero();
+            foreach (var obj in this.axialFrictions) obj.SetAllAccumulatedImpulsesToZero();
+            foreach (var obj in this.joints) obj.SetAllAccumulatedImpulsesToZero();
         }
 
         //Hier werden die ganzen IPublic-Objekte neu angelegt -> Wird im PhysicSceneSimulator benutzt, damit man ein

@@ -29,5 +29,10 @@ namespace RigidBodyPhysics.CollisionResolution.ResolverDecorator
                 decoree.Resolve(new SolverInputData(data) { Bodies = subBodies, Collisions = points });
             }
         }
+
+        public void ClearCollisionPointCache()
+        {
+            this.decoree.ClearCollisionPointCache();
+        }
     }
 }

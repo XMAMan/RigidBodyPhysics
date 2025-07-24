@@ -4,5 +4,6 @@
     internal interface IImpulseResolver
     {
         void Resolve(SolverInputData data);
+        void ClearCollisionPointCache();
     }
 }

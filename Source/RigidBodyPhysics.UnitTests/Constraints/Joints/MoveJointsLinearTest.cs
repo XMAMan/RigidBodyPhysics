@@ -38,5 +38,50 @@ namespace RigidBodyPhysics.UnitTests.Constraints.Joints
 
             maxDiff.Should().BeLessThan(5);
         }
+
+        //Hier wird geprüft, dass "new PhysicScene()+ N mal Aufruf von TimeStep" das gleich erzeugt
+        //wie "scene.ResetPosition(initialState) + N mal Aufruf von TimeStep"
+        [Fact]
+        public void PhysicSceneReset_ShowsSameAsNewObject()
+        {
+            var sceneData = ExportHelper.ReadFromFile(TestData + "AllJointsStart.txt");
+            var scene = new PhysicScene(sceneData);
+            var initialState1 = scene.GetExportData();
+
+            int phase1Steps = 1;
+            var phase2Steps = 0;
+
+            //Run 1: scene wurde neu über Konstruktur erstellt
+            float maxDiff1 = JointSimulator.SimulateAndCompare(scene, TestData + "AllJointsEnd.txt", TimeStepTickRate, phase1Steps, phase2Steps,
+                new JointSimulator.JointSetpoint[]
+                {
+                    new JointSimulator.JointSetpoint(){JointIndex = 5, SetValue = 0.18f}, //Prismatic Joint
+                    new JointSimulator.JointSetpoint(){JointIndex = 4, SetValue = 0.24f}, //Revolute Joint
+                    new JointSimulator.JointSetpoint(){JointIndex = 8, SetValue = 214},   //Distance Joint
+                });
+            var endState1 = scene.GetExportData();
+
+            //Run 2: scene wurde über ResetPosition zurück gesetzt
+            scene.ResetPosition(initialState1);
+            var initialState2 = scene.GetExportData();
+
+            string s1 = JsonHelper.Helper.ToCompactJson(initialState1);
+            string s2 = JsonHelper.Helper.ToCompactJson(initialState2);
+            s1.Should().Be(s2);
+
+            float maxDiff2 = JointSimulator.SimulateAndCompare(scene, TestData + "AllJointsEnd.txt", TimeStepTickRate, phase1Steps, phase2Steps,
+                new JointSimulator.JointSetpoint[]
+                {
+                    new JointSimulator.JointSetpoint(){JointIndex = 5, SetValue = 0.18f}, //Prismatic Joint
+                    new JointSimulator.JointSetpoint(){JointIndex = 4, SetValue = 0.24f}, //Revolute Joint
+                    new JointSimulator.JointSetpoint(){JointIndex = 8, SetValue = 214},   //Distance Joint
+                });
+            var endState2 = scene.GetExportData();
+
+            string s3 = JsonHelper.Helper.ToCompactJson(endState1);
+            string s4 = JsonHelper.Helper.ToCompactJson(endState2);
+
+            s3.Should().Be(s4);
+        }
     }
 }

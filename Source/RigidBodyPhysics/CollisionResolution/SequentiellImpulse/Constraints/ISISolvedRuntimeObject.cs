@@ -3,5 +3,6 @@
     internal interface ISISolvedRuntimeObject
     {
         List<IConstraint> BuildConstraints(ConstraintConstructorData data);
+        void SetAllAccumulatedImpulsesToZero();
     }
 }

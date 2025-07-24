@@ -181,5 +181,12 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
                 list.Add(new AngularMotor(data, this));
             return list;
         }
+
+        public void SetAllAccumulatedImpulsesToZero()
+        {
+            this.AccumulatedMinMaxAngularImpulse = 0;
+            this.AccumulatedAngularMotorImpulse = 0;
+            this.AccumulatedPointToPointImpulse = new Vec2D(0, 0);
+        }
     }
 }

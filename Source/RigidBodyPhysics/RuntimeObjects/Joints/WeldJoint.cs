@@ -95,5 +95,11 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
             list.Add(new PointToPointAndFixAngular(data, this));
             return list;
         }
+
+        public void SetAllAccumulatedImpulsesToZero()
+        {
+            this.AccumulatedPointToPointImpulse = new Vec2D(0, 0);
+            this.AccumulatedAngularImpulse = 0;
+        }
     }
 }

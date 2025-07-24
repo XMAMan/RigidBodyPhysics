@@ -39,7 +39,7 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
 
         public float AccumulatedAngularImpulse { get; set; } = 0; //AngularPrismaticConstraint und PointToLineAndAngularPrismaticConstraint
         public float AccumulatedMinMaxImpulse { get; set; } = 0;
-        public float AccumulatedTranslationMotorImpulse { get; set; } = 0;
+        public float AccumulatedTranslationMotorImpulse { get; set; } = 0;        
 
         #region IBreakableJoint
         public bool IsBroken { get; set; } = false;
@@ -144,6 +144,14 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
             else
                 list.Add(new TranslationMotor(data, this));
             return list;
+        }
+
+        public void SetAllAccumulatedImpulsesToZero()
+        {
+            this.AccumulatedPointToLineImpulse = 0;
+            this.AccumulatedAngularImpulse = 0;
+            this.AccumulatedMinMaxImpulse = 0;
+            this.AccumulatedTranslationMotorImpulse = 0;
         }
     }
 }

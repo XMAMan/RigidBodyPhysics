@@ -34,5 +34,10 @@ namespace RigidBodyPhysics.CollisionResolution.SequentiellImpulse
             cache = newList;
             return cache.ToArray();
         }
+
+        internal void ClearCache()
+        {
+            this.cache.Clear();
+        }
     }
 }

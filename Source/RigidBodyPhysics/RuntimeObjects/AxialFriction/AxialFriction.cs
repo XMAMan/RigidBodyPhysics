@@ -76,5 +76,10 @@ namespace RigidBodyPhysics.RuntimeObjects.AxialFriction
 
             return list;
         }
+
+        public void SetAllAccumulatedImpulsesToZero()
+        {
+            this.AccumulatedFrictionImpulse = 0;
+        }
     }
 }

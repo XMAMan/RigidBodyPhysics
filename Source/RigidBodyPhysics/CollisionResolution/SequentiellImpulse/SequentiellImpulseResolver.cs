@@ -13,5 +13,10 @@
 
             ResolverHelper.MoveBodiesWithConstraint(data.Bodies, data.Joints, data.Thrusters, data.Motors, data.AxialFrictions, collisions, data.MouseData, data.Dt, data.Settings);
         }
+
+        public void ClearCollisionPointCache()
+        {
+            this.pointCache.ClearCache();
+        }
     }
 }

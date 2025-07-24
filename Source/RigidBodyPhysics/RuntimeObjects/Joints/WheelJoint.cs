@@ -132,5 +132,12 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
                 list.Add(new TranslationMotor(data, this));
             return list;
         }
+
+        public void SetAllAccumulatedImpulsesToZero()
+        {
+            this.AccumulatedPointToLineImpulse = 0;
+            this.AccumulatedMinMaxImpulse = 0;
+            this.AccumulatedTranslationMotorImpulse = 0;
+        }
     }
 }

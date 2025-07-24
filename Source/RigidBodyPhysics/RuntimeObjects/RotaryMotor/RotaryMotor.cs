@@ -46,7 +46,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RotaryMotor
         public float AccumulatedBrakeImpulse { get; set; } = 0; //Aufsummierte Impulse von der Bremse
         public float TargetAngluarValueForBrake { get; private set; } = float.NaN; //Diesen Angle-Wert hatte der Körper, als BreakIsEnabled auf true ging
         #endregion
-
+        
         public IExportRotaryMotor GetExportData(List<IRigidBody> bodies)
         {
             return new RotaryMotorExportData()
@@ -78,6 +78,11 @@ namespace RigidBodyPhysics.RuntimeObjects.RotaryMotor
                 list.Add(new RotaryMotorBrake(data, this));
 
             return list;
+        }
+
+        public void SetAllAccumulatedImpulsesToZero()
+        {
+            this.AccumulatedBrakeImpulse = 0;
         }
     }
 }
