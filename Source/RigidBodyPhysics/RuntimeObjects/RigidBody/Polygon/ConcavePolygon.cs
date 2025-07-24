@@ -81,10 +81,9 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
 
             Center += v;
         }
-        public virtual void Rotate(float angle)
+        public virtual void RotateTo(float angle)
         {
-            Angle += angle;
-
+            Angle = angle;
             RotateToWorld = Matrix2x2.Rotate(Angle);
             for (int i = 0; i < localPoints.Length; i++)
             {

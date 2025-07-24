@@ -301,7 +301,7 @@ namespace RigidBodyPhysics
             {
                 this.bodies[i].MoveCenter(data.Bodies[i].Center - this.bodies[i].Center);
                 this.bodies[i].Velocity = data.Bodies[i].Velocity;
-                this.bodies[i].Rotate(data.Bodies[i].AngleInDegree / 180 * (float)Math.PI - this.bodies[i].Angle);
+                this.bodies[i].RotateTo(data.Bodies[i].AngleInDegree / 180 * (float)Math.PI);
                 this.bodies[i].AngularVelocity = data.Bodies[i].AngularVelocity;
             }
 
@@ -437,7 +437,7 @@ namespace RigidBodyPhysics
             foreach (var body in this.bodies)
             {
                 body.MoveCenter(dt * body.Velocity);
-                body.Rotate(dt * body.AngularVelocity);
+                body.RotateTo(body.Angle + dt * body.AngularVelocity);
 
                 //Resette die externe Kraft
                 body.Force = new Vec2D(0, 0);

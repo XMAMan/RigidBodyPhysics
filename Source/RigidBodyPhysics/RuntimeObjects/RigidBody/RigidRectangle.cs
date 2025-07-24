@@ -46,7 +46,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
         {
             this.massData = massData;
             Center = center;
-            Angle = 0; //Hier darf ich nicht angle sondenr 0 zuweisen, weil ich mit Rotate(angle) am Ende von dieser Funktion dann den richtigen Wert einstelle
+            Angle = 0; //Hier darf ich nicht angle sondenr 0 zuweisen, weil ich mit RotateTo(angle) am Ende von dieser Funktion dann den richtigen Wert einstelle
             Velocity = new Vec2D(0, 0);
             AngularVelocity = 0;
             Area = size.X * size.Y;
@@ -75,7 +75,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
 
             Vertex = new Vec2D[vertexLocal.Length];
 
-            Rotate(angle);
+            RotateTo(angle);
         }
 
         public RigidRectangle(RectangleExportData data)
@@ -111,9 +111,10 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
 
             Center += v;
         }
-        public void Rotate(float angle)
+
+        public void RotateTo(float angle)
         {
-            Angle += angle;
+            Angle = angle;
 
             RotateToWorld = Matrix2x2.Rotate(Angle);
             for (int i = 0; i < vertexLocal.Length; i++)

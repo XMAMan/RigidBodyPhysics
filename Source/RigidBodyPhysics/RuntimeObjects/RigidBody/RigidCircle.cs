@@ -62,9 +62,9 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
             Center += v;
         }
 
-        public void Rotate(float angle)
+        public void RotateTo(float angle)
         {
-            Angle += angle;
+            Angle = angle;
             RotateToWorld = Matrix2x2.Rotate(Angle);
         }
         public Matrix2x2 RotateToWorld { get; private set; }
