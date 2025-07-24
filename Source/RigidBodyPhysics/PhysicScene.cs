@@ -299,7 +299,7 @@ namespace RigidBodyPhysics
 
             for (int i = 0; i < this.bodies.Count; i++)
             {
-                this.bodies[i].MoveCenter(data.Bodies[i].Center - this.bodies[i].Center);
+                this.bodies[i].MoveCenterBy(data.Bodies[i].Center - this.bodies[i].Center);
                 this.bodies[i].Velocity = data.Bodies[i].Velocity;
                 this.bodies[i].RotateTo(data.Bodies[i].AngleInDegree / 180 * (float)Math.PI);
                 this.bodies[i].AngularVelocity = data.Bodies[i].AngularVelocity;
@@ -436,7 +436,7 @@ namespace RigidBodyPhysics
             //Quelle 2: Box2D-Lite World.cpp Zeile 130-134
             foreach (var body in this.bodies)
             {
-                body.MoveCenter(dt * body.Velocity);
+                body.MoveCenterBy(dt * body.Velocity);
                 body.RotateTo(body.Angle + dt * body.AngularVelocity);
 
                 //Resette die externe Kraft

@@ -70,7 +70,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
         }
 
         #region IMoveable
-        public void MoveCenter(Vec2D v)
+        public void MoveCenterBy(Vec2D v)
         {
             for (int i = 0; i < Vertex.Length; i++)
             {
