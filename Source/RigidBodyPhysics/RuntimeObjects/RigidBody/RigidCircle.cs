@@ -81,12 +81,12 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
         {
             return new CircleExportData()
             {
-                Center = Center,
+                Center = new Vec2D(Center),
                 Radius = Radius,
                 AngleInDegree = (float)(Angle / (2 * Math.PI) * 360),
-                Velocity = Velocity,
+                Velocity = new Vec2D(Velocity),
                 AngularVelocity = AngularVelocity,
-                MassData = massData,
+                MassData = new MassData(massData),
                 Friction = Friction,
                 Restituion = Restituion,
                 CollisionCategory = CollisionCategory,

@@ -77,8 +77,8 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
             {
                 BodyIndex1 = bodies.IndexOf(B1),
                 BodyIndex2 = bodies.IndexOf(B2),
-                R1 = r1,
-                R2 = r2,
+                R1 = new Vec2D(r1),
+                R2 = new Vec2D(r2),
                 CollideConnected = CollideConnected,
                 LimitIsEnabled = LimitIsEnabled,
                 JointIsRope = JointIsRope,

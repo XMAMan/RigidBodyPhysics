@@ -62,8 +62,8 @@ namespace RigidBodyPhysics.RuntimeObjects.Thruster
             return new ThrusterExportData()
             {
                 BodyIndex = bodies.IndexOf(B1),
-                R1 = r1,
-                ForceDirection = forceDirection,
+                R1 = new Vec2D(r1),
+                ForceDirection = new Vec2D(forceDirection),
                 ForceLength = ForceLength,
                 IsEnabled = IsEnabled
             };

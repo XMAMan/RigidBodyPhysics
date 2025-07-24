@@ -102,12 +102,12 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
             return new PolygonExportData()
             {
                 PolygonType = PolygonType,
-                Points = localPoints,
-                Center = Center,
+                Points = localPoints.Select(x => new Vec2D(x)).ToArray(),
+                Center = new Vec2D(Center),
                 AngleInDegree = (float)(Angle / Math.PI * 180),
-                Velocity = Velocity,
+                Velocity = new Vec2D(Velocity),
                 AngularVelocity = AngularVelocity,
-                MassData = massData,
+                MassData = new MassData(massData),
                 Friction = Friction,
                 Restituion = Restituion,
                 CollisionCategory = GetCollisionCategory(),
