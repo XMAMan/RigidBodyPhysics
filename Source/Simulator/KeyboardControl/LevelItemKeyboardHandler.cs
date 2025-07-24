@@ -64,6 +64,17 @@ namespace Simulator.KeyboardControl
                     }
                 }
             }
+
+            public void ReleaseAllKeys()
+            {
+                foreach (var keyValue in this.keyHandler)
+                {
+                    foreach (var handler in keyValue.Value)
+                    {
+                        handler.HandleKeyUp();
+                    }
+                }
+            }
         }
 
         public void AddLevelItem(PhysicScenePublicData physicObjects, Animator[] animators, KeyboardMappingEntry[] keyboardData)
@@ -102,6 +113,14 @@ namespace Simulator.KeyboardControl
             foreach (var item in this.levelItems)
             {
                 item.HandleKeyUp(key);
+            }
+        }
+
+        public void ReleaseAllKeys()
+        {
+            foreach (var item in this.levelItems)
+            {
+                item.ReleaseAllKeys();
             }
         }
     }

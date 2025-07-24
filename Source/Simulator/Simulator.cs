@@ -407,6 +407,11 @@ namespace Simulator
         {
             this.keyHandler.HandleKeyUp(key);
         }
+        public virtual void ReleaseAllKeys()
+        {
+            this.keyHandler.ReleaseAllKeys();
+        }
+
 
         public PhysicGlobal.BoundingBox GetBoundingBoxFromScene()
         {
