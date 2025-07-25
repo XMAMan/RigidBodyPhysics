@@ -151,10 +151,12 @@ namespace PhysicSceneDrawing
             this.textures.Add(Convert(body, texturData));
         }
 
-        public void RemoveBody(IPublicRigidBody body)
+        //Return: Diese Texturdaten wurden entfertn
+        public TextureExportData RemoveBody(IPublicRigidBody body)
         {
             var tex = this.textures.First(x => x.AssociatedBody == body);
             this.textures.Remove(tex);
+            return tex.TextureExportData;
         }
 
         public void AddDistanceJoint(IPublicDistanceJoint joint)

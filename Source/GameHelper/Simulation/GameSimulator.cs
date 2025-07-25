@@ -393,9 +393,14 @@ namespace GameHelper.Simulation
             this.sceneDrawer.UseCustomDrawingForRigidBody(body, bodyDrawer);
         }
 
-        public void RemoveBodyFromPhysicSceneDrawer(IPublicRigidBody body)
+        public TextureExportData RemoveBodyFromPhysicSceneDrawer(IPublicRigidBody body)
         {
-            this.sceneDrawer.RemoveBody(body);
+            return this.sceneDrawer.RemoveBody(body);
+        }
+
+        public void AddBodyToPhysicSceneDrawer(IPublicRigidBody body, TextureExportData textureData)
+        {
+            this.sceneDrawer.AddBody(body, textureData);
         }
 
         public TextureExportData GetTextureDataFromBody(IPublicRigidBody body)
