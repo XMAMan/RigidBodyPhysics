@@ -40,8 +40,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
 
     internal interface IMoveable
     {
-        void MoveCenterBy(Vec2D v);
-        void RotateTo(float angle); //rotiert das Objekt auf den angegebenen angle-Wert
+        void MoveTo(Vec2D position, float angle);
         Matrix2x2 RotateToWorld { get; } //Rotiert ein lokalen Richtungsvektor in Weltkoordinaten
     }
 

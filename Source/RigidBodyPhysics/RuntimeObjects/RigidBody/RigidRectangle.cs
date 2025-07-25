@@ -75,7 +75,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
 
             Vertex = new Vec2D[vertexLocal.Length];
 
-            RotateTo(angle);
+            MoveTo(center, angle);
         }
 
         public RigidRectangle(RectangleExportData data)
@@ -102,21 +102,12 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
         }
 
         #region IMoveable
-        public void MoveCenterBy(Vec2D v)
+        public void MoveTo(Vec2D position, float angle)
         {
-            for (int i = 0; i < Vertex.Length; i++)
-            {
-                Vertex[i] += v;
-            }
+            this.Center = position;
+            this.Angle = angle;
+            this.RotateToWorld = Matrix2x2.Rotate(Angle);
 
-            Center += v;
-        }
-
-        public void RotateTo(float angle)
-        {
-            Angle = angle;
-
-            RotateToWorld = Matrix2x2.Rotate(Angle);
             for (int i = 0; i < vertexLocal.Length; i++)
             {
                 Vertex[i] = Center + RotateToWorld * vertexLocal[i];

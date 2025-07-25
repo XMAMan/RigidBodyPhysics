@@ -57,15 +57,11 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
         }
 
         #region IMoveable
-        public void MoveCenterBy(Vec2D v)
+        public void MoveTo(Vec2D position, float angle)
         {
-            Center += v;
-        }
-
-        public void RotateTo(float angle)
-        {
-            Angle = angle;
-            RotateToWorld = Matrix2x2.Rotate(Angle);
+            this.Center = position;
+            this.Angle = angle;
+            this.RotateToWorld = Matrix2x2.Rotate(this.Angle);
         }
         public Matrix2x2 RotateToWorld { get; private set; }
         #endregion

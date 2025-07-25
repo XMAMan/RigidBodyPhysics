@@ -70,23 +70,14 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
         }
 
         #region IMoveable
-        public void MoveCenterBy(Vec2D v)
+        public virtual void MoveTo(Vec2D position, float angle)
         {
-            for (int i = 0; i < Vertex.Length; i++)
-            {
-                //Weise dem Vertexelementen kein neues Objekt zu, da dieses Objekt auch von den Kollisionserkennungsobjekten genutzt wird
-                Vertex[i].X += v.X;
-                Vertex[i].Y += v.Y;
-            }
-
-            Center += v;
-        }
-        public virtual void RotateTo(float angle)
-        {
-            Angle = angle;
-            RotateToWorld = Matrix2x2.Rotate(Angle);
+            this.Center = position;
+            this.Angle = angle;
+            this.RotateToWorld = Matrix2x2.Rotate(this.Angle);
             for (int i = 0; i < localPoints.Length; i++)
             {
+                //Weise dem Vertexelementen kein neues Objekt zu, da dieses Objekt auch von den Kollisionserkennungsobjekten genutzt wird
                 Vec2D newPos = Center + RotateToWorld * localPoints[i];
                 Vertex[i].X = newPos.X;
                 Vertex[i].Y = newPos.Y;

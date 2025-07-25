@@ -1,7 +1,7 @@
-﻿using RigidBodyPhysics.CollisionDetection.NearPhase;
+﻿using PhysicGlobal;
+using RigidBodyPhysics.CollisionDetection.NearPhase;
 using RigidBodyPhysics.CollisionDetection.NearPhase.Polygon;
 using RigidBodyPhysics.ExportData.RigidBody;
-using RigidBodyPhysics.MathHelper;
 
 namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
 {
@@ -16,17 +16,17 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
         {
             CollisionCategory = data.CollisionCategory;
 
-            var convexes = PolygonHelper.ConvertConcavePolygonToConvexes(Vertex);
+            var convexes = MathHelper.PolygonHelper.ConvertConcavePolygonToConvexes(Vertex);
             Colliables = subPolys = convexes.Select(x => new CollidableConvexPolygon(this, x)).ToArray();
 
-            RotateTo(data.AngleInRad);
+            MoveTo(data.Center, data.AngleInRad);
 
             SubPolys = Colliables.Select(x => ((CollidableConvexPolygon)x).Vertex).ToList(); //Zum Testausgabe
         }
 
-        public override void RotateTo(float angle)
+        public override void MoveTo(Vec2D position, float angle)
         {
-            base.RotateTo(angle);
+            base.MoveTo(position, angle);
 
             foreach (var poly in subPolys)
                 poly.UpdateNormalsAndCenter();

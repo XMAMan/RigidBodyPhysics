@@ -15,8 +15,11 @@ namespace RigidBodyPhysics.CollisionResolution
         {
             float f = (Math.Max(0, c.GetDepth() - allowedPenetration) / (c.B1.InverseMass + c.B2.InverseMass) * posCorrectionRate);
             Vec2D correctionAmount = c.Normal * f;
-            c.B1.MoveCenterBy(-correctionAmount * c.B1.InverseMass);
-            c.B2.MoveCenterBy(correctionAmount * c.B2.InverseMass);
+
+            Vec2D newPosition1 = c.B1.Center - correctionAmount * c.B1.InverseMass;
+            Vec2D newPosition2 = c.B2.Center + correctionAmount * c.B2.InverseMass;
+            c.B1.MoveTo(newPosition1, c.B1.Angle);
+            c.B2.MoveTo(newPosition2, c.B2.Angle);
         }
 
         //Ich benötige hier eine eigene Collision-Klasse, da bei der RigidBodyCollision der Start- und End-Punkt

@@ -76,11 +76,11 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
                 Colliables[i] = edges[i] = new PolygonEdge(this, i, isConvex[i], isConvex[(i + 1) % isConvex.Length], minValues[i], maxValues[i]);
             }
 
-            RotateTo(data.AngleInRad);
+            MoveTo(data.Center, data.AngleInRad);
         }
-        public override void RotateTo(float angle)
+        public override void MoveTo(Vec2D position, float angle)
         {
-            base.RotateTo(angle);
+            base.MoveTo(position, angle);
 
             foreach (var edge in edges)
                 edge.UpdateNormal();
