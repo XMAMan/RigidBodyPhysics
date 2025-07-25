@@ -14,10 +14,10 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
         public Vec2D Velocity { get; set; } //Velocity from the Center-Point
         public float AngularVelocity { get; set; }
 
-        public float InverseMass { get; private set; } //1 / Mass
-        public float InverseInertia { get; private set; }
-        public float Restituion { get; private set; } = 1;
-        public float Friction { get; private set; } = 1;
+        public float InverseMass { get; init; } //1 / Mass
+        public float InverseInertia { get; init; }
+        public float Restituion { get; init; } = 1;
+        public float Friction { get; init; } = 1;
         #endregion
 
 
@@ -26,7 +26,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
         public float Torque { get; set; }
         #endregion
 
-        public float Radius { get; private set; }
+        public float Radius { get; init; }
 
 
         public RigidCircle(Vec2D center, float radius, float angle, MassData massData)
@@ -74,7 +74,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
         public bool IsNotMoveable { get => InverseMass == 0; }
         public CollidableType TypeId { get; } = CollidableType.Circle;
         public List<ICollidable> CollideExcludeList { get; } = new List<ICollidable>();
-        public int CollisionCategory { get; private set; } = 0;
+        public int CollisionCategory { get; init; } = 0;
         #endregion
         #region IExportable
         public IExportRigidBody GetExportData()

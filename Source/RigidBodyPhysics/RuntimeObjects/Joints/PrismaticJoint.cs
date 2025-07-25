@@ -14,17 +14,17 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
         private Vec2D r1; //lokaler Richtungsvektor von B1.Center nach Anchor1
         private Vec2D r2;
 
-        public IPublicRigidBody Body1 { get; }
-        public IPublicRigidBody Body2 { get; }
-        public IRigidBody B1 { get; }
-        public IRigidBody B2 { get; }
+        public IPublicRigidBody Body1 { get; init; }
+        public IPublicRigidBody Body2 { get; init; }
+        public IRigidBody B1 { get; init; }
+        public IRigidBody B2 { get; init; }
         public Vec2D Anchor1 { get; private set; } //Angabe in Weltkoordinaten
         public Vec2D Anchor2 { get; private set; }
-        public bool CollideConnected { get; }
+        public bool CollideConnected { get; init; }
 
         public bool LimitIsEnabled { get; set; }
-        public float MinTranslation { get; }
-        public float MaxTranslation { get; }
+        public float MinTranslation { get; init; }
+        public float MaxTranslation { get; init; }
         public IPublicJoint.TranslationMotor Motor { get; set; }
         public float MotorSpeed { get; set; }
         public float MotorPosition { get; set; } 

@@ -21,7 +21,7 @@ namespace RigidBodyPhysics.RuntimeObjects.AxialFriction
         private Vec2D forceDirection; //Lokaler Richtungsvektor
 
         #region IPublicAxialFriction
-        public IPublicRigidBody Body { get; private set; }
+        public IPublicRigidBody Body { get; init; }
         public Vec2D Anchor { get; private set; }
         public Vec2D ForceDirection { get; private set; } //Richtungsvektor im Globalspace
         public float Friction { get; set; }
@@ -29,7 +29,7 @@ namespace RigidBodyPhysics.RuntimeObjects.AxialFriction
         #endregion
 
         #region IAxialFriction
-        public IRigidBody B1 { get; private set; }
+        public IRigidBody B1 { get; init; }
         public Vec2D R1 { get; private set; } //Angabe in Weltkoordinaten (Hebelarm vom Center zum Anchor-Punkt)      
         public float AccumulatedFrictionImpulse { get; set; } = 0; //Aufsummierte Impulse von der Reibung
         public void UpdateAnchorPoints() //Muss aufgerufen werden, wenn sich die Position der Bodys geändert hat

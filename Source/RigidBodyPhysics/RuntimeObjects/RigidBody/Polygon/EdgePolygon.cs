@@ -90,7 +90,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
         public bool IsNotMoveable { get => InverseMass == 0; }
         public CollidableType TypeId { get; } = CollidableType.Container;
         public List<ICollidable> CollideExcludeList { get; } = new List<ICollidable>();
-        public int CollisionCategory { get; private set; } = 0;
+        public int CollisionCategory { get; init; } = 0;
         #endregion
 
         protected override int GetCollisionCategory()

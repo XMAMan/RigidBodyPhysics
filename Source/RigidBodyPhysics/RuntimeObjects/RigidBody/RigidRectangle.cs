@@ -15,20 +15,20 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
         public Vec2D Velocity { get; set; } //Velocity from the Center-Point
         public float AngularVelocity { get; set; }
 
-        public float InverseMass { get; private set; } //1 / Mass
-        public float InverseInertia { get; private set; }
-        public float Restituion { get; private set; } = 1;
-        public float Friction { get; private set; } = 1;
+        public float InverseMass { get; init; } //1 / Mass
+        public float InverseInertia { get; init; }
+        public float Restituion { get; init; } = 1;
+        public float Friction { get; init; } = 1;
         #endregion
 
 
         #region IBoundingCircle
-        public float Radius { get; private set; }
+        public float Radius { get; init; }
         #endregion
 
         #region ICollidableRectangle
         //0--TopLeft;1--TopRight;2--BottomRight;3--BottomLeft
-        public Vec2D[] Vertex { get; private set; }
+        public Vec2D[] Vertex { get; init; }
         private Vec2D[] vertexLocal;
 
         //0--Top;1--Right;2--Bottom;3--Left
@@ -40,7 +40,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
         public float Torque { get; set; }
         #endregion
 
-        public Vec2D Size { get; private set; }
+        public Vec2D Size { get; init; }
 
         public RigidRectangle(Vec2D center, Vec2D size, float angle, MassData massData)
         {
@@ -133,7 +133,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
         public bool IsNotMoveable { get => InverseMass == 0; }
         public CollidableType TypeId { get; } = CollidableType.Rectangle;
         public List<ICollidable> CollideExcludeList { get; } = new List<ICollidable>();
-        public int CollisionCategory { get; private set; } = 0;
+        public int CollisionCategory { get; init; } = 0;
         #endregion
 
         #region IExportable
@@ -202,9 +202,9 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
 
         #region IPublicRigidRectangle
         public bool IsBroken { get; set; } = false; //Dieses Flag wird vom MaxForceTracker gesetzt
-        public bool BreakWhenMaxPushPullForceIsReached { get; }
-        public float MaxPushPullForce { get; }
-        public float Area { get; }
+        public bool BreakWhenMaxPushPullForceIsReached { get; init; }
+        public float MaxPushPullForce { get; init; }
+        public float Area { get; init; }
         #endregion
     }
 }

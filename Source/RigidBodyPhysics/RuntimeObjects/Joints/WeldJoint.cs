@@ -13,16 +13,16 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
         private Vec2D r1; //lokaler Richtungsvektor von B1.Center nach Anchor1
         private Vec2D r2;
 
-        public IPublicRigidBody Body1 { get; }
-        public IPublicRigidBody Body2 { get; }
-        public IRigidBody B1 { get; }
-        public IRigidBody B2 { get; }
+        public IPublicRigidBody Body1 { get; init; }
+        public IPublicRigidBody Body2 { get; init; }
+        public IRigidBody B1 { get; init; }
+        public IRigidBody B2 { get; init; }
         public Vec2D Anchor1 { get; private set; } //Angabe in Weltkoordinaten
         public Vec2D Anchor2 { get; private set; }
-        public bool CollideConnected { get; }
+        public bool CollideConnected { get; init; }
 
 
-        public SoftConstraintData Soft { get; } //Vom Nutzer vorgegebene Softness-Parameter
+        public SoftConstraintData Soft { get; init; } //Vom Nutzer vorgegebene Softness-Parameter
 
         public float Stiffness
         {
@@ -41,8 +41,8 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
 
         #region IBreakableJoint
         public bool IsBroken { get; set; } = false;
-        public bool BreakWhenMaxForceIsReached { get; }
-        public float MaxForceToBreak { get; }
+        public bool BreakWhenMaxForceIsReached { get; init; }
+        public float MaxForceToBreak { get; init; }
         public float CurrentForce { get => AccumulatedPointToPointImpulse.Length(); } //Diese Kraft wurde im letzen TimeStep auf das Gelenk angwendet (Entspricht dem PointToPoint-AccumuletedImpulse oder dem DistanceImpluse)
         #endregion
 

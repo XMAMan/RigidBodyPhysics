@@ -15,14 +15,14 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
         public Vec2D Velocity { get; set; } //Velocity from the Center-Point
         public float AngularVelocity { get; set; }
 
-        public float InverseMass { get; private set; } //1 / Mass
-        public float InverseInertia { get; private set; }
-        public float Restituion { get; private set; } = 1;
-        public float Friction { get; private set; } = 1;
+        public float InverseMass { get; init; } //1 / Mass
+        public float InverseInertia { get; init; }
+        public float Restituion { get; init; } = 1;
+        public float Friction { get; init; } = 1;
         #endregion
 
         #region IBoundingCircle
-        public float Radius { get; private set; }
+        public float Radius { get; init; }
         #endregion
 
         #region IForceable
@@ -128,8 +128,8 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
         #endregion
 
         #region IPublicRigidPolygon
-        public Vec2D[] Vertex { get; private set; }
-        public PolygonCollisionType PolygonType { get; private set; }
+        public Vec2D[] Vertex { get; init; }
+        public PolygonCollisionType PolygonType { get; init; }
 
         public List<Vec2D[]> SubPolys { get; protected set; } //Zur Testausgabe
         public bool[] IsConvex { get; protected set; } = null;

@@ -8,7 +8,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RotaryMotor
     internal class RotaryMotor : IRotaryMotor
     {
         #region IPublicRotaryMotor
-        public IPublicRigidBody Body { get; }
+        public IPublicRigidBody Body { get; init; }
         public float RotaryForce { get; set; }
         public float MaxSpeed { get; set; }
         private bool isEnabled = false;
@@ -42,7 +42,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RotaryMotor
         #endregion
 
         #region IRotaryMotor
-        public IRigidBody B1 { get; }
+        public IRigidBody B1 { get; init; }
         public float AccumulatedBrakeImpulse { get; set; } = 0; //Aufsummierte Impulse von der Bremse
         public float TargetAngluarValueForBrake { get; private set; } = float.NaN; //Diesen Angle-Wert hatte der Körper, als BreakIsEnabled auf true ging
         #endregion

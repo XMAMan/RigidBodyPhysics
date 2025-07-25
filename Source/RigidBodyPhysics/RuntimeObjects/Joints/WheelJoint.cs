@@ -13,17 +13,17 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
         private Vec2D r1; //lokaler Richtungsvektor von B1.Center nach Anchor1
         private Vec2D r2;
 
-        public IPublicRigidBody Body1 { get; }
-        public IPublicRigidBody Body2 { get; }
-        public IRigidBody B1 { get; }
-        public IRigidBody B2 { get; }
+        public IPublicRigidBody Body1 { get; init; }
+        public IPublicRigidBody Body2 { get; init; }
+        public IRigidBody B1 { get; init; }
+        public IRigidBody B2 { get; init; }
         public Vec2D Anchor1 { get; private set; } //Angabe in Weltkoordinaten
         public Vec2D Anchor2 { get; private set; }
-        public bool CollideConnected { get; }
+        public bool CollideConnected { get; init; }
 
         public bool LimitIsEnabled { get; set; }
-        public float MinTranslation { get; } = 0;
-        public float MaxTranslation { get; } = 1;
+        public float MinTranslation { get; init; } = 0;
+        public float MaxTranslation { get; init; } = 1;
         public IPublicJoint.TranslationMotor Motor { get; set; }
         public float MotorSpeed { get; set; }
         public float MotorPosition { get; set; }
@@ -32,7 +32,7 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
         public float MotorPixelPosition { get; private set; }
         public float CurrentPosition { get; private set; } //0..1
 
-        public SoftConstraintData Soft { get; } //Vom Nutzer vorgegebene Softness-Parameter
+        public SoftConstraintData Soft { get; init; } //Vom Nutzer vorgegebene Softness-Parameter
 
         public float AccumulatedPointToLineImpulse { get; set; } = 0;
         public float AccumulatedMinMaxImpulse { get; set; } = 0;
@@ -40,15 +40,15 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
 
         #region IBreakableJoint
         public bool IsBroken { get; set; } = false;
-        public bool BreakWhenMaxForceIsReached { get; }
-        public float MaxForceToBreak { get; }
+        public bool BreakWhenMaxForceIsReached { get; init; }
+        public float MaxForceToBreak { get; init; }
         public float CurrentForce { get => AccumulatedPointToLineImpulse; } //Diese Kraft wurde im letzen TimeStep auf das Gelenk angwendet (Entspricht dem PointToPoint-AccumuletedImpulse oder dem DistanceImpluse)
         #endregion
 
-        public float R1Length { get; } //Abstand von Ankerpunkt2 projetziert auf r1 zu Center1
+        public float R1Length { get; init; } //Abstand von Ankerpunkt2 projetziert auf r1 zu Center1
         public Vec2D B1ToA2 { get; private set; } //d=Anchor2 - B1.Center
         public Vec2D R1Dir { get; private set; } //(Anchor1 - B1.Center).Normalize();
-        private float minMaxRange = 1;
+        private float minMaxRange { get; init; } = 1;
 
         public WheelJoint(WheelJointExportData data, List<IRigidBody> bodies)
         {
