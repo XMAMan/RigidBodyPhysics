@@ -14,7 +14,7 @@ namespace RigidBodyPhysics.UnitTests.Constraints.Joints
         [Fact]
         public void AllJointsAreMoved_ToResultingBodyPositionMatchWithExpectedPositions()
         {
-            float maxDiff = JointSimulator.SimulateAndCompare(TestData + "AllJointsStart.txt", TestData + "AllJointsEnd.txt", TimeStepTickRate, 100, 20,
+            float maxDiff = JointSimulator.SimulateAndCompare(TestData + "AllJointsStart.txt", TestData + "AllJointsEnd.txt", "Output.txt", TimeStepTickRate, 100, 20,
                 new JointSimulator.JointSetpoint[]
                 {
                     new JointSimulator.JointSetpoint(){JointIndex = 5, SetValue = 0.18f}, //Prismatic Joint
@@ -28,7 +28,7 @@ namespace RigidBodyPhysics.UnitTests.Constraints.Joints
         [Fact]
         public void AllJointsStiffAreMoved_ToResultingBodyPositionMatchWithExpectedPositions()
         {
-            float maxDiff = JointSimulator.SimulateAndCompare(TestData + "AllJointsStiffStart.txt", TestData + "AllJointsStiffEnd.txt", TimeStepTickRate, 100, 20,
+            float maxDiff = JointSimulator.SimulateAndCompare(TestData + "AllJointsStiffStart.txt", TestData + "AllJointsStiffEnd.txt", "OutputStiff.txt", TimeStepTickRate, 100, 20,
                 new JointSimulator.JointSetpoint[]
                 {
                     new JointSimulator.JointSetpoint(){JointIndex = 5, SetValue = 0.81f}, //Prismatic Joint
@@ -52,7 +52,7 @@ namespace RigidBodyPhysics.UnitTests.Constraints.Joints
             var phase2Steps = 20;
 
             //Run 1: scene wurde neu über Konstruktur erstellt
-            float maxDiff1 = JointSimulator.SimulateAndCompare(scene, TestData + "AllJointsEnd.txt", TimeStepTickRate, phase1Steps, phase2Steps,
+            float maxDiff1 = JointSimulator.SimulateAndCompare(scene, TestData + "AllJointsEnd.txt", "Output.txt", TimeStepTickRate, phase1Steps, phase2Steps,
                 new JointSimulator.JointSetpoint[]
                 {
                     new JointSimulator.JointSetpoint(){JointIndex = 5, SetValue = 0.18f}, //Prismatic Joint
@@ -82,7 +82,7 @@ namespace RigidBodyPhysics.UnitTests.Constraints.Joints
             string initStateText2 = JsonHelper.Helper.ToCompactJson(initialState2);
             initStateText1.Should().Be(initStateText2);
 
-            float maxDiff2 = JointSimulator.SimulateAndCompare(scene, TestData + "AllJointsEnd.txt", TimeStepTickRate, phase1Steps, phase2Steps,
+            float maxDiff2 = JointSimulator.SimulateAndCompare(scene, TestData + "AllJointsEnd.txt", "Output.txt", TimeStepTickRate, phase1Steps, phase2Steps,
                 new JointSimulator.JointSetpoint[]
                 {
                     new JointSimulator.JointSetpoint(){JointIndex = 5, SetValue = 0.18f}, //Prismatic Joint

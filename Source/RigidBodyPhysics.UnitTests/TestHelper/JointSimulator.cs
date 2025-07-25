@@ -58,14 +58,14 @@ namespace RigidBodyPhysics.UnitTests.TestHelper
             }
         }
 
-        public static float SimulateAndCompare(string startScene, string expectedEndScene, float timeStepTickRate, int phase1Steps, int phase2Steps, JointSetpoint[] setpoints)
+        public static float SimulateAndCompare(string startScene, string expectedEndScene, string actualOutput, float timeStepTickRate, int phase1Steps, int phase2Steps, JointSetpoint[] setpoints)
         {
             var sceneData = ExportHelper.ReadFromFile(startScene);
             var scene = new PhysicScene(sceneData);
-            return SimulateAndCompare(scene, expectedEndScene, timeStepTickRate, phase1Steps, phase2Steps, setpoints, (scene) => { });
+            return SimulateAndCompare(scene, expectedEndScene, actualOutput, timeStepTickRate, phase1Steps, phase2Steps, setpoints, (scene) => { });
         }
 
-        public static float SimulateAndCompare(PhysicScene scene, string expectedEndScene, float timeStepTickRate, int phase1Steps, int phase2Steps, JointSetpoint[] setpoints, Action<PhysicScene> timestepAction)
+        public static float SimulateAndCompare(PhysicScene scene, string expectedEndScene, string actualOutput, float timeStepTickRate, int phase1Steps, int phase2Steps, JointSetpoint[] setpoints, Action<PhysicScene> timestepAction)
         {
             var setter = setpoints.Select(x => new Joint(scene.GetAllJoints()[x.JointIndex])).ToArray();
 
@@ -92,7 +92,7 @@ namespace RigidBodyPhysics.UnitTests.TestHelper
             var actual = scene.GetExportData();
             var expected = Helper.FromCompactJson<PhysicSceneExportData>(File.ReadAllText(expectedEndScene));
 
-            string testOutputFile = new FileInfo(expectedEndScene).DirectoryName + "\\Output.txt";
+            string testOutputFile = new FileInfo(expectedEndScene).DirectoryName + "\\" + actualOutput;
 
             File.WriteAllText(testOutputFile, Helper.ToCompactJson(actual));
 
