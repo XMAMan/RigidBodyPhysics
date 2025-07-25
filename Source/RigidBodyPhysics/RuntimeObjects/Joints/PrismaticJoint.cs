@@ -1,18 +1,19 @@
-﻿using RigidBodyPhysics.CollisionResolution.SequentiellImpulse.Constraints.BasisConstraints;
-using RigidBodyPhysics.CollisionResolution.SequentiellImpulse.Constraints.Prismatic;
+﻿using PhysicGlobal;
 using RigidBodyPhysics.CollisionResolution.SequentiellImpulse.Constraints;
+using RigidBodyPhysics.CollisionResolution.SequentiellImpulse.Constraints.BasisConstraints;
+using RigidBodyPhysics.CollisionResolution.SequentiellImpulse.Constraints.Prismatic;
 using RigidBodyPhysics.ExportData.Joints;
 using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.MaxForceTracking;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
-using PhysicGlobal;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace RigidBodyPhysics.RuntimeObjects.Joints
 {
     internal class PrismaticJoint : IJoint, IPublicPrismaticJoint, IPointToLineJoint, IMinMaxTranslationJoint, ITranslationMotorJoint, IFixAngularJoint, IBreakableJoint
     {
-        private Vec2D r1; //lokaler Richtungsvektor von B1.Center nach Anchor1
-        private Vec2D r2;
+        private Vec2D r1 { get; init; } //lokaler Richtungsvektor von B1.Center nach Anchor1
+        private Vec2D r2 { get; init; }
 
         public IPublicRigidBody Body1 { get; init; }
         public IPublicRigidBody Body2 { get; init; }
@@ -22,7 +23,7 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
         public Vec2D Anchor2 { get; private set; }
         public bool CollideConnected { get; init; }
 
-        public bool LimitIsEnabled { get; set; }
+        public bool LimitIsEnabled { get; init; }
         public float MinTranslation { get; init; }
         public float MaxTranslation { get; init; }
         public IPublicJoint.TranslationMotor Motor { get; set; }
@@ -33,7 +34,7 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
         public float MotorPixelPosition { get; private set; }
         public float CurrentPosition { get; private set; } //0..1
 
-        public SoftConstraintData Soft { get; } //Vom Nutzer vorgegebene Softness-Parameter
+        public SoftConstraintData Soft { get; init; } //Vom Nutzer vorgegebene Softness-Parameter
 
         public float AccumulatedPointToLineImpulse { get; set; } = 0;
 
@@ -43,19 +44,20 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
 
         #region IBreakableJoint
         public bool IsBroken { get; set; } = false;
-        public bool BreakWhenMaxForceIsReached { get; }
-        public float MaxForceToBreak { get; }
+        public bool BreakWhenMaxForceIsReached { get; init; }
+        public float MaxForceToBreak { get; init; }
         public float CurrentForce { get => AccumulatedPointToLineImpulse; } //Diese Kraft wurde im letzen TimeStep auf das Gelenk angwendet (Entspricht dem PointToPoint-AccumuletedImpulse oder dem DistanceImpluse)
         #endregion
 
-        public float R1Length { get; } //Abstand von Ankerpunkt2 projetziert auf r1 zu Center1
+        public float R1Length { get; init; } //Abstand von Ankerpunkt2 projetziert auf r1 zu Center1
         public Vec2D B1ToA2 { get; private set; } //d=Anchor2 - B1.Center
         public Vec2D R1Dir { get; private set; } //(Anchor1 - B1.Center).Normalize();
-        public float AngularDifferenceOnStart { get; }
-        private float minMaxRange = 1;
+        public float AngularDifferenceOnStart { get; init; }
+        private float minMaxRange { get; init; } = 1;
 
         public PrismaticJoint(PrismaticJointExportData data, List<IRigidBody> bodies)
         {
+            //Hier wird allen init-Variablen ein Wert zugewiesen
             Body1 = B1 = bodies[data.BodyIndex1];
             Body2 = B2 = bodies[data.BodyIndex2];
             r1 = data.R1;
@@ -64,29 +66,16 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
             LimitIsEnabled = data.LimitIsEnabled;
             MinTranslation = data.MinTranslation;
             MaxTranslation = data.MaxTranslation;
-            Motor = data.Motor;
-            MotorSpeed = data.MotorSpeed;
-            MaxMotorForce = data.MaxMotorForce;
             Soft = new SoftConstraintData(data.SoftData, B1, B2);
             BreakWhenMaxForceIsReached = data.BreakWhenMaxForceIsReached;
             MaxForceToBreak = data.MaxForceToBreak;
-
             R1Length = r1.Length();
-
             AngularDifferenceOnStart = B2.Angle - B1.Angle;
-
             if (LimitIsEnabled) minMaxRange = MaxTranslation - MinTranslation;
 
-            UpdateAnchorPoints();
-
-            if (float.IsNaN(data.MotorPosition))
-            {
-                MotorPosition = Math.Min(1, Math.Max(0, CurrentPosition)); //Soll-Startwert = Istwert zum Start
-            }
-            else
-            {
-                MotorPosition = data.MotorPosition;
-            }
+            //weise den restlichen Variablen ein Wert zu
+            UpdateAnchorPoints();   //Das muss zuerst kommen da hier CurrentPosition ein Wert zugewiesen wird
+            LoadExportData(data);   //Hier wird CurrentPosition dann gelesen
 
             MotorPixelPosition = (MotorPosition * minMaxRange + MinTranslation) * R1Length; //Soll-Pixelwert = Istwert zum Start
         }
@@ -122,6 +111,7 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
                 BreakWhenMaxForceIsReached = BreakWhenMaxForceIsReached,
                 MaxForceToBreak = MaxForceToBreak,
                 MotorPosition = MotorPosition,
+                IsBroken = IsBroken,
             };
         }
 
@@ -163,10 +153,23 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
             this.AccumulatedTranslationMotorImpulse = 0;
         }
 
-        public void LoadSetPositionFromExportData(IExportJoint joint)
+        public void LoadExportData(IExportJoint joint)
         {
-            var export = (PrismaticJointExportData)joint;
-            this.MotorPosition = export.MotorPosition;
+            var data = (PrismaticJointExportData)joint;
+
+            this.Motor = data.Motor;
+            this.MotorSpeed = data.MotorSpeed;
+            this.MaxMotorForce = data.MaxMotorForce;
+            this.IsBroken = data.IsBroken;
+
+            if (float.IsNaN(data.MotorPosition))
+            {
+                this.MotorPosition = Math.Min(1, Math.Max(0, CurrentPosition)); //Soll-Startwert = Istwert zum Start
+            }
+            else
+            {
+                this.MotorPosition = data.MotorPosition;
+            }
         }
     }
 }

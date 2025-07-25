@@ -23,7 +23,7 @@ namespace RigidBodyPhysics.ExportData.Joints
 
         public bool BreakWhenMaxForceIsReached { get; set; }
         public float MaxForceToBreak { get; set; }
-
+        public bool IsBroken { get; set; }
         public float MotorPosition { get; set; } = float.NaN; //Sollwertposition. NaN bedeutet das SollWert auf den Istwert beim importieren gesetzt wird
         public WheelJointExportData() { }
 
@@ -43,6 +43,7 @@ namespace RigidBodyPhysics.ExportData.Joints
             this.SoftData = new SoftExportData(copy.SoftData);
             this.BreakWhenMaxForceIsReached = copy.BreakWhenMaxForceIsReached;
             this.MaxForceToBreak = copy.MaxForceToBreak;
+            this.IsBroken = copy.IsBroken;
             this.MotorPosition = copy.MotorPosition;
         }
 

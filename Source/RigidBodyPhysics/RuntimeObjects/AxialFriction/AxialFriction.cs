@@ -17,8 +17,8 @@ namespace RigidBodyPhysics.RuntimeObjects.AxialFriction
     //  geschwindigkeit beschleunigt.
     internal class AxialFriction : IAxialFriction
     {
-        private Vec2D r1; //lokaler Richtungsvektor von B1.Center nach Anchor
-        private Vec2D forceDirection; //Lokaler Richtungsvektor
+        private Vec2D r1 { get; init; } //lokaler Richtungsvektor von B1.Center nach Anchor
+        private Vec2D forceDirection { get; init; } //Lokaler Richtungsvektor
 
         #region IPublicAxialFriction
         public IPublicRigidBody Body { get; init; }
@@ -42,14 +42,17 @@ namespace RigidBodyPhysics.RuntimeObjects.AxialFriction
 
         public AxialFriction(AxialFrictionExportData data, List<IRigidBody> bodies)
         {
+            //Hier wird allen init-Variablen ein Wert zugewiesen
             Body = B1 = bodies[data.BodyIndex];
             r1 = data.R1;
             forceDirection = data.ForceDirection;
-            Friction = data.Friction;
-            TargetVelocity = data.TargetVelocity;
 
+            //weise den restlichen Variablen ein Wert zu
+            LoadExportData(data);
             UpdateAnchorPoints();
         }
+
+        
 
         #region IExportableAxialFriction
         public IExportAxialFriction GetExportData(List<IRigidBody> bodies)
@@ -62,6 +65,11 @@ namespace RigidBodyPhysics.RuntimeObjects.AxialFriction
                 Friction = Friction,
                 TargetVelocity = TargetVelocity
             };
+        }
+        public void LoadExportData(IExportAxialFriction data)
+        {
+            Friction = data.Friction;
+            TargetVelocity = data.TargetVelocity;
         }
         #endregion
 

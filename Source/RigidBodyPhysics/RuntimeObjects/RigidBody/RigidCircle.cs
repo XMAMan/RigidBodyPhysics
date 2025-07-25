@@ -7,7 +7,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
 {
     internal class RigidCircle : IRigidBody, ICollidableCircle, IPublicRigidCircle
     {
-        private readonly MassData massData; //Wird für die ExportFunktion benötigt
+        private MassData massData { get; init; } //Wird für die ExportFunktion benötigt
         #region IRigidBody
         public Vec2D Center { get; private set; } //Position of the Center of gravity
         public float Angle { get; private set; } //Oriantation around the Z-Aches with rotationpoint=Center [0..2PI]
@@ -28,32 +28,25 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
 
         public float Radius { get; init; }
 
-
-        public RigidCircle(Vec2D center, float radius, float angle, MassData massData)
+        //Dieser Konstruktor weißt ausschließlich allen init/readonly-Properties ein Wert zu
+        private RigidCircle(CircleExportData data, bool notUsed)
         {
-            this.massData = massData;
-            Center = center;
-            Angle = angle;
-            Velocity = new Vec2D(0, 0);
-            AngularVelocity = 0;
-            Area = radius * radius * (float)Math.PI;
+            this.massData = data.MassData;
+            this.Radius = data.Radius;
+            this.Area = Radius * Radius * (float)Math.PI;
             float mass = massData.GetMass(Area);
-            InverseMass = float.MaxValue == mass ? 0 : 1 / mass;
-            InverseInertia = InverseMass == 0 ? 0 : 1.0f / (mass * radius * radius / 12f);
-            Force = new Vec2D(0, 0);
-            Torque = 0;
-            Radius = radius;
-            RotateToWorld = Matrix2x2.Rotate(Angle);
+            this.InverseMass = float.MaxValue == mass ? 0 : 1 / mass;
+            this.InverseInertia = InverseMass == 0 ? 0 : 1.0f / (mass * Radius * Radius / 12f);
+            this.Friction = data.Friction;
+            this.Restituion = data.Restituion;
+            this.CollisionCategory = data.CollisionCategory;
         }
 
+        //Dieser Konstruktor ruft nur LoadExportData aber weißt keiner Variable ein Wert zu
         public RigidCircle(CircleExportData data)
-            : this(data.Center, data.Radius, data.AngleInRad, data.MassData)
+            : this(data, false)
         {
-            Velocity = new Vec2D(data.Velocity);
-            AngularVelocity = data.AngularVelocity;
-            Friction = data.Friction;
-            Restituion = data.Restituion;
-            CollisionCategory = data.CollisionCategory;
+            LoadExportData(data);
         }
 
         #region IMoveable
@@ -69,7 +62,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
         #region ICollidable
         public bool IsNotMoveable { get => InverseMass == 0; }
         public CollidableType TypeId { get; } = CollidableType.Circle;
-        public List<ICollidable> CollideExcludeList { get; } = new List<ICollidable>();
+        public List<ICollidable> CollideExcludeList { get; init; } = new List<ICollidable>();
         public int CollisionCategory { get; init; } = 0;
         #endregion
         #region IExportable
@@ -88,6 +81,16 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
                 CollisionCategory = CollisionCategory,
             };
         }
+        public void LoadExportData(IExportRigidBody exportData)
+        {
+            var data = (CircleExportData)exportData;
+
+            MoveTo(data.Center, data.AngleInRad);
+            this.Velocity = new Vec2D(data.Velocity);
+            this.AngularVelocity = data.AngularVelocity;
+            this.Force = new Vec2D(0, 0);
+            this.Torque = 0;
+        }
         #endregion
 
         #region IClickable
@@ -98,7 +101,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
         #endregion
 
         #region IPublicRigidBody
-        public float Area { get; }
+        public float Area { get; init; }
         #endregion
     }
 }

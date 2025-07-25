@@ -14,6 +14,7 @@ namespace RigidBodyPhysics.ExportData.Joints
 
         public bool BreakWhenMaxForceIsReached { get; set; }
         public float MaxForceToBreak { get; set; }
+        public bool IsBroken { get; set; }
 
         public WeldJointExportData() { }
 
@@ -27,6 +28,7 @@ namespace RigidBodyPhysics.ExportData.Joints
             this.SoftData = new SoftExportData(copy.SoftData);
             this.BreakWhenMaxForceIsReached = copy.BreakWhenMaxForceIsReached;
             this.MaxForceToBreak = copy.MaxForceToBreak;
+            this.IsBroken = copy.IsBroken;
         }
 
         public IExportJoint GetCopy()

@@ -6,5 +6,6 @@ namespace RigidBodyPhysics.RuntimeObjects.RotaryMotor
     internal interface IExportableRotaryMotor
     {
         IExportRotaryMotor GetExportData(List<IRigidBody> bodies);
+        void LoadExportData(IExportRotaryMotor data);
     }
 }

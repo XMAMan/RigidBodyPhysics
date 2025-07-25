@@ -10,8 +10,8 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
 {
     internal class DistanceJoint : IJoint, IPublicDistanceJoint, IBreakablePushPullJoint
     {
-        private Vec2D r1; //lokaler Richtungsvektor von B1.Center nach Anchor1
-        private Vec2D r2;
+        private Vec2D r1 { get; init; } //lokaler Richtungsvektor von B1.Center nach Anchor1
+        private Vec2D r2 { get; init; }
 
         public IPublicRigidBody Body1 { get; init; }
         public IPublicRigidBody Body2 { get; init; }
@@ -36,7 +36,7 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
         public float CurrentForce { get => AccumulatedImpulse; } //Diese Kraft wurde im letzen TimeStep auf das Gelenk angwendet (Entspricht dem PointToPoint-AccumuletedImpulse oder dem DistanceImpluse)
         #endregion
 
-        internal SoftConstraintData Soft; //Vom Nutzer vorgegebene Softness-Parameter
+        internal SoftConstraintData Soft { get; init; } //Vom Nutzer vorgegebene Softness-Parameter
 
         public float AccumulatedImpulse { get; internal set; } = 0; //Für DistanceJointConstraint
         public float AccumulatedImpulseForMinMax { get; internal set; } = 0; //Für MinMaxDistanceConstraint
@@ -44,6 +44,7 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
 
         public DistanceJoint(DistanceJointExportData data, List<IRigidBody> bodies)
         {
+            //Hier wird allen init-Variablen ein Wert zugewiesen
             Body1 = B1 = bodies[data.BodyIndex1];
             Body2 = B2 = bodies[data.BodyIndex2];
             r1 = data.R1;
@@ -56,18 +57,12 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
             BreakWhenMaxForceIsReached = data.BreakWhenMaxForceIsReached;
             MinForceToBreak = data.MinForceToBreak;
             MaxForceToBreak = data.MaxForceToBreak;
-
             Soft = new SoftConstraintData(data.SoftData, B1, B2);
 
-            UpdateAnchorPoints();
+            //weise den restlichen Variablen ein Wert zu
+            UpdateAnchorPoints();   //Das muss zuerst kommen da hier CurrentPosition ein Wert zugewiesen wird
+            LoadExportData(data);   //Hier wird CurrentPosition dann gelesen
 
-            if (float.IsNaN(data.LengthPosition))
-            {
-                LengthPosition = CurrentPosition;
-            }else
-            {
-                LengthPosition = data.LengthPosition;
-            }           
         }
 
         public void UpdateAnchorPoints()
@@ -95,6 +90,7 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
                 BreakWhenMaxForceIsReached = BreakWhenMaxForceIsReached,
                 MinForceToBreak = MinForceToBreak,
                 MaxForceToBreak = MaxForceToBreak,
+                IsBroken = IsBroken,
                 LengthPosition = LengthPosition,
             };
         }
@@ -122,10 +118,20 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
             this.AccumulatedImpulseForMinMax = 0;
         }
 
-        public void LoadSetPositionFromExportData(IExportJoint joint)
+        public void LoadExportData(IExportJoint joint)
         {
-            var export = (DistanceJointExportData)joint;
-            this.LengthPosition = export.LengthPosition;
+            var data = (DistanceJointExportData)joint;
+
+            if (float.IsNaN(data.LengthPosition))
+            {
+                LengthPosition = CurrentPosition;
+            }
+            else
+            {
+                LengthPosition = data.LengthPosition;
+            }
+
+            this.IsBroken = data.IsBroken;            
         }
     }
 }

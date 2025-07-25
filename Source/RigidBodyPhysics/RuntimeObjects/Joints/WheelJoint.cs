@@ -1,17 +1,18 @@
-﻿using RigidBodyPhysics.CollisionResolution.SequentiellImpulse.Constraints.BasisConstraints;
+﻿using PhysicGlobal;
 using RigidBodyPhysics.CollisionResolution.SequentiellImpulse.Constraints;
+using RigidBodyPhysics.CollisionResolution.SequentiellImpulse.Constraints.BasisConstraints;
 using RigidBodyPhysics.ExportData.Joints;
 using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.MaxForceTracking;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
-using PhysicGlobal;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace RigidBodyPhysics.RuntimeObjects.Joints
 {
     internal class WheelJoint : IJoint, IPublicWheelJoint, IPointToLineJoint, IMinMaxTranslationJoint, ITranslationMotorJoint, IBreakableJoint
     {
-        private Vec2D r1; //lokaler Richtungsvektor von B1.Center nach Anchor1
-        private Vec2D r2;
+        private Vec2D r1 { get; init; } //lokaler Richtungsvektor von B1.Center nach Anchor1
+        private Vec2D r2 { get; init; }
 
         public IPublicRigidBody Body1 { get; init; }
         public IPublicRigidBody Body2 { get; init; }
@@ -21,7 +22,7 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
         public Vec2D Anchor2 { get; private set; }
         public bool CollideConnected { get; init; }
 
-        public bool LimitIsEnabled { get; set; }
+        public bool LimitIsEnabled { get; init; }
         public float MinTranslation { get; init; } = 0;
         public float MaxTranslation { get; init; } = 1;
         public IPublicJoint.TranslationMotor Motor { get; set; }
@@ -52,6 +53,7 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
 
         public WheelJoint(WheelJointExportData data, List<IRigidBody> bodies)
         {
+            //Hier wird allen init-Variablen ein Wert zugewiesen
             Body1 = B1 = bodies[data.BodyIndex1];
             Body2 = B2 = bodies[data.BodyIndex2];
             r1 = data.R1;
@@ -60,16 +62,14 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
             LimitIsEnabled = data.LimitIsEnabled;
             MinTranslation = data.MinTranslation;
             MaxTranslation = data.MaxTranslation;
-            Motor = data.Motor;
-            MotorSpeed = data.MotorSpeed;
-            MaxMotorForce = data.MaxMotorForce;
             Soft = new SoftConstraintData(data.SoftData, B1, B2);
             BreakWhenMaxForceIsReached = data.BreakWhenMaxForceIsReached;
             MaxForceToBreak = data.MaxForceToBreak;
-
             R1Length = r1.Length();
-
             if (LimitIsEnabled) minMaxRange = MaxTranslation - MinTranslation;
+
+            //weise den restlichen Variablen ein Wert zu
+            LoadExportData(data);
 
             UpdateAnchorPoints();
 
@@ -115,6 +115,7 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
                 SoftData = Soft.GetExportData(),
                 BreakWhenMaxForceIsReached = BreakWhenMaxForceIsReached,
                 MaxForceToBreak = MaxForceToBreak,
+                IsBroken = IsBroken,
                 MotorPosition = MotorPosition,
             };
         }
@@ -149,10 +150,14 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
             this.AccumulatedTranslationMotorImpulse = 0;
         }
 
-        public void LoadSetPositionFromExportData(IExportJoint joint)
+        public void LoadExportData(IExportJoint joint)
         {
-            var export = (WheelJointExportData)joint;
-            this.MotorPosition = export.MotorPosition;
+            var data = (WheelJointExportData)joint;
+            this.MotorPosition = data.MotorPosition;
+            this.Motor = data.Motor;
+            this.MotorSpeed = data.MotorSpeed;
+            this.MaxMotorForce = data.MaxMotorForce;
+            this.IsBroken = data.IsBroken;
         }
     }
 }

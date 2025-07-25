@@ -8,13 +8,11 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
     //Erweitert das ConcavePolygon um die Kollisionsabfrage (Siehe ICollidableContainer und ICollidable (Kommt durch IRigidBody))
     internal class EdgePolygon : ConcavePolygon, IRigidBody, ICollidableContainer
     {
-        public ICollidable[] Colliables { get; }
-        private PolygonEdge[] edges;
+        public ICollidable[] Colliables { get; init; }
+        private PolygonEdge[] edges { get; init; } = new PolygonEdge[0];
         public EdgePolygon(PolygonExportData data)
             : base(data)
         {
-            CollisionCategory = data.CollisionCategory;
-
             Colliables = edges = new PolygonEdge[Vertex.Length];
 
             //Schritt 1: Berechnet für jeden Polygoneckpunkt, ob er eine Rechteckskante durchstoßen kann ohne dass es weitere Schnittpunkte gibt
@@ -84,18 +82,6 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
 
             foreach (var edge in edges)
                 edge.UpdateNormal();
-        }
-
-        #region ICollidable
-        public bool IsNotMoveable { get => InverseMass == 0; }
-        public CollidableType TypeId { get; } = CollidableType.Container;
-        public List<ICollidable> CollideExcludeList { get; } = new List<ICollidable>();
-        public int CollisionCategory { get; init; } = 0;
-        #endregion
-
-        protected override int GetCollisionCategory()
-        {
-            return CollisionCategory;
         }
     }
 }

@@ -5,7 +5,6 @@ namespace RigidBodyPhysics.ExportData.RigidBody
     public class PropertysExportData
     {
         public Vec2D Center { get; set; }
-        public float AngleInDegree { get; set; }
         public float AngleInRad { get; set; }
         public Vec2D Velocity { get; set; } = new Vec2D(0, 0);
         public float AngularVelocity { get; set; } = 0;
@@ -32,7 +31,6 @@ namespace RigidBodyPhysics.ExportData.RigidBody
     public interface IPropertysExportData
     {
         Vec2D Center { get; set; }
-        float AngleInDegree { get; set; }
         float AngleInRad { get; set; }
         Vec2D Velocity { get; set; }
         float AngularVelocity { get; set; }

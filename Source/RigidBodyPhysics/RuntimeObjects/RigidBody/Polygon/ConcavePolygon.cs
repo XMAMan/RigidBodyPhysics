@@ -1,14 +1,15 @@
 ﻿using PhysicGlobal;
 using RigidBodyPhysics.CollisionDetection.BroadPhase;
+using RigidBodyPhysics.CollisionDetection.NearPhase;
 using RigidBodyPhysics.ExportData.RigidBody;
 using RigidBodyPhysics.MathHelper;
 
 namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
 {
     //Polygon mit Masse/Schwerpunkt/Inertia/Rotate-/Move-Funktion aber ohne Kollisionsfunktion
-    internal abstract class ConcavePolygon : IBoundingCircle, IForceable, IMoveable, IExportableBody, IClickable, IPublicRigidBody, IPublicRigidPolygon
+    internal abstract class ConcavePolygon : IBoundingCircle, IForceable, IMoveable, IExportableBody, IClickable, IPublicRigidBody, IPublicRigidPolygon, ICollidable
     {
-        private readonly MassData massData; //Wird für die ExportFunktion benötigt
+        private MassData massData { get; init; } //Wird für die ExportFunktion benötigt
         #region IRigidBody
         public Vec2D Center { get; private set; } //Position of the Center of gravity
         public float Angle { get; private set; } //Oriantation around the Z-Aches with rotationpoint=Center [0..2PI]
@@ -30,43 +31,39 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
         public float Torque { get; set; }
         #endregion
 
-        private Vec2D[] localPoints;
+        private Vec2D[] localPoints { get; init; }
 
+        //Dieser Konstruktor weißt ausschließlich allen init/readonly-Properties ein Wert zu
         //points = Polygon dessen Schwerpunkt am Punkt [0,0] liegt. 
-        protected ConcavePolygon(Vec2D center, Vec2D[] points, MassData massData, PolygonCollisionType polygonType)
+        private ConcavePolygon(PolygonExportData data, bool notUsed)
         {
-            points = PhysicGlobal.PolygonHelper.OrderPointsCounterClockWise(points); //Für IsConvex/EdgeNormalen/IsEdgeOutside muss das Polygon immer CCW sein
+            //Für IsConvex/EdgeNormalen/IsEdgeOutside muss das Polygon immer CCW sein
+            this.localPoints = PhysicGlobal.PolygonHelper.OrderPointsCounterClockWise(data.Points);
 
-            localPoints = points;
-
-            this.massData = massData;
-            Center = center;
-            Angle = 0;
-            Velocity = new Vec2D(0, 0);
-            AngularVelocity = 0;
-            Area = PhysicGlobal.PolygonHelper.GetAreaFromPolygon(points);
+            this.massData = data.MassData;
+            this.Area = PhysicGlobal.PolygonHelper.GetAreaFromPolygon(this.localPoints);
             float mass = massData.GetMass(Area);
-            InverseMass = float.MaxValue == mass ? 0 : 1 / mass;
-            InverseInertia = InverseMass == 0 ? 0 : 1.0f / MathHelper.PolygonHelper.GetInertiaFromPolygon(massData.GetDensity(Area), points);
-            Force = new Vec2D(0, 0);
-            Torque = 0;
+            this.InverseMass = float.MaxValue == mass ? 0 : 1 / mass;
+            this.InverseInertia = InverseMass == 0 ? 0 : 1.0f / MathHelper.PolygonHelper.GetInertiaFromPolygon(massData.GetDensity(Area), localPoints);
 
-            Radius = points.Max(x => x.Length());
-            PolygonType = polygonType;
+            this.Radius = this.localPoints.Max(x => x.Length());
+            this.PolygonType = data.PolygonType;
 
-            Vertex = localPoints.Select(x => Center + x).ToArray();
-            SubPolys = new List<Vec2D[]> { Vertex };
+            this.Vertex = localPoints.Select(x => data.Center + x).ToArray();
+            this.SubPolys = new List<Vec2D[]> { Vertex };
+
+            this.Friction = data.Friction;
+            this.Restituion = data.Restituion;
+
+            this.CollisionCategory = data.CollisionCategory;
         }
 
-        protected abstract int GetCollisionCategory();
 
+        //Dieser Konstruktor ruft nur LoadExportData aber weißt keiner Variable ein Wert zu
         public ConcavePolygon(PolygonExportData data)
-            : this(data.Center, data.Points, data.MassData, data.PolygonType)
+            : this(data, false)
         {
-            Velocity = new Vec2D(data.Velocity);
-            AngularVelocity = data.AngularVelocity;
-            Friction = data.Friction;
-            Restituion = data.Restituion;
+            LoadExportData(data);
         }
 
         #region IMoveable
@@ -100,8 +97,17 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
                 MassData = new MassData(massData),
                 Friction = Friction,
                 Restituion = Restituion,
-                CollisionCategory = GetCollisionCategory(),
+                CollisionCategory = CollisionCategory,
             };
+        }
+        public void LoadExportData(IExportRigidBody exportData)
+        {
+            var data = (PolygonExportData)exportData;
+            MoveTo(data.Center, data.AngleInRad);
+            this.Velocity = new Vec2D(data.Velocity);
+            this.AngularVelocity = data.AngularVelocity;
+            this.Force = new Vec2D(0, 0);
+            this.Torque = 0;
         }
         #endregion
 
@@ -115,16 +121,22 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody.Polygon
         #endregion
 
         #region IPublicRigidBody
-        public float Area { get; }
+        public float Area { get; init; }
         #endregion
 
         #region IPublicRigidPolygon
         public Vec2D[] Vertex { get; init; }
         public PolygonCollisionType PolygonType { get; init; }
 
-        public List<Vec2D[]> SubPolys { get; protected set; } //Zur Testausgabe
-        public bool[] IsConvex { get; protected set; } = null;
+        public List<Vec2D[]> SubPolys { get; init; } //Zur Testausgabe
+        public bool[] IsConvex { get; init; } = null;
         #endregion
 
+        #region ICollidable
+        public bool IsNotMoveable { get => InverseMass == 0; }
+        public CollidableType TypeId { get; } = CollidableType.Container;
+        public List<ICollidable> CollideExcludeList { get; init; } = new List<ICollidable>();
+        public int CollisionCategory { get; init; } = 0;
+        #endregion
     }
 }

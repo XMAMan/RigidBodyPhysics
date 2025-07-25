@@ -6,5 +6,6 @@ namespace RigidBodyPhysics.RuntimeObjects.AxialFriction
     internal interface IExportableAxialFriction
     {
         IExportAxialFriction GetExportData(List<IRigidBody> bodies);
+        void LoadExportData(IExportAxialFriction data);
     }
 }

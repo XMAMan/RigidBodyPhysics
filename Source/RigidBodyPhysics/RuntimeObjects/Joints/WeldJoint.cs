@@ -10,8 +10,8 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
 {
     internal class WeldJoint : IJoint, IPublicWeldJoint, IPointToPointJoint, IFixAngularJoint, IPointToPointAndFixAngularJoint, IBreakableJoint
     {
-        private Vec2D r1; //lokaler Richtungsvektor von B1.Center nach Anchor1
-        private Vec2D r2;
+        private Vec2D r1 { get; init; } //lokaler Richtungsvektor von B1.Center nach Anchor1
+        private Vec2D r2 { get; init; }
 
         public IPublicRigidBody Body1 { get; init; }
         public IPublicRigidBody Body2 { get; init; }
@@ -48,6 +48,7 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
 
         public WeldJoint(WeldJointExportData data, List<IRigidBody> bodies)
         {
+            //Hier wird allen init-Variablen ein Wert zugewiesen
             Body1 = B1 = bodies[data.BodyIndex1];
             Body2 = B2 = bodies[data.BodyIndex2];
             r1 = data.R1;
@@ -57,6 +58,8 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
             BreakWhenMaxForceIsReached = data.BreakWhenMaxForceIsReached;
             MaxForceToBreak = data.MaxForceToBreak;
 
+            //weise den restlichen Variablen ein Wert zu
+            LoadExportData(data);
             UpdateAnchorPoints();
 
             AngularDifferenceOnStart = B2.Angle - B1.Angle;
@@ -80,6 +83,7 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
                 SoftData = Soft.GetExportData(),
                 BreakWhenMaxForceIsReached = BreakWhenMaxForceIsReached,
                 MaxForceToBreak = MaxForceToBreak,
+                IsBroken = IsBroken,
             };
         }
 
@@ -102,8 +106,10 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
             this.AccumulatedAngularImpulse = 0;
         }
 
-        public void LoadSetPositionFromExportData(IExportJoint joint)
+        public void LoadExportData(IExportJoint joint)
         {
+            var data = (WeldJointExportData)joint;
+            this.IsBroken = data.IsBroken;
         }
     }
 }

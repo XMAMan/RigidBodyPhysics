@@ -6,6 +6,6 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
     internal interface IExportableJoint
     {
         IExportJoint GetExportData(List<IRigidBody> bodies);
-        void LoadSetPositionFromExportData(IExportJoint joint);
+        void LoadExportData(IExportJoint joint); //Lädt die SetPosition und das IsBroken-Flag
     }
 }

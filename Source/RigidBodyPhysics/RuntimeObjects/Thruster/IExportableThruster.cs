@@ -6,5 +6,6 @@ namespace RigidBodyPhysics.RuntimeObjects.Thruster
     internal interface IExportableThruster
     {
         IExportThruster GetExportData(List<IRigidBody> bodies);
+        void LoadExportData(IExportThruster data);
     }
 }

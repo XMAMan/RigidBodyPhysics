@@ -1,18 +1,19 @@
-﻿using RigidBodyPhysics.CollisionResolution.SequentiellImpulse.Constraints.BasisConstraints;
-using RigidBodyPhysics.CollisionResolution.SequentiellImpulse.Constraints.Revolute;
+﻿using PhysicGlobal;
 using RigidBodyPhysics.CollisionResolution.SequentiellImpulse.Constraints;
+using RigidBodyPhysics.CollisionResolution.SequentiellImpulse.Constraints.BasisConstraints;
+using RigidBodyPhysics.CollisionResolution.SequentiellImpulse.Constraints.Revolute;
 using RigidBodyPhysics.ExportData.Joints;
 using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.MaxForceTracking;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
-using PhysicGlobal;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace RigidBodyPhysics.RuntimeObjects.Joints
 {
     internal class RevoluteJoint : IJoint, IPublicRevoluteJoint, IPointToPointJoint, IMinMaxAngularJoint, IAngularMotorJoint, IBreakableJoint
     {
-        private Vec2D r1; //lokaler Richtungsvektor von B1.Center nach Anchor1
-        private Vec2D r2;
+        private Vec2D r1 { get; init; } //lokaler Richtungsvektor von B1.Center nach Anchor1
+        private Vec2D r2 { get; init; }
 
         public IPublicRigidBody Body1 { get; init; }
         public IPublicRigidBody Body2 { get; init; }
@@ -22,9 +23,9 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
         public Vec2D Anchor2 { get; private set; }
         public bool CollideConnected { get; init; }
 
-        public bool LimitIsEnabled { get; set; }
-        public float LowerAngle { get; set; } //0..360
-        public float UpperAngle { get; set; } //0..360
+        public bool LimitIsEnabled { get; init; }
+        public float LowerAngle { get; init; } //0..360
+        public float UpperAngle { get; init; } //0..360
 
         private IPublicJoint.AngularMotor motor = IPublicJoint.AngularMotor.Disabled;
         public IPublicJoint.AngularMotor Motor
@@ -67,36 +68,37 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
 
         public RevoluteJoint(RevoluteJointExportData data, List<IRigidBody> bodies)
         {
+            //Hier wird allen init-Variablen ein Wert zugewiesen
             Body1 = B1 = bodies[data.BodyIndex1];
             Body2 = B2 = bodies[data.BodyIndex2];
-            this.r1 = data.R1;
-            this.r2 = data.R2;
+            r1 = data.R1;
+            r2 = data.R2;
             CollideConnected = data.CollideConnected;
             LimitIsEnabled = data.LimitIsEnabled;
             LowerAngle = data.LowerAngle;
             UpperAngle = data.UpperAngle;
-            Motor = data.Motor;
-            MotorSpeed = data.MotorSpeed;
-            MaxMotorTorque = data.MaxMotorTorque;
             Soft = new SoftConstraintData(data.SoftData, B1, B2);
             BreakWhenMaxForceIsReached = data.BreakWhenMaxForceIsReached;
             MaxForceToBreak = data.MaxForceToBreak;
+            AngularDifferenceOnStart = B2.Angle - B1.Angle;
+
+            //weise den restlichen Variablen ein Wert zu
+            LoadExportData(data);   //Hier wird CurrentPosition dann gelesen
 
             UpdateAnchorPoints(); //Aktualisiere Anchor1/Anchor2
 
-            AngularDifferenceOnStart = B2.Angle - B1.Angle;
             MinMaxDifference = GetMinMaxDifference();
-            DiffToMinOnStart = GetDiffToMinOnStart();
+            DiffToMinOnStart = GetDiffToMinOnStart(); //Hier wird Anchor1/Anchor2 gelesen
 
             UpdateAnchorPoints(); //Aktualisiere CurrentPosition
 
             if (float.IsNaN(data.MotorPosition))
             {
-                MotorPosition = Math.Min(1, Math.Max(0, CurrentPosition)); //Soll-Startwert = Istwert zum Start
+                this.MotorPosition = Math.Min(1, Math.Max(0, CurrentPosition)); //Soll-Startwert = Istwert zum Start
             }
             else
             {
-                MotorPosition = data.MotorPosition;
+                this.MotorPosition = data.MotorPosition;
             }
         }
 
@@ -165,6 +167,7 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
                 BreakWhenMaxForceIsReached = BreakWhenMaxForceIsReached,
                 MaxForceToBreak = MaxForceToBreak,
                 MotorPosition = MotorPosition,
+                IsBroken = IsBroken,
             };
         }
 
@@ -197,10 +200,23 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
             this.AccumulatedPointToPointImpulse = new Vec2D(0, 0);
         }
 
-        public void LoadSetPositionFromExportData(IExportJoint joint)
+        public void LoadExportData(IExportJoint joint)
         {
-            var export = (RevoluteJointExportData)joint;
-            this.MotorPosition = export.MotorPosition;
+            var data = (RevoluteJointExportData)joint;
+            
+            this.Motor = data.Motor;
+            this.MotorSpeed = data.MotorSpeed;
+            this.MaxMotorTorque = data.MaxMotorTorque;
+            this.IsBroken = data.IsBroken;
+
+            if (float.IsNaN(data.MotorPosition))
+            {
+                this.MotorPosition = Math.Min(1, Math.Max(0, CurrentPosition)); //Soll-Startwert = Istwert zum Start
+            }
+            else
+            {
+                this.MotorPosition = data.MotorPosition;
+            }
         }
     }
 }

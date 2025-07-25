@@ -8,8 +8,8 @@
         "Size": [1098.0, 73.0],
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
+        "IsBroken": false,
         "Center": [642.0, 651.0],
-        "AngleInDegree": 0.0,
         "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
@@ -28,8 +28,8 @@
         "Size": [182.13457, 29.0],
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
+        "IsBroken": false,
         "Center": [193.0, 548.0],
-        "AngleInDegree": 0.0,
         "AngleInRad": 4.750832,
         "Velocity": [-1.309843E-08, -1.3087472E-08],
         "AngularVelocity": -2.1614452E-09,
@@ -48,8 +48,8 @@
         "Size": [162.2005, 29.0],
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
+        "IsBroken": false,
         "Center": [248.99998, 396.0],
-        "AngleInDegree": 0.0,
         "AngleInRad": 5.353424,
         "Velocity": [-4.749218E-08, -1.4753377E-07],
         "AngularVelocity": -3.820045E-09,
@@ -68,8 +68,8 @@
         "Size": [151.58496, 29.0],
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
+        "IsBroken": false,
         "Center": [368.99997, 321.99997],
-        "AngleInDegree": 0.0,
         "AngleInRad": 6.0366073,
         "Velocity": [2.7439597E-07, -5.0023585E-09],
         "AngularVelocity": -4.505354E-09,
@@ -88,8 +88,8 @@
         "Size": [153.2351, 29.0],
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
+        "IsBroken": false,
         "Center": [513.0, 331.99994],
-        "AngleInDegree": 0.0,
         "AngleInRad": 0.40232065,
         "Velocity": [-2.9090205E-07, -1.2641249E-06],
         "AngularVelocity": -4.505354E-09,
@@ -108,8 +108,8 @@
         "Size": [165.0, 29.0],
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
+        "IsBroken": false,
         "Center": [1003.944, 538.0059],
-        "AngleInDegree": 0.0,
         "AngleInRad": 4.7241893,
         "Velocity": [1.1325705E-07, -2.1163908E-07],
         "AngularVelocity": 1.4158174E-09,
@@ -128,8 +128,8 @@
         "Size": [161.02795, 29.0],
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
+        "IsBroken": false,
         "Center": [947.5045, 430.2364],
-        "AngleInDegree": 0.0,
         "AngleInRad": 3.6102338,
         "Velocity": [1.8390455E-07, -1.2293458E-07],
         "AngularVelocity": -1.0502788E-09,
@@ -148,8 +148,8 @@
         "Size": [280.0, 29.0],
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
+        "IsBroken": false,
         "Center": [790.0, 481.0],
-        "AngleInDegree": 0.0,
         "AngleInRad": 4.712389,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
@@ -168,8 +168,8 @@
         "Size": [157.05095, 29.0],
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
+        "IsBroken": false,
         "Center": [722.27997, 558.56],
-        "AngleInDegree": 0.0,
         "AngleInRad": 0.025471373,
         "Velocity": [1.2841896E-07, 1.00944035E-07],
         "AngularVelocity": 0.0,
@@ -188,8 +188,8 @@
         "Size": [79.0, 74.0],
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
+        "IsBroken": false,
         "Center": [704.24756, 506.8078],
-        "AngleInDegree": 0.0,
         "AngleInRad": 0.025513653,
         "Velocity": [1.2777491E-07, 9.966486E-08],
         "AngularVelocity": -1.8345266E-11,
@@ -208,8 +208,8 @@
         "Size": [15.0, 609.0],
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
+        "IsBroken": false,
         "Center": [107.0, 315.0],
-        "AngleInDegree": 0.0,
         "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
@@ -228,8 +228,8 @@
         "Size": [970.0, 14.0],
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
+        "IsBroken": false,
         "Center": [588.0, 17.0],
-        "AngleInDegree": 0.0,
         "AngleInRad": 0.0,
         "Velocity": [0.0, 0.0],
         "AngularVelocity": 0.0,
@@ -248,8 +248,8 @@
         "Size": [22.0, 78.0],
         "BreakWhenMaxPushPullForceIsReached": false,
         "MaxPushPullForce": 0.0,
+        "IsBroken": false,
         "Center": [763.8312, 50.000805],
-        "AngleInDegree": 0.0,
         "AngleInRad": 0.0051180786,
         "Velocity": [-0.0029643197, -6.384246E-06],
         "AngularVelocity": 8.9846384E-05,
@@ -267,7 +267,6 @@
         "$type": "RigidBodyPhysics.ExportData.RigidBody.CircleExportData, RigidBodyPhysics",
         "Radius": 20.0,
         "Center": [764.71796, 297.99832],
-        "AngleInDegree": 0.0,
         "AngleInRad": 0.0,
         "Velocity": [0.00025599782, -4.3618355E-05],
         "AngularVelocity": 0.0,
@@ -302,7 +301,8 @@
           "Damping": 0.1
         },
         "BreakWhenMaxForceIsReached": false,
-        "MaxForceToBreak": 0.0
+        "MaxForceToBreak": 0.0,
+        "IsBroken": false
       },
       {
         "$type": "RigidBodyPhysics.ExportData.Joints.WeldJointExportData, RigidBodyPhysics",
@@ -320,7 +320,8 @@
           "Damping": 0.1
         },
         "BreakWhenMaxForceIsReached": false,
-        "MaxForceToBreak": 0.0
+        "MaxForceToBreak": 0.0,
+        "IsBroken": false
       },
       {
         "$type": "RigidBodyPhysics.ExportData.Joints.WeldJointExportData, RigidBodyPhysics",
@@ -338,7 +339,8 @@
           "Damping": 0.1
         },
         "BreakWhenMaxForceIsReached": false,
-        "MaxForceToBreak": 0.0
+        "MaxForceToBreak": 0.0,
+        "IsBroken": false
       },
       {
         "$type": "RigidBodyPhysics.ExportData.Joints.WeldJointExportData, RigidBodyPhysics",
@@ -356,7 +358,8 @@
           "Damping": 0.1
         },
         "BreakWhenMaxForceIsReached": false,
-        "MaxForceToBreak": 0.0
+        "MaxForceToBreak": 0.0,
+        "IsBroken": false
       },
       {
         "$type": "RigidBodyPhysics.ExportData.Joints.RevoluteJointExportData, RigidBodyPhysics",
@@ -381,6 +384,7 @@
         },
         "BreakWhenMaxForceIsReached": false,
         "MaxForceToBreak": 0.0,
+        "IsBroken": false,
         "MotorPosition": 0.24
       },
       {
@@ -406,6 +410,7 @@
         },
         "BreakWhenMaxForceIsReached": false,
         "MaxForceToBreak": 0.0,
+        "IsBroken": false,
         "MotorPosition": 0.18
       },
       {
@@ -424,7 +429,8 @@
           "Damping": 0.1
         },
         "BreakWhenMaxForceIsReached": false,
-        "MaxForceToBreak": 0.0
+        "MaxForceToBreak": 0.0,
+        "IsBroken": false
       },
       {
         "$type": "RigidBodyPhysics.ExportData.Joints.WheelJointExportData, RigidBodyPhysics",
@@ -449,6 +455,7 @@
         },
         "BreakWhenMaxForceIsReached": false,
         "MaxForceToBreak": 0.0,
+        "IsBroken": false,
         "MotorPosition": 0.6864407
       },
       {
@@ -473,6 +480,7 @@
         "BreakWhenMaxForceIsReached": false,
         "MinForceToBreak": 0.0,
         "MaxForceToBreak": 0.0,
+        "IsBroken": false,
         "LengthPosition": 214.0
       }
     ]

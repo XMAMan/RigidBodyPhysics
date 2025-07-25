@@ -59,15 +59,19 @@ namespace RigidBodyPhysics.RuntimeObjects.RotaryMotor
             };
         }
 
+        public void LoadExportData(IExportRotaryMotor data)
+        {
+            RotaryForce = data.RotaryForce;
+            MaxSpeed = data.MaxSpeed;
+            IsEnabled = data.IsEnabled;
+            BrakeIsEnabled = data.BrakeIsEnabled;
+        }
         public RotaryMotor(RotaryMotorExportData data, List<IRigidBody> bodies)
         {
             if (data.MaxSpeed < 0) throw new ArgumentException("MaxSpeed must be positive");
 
             Body = B1 = bodies[data.BodyIndex];
-            RotaryForce = data.RotaryForce;
-            MaxSpeed = data.MaxSpeed;
-            IsEnabled = data.IsEnabled;
-            BrakeIsEnabled = data.BrakeIsEnabled;
+            LoadExportData(data);
         }
 
         public List<IConstraint> BuildConstraints(ConstraintConstructorData data)

@@ -19,7 +19,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
         float InverseMass { get; } //1 / Mass
         float InverseInertia { get; }
         float Restituion { get; } //Bouncing-Factor. How much energy is lost in Collision-Normal-Direction; 0=Mehlsack; 1=Springball
-        float Friction { get; }   //Friction in Collision-Tangent-Direction; 0=Eiswürfel; 1=Klebstoff        
+        float Friction { get; }   //Friction in Collision-Tangent-Direction; 0=Eiswürfel; 1=Klebstoff
     }
 
     //Applyed external forces -> Über dieses Interface sage ich dem Körper, welche Kräfte auf sein Zentrum im nächsten TimeStep wirken sollen
@@ -47,6 +47,7 @@ namespace RigidBodyPhysics.RuntimeObjects.RigidBody
     public interface IExportableBody
     {
         IExportRigidBody GetExportData();
+        void LoadExportData(IExportRigidBody exportData); //weißt allen nicht-init-Variablen ein Wert zu
     }
 
     internal interface IClickable

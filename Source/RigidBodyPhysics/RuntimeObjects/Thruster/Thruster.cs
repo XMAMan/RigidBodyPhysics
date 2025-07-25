@@ -8,11 +8,11 @@ namespace RigidBodyPhysics.RuntimeObjects.Thruster
     //Schubdüse welche über externe Kraft arbeitet
     internal class Thruster : IThruster
     {
-        private Vec2D r1; //lokaler Richtungsvektor von B1.Center nach Anchor
-        private Vec2D forceDirection; //Lokaler Richtungsvektor
+        private Vec2D r1 { get; init; } //lokaler Richtungsvektor von B1.Center nach Anchor
+        private Vec2D localForceDirection { get; init; } //Lokaler Richtungsvektor
 
         #region IPublicThruster
-        public IPublicRigidBody Body { get; private set; }
+        public IPublicRigidBody Body { get; init; }
         public Vec2D Anchor { get; private set; }
         public Vec2D ForceDirection { get; private set; } //Richtungsvektor im Globalspace
         public float ForceLength { get; set; }
@@ -35,23 +35,25 @@ namespace RigidBodyPhysics.RuntimeObjects.Thruster
 
 
         #region IThruster        
-        public IRigidBody B1 { get; private set; }
+        public IRigidBody B1 { get; init; }
         public Vec2D R1 { get; private set; } //Angabe in Weltkoordinaten (Hebelarm vom Center zum Anchor-Punkt)    
         public void UpdateAnchorPoints() //Muss aufgerufen werden, wenn sich die Position der Bodys geändert hat
         {
             Anchor = MathHelp.GetWorldPointFromLocalDirection(B1, r1);
             R1 = Anchor - B1.Center;
-            ForceDirection = MathHelp.GetWorldDirectionFromLocalDirection(B1, forceDirection);
+            ForceDirection = MathHelp.GetWorldDirectionFromLocalDirection(B1, localForceDirection);
         }
         #endregion
 
         public Thruster(ThrusterExportData data, List<IRigidBody> bodies)
         {
+            //Hier wird allen init-Variablen ein Wert zugewiesen
             Body = B1 = bodies[data.BodyIndex];
             r1 = data.R1;
-            forceDirection = data.ForceDirection;
-            ForceLength = data.ForceLength;
-            IsEnabled = data.IsEnabled;
+            localForceDirection = data.ForceDirection;
+
+            //weise den restlichen Variablen ein Wert zu
+            LoadExportData(data);
 
             UpdateAnchorPoints();
         }
@@ -63,10 +65,15 @@ namespace RigidBodyPhysics.RuntimeObjects.Thruster
             {
                 BodyIndex = bodies.IndexOf(B1),
                 R1 = new Vec2D(r1),
-                ForceDirection = new Vec2D(forceDirection),
+                ForceDirection = new Vec2D(localForceDirection),
                 ForceLength = ForceLength,
                 IsEnabled = IsEnabled
             };
+        }
+        public void LoadExportData(IExportThruster data)
+        {
+            ForceLength = data.ForceLength;
+            IsEnabled = data.IsEnabled;
         }
         #endregion
     }

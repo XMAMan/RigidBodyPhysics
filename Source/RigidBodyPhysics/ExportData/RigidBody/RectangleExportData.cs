@@ -7,6 +7,7 @@ namespace RigidBodyPhysics.ExportData.RigidBody
         public Vec2D Size { get; set; }
         public bool BreakWhenMaxPushPullForceIsReached { get; set; }
         public float MaxPushPullForce { get; set; }
+        public bool IsBroken { get; set; }
 
         public RectangleExportData() { }
 
@@ -16,6 +17,7 @@ namespace RigidBodyPhysics.ExportData.RigidBody
             this.Size = new Vec2D(copy.Size);
             this.BreakWhenMaxPushPullForceIsReached = copy.BreakWhenMaxPushPullForceIsReached;
             this.MaxPushPullForce = copy.MaxPushPullForce;
+            this.IsBroken = copy.IsBroken;
         }
 
         public IExportRigidBody GetCopy()

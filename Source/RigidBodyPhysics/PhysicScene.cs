@@ -300,62 +300,41 @@ namespace RigidBodyPhysics
 
             for (int i = 0; i < this.bodies.Count; i++)
             {
-                this.bodies[i].MoveTo(data.Bodies[i].Center, data.Bodies[i].AngleInRad);
-                this.bodies[i].Velocity = data.Bodies[i].Velocity;                
-                this.bodies[i].AngularVelocity = data.Bodies[i].AngularVelocity;
+                this.bodies[i].LoadExportData(data.Bodies[i]);
             }
 
             for (int i=0;i<this.joints.Count;i++)
-            {
-                this.joints[i].LoadSetPositionFromExportData(data.Joints[i]);
+            {      
+                var joint = this.joints[i];
+                joint.LoadExportData(data.Joints[i]);
+                joint.UpdateAnchorPoints();
+                joint.SetAllAccumulatedImpulsesToZero();
             }
 
             for (int i = 0; i < this.thrusters.Count; i++)
             {
                 var publicThruster = (IPublicThruster)this.thrusters[i];
-                publicThruster.IsEnabled = data.Thrusters[i].IsEnabled;
-                publicThruster.ForceLength = data.Thrusters[i].ForceLength;
+                this.thrusters[i].LoadExportData(data.Thrusters[i]);
+                this.thrusters[i].UpdateAnchorPoints();
             }
 
             for (int i = 0; i < this.rotaryMotors.Count; i++)
             {
                 var publicMotor = (IPublicRotaryMotor)this.rotaryMotors[i];
-                publicMotor.IsEnabled = data.Motors[i].IsEnabled;
-                publicMotor.BrakeIsEnabled = data.Motors[i].BrakeIsEnabled;
+                this.rotaryMotors[i].LoadExportData(data.Motors[i]);
+                this.rotaryMotors[i].SetAllAccumulatedImpulsesToZero();
             }
 
             for (int i=0;i<this.axialFrictions.Count;i++)
             {
                 var publicAxialFriction = (IPublicAxialFriction)this.axialFrictions[i];
-                publicAxialFriction.Friction = data.AxialFrictions[i].Friction;
-                publicAxialFriction.TargetVelocity = data.AxialFrictions[i].TargetVelocity;
+                this.axialFrictions[i].LoadExportData(data.AxialFrictions[i]);
+                this.axialFrictions[i].UpdateAnchorPoints();
+                this.axialFrictions[i].SetAllAccumulatedImpulsesToZero();                
             }
 
             SetVelocityFromFixBodiesToZero();
-            SetAllAccumulatedImpulsesToZero();
-
-            foreach (var joint in this.joints)
-            {
-                joint.UpdateAnchorPoints();
-            }
-
-            foreach (var thruster in this.thrusters)
-            {
-                thruster.UpdateAnchorPoints();
-            }
-
-            foreach (var axialFriction in this.axialFrictions)
-            {
-                axialFriction.UpdateAnchorPoints();
-            }
-        }
-
-        private void SetAllAccumulatedImpulsesToZero()
-        {
             this.impulseResolver.ClearCollisionPointCache();
-            foreach (var obj in this.rotaryMotors) obj.SetAllAccumulatedImpulsesToZero();
-            foreach (var obj in this.axialFrictions) obj.SetAllAccumulatedImpulsesToZero();
-            foreach (var obj in this.joints) obj.SetAllAccumulatedImpulsesToZero();
         }
 
         //Hier werden die ganzen IPublic-Objekte neu angelegt -> Wird im PhysicSceneSimulator benutzt, damit man ein
