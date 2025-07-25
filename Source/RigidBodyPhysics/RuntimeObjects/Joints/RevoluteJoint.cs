@@ -41,7 +41,7 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
         }
         public event Action<IPublicJoint.AngularMotor> MotorChanged;
         public float MotorSpeed { get; set; }
-        public float MotorPosition { get; set; } //0..1
+        public float MotorPosition { get; set; } //0..1 (Gelenksollwert)
         public float MaxMotorTorque { get; set; }
 
         public SoftConstraintData Soft { get; } //Vom Nutzer vorgegebene Softness-Parameter
@@ -90,7 +90,14 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
 
             UpdateAnchorPoints(); //Aktualisiere CurrentPosition
 
-            MotorPosition = Math.Min(1, Math.Max(0, CurrentPosition)); //Soll-Startwert = Istwert zum Start
+            if (float.IsNaN(data.MotorPosition))
+            {
+                MotorPosition = Math.Min(1, Math.Max(0, CurrentPosition)); //Soll-Startwert = Istwert zum Start
+            }
+            else
+            {
+                MotorPosition = data.MotorPosition;
+            }
         }
 
         private float GetMinMaxDifference()
@@ -157,6 +164,7 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
                 SoftData = Soft.GetExportData(),
                 BreakWhenMaxForceIsReached = BreakWhenMaxForceIsReached,
                 MaxForceToBreak = MaxForceToBreak,
+                MotorPosition = MotorPosition,
             };
         }
 
@@ -187,6 +195,12 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
             this.AccumulatedMinMaxAngularImpulse = 0;
             this.AccumulatedAngularMotorImpulse = 0;
             this.AccumulatedPointToPointImpulse = new Vec2D(0, 0);
+        }
+
+        public void LoadSetPositionFromExportData(IExportJoint joint)
+        {
+            var export = (RevoluteJointExportData)joint;
+            this.MotorPosition = export.MotorPosition;
         }
     }
 }

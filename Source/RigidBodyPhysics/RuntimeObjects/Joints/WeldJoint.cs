@@ -101,5 +101,9 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
             this.AccumulatedPointToPointImpulse = new Vec2D(0, 0);
             this.AccumulatedAngularImpulse = 0;
         }
+
+        public void LoadSetPositionFromExportData(IExportJoint joint)
+        {
+        }
     }
 }

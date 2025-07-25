@@ -48,8 +48,8 @@ namespace RigidBodyPhysics.UnitTests.Constraints.Joints
             var scene = new PhysicScene(sceneData);
             var initialState1 = scene.GetExportData();
 
-            int phase1Steps = 1;
-            var phase2Steps = 0;
+            int phase1Steps = 100;
+            var phase2Steps = 20;
 
             //Run 1: scene wurde neu über Konstruktur erstellt
             float maxDiff1 = JointSimulator.SimulateAndCompare(scene, TestData + "AllJointsEnd.txt", TimeStepTickRate, phase1Steps, phase2Steps,
@@ -58,16 +58,29 @@ namespace RigidBodyPhysics.UnitTests.Constraints.Joints
                     new JointSimulator.JointSetpoint(){JointIndex = 5, SetValue = 0.18f}, //Prismatic Joint
                     new JointSimulator.JointSetpoint(){JointIndex = 4, SetValue = 0.24f}, //Revolute Joint
                     new JointSimulator.JointSetpoint(){JointIndex = 8, SetValue = 214},   //Distance Joint
+                },
+                (s) => 
+                {
+                    //Prüfe ab, dass beim Export/Neuerstellen immer das gleiche rauskommt
+                    var export1 = s.GetExportData();
+                    var export2 = new PhysicScene(export1).GetExportData();
+                    string export1Text = JsonHelper.Helper.ToCompactJson(export1);
+                    string export2Text = JsonHelper.Helper.ToCompactJson(export2);
+                    if (export1Text != export2Text)
+                    {
+                        throw new Exception("Exporterror");
+                    }
                 });
             var endState1 = scene.GetExportData();
 
             //Run 2: scene wurde über ResetPosition zurück gesetzt
             scene.ResetPosition(initialState1);
+            //scene = new PhysicScene(initialState1);
             var initialState2 = scene.GetExportData();
 
-            string s1 = JsonHelper.Helper.ToCompactJson(initialState1);
-            string s2 = JsonHelper.Helper.ToCompactJson(initialState2);
-            s1.Should().Be(s2);
+            string initStateText1 = JsonHelper.Helper.ToCompactJson(initialState1);
+            string initStateText2 = JsonHelper.Helper.ToCompactJson(initialState2);
+            initStateText1.Should().Be(initStateText2);
 
             float maxDiff2 = JointSimulator.SimulateAndCompare(scene, TestData + "AllJointsEnd.txt", TimeStepTickRate, phase1Steps, phase2Steps,
                 new JointSimulator.JointSetpoint[]
@@ -75,13 +88,25 @@ namespace RigidBodyPhysics.UnitTests.Constraints.Joints
                     new JointSimulator.JointSetpoint(){JointIndex = 5, SetValue = 0.18f}, //Prismatic Joint
                     new JointSimulator.JointSetpoint(){JointIndex = 4, SetValue = 0.24f}, //Revolute Joint
                     new JointSimulator.JointSetpoint(){JointIndex = 8, SetValue = 214},   //Distance Joint
+                },
+                (s) =>
+                {
+                    //Prüfe ab, dass beim Export/Neuerstellen immer das gleiche rauskommt
+                    var export1 = s.GetExportData();
+                    var export2 = new PhysicScene(export1).GetExportData();
+                    string export1Text = JsonHelper.Helper.ToCompactJson(export1);
+                    string export2Text = JsonHelper.Helper.ToCompactJson(export2);
+                    if (export1Text != export2Text)
+                    {
+                        throw new Exception("Exporterror");
+                    }
                 });
             var endState2 = scene.GetExportData();
 
-            string s3 = JsonHelper.Helper.ToCompactJson(endState1);
-            string s4 = JsonHelper.Helper.ToCompactJson(endState2);
+            string endStateText1 = JsonHelper.Helper.ToCompactJson(endState1);
+            string endStateText2 = JsonHelper.Helper.ToCompactJson(endState2);
 
-            s3.Should().Be(s4);
+            endStateText1.Should().Be(endStateText2);
         }
     }
 }

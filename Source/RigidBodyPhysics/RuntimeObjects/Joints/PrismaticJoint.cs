@@ -27,7 +27,7 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
         public float MaxTranslation { get; }
         public IPublicJoint.TranslationMotor Motor { get; set; }
         public float MotorSpeed { get; set; }
-        public float MotorPosition { get; set; }
+        public float MotorPosition { get; set; } 
         public float MaxMotorForce { get; set; }
 
         public float MotorPixelPosition { get; private set; }
@@ -79,7 +79,15 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
 
             UpdateAnchorPoints();
 
-            MotorPosition = Math.Min(1, Math.Max(0, CurrentPosition)); //Soll-Startwert = Istwert zum Start
+            if (float.IsNaN(data.MotorPosition))
+            {
+                MotorPosition = Math.Min(1, Math.Max(0, CurrentPosition)); //Soll-Startwert = Istwert zum Start
+            }
+            else
+            {
+                MotorPosition = data.MotorPosition;
+            }
+
             MotorPixelPosition = (MotorPosition * minMaxRange + MinTranslation) * R1Length; //Soll-Pixelwert = Istwert zum Start
         }
 
@@ -113,6 +121,7 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
                 SoftData = Soft.GetExportData(),
                 BreakWhenMaxForceIsReached = BreakWhenMaxForceIsReached,
                 MaxForceToBreak = MaxForceToBreak,
+                MotorPosition = MotorPosition,
             };
         }
 
@@ -152,6 +161,12 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
             this.AccumulatedAngularImpulse = 0;
             this.AccumulatedMinMaxImpulse = 0;
             this.AccumulatedTranslationMotorImpulse = 0;
+        }
+
+        public void LoadSetPositionFromExportData(IExportJoint joint)
+        {
+            var export = (PrismaticJointExportData)joint;
+            this.MotorPosition = export.MotorPosition;
         }
     }
 }

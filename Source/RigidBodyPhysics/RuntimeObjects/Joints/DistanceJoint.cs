@@ -61,7 +61,13 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
 
             UpdateAnchorPoints();
 
-            LengthPosition = CurrentPosition;
+            if (float.IsNaN(data.LengthPosition))
+            {
+                LengthPosition = CurrentPosition;
+            }else
+            {
+                LengthPosition = data.LengthPosition;
+            }           
         }
 
         public void UpdateAnchorPoints()
@@ -89,6 +95,7 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
                 BreakWhenMaxForceIsReached = BreakWhenMaxForceIsReached,
                 MinForceToBreak = MinForceToBreak,
                 MaxForceToBreak = MaxForceToBreak,
+                LengthPosition = LengthPosition,
             };
         }
 
@@ -113,6 +120,12 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
         {
             this.AccumulatedImpulse = 0;
             this.AccumulatedImpulseForMinMax = 0;
+        }
+
+        public void LoadSetPositionFromExportData(IExportJoint joint)
+        {
+            var export = (DistanceJointExportData)joint;
+            this.LengthPosition = export.LengthPosition;
         }
     }
 }

@@ -73,7 +73,15 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
 
             UpdateAnchorPoints();
 
-            MotorPosition = Math.Min(1, Math.Max(0, CurrentPosition)); //Soll-Startwert = Istwert zum Start
+            if (float.IsNaN(data.MotorPosition))
+            {
+                MotorPosition = Math.Min(1, Math.Max(0, CurrentPosition)); //Soll-Startwert = Istwert zum Start
+            }
+            else
+            {
+                MotorPosition = data.MotorPosition;
+            }
+
             MotorPixelPosition = (MotorPosition * minMaxRange + MinTranslation) * R1Length;
         }
 
@@ -107,6 +115,7 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
                 SoftData = Soft.GetExportData(),
                 BreakWhenMaxForceIsReached = BreakWhenMaxForceIsReached,
                 MaxForceToBreak = MaxForceToBreak,
+                MotorPosition = MotorPosition,
             };
         }
 
@@ -138,6 +147,12 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
             this.AccumulatedPointToLineImpulse = 0;
             this.AccumulatedMinMaxImpulse = 0;
             this.AccumulatedTranslationMotorImpulse = 0;
+        }
+
+        public void LoadSetPositionFromExportData(IExportJoint joint)
+        {
+            var export = (WheelJointExportData)joint;
+            this.MotorPosition = export.MotorPosition;
         }
     }
 }

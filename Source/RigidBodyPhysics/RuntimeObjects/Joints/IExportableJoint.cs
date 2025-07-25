@@ -6,5 +6,6 @@ namespace RigidBodyPhysics.RuntimeObjects.Joints
     internal interface IExportableJoint
     {
         IExportJoint GetExportData(List<IRigidBody> bodies);
+        void LoadSetPositionFromExportData(IExportJoint joint);
     }
 }

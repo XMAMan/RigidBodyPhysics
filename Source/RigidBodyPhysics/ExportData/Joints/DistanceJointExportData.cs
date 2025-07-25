@@ -21,6 +21,8 @@ namespace RigidBodyPhysics.ExportData.Joints
         public float MinForceToBreak { get; set; }
         public float MaxForceToBreak { get; set; }
 
+        public float LengthPosition { get; set; } = float.NaN; //Sollwertlänge. NaN bedeutet das SollWert auf den Istwert beim importieren gesetzt wird
+
         public DistanceJointExportData() { }
 
         public DistanceJointExportData(DistanceJointExportData copy)
@@ -38,6 +40,7 @@ namespace RigidBodyPhysics.ExportData.Joints
             this.BreakWhenMaxForceIsReached = copy.BreakWhenMaxForceIsReached;
             this.MinForceToBreak = copy.MinForceToBreak;
             this.MaxForceToBreak = copy.MaxForceToBreak;
+            this.LengthPosition = copy.LengthPosition;
         }
 
         public IExportJoint GetCopy()

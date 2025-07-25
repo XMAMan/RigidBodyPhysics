@@ -62,10 +62,10 @@ namespace RigidBodyPhysics.UnitTests.TestHelper
         {
             var sceneData = ExportHelper.ReadFromFile(startScene);
             var scene = new PhysicScene(sceneData);
-            return SimulateAndCompare(scene, expectedEndScene, timeStepTickRate, phase1Steps, phase2Steps, setpoints);
+            return SimulateAndCompare(scene, expectedEndScene, timeStepTickRate, phase1Steps, phase2Steps, setpoints, (scene) => { });
         }
 
-        public static float SimulateAndCompare(PhysicScene scene, string expectedEndScene, float timeStepTickRate, int phase1Steps, int phase2Steps, JointSetpoint[] setpoints)
+        public static float SimulateAndCompare(PhysicScene scene, string expectedEndScene, float timeStepTickRate, int phase1Steps, int phase2Steps, JointSetpoint[] setpoints, Action<PhysicScene> timestepAction)
         {
             var setter = setpoints.Select(x => new Joint(scene.GetAllJoints()[x.JointIndex])).ToArray();
 
@@ -81,6 +81,7 @@ namespace RigidBodyPhysics.UnitTests.TestHelper
                 }
 
                 scene.TimeStep(timeStepTickRate);
+                timestepAction(scene);
             }
 
             for (int i = 0; i < phase2Steps; i++)

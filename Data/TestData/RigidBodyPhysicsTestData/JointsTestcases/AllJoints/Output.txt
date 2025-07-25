@@ -380,7 +380,8 @@
           "Damping": 0.1
         },
         "BreakWhenMaxForceIsReached": false,
-        "MaxForceToBreak": 0.0
+        "MaxForceToBreak": 0.0,
+        "MotorPosition": 0.93
       },
       {
         "$type": "RigidBodyPhysics.ExportData.Joints.PrismaticJointExportData, RigidBodyPhysics",
@@ -404,7 +405,8 @@
           "Damping": 0.1
         },
         "BreakWhenMaxForceIsReached": false,
-        "MaxForceToBreak": 0.0
+        "MaxForceToBreak": 0.0,
+        "MotorPosition": 0.81
       },
       {
         "$type": "RigidBodyPhysics.ExportData.Joints.WeldJointExportData, RigidBodyPhysics",
@@ -446,7 +448,8 @@
           "Damping": 0.1
         },
         "BreakWhenMaxForceIsReached": false,
-        "MaxForceToBreak": 0.0
+        "MaxForceToBreak": 0.0,
+        "MotorPosition": 0.6864407
       },
       {
         "$type": "RigidBodyPhysics.ExportData.Joints.DistanceJointExportData, RigidBodyPhysics",
@@ -469,7 +472,8 @@
         },
         "BreakWhenMaxForceIsReached": false,
         "MinForceToBreak": 0.0,
-        "MaxForceToBreak": 0.0
+        "MaxForceToBreak": 0.0,
+        "LengthPosition": 50.0
       }
     ]
   },

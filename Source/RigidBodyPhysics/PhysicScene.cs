@@ -293,18 +293,22 @@ namespace RigidBodyPhysics
         public void ResetPosition(PhysicSceneExportData data)//Hier bleiben die IPublic-Objekte erhalten
         {
             if (data.Bodies.Length != this.bodies.Count) throw new ArgumentException("Body-Count must be equal");
+            if (data.Joints.Length != this.joints.Count) throw new ArgumentException("Joint-Count must be equal");
             if (data.Thrusters != null && data.Thrusters.Length != this.thrusters.Count) throw new ArgumentException("Thruster-Count must be equal");
             if (data.Motors != null && data.Motors.Length != this.rotaryMotors.Count) throw new ArgumentException("Motor-Count must be equal");
             if (data.AxialFrictions != null && data.AxialFrictions.Length != this.axialFrictions.Count) throw new ArgumentException("AxialFriction-Count must be equal");
 
             for (int i = 0; i < this.bodies.Count; i++)
             {
-                //this.bodies[i].MoveCenterBy(data.Bodies[i].Center - this.bodies[i].Center);
-                this.bodies[i].MoveCenterBy(-this.bodies[i].Center);
-                this.bodies[i].MoveCenterBy(data.Bodies[i].Center);
+                this.bodies[i].MoveCenterBy(data.Bodies[i].Center - this.bodies[i].Center);
                 this.bodies[i].Velocity = data.Bodies[i].Velocity;
                 this.bodies[i].RotateTo(data.Bodies[i].AngleInRad);
                 this.bodies[i].AngularVelocity = data.Bodies[i].AngularVelocity;
+            }
+
+            for (int i=0;i<this.joints.Count;i++)
+            {
+                this.joints[i].LoadSetPositionFromExportData(data.Joints[i]);
             }
 
             for (int i = 0; i < this.thrusters.Count; i++)
