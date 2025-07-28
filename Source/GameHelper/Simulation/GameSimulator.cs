@@ -97,6 +97,11 @@ namespace GameHelper.Simulation
             this.physicScene.PushBodysApart();
         }
 
+        public IRigidBodyCollision[] GetAllCollisionPoints()
+        {
+            return this.physicScene.GetCollisions();
+        }
+
         public IRigidBodyCollision[] GetCollisionPointsFromExternBodyWithScene(IExportRigidBody exportBody)
         {
             return this.physicScene.GetCollisionPointsWithScene(exportBody);
