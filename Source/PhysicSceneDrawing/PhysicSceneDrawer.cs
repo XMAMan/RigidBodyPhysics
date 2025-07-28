@@ -11,13 +11,20 @@ namespace PhysicSceneDrawing
         private List<ITexturedRigidBody> textures;
         private List<IPublicDistanceJoint> distanceJoints;
 
-        public PhysicSceneDrawer(PhysicScene physicScene, VisualisizerOutputData textureData)
+        public PhysicSceneDrawer(PhysicScene physicScene)
         {
-            textures = ConvertPhysicScene(physicScene, textureData).ToList();
-            distanceJoints = physicScene.GetAllJoints().Where(x => x is IPublicDistanceJoint).Cast<IPublicDistanceJoint>().ToList();
+            this.textures = new List<ITexturedRigidBody>();
+            this.distanceJoints = new List<IPublicDistanceJoint>();
 
             physicScene.BodyWasDeletedHandler += RigidBodyWasDeleted;
             physicScene.JointWasDeletedHandler += JointWasDeleted;
+        }
+
+        public PhysicSceneDrawer(PhysicScene physicScene, VisualisizerOutputData textureData)
+            :this(physicScene)
+        {
+            this.textures = ConvertPhysicScene(physicScene, textureData).ToList();
+            this.distanceJoints = physicScene.GetAllJoints().Where(x => x is IPublicDistanceJoint).Cast<IPublicDistanceJoint>().ToList();
         }
 
         private void RigidBodyWasDeleted(PhysicScene physicScene, IPublicRigidBody body)
@@ -139,16 +146,20 @@ namespace PhysicSceneDrawing
         }
 
         //Überschreibt für den Körper "body" die Draw-Methode
-        public void UseCustomDrawingForRigidBody(IPublicRigidBody body, IRigidBodyDrawer bodyDrawer)
+        public ITexturedRigidBody UseCustomDrawingForRigidBody(IPublicRigidBody body, IRigidBodyDrawer bodyDrawer)
         {
-            var tex = this.textures.First(x => x.AssociatedBody == body);
-            this.textures.Remove(tex);
-            this.textures.Add(new TexturedRigidBodyWithCustomDrawing(tex, bodyDrawer));
+            var texOld = this.textures.First(x => x.AssociatedBody == body);
+            this.textures.Remove(texOld);
+            var texNew = new TexturedRigidBodyWithCustomDrawing(texOld, bodyDrawer);
+            this.textures.Add(texNew);
+            return texNew;
         }
 
-        public void AddBody(IPublicRigidBody body, TextureExportData texturData)
+        public ITexturedRigidBody AddBody(IPublicRigidBody body, TextureExportData texturData)
         {
-            this.textures.Add(Convert(body, texturData));
+            var tex = Convert(body, texturData);
+            this.textures.Add(tex);
+            return tex;
         }
 
         //Return: Diese Texturdaten wurden entfertn

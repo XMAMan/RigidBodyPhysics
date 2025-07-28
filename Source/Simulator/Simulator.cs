@@ -1,14 +1,15 @@
-﻿using Simulator.CameraTracking;
-using KeyFrameGlobal;
-using PhysicSceneDrawing;
-using RigidBodyPhysics;
-using Simulator.Animation;
-using TextureEditorGlobal;
-using Simulator.ForceTracking;
-using RigidBodyPhysics.ExportData;
-using PhysicGlobal;
+﻿using KeyFrameGlobal;
 using LevelEditorExports.Editor.BackgroundImage;
 using LevelEditorExports.Simulator;
+using PhysicGlobal;
+using PhysicSceneDrawing;
+using RigidBodyPhysics;
+using RigidBodyPhysics.ExportData;
+using RigidBodyPhysics.RuntimeObjects.Joints;
+using Simulator.Animation;
+using Simulator.CameraTracking;
+using Simulator.ForceTracking;
+using TextureEditorGlobal;
 
 namespace Simulator
 {
@@ -42,7 +43,39 @@ namespace Simulator
         {
             this.inputData = data;
 
-            ExportToRuntimeConverter.Convert(data.PhysicLevelItems, data.CollisionMatrix, out this.physicScene, out RuntimeLevelItem[] startLevelItems);
+            List<RuntimeLevelItem> startLevelItems = new List<RuntimeLevelItem>();
+
+            this.physicScene = new PhysicScene(new RigidBodyPhysics.ExportData.PhysicSceneExportData()
+            {
+                CollisionMatrix = data.CollisionMatrix,
+            });
+
+            this.sceneDrawer = new PhysicSceneDrawer(this.physicScene);
+
+            foreach (var item in data.PhysicLevelItems)
+            {
+                var physicData = this.physicScene.AddPhysicScene(item.PhysicSceneData);
+
+                if (physicData.Bodies.Length != item.TextureData.Textures.Length)
+                {
+                    throw new ArgumentException("Body.Count != Textures.Count");
+                }
+
+                List<ITexturedRigidBody> textures = new List<ITexturedRigidBody>();
+                for (int i=0;i<physicData.Bodies.Length; i++)
+                {
+                    var tex = this.sceneDrawer.AddBody(physicData.Bodies[i], item.TextureData.Textures[i]);
+                    textures.Add(tex);
+                }
+
+                var distanceJoints = physicData.Joints.Where(x => x is IPublicDistanceJoint).Cast<IPublicDistanceJoint>().ToList();
+                foreach (var distanceJoint in distanceJoints)
+                {
+                    this.sceneDrawer.AddDistanceJoint(distanceJoint);
+                }
+
+                startLevelItems.Add(new RuntimeLevelItem(item.LevelItemId, physicData, textures.ToArray()));
+            }
             this.levelItems.AddRange(startLevelItems);
 
             this.physicScene.HasGravity = data.HasGravity;
@@ -50,14 +83,13 @@ namespace Simulator
             this.physicScene.IterationCount = data.IterationCount;
             this.physicScene.Gravity = data.Gravity; //Defaultwert ist 0.001
 
-            this.sceneDrawer = new PhysicSceneDrawer(this.physicScene, new VisualisizerOutputData(data.PhysicLevelItems.SelectMany(x => x.TextureData.Textures).ToArray()));
             this.smallWindow = new SmallWindow(panelSize.Width, panelSize.Height, camera);
 
             this.camera = camera;
 
             this.animator = new LevelItemAnimator(timerIntervalInMilliseconds);
             this.keyHandler = new KeyboardControl.LevelItemKeyboardHandler();
-            for (int i=0;i<startLevelItems.Length;i++)
+            for (int i=0;i<startLevelItems.Count;i++)
             {
                 Animator[] animators = null;
 

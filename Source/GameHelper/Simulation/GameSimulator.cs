@@ -392,10 +392,20 @@ namespace GameHelper.Simulation
         #endregion
 
         #region PhysicSceneDrawer-Handling
-        //Überschreibt für den Körper "body" die Draw-Methode
-        public void UseCustomDrawingForRigidBody(IPublicRigidBody body, IRigidBodyDrawer bodyDrawer)
+        
+        public void DrawPhysicBorderFromLevelItem(int levelItemId, IDrawingPanel panel, Pen borderPen)
         {
-            this.sceneDrawer.UseCustomDrawingForRigidBody(body, bodyDrawer);
+            var item = this.levelItems.First(x => x.LevelItemId == levelItemId);
+            foreach (var tex in item.Textures)
+            {
+                tex.DrawPhysicBorder(panel, borderPen);
+            }
+        }
+
+        //Überschreibt für den Körper "body" die Draw-Methode
+        public ITexturedRigidBody UseCustomDrawingForRigidBody(IPublicRigidBody body, IRigidBodyDrawer bodyDrawer)
+        {
+            return this.sceneDrawer.UseCustomDrawingForRigidBody(body, bodyDrawer);
         }
 
         public TextureExportData RemoveBodyFromPhysicSceneDrawer(IPublicRigidBody body)
@@ -403,9 +413,9 @@ namespace GameHelper.Simulation
             return this.sceneDrawer.RemoveBody(body);
         }
 
-        public void AddBodyToPhysicSceneDrawer(IPublicRigidBody body, TextureExportData textureData)
+        public ITexturedRigidBody AddBodyToPhysicSceneDrawer(IPublicRigidBody body, TextureExportData textureData)
         {
-            this.sceneDrawer.AddBody(body, textureData);
+            return this.sceneDrawer.AddBody(body, textureData);
         }
 
         public TextureExportData GetTextureDataFromBody(IPublicRigidBody body)
@@ -529,13 +539,18 @@ namespace GameHelper.Simulation
         {
             int newId = GetNextLevelItemId();
 
-            var physicObjects = new RuntimeLevelItem(newId, physicScene.AddPhysicScene(data.PhysicSceneData));
+            var publicPhysicData = physicScene.AddPhysicScene(data.PhysicSceneData);
+            
 
             //Füge das Objekt dem SceneDrawer hinzu
-            for (int i=0;i<physicObjects.Bodies.Length;i++)
+            List<ITexturedRigidBody> texBodies = new List<ITexturedRigidBody>();
+            for (int i=0;i< publicPhysicData.Bodies.Length;i++)
             {
-                this.sceneDrawer.AddBody(physicObjects.Bodies[i], data.TextureData.Textures[i]);
+                var tex = this.sceneDrawer.AddBody(publicPhysicData.Bodies[i], data.TextureData.Textures[i]);
+                texBodies.Add(tex);
             }
+
+            var physicObjects = new RuntimeLevelItem(newId, publicPhysicData, texBodies.ToArray());
 
             for (int i = 0; i < physicObjects.Joints.Length; i++)
             {

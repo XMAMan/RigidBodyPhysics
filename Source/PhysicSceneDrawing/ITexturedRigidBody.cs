@@ -4,7 +4,7 @@ using TextureEditorGlobal;
 
 namespace PhysicSceneDrawing
 {
-    internal interface ITexturedRigidBody
+    public interface ITexturedRigidBody
     {
         float ZValue { get; }
         bool IsInvisible { get; }

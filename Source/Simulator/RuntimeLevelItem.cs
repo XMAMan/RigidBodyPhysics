@@ -1,4 +1,5 @@
-﻿using RigidBodyPhysics.ExportData;
+﻿using PhysicSceneDrawing;
+using RigidBodyPhysics.ExportData;
 
 namespace Simulator
 {
@@ -6,11 +7,13 @@ namespace Simulator
     public class RuntimeLevelItem : PhysicScenePublicData
     {
         public int LevelItemId { get; }
+        public ITexturedRigidBody[] Textures { get; }
 
-        public RuntimeLevelItem(int levelItemId, PhysicScenePublicData physicData)
+        public RuntimeLevelItem(int levelItemId, PhysicScenePublicData physicData, ITexturedRigidBody[] textures)
             : base(physicData)
         {
             this.LevelItemId = levelItemId;
+            this.Textures = textures;
         }
     }
 }
