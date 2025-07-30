@@ -39,5 +39,10 @@ namespace RigidBodyPhysics.CollisionResolution.SequentiellImpulse
         {
             this.cache.Clear();
         }
+
+        internal IRigidBodyCollision[] GetAllPointsFromCache()
+        {
+            return this.cache.ToArray();
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace RigidBodyPhysics.CollisionResolution.SequentiellImpulse
+﻿using RigidBodyPhysics.CollisionDetection;
+
+namespace RigidBodyPhysics.CollisionResolution.SequentiellImpulse
 {
     //Berechnet die Kräfte, die nötig sind, um Kollisionen zu vermeiden und die Gelenkkräfte
     //Mit dieser Kraft wird dann die Geschwindigkeit der Körper korrigiert
@@ -17,6 +19,11 @@
         public void ClearCollisionPointCache()
         {
             this.pointCache.ClearCache();
+        }
+
+        public IRigidBodyCollision[] GetAllCollisionPointsFromCache()
+        {
+            return this.pointCache.GetAllPointsFromCache();
         }
     }
 }

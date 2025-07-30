@@ -1,4 +1,5 @@
-﻿using RigidBodyPhysics.RuntimeObjects.RigidBody;
+﻿using RigidBodyPhysics.CollisionDetection;
+using RigidBodyPhysics.RuntimeObjects.RigidBody;
 
 namespace RigidBodyPhysics.CollisionResolution.ResolverDecorator
 {
@@ -33,6 +34,11 @@ namespace RigidBodyPhysics.CollisionResolution.ResolverDecorator
         public void ClearCollisionPointCache()
         {
             this.decoree.ClearCollisionPointCache();
+        }
+
+        public IRigidBodyCollision[] GetAllCollisionPointsFromCache()
+        {
+            return this.decoree.GetAllCollisionPointsFromCache();
         }
     }
 }

@@ -97,9 +97,16 @@ namespace GameHelper.Simulation
             this.physicScene.PushBodysApart();
         }
 
+        //Aktuelle Kollisionspunkt neu berechnen
         public IRigidBodyCollision[] GetAllCollisionPoints()
         {
             return this.physicScene.GetCollisions();
+        }
+
+        //Kollisionspunkte vom letzten TimeStep aus dem Cache auslesen
+        public IRigidBodyCollision[] GetCollisionsFromLastTimeStep()
+        {
+            return this.physicScene.GetCollisionsFromLastTimeStep();
         }
 
         public IRigidBodyCollision[] GetCollisionPointsFromExternBodyWithScene(IExportRigidBody exportBody)

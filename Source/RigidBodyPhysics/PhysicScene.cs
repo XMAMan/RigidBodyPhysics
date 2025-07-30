@@ -391,6 +391,11 @@ namespace RigidBodyPhysics
             return this.collisionManager.GetAllCollisions();
         }
 
+        public IRigidBodyCollision[] GetCollisionsFromLastTimeStep()
+        {
+            return this.impulseResolver.GetAllCollisionPointsFromCache();
+        }
+
         public IRigidBodyCollision[] GetCollisionPointsWithScene(IExportRigidBody exportBody)
         {
             var body = ExportHelper.BodyFromExportData(exportBody);

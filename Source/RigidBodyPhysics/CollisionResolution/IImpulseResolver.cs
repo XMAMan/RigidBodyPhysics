@@ -1,9 +1,12 @@
-﻿namespace RigidBodyPhysics.CollisionResolution
+﻿using RigidBodyPhysics.CollisionDetection;
+
+namespace RigidBodyPhysics.CollisionResolution
 {
     //Verändert die Geschwindigkeiten so, dass die Kontaktpunkte/Constraint-Verletzungen aufgelößt werden
     internal interface IImpulseResolver
     {
         void Resolve(SolverInputData data);
         void ClearCollisionPointCache();
+        IRigidBodyCollision[] GetAllCollisionPointsFromCache();
     }
 }
