@@ -107,7 +107,7 @@ namespace AstroidsControl.Model
                     {
                         foreach (var body in bodies)
                         {
-                            var texture = this.simulator.GetTextureDataFromBody(body);
+                            var texture = this.simulator.GetTextureExportDataFromBody(body);
 
                             //Beim Satelliten gibt es ein Körper, wo IsInvisible true ist. Dieser soll nicht zerlegt werden
                             if (texture == null || texture.IsInvisible)

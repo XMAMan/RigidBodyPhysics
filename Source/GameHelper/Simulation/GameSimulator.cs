@@ -425,7 +425,12 @@ namespace GameHelper.Simulation
             return this.sceneDrawer.AddBody(body, textureData);
         }
 
-        public TextureExportData GetTextureDataFromBody(IPublicRigidBody body)
+        public TextureExportData GetTextureExportDataFromBody(IPublicRigidBody body)
+        {
+            return this.sceneDrawer.GetTextureExportDataFromBody(body);
+        }
+
+        public ITexturedRigidBody GetTextureDataFromBody(IPublicRigidBody body)
         {
             return this.sceneDrawer.GetTextureDataFromBody(body);
         }
@@ -442,7 +447,7 @@ namespace GameHelper.Simulation
         //Beispiel: this.simulator.DestroyRigidBody(this.ship, new DestroyWithBoxesParameter() { BoxCount = 3});
         public IPublicRigidBody[] DestroyRigidBody(IPublicRigidBody body, IRigidDestroyerParameter parameter)
         {
-            var textureData = this.GetTextureDataFromBody(body);
+            var textureData = this.GetTextureExportDataFromBody(body);
             var destroyer = new RigidBodyDestroyer();
             var subObjects = destroyer.Destroy(parameter, body, textureData);
             var tagData = this.tagStorrage.GetTagDataFromBody(body);
@@ -517,7 +522,7 @@ namespace GameHelper.Simulation
             {
                 LevelItemId = levelItemId,
                 PhysicSceneData = this.physicScene.GetExportData(item),
-                TextureData = new VisualisizerOutputData(item.Bodies.Select(x => new TextureExportData(this.sceneDrawer.GetTextureDataFromBody(x))).ToArray()), //Gib eine Kopie raus
+                TextureData = new VisualisizerOutputData(item.Bodies.Select(x => new TextureExportData(this.sceneDrawer.GetTextureExportDataFromBody(x))).ToArray()), //Gib eine Kopie raus
                 AnimationData = this.animator.GetAnimationExportDataFromLevelItem(item).Select(x => new AnimationOutputData(x)).ToArray(),  //Erzeuge Kopie
                 KeyboardMappings = this.keyHandler.GetExportDataFromLevelItem(item).Select(x => new KeyboardMappingEntry(x)).ToArray(), //Erzeug Kopie
                 TagdataEntries = this.tagStorrage.GetExportDataFromLevelItem(levelItemId).Select(x => new PhysicSceneTagdataEntry(x)).ToArray() //Erzeug Kopie

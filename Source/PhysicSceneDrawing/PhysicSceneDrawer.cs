@@ -176,14 +176,24 @@ namespace PhysicSceneDrawing
         }
 
         //Wird für die Voronoi-Zerlegung benötigt
-        public TextureExportData GetTextureDataFromBody(IPublicRigidBody body)
+        public TextureExportData GetTextureExportDataFromBody(IPublicRigidBody body)
         {
             var tex = this.textures.FirstOrDefault(x => x.AssociatedBody == body);
             if (tex == null)
             {
                 throw new Exception("No TextureData available");
             }
-            return tex?.TextureExportData;
+            return tex.TextureExportData;
+        }
+
+        public ITexturedRigidBody GetTextureDataFromBody(IPublicRigidBody body)
+        {
+            var tex = this.textures.FirstOrDefault(x => x.AssociatedBody == body);
+            if (tex == null)
+            {
+                throw new Exception("No TextureData available");
+            }
+            return tex;
         }
     }
 }
