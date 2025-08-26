@@ -8,7 +8,6 @@ using RigidBodyPhysics.RuntimeObjects.Joints;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
 using RigidBodyPhysics.RuntimeObjects.RotaryMotor;
 using RigidBodyPhysics.RuntimeObjects.Thruster;
-using System.Runtime.CompilerServices;
 
 namespace RigidBodyPhysics.CollisionResolution.SequentiellImpulse
 {

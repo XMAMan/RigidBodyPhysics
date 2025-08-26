@@ -542,58 +542,21 @@ namespace GameHelper.Simulation
             System.Windows.Clipboard.SetText(clipboardText);
         }
 
-        private int GetNextLevelItemId()
-        {
-            return this.levelItems.Any() ? this.levelItems.Max(x => x.LevelItemId) + 1 : 1; ;
-        }
-
         public int AddLevelItem(PhysikLevelItemExportData data)
         {
             int newId = GetNextLevelItemId();
 
-            var publicPhysicData = physicScene.AddPhysicScene(data.PhysicSceneData);
-            
+            var levelItem = base.AddLevelItem(data, newId);
 
-            //Füge das Objekt dem SceneDrawer hinzu
-            List<ITexturedRigidBody> texBodies = new List<ITexturedRigidBody>();
-            for (int i=0;i< publicPhysicData.Bodies.Length;i++)
-            {
-                var tex = this.sceneDrawer.AddBody(publicPhysicData.Bodies[i], data.TextureData.Textures[i]);
-                texBodies.Add(tex);
-            }
-
-            var physicObjects = new RuntimeLevelItem(newId, publicPhysicData, texBodies.ToArray());
-
-            for (int i = 0; i < physicObjects.Joints.Length; i++)
-            {
-                var joint = physicObjects.Joints[i];
-                if (joint is IPublicDistanceJoint)
-                {
-                    this.sceneDrawer.AddDistanceJoint((IPublicDistanceJoint)joint);
-                }
-            }
-
-            //Füge dem Animator hinzu
-            Animator[] animators = null;
-            if (data.AnimationData != null && data.AnimationData.Length > 0)
-            {
-                this.animator.AddLevelItem(physicObjects, data.AnimationData);
-                animators = this.animator.GetAnimationRuntimDataFromLevelItem(physicObjects);
-            }
-
-            //Füge dem KeyHandler hinzu
-            if (data.KeyboardMappings != null && data.KeyboardMappings.Length > 0)
-            {
-                this.keyHandler.AddLevelItem(physicObjects, animators, data.KeyboardMappings);
-            }            
-
-            //Füge dme TagStorrage hinzu
-            this.tagStorrage.AddLevelItem(physicObjects, data.TagdataEntries.Select(x => new PhysicSceneTagdataEntry(x, newId)).ToArray());
-
-            //Füge der levelItems-Liste hinzu
-            levelItems.Add(physicObjects);
+            //Füge dem TagStorrage hinzu
+            this.tagStorrage.AddLevelItem(levelItem, data.TagdataEntries.Select(x => new PhysicSceneTagdataEntry(x, newId)).ToArray());
 
             return newId;
+        }
+
+        private int GetNextLevelItemId()
+        {
+            return this.levelItems.Any() ? this.levelItems.Max(x => x.LevelItemId) + 1 : 1; ;
         }
 
         #endregion

@@ -6,7 +6,6 @@ using RigidBodyPhysics.ExportData.Joints;
 using RigidBodyPhysics.MathHelper;
 using RigidBodyPhysics.MaxForceTracking;
 using RigidBodyPhysics.RuntimeObjects.RigidBody;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace RigidBodyPhysics.RuntimeObjects.Joints
 {
