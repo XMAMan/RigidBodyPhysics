@@ -183,7 +183,7 @@ namespace KeyFrameEditorControl.Controls.KeyDefine
         {
             if (this.PlayAnimationViewModel.IsRunning && this.frameInterpolator != null)
             {
-                this.frameToTimeConverter.HandleTimerTick(0); //Erhöhe den internen TimerTick-Zähler
+                this.frameToTimeConverter.HandleTimerTick(); //Erhöhe den internen TimerTick-Zähler
                 var frame = this.frameInterpolator.GetFrame(this.frameToTimeConverter.Time);
                 this.animationData.Properties.WriteFrameToAnimatedObject(frame, this.BoxViewModel.IsPropertyAnimated); //Schreibe den interpolierten Frame auf das Animation-Anzeigeobjekt
             }

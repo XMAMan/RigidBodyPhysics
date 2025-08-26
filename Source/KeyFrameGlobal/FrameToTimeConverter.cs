@@ -47,7 +47,7 @@ namespace KeyFrameGlobal
             this.currentFrame = (int)(frameAnimationCount * initialTime);
         }
 
-        public void HandleTimerTick(float dt)
+        public void HandleTimerTick()
         {
             if (this.AnimationType == AnimationType.Manually)
             {

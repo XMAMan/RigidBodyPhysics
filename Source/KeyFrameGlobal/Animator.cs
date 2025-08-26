@@ -36,7 +36,7 @@ namespace KeyFrameGlobal
         public void TimerTick()
         {
             //Gelenk-Sollwerte laut Animationsdatei festlegen
-            this.frameToTimeConverter.HandleTimerTick(0); //Erhöhe den internen TimerTick-Zähler
+            this.frameToTimeConverter.HandleTimerTick(); //Erhöhe den internen TimerTick-Zähler
             var frame = frameInterpolator.GetFrame(this.frameToTimeConverter.Time);
             this.propertys.WriteFrameToAnimatedObject(frame, this.propertyIsAnimated); //Schreibe den interpolierten Frame auf das Animation-Anzeigeobjekt
         }
