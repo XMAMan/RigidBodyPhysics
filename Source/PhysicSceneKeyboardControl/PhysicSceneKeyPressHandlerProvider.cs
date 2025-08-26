@@ -51,8 +51,9 @@ namespace PhysicSceneKeyboardControl
                     var animator = animators[i];
                     if (animator.Type == AnimationOutputData.AnimationType.Manually)
                     {
-                        handler.Add(new AnimatorKeyPressHandler(animator, "Animation Backward " + i, handler.Count + 1, false));
-                        handler.Add(new AnimatorKeyPressHandler(animator, "Animation Forward " + i, handler.Count + 1, true));
+                        KeyDownState state = new KeyDownState();
+                        handler.Add(new AnimatorKeyPressHandler(animator, "Animation Backward " + i, handler.Count + 1, false, state));
+                        handler.Add(new AnimatorKeyPressHandler(animator, "Animation Forward " + i, handler.Count + 1, true, state));
                     }
                 }
             }
@@ -128,16 +129,26 @@ namespace PhysicSceneKeyboardControl
         }
     }
 
+    //Der Trick mit den Bits für den AnimatorKeyPressHandler ist nötigt, da die Animation sonst kurz stoppt, wenn man erst die 
+    //Forward-Taste gedrückt hält, dann drückt man zusätzlich noch die Backward-Taste und erst danach lässt man die Forwardtaste wieder 
+    //los. Dann stoppt die Animation anstatt von Forward direkt zu Backward über zu gehen.
+    internal class KeyDownState
+    {
+        public int Data = 0; //Bit 0 = KeyDown-State für die Forward-Taste; Bit 1 = KeyDown-State für die Backward-Taste
+    }
+
     internal class AnimatorKeyPressHandler : IKeyPressHandler
     {
         private Animator animator;
         private bool forward;
-        public AnimatorKeyPressHandler(Animator animator, string description, int id, bool forward)
+        private KeyDownState state;
+        public AnimatorKeyPressHandler(Animator animator, string description, int id, bool forward, KeyDownState keyDownState)
         {
             this.animator = animator;
             this.KeyPressDescription = description;
-            Id = id;
+            this.Id = id;
             this.forward = forward;
+            this.state = keyDownState;
         }
 
         public int Id { get; }
@@ -146,23 +157,43 @@ namespace PhysicSceneKeyboardControl
         {
             if (forward)
             {
-                this.animator.PlayForward = true;
+                this.state.Data |= 1; // Setze das Forward-Bit auf 1
             }
             else
             {
-                this.animator.PlayBackwards = true;
+                this.state.Data |= 2; // Setze das Backward-Bit auf 1
             }
 
+            ControlWithBitStateTheAnimator();
         }
         public void HandleKeyUp()
         {
             if (forward)
             {
-                this.animator.PlayForward = false;
+                this.state.Data &= ~1; // Setze das Forward-Bit auf 0
             }
             else
             {
+                this.state.Data &= ~2; // Setze das Backward-Bit auf 0
+            }
+
+            ControlWithBitStateTheAnimator();
+        }
+
+        private void ControlWithBitStateTheAnimator()
+        {
+            if (this.state.Data == 0) //Beide Bits sind 0 -> halte die Animation an
+            {
+                this.animator.PlayForward = false;
                 this.animator.PlayBackwards = false;
+            }
+            else if (this.state.Data == 1) //Bit 0 hat den Wert 1 -> spiele vorwärts
+            {
+                this.animator.PlayForward = true;
+            }
+            else //Bit 1 hat den Wert 1 -> spiele rückwärts
+            {
+                this.animator.PlayBackwards = true;
             }
         }
     }
