@@ -1,5 +1,6 @@
 ﻿using KeyFrameGlobal;
 using RigidBodyPhysics.ExportData;
+using RigidBodyPhysics.RuntimeObjects.AxialFriction;
 using RigidBodyPhysics.RuntimeObjects.Joints;
 using RigidBodyPhysics.RuntimeObjects.RotaryMotor;
 using RigidBodyPhysics.RuntimeObjects.Thruster;
@@ -35,15 +36,30 @@ namespace PhysicSceneKeyboardControl
                 handler.Add(new ThrusterKeyPressHandler(thruster, "Thruster " + i, handler.Count + 1));
             }
 
-            //Möglichkeit 3: Steuere Rotations-Motoren
+            //Möglichkeit 3: Steuere AxialFriction (Bremse oder Elektromotor)
+            var axialFrictions = physicObjects.AxialFrictions;
+            for (int i = 0; i < axialFrictions.Length; i++)
+            {
+                var axialFriction = axialFrictions[i];
+                if (axialFriction.TargetVelocity == 0)
+                {
+                    handler.Add(new AxialFrictionBreakKeyPressHandler(axialFriction, "AxialBreak " + i, handler.Count + 1));
+                }
+                else
+                {
+                    handler.Add(new AxialFrictionMotorKeyPressHandler(axialFriction, "AxialMotor " + i, handler.Count + 1));
+                }
+            }
+
+            //Möglichkeit 4: Steuere Rotations-Motoren
             var motors = physicObjects.Motors;
             for (int i = 0; i < motors.Length; i++)
             {
                 var motor = motors[i];
-                handler.Add(new RotaryMotorKeyPressHandler(motor, "Motor " + i, handler.Count + 1));
+                handler.Add(new RotaryMotorKeyPressHandler(motor, "RotaryMotor " + i, handler.Count + 1));
             }
 
-            //Möglichkeit 4: Steuere manuelle Animation
+            //Möglichkeit 5: Steuere manuelle Animation
             if (animators != null)
             {
                 for (int i = 0; i < animators.Length; i++)
@@ -104,6 +120,58 @@ namespace PhysicSceneKeyboardControl
         public void HandleKeyUp()
         {
             this.Thruster.IsEnabled = false;
+        }
+    }
+
+    //simuliert eine Bremse
+    internal class AxialFrictionBreakKeyPressHandler : IKeyPressHandler
+    {
+        private float frictionAtStart;
+        public IPublicAxialFriction AxialFriction { get; }
+        public AxialFrictionBreakKeyPressHandler(IPublicAxialFriction axialFriction, string description, int id)
+        {
+            this.AxialFriction = axialFriction;
+            this.KeyPressDescription = description;
+            Id = id;
+            this.frictionAtStart = axialFriction.Friction;
+            this.AxialFriction.Friction = 0; //Initial ist die Bremse gelöst
+        }
+
+        public int Id { get; }
+        public string KeyPressDescription { get; private set; }
+        public void HandleKeyDown()
+        {
+            this.AxialFriction.Friction = this.frictionAtStart;
+        }
+        public void HandleKeyUp()
+        {
+            this.AxialFriction.Friction = 0;
+        }
+    }
+
+    //simuliert ein Elektromotor mit konstanter Soll-Drehzahl
+    internal class AxialFrictionMotorKeyPressHandler : IKeyPressHandler
+    {
+        private float targetVelocityAtStart;
+        public IPublicAxialFriction AxialFriction { get; }
+        public AxialFrictionMotorKeyPressHandler(IPublicAxialFriction axialFriction, string description, int id)
+        {
+            this.AxialFriction = axialFriction;
+            this.KeyPressDescription = description;
+            Id = id;
+            this.targetVelocityAtStart = axialFriction.TargetVelocity;
+            this.AxialFriction.TargetVelocity = 0; //Initial ist der Motor aus
+        }
+
+        public int Id { get; }
+        public string KeyPressDescription { get; private set; }
+        public void HandleKeyDown()
+        {
+            this.AxialFriction.TargetVelocity = this.targetVelocityAtStart;
+        }
+        public void HandleKeyUp()
+        {
+            this.AxialFriction.TargetVelocity = 0;
         }
     }
 
