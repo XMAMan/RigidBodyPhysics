@@ -1,0 +1,23 @@
+Version 0.0.3
+-Change Folder-Structure from ExportData
+-Add LevelItem-GetBoundingbox-function to GameSimulator
+-Add GetCollisionPointsBetweenTwoLevelItems-method to GameSimulator
+-Bugfix in FixCameraArea-property: Update camera if cameraMode is FixArea
+-Add TargetVelocity-Property to AxialFriction
+-add makeFirstPixelTransparent-checkbox to physicitem-editor
+-Add ReleaseAllKeys-method to simulator
+-Add ReleaseAllMouseKeys to simulator
+-Add ResetAllAnimationsToInitialTime to Simulator
+-Add ResetAndReleaseAllKeys to simulator
+-Add GetAllCollisionPoints to GameSimulator
+-Add DrawPhysicBorderFromLevelItem to simulator
+-Add to GameSimulator: GetCollisionsFromLastTimeStep
+-Add GetTextureDataFromBody to GameSimulator
+-Add AddLevelItem to Simulator
+-add keyhandler for axialfriction-break
+
+Version 0.0.2
+-Split project structur into simulator and editor
+
+Version 0.0.1
+-First Version
